@@ -1,0 +1,17 @@
+Started GET "/" for ::1 at 2019-10-14 14:11:49 -0700
+
+PG::ConnectionBad - FATAL:  database "media-ranker_development" does not exist
+:
+
+Started POST "/__better_errors/d0734b011c68e270/variables" for ::1 at 2019-10-14 14:11:50 -0700
+  [1m[35m (535.0ms)[0m  [1m[35mCREATE DATABASE "media-ranker_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (449.8ms)[0m  [1m[35mCREATE DATABASE "media-ranker_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2019-10-14 14:12:15 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (8.1ms)
+Completed 200 OK in 97ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
