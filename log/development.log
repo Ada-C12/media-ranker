@@ -15,3 +15,201 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 97ms (Views: 49.0ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (19.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (41.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7020310147757720100)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateWorks (20191014214328)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7020310147757720100)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7020310147757720100)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateWorks (20191014214328)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "works" ("id" bigserial primary key, "title" character varying, "creator" character varying, "published" integer, "description" character varying, "category" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20191014214328_create_works.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191014214328"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-10-14 21:51:27.443927"], ["updated_at", "2019-10-14 21:51:27.443927"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7020310147757720100)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWork Create (0.8ms)[0m  [1m[32mINSERT INTO "works" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "hi"], ["created_at", "2019-10-14 21:52:19.897130"], ["updated_at", "2019-10-14 21:52:19.897130"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mWork Load (0.7ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mWork Destroy (1.5ms)[0m  [1m[31mDELETE FROM "works" WHERE "works"."id" = $1[0m  [["id", 1]]
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "works"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.6ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Blue Breaker"], ["creator", "Dr. Sarai Langosh"], ["published", 1949], ["description", "Et et expedita non aut quo."], ["category", "album"], ["created_at", "2019-10-14 21:54:36.729620"], ["updated_at", "2019-10-14 21:54:36.729620"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Joe Treat"], ["creator", "Blaise Lesch"], ["published", 1968], ["description", "Voluptatem adipisci qui velit."], ["category", "book"], ["created_at", "2019-10-14 21:54:36.733361"], ["updated_at", "2019-10-14 21:54:36.733361"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.2ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Kreb-Full-o Been"], ["creator", "Ms. Trevion Buckridge"], ["published", 2016], ["description", "Vero consectetur delectus consequatur id aut accusantium unde excepturi."], ["category", "album"], ["created_at", "2019-10-14 21:54:36.735318"], ["updated_at", "2019-10-14 21:54:36.735318"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Wake-up Pie"], ["creator", "Timmy Streich I"], ["published", 1919], ["description", "Voluptatem consequatur qui consectetur nisi officiis culpa."], ["category", "album"], ["created_at", "2019-10-14 21:54:36.737197"], ["updated_at", "2019-10-14 21:54:36.737197"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.5ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Major Cup"], ["creator", "Jayde Bartoletti"], ["published", 1944], ["description", "Quis recusandae cum est facere consequatur minima magni et."], ["category", "album"], ["created_at", "2019-10-14 21:54:36.740006"], ["updated_at", "2019-10-14 21:54:36.740006"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Summer Select"], ["creator", "Ms. Gwendolyn Ortiz"], ["published", 1946], ["description", "Et molestiae eos nam odit aut sed."], ["category", "book"], ["created_at", "2019-10-14 21:54:36.742703"], ["updated_at", "2019-10-14 21:54:36.742703"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Holiday Choice"], ["creator", "Alexandria Lehner"], ["published", 1940], ["description", "Excepturi voluptas ut voluptatum."], ["category", "album"], ["created_at", "2019-10-14 21:54:36.744692"], ["updated_at", "2019-10-14 21:54:36.744692"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Postmodern Blend"], ["creator", "Meredith Brekke"], ["published", 1970], ["description", "Dolorem fugit accusantium qui."], ["category", "book"], ["created_at", "2019-10-14 21:54:36.747071"], ["updated_at", "2019-10-14 21:54:36.747071"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.2ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Green Forrester"], ["creator", "Raquel Hirthe"], ["published", 1933], ["description", "Omnis qui quia odio."], ["category", "book"], ["created_at", "2019-10-14 21:54:36.749029"], ["updated_at", "2019-10-14 21:54:36.749029"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Winter Mug"], ["creator", "Tia Weissnat II"], ["published", 1990], ["description", "Laboriosam autem iusto quae sed voluptate et."], ["category", "album"], ["created_at", "2019-10-14 21:54:36.750960"], ["updated_at", "2019-10-14 21:54:36.750960"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.2ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Red Pie"], ["creator", "Davon Kub"], ["published", 1961], ["description", "Id dolorem qui laborum quia."], ["category", "book"], ["created_at", "2019-10-14 21:54:36.752835"], ["updated_at", "2019-10-14 21:54:36.752835"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.2ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Major Equinox"], ["creator", "Queen Satterfield"], ["published", 1997], ["description", "Fugit perferendis est quam sunt porro vel rerum."], ["category", "album"], ["created_at", "2019-10-14 21:54:36.754655"], ["updated_at", "2019-10-14 21:54:36.754655"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Melty Breaker"], ["creator", "Montana Dickinson Sr."], ["published", 1991], ["description", "Perferendis harum fuga corporis."], ["category", "book"], ["created_at", "2019-10-14 21:54:36.756447"], ["updated_at", "2019-10-14 21:54:36.756447"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Winter Pie"], ["creator", "Mr. Syble Kuhn"], ["published", 1970], ["description", "Incidunt molestias deserunt laudantium."], ["category", "book"], ["created_at", "2019-10-14 21:54:36.758502"], ["updated_at", "2019-10-14 21:54:36.758502"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Goodbye Utopia"], ["creator", "Orion Spencer"], ["published", 1962], ["description", "Praesentium enim pariatur voluptatem sed quod dolorum."], ["category", "album"], ["created_at", "2019-10-14 21:54:36.760891"], ["updated_at", "2019-10-14 21:54:36.760891"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Green Select"], ["creator", "Berneice Jenkins"], ["published", 1957], ["description", "Hic repudiandae molestiae id nulla aliquid maiores necessitatibus."], ["category", "album"], ["created_at", "2019-10-14 21:54:36.762889"], ["updated_at", "2019-10-14 21:54:36.762889"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.2ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Blacktop Enlightenment"], ["creator", "Seamus D'Amore"], ["published", 1928], ["description", "Ea id cumque et pariatur magni nemo dolorem."], ["category", "book"], ["created_at", "2019-10-14 21:54:36.764791"], ["updated_at", "2019-10-14 21:54:36.764791"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.2ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Express Extract"], ["creator", "Dorothy Jast I"], ["published", 1969], ["description", "Dolores dolorum aut ea aperiam et voluptatem."], ["category", "album"], ["created_at", "2019-10-14 21:54:36.766679"], ["updated_at", "2019-10-14 21:54:36.766679"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Winter Been"], ["creator", "Mackenzie Wilkinson"], ["published", 1932], ["description", "Culpa repudiandae et at sint et amet fugiat et."], ["category", "album"], ["created_at", "2019-10-14 21:54:36.768457"], ["updated_at", "2019-10-14 21:54:36.768457"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.2ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Heart Mug"], ["creator", "Orpha Douglas"], ["published", 2009], ["description", "Qui voluptas alias quia."], ["category", "book"], ["created_at", "2019-10-14 21:54:36.770339"], ["updated_at", "2019-10-14 21:54:36.770339"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.2ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Blue Treat"], ["creator", "Eliseo Gorczany"], ["published", 1979], ["description", "Sit est quis veniam saepe."], ["category", "album"], ["created_at", "2019-10-14 21:54:36.772111"], ["updated_at", "2019-10-14 21:54:36.772111"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.2ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Hello Town"], ["creator", "Laury Walter"], ["published", 2005], ["description", "Est sed ut asperiores sed fugiat."], ["category", "book"], ["created_at", "2019-10-14 21:54:36.774104"], ["updated_at", "2019-10-14 21:54:36.774104"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.2ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Blacktop Choice"], ["creator", "Casey Feil"], ["published", 2008], ["description", "Temporibus ex maxime labore quam et natus quia ipsum."], ["category", "album"], ["created_at", "2019-10-14 21:54:36.776198"], ["updated_at", "2019-10-14 21:54:36.776198"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Huggy Star"], ["creator", "Nigel Lesch DVM"], ["published", 1962], ["description", "Voluptatem ea aspernatur nesciunt ipsa quis error corporis placeat."], ["category", "book"], ["created_at", "2019-10-14 21:54:36.778246"], ["updated_at", "2019-10-14 21:54:36.778246"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "works"[0m
