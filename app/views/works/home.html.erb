@@ -1,0 +1,17 @@
+<section class="top-ten__container">
+  <section class="top-ten__list-container">
+  <h2 class="top-ten__header">
+    Top Books
+  </h2>
+  <ul class="list-group top-ten__list">
+    <% Work.where(category:"book").each do |work| %>
+        <h4>
+          <li class="list-group-item">
+            <%= link_to work.title, work_path(work.id)%>
+            <small class="top-ten__creator"> by *USER* </small>
+          </li>
+        </h4>
+      <%end%>
+  </ul>
+  <!-- <a href="/works.movies">View More Movies</a> -->
+</section>

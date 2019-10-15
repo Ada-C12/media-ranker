@@ -1,13 +1,13 @@
 class WorksController < ApplicationController
+  def home
+  end 
 
   def index
     @works = Work.all
   end 
 
   def show 
-    work_id = params[:id].to_i 
-    @works = Work.find_by(id:work_id)
-
+    @work = Work.find_by(id: params[:id]) 
     if @work.nil?
       head :not_found
       return
@@ -19,11 +19,14 @@ class WorksController < ApplicationController
   end 
 
   def create
-    @work = Work.new(work_params)
+    @work = Work.create work_params
+    @works = Work.all 
 
     if @work.save
+      flash[:success] = "Work  #{@work.id} added succesfully!"
       redirect_to work_path(@work.id)
     else
+      flash.now[:error] = "You didn't do it right!"
       render new_work_path
     end 
   end 
@@ -33,7 +36,7 @@ class WorksController < ApplicationController
   end 
 
   def update
-    @work = Work
+    @work = Work.find_by(id: params[:id])
 
     if @work.update(work_params)
       redirect_to work_path(@work.id)

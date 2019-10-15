@@ -1,0 +1,17 @@
+<h2 class="users-title"> List of Users </h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"> Username </th>
+      <th scope="col"> Votes </th>
+      <th scope="col"> Joined </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <% @users.each do |user| %>
+      <th scope"row"> <%= link_to user.username, user_path(user.id)%> </th>
+    </tr>
+    <%end%>
+  </tbody>
+

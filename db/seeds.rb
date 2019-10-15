@@ -9,5 +9,10 @@ require 'csv'
 
 CSV.read(Rails.root.join('db', 'media-seeds.csv'), headers: true).each do |row|
   t = Work.create(row.to_hash)
-  puts "#{t.id}, #{t.title} saved"
+  if !successful 
+    work_failures << work
+    puts "failed to save work : #{work.inspect}"
+  else
+    puts "#{t.id}, #{t.title} saved"
+  end 
 end 
