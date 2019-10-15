@@ -929,3 +929,13 @@ Processing by WorksController#main as HTML
 Completed 200 OK in 59ms (Views: 47.8ms | ActiveRecord: 1.6ms)
 
 
+Started GET "/works/2" for ::1 at 2019-10-14 19:43:46 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWork Load (0.6ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 85ms (Views: 60.8ms | ActiveRecord: 6.5ms)
+
+

@@ -11,4 +11,8 @@ class WorksController < ApplicationController
     @top_books = Work.top_ten "book"
     @top_albums = Work.top_ten "album"
   end
+
+  def show
+    @work = Work.find_by(id: params[:id])
+  end
 end
