@@ -38,11 +38,14 @@
       <% flash.each do |name, message| %>
         <div class="alert alert-<%= name %>">
           <span><%= message %></span>
+          <ul>
+          <%# Errors go here%>
+          </ul>
         </div>
       <% end %>
     </section>
 
     <%= yield %>
-    
+
   </body>
 </html>

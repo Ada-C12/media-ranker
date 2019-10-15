@@ -58,7 +58,8 @@ class WorksController < ApplicationController
       flash[:success] = "Successfully updated #{@work.category} #{@work.id}"
       redirect_to work_path(@work.id)
       return
-    else  
+    else
+      flash[:warning] = "A prolem occured: Could not update #{@work.category}"  
       render :edit  
       return
     end
