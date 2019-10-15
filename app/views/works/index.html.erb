@@ -1,5 +1,73 @@
-<ol>
-<% @works.each do |work| %>
-  <li><%= link_to work.title, work_path(work) %></li>
-<% end %>
-</ol>
+<h1>List of Works</h1>
+<h2>Albums</h2>
+<table class="table table-hover">
+  <thead class="thead">
+    <tr>
+      <th scope="col">Votes</th>
+      <th scope="col">Title</th>
+      <th scope="col">Created By</th>
+      <th scope="col">Published</th>
+      <th scope="col">Upvote</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @albums.each do |album| %>
+      <tr>
+        <td>votes</td>
+        <td>album.title</td>
+        <td>album.creator</td>
+        <td>album.publication_year</td>
+        <td>upvote</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Books</h2>
+<table class="table table-hover">
+  <thead class="thead">
+    <tr>
+      <th scope="col">Votes</th>
+      <th scope="col">Title</th>
+      <th scope="col">Created By</th>
+      <th scope="col">Published</th>
+      <th scope="col">Upvote</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td>votes</td>
+        <td>book.title</td>
+        <td>book.creator</td>
+        <td>book.publication_year</td>
+        <td>upvote</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Movies</h2>
+<table class="table table-hover">
+  <thead class="thead">
+    <tr>
+      <th scope="col">Votes</th>
+      <th scope="col">Title</th>
+      <th scope="col">Created By</th>
+      <th scope="col">Published</th>
+      <th scope="col">Upvote</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td>votes</td>
+        <td>movie.title</td>
+        <td>movie.creator</td>
+        <td>movie.publication_year</td>
+        <td>upvote</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
