@@ -4,10 +4,9 @@ Rails.application.routes.draw do
   root "homepages#index"
   get "/homepages/nope", to: "homepages#nope", as: "nope"
   
-  resources :users, only: [:index, :create, :show]
   get '/users/login', to: "users#login", as: "login"
   patch '/users', to: "users#logout", as: "logout"
-  
+  resources :users, only: [:index, :create, :show]
   
   resources :works
 end

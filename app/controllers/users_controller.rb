@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   
   def login
     @user = User.new
-    raise
   end
   
   def create
