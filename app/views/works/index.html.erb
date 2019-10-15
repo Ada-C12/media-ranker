@@ -1,2 +1,31 @@
-Works index page
-<%= @works %>
+<h1> All Media </h1>
+
+<h2> Books: </h2>
+<ul>
+<% @works.where(category: "book").each do |book| %>
+<li> <%= link_to book.title, work_path(book) %>
+by
+<%= book.creator %>
+</li>
+<% end %>
+</ul>
+
+<h2> Music Albums: </h2>
+<ul>
+<% @works.where(category: "album").each do |album| %>
+<li> <%= link_to album.title, work_path(album) %>
+by
+<%= album.creator %>
+</li>
+<% end %>
+</ul>
+
+<h2> Movies: </h2>
+<ul>
+<% @works.where(category: "movie").each do |movie| %>
+<li> <%= link_to movie.title, work_path(movie) %>
+by
+<%= movie.creator %>
+</li>
+<% end %>
+</ul>

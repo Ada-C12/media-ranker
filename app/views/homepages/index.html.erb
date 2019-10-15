@@ -1,3 +1,5 @@
+<%= link_to 'See All Media', works_path %>
+
 <h1> Media Spotlight: </h1>
 <% chosen = @works.sample %>
 <%= link_to chosen.title, work_path(chosen) %>
