@@ -1,16 +1,52 @@
 <h1> Entirety of Works</h1>
 
 <section>
-  <h2> All Media </h2>
+  <h2> Movies </h2>
   <ol>
-    <% @works.each do |work| %> 
-      <li>
-        <%= link_to work.title, work_path(work) %> 
-        <%= work.category %> 
-        <%= work.creator %> 
-        <%= work.publication_year %> 
-      </li> 
+    <% movies = @works.where(category: "movie")%>
+    <% movies.each do |work| %> 
+      <%# <%= if work.category == "movie" %> 
+        <li>
+          <%= link_to work.title, work_path(work) %> 
+          <%= work.category %> 
+          <%= work.creator %> 
+          <%= work.publication_year %> 
+        </li> 
+      <%# <% end %>  
     <% end %> 
+  </ol>
+</section>
 
+<section>
+  <h2> Albums </h2>
+  <ol>
+    <% albums = @works.where(category: "album")%>
+    <% albums.each do |work| %> 
+      <%# <%= if work.category == "album" %> 
+        <li>
+          <%= link_to work.title, work_path(work) %> 
+          <%= work.category %> 
+          <%= work.creator %> 
+          <%= work.publication_year %> 
+        </li> 
+      <%# <% end %>  
+    <% end %> 
+  </ol>
+</section>
+
+<section>
+  <h2> Books </h2>
+  <ol>
+    <% books = @works.where(category: "book")%>
+    <% books.each do |work| %> 
+      <%# <%= if work.category == "book" %> 
+        <li>
+          <%= link_to work.title, work_path(work) %> 
+          <%= work.category %> 
+          <%= work.creator %> 
+          <%= work.publication_year %> 
+        </li> 
+      <%# <% end %>  
+    <% end %> 
   </ol>
 </section>
