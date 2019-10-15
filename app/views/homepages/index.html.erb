@@ -6,6 +6,16 @@ by
 <%= chosen.creator %>
 
 <h1> Top Books: </h1>
+<ul>
 <% chosen = @works.where(category: "book").sample(10) %>
 <% chosen.each do |book| %>
+<li> <%= link_to book.title, work_path(book) %>
+by
+<%= book.creator %>
+</li>
 <% end %>
+</ul>
+
+<h1> Top Music Albums: </h1>
+<ul>
+<% chosen = @works.where(category: "album").sample(10) %>
