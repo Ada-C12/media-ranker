@@ -1,4 +1,4 @@
-/*
+/*  APPLICATION.SCSS
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -15,3 +15,40 @@
     @import "bootstrap";
     /* Import scss content */
     @import "**/*";
+
+
+   h1 {
+      background-color: yellow;
+      font-weight: 2em;
+   }
+
+   * {
+      border: 1em, dashed, lightgray;
+   }
+
+// banner on top of page
+   .app-header__header {
+      background-color: #B2DFDB;
+      display: flex;
+   }
+
+   .app-header__header a {
+      color: orange;
+   }
+
+   .app-header__header small {
+      color: white;
+   }
+
+   .nav-item {
+      // shared 
+   }
+
+   .app-header__nav {
+      // this is where the 4 links in banner are
+   }
+
+   .app-header__user-nav-container {
+      // this is where login/out are
+   }
+
