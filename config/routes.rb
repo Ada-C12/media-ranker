@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get '/users/login', to: "users#login", as: "login"
   get '/users/:id', to: "users#show", as: "user"
   
+  # do i even want this???
   resources :movies
+  
+  resources :works
   
 end

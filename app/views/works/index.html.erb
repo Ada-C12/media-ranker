@@ -1,2 +1,45 @@
-<h1>Works#index</h1>
-<p>Find me in app/views/works/index.html.erb</p>
+<h1>List of Works</h1>
+
+<hr>
+ALBUMS
+<% if @albums %>
+  <%= @albums.each do |movie|%>
+    <%= album.votes %>
+    <%= album.title %>
+    <%= album.creator %>
+    <%= album.published_year %>
+    <%= UPVOTE BUTTON %>
+  <% end %>
+<% else %>
+  NO ALBUMS
+<% end %>
+
+
+<hr>
+BOOKS
+<% if @books %>
+  <%= @books.each do |movie|%>
+    <%= book.votes %>
+    <%= book.title %>
+    <%= book.creator %>
+    <%= book.published_year %>
+    <%= UPVOTE BUTTON %>
+  <% end %>
+<% else %>
+  NO BOOKS
+<% end %>
+
+
+<hr>
+MOVIES
+<% if @movies %>
+  <%= @movies.each do |movie|%>
+    <%= movie.votes %>
+    <%= movie.title %>
+    <%= movie.creator %>
+    <%= movie.published_year %>
+    <%= UPVOTE BUTTON %>
+  <% end %>
+<% else %>
+  NO MOVIES
+<% end %>
