@@ -1,5 +1,10 @@
 <h1> Media Spotlight: </h1>
 <% chosen = @works.sample %>
-<%= chosen.title %>
+<%= link_to chosen.title, work_path(chosen) %>
 by
-<%= chosen.creator%>
+<%= chosen.creator %>
+
+<h1> Top Books: </h1>
+<% chosen = @works.where(category: "book").sample(10) %>
+<% chosen.each do |book| %>
+<% end %>
