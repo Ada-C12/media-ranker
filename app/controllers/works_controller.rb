@@ -46,10 +46,10 @@ class WorksController < ApplicationController
     if work.nil?
       return redirect_to root_path
     else
-      if work.destroy?
-        flash[:success] = "Successfully destroyed #{@work.category} #{@work.id}"
+      if work.destroy
+        flash[:success] = "Successfully destroyed #{work.category} #{work.id}"
       else
-        flash.now[:error] = "A problem occurred: Could not delete #{@work.category} #{@work.id}"
+        flash.now[:error] = "A problem occurred: Could not delete #{work.category} #{work.id}"
       end
       return redirect_to root_path
     end
