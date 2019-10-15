@@ -31,6 +31,22 @@
             <a class="nav-link" href="/users">View all users</a>
           </li>
         </ul>
+
+        <ul class="nav app-header__user-nav-container">
+          <% if User.is_logged_in(session[:user_id]) %>
+            <li class="nav-item app-header__nav_item">
+              <%= link_to "Logged in as #{User.find_by(id: session[:user_id]).username}", user_path(User.find_by(id: session[:user_id])), class: "btn btn-primary"%>
+            </li>
+            <li class="nav-item app-header__nav_item">
+              <%= link_to "Log Out", logout_path, method: :post, class: "btn btn-primary"%>
+            </li>
+          <% else %>
+            <li class="nav-item app-header__nav_item">
+              <%= link_to "Log In", login_path, class: "btn btn-primary"%>
+            </li>
+          <% end %>
+        </ul>
+
       </nav>
     </header>
 
@@ -38,9 +54,27 @@
       <% flash.each do |name, message| %>
         <div class="alert alert-<%= name %>">
           <span><%= message %></span>
-          <ul>
-          <%# Errors go here%>
-          </ul>
+
+          <% if @user && @user.errors.any? %>
+            <ul>
+              <% @user.errors.each do |column, message| %>
+                <li>
+                  <%= column %>: <%= message %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+
+          <% if @work && @work.errors.any? %>
+            <ul>
+              <% @work.errors.each do |column, message| %>
+                <li>
+                  <%= column %>: <%= message %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+
         </div>
       <% end %>
     </section>

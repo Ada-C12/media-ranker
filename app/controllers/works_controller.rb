@@ -22,11 +22,11 @@ class WorksController < ApplicationController
     @work = Work.new(work_params)
     
     if @work.save  
+      flash[:success] = "Successfully created book 455 #{@work.category} #{@work.id}"
       redirect_to work_path(@work.id)  
-      # flash: Successfully created book 455
       return
     else 
-      render :new  
+      render :new
       return
     end
   end
