@@ -15,7 +15,7 @@
     <section class="top-media-sect">
       <h2> Top Books</h1>
       <ul>
-        <% Work.top_by_category(num:10, category:"book").each do |work| %>
+        <% Work.top_by_category(num:100, category:"book").each do |work| %>
           <li>
             <h4>
               <%= link_to work.title, work_path(work.id) %>

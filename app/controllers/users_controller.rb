@@ -62,7 +62,7 @@ class UsersController < ApplicationController
       return
     else
       flash[:error] = "Work NOT deleted successfully"
-      redirect_to :back
+      redirect_back(fallback_location: root_path)
     end
   end
 

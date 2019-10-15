@@ -18,6 +18,7 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.new(work_params)
+    @work.vote_count = 0
     
     if @work.save
       redirect_to work_path(@work.id)
@@ -65,15 +66,12 @@ class WorksController < ApplicationController
       return
     else
       flash[:error] = "Work NOT deleted successfully"
-      redirect_to :back
+      redirect_back(fallback_location: root_path)
     end
   end
 
-
-
-
   private
   def work_params
-    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description, :vote_count)
   end
 end

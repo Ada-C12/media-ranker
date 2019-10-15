@@ -3,31 +3,20 @@ class VotesController < ApplicationController
     @votes = Vote.all
   end
 
-  def update
-    @vote = Vote.find_by(id: params[:id])
-    if @vote.nil?
-      head :not_found
-      return
-    elsif @vote.update(vote_params)
-      flash[:success] = "Successfully updated vote for #{vote.work.title}"
-      redirect_to work_path(@vote.work_id)
-      return
-    else
-      flash[:error] = "Vote NOT updated successfully"
-      redirect_to :back
-      return
-    end
-  end
-
   def create
-    @vote = Vote.new(vote_params)
+    work_id = params["work_id"]
+    user_id = session[:user_id]
+    @vote = Vote.new(work_id: work_id, user_id: user_id)
+    work = Work.find_by(id: work_id)
+    work.vote_count += 1
+    # raise
     
-    if @vote.save
-      flash[:success] = "Successfully voted for #{vote.work.title}"
+    if @vote.save && work.save
+      flash[:success] = "Successfully voted for #{work.title}"
       redirect_to votes_path
     else
-      flash[:error] = "Vote NOT updated successfully"
-      redirect_to :back
+      flash[:error] = "Did NOT vote successfully"
+      redirect_back(fallback_location: root_path)
       return
     end
   end
@@ -42,7 +31,7 @@ class VotesController < ApplicationController
       redirect_to votes_path
       return
     else
-      redirect_to :back
+      redirect_back(fallback_location: root_path)
     end
   end
 

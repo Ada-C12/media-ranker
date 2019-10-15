@@ -1,6 +1,6 @@
 class Work < ApplicationRecord
   validates :category, presence: true
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: {scope: :category}
   validates :creator, presence: true
   validates :description, presence: true
   validates :publication_year, presence: true
@@ -26,3 +26,4 @@ class Work < ApplicationRecord
   end
 
 end
+

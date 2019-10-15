@@ -18,6 +18,7 @@ CSV.foreach('db/media-seeds.csv', :headers => true) do |row|
   work.creator = row['creator']
   work.publication_year = row['publication_year'].to_i
   work.description = row['description']
+  work.vote_count = 0
   successful = work.save
   if successful
     puts "Created work: #{work.inspect}" 
