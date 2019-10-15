@@ -1,0 +1,22 @@
+<main>
+  <section class="spotlight">
+    <h2>Media Spotlight: 
+      <%= link_to @spotlight.title, work_path(@spotlight.id) %>
+      by <%= @spotlight.creator %>
+    </h2>
+    <p class="spotlight-description">
+      <%= @spotlight.description %>
+    </p>
+  </section>
+  <section>
+    <section>
+      <%= render 'works/list', works: @top_movies, title: "Top Movies" %>
+    </section>
+    <section>
+      <%= render 'works/list', works: @top_books, title: "Top Books" %>
+    </section>
+    <section>
+      <%= render 'works/list', works: @top_albums, title: "Top Albums" %>
+    </section>
+  </section>
+</main>
