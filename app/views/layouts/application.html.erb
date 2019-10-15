@@ -5,33 +5,43 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Gudea:400,700|Hammersmith+One">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  Media Ranker
+  <header class="app-header__header">
+  <h1>
+  <%= link_to "Media Ranker", works_path %>
+  <small>
   Ranking the Best of Everything
+  </small>
+  </h1>
+<nav class="app-header__nav">
+  <ul class="nav app-header__site-nav-container">
+    <li class="nav-item app-header__nav_item">
+      <%= link_to "View top media", works_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item app-header__nav_item">
+      <%= link_to "View all media", works_path, class: "nav-link" %>    </li>
+    <li class="nav-item app-header__nav_item">
+      <%= link_to "Add new work", works_path, class: "nav-link" %>
+          </li>
+    <li class="nav-item app-header__nav_item">
+          <%= link_to "View all users", works_path, class: "nav-link" %>
+    </li>
+  </ul>
+  <ul class="nav app-header__user-nav-container">
+    <li class="nav-item app-header__nav_item">
+      <%= link_to "Login", works_path, class: "btn btn-primary" %>
+    </li>
+  </ul>
+  </header>
 
-  NAV~~
-  View top media
-  View all media
-  Add new work
-  View all users
-  (far right) Login
-
-  SPOTLIGHT~~
-  Media Spotlight: New Work Title by New Creator
-  SMOL~~
-  0 votes - description
-
-  THREE LISTS~~
-  Top Movies
-    Movie Title by Movie Creator
-    0 votes
-  Top Books
-  Top Albums
+    <main>
 
     <%= yield %>
+    </main>
   </body>
 </html>
