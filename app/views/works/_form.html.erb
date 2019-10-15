@@ -1,24 +1,37 @@
 <h1> <%= action_name %> Work </h1>
 
-<%= form_with model: @work do |f| %>
-  <%= f.label "Title:" %>
-  <%= f.text_field :title %>
+<ul>
+  <%= form_with model: @work do |f| %>
+    <li>
+      <%= f.label "Title:" %>
+      <%= f.text_field :title %>
+    </li>
 
-  <%= f.label "Category:" %>
-  <%= f.select :category, ["album", "book", "movie"] %>
- 
-  <%= f.label "Creator:" %>
-  <%= f.text_field :creator %>
+    <li>
+      <%= f.label "Category:" %>
+      <%= f.select :category, ["album", "book", "movie"] %>
+    </li>
 
-  <%= f.label "Publication year:" %>
-  <%= f.text_field :publication_year %>
+    <li>
+      <%= f.label "Creator:" %>
+      <%= f.text_field :creator %>
+    </li>
 
-  <%= f.label "Description:" %>
-  <%= f.text_field :description %>
+    <li>
+      <%= f.label "Publication year:" %>
+      <%= f.text_field :publication_year %>
+    </li>
 
-  <%= f.submit "#{verb_name}" %>
+    <li>
+      <%= f.label "Description:" %>
+      <%= f.text_field :description %>
+    </li> 
 
-<% end %>
+    <li>
+      <%= f.submit "#{verb_name}" %>
+    </li>
+  <% end %>
+</ul>
 
 
 
