@@ -55,13 +55,13 @@ class WorksController < ApplicationController
     if work.nil?
       head :not_found
       return
-    elsif driver.destroy
+    elsif work.destroy
       redirect_to works_path
       return
     else
       redirect_to :back
     end
-    end
+  end
 
 
 

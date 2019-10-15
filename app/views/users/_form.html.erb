@@ -1,0 +1,18 @@
+<% if @user.errors.any? %> %>
+  <ul class="errors">
+    <% @user.errors.each do |column, message| %>
+      <li> 
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @user, class: user_form_class do |f| %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  
+  <%= f.submit submit_button_label, class: "user-form-button" %>
+
+<% end %>

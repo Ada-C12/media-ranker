@@ -1,0 +1,21 @@
+<main>
+  <header class="show-header">
+    <h1><%=@user.username%></h1>
+    <%= link_to "Edit", edit_user_path(@user.id), class: "edit-link" %>
+    <%= link_to "Delete", user_path(@user.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
+  </header>
+
+  <section class="show-details">
+    <ul>
+      <li> 
+        <strong class ="details-title">USERNAME: </strong><%= @user.username %>
+      </li>              
+      <li> 
+        <strong class ="details-title">USER SINCE: </strong><%= @user.created_at %>
+      </li>   
+      <li> 
+        <strong class ="details-title"># VOTES: </strong><%= @user.votes.count %>
+      </li>      
+    </ul>
+  </section>
+</main>
