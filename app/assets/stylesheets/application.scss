@@ -81,7 +81,17 @@
       list-style: none;
    }
 
+   .alert__container {
 
+   }
+
+   .alert {
+      //standard
+   }
+
+   .alert-success, .alert-warning, .alert-primary {
+      //standard
+   }
 
    h1, h2, h3, h4, h5 {
       font-weight: bold;

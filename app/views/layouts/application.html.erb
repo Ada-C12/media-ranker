@@ -22,13 +22,45 @@
       <li class="nav-item app-header__nav_item"><%= link_to "View All Users", users_path %></li>
     </ul>
 
+
+    <%# LOG IN/OUT BUTTONS HERE %>
     <ul class="nav app-header__user-nav-container">
       <li class="nav-item app-header__nav_item">
-        <a class="btn btn-primary" href="/users/login">Log In</a>
+        <% if session[:user_id] %>
+          <%# TODO: FIX!!! NEXT LINE SHOULD GO TO MEMBERS' OWN PAGE!!!! %>
+          <%# <a class="btn btn-primary" href="/users">FIX THIS LINK! Logged in in as <%= @user.name %></a> %>
+          <a class="btn btn-primary" href="/users/logout">Log Out</a>
+        <% else %>
+          <a class="btn btn-primary" href="/users/login">Log In</a>
+        <% end %>
       </li>
     </ul>
     </nav>
   </header>
+  
+  <%# FLASH from rails, using Bootstrap ALERT %>
+  <section class="alert__container">    
+    
+    <% if flash[:success] %>
+      <div class="alert alert-success">
+      <span>
+        <%= flash[:success]%>
+      </span>
+      </div>
+    <% elsif flash[:error] %>
+      <div class="alert alert-warning">
+      <span>
+        <%= flash[:error] %>
+      </span>
+      </div>
+    <% else flash[:message] %>
+      <div class="alert alert-primary">
+      <span>
+        <%= flash[:message]%>
+      </span>
+      </div>
+    <% end %>
+  </section>
 
     <%= yield %>
   </body>

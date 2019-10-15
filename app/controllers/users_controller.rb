@@ -18,26 +18,41 @@ class UsersController < ApplicationController
     
     if @user.valid?
       @user.save
+      session[:user_id] = @user.id
+      flash[:success] = "Successfully logged #{@user.name} in as a new user!"
       redirect_to user_path(@user.id)
+      return
       
     else 
       @existing_user = User.find_by(name: name_input)
       if @existing_user
         @user = @existing_user
+        session[:user_id] = @user.id
+        flash[:success] = "Welcome back, #{@user.name}"
         redirect_to user_path(@user.id)
+        return
       else
         # bogus input 
+        flash.now[:error] = "Login unsuccessful!"
         render action: "login"
+        return
       end
     end
   end
   
   def show
     # works but not tested
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: session[:user_id])
+    # i think if i had used params[:id] then someone can sneak in thru backdoor w/o login?
     unless @user
-      head :not_found
+      flash[:error] = "User does not exist!"
+      redirect_to root_path
+      return
     end
+  end
+  
+  def logout
+    raise
   end
   
 end

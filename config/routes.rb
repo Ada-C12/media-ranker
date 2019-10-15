@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   
   root "homepages#index"
   
-  resources :users, only: [:index, :create]
+  resources :users, only: [:index, :create, :show]
   get '/users/login', to: "users#login", as: "login"
-  get '/users/:id', to: "users#show", as: "user"
+  patch '/users', to: "users#logout", as: "logout"
   
   resources :works
   
