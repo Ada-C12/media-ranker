@@ -1,0 +1,22 @@
+<h1>List of Works</h1>
+<%="Albums"%>
+
+
+<br><%@albums.each do |album|%>
+  <%=album.title%> by <%=album.creator%>
+  <br>
+<%end%>
+
+<%="Books"%>
+
+<br><%@books.each do |book|%>
+  <%=book.title%> by <%=book.creator%>
+  <br>
+<%end%>
+
+<%="Movies"%>
+
+<br><%@movies.each do |movie|%>
+  <%=movie.title%> by <%=movie.creator%>
+  <br>
+<%end%>
