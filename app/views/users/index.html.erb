@@ -1,8 +1,11 @@
 <h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
 
+ID(DELETE later)... USERNAME... VOTES... JOINED
+<br>
 <% @users.each do |user| %>
-ID #<%= user.id %><br>
-<%= user.name %>: #<%= user.votes_casted %> votes casted
-<br><br>
+  ID #<%= user.id %>...
+  <%= user.name %>...
+  <%= user.votes_casted %>...
+  <%= display_date(user.created_at) %>
+  <br>
 <% end %>
