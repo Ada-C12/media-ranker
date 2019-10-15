@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   
   root "homepages#index"
   
-  resources :users
+  resources :users, only: [:index]
+  get '/users/login', to: "users#login", as: "login"
 end

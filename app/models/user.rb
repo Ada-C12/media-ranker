@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-
+  
   has_many :votes
-
-  validates 
+  
+  validates :name, presence: true, uniqueness: true
+  
 end
