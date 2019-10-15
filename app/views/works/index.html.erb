@@ -11,6 +11,58 @@
           <th>Published</th>
         </tr>
       </thead>
+      <% Work.where(category: "album").each do |work| %>
+      <tbody>
+        <td><%= work.votes.count %></td>
+        <td><%= link_to work.title, work_path(work.id) %></td>
+        <td><%= work.creator %></td>
+        <td><%= work.publication_year %></td>
+      <% end %>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="media-table">
+    <h4>Books</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Published</th>
+        </tr>
+      </thead>
+      <% Work.where(category: "book").each do |work| %>
+      <tbody>
+        <td><%= work.votes.count %></td>
+        <td><%= link_to work.title, work_path(work.id) %></td>
+        <td><%= work.creator %></td>
+        <td><%= work.publication_year %></td>
+      <% end %>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="media-table">
+    <h4>Movies</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Published</th>
+        </tr>
+      </thead>
+      <% Work.where(category: "movie").each do |work| %>
+      <tbody>
+        <td><%= work.votes.count %></td>
+        <td><%= link_to work.title, work_path(work.id) %></td>
+        <td><%= work.creator %></td>
+        <td><%= work.publication_year %></td>
+      <% end %>
+      </tbody>
     </table>
   </section>
 </main>
