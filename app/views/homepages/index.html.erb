@@ -1,0 +1,79 @@
+<head>
+  <title>Media Ranker 2.0</title>
+  <meta name="csrf-param" content="authenticity_token">
+  <meta name="csrf-token" content="oxvMJvTvNc+C1aMBreKGsjOF2XDMEGirqmlvkJyZGLZtykhL2s6QDQLiVgoPd7X2T5JzgsBb1ZLskRBG+b/MGw==">
+
+  <link rel="stylesheet" media="screen" href="/assets/application-23e0d10ed2d885fab99a6549bc004eca19f49cf694e045afebe16b6e9bf1345a.css">
+  <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Gudea:400,700|Hammersmith+One">
+  <link rel="stylesheet" media="all" href="/assets/application-23e0d10ed2d885fab99a6549bc004eca19f49cf694e045afebe16b6e9bf1345a.css" data-turbolinks-track="reload">
+  <script src="/assets/application-f29d14b755d80577972d103e106ff1c2bc9a53efbc3b1e775d62d596da7222db.js" data-turbolinks-track="reload"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-910822ff6cd5f6d37119171c4b716f1d4e5fe0e8ad5e408627659ebf8d7f16b1.ico">
+</head>
+
+<body>
+  <header class="app-header__header">
+    <h1>
+      <a href="/">Media Ranker</a>
+      <small>Ranking the Best of Everything</small>
+    </h1>
+
+    <nav class="app-header__nav">
+      <ul class="nav app-header__site-nav-container">
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/">View top media</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/works">View all media</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/works/new">Add a new work</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/users">View all users</a>
+        </li>
+      </ul>
+      <ul class="nav app-header__user-nav-container">
+        <li class="nav-item app-header__nav_item">
+          <a class="btn btn-primary" href="/login">Log In</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="spotlight">
+      <h2 class="spotlight__header">
+        <span class="spotlight__header--prefix">Media Spotlight</span>
+        <a class="spotlight__link-to" href="/works/402">To Thrill a Mockingbird</a> by Harper Leeee
+      </h2>
+      <p class="spotlight__description">
+        4 votes - brand new
+      </p>
+    </section>
+
+    <hr class="root__hr">
+
+    <section class="top-ten__container">
+      <section class="top-ten__list-container">
+        <h2 class="top-ten__header">Top Movies</h2>
+        <ul class="list-group top-ten__list">  
+        </ul>
+      <!-- <a href="/works.movies">View More Movies</a> -->
+      </section>
+
+      <section class="top-ten__list-container">
+        <h2 class="top-ten__header">Top Books</h2>
+        <ul class="list-group top-ten__list">
+        </ul>
+        <!-- <a href="/works.books">View More Books</a> -->
+      </section>
+
+      <section class="top-ten__list-container">
+        <h2 class="top-ten__header">Top Albums</h2>
+        <ul class="list-group top-ten__list">
+        </ul>
+        <!-- <a href="/works.albums">View More Albums</a> -->
+      </section>
+    </section>
+  </main>
+</body>
