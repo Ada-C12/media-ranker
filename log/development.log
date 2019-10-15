@@ -1427,3 +1427,154 @@ Started PATCH "/works/27" for ::1 at 2019-10-15 16:32:14 -0700
 AbstractController::ActionNotFound - The action 'update' could not be found for WorksController:
 
 Started POST "/__better_errors/2258a882bed2b7a2/variables" for ::1 at 2019-10-15 16:32:14 -0700
+Started PATCH "/works/27" for ::1 at 2019-10-15 16:34:00 -0700
+Processing by WorksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y52FAnSINIu6LCQ6lLOsxq+8wQol/amMIVvHcvcjEb/XG4FUrT1sPsMB8oh9kd6SjMx6ivWO8cLU5gqGoMhmjw==", "work"=>{"category"=>"", "title"=>"Dirty Computer", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Update Work", "id"=>"27"}
+  [1m[36mWork Load (0.9ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:38
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:39
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:39
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 5.5ms)
+
+
+
+ActionView::MissingTemplate - Missing template works/27 with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/mira/ada/w11/media-ranker/app/views"
+:
+  app/controllers/works_controller.rb:40:in `update'
+
+Started POST "/__better_errors/cce9368b413903be/variables" for ::1 at 2019-10-15 16:34:00 -0700
+Started GET "/works/27" for ::1 at 2019-10-15 16:34:03 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 94ms (Views: 88.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/works/27/edit" for ::1 at 2019-10-15 16:34:05 -0700
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mWork Load (1.1ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:34
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (4.9ms)
+  Rendered works/edit.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 68ms (Views: 60.6ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/works/27" for ::1 at 2019-10-15 16:34:09 -0700
+Processing by WorksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jhiiRSEi2ocr/6xcdfxx9llh2igyeUbDfqZvA0Q6lSdephaTU6Ojn/E5u6EBn9BHRbKzTo3zVNyrewAbiNg+uA==", "work"=>{"category"=>"", "title"=>"Dirty Computer", "creator"=>"Janelle Monae", "published"=>"", "description"=>""}, "commit"=>"Update Work", "id"=>"27"}
+  [1m[36mWork Load (3.8ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:39
+  [1m[36mWork Update (0.5ms)[0m  [1m[33mUPDATE "works" SET "creator" = $1, "updated_at" = $2 WHERE "works"."id" = $3[0m  [["creator", "Janelle Monae"], ["updated_at", "2019-10-15 23:34:09.307467"], ["id", 27]]
+  ↳ app/controllers/works_controller.rb:39
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:39
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 6.1ms)
+
+
+
+ActionView::MissingTemplate - Missing template works/27 with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/mira/ada/w11/media-ranker/app/views"
+:
+  app/controllers/works_controller.rb:40:in `update'
+
+Started POST "/__better_errors/13baf1a454a1b052/variables" for ::1 at 2019-10-15 16:34:09 -0700
+Started PATCH "/works/27" for ::1 at 2019-10-15 16:34:40 -0700
+Processing by WorksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wlZU6bSRoy4dTDz0+H0VaI4A09z3WS+YLnc+ZgdeNlp20FC/bST7m2Rh6kYRX2c8rXBoXCcqd9bbyvOSULVBag==", "work"=>{"category"=>"", "title"=>"Dirty Computer", "creator"=>"Janelle Monae", "published"=>"", "description"=>""}, "commit"=>"Update Work", "id"=>"27"}
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:39
+Redirected to http://localhost:3000/works/27
+Completed 302 Found in 33ms (ActiveRecord: 9.4ms)
+
+
+Started GET "/works/27" for ::1 at 2019-10-15 16:34:40 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 123ms (Views: 119.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/works/27/edit" for ::1 at 2019-10-15 16:34:44 -0700
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mWork Load (13.9ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:34
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (3.9ms)
+  Rendered works/edit.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 87ms (Views: 69.3ms | ActiveRecord: 13.9ms)
+
+
+Started PATCH "/works/27" for ::1 at 2019-10-15 16:34:49 -0700
+Processing by WorksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dDsTu2EfYdV5a2x3SL2OAi6SvD61WfsmE/thZxJWOd+khadtE54YzaOte4o83i+zMkHVWArT6TnGJg5/3rSSQA==", "work"=>{"category"=>"", "title"=>"Dirty Computer", "creator"=>"Janelle Monae", "published"=>"2018", "description"=>""}, "commit"=>"Update Work", "id"=>"27"}
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:38
+  [1m[35m (7.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:39
+  [1m[36mWork Update (0.8ms)[0m  [1m[33mUPDATE "works" SET "published" = $1, "updated_at" = $2 WHERE "works"."id" = $3[0m  [["published", 2018], ["updated_at", "2019-10-15 23:34:49.473310"], ["id", 27]]
+  ↳ app/controllers/works_controller.rb:39
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:39
+Redirected to http://localhost:3000/works/27
+Completed 302 Found in 17ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/works/27" for ::1 at 2019-10-15 16:34:49 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mWork Load (0.6ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 81ms (Views: 76.3ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/works/27" for ::1 at 2019-10-15 16:34:55 -0700
+Processing by WorksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"feLIoFpxQadnZEC7xzp8kSPlnRFXRV6C1kaGYLPL9ybJZMz2g8QZEh5JlgkuGA7FAJUmkYc2Bswj+0uU5CCAFg==", "id"=>"27"}
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:29
+  [1m[36mWork Destroy (0.3ms)[0m  [1m[31mDELETE FROM "works" WHERE "works"."id" = $1[0m  [["id", 27]]
+  ↳ app/controllers/works_controller.rb:29
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:29
+Redirected to http://localhost:3000/works
+Completed 302 Found in 7ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/works" for ::1 at 2019-10-15 16:34:55 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (2.9ms)
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (2.2ms)
+  [1m[36mWork Load (0.7ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movies"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (3.1ms)
+  Rendered works/index.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 86ms (Views: 81.9ms | ActiveRecord: 1.6ms)
+
+
