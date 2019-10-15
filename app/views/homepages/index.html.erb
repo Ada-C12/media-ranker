@@ -1,1 +1,47 @@
-<h1> This is a Homepage! </h1>
+<h1> Media Ranker </h1>
+
+<section class="spotlight">
+  <% spotlight = Work.spotlight%>
+  <h2>Media Spotlight: <%= spotlight.title %> by <%= spotlight.creator %></h2>
+  <h3> <%= spotlight.description %> </h3>
+
+</section>
+
+<section class="albums">
+  <h2> Top Albums </h2>
+  <ol>
+    <% albums = Work.top_ten("album") %>
+    <% albums.each do |album| %>
+      <li>
+        <%= album.title %>
+        Created by: <%= album.creator%>
+      </li>  
+    <% end %>
+  </ol>
+</section>
+
+<section class="books">
+  <h2> Top Books </h2>
+  <ol>
+    <% books = Work.top_ten("book")%>
+    <% books.each do |book| %>
+      <li>
+        <%= book.title %>
+        Created by: <%= book.creator%>
+      </li>  
+    <% end %>
+  </ol>
+</section>
+
+<section class="movies">
+  <h2> Top Movies </h2>
+  <ol>
+    <% movies = Work.top_ten("movie") %>
+    <% movies.each do |movie| %>
+      <li>
+        <%= movie.title %>
+        Created by: <%= movie.creator%>
+      </li>  
+    <% end %>
+  </ol>
+</section>
