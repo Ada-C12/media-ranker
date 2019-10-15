@@ -1,0 +1,16 @@
+<h1> Entirety of Works</h1>
+
+<section>
+  <h2> All Media </h2>
+  <ol>
+    <% @works.each do |work| %> 
+      <li>
+        <%= link_to work.title, work_path(work) %> 
+        <%= work.category %> 
+        <%= work.creator %> 
+        <%= work.publication_year %> 
+      </li> 
+    <% end %> 
+
+  </ol>
+</section>
