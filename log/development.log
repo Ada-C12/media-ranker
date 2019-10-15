@@ -1332,3 +1332,34 @@ Processing by WorksController#show as HTML
 Completed 200 OK in 65ms (Views: 59.8ms | ActiveRecord: 0.7ms)
 
 
+Started DELETE "/works/26" for ::1 at 2019-10-15 16:24:23 -0700
+Processing by WorksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UiWSnu0HrF5lDfAoWWV98GHdBLNkoG08l+vfTKsb6cXmo5bINLL06xwgJpqwRw+kQq2/M7TTNXJiVhK4/PCe9Q==", "id"=>"26"}
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:29
+  [1m[36mWork Destroy (0.3ms)[0m  [1m[31mDELETE FROM "works" WHERE "works"."id" = $1[0m  [["id", 26]]
+  ↳ app/controllers/works_controller.rb:29
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:29
+Redirected to http://localhost:3000/works
+Completed 302 Found in 21ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/works" for ::1 at 2019-10-15 16:24:23 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (4.2ms)
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (4.0ms)
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movies"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (1.0ms)
+  Rendered works/index.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 86ms (Views: 80.9ms | ActiveRecord: 1.1ms)
+
+
