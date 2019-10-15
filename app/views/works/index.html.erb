@@ -1,0 +1,26 @@
+<main>
+  <h1> List of All Works</h1>
+
+  <section>
+    <table>
+      <tr class='table-header'>
+        <td>CATEGORY</td>
+        <td>TITLE</td>
+        <td>CREATOR</td>
+        <td>PUBLISHED</td>
+        <td>EDIT</td>
+        <td>DELETE</td>
+      </tr>
+      <% Work.all.each do |work| %>
+          <tr>
+            <td><%= work.category %></td>
+            <td><%= link_to work.title, work_path(work.id) %></td>
+            <td><%= work.creator %></td>
+            <td><%= work.publication_year %></td>
+            <td><%= link_to "Edit", edit_work_path(work.id), class: "edit-link" %></td>
+            <td><%= link_to "Delete", work_path(work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %></td>
+          </tr>
+      <% end %>
+    </table>
+  </section>
+</main>

@@ -16,7 +16,7 @@ CSV.foreach('db/media-seeds.csv', :headers => true) do |row|
   work.category = row['category']
   work.title = row['title']
   work.creator = row['creator']
-  work.publication_year = row['publication_year']
+  work.publication_year = row['publication_year'].to_i
   work.description = row['description']
   successful = work.save
   if successful

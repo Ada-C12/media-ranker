@@ -1,1 +1,54 @@
-<h1>This is the homepage</h1>
+<main>
+
+
+Work.top_work
+
+<section>
+  <h2>
+    <span>Media Spotlight:</span>
+    <%= link_to Work.media_spotlight.title, work_path(Work.media_spotlight.id) %>
+    by 
+    <%= Work.media_spotlight.creator %>
+  </h2>  
+
+</section>
+
+<section id ="top-media-container">
+  <section class="top-media-sect">
+    <h2> Top 10 Books</h1>
+    <ol>
+      <% Work.top_by_category(num:10, category:"book").each do |work| %>
+        <li>
+          <h4><%= link_to work.title, work_path(work.id) %></h4>
+          <small>by <%= work.creator %></small>
+          <p><%= work.votes.count %> votes</p>
+        </li>
+      <% end %>
+    </ol> 
+  </section>
+  <section class="top-media-sect">
+    <h2> Top 10 Albums</h1>
+    <ol>
+      <% Work.top_by_category(num:10, category:"album").each do |work| %>
+        <li>
+          <h4><%= link_to work.title, work_path(work.id) %></h4>
+          <small>by <%= work.creator %></small>
+          <p><%= work.votes.count %> votes</p>
+        </li>
+      <% end %>
+    </ol> 
+  </section>
+  <section class="top-media-sect">
+    <h2> Top 10 Movies</h1>
+    <ol>
+      <% Work.top_by_category(num:10, category:"movie").each do |work| %>
+        <li>
+          <h4><%= link_to work.title, work_path(work.id) %></h4>
+          <small>by <%= work.creator %></small>
+          <p><%= work.votes.count %> votes</p>
+        </li>
+      <% end %>
+    </ol> 
+  </section>
+<section>
+</main>

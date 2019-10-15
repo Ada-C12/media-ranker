@@ -1,0 +1,27 @@
+<main>
+  <header class="show-header">
+    <h1><%=@work.title%></h1>
+    <%= link_to "Edit", edit_work_path(@work.id), class: "edit-link" %>
+    <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
+  </header>
+
+  <section class="show-details">
+    <ul>
+      <li>
+        <strong class ="details-title">CATEGORY: </strong><%= @work.category %>
+      </li>
+      <li> 
+        <strong class ="details-title">TITLE: </strong><%= @work.title %>
+      </li>
+      <li> 
+        <strong class ="details-title">CREATOR: </strong><%= @work.creator %>
+      </li>
+      <li> 
+        <strong class ="details-title">PUBLICATION YEAR: </strong><%= @work.publication_year %>
+      </li>              
+      <li> 
+        <strong class ="details-title">DESCRIPTION: </strong><%= @work.description %>
+      </li>   
+    </ul>
+  </section>
+</main>
