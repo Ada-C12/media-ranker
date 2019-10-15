@@ -14,6 +14,20 @@
 
   <section class="top-ten__container">
     <section class="top-ten__list-container">
+      <h2 class="top-ten__header">Top Movies</h2>
+      <% top_movies = Work.top_ten("movie") %>
+        <ul>
+          <% top_movies.each do |movie| %>
+            <li>
+              <%= link_to movie.title, work_path(movie.id) %>
+              <small class="top-ten__creator">by <%= movie.creator %></small>
+              <p><%= movie.votes.count %> votes</p>
+            </li>
+          <% end %>
+        </ul>
+    </section>
+
+    <section class="top-ten__list-container">
       <h2 class="top-ten__header">Top Books</h2>
       <% top_books = Work.top_ten("book") %>
         <ul>
