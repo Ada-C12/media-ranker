@@ -3,6 +3,7 @@
     <h2><%= @work.title %></h2>
     <p><%= @work.creator %></p>
     <p>Published: <%= @work.publication_year %></p>
+    <p>Description: <%= @work.description %></p>
     <section>
       <%= button_to "Back to media ranks", root_path, method: :get %>
       <%= button_to "Edit", edit_work_path(@work), method: :get %>
