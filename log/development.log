@@ -1363,3 +1363,67 @@ Processing by WorksController#index as HTML
 Completed 200 OK in 86ms (Views: 80.9ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/works/new" for ::1 at 2019-10-15 16:28:43 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (2.5ms)
+  Rendered works/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 61ms (Views: 47.2ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/works" for ::1 at 2019-10-15 16:28:49 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EJesYnRSlrPwn3ii0u6Y4lNjq+NKwehL4pAYlhc6mJ7uUQZz50367HMQJW1PZzcMn6p9Nf54FaPs2M+MDNqlQQ==", "work"=>{"category"=>"", "title"=>"Dirty Computer", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (9.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:24
+  [1m[36mWork Create (0.6ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Dirty Computer"], ["creator", ""], ["description", ""], ["category", ""], ["created_at", "2019-10-15 23:28:49.948596"], ["updated_at", "2019-10-15 23:28:49.948596"]]
+  ↳ app/controllers/works_controller.rb:24
+  [1m[35m (62.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:24
+Redirected to http://localhost:3000/works/27
+Completed 302 Found in 83ms (ActiveRecord: 72.8ms)
+
+
+Started GET "/works/27" for ::1 at 2019-10-15 16:28:50 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mWork Load (2.7ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 172ms (Views: 164.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/works/27/edit" for ::1 at 2019-10-15 16:30:57 -0700
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mWork Load (1.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:34
+Completed 406 Not Acceptable in 119ms (ActiveRecord: 1.5ms)
+
+
+
+ActionController::UnknownFormat - WorksController#edit is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/735e94c1746da47e/variables" for ::1 at 2019-10-15 16:30:57 -0700
+Started GET "/works/27/edit" for ::1 at 2019-10-15 16:32:09 -0700
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:34
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (2.6ms)
+  Rendered works/edit.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 94ms (Views: 90.4ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/works/27" for ::1 at 2019-10-15 16:32:14 -0700
+
+AbstractController::ActionNotFound - The action 'update' could not be found for WorksController:
+
+Started POST "/__better_errors/2258a882bed2b7a2/variables" for ::1 at 2019-10-15 16:32:14 -0700

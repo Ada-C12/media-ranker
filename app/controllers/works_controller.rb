@@ -30,6 +30,10 @@ class WorksController < ApplicationController
     redirect_to works_path
   end
 
+  def edit
+    @work = Work.find_by(id: params[:id])
+  end
+
   private
   def work_params
     params.require(:work).permit(:category, :title, :creator, :published, :description)
