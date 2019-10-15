@@ -1,38 +1,22 @@
-<h1>All Works</h1>
-
-<table>
-<h2>Albums</h2>
-  <tr>
-    <th>Votes</th>
-    <th>Title</th>
-    <th>Created By</th>
-    <th>Published</th>
-    <th>Upvote</th>
-  </tr>
-<% @works.media_sort("album").each do |work| %>
-<tr>
-  <td>Number Votes Pending</td>
-  <td><%= work.title %></td>
-  <td><%= work.creator %></td>
-  <td><%= work.publication_year %></td>
-  <td>Upvote Button Pending</td>
-</tr>
+<h1>List of Works</h1>
+<% @categories.each do |category| %>
+  <table>
+    <h2><%= category.capitalize %></h2>
+      <tr>
+        <th>Votes</th>
+        <th>Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Upvote</th>
+      </tr>
+    <% @works.media_sort(category).each do |work| %>
+    <tr>
+      <td>Number Votes Pending</td>
+      <td><%= work.title %></td>
+      <td><%= work.creator %></td>
+      <td><%= work.publication_year %></td>
+      <td>Upvote Button Pending</td>
+    </tr>
+    <% end %>
+  </table>
 <% end %>
-</table>
-
-<table>
-<h2>Books</h2>
-<% @works.media_sort("book").each do |work| %>
-<ul>
-  <li><%= work.title %></li>
-</ul>
-<% end %>
-</table>
-
-<h2>Movies</h2>
-<% @works.media_sort("movie").each do |work| %>
-<ul>
-  <li><%= work.title %></li>
-</ul>
-<% end %>
-
