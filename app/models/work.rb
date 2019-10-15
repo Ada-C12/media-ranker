@@ -3,4 +3,5 @@ class Work < ApplicationRecord
   validates :title, presence: true
   validates :type, presence: true
   #validates :title, presence: true
+
 end
