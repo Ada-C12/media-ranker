@@ -1,14 +1,16 @@
+<h1>UPVOTE BUTTON CHECKS IF U LOGGED IN FIRST!!!</h1>
+
 <h1>List of Works</h1>
 
 <hr>
-ALBUMS
+ALBUMS<br>
 <% if @albums %>
   <%= @albums.each do |movie|%>
     <%= album.votes %>
     <%= album.title %>
     <%= album.creator %>
     <%= album.published_year %>
-    <%= UPVOTE BUTTON %>
+    <%= link_to "FIX UPVOTE BUTTON", root_path %>
   <% end %>
 <% else %>
   NO ALBUMS
@@ -16,14 +18,14 @@ ALBUMS
 
 
 <hr>
-BOOKS
+BOOKS<br>
 <% if @books %>
   <%= @books.each do |movie|%>
     <%= book.votes %>
     <%= book.title %>
     <%= book.creator %>
     <%= book.published_year %>
-    <%= UPVOTE BUTTON %>
+    <%= link_to "FIX UPVOTE BUTTON", root_path %>
   <% end %>
 <% else %>
   NO BOOKS
@@ -31,14 +33,14 @@ BOOKS
 
 
 <hr>
-MOVIES
+MOVIES<br>
 <% if @movies %>
-  <%= @movies.each do |movie|%>
-    <%= movie.votes %>
+  <% @movies.all.each do |movie|%>
+    <%= movie.votes_earned %>
     <%= movie.title %>
     <%= movie.creator %>
     <%= movie.published_year %>
-    <%= UPVOTE BUTTON %>
+    <%= link_to "FIX UPVOTE BUTTON", root_path %>
   <% end %>
 <% else %>
   NO MOVIES
