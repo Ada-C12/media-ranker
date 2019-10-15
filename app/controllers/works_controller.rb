@@ -20,9 +20,11 @@ class WorksController < ApplicationController
     @work = Work.new(work_params)
 
     if @work.save
+      flash[:success] = "Work added successfully"
       redirect_to work_path(@work)
       return
     else
+      flash.now[:failure] = "Work cannot be saved"
       render "new"
       return
     end

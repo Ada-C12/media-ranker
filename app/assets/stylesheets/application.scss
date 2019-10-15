@@ -15,3 +15,27 @@
 @import "bootstrap";
 /* Import scss content */
 @import "**/*";
+
+@import url('https://fonts.googleapis.com/css?family=Gudea&display=swap');
+
+* {
+  font-family: "Gudea", "sans-serif"
+}
+
+.app-header__header {
+  background-color: #B2DFDB;
+  text-align: center;
+}
+
+.top-ten__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.success {
+  background-color: lightgreen;
+}
+
+.failure {
+  background-color: pink;
+}
