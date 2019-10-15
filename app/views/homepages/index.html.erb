@@ -1,14 +1,44 @@
 <main>
   <section class="spotlight">
-    <% if @works != nil %>
+    <%# <% if @works != nil %>
       <h2 class="spotlight__header">
         <span class="spotlight__header-prefix">Media Spotlight: </span>
-        <%= link_to @works.top_media.title, work_path(@works.top_media.id) %> by <%= @works.top_media.creator %>
+        <%= link_to Work.top_media.title, work_path(Work.top_media.id) %> by <%= Work.top_media.creator %>
       </h2>
 
-      <p class="spotlight__description"><%= @works.top_media.votes.count %> votes - Description: <%= @works.top_media.description %> </p>
-    <% else %>
-      <h2>Media Spotlight: </h2>
-    <% end %>
+      <p class="spotlight__description"><%= Work.top_media.votes.count %> votes - Description: <%= Work.top_media.description %> </p>
+    <%# <% else %>
+      <%# <h2>Media Spotlight: </h2> %>
+    <%# <% end %>
+  </section>
+
+  <section class="top-ten__container">
+    <section class="top-ten__list-container">
+      <h2 class="top-ten__header">Top Books</h2>
+      <% top_books = Work.top_ten("book") %>
+        <ul>
+          <% top_books.each do |book| %>
+            <li>
+              <%= link_to book.title, work_path(book.id) %>
+              <small class="top-ten__creator">by <%= book.creator %></small>
+              <p><%= book.votes.count %> votes</p>
+            </li>
+          <% end %>
+        </ul>
+    </section>
+
+    <section class="top-ten__list-container">
+    <h2 class="top-ten__header">Top Albums</h2>
+      <% top_albums = Work.top_ten("album") %>
+        <ul>
+          <% top_albums.each do |album| %>
+            <li>
+              <%= link_to album.title, work_path(album.id) %>
+              <small class="top-ten__creator">by <%= album.creator %></small>
+              <p><%= album.votes.count %> votes</p>
+            </li>
+          <% end %>
+        </ul>
+    </section>
   </section>
 </main> 
