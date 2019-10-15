@@ -1,6 +1,7 @@
 <h1> Media Spotlight: </h1>
 <% chosen = @works.sample %>
 <%= link_to chosen.title, work_path(chosen) %>
+(<%= chosen.category %>)
 by
 <%= chosen.creator %>
 
