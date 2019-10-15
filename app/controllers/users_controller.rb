@@ -17,8 +17,10 @@ class UsersController < ApplicationController
     else
       user = User.create(username: username)
       session[:user_id] = user.id
-      flash[:success] = "Successfully logged in as new user"
+      flash[:success] = "Successfully created new user #{username} with ID #{user.id}"
     end
+
+    redirect_to root_path
   end
 
   def current
@@ -32,6 +34,6 @@ class UsersController < ApplicationController
   def logout
     session[:user_id] = nil
     redirect_to root_path
-    flash[:completed] = "You have successfully logged out!"
+    flash[:completed] = "Successfully logged out!"
   end
 end
