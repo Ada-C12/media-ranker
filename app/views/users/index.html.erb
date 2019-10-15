@@ -2,5 +2,7 @@
 <p>Find me in app/views/users/index.html.erb</p>
 
 <% @users.each do |user| %>
+ID #<%= user.id %><br>
 <%= user.name %>: #<%= user.votes_casted %> votes casted
+<br><br>
 <% end %>
