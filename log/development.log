@@ -410,3 +410,291 @@ Processing by WorksController#index as HTML
 Completed 200 OK in 72ms (Views: 68.4ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for ::1 at 2019-10-14 16:45:29 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  Rendered works/_list.html.erb (2.2ms)
+  Rendered works/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 73ms (Views: 68.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-10-14 16:46:00 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (1.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  Rendered works/_list.html.erb (3.3ms)
+  Rendered works/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 63ms (Views: 58.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2019-10-14 16:46:08 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  Rendered works/_list.html.erb (2.2ms)
+  Rendered works/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 70ms (Views: 67.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-10-14 16:46:19 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  Rendered works/_list.html.erb (8.4ms)
+  Rendered works/index.html.erb within layouts/application (10.9ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.4ms)
+
+
+
+NoMethodError - undefined method `append' for "Album":String:
+  app/views/works/_list.html.erb:2:in `_app_views_works__list_html_erb__3120092989754312506_70136792370420'
+  app/views/works/index.html.erb:1:in `_app_views_works_index_html_erb__210390034376137191_70136764515480'
+
+Started POST "/__better_errors/83d42c9e79679ed6/variables" for ::1 at 2019-10-14 16:46:19 -0700
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.1ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/" for ::1 at 2019-10-14 16:46:40 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  Rendered works/_list.html.erb (4.9ms)
+  Rendered works/index.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.3ms)
+
+
+
+NoMethodError - undefined method `push' for "Album":String:
+  app/views/works/_list.html.erb:2:in `_app_views_works__list_html_erb__3120092989754312506_70136814267200'
+  app/views/works/index.html.erb:1:in `_app_views_works_index_html_erb__210390034376137191_70136829109320'
+
+Started POST "/__better_errors/ff45fde438c2a73c/variables" for ::1 at 2019-10-14 16:46:40 -0700
+  [1m[36mWork Load (1.8ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/" for ::1 at 2019-10-14 16:47:14 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  Rendered works/_list.html.erb (3.9ms)
+  Rendered works/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 57ms (Views: 54.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-10-14 16:55:31 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.9ms)
+  Rendered works/index.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^:
+  app/views/works/_list.html.erb:30:in `'
+  app/views/works/index.html.erb:1:in `_app_views_works_index_html_erb__210390034376137191_70136813117820'
+
+Started POST "/__better_errors/922af539f7315132/variables" for ::1 at 2019-10-14 16:55:31 -0700
+  [1m[36mWork Load (1.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/" for ::1 at 2019-10-14 16:55:46 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (15.9ms)
+  Rendered works/index.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 72ms (Views: 69.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/works/2" for ::1 at 2019-10-14 16:55:55 -0700
+
+AbstractController::ActionNotFound - The action 'show' could not be found for WorksController:
+
+Started POST "/__better_errors/3250ec0a71f12b1a/variables" for ::1 at 2019-10-14 16:55:55 -0700
+Started GET "/" for ::1 at 2019-10-14 16:55:56 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (4.7ms)
+  Rendered works/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 72ms (Views: 68.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2019-10-14 16:59:39 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (11.8ms)
+  Rendered works/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 69ms (Views: 57.5ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/" for ::1 at 2019-10-14 16:59:43 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (3.5ms)
+  Rendered works/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 50ms (Views: 47.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-10-14 16:59:49 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (3.8ms)
+  Rendered works/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 47ms (Views: 44.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-10-14 16:59:52 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (3.4ms)
+  Rendered works/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 51ms (Views: 48.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-10-14 17:05:55 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.7ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 ORDER BY "works"."id" ASC LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (13.6ms)
+  Rendered works/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 60ms (Views: 56.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2019-10-14 17:06:18 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 ORDER BY "works"."id" ASC LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  Rendered works/_list.html.erb (11.4ms)
+  Rendered works/index.html.erb within layouts/application (13.0ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 6.5ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/works/_list.html.erb:14:in `_app_views_works__list_html_erb__3120092989754312506_70136809555640'
+  app/views/works/index.html.erb:1:in `_app_views_works_index_html_erb__210390034376137191_70136812431520'
+
+Started POST "/__better_errors/d28c28dffea929ca/variables" for ::1 at 2019-10-14 17:06:18 -0700
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Work Load (0.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 11]]
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/" for ::1 at 2019-10-14 17:06:47 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 ORDER BY "works"."id" ASC LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (5.9ms)
+  Rendered works/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 54ms (Views: 51.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-10-14 17:07:42 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 ORDER BY "works"."id" ASC LIMIT $2[0m  [["category", "book"], ["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (9.7ms)
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 ORDER BY "works"."id" ASC LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (2.5ms)
+  Rendered works/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 60ms (Views: 51.1ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/" for ::1 at 2019-10-14 17:08:53 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 ORDER BY "works"."id" ASC LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (11.4ms)
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 ORDER BY "works"."id" ASC LIMIT $2[0m  [["category", "book"], ["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (2.4ms)
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 ORDER BY "works"."id" ASC LIMIT $2[0m  [["category", "movies"], ["LIMIT", 1]]
+  ↳ app/views/works/_list.html.erb:2
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movies"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (2.1ms)
+  Rendered works/index.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 64ms (Views: 55.4ms | ActiveRecord: 4.4ms)
+
+
