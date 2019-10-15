@@ -1,1 +1,19 @@
 <h1>USER LOG IN PAGE</h1>
+
+<h1>Log IN</h1>
+
+<% if @user.errors.any? %>
+  <section>
+  <ul>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+    </ul>
+    </section>
+<% end %>
+
+<%= form_with model: @user do |f|%>
+  <%= f.label :name %>
+  <%= f.text_field :name %>   
+  <%= f.submit "Log In BUTTON"%>
+<% end %>
