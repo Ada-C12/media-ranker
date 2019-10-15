@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   end
   
   def login
-    # works but not tested
     @user = User.new
+    raise
   end
   
   def create
@@ -52,7 +52,21 @@ class UsersController < ApplicationController
   end
   
   def logout
-    raise
+    user = User.find_by(id: session[:user_id])
+    flash[:success] = "Successfully logged out #{user.name}"
+    session[:user_id] = nil
+    redirect_to root_path
+    return
   end
+  
+  # REDUNDANT
+  # def self.user_from_session 
+  #   if session[:user_id]
+  #     user = User.find_by(id: session[:user_id])
+  #     user ? (return user):(return nil)
+  #   else
+  #     return nil
+  #   end
+  # end
   
 end

@@ -27,10 +27,11 @@
     <ul class="nav app-header__user-nav-container">
       <li class="nav-item app-header__nav_item">
         <% if session[:user_id] %>
-          <a class="btn btn-primary" href="/users/:id">Logged in in as <%= username_from_session %></a>
-          <a class="btn btn-primary" href="/homepages/nope">FIX LINK! Log Out</a>
+          <%# <a class="btn btn-primary" href="/users/:id">Logged in in as <%= username_from_session %>
+          <button class="btn btn-primary"><%= link_to "Logged in as #{username_from_session}", user_path(id: session[:user_id]) %></button>
+          <button class="btn btn-primary"><%= link_to "Log Out", logout_path, method: :patch %></button>
         <% else %>
-          <a class="btn btn-primary" href="/users/login">Log In</a>
+          <button class="btn btn-primary"><%= link_to "Log In", login_path %></button>
         <% end %>
       </li>
     </ul>
@@ -52,7 +53,7 @@
         <%= flash[:error] %>
       </span>
       </div>
-    <% else flash[:message] %>
+    <% elsif flash[:message] %>
       <div class="alert alert-primary">
       <span>
         <%= flash[:message]%>

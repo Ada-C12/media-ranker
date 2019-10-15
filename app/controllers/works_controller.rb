@@ -1,9 +1,7 @@
 class WorksController < ApplicationController
   
   def index
-    @movies = Movie.all 
-    # @books = Book.all
-    # @albums = Album.all
+    @works = "Work.all but not implemented yet"
     @spotlight_winner = "DO THIS IN WORKS MODEL???"
   end
   
