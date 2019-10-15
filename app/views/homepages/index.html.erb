@@ -17,6 +17,17 @@
 <section class="media_spotlight"></section>
 <section>Top Movies</section>
 <section>Top Books</section>
-<section>Top Albums</section>
+<section>
+<h2>Top Albums</h2>
+  <div> 
+    <% @works.each do |work| %>
+      <% if work.category == "album" %>
+      <%= work.title%>
+      <br>
+      <% end %>
+    <% end %>
+  </div>
+</section>
+
 </main>
 </body>
