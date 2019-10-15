@@ -27,9 +27,8 @@
     <ul class="nav app-header__user-nav-container">
       <li class="nav-item app-header__nav_item">
         <% if session[:user_id] %>
-          <%# TODO: FIX!!! NEXT LINE SHOULD GO TO MEMBERS' OWN PAGE!!!! %>
-          <%# <a class="btn btn-primary" href="/users">FIX THIS LINK! Logged in in as <%= @user.name %></a> %>
-          <a class="btn btn-primary" href="/users/logout">Log Out</a>
+          <a class="btn btn-primary" href="/users/:id">Logged in in as <%= username_from_session %></a>
+          <a class="btn btn-primary" href="/homepages/nope">FIX LINK! Log Out</a>
         <% else %>
           <a class="btn btn-primary" href="/users/login">Log In</a>
         <% end %>
