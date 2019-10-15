@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-  has_many :votes
-  
-  validates :title, presence: true, uniqueness: { scope: :category }
+  def index
+    @works = Work.all
+  end
 end
