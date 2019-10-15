@@ -27,6 +27,26 @@ class WorksController < ApplicationController
     end
   end
   
+  def edit
+    @work = Work.find_by(id: params[:id])
+    
+    if @work.nil?
+      head :not_found
+      return
+    end
+  end
+  
+  def update
+    @work = Work.find_by(id: params[:id])
+    if @work.update(work_params)
+      redirect_to root_path
+      return
+    else 
+      render :edit 
+      return
+    end
+  end
+  
   def destroy
     @work = Work.find_by(id: params[:id])
     
@@ -41,6 +61,11 @@ class WorksController < ApplicationController
     return 
   end
   
+  def main
+    @top_ten_albums = Work.top_ten("album")
+    @top_ten_books = Work.top_ten("book")
+    @top_ten_movie = Work.top_ten("movie")
+  end
   
   private
   

@@ -1,5 +1,5 @@
 <%= form_with model: @work, class: 'form' do |f| %>
-  <p>Please provide the following information to create the media:</p>
+  <p>Please provide the following information to edit the media:</p>
 
   <%= f.label :category %>
   <%= f.text_field :category %>
@@ -16,7 +16,7 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
-  <%= f.submit "Create Media", class: "work-button" %>
+  <%= f.submit "Update Media", class: "work-button" %>
 
 <% end %>
 
