@@ -66,8 +66,22 @@ class WorksController < ApplicationController
     
     @work.destroy
     
-    redirect_to works_path
+    redirect_to root_path
+    # flash: Successfully destroyed album 415
     return
+  end
+  
+  def upvote
+    @work = Work.find_by(id: params[:id])
+    
+    if @work.nil?
+      head :not_found
+      return
+    end
+    
+    # A WHOLE LOT MORE CODE TO ADD A VOTE
+    
+    redirect_to work_path(@work.id)
   end
   
   private

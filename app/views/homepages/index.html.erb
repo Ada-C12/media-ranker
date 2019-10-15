@@ -1,8 +1,12 @@
 <section class="spotlight">
   <h2 class="spotlight__header">
     <span class="spotlight__header--prefix">Media Spotlight</span>
-    <%= link_to @spotlight.title, work_path(@spotlight), class:"spotlight__link-to" %>
-    by <%= @spotlight.creator %>
+    <% if @spotlight.nil? %>
+      <p> No media entries currently in database. </p>
+    <% else %>
+      <%= link_to @spotlight.title, work_path(@spotlight), method: :patch, class:"spotlight__link-to" %>
+      by <%= @spotlight.creator %>
+    <% end %>
   </h2>
   <p class="spotlight__description">
     <%# @spotlight.total_votes %> votes - <%= @spotlight.description %>

@@ -9,13 +9,32 @@ class Work < ApplicationRecord
   
   def self.spotlight
     num_works = self.count
-    puts num_works
-    rand_id = rand(1..num_works)
-    spotlight = nil 
-    while spotlight.nil?
-      spotlight = self.find(rand_id)
+    
+    if num_works.nil?
+      return nil
     end
-    return spotlight
+    
+    spot = self.all.sample
+    
+    return spot
+  end
+  
+  def self.list_all_in_category(target_category)
+    all_in_category = self.where(category: target_category)
+    # return all_in_category.order(votes: :desc)
+    return all_in_category
+  end
+  
+  def self.get_top_ten(target_category)
+    all_in_category = self.list_all_in_category(target_category)
+    
+    if all_in_category.nil?
+      return all_in_category
+    elsif all_in_category.length < 10
+      return all_in_category
+    else
+      return all_in_category[0,10]
+    end
   end
   
   def total_votes
