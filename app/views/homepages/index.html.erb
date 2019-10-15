@@ -30,7 +30,7 @@ by
 <h1> Top Movies: </h1>
 <ul>
 <% chosen = @works.where(category: "movie").sample(10) %>
-<%= chosen.each do |movie| %>
+<% chosen.each do |movie| %>
 <li> <%= link_to movie.title, work_path(movie) %>
 by
 <%= movie.creator %>
