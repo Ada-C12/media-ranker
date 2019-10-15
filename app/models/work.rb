@@ -1,4 +1,6 @@
 class Work < ApplicationRecord
+  validates :title, presence: true, uniqueness: { scope: :category }
+  
   def self.spotlight
     self.first
   end
