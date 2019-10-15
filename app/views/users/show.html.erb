@@ -1,8 +1,41 @@
 <h1>show page</h1>
 
-<%= @user.name %>
-Joined site <%= display_date(@user.created_at) %>
+
 
 <hr>
-<h1>Votes</h1>
 
+<main>
+
+  <h2>User Summary: <%= @user.name %></h2>
+  <p>Joined site <%= display_date(@user.created_at) %></p>
+
+  <section class="user-votes__container">
+  <h3 class="user-votes__header">Votes</h3>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Media Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Category</th>
+        <th>Voted On</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+        <td>@MEDIA TITLE HERE</td>
+        <td>@MEDIA CREATOR HERE</td>
+        <td>@PUB YEAR HERE</td>
+        <td>@CATEGORY HERE</td>
+        <td>@VOTED ON DATE HERE</td>
+      </tr>
+      </tbody>
+
+    </table>
+  </section>
+
+  <a class="btn btn-secondary" href="/users">See all Users</a>
+  <a class="btn btn-primary" href="/">Back to Media List</a>
+
+</main>

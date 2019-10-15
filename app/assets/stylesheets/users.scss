@@ -1,3 +1,33 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.user-votes__container {
+
+}
+
+.user-votes__header {
+
+}
+
+.table {
+
+}
+
+
+
+// ARE THESE BUTTONS UNIVERSAL?
+.btn:hover {
+  background-color: rgb(21, 94, 86);
+}
+
+.btn-secondary {
+  // i don' think anything needed here
+}
+
+.btn-primary {
+  background-color: #26A69A;
+  border-color: #26A69A;
+  color: white;
+}
