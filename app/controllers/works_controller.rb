@@ -23,6 +23,7 @@ class WorksController < ApplicationController
     
     if @work.save  
       redirect_to work_path(@work.id)  
+      # flash: Successfully created book 455
       return
     else 
       render :new  
@@ -39,6 +40,12 @@ class WorksController < ApplicationController
     end
   end
   
+  # <section class="alert__container">
+  #     <div class="alert alert-success">
+  #       <span>Successfully updated album 299</span>
+  #     </div>
+  #   </section>
+  
   def update
     @work = Work.find_by(id: params[:id])
     
@@ -48,7 +55,8 @@ class WorksController < ApplicationController
     end
     
     if @work.update(work_params)
-      redirect_to work_path(@work.id)  
+      flash[:success] = "Successfully updated #{@work.category} #{@work.id}"
+      redirect_to work_path(@work.id)
       return
     else  
       render :edit  
@@ -71,18 +79,20 @@ class WorksController < ApplicationController
     return
   end
   
-  def upvote
-    @work = Work.find_by(id: params[:id])
-    
-    if @work.nil?
-      head :not_found
-      return
-    end
-    
-    # A WHOLE LOT MORE CODE TO ADD A VOTE
-    
-    redirect_to work_path(@work.id)
-  end
+  # def upvote
+  #   @work = Work.find_by(id: params[:id])
+  
+  #   if @work.nil?
+  #     head :not_found
+  #     return
+  #   end
+  
+  # A WHOLE LOT MORE CODE TO ADD A VOTE
+  
+  #redirect_to work_path(@work.id)
+  # flash: Successfully upvoted!
+  # but if you're on the index page then you remain there but with the flash message
+  # end
   
   private
   

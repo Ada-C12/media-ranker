@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   
   resources :works, except: [:update]
   patch '/works/:id', to: 'works#update'
-  patch '/works/:id/upvote', to: 'works#upvote', as: 'upvote'
+  
+  # post '/works/:id/upvote', to: 'votes#upvote', as: 'upvote'
+  # Tiff this needs to be a nested route for votes through works
 end

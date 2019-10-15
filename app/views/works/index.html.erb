@@ -34,8 +34,8 @@
             <span><%= link_to piece.title, work_path(piece) %></span>
             <span>piece.creator</span>
             <span>piece.publication_year</span>
-            <% upvote_url = "/works/" + piece.id.to_s + "/upvote" %>
-            <span><%= link_to "Upvote", upvote_url, class:"btn btn-primary" %></span>
+            <%# upvote_url = "/works/" + piece.id.to_s + "/upvote" %>
+            <span><%# link_to "Upvote", upvote_url, method: post, class:"btn btn-primary" %>Upvote</span>
           </div>
           <% end %>
       </tbody>

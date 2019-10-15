@@ -1,10 +1,11 @@
+<main>
 <section class="spotlight">
   <h2 class="spotlight__header">
     <span class="spotlight__header--prefix">Media Spotlight</span>
     <% if @spotlight.nil? %>
       <p> No media entries currently in database. </p>
     <% else %>
-      <%= link_to @spotlight.title, work_path(@spotlight), method: :patch, class:"spotlight__link-to" %>
+      <%= link_to @spotlight.title, work_path(@spotlight), class:"spotlight__link-to" %>
       by <%= @spotlight.creator %>
     <% end %>
   </h2>
@@ -13,3 +14,26 @@
     <%# 7 votes - abc %>
   </p>
 </section>
+
+<section class="top-ten__container">
+  <% %w(movie book album).each do |category| %>
+    <section class="top-ten__list-container">
+      <h2 class="top-ten__header">
+        Top <%= category.capitalize %>
+      </h2>
+      <ul class="list-group top-ten__list">
+        <% Work.get_top_ten(category).each do |piece| %>
+        <li class="list-group-item">
+          <h4>
+            <%= link_to piece.title, work_path(piece) %>
+            <small class="top-ten__creator">by <%= piece.creator %></small>
+          </h4>
+          <p><%# something for vote counting %>votes</p>
+        </li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+</section>
+
+</main>
