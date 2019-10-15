@@ -19,3 +19,9 @@ by
 <h1> Top Music Albums: </h1>
 <ul>
 <% chosen = @works.where(category: "album").sample(10) %>
+<% chosen.each do |album| %>
+<li> <%= link_to album.title, work_path(album) %>
+by<%= album.creator %>
+</li>
+<% end %>
+</ul>
