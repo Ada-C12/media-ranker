@@ -1,0 +1,32 @@
+
+<%="Media Spotlight"%>
+<%work = @works.sample%>
+  <%=work.title%> by <%=work.creator%>
+
+<%="Top Albums"%>
+
+<%10.times do %>
+  <%album = @albums.sample%>
+  <%=album.title%> by <%=album.creator%>
+<%end%>
+
+<%="Top Books"%>
+
+<%10.times do %>
+  <%book = @books.sample%>
+  <%=book.title%> by <%=book.creator%>
+<%end%>
+
+<%="Top Movies"%>
+
+<%10.times do %>
+  <%movie = @movies.sample%>
+  <%=movie.title%> by <%=movie.creator%>
+<%end%>
+
+
+
+
+
+
+
