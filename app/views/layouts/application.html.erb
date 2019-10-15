@@ -9,6 +9,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <%=link_to "Media Ranker", root_path%>
+  <%=link_to "View All Media", works_path%>
+  <%=link_to "Add new Work", new_work_path%>
+  <section class="flash">
+    <% flash.each do |name, message| %>
+      <div class="<%= name %>"><%= message %></div>
+    <% end %>
+  </section>
+
   <body>
     <%= yield %>
   </body>
