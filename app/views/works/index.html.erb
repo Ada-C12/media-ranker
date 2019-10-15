@@ -1,0 +1,22 @@
+<nav>
+<a id="logo" href="/">Media Ranker <span id="website-header">| Ranking the Best of Everything</span></a>
+<a href="/root">View top media</a>
+<a href="/works">View all media</a>
+<a href="/edit/works">Add a new work</a>
+<a href="/users">View all users</a>
+<%# these are 2 buttons people click to log in and log out %>
+</nav>
+
+<main>
+  <section id="full-media-list">
+    <h1>Media List</h1>
+    <ul>
+      <% @works.each do |work| %>
+        <li>
+          <%= link_to work.title, work_path(id: work.id) %> by <%= work.creator %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</main>
+
