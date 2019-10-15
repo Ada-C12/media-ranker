@@ -1,0 +1,12 @@
+<h1 class="index-header">List of Works</h1>
+
+<section>
+  <ul>
+    <% @works.each do |work| %>
+      <li>
+        <%= link_to work.title, work_path( work.id ) %>
+        <%= link_to "(Delete)", work_path( work.id ), method: :delete, data: { confirm: "Are you sure you want to delete #{work.title}?" }, class: "index-delete-link" %>
+      </li>
+    <% end %>
+  </ul>
+</section>

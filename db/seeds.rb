@@ -13,9 +13,11 @@ puts "Loading raw data from #{FILE}"
 failures = []
 CSV.foreach(FILE, :headers => true) do |row|
   work = Work.new
-  work.id = row['id']
-  work.name = row['name']
-  work.vin = row['vin']
+  work.category = row['category']
+  work.title = row['title']
+  work.creator = row['creator']
+  work.publication_year = row['publication_year']
+  work.description = row['description']
   successful = work.save
   if !successful
     failures << work
