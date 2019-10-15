@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <%= link_to "Home", root_path %>
+    <%= link_to "Works", works_path %>
+    <%= link_to "Create a New Work", new_work_path %>
+
     <section class="login_logout">
       <% if session[:user_id] == nil %>
         <%= link_to "Login", login_path %>

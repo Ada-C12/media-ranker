@@ -1,5 +1,9 @@
 <h1> <%= @work.title %> </h1>
   <section>
+    <%= link_to "Edit", edit_work_path(@work) %>
+  </section>
+
+  <section>
     <ul>
       <li>
         <%= @work.category %>
