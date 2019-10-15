@@ -1,29 +1,26 @@
-
-
-
 <section class="flex-container">
 
   <section class="top-ten">
     <h1>Top Albums</h1>
     <% @top_ten_albums.each do |album| %>
-      <p> <%= album.category %> </p>
-      <p> by <%= album.title %> </p>
+      <p> <%= link_to album.title, work_path(album) %> </p>
+      <p> by <%= album.creator %> </p>
     <% end %>
   </section>
 
   <section class="top-ten">
     <h1>Top Books</h1>
     <%  @top_ten_books.each do |book| %>
-      <p> <%= book.category %> </p>
-      <p> by <%= book.title %> </p>
+      <p> <%= link_to book.title, work_path(book) %> </p>
+      <p> by <%= book.creator %> </p>
     <% end %>
   </section>
 
   <section class="top-ten">
     <h1>Top Movies</h1>
     <% @top_ten_movie.each do |movie| %>
-      <p> <%= movie.category %> </p>
-      <p> by <%= movie.title %> </p>
+      <p> <%= link_to movie.title, work_path(movie) %> </p>
+      <p> by <%= movie.creator %> </p>
     <% end %>
   </section>
 
