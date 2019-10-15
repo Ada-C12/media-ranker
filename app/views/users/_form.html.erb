@@ -8,7 +8,7 @@
   </ul>
 <% end %>
 
-<%= form_with model: @user, class: user_form_class do |f| %>
+<%= form_with model: @user, url: login_path, class: user_form_class  do |f| %>
 
   <%= f.label :username %>
   <%= f.text_field :username %>

@@ -4,6 +4,7 @@
   <section>
     <table>
       <tr class='table-header'>
+        <td>VOTE</td>
         <td>CATEGORY</td>
         <td>TITLE</td>
         <td>CREATOR</td>
@@ -13,6 +14,7 @@
       </tr>
       <% Work.all.each do |work| %>
           <tr>
+            <td><%= link_to "Vote", work_votes_path(work.id), method: :post, class: "vote-link" %></td>
             <td><%= work.category %></td>
             <td><%= link_to work.title, work_path(work.id) %></td>
             <td><%= work.creator %></td>

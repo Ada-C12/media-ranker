@@ -21,7 +21,9 @@ class WorksController < ApplicationController
     
     if @work.save
       redirect_to work_path(@work.id)
+      flash[:success] = "#{@work.title} added successfully"
     else
+      flash.now[:error] = @work.errors.messages
       render new_work_path
       return
     end
@@ -42,9 +44,11 @@ class WorksController < ApplicationController
       head :not_found
       return
     elsif @work.update(work_params)
+      flash[:success] = "#{@work.title} updated successfully"
       redirect_to work_path(@work.id)
       return
     else
+      flash.now[:error] = "Work NOT updated successfully"
       render edit_work_path
       return
     end
@@ -56,9 +60,11 @@ class WorksController < ApplicationController
       head :not_found
       return
     elsif work.destroy
+      flash[:success] = "#{work.title} deleted successfully"
       redirect_to works_path
       return
     else
+      flash[:error] = "Work NOT deleted successfully"
       redirect_to :back
     end
   end
