@@ -5,28 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<h1>Media Ranker | Ranking the Best of Everything</h1>
-<nav class="nav_bar">
-  <h3><%= link_to "View All Media", works_path%></h3>
-  <h3>View Top Media</h3>
-  <h3>Add a New Work</h3>
-  <h3>View All Users</h3>
-  <h3 id="login">Log In</h3>
-</nav>
 <main>
-<section class="media_spotlight"></section>
-<section>Top Movies</section>
-<section>Top Books</section>
+<section class="media_spotlight">
+<h2>Media Spotlight</h2>
+<span>Title: <%= @works[3].title%> <br>Creator: <%= @works[3].creator%>
+</span>
+</section>
+
+<section>
+<h2>Top Movies</h2>
+<% @works.each do |work| %>
+  <% if work.category == "movie"%>
+  <%= work.title %>
+  <br>
+  <% end %>
+<% end %>
+</section>
+
+<section>
+<h2>Top Books</h2>
+  <% @works.each do |work| %>
+    <% if work.category == "book"%>
+    <%= work.title %>
+    <br>
+    <% end %>
+  <% end %>
+</section>
+
 <section>
 <h2>Top Albums</h2>
-  <div> 
-    <% @works.each do |work| %>
-      <% if work.category == "album" %>
-      <%= work.title%>
-      <br>
-      <% end %>
+  <% @works.each do |work| %>
+    <% if work.category == "album" %>
+    <%= work.title %>
+    <br>
     <% end %>
-  </div>
+  <% end %>
 </section>
 
 </main>

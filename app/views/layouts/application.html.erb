@@ -2,11 +2,27 @@
 <html>
   <head>
     <title>MediaRanker</title>
-    <%# <%= csrf_meta_tags %>
-    <%# <%= csp_meta_tag %> 
-    <%# <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
-    <%# <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> 
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Media Ranker</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active">View Top Media</li>
+      <li>View All Media</li>
+      <li>Add New Work</li>
+      <li>View All Users</li>
+    </ul>
+  </div>
+</nav>
+  </header>
 
   <body>
     <%= yield %>
