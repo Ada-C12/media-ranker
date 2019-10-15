@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
-  def index
-  end
+  
+  ### All media are indexed on same page.  Go to Works_controller for that !!
+  
+  
 end
