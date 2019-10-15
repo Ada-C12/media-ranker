@@ -1,0 +1,22 @@
+<%= form_with model: @work, class: 'form' do |f| %>
+  <p>Please provide the following information to create the work:</p>
+
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+
+  <%= f.label :title %>
+  <%= f.text_area :title %>
+
+  <%= f.label :creator %>
+  <%= f.text_area :creator %>
+
+  <%= f.label :publication_year %>
+  <%= f.text_area :publication_year %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit "Create Work", class: "work-button" %>
+
+<% end %>
+
