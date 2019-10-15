@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+
+CSV.read(Rails.root.join('db', 'media-seeds.csv'), headers: true).each do |row|
+  t = Work.create(row.to_hash)
+  puts "#{t.id}, #{t.title} saved"
+end 
