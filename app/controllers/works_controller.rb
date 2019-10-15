@@ -19,4 +19,14 @@ class WorksController < ApplicationController
   def new
     @work = Work.new
   end
+
+  def create
+    id = Work.create(work_params)&.id
+    redirect_to work_path(id)
+  end
+
+  private
+  def work_params
+    params.require(:work).permit(:category, :title, :creator, :published, :description)
+  end
 end

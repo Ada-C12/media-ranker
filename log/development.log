@@ -1309,3 +1309,26 @@ Started POST "/works" for ::1 at 2019-10-15 16:16:58 -0700
 AbstractController::ActionNotFound - The action 'create' could not be found for WorksController:
 
 Started POST "/__better_errors/afc8f60bb2e929e2/variables" for ::1 at 2019-10-15 16:16:58 -0700
+Started POST "/works" for ::1 at 2019-10-15 16:21:48 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2wiYPm2jFdFB0Swkn9071Eq8cKXT00/T4BBqVJYE0KFvjpxotBZNZDj8+pZ2/0mAaczLJQOgF50Vraegwe+nkQ==", "work"=>{"category"=>"", "title"=>"Dirty Computer", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:24
+  [1m[36mWork Create (41.1ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Dirty Computer"], ["creator", ""], ["description", ""], ["category", ""], ["created_at", "2019-10-15 23:21:48.689924"], ["updated_at", "2019-10-15 23:21:48.689924"]]
+  ↳ app/controllers/works_controller.rb:24
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:24
+Redirected to http://localhost:3000/works/26
+Completed 302 Found in 68ms (ActiveRecord: 52.4ms)
+
+
+Started GET "/works/26" for ::1 at 2019-10-15 16:21:48 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 65ms (Views: 59.8ms | ActiveRecord: 0.7ms)
+
+
