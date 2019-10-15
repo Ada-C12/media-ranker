@@ -14,9 +14,9 @@
     <% @albums.each do |album| %>
       <tr>
         <td>votes</td>
-        <td>album.title</td>
-        <td>album.creator</td>
-        <td>album.publication_year</td>
+        <td><%= album.title %></td>
+        <td><%= album.creator%></td>
+        <td><%= album.publication_year %></td>
         <td>upvote</td>
       </tr>
     <% end %>
@@ -38,9 +38,9 @@
     <% @books.each do |book| %>
       <tr>
         <td>votes</td>
-        <td>book.title</td>
-        <td>book.creator</td>
-        <td>book.publication_year</td>
+        <td><%= book.title %></td>
+        <td><%= book.creator%></td>
+        <td><%= book.publication_year %></td>
         <td>upvote</td>
       </tr>
     <% end %>
@@ -62,9 +62,9 @@
     <% @movies.each do |movie| %>
       <tr>
         <td>votes</td>
-        <td>movie.title</td>
-        <td>movie.creator</td>
-        <td>movie.publication_year</td>
+        <td><%= movie.title %></td>
+        <td><%= movie.creator%></td>
+        <td><%= movie.publication_year %></td>
         <td>upvote</td>
       </tr>
     <% end %>
