@@ -17,11 +17,99 @@
 /* Import scss content */
 @import "**/*";
 
-#top-media-container {
-  display:flex;
-  justify-content: space-evenly;;
+
+body {
+  font-family: 'Gudea', sans-serif;
+  color: #fa4f05;
 }
 
-#top-media-sect {
+main {
+  padding: 2%;
+}
 
+nav {
+  background-color: #fac105;
+  padding: 3%;
+  padding-bottom: 1%;
+  padding-top: 5%;
+}
+
+nav h1 {
+  text-align: center;
+}
+
+
+a {
+  color: #fa4f05;
+}
+
+a:hover {
+  color: #ad5b49;
+  text-decoration: none;
+}
+
+
+#top-media-container {
+  display:flex;
+  justify-content: space-evenly;
+}
+
+#top-media-container a {
+  text-decoration: none;
+}
+
+#media-spotlight-container {
+  margin: auto;
+  width: 80%;
+  border-bottom: solid 0.5px rgba(250, 79, 5, 0.5);
+  padding: 3%;
+  
+}
+
+#spotlight-header {
+  font-weight: bold;
+  color: black;
+}
+
+
+#media-spotlight-container a {
+  text-decoration: underline;
+}
+
+h1, h2, h4 {
+  font-weight: bold;
+}
+
+.main-logo-link {
+  border-right: 2px solid white;
+  margin-right: 2%;
+  padding-right: 3%;
+  color: #fcefb1;
+}
+
+#main-logo-sub {
+  color: white
+}
+
+ul {
+  list-style: none;
+}
+
+.nav-link {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.top-media-sect h2 {
+  border-bottom: 1px solid #fa4f05;
+  padding-top: 15%;
+}
+
+.top-media-sect {
+  width: 30%;
+  padding: 2%;
+}
+
+#media-spotlight-container p {
+  color: black;
 }

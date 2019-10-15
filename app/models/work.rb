@@ -21,7 +21,7 @@ class Work < ApplicationRecord
     return Work.where(category: category).order(title: :desc).first(num)
   end
   
-  def self.media_spotlight
+  def self.top_work
     return Work.all.order(title: :desc).first
   end
 
