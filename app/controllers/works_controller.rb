@@ -2,6 +2,9 @@ class WorksController < ApplicationController
   
   def index
     @works = Work.all
+    @albums = Work.top_ten_category("album")
+    @books = Work.top_ten_category("book")
+    @movies = Work.top_ten_category("movie")
   end
   
   def show
@@ -63,6 +66,6 @@ class WorksController < ApplicationController
   private
   
   def work_params
-    return params.require(:work).permit(:title, :creator, :publication_year, :description)
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
 end
