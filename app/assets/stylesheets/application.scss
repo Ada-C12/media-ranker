@@ -64,7 +64,6 @@ a:hover {
   width: 80%;
   border-bottom: solid 0.5px rgba(250, 79, 5, 0.5);
   padding: 3%;
-  
 }
 
 #spotlight-header {
@@ -101,15 +100,7 @@ ul {
   padding-right: 2%;
 }
 
-.top-media-sect h2 {
-  border-bottom: 1px solid #fa4f05;
-  padding-top: 15%;
-}
 
-.top-media-sect {
-  width: 30%;
-  padding: 2%;
-}
 
 #media-spotlight-container p {
   color: black;
@@ -138,5 +129,86 @@ form label {
 }
 
 .btn {
-  color:white
+  font-size: 2rem;
+  text-align: center;
+}
+
+.btn a {
+  color: white;
+}
+.btn-vote { 
+  color: #FFFFFF; 
+  background-color: #FAC105; 
+  border-color: #E6B515;
+} 
+
+.btn-vote:hover, 
+.btn-vote:focus, 
+.btn-vote:active, 
+.btn-vote.active, 
+.open .dropdown-toggle.btn-vote { 
+  color: #FFFFFF; 
+  background-color: #FAC105; 
+  border-color: #E6B515; 
+} 
+
+.btn-vote:active, 
+.btn-vote.active, 
+.open .dropdown-toggle.btn-vote { 
+  background-image: none; 
+} 
+
+.btn-vote.disabled, 
+.btn-vote[disabled], 
+fieldset[disabled] .btn-vote, 
+.btn-vote.disabled:hover, 
+.btn-vote[disabled]:hover, 
+fieldset[disabled] .btn-vote:hover, 
+.btn-vote.disabled:focus, 
+.btn-vote[disabled]:focus, 
+fieldset[disabled] .btn-vote:focus, 
+.btn-vote.disabled:active, 
+.btn-vote[disabled]:active, 
+fieldset[disabled] .btn-vote:active, 
+.btn-vote.disabled.active, 
+.btn-vote[disabled].active, 
+fieldset[disabled] .btn-vote.active { 
+  background-color: #FAC105; 
+  border-color: #E6B515; 
+} 
+
+.btn-vote .badge { 
+  color: #FAC105; 
+  background-color: #FFFFFF; 
+}
+
+.top-media-sect h2 {
+  border-bottom: 1px solid #fa4f05;
+  padding-top: 12%;
+}
+
+.top-media-sect {
+  width: 33%;
+  padding: 1.5%;
+}
+
+.top-media-sect li {
+  display: flex;
+  border-bottom: solid rgba(250, 79, 5, 0.25) 1px;
+  margin-bottom: 5%
+}
+
+.voting-sect button{
+  margin: 2%;
+}
+
+.voting-sect {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding-right: 3%;
+}
+
+.top-work-details {
+  max-width: 100%;
 }

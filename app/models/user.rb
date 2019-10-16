@@ -5,7 +5,8 @@ class User < ApplicationRecord
   has_many :votes, dependent: :destroy
 
   def self.username_by_id(user_id)
-    return User.find_by(id: user_id).username
+    user = User.find_by(id: user_id)
+    return user.username if user
   end
 
   def upvotes
