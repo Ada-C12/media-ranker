@@ -43,7 +43,7 @@
           </li>
 
           <li class="nav app-header__site-nav-container">
-            Logged in as <%= User.find_by(id: session[:user_id]).username %>
+            <%= button_to "Logged in as #{User.find_by(id: session[:user_id]).username}", user_path(session[:user_id]), method: :get %>
           </li>
         <% end %>
       </ul>
