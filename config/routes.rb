@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root "homepages#index"
 
-  resources :works
+  resources :works do
+    resources :votes, only: [:create]
+  end
 
   get "/login", to: "users#login_form", as: "login"
   post "/login", to: "users#login"
@@ -9,5 +11,5 @@ Rails.application.routes.draw do
   get "/users/current", to: "users#current", as: "current_user"
   get "/users", to: "users#index", as: "users"
   get "/users/:id", to: "users#show", as: "user"
-  post "/works/:id/upvote", to: "votes#upvote", as: "upvote"
+  # post "/works/:id/upvote", to: "votes#upvote", as: "upvote"
 end

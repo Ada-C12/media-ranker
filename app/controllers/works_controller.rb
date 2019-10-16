@@ -68,6 +68,21 @@ class WorksController < ApplicationController
     return
   end
 
+  def upvote
+    @work = Work.find_by(id: params[:id])
+
+    if @work.votes.count == 0
+      @work.votes.create(user_id: @current_user.id)
+      flash[:success] = "Successfully upvoted!"
+      redirect_to works_path
+      return
+    else
+      flash[:notice] = "A problem occurred: Could not upvote. You have already upvoted this work"
+      redirect_to works_path
+      return
+    end
+  end
+
   private
 
   def work_params
