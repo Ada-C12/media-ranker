@@ -20,8 +20,6 @@ class WorksController < ApplicationController
   
   def create
     @work = Work.new
-    @work.completion_date = nil
-    @work.complete = false
     
     if @work.save
       redirect_to work_path(@work)
@@ -74,6 +72,5 @@ class WorksController < ApplicationController
   # def work_params
   #   return params.require(:work).permit(:category, :title)
   # end
-  
   
 end

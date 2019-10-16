@@ -1,8 +1,9 @@
-This is the Works Index
+<h1>This is the Works Index</h1>
 
 <%= link_to "Create a work", new_work_path %> 
 
-
+<ul>
 <% @works.each do |work|  %>
-  <%= link_to work.name, work_path(work) %> 
+  <li><%= link_to work.title, work_path(work) %> </li>
 <% end %>
+<ul>
