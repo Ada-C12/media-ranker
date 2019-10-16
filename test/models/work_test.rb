@@ -62,6 +62,22 @@ describe Work do
     end
   end
 
+  describe "relationships" do
+
+    it "can have many votes" do
+      vote = votes(:vote1)
+      @new_work.votes << vote
+      vote = votes(:vote2)
+      @new_work.votes << vote
+
+      @new_work.votes.each do |vote|
+        expect(vote).must_be_kind_of Vote
+
+      end
+    end
+
+  end
+
   describe "custom methods" do
     describe "self.spotlight" do
 
