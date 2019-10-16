@@ -20,23 +20,30 @@ describe User do
       user1.save!
       db_user = User.first
       assert(db_user.name == user1.name)
-      assert(db_user.votes_casted == 0)
-      # assert(db_user.votes.count == 0)
+      assert(db_user.votes.count == 0)
       
       # make user1 cast a vote
-      # assert(db_user.votes_casted == 1)
       # assert(db_user.votes.count == 1)
     end
     
-    it "Won't create User obj, given bogus inputs" do
+    it "Won't create User obj, given blank name inputs" do
       bad_args = ["", nil, "   "]
       bad_args.each do |bad_arg|
         bogus1 = User.new(name: bad_arg)
-        attempt = bogus1.save
-        refute(attempt)
-        expect (attempt.errors.messages).must_include :name
-        assert (attempt.errors.messages.attrib_name == "expected error string")
+        refute(bogus1.save)
+        expect(bogus1.errors.messages.keys).must_include :name
+        expect(bogus1.errors.messages.values).must_include ["can't be blank"]
       end
+    end
+    
+    it "Won't create User obj, given copycat name inputs" do
+      user1
+      assert(User.first.name == "Lisa Simpson")
+      
+      evil_twin = User.new(name: "Lisa Simpson")
+      refute(evil_twin.save)
+      expect(evil_twin.errors.messages.keys).must_include :name
+      expect(evil_twin.errors.messages.values).must_include ["has already been taken"]
     end
   end
   

@@ -4,7 +4,6 @@ movie1:
   creator: joaquin phoenix
   published_year: 2019
   description: surprisingly funny
-  votes_earned: 3
 
 movie2:
   category: movie
@@ -12,7 +11,6 @@ movie2:
   creator: some guy
   published_year: 2017
   description: Rather boring, not scary.
-  votes_earned: 2
 
 book1:
   category: book
@@ -20,7 +18,6 @@ book1:
   creator: chuck palahniuk
   published_year: 2000
   description: Never read it lol
-  votes_earned: 2
 
 book2:
   category: book
@@ -28,7 +25,6 @@ book2:
   creator: trevor noah
   published_year: 2016
   description: Trevor Noah's autobiography, really good
-  votes_earned: 5
 
 album1:
   category: album
@@ -36,7 +32,6 @@ album1:
   creator: pink floyd
   published_year: 1970
   description: kickass album
-  votes_earned: 7
 
 album2:
   category: album
@@ -44,4 +39,3 @@ album2:
   creator: alt J
   published_year: 2014
   description: amazing, so good!
-  votes_earned: 6
