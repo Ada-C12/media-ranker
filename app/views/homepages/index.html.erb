@@ -1,1 +1,14 @@
+<section class="spotlight__header--prefix">
 <h1>Media Spotlight</h1>
+</section>
+
+<% @categories.each do |category| %>
+<section class="top-ten__container">
+  <h2 class="top-ten__header">Top <%= category.capitalize %></h2>
+    <% @works.top_ten(category).each do |work| %>
+      <ul>
+        <li><h3><%= work.title %></h3> by <%= work.creator %></li>
+      </ul>
+    <% end %>
+  <% end %>
+</section>
