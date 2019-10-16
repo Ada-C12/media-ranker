@@ -14,29 +14,33 @@
 
 <section>
 <h2>Top Movies</h2>
+<div>
 <% @works.each do |work| %>
   <% if work.category == "movie"%>
-  <%= work.title %>
+  <p><%= work.title %> by <%= work.creator%></p>
   <br>
   <% end %>
 <% end %>
+</div>
 </section>
 
 <section>
 <h2>Top Books</h2>
+<div>
   <% @works.each do |work| %>
     <% if work.category == "book"%>
-    <%= work.title %>
+    <p><%= work.title %> by <%= work.creator%></p>
     <br>
     <% end %>
   <% end %>
+</div>
 </section>
 
 <section>
 <h2>Top Albums</h2>
   <% @works.each do |work| %>
     <% if work.category == "album" %>
-    <%= work.title %>
+    <p><%= work.title %> by <%= work.creator%></p>
     <br>
     <% end %>
   <% end %>
