@@ -11,11 +11,15 @@
   <h2> Top Albums </h2>
   <ol>
     <% albums = Work.top_ten("album") %>
-    <% albums.each do |album| %>
-      <li>
-        <%= album.title %>
-        Created by: <%= album.creator%>
-      </li>  
+    <% if albums == [] %>
+      <p> There are no works in this category </p>
+    <% else %>
+      <% albums.each do |album| %>
+        <li>
+          <%= album.title %>
+          Created by: <%= album.creator%>
+        </li>  
+      <% end %>
     <% end %>
   </ol>
 </section>
@@ -23,12 +27,16 @@
 <section class="books">
   <h2> Top Books </h2>
   <ol>
-    <% books = Work.top_ten("book")%>
-    <% books.each do |book| %>
-      <li>
-        <%= book.title %>
-        Created by: <%= book.creator%>
-      </li>  
+    <% books = Work.top_ten("book") %>
+    <% if books == [] %>
+      <p> There are no works in this category </p>
+    <% else %>
+      <% books.each do |book| %>
+        <li>
+          <%= book.title %>
+          Created by: <%= book.creator%>
+        </li>  
+      <% end %>
     <% end %>
   </ol>
 </section>
@@ -37,11 +45,15 @@
   <h2> Top Movies </h2>
   <ol>
     <% movies = Work.top_ten("movie") %>
-    <% movies.each do |movie| %>
-      <li>
-        <%= movie.title %>
-        Created by: <%= movie.creator%>
-      </li>  
+    <% if movies == [] %>
+      <p> There are no works in this category </p>
+    <% else %>
+      <% movies.each do |movie| %>
+        <li>
+          <%= movie.title %>
+          Created by: <%= movie.creator%>
+        </li>  
+      <% end %>
     <% end %>
   </ol>
 </section>

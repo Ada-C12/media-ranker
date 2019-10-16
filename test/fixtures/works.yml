@@ -64,19 +64,18 @@ rent:
   creator: Jonathan Larson
   publication_year: 1996
   description: People in NYC.
-
-# cat:
-#   title: The Cat in the Hat
-#   category: book
-#   creator: Dr. Suess
-#   publication_year: 1957
-#   description: Sneaky cat.
-# rabbit:
-#   title: The Tale of Peter Rabbit
-#   category: book
-#   creator: Beatrix Potter
-#   publication_year: 1901
-#   description: Hungry rabbit.
+cat:
+  title: The Cat in the Hat
+  category: book
+  creator: Dr. Suess
+  publication_year: 1957
+  description: Sneaky cat.
+rabbit:
+  title: The Tale of Peter Rabbit
+  category: book
+  creator: Beatrix Potter
+  publication_year: 1901
+  description: Hungry rabbit.
 # pooh:
 #   title: Winnie-the-Pooh
 #   category: book

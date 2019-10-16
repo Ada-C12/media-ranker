@@ -1,6 +1,9 @@
 class Work < ApplicationRecord
   has_many :votes
 
+  validates :title, presence: true, uniqueness: true
+  validates :creator, presence: true
+
   def self.spotlight
     works = Work.all
     return works.sample
@@ -8,7 +11,12 @@ class Work < ApplicationRecord
 
   def self.top_ten(category)
     works = Work.where(category: category)
-    return works.sample(10)
+
+    if works == []
+      return works
+    else
+      return works.sample(10)
+    end
 
   end
 end
