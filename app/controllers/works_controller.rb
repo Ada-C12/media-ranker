@@ -1,23 +1,26 @@
 class WorksController < ApplicationController
+  before_action :find_work, only: [:show, :edit, :update, :destroy, :upvote]
+  before_action :if_work_missing, only: [:show, :edit, :update, :destroy]
+
   def index
     @works = Work.all
   end
 
-  def show
-    @work = Work.find_by(id: params[:id])
+  def show; end
 
-    if @work.nil?
-      head :not_found
-      return
-    end
-  end
+  # @work = Work.find_by(id: params[:id])
+
+  # if @work.nil?
+  #   redirect_to works_path
+  #   return
+  # end
 
   def new
     @work = Work.new
   end
 
   def create
-    @work = Work.new(work_params)
+    # @work = Work.new(work_params)
 
     if @work.save
       flash[:status] = :success
@@ -32,22 +35,22 @@ class WorksController < ApplicationController
     end
   end
 
-  def edit
-    @work = Work.find_by(id: params[:id])
+  def edit; end
 
-    if @work.nil?
-      redirect_to works_path
-      return
-    end
-  end
+  # @work = Work.find_by(id: params[:id])
+
+  # if @work.nil?
+  #   redirect_to works_path
+  #   return
+  # end
 
   def update
-    @work = Work.find_by(id: params[:id])
+    # @work = Work.find_by(id: params[:id])
 
-    if @work.nil?
-      head :not_found
-      return
-    end
+    # if @work.nil?
+    #   redirect_to works_path
+    #   return
+    # end
 
     if @work.update(work_params)
       redirect_to work_path(@work)
@@ -58,12 +61,12 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    @work = Work.find_by(id: params[:id])
+    # @work = Work.find_by(id: params[:id])
 
-    if @work.nil?
-      redirect_to works_path
-      return
-    end
+    # if @work.nil?
+    #   redirect_to works_path
+    #   return
+    # end
 
     @work.destroy
     flash[:status] = :success
@@ -73,7 +76,7 @@ class WorksController < ApplicationController
   end
 
   def upvote
-    @work = Work.find_by(id: params[:id])
+    # @work = Work.find_by(id: params[:id])
 
     if @work.votes.count == 0
       @work.votes.create(user_id: @current_user.id)
@@ -93,5 +96,18 @@ class WorksController < ApplicationController
 
   def work_params
     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+  end
+
+  def find_work
+    @work = Work.find_by(id: params[:id])
+  end
+
+  def if_work_missing
+    if @work.nil?
+      flash[:status] = :danger
+      flash[:message] = "Work with ID #{params[:id]} does not exist!"
+      redirect_to works_path
+      return
+    end
   end
 end

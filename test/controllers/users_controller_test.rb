@@ -1,7 +1,15 @@
 require "test_helper"
 
 describe UsersController do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  describe "login form" do
+    it "can get the login form" do
+      get login_path
+
+      must_respond_with :success
+    end
+  end
+
+  describe "login" do
+    # write tests for an existing user, new user, and nonexistent user
+  end
 end

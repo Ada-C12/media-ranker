@@ -11,7 +11,7 @@
           <th>Published</th>
         </tr>
       </thead>
-      <% Work.where(category: "album").each do |work| %>
+      <% Work.where(category: "album").sort_by { |work| work.votes.count }.reverse!.each do |work| %>
       <tbody>
         <td><%= work.votes.count %></td>
         <td><%= link_to work.title, work_path(work.id) %></td>
@@ -33,7 +33,7 @@
           <th>Published</th>
         </tr>
       </thead>
-      <% Work.where(category: "book").each do |work| %>
+      <% Work.where(category: "book").sort_by { |work| work.votes.count }.reverse!.each do |work| %>
       <tbody>
         <td><%= work.votes.count %></td>
         <td><%= link_to work.title, work_path(work.id) %></td>
@@ -55,7 +55,7 @@
           <th>Published</th>
         </tr>
       </thead>
-      <% Work.where(category: "movie").each do |work| %>
+      <% Work.where(category: "movie").sort_by { |work| work.votes.count }.reverse!.each do |work| %>
       <tbody>
         <td><%= work.votes.count %></td>
         <td><%= link_to work.title, work_path(work.id) %></td>
