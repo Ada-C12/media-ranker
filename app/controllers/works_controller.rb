@@ -2,10 +2,9 @@ class WorksController < ApplicationController
   before_action :find_work, only: [:show, :edit, :update, :destroy]
   
   def index
-    @everything = Work.all_categories
-    @all_movies = Work.all_movies(@everything)
-    @all_books = Work.all_books(@everything)
-    @all_albums = Work.all_albums(@everything)
+    @all_movies = Work.all_in(category: "movie")
+    @all_albums = Work.all_in(category: "album")
+    @all_books = Work.all_in(category: "book")
   end
   
   def new
