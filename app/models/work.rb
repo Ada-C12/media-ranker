@@ -4,12 +4,13 @@ class Work < ApplicationRecord
   validates :title, presence: true
   validates :category, presence: true
   
-  def self.works_by_category(category)
-    return Work.where(category: category)
+  def self.works_sorted_by_category(category)
+    works = Work.where(category: category)
+    return works.sort {|a,b| b.votes.length <=> a.votes.length }  
   end
 
-  def self.top_works_sorted_by_category(category)
-    sorted_works = Work.works_by_category(category).sort {|a,b| b.votes.length <=> a.votes.length }  
+  def self.top_works(category)
+    sorted_works = Work.works_sorted_by_category(category)
     if sorted_works.length > 10
       return sorted_works.slice(0...10)
     end

@@ -2,9 +2,9 @@ class WorksController < ApplicationController
   before_action :find_work, only: [:show, :edit, :update]
   
   def index
-    @books = Work.works_by_category("book")
-    @movies = Work.works_by_category("movie")
-    @albums = Work.works_by_category("album")
+    @books = Work.works_sorted_by_category("book")
+    @movies = Work.works_sorted_by_category("movie")
+    @albums = Work.works_sorted_by_category("album")
   end
   
   def show
@@ -55,7 +55,7 @@ class WorksController < ApplicationController
     redirect_to works_path
     return
   end
-  
+
   private
   
   def work_params

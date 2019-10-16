@@ -1,41 +1,34 @@
 require "test_helper"
 
 describe Work do
-  describe "self.works_by_category" do
+  describe "self.works_sorted_by_category" do
     it "returns list of objects of the same category" do 
-      expected_movies = Work.where(category: "movie")
-      expected_books = Work.where(category: "book")
-      expected_albums = Work.where(category: "album")
-      
-      existing_movies = Work.works_by_category("movie")
-      existing_books = Work.works_by_category("book")
-      existing_albums = Work.works_by_category("album")
-      
-      expect(existing_movies.length).must_equal expected_movies.length
-      expect(existing_movies.sample.category).must_equal expected_movies.sample.category
-      
-      expect(existing_books.length).must_equal expected_books.length
-      expect(existing_books.sample.category).must_equal expected_books.sample.category
-      
-      expect(existing_albums.length).must_equal expected_albums.length
-      expect(existing_albums.sample.category).must_equal expected_albums.sample.category
+      categories = ["book", "movie", "album"]
+      categories.each do |category|
+        expected_works = Work.where(category: category)
+        
+        existing_works = Work.works_sorted_by_category(category)
+        
+        expect(existing_works.length).must_equal expected_works.length
+        expect(existing_works.sample.category).must_equal expected_works.sample.category
+      end
     end
     
     it "returns empty array if there's no object of provided category found" do
       Work.destroy_all
       expect(Work.count).must_equal 0
-      
-      expect(Work.works_by_category("movie")).must_equal []
-      expect(Work.works_by_category("book")).must_equal []
-      expect(Work.works_by_category("album")).must_equal []
+      categories = ["book", "movie", "album"]
+      categories.each do |category|
+        expect(Work.works_sorted_by_category(category)).must_equal []
+      end
     end
   end
   
-  describe "top_works_sorted_by_category" do  
+  describe "top_works" do  
     it "returns the list of 10 or less top works sorted by number of votes" do
       categories = ["book", "movie", "album"]
       categories.each do |category|
-        top_works = Work.top_works_sorted_by_category(category)
+        top_works = Work.top_works(category)
         assert(top_works.length <= 10)
         
         (top_works.length - 2).times do |index|
@@ -50,7 +43,7 @@ describe Work do
       expect (Work.count).must_equal 0
       categories = ["book", "movie", "album"]
       categories.each do |category|
-        expect(Work.top_works_sorted_by_category(category)).must_equal []
+        expect(Work.top_works(category)).must_equal []
       end
     end
   end
