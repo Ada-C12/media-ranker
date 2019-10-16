@@ -24,6 +24,7 @@ describe User do
       
       # make user1 cast a vote
       # assert(db_user.votes.count == 1)
+      # assert(db_user.votes attributes are correct!)
     end
     
     it "Won't create User obj, given blank name inputs" do

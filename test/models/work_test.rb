@@ -17,6 +17,9 @@ describe Work do
     it "workObj.votes exists and can return Vote objs" do
       ### NEED Votes Model
     end
+    
+    it "if vote gets casted, workObj.votes will reflect that" do
+    end
   end
   
   describe "VALIDATIONS" do
@@ -84,6 +87,7 @@ describe Work do
   
   describe "METHOD: spotlight_winner()" do
     it "nominal case" do
+      # need votes
     end
     
     it "edge case" do
