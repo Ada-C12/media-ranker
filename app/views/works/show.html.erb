@@ -10,7 +10,7 @@
   <button class="btn btn-outline-danger"><%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure you would like to delete this work?"} %></button>
 
   <section>
-      <h2>Votes for this <%= @work.category %>:</h2>
+      <h2><%= @work.votes.count %> Votes for this <%= @work.category %>:</h2>
       <table class="table table-hover">
         <thead class="thead">
           <tr>

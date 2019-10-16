@@ -8,7 +8,11 @@ class Work < ApplicationRecord
   validates :description, presence: true
   
   def self.top_ten(category)
-    top_ten = Work.where(category: category).sample(10)
+    all_works = Work.where(category: category)
+    
+    sorted_works = all_works.sort_by {|work| -work.votes.count}
+    
+    top_ten = sorted_works[0..9]
   end
   
   def self.best_work(works)
