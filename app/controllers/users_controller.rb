@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     
     if user
       session[:user_id] = user.id
+      session[:username] = username
       flash[:success] = "logged in as existing user #{ username }"
       redirect_to root_path
     else
@@ -16,6 +17,7 @@ class UsersController < ApplicationController
       
       if new_user.save
         session[:user_id] = new_user.id
+        session[:username] = username
         flash[:success] = "logged in as new user #{ username }"
         redirect_to root_path
       else

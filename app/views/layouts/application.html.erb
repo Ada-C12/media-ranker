@@ -31,9 +31,15 @@
           </li>        
         </ul>
         <ul class="nav">
-          <li>
-            <%= link_to "Logout", works_path, class: "btn btn-primary" %>
-          </li>
+          <% username = session[:username] %>
+          <% if username %>
+            <li>
+              <%= link_to "Logged in as #{ username }", user_path(session[:user_id]), class: "btn btn-primary" %>
+              <%= link_to "Log Out", logout_path, method: :post, class: "btn btn-primary" %>
+            </li>
+          <% else %>
+              <%= link_to "Login", login_path, class: "btn btn-primary" %>
+          <% end %>
         </ul>
       </nav>
     </header>
