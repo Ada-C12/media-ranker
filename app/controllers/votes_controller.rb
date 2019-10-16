@@ -30,10 +30,10 @@ class VotesController < ApplicationController
     
     if @vote.save && work.save
       flash[:success] = "Successfully upvoted for #{work.title}"
-      redirect_to works_path
+      redirect_back(fallback_location: works_path)
     else
       flash[:error] = "Did NOT vote successfully"
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: works_path)
       return
     end
   end
@@ -48,10 +48,10 @@ class VotesController < ApplicationController
     
     if @vote.save && work.save
       flash[:success] = "Successfully downvoted #{work.title}"
-      redirect_to works_path
+      redirect_back(fallback_location: works_path)
     else
       flash[:error] = "Did NOT downvote successfully"
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: works_path)
       return
     end
   end
@@ -63,10 +63,11 @@ class VotesController < ApplicationController
       return
     elsif vote.destroy
       flash[:success] = "Successfully deleted vote for #{vote.work.title}"
-      redirect_to votes_path
+      redirect_back(fallback_location: votes_path)
       return
     else
-      redirect_back(fallback_location: root_path)
+      flash[:error] = "Did NOT delete successfully"
+      redirect_back(fallback_location: votes_path)
     end
   end
 

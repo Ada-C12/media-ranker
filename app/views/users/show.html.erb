@@ -18,4 +18,35 @@
       </li>      
     </ul>
   </section>
+
+<% if @user.votes.count == 0 %>
+    <h4> <%= @user.username %> has no votes yet :( </h4>
+  <% else %>  
+    <section>
+      <h2>
+        <%= @user.votes.count %> has made <%= @user.votes.count %>
+      </h2>
+      <table>
+        <tr>
+          <td>TYPE</td>
+          <td>USER</td>
+          <td>DATE</td>
+        </tr>
+        <% @work.votes.each do |vote|%>
+          <tr>
+            <td><%= vote.vote_type %></td>
+            <td>
+              <%= link_to vote.user.username, user_path(vote.user_id)%>
+            </td>
+            <td><%= vote.created_at %></td>
+          </tr>
+        <% end%>
+      </table>
+    </section>
+  <% end %> 
+
+
+
+
+
 </main>

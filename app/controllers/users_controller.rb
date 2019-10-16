@@ -41,7 +41,7 @@ class UsersController < ApplicationController
       return
     elsif @user.update(user_params)
       flash[:success] = "#{@user.username} updated successfully"
-      redirect_to user_path(@user.id)
+      redirect_back(fallback_location: user_path(@user.id))
       return
     else
       flash.now[:error] = "Work NOT updated successfully"
@@ -53,16 +53,16 @@ class UsersController < ApplicationController
   def destroy
     user = User.find_by(id: params[:id])
     if user.nil?
-      head :not_found
+      redirect_to root_path
       return
     elsif user.destroy
       session[:user_id] = nil if session[:user_id] == user.id
       flash[:success] = "#{user.username} updated successfully"
-      redirect_to users_path
+      redirect_back(fallback_location: users_path)
       return
     else
       flash[:error] = "Work NOT deleted successfully"
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: users_path)
     end
   end
 
@@ -77,11 +77,16 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       flash[:success] = "Successfully logged in as returning user #{username}"
     else
-      user = User.create(username: username)
-      session[:user_id] = user.id
-      flash[:success] = "Successfully logged in as new user #{username}"
+      user = User.new(username: username)
+      if user.save
+        session[:user_id] = user.id
+        flash[:success] = "Successfully logged in as new user #{username}"
+        redirect_to root_path
+      else
+        flash[:error] = "Did NOT successfully log in new user"
+        render login_form_path
+      end
     end
-    redirect_to root_path
   end
 
   def logout
@@ -93,7 +98,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = "Did NOT successfully log out user"
-      redirect_to users_path
+      redirect_to root_path
     end
   end
 
@@ -101,13 +106,9 @@ class UsersController < ApplicationController
     @current_user = User.find_by(id: session[:user_id])
     unless @current_user
       flash[:error] = "You must be logged in to see this page"
-      redirect_to root_path
+      redirect_back(fallback_location: root_path)
     end
   end
-
-
-
-
 
   private
   def user_params

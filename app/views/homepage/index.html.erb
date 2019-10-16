@@ -12,47 +12,25 @@
   </section>
 
   <section id ="top-media-container">
+    
+    <% Work.categories.each do |category|%>
     <section class="top-media-sect">
-      <h2> Top Books</h1>
+      <h2> Top <%= category.capitalize %>s </h1>
       <ul>
-        <% Work.top_by_category(num:100, category:"book").each do |work| %>
+        <% Work.top_by_category(num:10, category:category).each do |work| %>
           <li>
             <h4>
               <%= link_to work.title, work_path(work.id) %>
               <small>by <%= work.creator %></small>
             </h4>
-            <p><%= work.votes.count %> votes</p>
+            <p><%= work.vote_count %> points - <%= work.votes.count %> votes</p>
+            <%= link_to "Upvote", work_upvote_path(work.id), method: :post, class: "vote-link" %>
+            <%= link_to "Downvote", work_downvote_path(work.id), method: :post, class: "vote-link" %>
           </li>
         <% end %>
       </ul> 
     </section>
-    <section class="top-media-sect">
-      <h2> Top Albums</h1>
-      <ul>
-        <% Work.top_by_category(num:10, category:"album").each do |work| %>
-          <li>
-            <h4>
-              <%= link_to work.title, work_path(work.id) %>
-              <small>by <%= work.creator %></small>
-            </h4>
-            <p><%= work.votes.count %> votes</p>
-          </li>
-        <% end %>
-      </ul> 
-    </section>
-    <section class="top-media-sect">
-      <h2> Top Movies</h1>
-      <ul>
-        <% Work.top_by_category(num:10, category:"movie").each do |work| %>
-          <li>
-            <h4>
-              <%= link_to work.title, work_path(work.id) %>
-              <small>by <%= work.creator %></small>
-            </h4>
-            <p><%= work.votes.count %> votes</p>
-          </li>
-        <% end %>
-      </ul> 
-    </section>
+    <% end %>
+  
   <section>
 </main>

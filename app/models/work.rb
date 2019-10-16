@@ -5,24 +5,28 @@ class Work < ApplicationRecord
   validates :description, presence: true
   validates :publication_year, presence: true
 
-  has_many :votes
+  has_many :votes, dependent: :destroy
 
   def self.categories
-    cats = {}
-    Work.all.each do |work|
-      if !cats[work.category]
-        cats[work.category] = true
+    cat_hash = {}
+    Work.all.order(:category).each do |work|
+      if !cat_hash[work.category]
+        cat_hash[work.category] = true
       end
     end
-    return cats.keys
+    return cat_hash.keys
+  end
+
+  def self.all_by_votes
+    return Work.all.order(vote_count: :desc)
   end
 
   def self.top_by_category(num:num, category:category)
-    return Work.where(category: category).order(title: :desc).first(num)
+    return Work.where(category: category).order(vote_count: :desc).first(num)
   end
   
   def self.top_work
-    return Work.all.order(title: :desc).first
+    return all_by_votes.first
   end
 
 end

@@ -10,7 +10,7 @@
         <td>EDIT</td>
         <td>DELETE</td>
       </tr>
-      <% User.all.each do |user| %>
+      <% User.all.order(:username).each do |user| %>
           <tr>
             <td><%= link_to user.username, user_path(user.id) %></td>
             <td><%= user.created_at %></td>

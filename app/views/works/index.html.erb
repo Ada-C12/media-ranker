@@ -14,7 +14,7 @@
         <td>EDIT</td>
         <td>DELETE</td>
       </tr>
-      <% Work.all.each do |work| %>
+      <% Work.all_by_votes.each do |work| %>
           <tr>
             <td><%= link_to "Upvote", work_upvote_path(work.id), method: :post, class: "vote-link" %></td>
             <td><%= link_to "Downvote", work_downvote_path(work.id), method: :post, class: "vote-link" %></td>            

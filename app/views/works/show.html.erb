@@ -1,7 +1,8 @@
 <main>
   <header class="show-header">
     <h1><%=@work.title%></h1>
-    <%= link_to "Vote", work_votes_path(@work.id), method: :post, class: "vote-link" %>
+    <%= link_to "Upvote", work_upvote_path(@work.id), method: :post, class: "vote-link" %>
+    <%= link_to "Downvote", work_downvote_path(@work.id), method: :post, class: "vote-link" %>            
     <%= link_to "Edit", edit_work_path(@work.id), class: "edit-link" %>
     <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
   </header>
@@ -24,8 +25,38 @@
         <strong class ="details-title">DESCRIPTION: </strong><%= @work.description %>
       </li>  
       <li> 
-        <strong class ="details-title"># VOTES: </strong><%= @work.vote_count%>
+        <strong class ="details-title"># POINTS: </strong><%= @work.vote_count%>
       </li>  
     </ul>
   </section>
+
+
+  <% if @work.votes.count == 0 %>
+    <h4> There are no votes for <%= @work.title %> yet :( </h4>
+  <% else %>  
+    <section>
+      <h2>
+        <%= @work.vote_count %> Points for <%= @work.title.capitalize %>
+      </h2>
+      <table>
+        <tr>
+          <td>TYPE</td>
+          <td>USER</td>
+          <td>DATE</td>
+        </tr>
+        <% @work.votes.each do |vote|%>
+          <tr>
+            <td><%= vote.vote_type %></td>
+            <td>
+              <%= link_to vote.user.username, user_path(vote.user_id)%>
+            </td>
+            <td><%= vote.created_at %></td>
+          </tr>
+        <% end%>
+      </table>
+    </section>
+  <% end %>  
+
+
 </main>
+
