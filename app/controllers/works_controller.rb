@@ -29,9 +29,7 @@ class WorksController < ApplicationController
   end
   
   def show
-    work_id = params[:id]
-    redirect_to user_path(id: work_id)
-    return
+    @work = Work.find_by(id: params[:id].to_i)
   end
   
   def edit

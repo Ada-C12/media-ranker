@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   
   resources :works
   
-  get 'votes', to: "votes#index"
+  # no pages for votes
 end
