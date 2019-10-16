@@ -1,7 +1,20 @@
 require "test_helper"
 
 describe UsersController do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  
+  describe "index" do
+    it "verifies that fixtures are running" do
+      assert_equal 8, User.count
+    end
+  end
+  
+  describe "new" do
+  end
+  
+  describe "create" do
+  end
+  
+  describe "show" do
+  end
+  
 end

@@ -5,9 +5,8 @@ require 'minitest/rails'
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/pride'
-​
+ 
 Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(:color => true)]
-
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
