@@ -19,12 +19,16 @@
 @import url('https://fonts.googleapis.com/css?family=Gudea&display=swap');
 
 * {
-  font-family: "Gudea", "sans-serif"
+  font-family: "Gudea", "sans-serif";
+  font-weight: bold;
 }
 
 .app-header__header {
   background-color: #B2DFDB;
   text-align: center;
+  max-width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 2rem 1rem 0.2rem 1rem;
 }
 
 .app-header__header h1 a {
@@ -35,10 +39,38 @@
   text-decoration: none;
 }
 
-.app-header__site-nav-container {
+.app-header__header h1 {
+  font-size: 2.5rem;
+}
+
+.app-header__header small {
+  color: white;
+}
+
+.app-header__nav {
+  padding-top: 25px;
+}
+
+// .app-header__site-nav-container {
+//   // display: flex;
+//   // flex-direction: row;
+//   // justify-content: space-between;
+// }
+
+nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.app-header__site-nav-container, .app-header__nav_item {
+  margin-right: 2rem;
+}
+
+.app-header__user-nav-container{
+  margin-left: 35rem;
 }
 
 .top-ten__container {
