@@ -45,6 +45,11 @@ body {
    background-color: #fff;
 }
 
+body a:hover {
+   text-decoration: none;
+   color: rgb(1, 107, 95);
+}
+
 .app-header__header h1 {
    text-align: center;
    margin: 25px auto 40px auto;
@@ -100,6 +105,10 @@ small {
    list-style: none;
 }
 
+.app-header__user-nav-container li:first-child{
+   padding-right: 2em;
+}
+
 ul {
    margin-top: 0;
 }
@@ -127,4 +136,14 @@ ul {
 .nav-link {
    display: block;
    padding: 0.5rem 1rem;
+}
+
+.btn-primary {
+   background-color: #26A69A;
+   color: white;
+   border-color: #26A69A;
+}
+
+.btn-primary:hover {
+   background-color: rgb(1, 107, 95);
 }

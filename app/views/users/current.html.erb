@@ -1,0 +1,35 @@
+<main>
+  <% if session[:user_id] %>
+    <h2>User Summary: <%=link_to @current_user.username, current_user_path %></h2>
+    <p>Joined site <%= @current_user.created_at.strftime("%b %d, %Y") %></p>
+    <section class="user-votes__container">
+      <h3 class="user-votes__header">Votes</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Media Title</th>
+            <th>Created By</th>
+            <th>Published</th>
+            <th>Category</th>
+            <th>Voted On</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%# votes.each do |vote| %>
+            <tr>
+              <td>vote.title</td>
+              <td>vote.creator</td>
+              <td>vote.publication_year</td>
+              <td>vote.category</td>
+              <td>vote.created_at.strftime("%b %d, %Y")</td>
+            </tr>
+          <%# end %>
+        </tbody>
+      </table>
+    </section>
+    <%= link_to "See all Users", users_path, class: "btn btn-secondary" %>
+    <%= link_to "Back to Media List", works_path, class: "btn btn-primary" %>
+  <% else %>
+    <p>Not logged in!</p>
+  <% end %>
+</main>

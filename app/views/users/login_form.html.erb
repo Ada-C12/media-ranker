@@ -1,11 +1,11 @@
-<% if @user.nil? %>
+<% if session[:user_id]%>
+  You are already logged in
+<% else %>
   <%= form_with model: @user, url: login_path do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>
 
     <%= f.submit "Log In" %>
   <% end %>
-
-<% else %>
-  You are already logged in
 <% end %>
+
