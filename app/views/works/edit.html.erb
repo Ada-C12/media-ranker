@@ -1,0 +1,23 @@
+
+<h1>Edit this <%=@work.category%></h1>
+
+<%=form_with model: @work, class: 'edit-work' do |f|%>
+  <%= f.label :category%>
+  <%= f.select :category, options_for_select(["album", "movie", "book"]) %>
+  <%# <%= f.text_field :category%>
+
+  <%= f.label :title%>
+  <%= f.text_field :title%>
+
+  <%= f.label :creator%>
+  <%= f.text_field :creator%>
+
+  <%= f.label :publication_year%>
+  <%= f.text_field :publication_year%>
+
+  <%= f.label :description%>
+  <%= f.text_field :description%>
+
+  <%= f.submit "Update Work", :class => "btn btn-primary"%>
+<%end%>
+

@@ -1,22 +1,75 @@
 <h1>List of Works</h1>
-<%="Albums"%>
 
 
-<br><%@albums.each do |album|%>
-  <%=album.title%> by <%=album.creator%>
-  <br>
-<%end%>
+<h2>Movies</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Votes</th>
+      <th scope="col">Title</th>
+      <th scope="col">Created By</th>
+      <th scope="col">Published</th>
+      <th scope="col">Upvote</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%@movies.each do |movie|%>
+    <tr>
+      <td>N/A</td>
+      <td><%= link_to movie.title, work_path(movie)%></td>
+      <td><%=movie.creator%></td>
+      <td><%=movie.publication_year%></td>
+      <td>N/A</td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
 
-<%="Books"%>
+<h2>Albums</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Votes</th>
+      <th scope="col">Title</th>
+      <th scope="col">Created By</th>
+      <th scope="col">Published</th>
+      <th scope="col">Upvote</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%@albums.each do |album|%>
+    <tr>
+      <td>N/A</td>
+      <td><%= link_to album.title, work_path(album)%></td>
+      <td><%=album.creator%></td>
+      <td><%=album.publication_year%></td>
+      <td>N/A</td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
 
-<br><%@books.each do |book|%>
-  <%=book.title%> by <%=book.creator%>
-  <br>
-<%end%>
+<h2>Books</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Votes</th>
+      <th scope="col">Title</th>
+      <th scope="col">Created By</th>
+      <th scope="col">Published</th>
+      <th scope="col">Upvote</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%@books.each do |book|%>
+    <tr>
+      <td>N/A</td>
+      <td><%= link_to book.title, work_path(book)%></td>
+      <td><%=book.creator%></td>
+      <td><%=book.publication_year%></td>
+      <td>N/A</td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
 
-<%="Movies"%>
-
-<br><%@movies.each do |movie|%>
-  <%=movie.title%> by <%=movie.creator%>
-  <br>
-<%end%>
