@@ -10,4 +10,10 @@ class Work < ApplicationRecord
     return top_category
   end
   
+  def self.spotlight
+    works = self.all 
+    spotlight = works.sample 
+    return spotlight
+  end
+  
 end

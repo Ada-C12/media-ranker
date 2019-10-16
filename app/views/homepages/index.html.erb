@@ -8,7 +8,8 @@
 <main>
 <section class="media_spotlight">
 <h2>Media Spotlight</h2>
-<span>Title: <%= @works[3].title%> <br>Creator: <%= @works[3].creator%>
+<span>Title: <% feature = Work.spotlight%>
+ <%= link_to feature.title, work_path(feature.id) %> <br>Creator: <%= feature.creator%>
 </span>
 </section>
 
