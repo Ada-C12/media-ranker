@@ -4,7 +4,6 @@ class WorksController < ApplicationController
     @works = Work.alpha_works 
   end
   
-  
   def show
     work_id = params[:id]
     @work = Work.find_by(id: work_id)

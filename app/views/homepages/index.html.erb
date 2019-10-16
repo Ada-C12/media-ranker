@@ -1,7 +1,10 @@
 <section class="spotlight">
 <h2 class="spotlight__header">
       <span class="spotlight__header--prefix">Media Spotlight</span>
-      <a class="spotlight__link-to" href="#"><%= @spotlight.title%></a> by <%= @spotlight.creator %>
+      <a class="spotlight__link-to" href="/works/<%= @spotlight.id %>">
+      <%=@spotlight.title%></a> by <%= @spotlight.creator %>
+
+
     </h2>
     <p class="spotlight__description">
       <%= @spotlight.description %>
