@@ -19,8 +19,7 @@ class WorksController < ApplicationController
   end 
 
   def create
-    @work = Work.create work_params
-    @works = Work.all 
+    @work = Work.create(work_params)
 
     if @work.save
       flash[:success] = "Work  #{@work.id} added succesfully!"

@@ -5,4 +5,10 @@
     <p>Published: <%=@work.publication_year%> </p>
     <p> <%=@work.description%> </p>
     <section>
+      <%= link_to "Back to media", root_path, class:"btn btn-info" %>
+      <%= link_to "Edit", edit_work_path(@work.id), class:"btn btn-info" %>
+    <%= link_to "Upvote", root_path, class:"btn btn-info" %>
+      <%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "are u suuure?"}, class:"btn btn-danger" %>
+    </section>
+   </section> 
 </main>
