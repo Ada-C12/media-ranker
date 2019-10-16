@@ -10,9 +10,36 @@
   </head>
 
   <body>
-    <p><%= link_to "View top media", main_path %></p>
-    <p><%= link_to "View all media", works_path %></p>
-    <p><%= link_to " Add a new work", new_work_path %></p>
+    <section style="background-color: #e3f2fd;">
+    <h1 class="display-4">MediaRanker</h1>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <%= link_to "View top media", main_path %></li>
+            </li>
+            <li class="nav-item">
+              <%= link_to "View all media", works_path %>
+            </li>
+            <li class="nav-item">
+              <%= link_to " Add a new work", new_work_path %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "View all users" %>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <button type="button" class="btn btn-outline-primary"><li><%= link_to "Log In" %></li></button>
+          </ul>
+        </div>
+      </nav>
+    </section>
+
     <%= yield %>
   </body>
 </html>
