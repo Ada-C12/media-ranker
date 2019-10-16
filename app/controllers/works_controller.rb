@@ -1,8 +1,16 @@
-class WorksController < ApplicationController
+require 'pry'
 
+class WorksController < ApplicationController
+    
+  before_action :find_work, only: [:show, :edit, :update]
 
     def index
         @works = Work.all
+
+        @musics = Work.sort_by_category("music")
+        @books = Work.sort_by_category("book")
+        @albums = Work.sort_by_category("album")
+        
     end
   
     def show
@@ -53,11 +61,24 @@ class WorksController < ApplicationController
         return
       end
     end
+
+    def spotlight
+    end
+
+    def topten
+    end
+
   
     private             
   
     def author_params
       return params.require(:work).permit(:name)
+    end
+
+    private
+
+    def find_work
+      @work = Work.find_by_id(params[:id])
     end
   
 end

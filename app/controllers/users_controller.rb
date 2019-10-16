@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  skip_before_action :determine_user, except: [:new, :create]
+
     def login_form
         @user = User.new
     end
@@ -31,15 +33,8 @@ class UsersController < ApplicationController
     def logout  
       # what if we are never logged in?
       session[:user_id] = nil
-      flash[:message] = "You have loggedout"
+      flash[:message] = "You have logged out"
       redirect_to root_path
     end
-
-
-
-
-
-
-
 
 end
