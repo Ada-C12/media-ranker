@@ -62,7 +62,7 @@ class WorksController < ApplicationController
     
     @work.destroy
     
-    redirect_to works_path
+    redirect_to root_path
     return
   end
   
