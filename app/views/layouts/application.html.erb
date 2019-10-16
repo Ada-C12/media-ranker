@@ -75,6 +75,16 @@
             </ul>
           <% end %>
 
+          <% if @vote && @vote.errors.any? %>
+            <ul>
+              <% @vote.errors.each do |column, message| %>
+                <li>
+                  <%= column %>: <%= message %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+
         </div>
       <% end %>
     </section>
