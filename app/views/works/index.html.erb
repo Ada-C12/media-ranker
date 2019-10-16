@@ -14,6 +14,7 @@
 <li> <%= link_to book.title, work_path(book) %>
 by
 <%= book.creator %>
+<%= button_to 'Upvote', upvote_path %>
 </li>
 <% end %>
 </ul>
