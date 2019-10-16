@@ -87,7 +87,7 @@ class UsersController < ApplicationController
         redirect_to root_path
       else
         flash[:error] = "Did NOT successfully log in new user"
-        render login_form_path
+        redirect_back(fallback_location: login_path)
       end
     end
   end

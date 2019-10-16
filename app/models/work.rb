@@ -3,10 +3,11 @@ class Work < ApplicationRecord
   validates :title, presence: true, uniqueness: {scope: :category}
   validates_length_of :title, minimum: 1, maximum: 150
   validates :creator, presence: true
-  validates_length_of :title, minimum: 1, maximum: 150
+  validates_length_of :creator, minimum: 1, maximum: 150
   validates :description, presence: true
-  validates_length_of :title, minimum: 1, maximum: 500
+  validates_length_of :description, minimum: 1, maximum: 350
   validates :publication_year, presence: true
+  validates :vote_count, presence: true
 
   has_many :votes, dependent: :destroy
 

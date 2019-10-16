@@ -22,12 +22,12 @@ class VotesController < ApplicationController
   end
 
   def upvote
-    work_id = params["work_id"]
-    user_id = session[:user_id]
-    @vote = Vote.new(work_id: work_id, user_id: user_id, vote_type: "upvote")
-    work = Work.find_by(id: work_id)
-    work.vote_count += 1
-    
+      work_id = params["work_id"]
+      user_id = session[:user_id]
+      @vote = Vote.new(work_id: work_id, user_id: user_id, vote_type: "upvote")
+      work = Work.find_by(id: work_id)
+      work.vote_count += 1 
+
     if @vote.save && work.save
       flash[:success] = "Successfully upvoted for #{work.title}"
       redirect_back(fallback_location: works_path)
