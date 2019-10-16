@@ -17,6 +17,9 @@
 /* Import scss content */
 @import "**/*";
 
+*{
+   font-family: 'Gudea', sans-serif;
+}
 
 .flex-container {
    display: flex;
@@ -29,10 +32,24 @@
    margin: 1rem;
 }
 
-.title{
+.navbar-right button{
+   margin-right: 1rem;
+}
+
+a:hover{
+   text-decoration: none;
+}
+
+.toptitle{
    text-align: center;
-   padding: 4rem;
-   padding-top: 5rem;
+   padding: 2rem;
+   padding-top: 4rem;
+   color: white;
+   a {
+      color: #FF5722;
+      font-weight: bolder;
+      font-size: 2.5rem;
+   }
 }
 
 .top-ten{
