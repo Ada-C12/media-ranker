@@ -30,8 +30,6 @@ class WorksController < ApplicationController
   
   def show
     work_id = params[:id]
-    redirect_to user_path(id: work_id)
-    return
   end
   
   def edit

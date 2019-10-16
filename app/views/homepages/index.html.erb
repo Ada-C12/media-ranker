@@ -2,7 +2,7 @@
 <section class="spotlight">
 <h2 class="spotlight__header">
 <span class="spotlight__header--prefix">Media Spotlight:</span>
-<span class="spotlight__link_to"><%= link_to @spotlight_winner.title, user_path(id: @spotlight_winner.id) %></span> by <%= @spotlight_winner.creator %>WTF!!! link for this media goes to User's show page, NOT Work's show page!!!
+<span class="spotlight__link_to"><%= link_to @spotlight_winner.title, work_path(id: @spotlight_winner.id) %></span> by <%= @spotlight_winner.creator %>
 </h2>
 <p class="spotlight__description"> # votes - abc?</p>
 </section>
