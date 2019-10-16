@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_16_191539) do
+ActiveRecord::Schema.define(version: 2019_10_16_201459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.integer "votes_casted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,7 +36,6 @@ ActiveRecord::Schema.define(version: 2019_10_16_191539) do
     t.string "creator"
     t.integer "published_year"
     t.string "description"
-    t.integer "votes_earned"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

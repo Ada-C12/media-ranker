@@ -18,7 +18,7 @@
           <h4><%= link_to piece.title, work_path(id: piece.id) %>
           <small class="top-ten__creator">by <%= piece.creator %></small>
           </h4>
-          <p># <%= piece.votes_earned %> votes</p>
+          <p># <%= piece.votes.count %> votes</p>
         </li>
       <% end %>
     </ul>
@@ -32,7 +32,7 @@
           <h4><%= link_to piece.title, work_path(id: piece.id) %>
           <small class="top-ten__creator">by <%= piece.creator %></small>
           </h4>
-          <p># <%= piece.votes_earned %> votes</p>
+          <p># <%= piece.votes.count %> votes</p>
         </li>
       <% end %>
     </ul>
@@ -46,7 +46,7 @@
           <h4><%= link_to piece.title, work_path(id: piece.id) %>
           <small class="top-ten__creator">by <%= piece.creator %></small>
           </h4>
-          <p># <%= piece.votes_earned %> votes</p>
+          <p># <%= piece.votes.count %> votes</p>
         </li>
       <% end %>
     </ul>

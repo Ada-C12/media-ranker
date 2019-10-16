@@ -10,9 +10,8 @@ class Work < ApplicationRecord
   
   def self.spotlight_winner
     winner = self.all.max_by do |piece| 
-      piece.votes_earned
+      piece.votes.count
     end
-    # return "TBD"
     return winner
   end
   
