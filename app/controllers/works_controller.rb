@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-  before_action :find_work, only: [:show, :edit]
+  before_action :find_work, only: [:show, :edit, :update]
 
   def index
     @books = Work.works_by_category("book")
@@ -28,6 +28,22 @@ class WorksController < ApplicationController
     
     flash.now[:error] = "Failed to create work!"
     render :new
+  end
+
+  def update
+    if @work
+      if @work.update(work_params)
+        flash[:success] = @work.title + " updated successfully!"
+        redirect_to work_path(@work.id)
+        return
+      else
+        flash.now[:error] = "Invalid input! Failed to update work"
+        render :edit
+        return
+      end
+    end
+    head :not_found
+    return
   end
 
   private
