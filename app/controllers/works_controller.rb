@@ -1,6 +1,9 @@
 class WorksController < ApplicationController
   def media_spotlight
-    
+    @work = Work.all.sample
+    @movies = Work.where(category: "movie").sample(10)
+    @books = Work.where(category: "book").sample(10)
+    @albums = Work.where(category: "album").sample(10)
   end
 
   def index
