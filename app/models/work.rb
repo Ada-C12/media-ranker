@@ -1,4 +1,5 @@
 class Work < ApplicationRecord
+  has_many :votes, dependent: :cascade
   validates :category, inclusion: { 
     in: %w(movie book album),
     message: "%{value} is not a valid category" 
