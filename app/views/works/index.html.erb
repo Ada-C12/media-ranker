@@ -6,17 +6,18 @@
     <thead>
     <%works = @works.where(category: "album")%>
       <tr>
-        <th scope="col">Votes</th>
+        <th scope="col" width="80">Votes</th>
         <th scope="col">Title</th>
         <th scope="col">Created By</th>
-        <th scope="col">Published</th>
+        <th scope="col" width="100">Published</th>
+        <th scope="col" width="100">Upvote</th>
       </tr>
     </thead>
     <tbody>
       <%works.each_with_index do |work, i|%>
         <tr>
           <th scope="row"><%=i%></th>
-          <td><%=work.title%></td>
+          <td><%=link_to work.title, work_path(work.id)%></td>
           <td><%=work.creator%></td>
           <td><%=work.publication_year%></td>
         </tr>
@@ -30,17 +31,18 @@
     <thead>
     <%works = @works.where(category: "book")%>
       <tr>
-        <th scope="col">Votes</th>
+        <th scope="col" width="80">Votes</th>
         <th scope="col">Title</th>
         <th scope="col">Created By</th>
-        <th scope="col">Published</th>
+        <th scope="col" width="100">Published</th>
+        <th scope="col" width="100">Upvote</th>
       </tr>
     </thead>
     <tbody>
       <%works.each_with_index do |work, i|%>
         <tr>
           <th scope="row"><%=i%></th>
-          <td><%=work.title%></td>
+          <td><%=link_to work.title, work_path(work.id)%></td>
           <td><%=work.creator%></td>
           <td><%=work.publication_year%></td>
         </tr>
@@ -55,20 +57,22 @@
     <thead>
     <%works = @works.where(category: "movie")%>
       <tr>
-        <th scope="col">Votes</th>
+        <th scope="col" width="80">Votes</th>
         <th scope="col">Title</th>
         <th scope="col">Created By</th>
-        <th scope="col">Published</th>
+        <th scope="col" width="100">Published</th>
+        <th scope="col" width="100">Upvote</th>
       </tr>
     </thead>
     <tbody>
       <%works.each_with_index do |work, i|%>
         <tr>
           <th scope="row"><%=i%></th>
-          <td><%=work.title%></td>
+          <td><%=link_to work.title, work_path(work.id)%></td>
           <td><%=work.creator%></td>
           <td><%=work.publication_year%></td>
         </tr>
       <%end%>
     </tbody>
-  </table></section>
+  </table>
+</section>

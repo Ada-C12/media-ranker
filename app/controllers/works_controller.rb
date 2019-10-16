@@ -50,7 +50,7 @@ class WorksController < ApplicationController
       return
     else
       flash.now[:error] = "Unable to update media"
-      reder :edit
+      render :edit
       return
     end
   end
