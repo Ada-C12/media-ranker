@@ -29,6 +29,31 @@ class WorksController < ApplicationController
       return
     end
   end
+
+  def edit
+    @work = Work.find_by(id: params[:id])
+    if @work.nil?
+      redirect_to edit_work_path
+      return
+    end
+  end
+
+  def update
+    @work = Work.find_by(id: params[:id])
+    if @work.nil?
+      redirect_to works_path
+      return
+    end
+    if @work.update(work_params)
+      flash[:success] = "Media edited successfully!"
+      redirect_to work_path(@work.id)
+    else
+      flash.now[:failure] = "Media failed to update!"
+      render :edit
+      return
+    end
+  end
+
   private
   def work_params
     return params.require(:work).permit(:title, :creator, :category, :release_date, :description)

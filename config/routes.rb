@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :works, except: [:edit, :update, :destroy]
+  resources :works
 
   resources :users, except: [:destroy, :update, :edit]
 
