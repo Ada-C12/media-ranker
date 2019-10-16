@@ -1,4 +1,6 @@
 class WorksController < ApplicationController
+  before_action :find_work, only: [:show, :edit]
+
   def index
     @books = Work.works_by_category("book")
     @movies = Work.works_by_category("movie")
@@ -6,7 +8,6 @@ class WorksController < ApplicationController
   end
   
   def show
-    @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
       return
@@ -28,10 +29,14 @@ class WorksController < ApplicationController
     flash.now[:error] = "Failed to create work!"
     render :new
   end
-  
+
   private
   
   def work_params
     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+  end
+
+  def find_work
+    @work = Work.find_by(id: params[:id])
   end
 end

@@ -2,3 +2,5 @@
 <p>Created by: <%= @work.creator%></p>
 <p>Published: <%= @work.publication_year%></p>
 <p><%= @work.description%></p>
+
+<%=link_to "Edit work", edit_work_path(@work.id)%>
