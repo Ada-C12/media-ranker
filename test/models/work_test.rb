@@ -62,5 +62,35 @@ describe Work do
     end
   end
 
-  describe " "
+  describe "custom methods" do
+    describe "self.spotlight" do
+
+      it "will return the work with the most votes" do
+
+      end
+
+      it "will return the first work in the event of a tie" do
+
+      end
+
+      it "will return and empty array if there are no works" do
+
+      end
+
+    end
+
+    describe "self.top_ten" do
+
+      it "will return the ten works with the most votes in that category" do
+
+      end
+
+      it "will return an empty array if there are no works in that category" do
+
+      end
+
+    end
+
+
+  end
 end
