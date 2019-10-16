@@ -1,35 +1,15 @@
 <main>
   <header class="show-header">
-    <h1><%=@work.title%></h1>
+    <h1><%= @work.category.capitalize %> | <%= @work.title %> </h1>
+    <h4>by <%= @work.creator %> (<%= @work.publication_year %>)</h4>
+    <p><%= @work.vote_count %> Points - <%= @work.votes.count %> Votes </p>
+    <p><%= @work.description %></p>
+
     <%= link_to "Upvote", work_upvote_path(@work.id), method: :post, class: "vote-link" %>
     <%= link_to "Downvote", work_downvote_path(@work.id), method: :post, class: "vote-link" %>            
     <%= link_to "Edit", edit_work_path(@work.id), class: "edit-link" %>
     <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
   </header>
-
-  <section class="show-details">
-    <ul>
-      <li>
-        <strong class ="details-title">CATEGORY: </strong><%= @work.category %>
-      </li>
-      <li> 
-        <strong class ="details-title">TITLE: </strong><%= @work.title %>
-      </li>
-      <li> 
-        <strong class ="details-title">CREATOR: </strong><%= @work.creator %>
-      </li>
-      <li> 
-        <strong class ="details-title">PUBLICATION YEAR: </strong><%= @work.publication_year %>
-      </li>              
-      <li> 
-        <strong class ="details-title">DESCRIPTION: </strong><%= @work.description %>
-      </li>  
-      <li> 
-        <strong class ="details-title"># POINTS: </strong><%= @work.vote_count%>
-      </li>  
-    </ul>
-  </section>
-
 
   <% if @work.votes.count == 0 %>
     <h4> There are no votes for <%= @work.title %> yet :( </h4>

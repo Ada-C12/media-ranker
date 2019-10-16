@@ -75,12 +75,13 @@ class UsersController < ApplicationController
     user = User.find_by(username: username)
     if user
       session[:user_id] = user.id
-      flash[:success] = "Successfully logged in as returning user #{username}"
+      flash[:success] = "Welcome back #{username}! You are successfully logged in."
+      redirect_to root_path
     else
       user = User.new(username: username)
       if user.save
         session[:user_id] = user.id
-        flash[:success] = "Successfully logged in as new user #{username}"
+        flash[:success] = "Welcome to MediaRanker #{username}! You are successfully logged in."
         redirect_to root_path
       else
         flash[:error] = "Did NOT successfully log in new user"
