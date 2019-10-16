@@ -12,7 +12,7 @@ class Work < ApplicationRecord
     winner = self.all.max_by do |piece| 
       piece.votes_earned
     end
-    return "TBD"
+    # return "TBD"
     return winner
   end
   

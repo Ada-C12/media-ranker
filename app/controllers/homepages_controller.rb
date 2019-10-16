@@ -10,7 +10,7 @@ class HomepagesController < ApplicationController
   end
   
   def nope
-    # temporary dumpign ground
+    # temporary dumping ground
   end
   
 end
