@@ -1,0 +1,20 @@
+<%= form_with model: @work, class: "work_form_class" do |f| %>
+  <section class="form-control">
+    <%= f.select :category, %w[album book movie] %>
+  </section>
+  <section class="form-group" class="form-control" >
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :creator %>
+  <%= f.text_field :creator %>
+
+  <%= f.label :publication_year %>
+  <%= f.text_field :publication_year %>
+
+  <%= f.label :publication_year %>
+  <%= f.text_field :publication_year %>
+
+  <%= f.submit "Create", class:"btn btn-primary" %>
+<% end %>
+</section>
