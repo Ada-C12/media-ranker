@@ -1,11 +1,39 @@
+<main>
+<section>
+  <h2><%= @work.title %></h2>
+  <p>Created by: <%= @work.creator %></p>
+  <p>Published: <%= @work.published_year%></p>
+  <p><%= @work.description %></p>
 
-<h1>SHOW PAGE</h1>
-<%= @work.category%><br>
-<%= @work.title %><br>
+  <section>
+    <a class="btn btn-primary" href="/">Back to Media Ranks</a>
+    <a class="btn btn-primary" href="/homepages/nope">Edit - go to works/:id/edit.html</a>
+    <a class="btn btn-primary" href="/homepages/nope">Upvote - still figuring out</a>
+    <a class="btn btn-danger" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/">Delete - go to works/id: show</a>
+  </section>
+</section>
 
-<%= @work.creator %><br>
-<%= @work.published_year%><br>
-<%= @work.description %><br>
-<%= @work.votes_earned %><br>
-<%= @work.votes.class %><br>
+<section class="works-votes__container">
+  <h3 class="works-votes__header"><%= @work.votes.count %> Votes for this <%= @work.category %></h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+
+    <%# HERE are all the people who voted for this piece %>
+    <tbody>
+      <tr>
+        <td>voter name PLUS link to voter#show</td>
+        <td>vote creation date, use display_date()</td>
+      </tr>
+    </tbody>
+</table>
+</section>
+
+</main>
+
+
 
