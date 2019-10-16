@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-  before_action :find_work, only: [:show, :edit, :destroy]
+  before_action :find_work, only: [:show, :edit, :update, :destroy]
   
   def index
     @everything = Work.all_categories
@@ -36,6 +36,16 @@ class WorksController < ApplicationController
   end
   
   def update
+    # @work via before_action
+    if @work.update(form_params)
+      flash[:success] = "Successfully updated #{@work.title}"
+      redirect_to work_path(id: @work.id)
+      return
+    else
+      flash.now[:error] = "Failed to update #{@work.title}"
+      render action: "edit"
+      return
+    end
   end
   
   def destroy
