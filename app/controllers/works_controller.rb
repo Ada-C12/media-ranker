@@ -54,9 +54,16 @@ class WorksController < ApplicationController
   
   def upvote
     current_user = User.find_by(id: session[:user_id])
-    work = Work.find_by(id: params[:id])
+    current_work = Work.find_by(id: params[:id])
+    
+    if Vote.where(work_id: current_work.id).length != 0
+      flash[:error] = "You may only vote for this media once."
+      redirect_to work_path(current_work)
+      return
+    end
+    
     if current_user
-      vote = Vote.new(user_id: current_user.id, work_id: work.id)
+      vote = Vote.new(user_id: current_user.id, work_id: current_work.id)
       if vote.save
         flash[:success] = "Successfully Upvoted!"
       else
@@ -66,7 +73,7 @@ class WorksController < ApplicationController
       flash[:error] = "You must be logged in to perform this action."
     end
     
-    redirect_to work_path(work)
+    redirect_to work_path(current_work)
   end
   
   private
