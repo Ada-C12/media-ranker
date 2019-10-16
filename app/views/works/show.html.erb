@@ -1,6 +1,7 @@
 <main>
   <header class="show-header">
     <h1><%=@work.title%></h1>
+    <%= link_to "Vote", work_votes_path(@work.id), method: :post, class: "vote-link" %>
     <%= link_to "Edit", edit_work_path(@work.id), class: "edit-link" %>
     <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
   </header>

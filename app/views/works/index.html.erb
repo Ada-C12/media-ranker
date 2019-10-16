@@ -4,7 +4,9 @@
   <section>
     <table>
       <tr class='table-header'>
-        <td>VOTE</td>
+        <td>UPVOTE</td>
+        <td>DOWNVOTE</td>
+        <td>VOTES</td>
         <td>CATEGORY</td>
         <td>TITLE</td>
         <td>CREATOR</td>
@@ -14,7 +16,9 @@
       </tr>
       <% Work.all.each do |work| %>
           <tr>
-            <td><%= link_to "Vote", work_votes_path(work.id), method: :post, class: "vote-link" %></td>
+            <td><%= link_to "Upvote", work_upvote_path(work.id), method: :post, class: "vote-link" %></td>
+            <td><%= link_to "Downvote", work_downvote_path(work.id), method: :post, class: "vote-link" %></td>            
+            <td><%= work.vote_count %></td>
             <td><%= work.category %></td>
             <td><%= link_to work.title, work_path(work.id) %></td>
             <td><%= work.creator %></td>
