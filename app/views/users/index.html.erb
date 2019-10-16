@@ -1,11 +1,25 @@
-<h1>Users#index</h1>
+<main>
+  <h2>List of Users</h2>
 
-ID(DELETE later)... USERNAME... VOTES... JOINED
-<br>
-<% @users.each do |user| %>
-  ID #<%= user.id %>...
-  <%= link_to user.name, user_path(id: user.id) %>...
-  <%= user.votes_casted %>...
-  <%= display_date(user.created_at) %>
-  <br>
-<% end %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>USERNAME</th>
+        <th>VOTES</th>
+        <th>JOINED</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, user_path(id: user.id) %></td>
+        <td><%= user.votes.count %></td>
+        <td><%= display_date(user.created_at) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <a class="btn btn-secondary" href="/">Back to Media List</a>
+</main>
