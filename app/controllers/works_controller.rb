@@ -12,4 +12,8 @@ class WorksController < ApplicationController
       return
     end
   end
+
+  def new
+    @work = Work.new
+  end
 end
