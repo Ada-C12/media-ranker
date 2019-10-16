@@ -1,0 +1,8 @@
+This is the Works Index
+
+<%= link_to "Create a work", new_work_path %> 
+
+
+<% @works.each do |work|  %>
+  <%= link_to work.name, work_path(work) %> 
+<% end %>
