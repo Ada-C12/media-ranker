@@ -17,16 +17,69 @@
       </thead>
 
       <tbody>
+        <% @all_movies.each do |piece|%>
         <tr>
-          <td>#votes</td>
-          <td>title PLUS link</td>
-          <td>data here</td>
-          <td>data here</td>
-          <td>
-            <a class="btn btn-primary" rel="nofollow" data-method="post" href="/">UPVOTE BUTTON</a></td>
+          <td><%= piece.votes_earned %></td>
+          <td><%= piece.title %>PLUS link</td>
+          <td><%= piece.creator %></td>
+          <td><%= piece.published_year %></td>
+          <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/homepages/nope_path">UPVOTE BUTTON</a></td>
         </tr>
-
+        <% end %>
       </tbody>
+
+    </table>
+
+    <h4>Books</h4>
+    <table class="table">
+      <thead>
+      <tr>
+        <th width="80">Votes</th>
+        <th>Title</th>
+        <th>Created By</th>
+        <th width="100">Published</th>
+        <th width="100">Upvote</th>
+      </tr>
+      </thead>
+
+      <tbody>
+        <% @all_books.each do |piece|%>
+        <tr>
+          <td><%= piece.votes_earned %></td>
+          <td><%= piece.title %>PLUS link</td>
+          <td><%= piece.creator %></td>
+          <td><%= piece.published_year %></td>
+          <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/homepages/nope_path">UPVOTE BUTTON</a></td>
+        </tr>
+        <% end %>
+      </tbody>
+
+    </table>
+
+    <h4>Movies</h4>
+    <table class="table">
+      <thead>
+      <tr>
+        <th width="80">Votes</th>
+        <th>Title</th>
+        <th>Created By</th>
+        <th width="100">Published</th>
+        <th width="100">Upvote</th>
+      </tr>
+      </thead>
+
+      <tbody>
+        <% @all_books.each do |piece|%>
+        <tr>
+          <td><%= piece.votes_earned %></td>
+          <td><%= piece.title %>PLUS link</td>
+          <td><%= piece.creator %></td>
+          <td><%= piece.published_year %></td>
+          <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/homepages/nope_path">UPVOTE BUTTON</a></td>
+        </tr>
+        <% end %>
+      </tbody>
+
     </table>
   </section>
 
@@ -36,47 +89,3 @@
   <a class="btn btn-primary" href="/works/new">Add a new work</a>
 </main>
 
-
-<hr>
-ALBUMS<br>
-<% if @albums %>
-  <%= @albums.each do |movie|%>
-    <%= album.votes %>
-    <%= album.title %>
-    <%= album.creator %>
-    <%= album.published_year %>
-    <%= link_to "FIX UPVOTE BUTTON", root_path %>
-  <% end %>
-<% else %>
-  NO ALBUMS
-<% end %>
-
-
-<hr>
-BOOKS<br>
-<% if @books %>
-  <%= @books.each do |movie|%>
-    <%= book.votes %>
-    <%= book.title %>
-    <%= book.creator %>
-    <%= book.published_year %>
-    <%= link_to "FIX UPVOTE BUTTON", root_path %>
-  <% end %>
-<% else %>
-  NO BOOKS
-<% end %>
-
-
-<hr>
-MOVIES<br>
-<% if @movies %>
-  <% @movies.all.each do |movie|%>
-    <%= movie.votes_earned %>
-    <%= movie.title %>
-    <%= movie.creator %>
-    <%= movie.published_year %>
-    <%= link_to "FIX UPVOTE BUTTON", root_path %>
-  <% end %>
-<% else %>
-  NO MOVIES
-<% end %>

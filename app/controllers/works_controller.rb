@@ -1,8 +1,11 @@
 class WorksController < ApplicationController
   
   def index
-    @works = "Work.all but not implemented yet"
-    @spotlight_winner = "DO THIS IN WORKS MODEL???"
+    @everything = Work.all_categories
+    @all_movies = Work.all_movies(@everything)
+    @all_books = Work.all_books(@everything)
+    @all_albums = Work.all_albums(@everything)
+    @spotlight_winner = Work.spotlight_winner
   end
   
   def new
