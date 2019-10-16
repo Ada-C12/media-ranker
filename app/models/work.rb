@@ -1,5 +1,13 @@
 class Work < ApplicationRecord
-
-  #top 10 votes by category
+  validates :category, presence: true
+  validates :title, presence: true
+  validates :creator, presence: true
+  validates :publication_year, presence: true
+  
+  def self.top_category(category)
+    works = self.all 
+    top_category = Work.where(category: category)
+    return top_category
+  end
   
 end

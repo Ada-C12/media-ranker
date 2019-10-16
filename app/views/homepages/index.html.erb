@@ -16,11 +16,11 @@
 <h2>Top Movies</h2>
 <div>
 <% @works.each do |work| %>
-  <% if work.category == "movie"%>
-  <p><%= work.title %> by <%= work.creator%></p>
-  <br>
+    <% if work.category == "movie"%>
+    <p><%= link_to work.title, work_path(work.id)%> by <%= work.creator%></p>
+    <br>
+    <% end %>
   <% end %>
-<% end %>
 </div>
 </section>
 
@@ -29,7 +29,7 @@
 <div>
   <% @works.each do |work| %>
     <% if work.category == "book"%>
-    <p><%= link_to work.title, work_path(work.id)%>by <%= work.creator%></p>
+    <p><%= link_to work.title, work_path(work.id)%> by <%= work.creator%></p>
     
     <br>
     <% end %>
@@ -39,12 +39,14 @@
 
 <section>
 <h2>Top Albums</h2>
+<div>
   <% @works.each do |work| %>
-    <% if work.category == "album" %>
-    <p><%= work.title %> by <%= work.creator%></p>
+    <% if work.category == "book"%>
+    <p><%= link_to work.title, work_path(work.id)%> by <%= work.creator%></p>
     <br>
     <% end %>
   <% end %>
+</div>
 </section>
 
 </main>
