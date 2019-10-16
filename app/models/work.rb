@@ -8,4 +8,8 @@ class Work < ApplicationRecord
   def self.top_ten category
     self.where(category: category).take 10
   end
+
+  def categories
+    [:album, :book, :movie]
+  end
 end

@@ -1578,3 +1578,175 @@ Processing by WorksController#index as HTML
 Completed 200 OK in 86ms (Views: 81.9ms | ActiveRecord: 1.6ms)
 
 
+Started GET "/works" for ::1 at 2019-10-16 09:11:18 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (12.7ms)
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (1.7ms)
+  [1m[36mWork Load (0.9ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movies"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (1.6ms)
+  Rendered works/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 108ms (Views: 93.4ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/works" for ::1 at 2019-10-16 09:11:20 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (5.9ms)
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (2.2ms)
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movies"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (1.4ms)
+  Rendered works/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 90ms (Views: 86.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/works" for ::1 at 2019-10-16 09:11:23 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (6.6ms)
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (2.8ms)
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movies"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (1.5ms)
+  Rendered works/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 114ms (Views: 108.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 09:11:24 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (6.3ms)
+  Rendered works/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 82ms (Views: 73.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/works" for ::1 at 2019-10-16 09:11:29 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (5.8ms)
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (1.7ms)
+  [1m[36mWork Load (2.9ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movies"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (6.4ms)
+  Rendered works/index.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 78ms (Views: 70.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 09:11:32 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (1.1ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (0.6ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.6ms)
+  Rendered works/_list.html.erb (0.7ms)
+  Rendered works/_list.html.erb (0.9ms)
+  Rendered works/main.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 77ms (Views: 59.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/works" for ::1 at 2019-10-16 09:11:34 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (4.6ms)
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (1.8ms)
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movies"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (0.9ms)
+  Rendered works/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 77ms (Views: 73.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 09:11:35 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (1.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.5ms)
+  Rendered works/_list.html.erb (0.9ms)
+  Rendered works/_list.html.erb (1.4ms)
+  Rendered works/main.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 94ms (Views: 82.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/works" for ::1 at 2019-10-16 09:12:23 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (3.1ms)
+  [1m[36mWork Load (1.7ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (5.9ms)
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movies"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (1.2ms)
+  Rendered works/index.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 75ms (Views: 68.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 09:12:25 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (3.4ms)
+  Rendered works/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 88ms (Views: 86.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 10:55:53 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (1.0ms)
+  Rendered works/new.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 7.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tIVAR, expecting ')'
+...pend=( f.select :category @work.categories.map {|w| [w, w]} ...
+...                          ^~~~~:
+  app/views/works/_form.html.erb:4:in `'
+  app/views/works/new.html.erb:3:in `_app_views_works_new_html_erb__634727886125844050_70324808464060'
+
+Started POST "/__better_errors/467d677904f39b45/variables" for ::1 at 2019-10-16 10:55:53 -0700
+Started GET "/works/new" for ::1 at 2019-10-16 10:56:12 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (5.7ms)
+  Rendered works/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 77ms (Views: 75.1ms | ActiveRecord: 0.0ms)
+
+
