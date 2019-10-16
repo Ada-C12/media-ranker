@@ -1,18 +1,14 @@
 class WorksController < ApplicationController
+  before_action :find_work, only: [:show, :edit, :update, :destroy]
+  before_action :if_work_missing, only: [:show, :edit, :destroy]
+  
   def index
     @albums = Work.where(category: "album")
     @movies = Work.where(category: "movie")
     @books = Work.where(category: "book")
   end
   
-  def show
-    @work = Work.find_by(id: params[:id])
-    
-    if @work.nil?
-      redirect_to root_path
-      return
-    end
-  end
+  def show; end
   
   def new
     @work = Work.new
@@ -29,17 +25,9 @@ class WorksController < ApplicationController
     end
   end
   
-  def edit
-    @work = Work.find_by(id: params[:id])
-    
-    if @work.nil?
-      head :not_found
-      return
-    end
-  end
+  def edit; end
   
   def update
-    @work = Work.find_by(id: params[:id])
     if @work.update(work_params)
       redirect_to work_path(@work)
       return
@@ -50,13 +38,6 @@ class WorksController < ApplicationController
   end
   
   def destroy
-    @work = Work.find_by(id: params[:id])
-    
-    if @work.nil?
-      redirect_to works_path
-      return
-    end
-    
     @work.destroy
     
     redirect_to works_path
@@ -73,6 +54,19 @@ class WorksController < ApplicationController
   
   def work_params
     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+  end
+  
+  def find_work
+    @work = Work.find_by(id: params[:id])
+  end
+  
+  
+  def if_work_missing
+    if @work.nil?
+      flash[:error] = "Work #{work.title} was not found."
+      redirect_to root_path
+      return
+    end
   end
   
 end
