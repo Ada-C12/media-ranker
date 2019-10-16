@@ -50,6 +50,15 @@ class WorksController < ApplicationController
   
   def destroy
     # @work via before_action
+    if @work.destroy
+      flash[:success] = "Successfully deleted #{@work.title}"
+      redirect_to root_path
+      return
+    else
+      flash[:error] = "Deletion failed for some reason"
+      render
+      return
+    end
   end
   
   private

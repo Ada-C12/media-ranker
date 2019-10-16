@@ -10,7 +10,7 @@
     <button class="btn btn-primary"><%= link_to "Edit", edit_work_path(id: @work.id) %></button>
 
     <%# <button class="btn btn-primary"><%= link_to "UPVOTE??!!", method: "post", work_create_vote_path(work_id: @work.id) %></button> %>
-    <%# <button class="btn btn-danger"><%= link_to "Delete", method: :destroy, work_path(work_id: @work_id), data: { confirm: "Are you sure?" } %></button> %>
+    <button class="btn btn-danger"><%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" } %></button>
   </section>
 </section>
 
