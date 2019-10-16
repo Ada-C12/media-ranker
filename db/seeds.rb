@@ -9,12 +9,12 @@
 
 require 'csv'
 
-FILE = Rails.root.join('db', 'seed_data', 'media_seeds.csv')
-puts "Loading raw driver data from #{FILE}"
+FILE = Rails.root.join('db', 'media_seeds.csv')
+puts "Loading raw data from #{FILE}"
 
 failures = []
 
-CSV.foreach(DRIVER_FILE, :headers => true) do |row|
+CSV.foreach(FILE, :headers => true) do |row|
   work = Work.new
   
   invalid_category = nil
