@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MediaRanker</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>Media Ranker 2.0</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body> 
+    <header class="app-header__header">
+  
+      <h1>
+        <%=link_to "Dani's Media Ranker", root_path %>
+        <small>Ranking books, albums and movies</small>
+      </h1>
+
+      <nav class="app-header__nav">
+        <ul class="nav app-header__site-nav-container">
+          <li class="nav-item app-header__nav_item">
+            <%=link_to "Top media", root_path %>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <%=link_to "All media", works_path %>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <%=link_to "Add work" %>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <%=link_to "All users" %>
+          </li>
+        </ul>        
+  
+        <ul class="nav app-header__user-nav-container">
+          <li class="nav-item app-header__nav_item">
+            <a class="btn btn-primary" href="/login">Log In</a>
+          </li>
+        </ul>
+  
+      </nav>
+    </header>
+
     <%= yield %>
   </body>
 </html>

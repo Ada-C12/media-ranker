@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+  </head>
+
+<body>
+  <main>
+    <section class="spotlight">
+      <h2 class="spotlight__header">
+        <span class="spotlight__header--prefix">Media Spotlight</span>
+        <a class="spotlight__link-to" href="/works/484">POODR: how to be a bike mechanic for Rubyists</a> by Sandi Metz
+      </h2>
+      <p class="spotlight__description">
+        8 votes - Metz also wants you to buy 99 bottles
+      </p>
+    </section>
+
+    <hr class="root__hr">
+
+    <section class="top-ten__container">
+      <section class="top-ten__list-container">
+        <h2 class="top-ten__header">
+          All Media
+        </h2>
+        
+            <ul class="list-group top-ten__list">
+              <% @works.each do |work| %>
+              <li class="list-group-item">
+              <h4>
+                <li><%= work.title%>
+                <small class="top-ten__creator"> by <%=work.creator%></small>         
+              </h4>
+              <%# <p> votes</p> %>
+              <br>
+              <%end %>
+            </ul>
+            
+            
+<%#              
+      <section class="top-ten__list-container">
+        <h2 class="top-ten__header">
+          Top Books
+        </h2>
+        <ul class="list-group top-ten__list">
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/484">POODR: how to be a bike mechanic for Rubyists</a>
+              <small class="top-ten__creator">by Sandi Metz</small>
+            </h4>
+            <p>8 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/297">Golden Compass</a>
+              <small class="top-ten__creator">by Philip Pullman</small>
+            </h4>
+            <p>3 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/397">The Martian</a>
+              <small class="top-ten__creator">by Andy Weir</small>
+            </h4>
+            <p>2 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/323">Heart Mug </a>
+              <small class="top-ten__creator">by </small>
+            </h4>
+            <p>2 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/250">Major Equinox</a>
+              <small class="top-ten__creator">by Queen Satterfield</small>
+            </h4>
+            <p>2 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/380">Perfume</a>
+              <small class="top-ten__creator">by Patrick S�skind</small>
+            </h4>
+            <p>1 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/285">Beloved</a>
+              <small class="top-ten__creator">by Toni Morrison</small>
+            </h4>
+            <p>1 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/247">Green Forrester</a>
+              <small class="top-ten__creator">by Raquel Hirthe</small>
+            </h4>
+            <p>1 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/495">A Man Called Ove </a>
+              <small class="top-ten__creator">by </small>
+            </h4>
+            <p>0 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/491">Heart Mug</a>
+              <small class="top-ten__creator">by </small>
+            </h4>
+            <p>0 votes</p>
+          </li>
+        </ul>
+        <!-- <a href="/works.books">View More Books</a> -->
+      </section>
+
+      <section class="top-ten__list-container">
+        <h2 class="top-ten__header">
+          Top Albums
+        </h2>
+        <ul class="list-group top-ten__list">
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/432">Lemonade</a>
+              <small class="top-ten__creator">by Beyonce</small>
+            </h4>
+            <p>6 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/395">Middle Of Nowhere</a>
+              <small class="top-ten__creator">by Hanson</small>
+            </h4>
+            <p>2 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/341">Happy Toes 3</a>
+              <small class="top-ten__creator">by Disney</small>
+            </h4>
+            <p>2 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/392">Potatoes for days</a>
+              <small class="top-ten__creator">by </small>
+            </h4>
+            <p>1 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/347">ngoc</a>
+              <small class="top-ten__creator">by </small>
+            </h4>
+            <p>1 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/482">haha</a>
+              <small class="top-ten__creator">by </small>
+            </h4>
+            <p>1 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/429">title3</a>
+              <small class="top-ten__creator">by </small>
+            </h4>
+            <p>1 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/423">ohaht</a>
+              <small class="top-ten__creator">by </small>
+            </h4>
+            <p>1 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/490">Dark Side of the Moon</a>
+              <small class="top-ten__creator">by Pink Floyd</small>
+            </h4>
+            <p>1 votes</p>
+          </li>
+          <li class="list-group-item">
+            <h4>
+              <a href="/works/476">To Thrill a Mockingbird</a>
+              <small class="top-ten__creator">by </small>
+            </h4>
+            <p>1 votes</p>
+          </li>
+        </ul>
+        <!-- <a href="/works.albums">View More Albums</a> -->
+      </section> %> %>
+    </main>
+  </body>
+</html>
