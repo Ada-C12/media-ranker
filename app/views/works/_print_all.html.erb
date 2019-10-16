@@ -1,0 +1,13 @@
+<h2>All <%= category_name %></h2>
+<ul>
+  <% method_name.each do |work| %>
+  <li> Title: <%= link_to work.title, work_path(work.id) %> </li>
+    <ul>
+      <li> Category: <%= work.category %> </li>
+      <li> Created by: <%= work.creator %> </li>
+      <li> Publication Year: <%= work.publication_year %> </li>
+      <li> Description: <%= work.description %> </li>
+    </ul>
+  <% end %>
+</ul>
+

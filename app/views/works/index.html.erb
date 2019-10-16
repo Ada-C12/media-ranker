@@ -3,47 +3,10 @@
 
 <%= render partial: "homepages/nav" %>
 
-<h2>All Albums</h2>
-<ul>
-  <% @all_albums.each do |work| %>
-  <li> Title: <%= link_to work.title, work_path(work.id) %> </li>
+<%= render partial: "print_all", locals: {category_name: "Albums", method_name: @all_albums} %>
 
-  <ul>
-    <li> Category: <%= work.category %> </li>
-    <li> Created by: <%= work.creator %> </li>
-    <li> Publication Year: <%= work.publication_year %> </li>
-    <li> Description: <%= work.description %> </li>
-  </ul>
-  <% end %>
-</ul>
+<%= render partial: "print_all", locals: {category_name: "Books", method_name: @all_books} %>
 
-<h2>All Books</h2>
-<ul>
-  <% @all_books.each do |work| %>
-  <li> Title: <%= link_to work.title, work_path(work.id) %> </li>
-
-  <ul>
-    <li> Category: <%= work.category %> </li>
-    <li> Created by: <%= work.creator %> </li>
-    <li> Publication Year: <%= work.publication_year %> </li>
-    <li> Description: <%= work.description %> </li>
-  </ul>
-  <% end %>
-</ul>
-
-<h2>All Movies</h2>
-<ul>
-  <% @all_movies.each do |work| %>
-  <li> Title: <%= link_to work.title, work_path(work.id) %> </li>
-
-  <ul>
-    <li> Category: <%= work.category %> </li>
-    <li> Created by: <%= work.creator %> </li>
-    <li> Publication Year: <%= work.publication_year %> </li>
-    <li> Description: <%= work.description %> </li>
-  </ul>
-  <% end %>
-</ul>
-
+<%= render partial: "print_all", locals: {category_name: "Movies", method_name: @all_movies} %>
 
 
