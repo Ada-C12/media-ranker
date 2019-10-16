@@ -1,0 +1,18 @@
+eggs:
+  category: book
+  title: Green Eggs & Ham
+  creator: Dr. Seuss
+  publication_year: 1950
+  description: recipe book
+cats:
+  category: book
+  title: Millions of Cats
+  creator: Wanda Gag
+  publication_year: 1928
+  description: horrific, actually
+drag:
+  category: book
+  title: Drag&#58; The Complete Story
+  creator: Simon Doonan
+  publication_year: 2019
+  description: awesome
