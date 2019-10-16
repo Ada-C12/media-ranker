@@ -31,14 +31,21 @@ describe Work do
     #TKTKTKTKTKTKTKTKTKTK
   end
 
-  # describe 'custom methods' do
-  #   describe 'top_ten' do
-  #     it 'returns ten books' do
-  #
-#works = Work.all
-  #   expect(works.top_ten.length).must_equal 10
-  # end
-  # fewer than 10 available?
-  # none available?
+  describe 'custom methods' do
+    describe 'top_ten' do
+      it 'returns ten books' do
+        works = Work.all
+        expect(works.top_ten.length).must_equal 10
+      end
+      it 'returns all if there are fewer than 10 available' do
+        works = Work.all
+        sample_size = works.sample(5)
+        expect(sample_size.top_ten.length).must_equal 5
+      end
+      it 'returns nothing of none  are available' do
+        works = []
+        expect(works.top_ten.length).must_equal 0
+      end
+    end
+  end
 end
-

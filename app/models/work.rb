@@ -3,10 +3,10 @@ class Work < ApplicationRecord
   validates :title, presence: true
   validates :category, presence: true
   validates :release_date, numericality: { only_integer: true}
-  
+
   def self.top_ten
     works = Work.all
-    if works.nil?
+    if works.nil? || works.length == 0
       return ""
     elsif works.length < 10
       return works.sample(works.length)
