@@ -77,11 +77,11 @@ describe Work do
 
     end
 
-    it "returns nil if no works for that category exist" do
+    it "returns an empty array if no works for that category exist" do
       Work.destroy_all
       category = "album"
 
-      expect(Work.top_ten(category)).must_be_nil
+      expect(Work.top_ten(category)).must_equal []
     end
 
   end

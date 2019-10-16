@@ -5,7 +5,7 @@ class Work < ApplicationRecord
   def self.spotlight
     spotlight = Work.all.sample(1)
     if spotlight.length == 0
-      return nil
+      return spotlight
     else
       return spotlight.first
     end
@@ -15,10 +15,6 @@ class Work < ApplicationRecord
     # if category needs to be validated, should that go in the controller? 
     category_all = Work.where(category: category)
     top_ten = category_all.sample(10)
-    if top_ten.length == 0
-      return nil
-    else
-      return top_ten
-    end
+    return top_ten
   end
 end
