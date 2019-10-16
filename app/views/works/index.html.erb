@@ -27,6 +27,9 @@ by
 <li> <%= link_to album.title, work_path(album) %>
 by
 <%= album.creator %>
+:
+<%= album.votes.length %> Votes
+<%= button_to 'Upvote', upvote_path %>
 </li>
 <% end %>
 </ul>
@@ -37,6 +40,9 @@ by
 <li> <%= link_to movie.title, work_path(movie) %>
 by
 <%= movie.creator %>
+:
+<%= movie.votes.length %> Votes
+<%= button_to 'Upvote', upvote_path %>
 </li>
 <% end %>
 </ul>
