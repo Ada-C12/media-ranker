@@ -41,7 +41,7 @@ class WorksController < ApplicationController
   def update
     @work = Work.find_by(id: params[:id])
     if @work.update(work_params)
-      redirect_to root_path
+      redirect_to work_path(@work)
       return
     else 
       render :edit 

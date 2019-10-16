@@ -1,5 +1,5 @@
 class Work < ApplicationRecord
-  validates :category, presence: true
+  validates :category, presence: true, inclusion: { in: ["album", "book", "movie"] }
   validates :title, presence: true, uniqueness: true
   validates :creator, presence: true
   validates :publication_year, presence: true, numericality: { only_integer: true, greater_than: 1}
