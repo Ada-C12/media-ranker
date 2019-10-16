@@ -78,3 +78,17 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 .app-header__user-nav-container .nav-item {
   margin-left: 2rem;
 }
+
+.btn-primary {
+  background-color: #26A69A;
+  color: white;
+  border-color: #26A69A;
+}
+
+button a {
+  color: white;
+}
+  
+.nav-item a:not(.btn-primary) {
+  color: #26A69A;
+}

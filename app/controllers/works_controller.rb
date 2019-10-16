@@ -1,6 +1,5 @@
 class WorksController < ApplicationController
   def index
-    # WHY IS MOVIE CAPS M?????
     @movies = Work.where(category: "movie")
     @albums = Work.where(category: "album")
     @books = Work.where(category: "book")

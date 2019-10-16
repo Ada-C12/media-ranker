@@ -5,10 +5,10 @@
   <p>Published: <%= @work.publication_year %></p>
 
   <section>
-    <%= link_to "Back to media ranks", root_path, method: :get%>
-    <%= link_to "Edit", edit_work_path, method: :get%>
-    <%= link_to "Upvote" %>
-    <%= link_to "Delete", work_path(@work.id), method: :delete%>
+    <button type="button" class="btn btn-primary"><%= link_to "Back to media ranks", root_path, method: :get%></button>
+    <button type="button" class="btn btn-primary"><%= link_to "Edit", edit_work_path, method: :get%></button>
+    <button type="button" class="btn btn-primary"><%= link_to "Upvote" %></button>
+    <button type="button" class="btn btn-danger"><%= link_to "Delete", work_path(@work.id), method: :delete%></button>
   </section>
 </section>
 
