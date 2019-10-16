@@ -4,7 +4,7 @@ class WorksController < ApplicationController
     @works = Work.alpha_works 
   end
   
-end
+enda
 
 def show
   work_id = params[:id]
