@@ -6,7 +6,10 @@ class Work < ApplicationRecord
 
   def self.spotlight
     works = Work.all
-    return works.sample
+
+    works.max_by do |work|
+      work.votes.count
+    end
   end
 
   def self.top_ten(category)
@@ -15,8 +18,12 @@ class Work < ApplicationRecord
     if works == []
       return works
     else
-      return works.sample(10)
+      sorted = works.sort_by do |work| 
+        -work.votes.count 
+      end
     end
-
+    sorted.take(10)
   end
+
+  
 end

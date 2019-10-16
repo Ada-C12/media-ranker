@@ -7,13 +7,13 @@
 <section>
   <h3> Votes </h3>
   <ul>
-  <% @user.vote.each do |vote| %>
+  <% @user.votes.each do |vote| %>
     <li>
-      <%= vote.work.title %>
-      <%= vote.work.creator %>
-      <%= vote.work.publication_year %>
-      <%= vote.work.category.capitalize %>
-      <%= vote.date.strftime('%b %d, %Y') %>
+      <%= votes.work.title %>
+      <%= votes.work.creator %>
+      <%= votes.work.publication_year %>
+      <%= votes.work.category.capitalize %>
+      <%= votes.date.strftime('%b %d, %Y') %>
     </li>
   <% end %>
   </ul>

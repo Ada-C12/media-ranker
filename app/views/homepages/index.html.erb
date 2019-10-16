@@ -11,6 +11,7 @@
   <h2> Top Albums </h2>
   <ol>
     <% albums = Work.top_ten("album") %>
+    <%# <% albums = albums.take(10)%> 
     <% if albums == [] %>
       <p> There are no works in this category </p>
     <% else %>
