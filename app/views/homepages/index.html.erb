@@ -4,11 +4,11 @@ This is the Homepage
 
 <% books = Work.all.where(category: :book) %>
 <% albums = Work.all.where(category: :album) %>
-<% random_spotlight = Work.all.sample %>
+<% spotlight = Work.spotlight_media %>
 
 <h2>Media Spotlight:</h2>
 
-<%= link_to random_spotlight.title, work_path(random_spotlight) %>, <%= random_spotlight.category %>
+<%= link_to spotlight.title, work_path(spotlight) %>, <%= spotlight.category %>
 
 
 <h2>Top 10 Books</h2>

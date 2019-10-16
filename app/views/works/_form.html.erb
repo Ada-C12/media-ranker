@@ -1,3 +1,15 @@
+<% if @work.errors.any? %>
+  <h1>Errors</h1>
+  <ul class="errors">
+    <% @work.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 <p>Please provide the following information to <%="#{action_name}"%> the piece of media in our database: </p>
 
 <%= form_with model: @work, class: "#{action_name}-work" do |f| %>

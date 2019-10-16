@@ -1,11 +1,7 @@
 <h1>This is the Works Index</h1>
 
-<%= link_to "Create a work", new_work_path %> 
-<%= link_to "Homepage", root_path %> 
-
 <% books = Work.all.where(category: :book) %>
 <% albums = Work.all.where(category: :album) %>
-
 
 <h2>All Books</h2>
 <ul>
