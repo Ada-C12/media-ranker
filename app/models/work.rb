@@ -1,5 +1,6 @@
 class Work < ApplicationRecord
   validates :title, presence: true, uniqueness: { scope: :category }
+  has_many :votes
   
   def self.spotlight
     self.first

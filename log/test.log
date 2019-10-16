@@ -719,3 +719,775 @@ User::validations: test_0001_is valid with a username
 User::validations: test_0002_is invalid without a username
 ----------------------------------------------------------
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (212.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "media-ranker_test"[0m
+  [1m[35m (535.0ms)[0m  [1m[35mCREATE DATABASE "media-ranker_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "votes" CASCADE[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "votes" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" bigint, "work_id" bigint)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_user_id" ON "votes"  ("user_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_work_id" ON "votes"  ("work_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "works" CASCADE[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "works" ("id" bigserial primary key, "title" character varying, "creator" character varying, "published" integer, "description" character varying, "category" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "votes" ADD CONSTRAINT "fk_rails_c9b3bef597"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "votes" ADD CONSTRAINT "fk_rails_18c1007727"
+FOREIGN KEY ("work_id")
+  REFERENCES "works" ("id")
+[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191016221630)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191016203952),
+(20191014214328);
+
+[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2019-10-16 22:33:11.753914"], ["updated_at", "2019-10-16 22:33:11.753914"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+User::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+User::validations: test_0001_is valid with a username
+-----------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+User::validations: test_0002_is invalid without a username
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------------
+Work::validations: test_0002_is invalid without a title
+-------------------------------------------------------
+  [1m[36mWork Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+Work::validations: test_0001_is valid with all fields
+-----------------------------------------------------
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------------------------------
+Work::validations: test_0003_is valid if title is not unique in a different category
+------------------------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.6ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:33:12.089687"], ["updated_at", "2019-10-16 22:33:12.089687"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" IS NULL LIMIT $2[0m  [["title", "test title"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------------------------------------
+Work::validations: test_0004_is invalid if title is not unique in a different category
+--------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:33:12.094822"], ["updated_at", "2019-10-16 22:33:12.094822"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+User::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (42.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------------
+Work::validations: test_0002_is invalid without a title
+-------------------------------------------------------
+  [1m[36mWork Exists (4.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------------------------------------
+Work::validations: test_0004_is invalid if title is not unique in a different category
+--------------------------------------------------------------------------------------
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.5ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:34:47.485612"], ["updated_at", "2019-10-16 22:34:47.485612"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+Work::validations: test_0001_is valid with all fields
+-----------------------------------------------------
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------------------------------
+Work::validations: test_0003_is valid if title is not unique in a different category
+------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:34:47.493448"], ["updated_at", "2019-10-16 22:34:47.493448"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" IS NULL LIMIT $2[0m  [["title", "test title"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+User::validations: test_0001_is valid with a username
+-----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+User::validations: test_0002_is invalid without a username
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------------
+Work::validations: test_0002_is invalid without a title
+-------------------------------------------------------
+  [1m[36mWork Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+Work::validations: test_0001_is valid with all fields
+-----------------------------------------------------
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------------------------------
+Work::validations: test_0003_is valid if title is not unique in a different category
+------------------------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.8ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:34:48.413973"], ["updated_at", "2019-10-16 22:34:48.413973"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" IS NULL LIMIT $2[0m  [["title", "test title"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------------------------------------
+Work::validations: test_0004_is invalid if title is not unique in a different category
+--------------------------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.5ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:34:48.427385"], ["updated_at", "2019-10-16 22:34:48.427385"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+User::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+User::validations: test_0002_is invalid without a username
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+User::validations: test_0001_is valid with a username
+-----------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+Work::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+Work::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+User::validations: test_0002_is invalid without a username
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+User::validations: test_0001_is valid with a username
+-----------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------------------------------------
+Work::validations: test_0004_is invalid if title is not unique in a different category
+--------------------------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.9ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:34:49.317740"], ["updated_at", "2019-10-16 22:34:49.317740"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------------------------------
+Work::validations: test_0003_is valid if title is not unique in a different category
+------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (1.7ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:34:49.326698"], ["updated_at", "2019-10-16 22:34:49.326698"]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" IS NULL LIMIT $2[0m  [["title", "test title"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------------
+Work::validations: test_0002_is invalid without a title
+-------------------------------------------------------
+  [1m[36mWork Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+Work::validations: test_0001_is valid with all fields
+-----------------------------------------------------
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+User::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+Work::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+Vote::relations: test_0001_has a work
+-------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+Vote::relations: test_0002_has a user
+-------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVote Create (1.2ms)[0m  [1m[32mINSERT INTO "votes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-10-16 22:36:22.160437"], ["updated_at", "2019-10-16 22:36:22.160437"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+User::validations: test_0001_is valid with a username
+-----------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+User::validations: test_0002_is invalid without a username
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+User::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------------------------------
+Work::validations: test_0003_is valid if title is not unique in a different category
+------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:36:22.178701"], ["updated_at", "2019-10-16 22:36:22.178701"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" IS NULL LIMIT $2[0m  [["title", "test title"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------------
+Work::validations: test_0002_is invalid without a title
+-------------------------------------------------------
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+Work::validations: test_0001_is valid with all fields
+-----------------------------------------------------
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------------------------------------
+Work::validations: test_0004_is invalid if title is not unique in a different category
+--------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.4ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:36:22.189860"], ["updated_at", "2019-10-16 22:36:22.189860"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+Work::validations: test_0001_is valid with all fields
+-----------------------------------------------------
+  [1m[36mWork Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------------
+Work::validations: test_0002_is invalid without a title
+-------------------------------------------------------
+  [1m[36mWork Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------------------------------
+Work::validations: test_0003_is valid if title is not unique in a different category
+------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.7ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:36:34.207949"], ["updated_at", "2019-10-16 22:36:34.207949"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" IS NULL LIMIT $2[0m  [["title", "test title"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------------------------------------
+Work::validations: test_0004_is invalid if title is not unique in a different category
+--------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:36:34.214989"], ["updated_at", "2019-10-16 22:36:34.214989"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+Vote::relations: test_0001_has a work
+-------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVote Create (1.2ms)[0m  [1m[32mINSERT INTO "votes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-10-16 22:36:34.226563"], ["updated_at", "2019-10-16 22:36:34.226563"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+Vote::relations: test_0002_has a user
+-------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVote Create (0.2ms)[0m  [1m[32mINSERT INTO "votes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-10-16 22:36:34.231195"], ["updated_at", "2019-10-16 22:36:34.231195"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+User::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+User::validations: test_0001_is valid with a username
+-----------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+User::validations: test_0002_is invalid without a username
+----------------------------------------------------------
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+Work::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+Work::validations: test_0001_is valid with all fields
+-----------------------------------------------------
+  [1m[36mWork Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------------
+Work::validations: test_0002_is invalid without a title
+-------------------------------------------------------
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------------------------------
+Work::validations: test_0003_is valid if title is not unique in a different category
+------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.5ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:36:55.887303"], ["updated_at", "2019-10-16 22:36:55.887303"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" IS NULL LIMIT $2[0m  [["title", "test title"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------------------------------------
+Work::validations: test_0004_is invalid if title is not unique in a different category
+--------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:36:55.894301"], ["updated_at", "2019-10-16 22:36:55.894301"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+User::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+Work::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+Vote::relations: test_0001_has a work
+-------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVote Create (0.6ms)[0m  [1m[32mINSERT INTO "votes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-10-16 22:36:55.927074"], ["updated_at", "2019-10-16 22:36:55.927074"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+Vote::relations: test_0002_has a user
+-------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVote Create (0.3ms)[0m  [1m[32mINSERT INTO "votes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-10-16 22:36:55.929986"], ["updated_at", "2019-10-16 22:36:55.929986"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+User::validations: test_0001_is valid with a username
+-----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+User::validations: test_0002_is invalid without a username
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+User::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------------------------------------
+Work::validations: test_0004_is invalid if title is not unique in a different category
+--------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.5ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:37:20.903489"], ["updated_at", "2019-10-16 22:37:20.903489"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+Work::validations: test_0001_is valid with all fields
+-----------------------------------------------------
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------------
+Work::validations: test_0002_is invalid without a title
+-------------------------------------------------------
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------------------------------
+Work::validations: test_0003_is valid if title is not unique in a different category
+------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:37:20.913530"], ["updated_at", "2019-10-16 22:37:20.913530"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" IS NULL LIMIT $2[0m  [["title", "test title"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+Work::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+User::validations: test_0001_is valid with a username
+-----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+User::validations: test_0002_is invalid without a username
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+Vote::relations: test_0001_has a work
+-------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVote Create (0.5ms)[0m  [1m[32mINSERT INTO "votes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-10-16 22:37:20.931959"], ["updated_at", "2019-10-16 22:37:20.931959"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+Vote::relations: test_0002_has a user
+-------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVote Create (0.4ms)[0m  [1m[32mINSERT INTO "votes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-10-16 22:37:20.934726"], ["updated_at", "2019-10-16 22:37:20.934726"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+Work::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+User::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+Work::validations: test_0001_is valid with all fields
+-----------------------------------------------------
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------------
+Work::validations: test_0002_is invalid without a title
+-------------------------------------------------------
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------------------------------
+Work::validations: test_0003_is valid if title is not unique in a different category
+------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.6ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:38:07.799363"], ["updated_at", "2019-10-16 22:38:07.799363"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" IS NULL LIMIT $2[0m  [["title", "test title"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------------------------------------
+Work::validations: test_0004_is invalid if title is not unique in a different category
+--------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (30.2ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:38:07.806550"], ["updated_at", "2019-10-16 22:38:07.806550"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (10.6ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+User::validations: test_0002_is invalid without a username
+----------------------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+User::validations: test_0001_is valid with a username
+-----------------------------------------------------
+  [1m[35m (2.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+Vote::relations: test_0002_has a user
+-------------------------------------
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+Vote::relations: test_0001_has a work
+-------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+Vote::relations: test_0001_has a work
+-------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+Vote::relations: test_0002_has a user
+-------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+Work::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+User::validations: test_0001_is valid with a username
+-----------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+User::validations: test_0002_is invalid without a username
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+Work::validations: test_0001_is valid with all fields
+-----------------------------------------------------
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------------------------------------
+Work::validations: test_0004_is invalid if title is not unique in a different category
+--------------------------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.6ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:39:27.511080"], ["updated_at", "2019-10-16 22:39:27.511080"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------------------------------
+Work::validations: test_0003_is valid if title is not unique in a different category
+------------------------------------------------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:39:27.522867"], ["updated_at", "2019-10-16 22:39:27.522867"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" IS NULL LIMIT $2[0m  [["title", "test title"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------------
+Work::validations: test_0002_is invalid without a title
+-------------------------------------------------------
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+User::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+User::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+Work::relations: test_0001_can have many votes
+----------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+User::validations: test_0001_is valid with a username
+-----------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+User::validations: test_0002_is invalid without a username
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+Vote::relations: test_0001_has a work
+-------------------------------------
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+Vote::relations: test_0002_has a user
+-------------------------------------
+  [1m[35m (2.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------------------------------------
+Work::validations: test_0004_is invalid if title is not unique in a different category
+--------------------------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (5.1ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.7ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:40:39.897063"], ["updated_at", "2019-10-16 22:40:39.897063"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------------------------------
+Work::validations: test_0003_is valid if title is not unique in a different category
+------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[36mWork Create (0.3ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "published", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test title"], ["creator", "me"], ["published", 2019], ["description", "test description"], ["category", "album"], ["created_at", "2019-10-16 22:40:39.904689"], ["updated_at", "2019-10-16 22:40:39.904689"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" IS NULL LIMIT $2[0m  [["title", "test title"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+Work::validations: test_0001_is valid with all fields
+-----------------------------------------------------
+  [1m[36mWork Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "test title"], ["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------------
+Work::validations: test_0002_is invalid without a title
+-------------------------------------------------------
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m

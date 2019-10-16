@@ -28,4 +28,10 @@ describe Work do
       refute copy_work.valid?
     end
   end
+
+  describe 'relations' do
+    it 'can have many votes' do
+      assert Work.create.votes
+    end
+  end
 end

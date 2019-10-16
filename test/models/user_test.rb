@@ -12,4 +12,10 @@ describe User do
       refute user.valid?
     end
   end
+
+  describe 'relations' do
+    it 'can have many votes' do
+      assert User.create.votes
+    end
+  end
 end
