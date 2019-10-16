@@ -1,6 +1,6 @@
 class WorksController < ApplicationController
   before_action :find_work, only: [:show, :edit, :update]
-
+  
   def index
     @books = Work.works_by_category("book")
     @movies = Work.works_by_category("movie")
@@ -29,7 +29,7 @@ class WorksController < ApplicationController
     flash.now[:error] = "Failed to create work!"
     render :new
   end
-
+  
   def update
     if @work
       if @work.update(work_params)
@@ -45,13 +45,23 @@ class WorksController < ApplicationController
     head :not_found
     return
   end
-
+  
+  def destroy
+    existing_work = Work.find_by(id: params[:id])
+    if existing_work
+      flash[:success] = existing_work.title + " has been deleted!"
+      existing_work.destroy
+    end
+    redirect_to works_path
+    return
+  end
+  
   private
   
   def work_params
     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
-
+  
   def find_work
     @work = Work.find_by(id: params[:id])
   end
