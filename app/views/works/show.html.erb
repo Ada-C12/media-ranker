@@ -1,5 +1,40 @@
-<%= @work.category %>
-<%= @work.title %>
-<%= @work.creator %>
-<%= @work.publication_year %>
-<%= @work.description %>
+<section>
+  <h2>
+  <%= @work.title %>
+  </h2>
+  <p>
+  Created by: 
+  <%= @work.creator %> 
+  </p>
+  <p>Published: 
+  <%= @work.publication_year %>
+  </p>
+  <p>
+  <%= @work.description %>
+  </p>
+  <section>
+    <a class="btn btn-primary" href="/">Back to media ranks</a>
+    <a class="btn btn-primary" href="/works/498/edit">Edit</a>
+    <a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/498/upvote">Upvote</a>
+    <a class="btn btn-danger" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/works/498">Delete</a>
+  </section>
+</section>
+
+<section class="works-votes__container">
+  <h3 class="works-votes__header">1 Votes for this Book</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="/users/266">dee</a></td>
+        <td>Oct 16, 2019</td>      
+      </tr>
+    </tr>
+    </tbody>
+  </table>
+</section>

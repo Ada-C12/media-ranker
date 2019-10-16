@@ -7,7 +7,7 @@ describe WorksController do
   
   describe "index" do
     it "can get a list of all the works" do 
-      get works_path
+      get root_path
       
       must_respond_with :success
     end

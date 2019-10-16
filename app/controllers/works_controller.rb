@@ -12,7 +12,7 @@ class WorksController < ApplicationController
   def create 
     @work = Work.new(work_params)
     if @work.save
-      redirect_to works_path
+      redirect_to root_path
     else
       flash.now[:error] = "A problem occurred: Could not create album"
       render :new
@@ -33,7 +33,7 @@ class WorksController < ApplicationController
   def destroy
     @work.destroy
     flash[:success] = "Successfully deleted!"
-    redirect_to works_path
+    redirect_to root_path
   end
   
   private

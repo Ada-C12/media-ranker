@@ -1,0 +1,45 @@
+<main>
+
+<h2>List of Works</h2>
+
+  <% @categories.each do |category| %>
+  <section class="media-table">
+    <h4>
+    <%= category.capitalize.pluralize %>
+    </h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="80">Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th width="100">Published</th>
+          <th width="100">Upvote</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @works.where(category: category).each do |work| %>
+        <tr>
+            <td>
+              <%= "num votes" %>
+            </td>
+            <td>
+              <%= link_to work.title, work_path(work.id) %>
+            </td>
+            <td>
+              <%= work.creator %>
+            </td>
+            <td>
+            <%= work.publication_year %>
+            </td>
+            <td>
+            <%= link_to "Upvote", root_path, class: "btn btn-primary" %>
+            </td>
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
+  </section>
+  <% end %>
+
+</main>

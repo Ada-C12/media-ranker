@@ -1,7 +1,7 @@
 <section class="spotlight">
   <h2 class="spotlight__header">
   <span class="spotlight__header--prefix">Media Spotlight</span>
-    <%= link_to "Work Title by Work Creator", works_path, class: "spotlight__link-to"%>
+    <%= link_to "Work Title by Work Creator", root_path, class: "spotlight__link-to"%>
   </h2>
   <p class="spotlight__description">
   0 votes - description
@@ -14,11 +14,10 @@
   <% @categories.each do | category | %>
   <section class="top-ten__list-container">
     <h2 class="top-ten__header">
-      Top <%= category %>
+      Top <%= category.capitalize.pluralize %>
     </h2>
     <ul class="list-group top-ten__list">
-      <% @category_works = @works.where(category: category) %>
-      <% @category_works.each do |work| %>
+      <% @works.where(category: category).each do |work| %>
       <li class="list-group-item">
         <h4>
         <%= link_to work.title, work_path(work.id) %>
