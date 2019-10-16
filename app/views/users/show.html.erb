@@ -1,4 +1,30 @@
 <main>
   <h2>User Summary: <%= @user.username %></h2>
   <p>Joined site <%= @user.created_at.strftime("%b %d, %Y") %></p>
+
+  <section class="user-votes__container">
+    <h3 class="user-votes__header">Votes</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Media Title</th>
+          <th>Created By</th>
+          <th>Published</th>
+          <th>Category</th>
+          <th>Voted On</th>
+        </tr>
+      </thead>
+      <% @user.votes.each do |vote| %>
+      <tbody>
+        <tr>
+          <td><%= vote.work.title%></td>
+          <td><%= vote.work.creator %></td>
+          <td><%= vote.work.publication_year %></td>
+          <td><%= vote.work.category.capitalize %></td>
+          <td><%= vote.work.created_at.strftime("%b %d, %Y") %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </section>
 </main>

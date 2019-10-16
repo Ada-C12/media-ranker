@@ -77,3 +77,9 @@ nav {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+.works-buttons {
+  display: flex;
+  flex-direction: row;
+  margin-right: 50px;
+}
