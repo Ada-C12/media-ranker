@@ -1,7 +1,15 @@
 require "test_helper"
 
 describe User do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  describe 'validations' do
+    it 'is valid with a username' do
+      assert User.new(username: "test user").valid?
+    end
+
+    it 'is invalid without a username' do
+      user = User.new
+      refute user.username
+      refute user.valid?
+    end
+  end
 end

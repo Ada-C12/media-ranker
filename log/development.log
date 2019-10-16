@@ -2921,3 +2921,603 @@ Processing by WorksController#show as HTML
 Completed 200 OK in 137ms (Views: 124.7ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/" for ::1 at 2019-10-16 14:16:16 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.4ms)
+  Rendered works/_list.html.erb (0.6ms)
+  Rendered works/_list.html.erb (0.8ms)
+  Rendered works/main.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 76ms (Views: 52.3ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/login" for ::1 at 2019-10-16 14:16:25 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/login" for ::1 at 2019-10-16 14:17:12 -0700
+Processing by UsersController#login as HTML
+  Rendering users/login.html.erb within layouts/application
+  Rendered users/login.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 58ms (Views: 54.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2019-10-16 14:17:26 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2019-10-16 14:21:46 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.6ms)
+  Rendered works/_list.html.erb (0.6ms)
+  Rendered works/_list.html.erb (0.6ms)
+  Rendered works/main.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 84ms (Views: 64.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/login" for ::1 at 2019-10-16 14:21:53 -0700
+Processing by UsersController#login_form as HTML
+Completed 406 Not Acceptable in 116ms (ActiveRecord: 5.4ms)
+
+
+
+ActionController::UnknownFormat - UsersController#login_form is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/389c1e8477433f26/variables" for ::1 at 2019-10-16 14:21:54 -0700
+Started GET "/login" for ::1 at 2019-10-16 14:22:38 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (215.8ms)
+Completed 500 Internal Server Error in 224ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `users_path' for #<#<Class:0x00007feb92839228>:0x00007feb92833850>:
+  app/views/users/login_form.html.erb:3:in `_app_views_users_login_form_html_erb___107284342497290552_70324876070200'
+
+Started POST "/__better_errors/e4874d7a8863865c/variables" for ::1 at 2019-10-16 14:22:39 -0700
+Started GET "/login" for ::1 at 2019-10-16 14:23:31 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (251.7ms)
+Completed 500 Internal Server Error in 261ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `users_path' for #<#<Class:0x00007feb92839228>:0x00007feb9056abc0>:
+  app/views/users/login_form.html.erb:3:in `_app_views_users_login_form_html_erb___107284342497290552_70324857821920'
+
+Started POST "/__better_errors/b8890c30428ff187/variables" for ::1 at 2019-10-16 14:23:32 -0700
+Started GET "/login" for ::1 at 2019-10-16 14:23:36 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+Started GET "/login" for ::1 at 2019-10-16 14:23:36 -0700
+  Rendered users/login_form.html.erb within layouts/application (256.1ms)
+Completed 500 Internal Server Error in 264ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `users_path' for #<#<Class:0x00007feb92839228>:0x00007feb906283c8>:
+  app/views/users/login_form.html.erb:3:in `_app_views_users_login_form_html_erb___107284342497290552_70324858210060'
+
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (244.3ms)
+Completed 500 Internal Server Error in 250ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `users_path' for #<#<Class:0x00007feb92839228>:0x00007feb8fdc7dc8>:
+  app/views/users/login_form.html.erb:3:in `_app_views_users_login_form_html_erb___107284342497290552_70324868170480'
+
+Started POST "/__better_errors/77bc78ece97918e4/variables" for ::1 at 2019-10-16 14:23:37 -0700
+Started GET "/login" for ::1 at 2019-10-16 14:24:22 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (246.6ms)
+Completed 500 Internal Server Error in 252ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `users_path' for #<#<Class:0x00007feb92839228>:0x00007feb91a91d28>:
+  app/views/users/login_form.html.erb:3:in `_app_views_users_login_form_html_erb___107284342497290552_70324868911940'
+
+Started POST "/__better_errors/0990f44b5e2077c6/variables" for ::1 at 2019-10-16 14:24:23 -0700
+Started GET "/login" for ::1 at 2019-10-16 14:25:13 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (276.1ms)
+Completed 500 Internal Server Error in 283ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `users_path' for #<#<Class:0x00007feb92839228>:0x00007feb91ae1210>:
+  app/views/users/login_form.html.erb:3:in `_app_views_users_login_form_html_erb___107284342497290552_70324869074360'
+
+Started POST "/__better_errors/be1edb5fb8dae60c/variables" for ::1 at 2019-10-16 14:25:14 -0700
+Started GET "/login" for ::1 at 2019-10-16 14:25:19 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (350.7ms)
+Completed 500 Internal Server Error in 359ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `users_path' for #<#<Class:0x00007feb92839228>:0x00007feb8a6bd550>:
+  app/views/users/login_form.html.erb:3:in `_app_views_users_login_form_html_erb___107284342497290552_70324808183700'
+
+Started POST "/__better_errors/ba4a5623fa55f1ec/variables" for ::1 at 2019-10-16 14:25:19 -0700
+Started GET "/login" for ::1 at 2019-10-16 14:26:54 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 68ms (Views: 65.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2019-10-16 14:26:57 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WwxQZds7euMkn31KsZgfPyGa4kVlh0RCdvAD7H0S7dbvilQzAo4iVl2yq/hYum1rAupZxbX0HAyDTc4YKvma5g==", "user"=>{"username"=>"calopter"}, "commit"=>"Login"}
+No template found for UsersController#login, rendering head :no_content
+Completed 204 No Content in 105ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2019-10-16 14:28:12 -0700
+Processing by UsersController#login_form as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_true, expecting keyword_end
+...dates :username, :presence true
+...                           ^~~~:
+  app/models/user.rb:2:in `'
+  app/controllers/users_controller.rb:3:in `login_form'
+
+Started POST "/__better_errors/61420d40148338d3/variables" for ::1 at 2019-10-16 14:28:12 -0700
+Started GET "/login" for ::1 at 2019-10-16 14:28:43 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 59ms (Views: 45.8ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/login" for ::1 at 2019-10-16 14:28:50 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u/hHBaqZ6uyOaW4mzMA4PotBizna/cLT0JMuxe+upjoPfkNTcyyyWfdEuJQl4kpqqDEwuQqOmp0lLuMxuEXRCg==", "user"=>{"username"=>""}, "commit"=>"Login"}
+No template found for UsersController#login, rendering head :no_content
+Completed 204 No Content in 197ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/works" for ::1 at 2019-10-16 14:37:04 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (12.7ms)
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (1.7ms)
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movies"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (0.9ms)
+  Rendered works/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 67ms (Views: 55.5ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 14:37:07 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (2.5ms)
+  Rendered works/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 55ms (Views: 51.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 14:37:10 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q6cKT5XmgH/4SU3slzfBHfcGFtNaHN4ROD2PyAIzg1+9YaBeBvnsIHvGECMKvm7zO8/ABe6lI/k2dVjSGdO+gA==", "work"=>{"category"=>"album", "title"=>"Dirty Computer", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:26
+  [1m[36mWork Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "Dirty Computer"], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:26
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:26
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 12ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 14:37:10 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (5.4ms)
+  Rendered works/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 84ms (Views: 82.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 14:37:18 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kOYxXLs8hJX5FSyweqraUUjcUCduTEfSutyxbDaC4CMkYDUKYoncIIA4+gKTiKgFa6zrp74/H5xPYXyYYWmXEw==", "work"=>{"category"=>"movie", "title"=>"Dirty Computer", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (2.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:26
+  [1m[36mWork Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "Dirty Computer"], ["category", "movie"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:26
+  [1m[36mWork Create (2.7ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Dirty Computer"], ["creator", ""], ["description", ""], ["category", "movie"], ["created_at", "2019-10-16 21:37:18.523179"], ["updated_at", "2019-10-16 21:37:18.523179"]]
+  ↳ app/controllers/works_controller.rb:26
+  [1m[35m (10.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:26
+Redirected to http://localhost:3000/works/30
+Completed 302 Found in 28ms (ActiveRecord: 15.9ms)
+
+
+Started GET "/works/30" for ::1 at 2019-10-16 14:37:18 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (1.8ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 97ms (Views: 87.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/works/30/edit" for ::1 at 2019-10-16 14:37:22 -0700
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:49
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (2.3ms)
+  Rendered works/edit.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 80ms (Views: 72.2ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/works/30" for ::1 at 2019-10-16 14:37:27 -0700
+Processing by WorksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E9NRqKWhliLbWadoQ5/7yEkAK7B9qH9zX/G4FFY8kzmnTTwbx1JEbNI77Iz9QZVrnP4DnRsYJTXA88+p88InXA==", "work"=>{"category"=>"movie", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Update Work", "id"=>"30"}
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:53
+  [1m[35m (2.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:55
+  [1m[36mWork Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."id" != $2 AND "works"."category" = $3 LIMIT $4[0m  [["title", ""], ["id", 30], ["category", "movie"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:55
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:55
+Redirected to http://localhost:3000/works/30/edit
+Completed 302 Found in 15ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/works/30/edit" for ::1 at 2019-10-16 14:37:27 -0700
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (2.8ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:49
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (4.4ms)
+  Rendered works/edit.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 78ms (Views: 69.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/login" for ::1 at 2019-10-16 14:38:50 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 60ms (Views: 47.8ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/login" for ::1 at 2019-10-16 14:38:53 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8KxF2gEa/rvldYH8AhaA7siXjkicL5nFZh++NXZPqHdEKkGM2K+mDpxYV07rNPK66+c1yExcwYuTonPBIaTfRw==", "user"=>{"username"=>""}, "commit"=>"Login"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 14:38:53 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (0.6ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.5ms)
+  Rendered works/_list.html.erb (0.5ms)
+  Rendered works/_list.html.erb (0.5ms)
+  Rendered works/main.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 85ms (Views: 60.3ms | ActiveRecord: 4.7ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Destroy (2.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/login" for ::1 at 2019-10-16 14:39:38 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 79ms (Views: 72.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2019-10-16 14:39:40 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Gh4rGR1roWT/HuMg7IXUELhO3ONzhUFWB7v4oyRtPaeumC9PxN750YYzNZIFp6ZEmz5nY6P2GRjyBjVXc4ZKlw==", "user"=>{"username"=>""}, "commit"=>"Login"}
+  [1m[36mUser Load (9.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (5.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:16
+Redirected to http://localhost:3000/login
+Completed 302 Found in 55ms (ActiveRecord: 16.3ms)
+
+
+Started GET "/login" for ::1 at 2019-10-16 14:39:40 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 151ms (Views: 138.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2019-10-16 14:39:49 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ydDOY2JLJ/PdJaoi0PJNmiTfg7C9L11hB1tOHrtZklF9Vso1u/5/RqQIfJA50D/OB684MG1cBS/y5oPq7LLlYQ==", "user"=>{"username"=>"calopter"}, "commit"=>"Login"}
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (2.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:16
+Redirected to http://localhost:3000/login
+Completed 302 Found in 23ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/login" for ::1 at 2019-10-16 14:39:49 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 116ms (Views: 111.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2019-10-16 14:40:01 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i6SCxcrfFSWesumulFxhQaAHBICoToPLBxeJxz0PlDA/IoaTE2pNkOefPxx9fhMVg3e/AHg924XyqkQzauTjAA==", "user"=>{"username"=>"calopter"}, "commit"=>"Login"}
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[35m (3.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:16
+Redirected to http://localhost:3000/login
+Completed 302 Found in 20ms (ActiveRecord: 10.0ms)
+
+
+Started GET "/login" for ::1 at 2019-10-16 14:40:01 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 112ms (Views: 109.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/login" for ::1 at 2019-10-16 14:40:31 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 60ms (Views: 49.5ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/login" for ::1 at 2019-10-16 14:40:34 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MMV4xfalUEUNXKRQym/lkuq25e0ZVbOx/lk4zRLZhZuEQ3yTLxAI8HRxcuIjTZfGycZebckm6/8L5PU5RTLyqw==", "user"=>{"username"=>"calopter"}, "commit"=>"Login"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:16
+Redirected to http://localhost:3000/login
+Completed 302 Found in 9ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/login" for ::1 at 2019-10-16 14:40:34 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 67ms (Views: 65.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2019-10-16 14:45:32 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fenMADzBKUWv0HPJ5eJQfLcHxu6wMAoiEi8C+ZaDaQjJb8hW5XRx8Nb9pXsMwCIolHd9bmBDUmznks8NwWgeOA==", "user"=>{"username"=>"calopter"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calopter"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "calopter"], ["created_at", "2019-10-16 21:45:32.788911"], ["updated_at", "2019-10-16 21:45:32.788911"]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 14:45:32 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.7ms)
+  Rendered works/_list.html.erb (0.5ms)
+  Rendered works/_list.html.erb (0.5ms)
+  Rendered works/main.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 129ms (Views: 103.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 14:45:51 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.8ms)
+  Rendered works/_list.html.erb (0.5ms)
+  Rendered works/_list.html.erb (0.5ms)
+  Rendered works/main.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 69ms (Views: 63.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for ::1 at 2019-10-16 14:45:57 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 70ms (Views: 64.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2019-10-16 14:46:02 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p16+LnnlD2AtFIzR8Ng3fi5spgia6LX4UY0QSILqKQkT2Lp4oFBX1VQ5WmMZ+kUqDRwdiEqb7bakMN281QFeOQ==", "user"=>{"username"=>""}, "commit"=>"Login"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:17
+Redirected to http://localhost:3000/login
+Completed 302 Found in 9ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/login" for ::1 at 2019-10-16 14:46:02 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 78ms (Views: 74.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2019-10-16 14:46:06 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OpGAS521aDmpsAehIUgmyAyWvF0+sO9JQ5L2JLaIpmGOF4QdRAAwjNCd0RPIalScL+YH3e7Dtwe2LzvQ4WPRUQ==", "user"=>{"username"=>"calopter"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calopter"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 14:46:06 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (1.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (1.3ms)
+  Rendered works/_list.html.erb (0.6ms)
+  Rendered works/_list.html.erb (0.6ms)
+  Rendered works/main.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 80ms (Views: 67.2ms | ActiveRecord: 2.2ms)
+
+
