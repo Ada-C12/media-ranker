@@ -13,9 +13,9 @@
   <%= @work.description %>
   </p>
   <section>
-    <a class="btn btn-primary" href="/">Back to media ranks</a>
-    <a class="btn btn-primary" href="/works/498/edit">Edit</a>
-    <a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/498/upvote">Upvote</a>
+    <%= link_to "Back to media ranks", root_path, class: "btn btn-primary" %>
+    <%= link_to "Edit", edit_work_path(@work.id), class: "btn btn-primary" %>
+    <%= link_to "Upvote", edit_work_path(@work.id), class: "btn btn-primary" %>
     <%= link_to "Delete", work_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
 
   </section>

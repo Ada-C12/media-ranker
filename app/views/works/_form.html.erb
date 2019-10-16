@@ -10,12 +10,12 @@
 <% end %>
 
   <%= form_with model: @work do |f| %>
-  <input name="utf8" type="hidden" value="✓">
-  <input type="hidden" name="authenticity_token" value="WtCTcg1cIj4qFugHxyQjwho2BJ5aSddDG6BWjUO0q25HCgS7ErsPk/pQs2wb6WpD64DNQKfA2sCiM6HvnV9Uow==">
+  <%# <input name="utf8" type="hidden" value="✓">
+  <input type="hidden" name="authenticity_token" value="WtCTcg1cIj4qFugHxyQjwho2BJ5aSddDG6BWjUO0q25HCgS7ErsPk/pQs2wb6WpD64DNQKfA2sCiM6HvnV9Uow=="> %>
     <div class="form-group">
     <%= f.label :category %>
     <% categories = ["album", "book", "movie"] %>
-    <%= f.select :category, categories, class: "form-control" %>
+    <%= f.select :category, categories, {}, {class: "form-control"} %>
     </div>
 
     <div class="form-group">
