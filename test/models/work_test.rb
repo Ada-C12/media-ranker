@@ -61,4 +61,6 @@ describe Work do
       expect(album.valid?).must_equal true
     end
   end
+
+  describe " "
 end
