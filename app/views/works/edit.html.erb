@@ -1,0 +1,20 @@
+<h1>Edit This <%= @work.category.capitalize %></h1>
+  <%= form_with model: @work, class: "work-form" do |f| %>
+
+    <%= f.label :category %>
+    <%= f.text_field :category%>
+    <br>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br>
+    <%= f.label :creator %>
+    <%= f.text_field :creator %>
+    <br>
+    <%= f.label :publication_year %>
+    <%= f.text_field :publication_year %>
+    <br>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <br>
+    <%= f.submit "Update Work", class: "btn.btn-primary" %>
+<% end %>
