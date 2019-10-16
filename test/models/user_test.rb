@@ -52,4 +52,9 @@ describe User do
       end
     end
   end
+  
+  describe "relationships" do
+    it "can have many votes" do
+    end
+  end
 end

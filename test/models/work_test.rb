@@ -90,7 +90,6 @@ describe Work do
   
   describe "custom methods" do
     describe "self.spotlight" do
-      # TIFFANY YOU HAVE TO COME BACK TO THIS
       it "returns nil when no works available in database" do
         Work.all.each do |work|
           work.destroy
@@ -99,6 +98,20 @@ describe Work do
         expect(Work.count).must_equal 0
         
         expect(Work.spotlight).must_be_nil
+      end
+      
+      it "returns a spotlight with the highest number of votes" do
+        expect(Work.spotlight.title).must_equal "Titanic"
+      end
+      
+      it "returns one spotlight when there is a tie for max votes" do
+        user = users(:henry)
+        work = works(:lotr)
+        
+        Vote.new(user_id: user.id, work_id: work.id)
+        
+        expect(Work.spotlight.title).must_equal "Titanic"
+        expect(Work.spotlight).must_be_instance_of Work
       end
     end
     
@@ -122,10 +135,13 @@ describe Work do
         
         expect(Work.list_all_in_category("album")).must_equal []
       end
+      
+      it "returns works in descending order of vote count" do
+        expect(Work.list_all_in_category("movie").first.title).must_equal "Titanic"
+      end
     end
     
     describe "self.get_top_ten" do
-      # TIFFANY YOU HAVE TO COME BACK TO THIS
       it "returns empty array when no works available in the category" do
         Work.all.each do |work|
           work.destroy
@@ -159,8 +175,10 @@ describe Work do
         expect(Work.get_top_ten("book").count).must_equal 10
       end
     end
-    
-    describe "" do
+  end
+  
+  describe "relationships" do
+    it "can have many votes" do
     end
   end
 end

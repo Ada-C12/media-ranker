@@ -47,9 +47,6 @@ class WorksController < ApplicationController
   
   def destroy
     @work.destroy
-    
-    flash[:warning] = "You didn't eject"
-    
     flash[:success] = "Successfully destroyed #{@work.category} #{@work.id}"
     redirect_to root_path
     return
