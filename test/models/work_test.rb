@@ -38,6 +38,8 @@ describe Work do
 
       #   expect(.top_ten.length).must_equal 10
       # end
+      # fewer than 10 available?
+      # none available?
     end
   end
 end
