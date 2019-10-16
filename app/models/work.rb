@@ -5,6 +5,6 @@ class Work < ApplicationRecord
   end
   
   def self.spotlight
-    return Work.find(27)
+    return Work.first
   end
 end
