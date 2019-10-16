@@ -20,10 +20,10 @@
         <% @all_albums.each do |piece|%>
         <tr>
           <td><%= piece.votes_earned %></td>
-          <td><%= piece.title %>PLUS link</td>
+          <td><%= link_to piece.title, work_path(id: piece.id) %></td>
           <td><%= piece.creator %></td>
           <td><%= piece.published_year %></td>
-          <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/homepages/nope_path">UPVOTE BUTTON</a></td>
+          <td><a class="btn btn-primary" rel="nofollow" data-method="get" href="/homepages/nope">UPVOTE BUTTON</a></td>
         </tr>
         <% end %>
       </tbody>
@@ -46,10 +46,10 @@
         <% @all_books.each do |piece|%>
         <tr>
           <td><%= piece.votes_earned %></td>
-          <td><%= piece.title %>PLUS link</td>
+          <td><%= link_to piece.title, work_path(id: piece.id) %></td>
           <td><%= piece.creator %></td>
           <td><%= piece.published_year %></td>
-          <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/homepages/nope_path">UPVOTE BUTTON</a></td>
+          <td><a class="btn btn-primary" rel="nofollow" data-method="get" href="/homepages/nope">UPVOTE BUTTON</a></td>
         </tr>
         <% end %>
       </tbody>
@@ -72,10 +72,10 @@
         <% @all_movies.each do |piece|%>
         <tr>
           <td><%= piece.votes_earned %></td>
-          <td><%= piece.title %>PLUS link</td>
+          <td><%= link_to piece.title, work_path(id: piece.id) %></td>
           <td><%= piece.creator %></td>
           <td><%= piece.published_year %></td>
-          <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/homepages/nope_path">UPVOTE BUTTON</a></td>
+          <td><a class="btn btn-primary" rel="nofollow" data-method="get" href="/homepages/nope">UPVOTE BUTTON</a></td>
         </tr>
         <% end %>
       </tbody>
