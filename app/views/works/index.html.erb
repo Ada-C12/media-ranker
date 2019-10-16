@@ -23,7 +23,8 @@
           <td><%= link_to piece.title, work_path(id: piece.id) %></td>
           <td><%= piece.creator %></td>
           <td><%= piece.published_year %></td>
-          <td><a class="btn btn-primary" rel="nofollow" data-method="get" href="/homepages/nope">UPVOTE BUTTON</a></td>
+          <%# <td><%= link_to "<a class='btn btn-primary'>".html_safe, method: :post, cast_vote_path %></td> %>
+          <%# <td><a class="btn btn-primary" data-method="post" href="/works">UPVOTE BUTTON</a></td> %>
         </tr>
         <% end %>
       </tbody>

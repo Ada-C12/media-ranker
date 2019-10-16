@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :works
   
   # no pages for votes
+  post '/votes', to: "votes#create", as: "cast_vote"
 end
