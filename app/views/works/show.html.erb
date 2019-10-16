@@ -2,6 +2,7 @@
   <section>
     <%= link_to "Edit", edit_work_path(@work) %>
     <%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure?"} %>
+    <%= link_to "Upvote", upvote_path(@work), method: :post %>
   </section>
 
   <section>
@@ -19,4 +20,8 @@
         <%= @work.description %>
       </li>
     </ul>
+  </section>
+  
+  <section>
+  <%= @work.votes.count %> Votes for this <%= @work.category.capitalize %>
   </section>
