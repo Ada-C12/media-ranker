@@ -76,6 +76,7 @@ class WorksController < ApplicationController
   end
   
   # def upvote
+  
   #   @work = Work.find_by(id: params[:id])
   
   #   if @work.nil?
@@ -88,6 +89,8 @@ class WorksController < ApplicationController
   #redirect_to work_path(@work.id)
   # flash: Successfully upvoted!
   # but if you're on the index page then you remain there but with the flash message
+  
+  # A problem occurred: You must log in to do that
   # end
   
   private
