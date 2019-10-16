@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-
     def login_form
         @user = User.new
     end
@@ -26,6 +25,14 @@ class UsersController < ApplicationController
           flash[:error] = "You must be logged in to see this page"
           redirect_to root_path
         end
+    end
+
+
+    def logout  
+      # what if we are never logged in?
+      session[:user_id] = nil
+      flash[:message] = "You have loggedout"
+      redirect_to root_path
     end
 
 
