@@ -29,12 +29,28 @@ class WorksController < ApplicationController
       redirect_to works_path
       return
     elsif @work.update(work_params)
+      flash[:success] = "Successfully updated #{@work.category} #{@work.id}."
       redirect_to work_path
       return
     else
+      flash.now[:failure] = "#{@work.category.capitalize} failed to update."
       render :edit
       return
     end
+  end
+  
+  def destroy
+    @work = Work.find_by(id: params[:id])
+    
+    if @work.nil?
+      head :not_found
+      return
+    end
+    
+    @work.destroy
+    
+    redirect_to works_path
+    return
   end
   
   private
