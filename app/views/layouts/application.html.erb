@@ -11,7 +11,7 @@
 
   <body>
     <header class="app-header__header">
-      <h1><%= link_to "Media Ranker |", root_path %><small> Ranking the Best of Everything</small></h1>
+      <h1><%= link_to "Media Ranker", root_path %><small> Ranking the Best of Everything</small></h1>
     </header>
 
     <nav class="app-header__nav">
@@ -49,11 +49,28 @@
       </ul>
     </nav>
 
-  <section class="flash">
+  <%# <section class="flash">
     <% flash.each do |name, message| %>
-      <div class="<%= name %>"><%= message %></div>
+      <%#<div class="<%= name %><%#%"> <%= message </div> %>
+    <%# <% end %>
+  <%# </section> %>
+
+  <% if flash[:status] %>
+    <section class="alert alert-<%= flash[:status] %>">
+
+      <%= flash[:message] %>
+      <% if @work && @work.errors.any? %>
+      <ul>
+        <% @work.errors.each do |col, message| %>
+          <li>
+            <strong><%= col.capitalize %></strong> <%= message %>
+          </li>
+        <% end %>
+      </ul>
+      <% end %>
+
+      </section>
     <% end %>
-  </section>
     <%= yield %>
   </body>
 </html>

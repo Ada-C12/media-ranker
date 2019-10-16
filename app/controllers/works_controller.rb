@@ -20,11 +20,13 @@ class WorksController < ApplicationController
     @work = Work.new(work_params)
 
     if @work.save
-      flash[:success] = "Work added successfully"
+      flash[:status] = :success
+      flash[:message] = "Work added successfully"
       redirect_to work_path(@work)
       return
     else
-      flash.now[:failure] = "Work cannot be saved"
+      flash[:status] = :warning
+      flash.now[:message] = "A problem occurred: Could not create #{@work.category}"
       render "new"
       return
     end
@@ -64,6 +66,8 @@ class WorksController < ApplicationController
     end
 
     @work.destroy
+    flash[:status] = :success
+    flash[:message] = "Successfully destroyed #{@work.category} #{@work.id}"
     redirect_to root_path
     return
   end
@@ -73,11 +77,13 @@ class WorksController < ApplicationController
 
     if @work.votes.count == 0
       @work.votes.create(user_id: @current_user.id)
-      flash[:success] = "Successfully upvoted!"
+      flash[:status] = :success
+      flash[:message] = "Successfully upvoted!"
       redirect_to works_path
       return
     else
-      flash[:notice] = "A problem occurred: Could not upvote. You have already upvoted this work"
+      flash[:status] = :warning
+      flash[:message] = "A problem occurred: Could not upvote. You have already upvoted this work"
       redirect_to works_path
       return
     end

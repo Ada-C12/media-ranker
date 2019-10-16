@@ -4,13 +4,15 @@ class VotesController < ApplicationController
     work = params[:work_id]
 
     unless current_user
-      flash[:warning] = "A problem occured: You must log in to do that"
+      flash[:status] = :warning
+      flash[:status] = "A problem occured: You must log in to do that"
       redirect_to work_path(work)
       return
     end
 
     if Vote.find_by(user_id: current_user, work_id: work)
-      flash[:warning] = "A problem occurred: You have already voted for this work"
+      flash[:status] = :warning
+      flash[:message] = "A problem occurred: You have already voted for this work"
       redirect_to work_path(work)
       return
     else
@@ -18,7 +20,8 @@ class VotesController < ApplicationController
       vote.user_id = current_user
       vote.work_id = work
       vote.save
-      flash[:success] = "You have successfully voted for this work!"
+      flash[:status] = :success
+      flash[:message] = "You have successfully voted for this work!"
       redirect_to work_path(work)
       return
     end
