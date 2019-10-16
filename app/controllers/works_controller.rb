@@ -5,7 +5,6 @@ class WorksController < ApplicationController
     @all_movies = Work.all_movies(@everything)
     @all_books = Work.all_books(@everything)
     @all_albums = Work.all_albums(@everything)
-    @spotlight_winner = Work.spotlight_winner
   end
   
   def new

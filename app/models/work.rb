@@ -37,6 +37,7 @@ class Work < ApplicationRecord
     return everything
   end 
   
+  # Could I have DRY'd these up?  IDK...
   def self.all_movies(all_categories_hash)
     return all_categories_hash[:all_movies]
   end
@@ -48,5 +49,17 @@ class Work < ApplicationRecord
   def self.all_books(all_categories_hash)
     return all_categories_hash[:all_books]
   end  
+  
+  def self.top_ten_movies(all_categories_hash)
+    return all_categories_hash[:all_movies][0..9]
+  end
+  
+  def self.top_ten_albums(all_categories_hash)
+    return all_categories_hash[:all_albums][0..9]
+  end
+  
+  def self.top_ten_books(all_categories_hash)
+    return all_categories_hash[:all_books][0..9]
+  end
   
 end
