@@ -18,12 +18,47 @@ class WorksController < ApplicationController
   end
 
   def create
+    @work = Work.new(work_params)
+    if @work.save
+      flash[:success] = "Driver added successfully"
+
+      redirect_to work_path(@work.id)
+    else
+      flash.now[:error] = "You didn't do it right."
+      render new_work_path #:edit also works
+    end
+  end
+
+  def edit
+    id = params[:id].to_i
+    @work = Work.find_by(id: id)
+
+    # if @work == nil
+    #   redirect_to work_path
+    # end
   end
 
   def update
+    @work = Work.find_by(id: params[:id])
+
+    if @work.update(work_params)
+      redirect_to work_path(@work.id)
+    else
+      render new_work_path
+    end
   end
 
   def destroy
+    the_correct_work = Work.find_by( id: params[:id] )
+
+    if the_correct_work.nil?
+      redirect_to works_path
+      return
+    else
+      the_correct_work.destroy
+      redirect_to root_path
+      return
+    end
   end
 
   private

@@ -1,4 +1,5 @@
 require 'csv'
+require 'pry'
 
 WORK_FILE = Rails.root.join('db', 'media_seeds.csv')
 puts "Loading raw work data from #{WORK_FILE}"
