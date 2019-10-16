@@ -10,6 +10,23 @@
   </head>
 
   <body>
+    <nav>
+      <ul class="nav-links">
+        <li class="home-link">
+          <%= link_to "View top media", root_path %>
+        </li>
+        <li class="works-linnk">
+          <%= link_to "View all media", works_path %>
+        </li>
+        <li class="add-work">
+          <%= link_to "Add a new work", new_work_path %>
+        </li>
+        <li class="users-link">
+          <%= link_to "View all users" %>
+        </li>
+      </ul>
+    </nav>
+
     <%= yield %>
   </body>
 </html>

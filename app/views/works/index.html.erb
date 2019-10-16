@@ -1,0 +1,67 @@
+<h2>List of Works</h2>
+
+<h3>Album</h3>
+
+<table>
+  <%# <th> Votes </th> %>
+  <th> Category </th>  
+  <th> Title </th>
+  <th> Created By </th>
+  <th> Published </th>
+  <%# <th> Upvote </th> %>
+
+  <% @works.each do |work| %>
+    <% if work.category == "album" %>
+      <tr>
+        <td><%= work.category %></td>
+        <td><%= link_to work.title, work_path(work.id) %></td>
+        <td><%= work.creator %></td>
+        <td><%= work.publication_year %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+<h3>Books</h3>
+
+<table>
+  <%# <th> Votes </th> %>
+  <th> Category </th>  
+  <th> Title </th>
+  <th> Created By </th>
+  <th> Published </th>
+  <%# <th> Upvote </th> %>
+
+  <% @works.each do |work| %>
+    <% if work.category == "book" %>
+      <tr>
+        <td><%= work.category %></td>
+        <td><%= link_to work.title, work_path(work.id) %></td>
+        <td><%= work.creator %></td>
+        <td><%= work.publication_year %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+  <h3>Movies</h3>
+
+<table>
+  <%# <th> Votes </th> %>
+  <th> Category </th>  
+  <th> Title </th>
+  <th> Created By </th>
+  <th> Published </th>
+  <%# <th> Upvote </th> %>
+
+  <% @works.each do |work| %>
+    <% if work.category == "movie" %>
+      <tr>
+        <td><%= work.category %></td>
+        <td><%= link_to work.title, work_path(work.id) %></td>
+        <td><%= work.creator %></td>
+        <td><%= work.publication_year %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

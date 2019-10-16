@@ -1,0 +1,21 @@
+<%= form_with model: @work, class: "work_form_class" do |f| %>
+
+<p>
+<%= f.label :category %>
+<%= f.select :category, [ 'album', 'book', 'movie'] %>
+</p>
+<p>
+<%= f.label :title %>
+<%= f.text_field :title %>
+</p>
+<p>
+<%= f.label :creator %>
+<%= f.text_field :creator %>
+</p>
+<p>
+<%= f.label :publication_year %>
+<%= f.text_field :publication_year%>
+</p>
+
+<%= f.submit button, class: "work-form-button" %>
+<%end%>
