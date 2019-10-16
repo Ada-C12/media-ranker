@@ -5,3 +5,44 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+require 'csv'
+
+FILE = Rails.root.join('db', 'seed_data', 'media_seeds.csv')
+puts "Loading raw driver data from #{FILE}"
+
+failures = []
+
+CSV.foreach(DRIVER_FILE, :headers => true) do |row|
+  work = Work.new
+  
+  invalid_category = nil
+  case row["category"]
+  when "album"
+    work.category = "album"
+  when "book"
+    work.category = "book"
+  when "movie"
+    work.category = "movie"
+  else
+    invalid_category = true
+  end
+  
+  work.title = row["title"]
+  work.creator = row["creator"]
+  work.published_year = row["publication_year"]
+  work.description = row["description"]
+  successful = work.save
+  
+  if !successful
+    failures << work
+    puts "Failed to save Work obj: #{work.inspect}"
+  else
+    puts "Created Work obj: #{work.inspect}"
+  end
+end
+
+puts "Added #{Work.count} Work records"
+puts "#{failures.length} failed to save"
+puts "DONE"
