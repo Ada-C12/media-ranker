@@ -7,9 +7,52 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Gudea:400,700|Hammersmith+One&display=swap" rel="stylesheet">
+
+    <%# Add icon to display next to URL %>
+    <%# <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-910822ff6cd5f6d37119171c4b716f1d4e5fe0e8ad5e408627659ebf8d7f16b1.ico"> %>
   </head>
 
   <body>
+    <header class="app-header__header">
+      <h1>
+        <%= link_to "Media Ranker", root_path %>
+        <small>Ranking the Best of Everything</small>
+      </h1>
+      <nav class="app-header__nav">
+        <ul class="nav app-header__site-nav-container">
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "View top media", root_path, class: "nav-link"%>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "View all media", works_path, class: "nav-link"%>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "Add a new work", new_work_path, class: "nav-link"%>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "View all users", users_path, class: "nav-link"%>
+          </li>
+        </ul>
+        <ul class="nav app-header__user-nav-container">
+          <% if session[:user_id] %>
+            <li class="nav-item app-header__nav_item">
+              <% user = User.find_by(id: session[:user_id])%>
+              <%= link_to "Logged in as #{user.username}", current_user_path, class: "btn btn-primary" %>
+            </li>
+            <li class="nav-item app-header__nav_item">
+              <%= link_to "Log Out", logout_path, method: :post, class: "btn btn-primary" %>
+            </li>
+          <% else %>
+            <li class="nav-item app-header__nav_item">
+              <%= link_to "Log In", login_path, class: "btn btn-primary" %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
+
+
