@@ -1,4 +1,6 @@
 class Work < ApplicationRecord
+  has_many :votes
+
   validates :category, inclusion: { in: ["album", "book", "movie"] }
   validates :title, presence: true, uniqueness: { scope: :category }
 
