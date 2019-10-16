@@ -18,10 +18,10 @@
       <tbody>
           <% Work.list_all_in_category(category).each do |piece| %>
           <tr>
-            <td>FILL IN LATER WITH VOTES</td>
+            <td>0</td>
             <td><%= link_to piece.title, work_path(piece) %></td>
-            <td>piece.creator</td>
-            <td>piece.publication_year</td>
+            <td><%= piece.creator %></td>
+            <td><%= piece.publication_year %></td>
             <td><%# link_to Upvote, upvote_path(piece), class="btn btn-primary" %>Upvote</td>
           </tr>
           <% end %>

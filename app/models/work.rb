@@ -2,8 +2,7 @@ class Work < ApplicationRecord
   validates :category, inclusion: { 
     in: %w(movie book album),
     message: "%{value} is not a valid category" 
-  }, 
-  allow_nil: true
+  }
   validates :title, presence: true
   validates :publication_year, numericality: { only_integer: true }, allow_nil: true
   
@@ -28,7 +27,7 @@ class Work < ApplicationRecord
   def self.get_top_ten(target_category)
     all_in_category = self.list_all_in_category(target_category)
     
-    if all_in_category.nil?
+    if all_in_category.empty?
       return all_in_category
     elsif all_in_category.length < 10
       return all_in_category

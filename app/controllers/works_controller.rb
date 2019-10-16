@@ -26,6 +26,7 @@ class WorksController < ApplicationController
       redirect_to work_path(@work.id)  
       return
     else 
+      flash.now[:warning] = "A problem occurred: Could not create #{@work.category}" 
       render :new
       return
     end
@@ -40,12 +41,6 @@ class WorksController < ApplicationController
     end
   end
   
-  # <section class="alert__container">
-  #     <div class="alert alert-success">
-  #       <span>Successfully updated album 299</span>
-  #     </div>
-  #   </section>
-  
   def update
     @work = Work.find_by(id: params[:id])
     
@@ -59,7 +54,7 @@ class WorksController < ApplicationController
       redirect_to work_path(@work.id)
       return
     else
-      flash[:warning] = "A prolem occured: Could not update #{@work.category}"  
+      flash.now[:warning] = "A problem occured: Could not update #{@work.category}"  
       render :edit  
       return
     end
@@ -75,8 +70,8 @@ class WorksController < ApplicationController
     
     @work.destroy
     
+    flash[:success] = "Successfully destroyed #{@work.category} #{@work.id}"
     redirect_to root_path
-    # flash: Successfully destroyed album 415
     return
   end
   
