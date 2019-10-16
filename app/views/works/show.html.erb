@@ -1,27 +1,28 @@
-<h1><%= @work.title %></h1>
-<ul>
-  <li>
-    Created by: <%= @work.creator%>
-  </li>
-  <li>
-    Published: <%= @work.publication_year%>
-  </li>
-  <li>
-    <%= @work.description%>
-  </li>
-</ul>
+<main>
+  <section>
+    <h2><%= @work.title %></h2>
+    <p>
+      Created by: <%= @work.creator%>
+    </p>
+    <p>
+      Published: <%= @work.publication_year%>
+    </p>
+    <p>
+      <%= @work.description%>
+    </p>
 
-<ul>
-  <li>
-  <%# link_to "Back to media ranks", %>
-  </li>
-  <li>
-  <%= link_to "Edit", edit_work_path %>
-  </li>
-  <li>
-  <%# link_to "Upvote", upvote_work_path %>
-  </li>
-  <li>
-  <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" } %>
-  </li>
-</ul>
+    <section>
+      <%= link_to "Back to media ranks", root_path, class: "btn btn-primary" %>
+      <%= link_to "Edit", edit_work_path, class: "btn btn-primary" %>
+      <%= link_to "Edit", edit_work_path, class: "btn btn-primary" %>
+      <%# link_to "Upvote", upvote_work_path, method: :post, class: "btn btn-primary" %>
+      <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    </section>
+  </section>
+
+  <section class= "works-votes__container">
+    <h3 class= "works-votes__header">
+      <%#Votes.count%> Votes for this <%=@work.category.capitalize%>
+    </h3>
+  </section>
+</main>

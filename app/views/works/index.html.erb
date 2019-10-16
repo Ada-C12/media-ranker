@@ -12,80 +12,108 @@
           <th width="100">Upvote</th>
         </tr>
       </thead>
+      <tbody>
+        <% @works.each do |work| %>
+          <tr>
+            <% if work.category == 'album'%>
+                <td>
+                  <%# Votes.count %>
+                </td>
+                <td>
+                  <%= link_to work.title, work_path(work.id) %>
+                </td>
+                <td>
+                  <%= work.creator %>
+                </td>
+                <td>
+                  <%= work.publication_year %>
+                </td>
+                <td>
+                  <%# button Upvote, vote_path(work.id) %>
+                </td>
+              </ul>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
-    <% @works.each do |work| %>
-      <% if work.category == 'album'%>
-        <ul>
-          <li>
-            <%= link_to work.title, work_path(work.id) %>
-          </li>
-          <li>
-            <%= work.creator %>
-          </li>
-          <li>
-            <%= work.publication_year %>
-          </li>
-          <li>
-            <%# button Upvote, vote_path(work.id) %>
-          </li>
-        </ul>
-      <% end %>
-    <% end %>
   </section>
   <section class="media-table">
     <h4>Books</h4>
-    <ul>
-      <li><strong>Votes</strong></li>
-      <li><strong>Title</strong></li>
-      <li><strong>Created By</strong></li>
-      <li><strong>Published</strong></li>
-      <li><strong>Upvote</strong></li>
-    </ul>
-    <% @works.each do |work| %>
-      <% if work.category == 'book'%>
-        <ul>
-          <li>
-            <%= link_to work.title, work_path(work.id) %>
-          </li>
-          <li>
-            <%= work.creator %>
-          </li>
-          <li>
-            <%= work.publication_year %>
-          </li>
-          <li>
-            <%# button Upvote, vote_path(work.id) %>
-          </li>
-        </ul>
-      <% end %>
-    <% end %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="80">Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th width="100">Published</th>
+          <th width="100">Upvote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @works.each do |work| %>
+          <tr>
+            <% if work.category == 'movie'%>
+                <td>
+                  <%# Votes.count %>
+                </td>
+                <td>
+                  <%= link_to work.title, work_path(work.id) %>
+                </td>
+                <td>
+                  <%= work.creator %>
+                </td>
+                <td>
+                  <%= work.publication_year %>
+                </td>
+                <td>
+                  <%# button Upvote, vote_path(work.id) %>
+                </td>
+              </ul>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </section>
   <section class="media-table">
     <h4>Movies</h4>
-    <ul>
-      <li><strong>Votes</strong></li>
-      <li><strong>Title</strong></li>
-      <li><strong>Created By</strong></li>
-      <li><strong>Published</strong></li>
-      <li><strong>Upvote</strong></li>
-    </ul>
-    <% @works.each do |work| %>
-      <% if work.category == 'movie'%>
-        <ul>
-          <li>
-            <%= link_to work.title, work_path(work.id) %>
-          </li>
-          <li>
-            <%= work.creator %>
-          </li>
-          <li>
-            <%= work.publication_year %>
-          </li>
-          <li>
-            <%# button Upvote, vote_path(work.id) %>
-          </li>
-        </ul>
-      <% end %>
-    <% end %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="80">Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th width="100">Published</th>
+          <th width="100">Upvote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @works.each do |work| %>
+          <tr>
+            <% if work.category == 'album'%>
+                <td>
+                  <%# Votes.count %>
+                </td>
+                <td>
+                  <%= link_to work.title, work_path(work.id) %>
+                </td>
+                <td>
+                  <%= work.creator %>
+                </td>
+                <td>
+                  <%= work.publication_year %>
+                </td>
+                <td>
+                  <%# button Upvote, vote_path(work.id) %>
+                </td>
+              </ul>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </section>
+  <%= link_to "View top media", root_path, class: "btn btn-secondary" %>
+  <%= link_to "Add a new work", new_work_path, class: "btn btn-primary" %>
 </main>

@@ -1,4 +1,8 @@
 class WorksController < ApplicationController
+  def media_spotlight
+    
+  end
+
   def index
     @works = Work.all
   end
