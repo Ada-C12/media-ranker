@@ -32,9 +32,29 @@ describe Work do
   end
   
   describe "top_works_sorted_by_category" do  
-    #Please don't forget to write test when Vote is all set up
+    it "returns the list of 10 or less top works sorted by number of votes" do
+      categories = ["book", "movie", "album"]
+      categories.each do |category|
+        top_works = Work.top_works_sorted_by_category(category)
+        assert(top_works.length <= 10)
+        
+        (top_works.length - 2).times do |index|
+          first_work_total_votes = top_works[index].votes.length
+          second_work_total_votes = top_works[index + 1].votes.length
+          assert(first_work_total_votes >= second_work_total_votes)
+        end
+      end
+    end
+    it "return empty array if there's no works" do
+      Work.destroy_all
+      expect (Work.count).must_equal 0
+      categories = ["book", "movie", "album"]
+      categories.each do |category|
+        expect(Work.top_works_sorted_by_category(category)).must_equal []
+      end
+    end
   end
-
+  
   describe "highest_rated_work" do  
     #Please don't forget to write test when Vote is all set up
   end
