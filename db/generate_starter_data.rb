@@ -23,3 +23,22 @@ CSV.open("db/seed_data/media_seeds.csv", "w", :write_headers => true,
     end
   end
   
+  CSV.open("db/seed_data/user_seeds.csv", "w", :write_headers => true,
+    :headers => ["username"]) do |csv|
+      25.times do
+        username = Faker::Name.name
+        
+        csv << [username]
+      end
+    end
+    
+    CSV.open("db/seed_data/votes_seeds.csv", "w", :write_headers => true,
+      :headers => ["work_id", "user_id"]) do |csv|
+        40.times do
+          work_id = rand(1..25)
+          user_id = rand(1..25)
+          
+          csv << [work_id, user_id]
+        end
+      end  
+      

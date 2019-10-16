@@ -22,3 +22,44 @@ end
 
 puts "Added #{Work.count} work records"
 puts "#{work_failures.length} works failed to save"
+
+
+USER_FILE = Rails.root.join('db', 'seed_data', 'user_seeds.csv')
+puts "Loading raw driver data from #{USER_FILE}"
+
+user_failures = []
+CSV.foreach(USER_FILE, :headers => true) do |row|
+  user = User.new
+  user.username = row['username']
+  successful = user.save
+  if !successful
+    user_failures << user
+    puts "Failed to save user: #{user.inspect}"
+  else
+    puts "Created user: #{user.inspect}"
+  end
+end
+
+puts "Added #{User.count} user records"
+puts "#{user_failures.length} users failed to save"
+
+
+VOTE_FILE = Rails.root.join('db', 'seed_data', 'votes_seeds.csv')
+puts "Loading raw driver data from #{VOTE_FILE}"
+
+vote_failures = []
+CSV.foreach(VOTE_FILE, :headers => true) do |row|
+  vote = Vote.new
+  vote.work_id = row['work_id']
+  vote.user_id = row['user_id']
+  successful = vote.save
+  if !successful
+    vote_failures << vote
+    puts "Failed to save vote: #{vote.inspect}"
+  else
+    puts "Created vote: #{vote.inspect}"
+  end
+end
+
+puts "Added #{Vote.count} votes records"
+puts "#{vote_failures.length} votes failed to save"

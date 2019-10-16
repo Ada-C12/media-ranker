@@ -10,8 +10,7 @@
     <% end %>
   </h2>
   <p class="spotlight__description">
-    <%# @spotlight.total_votes %> votes - <%= @spotlight.description %>
-    <%# 7 votes - abc %>
+    <%= @spotlight.votes.count %> votes - <%= @spotlight.description %>
   </p>
 </section>
 
@@ -28,7 +27,7 @@
             <%= link_to piece.title, work_path(piece) %>
             <small class="top-ten__creator">by <%= piece.creator %></small>
           </h4>
-          <p><%# something for vote counting %>votes</p>
+          <p><%= piece.votes.count %> votes</p>
         </li>
         <% end %>
       </ul>
