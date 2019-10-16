@@ -1,0 +1,8 @@
+<h2> <%= @work.title %> </h2>
+<p> Created by: <%= @work.creator %> </h3>
+<p> Published: <%= @work.publication_year %> </p>
+
+<a class='btn' href=works_path>Back to media ranks</a>
+<a class='btn' href=work_path(work) action: patch>Edit</a>
+<a class='btn' href=work_path(work) action: patch>Upvote</a>
+<a class='btn' href=works_path(work) action: delete>Delete</a>
