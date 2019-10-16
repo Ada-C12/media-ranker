@@ -62,6 +62,20 @@ class WorksController < ApplicationController
     end
   end
 
+  def upvote
+    work = Work.find_by(id: params[:id])
+    user = User.find_by(id: session[:user_id])
+    if user
+      Vote.create(work: work, user: user)
+      flash[:success] = "upvoted #{ work.title }"
+      redirect_to work_path(work.id)
+    else
+      flash[:errors] = { user: ["must be logged in to upvote"] }
+      flash[:action] = "upvote"
+      redirect_to work_path(work.id)
+    end
+  end
+
   private
   def work_params
     params.require(:work).permit(:category, :title, :creator, :published, :description)

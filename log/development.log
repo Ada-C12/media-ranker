@@ -4261,3 +4261,370 @@ FOREIGN KEY ("work_id")
   ↳ bin/rails:9
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+Started GET "/works/2" for ::1 at 2019-10-16 15:48:30 -0700
+  [1m[35m (40.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 85ms (Views: 62.9ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/works/2/upvote" for ::1 at 2019-10-16 15:48:32 -0700
+
+AbstractController::ActionNotFound - The action 'upvote' could not be found for WorksController:
+
+Started POST "/__better_errors/24467c6383039a16/variables" for ::1 at 2019-10-16 15:48:32 -0700
+Started GET "/" for ::1 at 2019-10-16 15:51:52 -0700
+
+SyntaxError - syntax error, unexpected ')', expecting ']'
+...r.find_by(id: session[:user_id))
+...                              ^:
+  app/controllers/works_controller.rb:67:in `'
+
+Started POST "/__better_errors/8d665f8fa00e5206/variables" for ::1 at 2019-10-16 15:51:52 -0700
+Started GET "/" for ::1 at 2019-10-16 15:52:03 -0700
+
+SyntaxError - syntax error, unexpected ')', expecting keyword_end
+...find_by(id: session[:user_id]))
+...                              ^:
+  app/controllers/works_controller.rb:67:in `'
+
+Started POST "/__better_errors/6e9e2d34613713c0/variables" for ::1 at 2019-10-16 15:52:03 -0700
+Started GET "/" for ::1 at 2019-10-16 15:52:20 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:6
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.7ms)
+  Rendered works/_list.html.erb (0.5ms)
+  Rendered works/_list.html.erb (0.6ms)
+  Rendered works/main.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 115ms (Views: 82.3ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/works/30" for ::1 at 2019-10-16 15:52:23 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (5.1ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 65ms (Views: 54.7ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/works/30/upvote" for ::1 at 2019-10-16 15:52:25 -0700
+Processing by WorksController#upvote as HTML
+  Parameters: {"authenticity_token"=>"/43/5C4zdmb3pyEAO93l0lLv7Mnc05CW2XxYbP9o4UZLC/uy94Yu046K97LS/5eGcZ9XSQygyNgswZWYqIOWdg==", "id"=>"30"}
+  [1m[36mWork Load (11.1ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:66
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:67
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:68
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:68
+No template found for WorksController#upvote, rendering head :no_content
+Completed 204 No Content in 284ms (ActiveRecord: 33.3ms)
+
+
+Started POST "/works/30/upvote" for ::1 at 2019-10-16 15:52:27 -0700
+Processing by WorksController#upvote as HTML
+  Parameters: {"authenticity_token"=>"/43/5C4zdmb3pyEAO93l0lLv7Mnc05CW2XxYbP9o4UZLC/uy94Yu046K97LS/5eGcZ9XSQygyNgswZWYqIOWdg==", "id"=>"30"}
+  [1m[36mWork Load (1.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:66
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:67
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:68
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:68
+No template found for WorksController#upvote, rendering head :no_content
+Completed 204 No Content in 184ms (ActiveRecord: 2.2ms)
+
+
+Started POST "/works/30/upvote" for ::1 at 2019-10-16 15:52:28 -0700
+Processing by WorksController#upvote as HTML
+  Parameters: {"authenticity_token"=>"/43/5C4zdmb3pyEAO93l0lLv7Mnc05CW2XxYbP9o4UZLC/uy94Yu046K97LS/5eGcZ9XSQygyNgswZWYqIOWdg==", "id"=>"30"}
+  [1m[36mWork Load (4.9ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:66
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:67
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:68
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:68
+No template found for WorksController#upvote, rendering head :no_content
+Completed 204 No Content in 132ms (ActiveRecord: 5.5ms)
+
+
+Started POST "/works/30/upvote" for ::1 at 2019-10-16 15:52:29 -0700
+Processing by WorksController#upvote as HTML
+  Parameters: {"authenticity_token"=>"/43/5C4zdmb3pyEAO93l0lLv7Mnc05CW2XxYbP9o4UZLC/uy94Yu046K97LS/5eGcZ9XSQygyNgswZWYqIOWdg==", "id"=>"30"}
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:66
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:67
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:68
+  [1m[35m (14.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:68
+No template found for WorksController#upvote, rendering head :no_content
+Completed 204 No Content in 235ms (ActiveRecord: 15.3ms)
+
+
+Started POST "/works/30/upvote" for ::1 at 2019-10-16 15:52:30 -0700
+Processing by WorksController#upvote as HTML
+  Parameters: {"authenticity_token"=>"/43/5C4zdmb3pyEAO93l0lLv7Mnc05CW2XxYbP9o4UZLC/uy94Yu046K97LS/5eGcZ9XSQygyNgswZWYqIOWdg==", "id"=>"30"}
+  [1m[36mWork Load (0.6ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:66
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:67
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:68
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:68
+No template found for WorksController#upvote, rendering head :no_content
+Completed 204 No Content in 195ms (ActiveRecord: 1.8ms)
+
+
+  [1m[36mVote Load (0.7ms)[0m  [1m[34mSELECT "votes".* FROM "votes"[0m
+Started GET "/works/30/edit" for ::1 at 2019-10-16 15:55:29 -0700
+
+SyntaxError - syntax error, unexpected end-of-input, expecting keyword_end:
+  app/controllers/works_controller.rb:78:in `'
+
+Started POST "/__better_errors/2920b0d76252ceea/variables" for ::1 at 2019-10-16 15:55:29 -0700
+Started GET "/works/30" for ::1 at 2019-10-16 15:55:31 -0700
+
+SyntaxError - syntax error, unexpected end-of-input, expecting keyword_end:
+  app/controllers/works_controller.rb:78:in `'
+
+Started POST "/__better_errors/26973ee5380e01c5/variables" for ::1 at 2019-10-16 15:55:31 -0700
+Started GET "/works/30" for ::1 at 2019-10-16 15:55:40 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 92ms (Views: 59.0ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/works/30/edit" for ::1 at 2019-10-16 15:55:41 -0700
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (3.8ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:49
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (4.5ms)
+  Rendered works/edit.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 106ms (Views: 94.9ms | ActiveRecord: 3.8ms)
+
+
+Started PATCH "/works/30" for ::1 at 2019-10-16 15:55:45 -0700
+Processing by WorksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uct6rjr8sQRc/JZzchSyCJraEPY+LCqI4xaKCTtsjxANVRcdWA9jSlWe3ZfMytyrTyQ421iccM58FP20npI7dQ==", "work"=>{"category"=>"movie", "title"=>"", "creator"=>"Janelle Monae", "published"=>"", "description"=>""}, "commit"=>"Update Work", "id"=>"30"}
+  [1m[36mWork Load (3.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:53
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:55
+  [1m[36mWork Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."id" != $2 AND "works"."category" = $3 LIMIT $4[0m  [["title", ""], ["id", 30], ["category", "movie"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:55
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:55
+Redirected to http://localhost:3000/works/30/edit
+Completed 302 Found in 13ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/works/30/edit" for ::1 at 2019-10-16 15:55:45 -0700
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (1.1ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:49
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (3.6ms)
+  Rendered works/edit.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 95ms (Views: 88.8ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/works/30" for ::1 at 2019-10-16 15:57:48 -0700
+Processing by WorksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IQgIjANRYeH+g10Qz2kZBJ48F6JowwgfQbJvwDmPTBSVjgza2uQ5VIeui6ImS2tQvUysIriwUFG0D6I0bmQ7JA==", "work"=>{"category"=>"movie", "title"=>"Dirty Computer", "creator"=>"Janelle Monae", "published"=>"", "description"=>""}, "commit"=>"Update Work", "id"=>"30"}
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:55
+  [1m[36mWork Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."id" != $2 AND "works"."category" = $3 LIMIT $4[0m  [["title", "Dirty Computer"], ["id", 30], ["category", "movie"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:55
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:55
+Redirected to http://localhost:3000/works/30
+Completed 302 Found in 27ms (ActiveRecord: 8.8ms)
+
+
+Started GET "/works/30" for ::1 at 2019-10-16 15:57:48 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 67ms (Views: 64.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/works/30/upvote" for ::1 at 2019-10-16 15:57:50 -0700
+Processing by WorksController#upvote as HTML
+  Parameters: {"authenticity_token"=>"dJtdsOmkkOauhD5kGtjUBeL2uxAZHXyJhEKrHc/HDUXAHVnmMBHIU9ep6Nbz+qZRwYYAkMluJMdx/2bpmCx6dQ==", "id"=>"30"}
+  [1m[36mWork Load (1.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:66
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:67
+No template found for WorksController#upvote, rendering head :no_content
+Completed 204 No Content in 143ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/works/30" for ::1 at 2019-10-16 15:57:57 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 64ms (Views: 61.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/works/30/upvote" for ::1 at 2019-10-16 15:58:00 -0700
+Processing by WorksController#upvote as HTML
+  Parameters: {"authenticity_token"=>"ViILwCsMBcM/k4q5n+icl5EdhaqmxbHbnVjjrLMx0yzipA+W8rlddka+XAt2yu7Dsm0+Kna26ZVo5S5Y5NqkHA==", "id"=>"30"}
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:66
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:67
+No template found for WorksController#upvote, rendering head :no_content
+Completed 204 No Content in 111ms (ActiveRecord: 0.8ms)
+
+
+Started POST "/works/30/upvote" for ::1 at 2019-10-16 15:58:12 -0700
+Processing by WorksController#upvote as HTML
+  Parameters: {"authenticity_token"=>"ViILwCsMBcM/k4q5n+icl5EdhaqmxbHbnVjjrLMx0yzipA+W8rlddka+XAt2yu7Dsm0+Kna26ZVo5S5Y5NqkHA==", "id"=>"30"}
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:66
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:67
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 9.3ms)
+
+
+
+ActionView::MissingTemplate - Missing template works/30 with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/mira/ada/w11/media-ranker/app/views"
+:
+  app/controllers/works_controller.rb:75:in `upvote'
+
+Started POST "/__better_errors/0f9d7bd443d60872/variables" for ::1 at 2019-10-16 15:58:13 -0700
+Started POST "/works/30/upvote" for ::1 at 2019-10-16 16:06:01 -0700
+Processing by WorksController#upvote as HTML
+  Parameters: {"authenticity_token"=>"ViILwCsMBcM/k4q5n+icl5EdhaqmxbHbnVjjrLMx0yzipA+W8rlddka+XAt2yu7Dsm0+Kna26ZVo5S5Y5NqkHA==", "id"=>"30"}
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:66
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:67
+Redirected to http://localhost:3000/works/30
+Completed 302 Found in 36ms (ActiveRecord: 10.6ms)
+
+
+Started GET "/works/30" for ::1 at 2019-10-16 16:06:01 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 100ms (Views: 92.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for ::1 at 2019-10-16 16:06:36 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 75ms (Views: 65.1ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/login" for ::1 at 2019-10-16 16:06:40 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"72Nl/DEHPr063WtWvoipaeDDVYQqoQOEmJiCfjL7wC3bc65SMLlEnjjqjpxqCl1op9Wz3Qmkq9mNKSagKktKZw==", "user"=>{"username"=>"calopter"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calopter"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 16:06:40 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:6
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.6ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (1.4ms)
+  Rendered works/_list.html.erb (0.8ms)
+  Rendered works/_list.html.erb (1.0ms)
+  Rendered works/main.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 98ms (Views: 80.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/works/30" for ::1 at 2019-10-16 16:06:44 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 86ms (Views: 79.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/works/30/upvote" for ::1 at 2019-10-16 16:06:45 -0700
+Processing by WorksController#upvote as HTML
+  Parameters: {"authenticity_token"=>"6d3Kd1GrWquJttrnL1aTBmJs6JjpHbganwtkj+fuxN1dW84hiB4CHvCbDFXGdOFSQRxTGDlu4FRqtql7sAWz7Q==", "id"=>"30"}
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:66
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:67
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:69
+  [1m[36mVote Create (163.9ms)[0m  [1m[32mINSERT INTO "votes" ("created_at", "updated_at", "user_id", "work_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2019-10-16 23:06:45.925879"], ["updated_at", "2019-10-16 23:06:45.925879"], ["user_id", 3], ["work_id", 30]]
+  ↳ app/controllers/works_controller.rb:69
+  [1m[35m (81.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:69
+Redirected to http://localhost:3000/works/30
+Completed 302 Found in 294ms (ActiveRecord: 271.0ms)
+
+
+Started GET "/works/30" for ::1 at 2019-10-16 16:06:46 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 65ms (Views: 61.1ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mVote Load (0.4ms)[0m  [1m[34mSELECT "votes".* FROM "votes"[0m
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT  "votes".* FROM "votes" ORDER BY "votes"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mVote Load (0.7ms)[0m  [1m[34mSELECT  "votes".* FROM "votes" ORDER BY "votes"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
