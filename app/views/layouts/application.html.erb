@@ -11,14 +11,16 @@
 
   <body>
   <header class="app-header__header">
+    <h2 id="logo-banner">
     <a href="/">Media Ranker</a>
-    <small>| Ranking the Best of Everything</small>
+    | Ranking the Best of Everything</h2>
+    
 
     <nav class="app-header__nav">
     <ul class="nav app-header__site-nav-container">
-      <li class="nav-item app-header__nav_item">LINK: View top media</li>
-      <li class="nav-item app-header__nav_item"><%= link_to "View all media", works_path%></li>
-      <li class="nav-item app-header__nav_item">LINK: Add a new work</li>
+      <li class="nav-item app-header__nav_item"><%= link_to "View Top Media", root_path%></li>
+      <li class="nav-item app-header__nav_item"><%= link_to "View All Media", works_path%></li>
+      <li class="nav-item app-header__nav_item"><%= link_to "Add a New Work", new_work_path%></li>
       <li class="nav-item app-header__nav_item"><%= link_to "View All Users", users_path %></li>
     </ul>
 

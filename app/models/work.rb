@@ -9,7 +9,11 @@ class Work < ApplicationRecord
   validates :published_year, presence: true
   
   def self.spotlight_winner
+    winner = self.all.max_by do |piece| 
+      piece.votes_earned
+    end
     return "TBD"
+    return winner
   end
   
   def self.all_categories

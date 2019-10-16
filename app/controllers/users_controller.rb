@@ -41,8 +41,8 @@ class UsersController < ApplicationController
   
   def show
     # works but not tested
-    @user = User.find_by(id: session[:user_id])
-    # i think if i had used params[:id] then someone can sneak in thru backdoor w/o login?
+    @user = User.find_by(id: params[:id])
+    # using params[:id] instead of session[:user_id], not as secure for user privacy, but we dont' care for thsi project
     unless @user
       flash[:error] = "User does not exist!"
       redirect_to root_path
