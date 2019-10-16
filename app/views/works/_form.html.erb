@@ -1,13 +1,21 @@
 <section>
-<% if @work.errors.any? %>
-  <ul class="errors">
-    <% @work.errors.each do |column, message| %>
-      <li>
-        <strong><%= column.capitalize %></strong> <%= message %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+
+    <section class="user-messages">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %> alert alert-warning">
+          <span>
+            <%= message %>
+          </span>
+          <ul>
+            <% @errors.messages.each do |k, v| %>
+              <li>
+                <%= k %> <%= v[0] %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </section>
 
   <%= form_with model: @work do |f| %>
   <%# <input name="utf8" type="hidden" value="✓">

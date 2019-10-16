@@ -4,7 +4,8 @@ class Work < ApplicationRecord
   validates :title, uniqueness: { scope: :category }
   
   def category
-    where(:category => self.category)
+    return "album"
+    # where(:category => self.category)
   end
   
 end

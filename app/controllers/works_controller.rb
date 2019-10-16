@@ -18,7 +18,8 @@ class WorksController < ApplicationController
     if work.save
       redirect_to work_path(work.id)
     else
-      flash.now[:error] = "A problem occurred: Could not create"
+      flash.now[:error] = "A problem occurred: Could not create " + work.category
+      @errors = work.errors
       render :new
     end
   end
