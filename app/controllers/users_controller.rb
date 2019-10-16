@@ -28,6 +28,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def logout
+    session[:username] = nil
+    session[:user_id] = nil
+    flash[:success] = "logged out"
+    redirect_to root_path
+  end
+
   def show
   end
 end
