@@ -3,9 +3,6 @@ class VotesController < ApplicationController
   # no View pages needed for votes
   # only needs votes#create
   
-  def new
-  end
-  
   def create
     raise
     if !session[:user_id]

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   patch '/users', to: "users#logout", as: "logout"
   resources :users, only: [:index, :create, :show]
   
-  resources :works
+  resources :works do
+    post '/vote', to: "votes#create", as: "create_vote"
+  end
   
   # no pages for votes
   post '/votes', to: "votes#create", as: "cast_vote"
