@@ -46,6 +46,28 @@ describe Work do
         top_books = Work.top_ten("book")
         expect(top_books.count).wont_be_nil
       end
+
+      it "returns an empty array if there are no works" do
+        Work.destroy_all
+
+        top_books = Work.top_ten("book")
+
+        expect(top_books).must_equal []
+      end
+    end
+
+    describe "top media method" do
+      it "returns the overall top media" do
+        top_media = Work.top_media
+        most_votes = Work.all.max_by { |work| work.votes.count }
+        expect(top_media).must_equal most_votes
+      end
+
+      it "will return nil if there are no works" do
+        Work.destroy_all
+
+        expect(Work.top_media).must_be_nil
+      end
     end
   end
 end
