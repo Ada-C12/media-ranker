@@ -1,0 +1,29 @@
+<h1>MediaRanker</h1>
+  <nav>
+  <div>
+    <%= link_to "View top media", root_path%>
+    <%= link_to "View all media", root_path%>
+    <%= link_to "Add a new work", new_work_path%>
+    <%# <%= link_to "View all users", users_path %> 
+    <% if session[:user_id].nil? %>
+            <%= link_to "Login", login_path %>
+        <%else%>
+          <li>
+            <%= link_to "Logout", logout_path, method: :post %>
+          </li>
+          <li>
+            Logged in as <%= User.find_by(id: session[:user_id]).username %>
+          </li>
+        <%end%>
+    </div>
+    <section class="flash">
+    <% flash.each do |name, message| %>
+      <div class="<%= name %>"><%= message %></div>
+    <% end %>
+  </section>
+  </nav>
+  </header>
+
+    <%= yield %>
+  </body>
+</html>

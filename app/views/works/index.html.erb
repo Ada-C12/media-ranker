@@ -1,0 +1,51 @@
+<h1>All Works</h1>
+
+<ul>
+<% @works.each do |work|%>
+
+ <%= link_to work.title, work_path(work) %>
+ <%= work.creator%> 
+
+
+<%= link_to "Edit", edit_work_path(work) %>
+<%= link_to "Delete", work_path(work), method: :delete, data: {confirm: "Are you sure?"}%> 
+
+<%end%>
+
+</ul>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Votes</th>
+      <th scope="col">Title</th>
+      <th scope="col">LasCreated By</th>
+      <th scope="col">Published</th>
+      <th scope="col">Upvote</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/432/upvote">Upvote</a></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+
