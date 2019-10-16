@@ -8,4 +8,8 @@ class Work < ApplicationRecord
     sorted_media = Work.where(category: category)
     return sorted_media
   end
+  
+  def self.top_voted
+    top_votes = Work.where
+  end
 end

@@ -1,12 +1,13 @@
 class WorksController < ApplicationController
+  before_action :find_work, only: [:show, :edit, :update, :destroy]
+  before_action :if_work_missing, only: [:edit, :update, :destroy]
+  
   def index
     @works = Work.all
     @categories = ["album", "book", "movie"]
   end
   
   def show
-    @work = Work.find_by(id: params[:id])
-    
     if @work.nil?
       redirect_to works_path
       return
@@ -36,22 +37,10 @@ class WorksController < ApplicationController
     end
   end
   
-  def edit
-    @work = Work.find_by(id: params[:id])
-    
-    if @work.nil?
-      redirect_to works_path
-      return
-    end 
-  end
+  def edit; end
   
   def update
-    @work = Work.find_by(id: params[:id])
-    
-    if @work.nil?
-      redirect_to works_path
-      return
-    elsif @work.update(work_params)
+    if @work.update(work_params)
       flash[:success] = "Successfully updated #{@work.category} #{@work.id}."
       redirect_to work_path
       return
@@ -63,15 +52,7 @@ class WorksController < ApplicationController
   end
   
   def destroy
-    @work = Work.find_by(id: params[:id])
-    
-    if @work.nil?
-      head :not_found
-      return
-    end
-    
     @work.destroy
-    
     redirect_to works_path
     return
   end
@@ -80,5 +61,17 @@ class WorksController < ApplicationController
   
   def work_params
     params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+  end
+  
+  def find_work
+    @work = Work.find_by(id: params[:id])
+  end
+  
+  def if_work_missing
+    if @work.nil?
+      flash.now[:failure] = "#{@work.category.capitalize} not found."
+      redirect_to works_path
+      return
+    end
   end
 end

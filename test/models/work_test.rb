@@ -44,7 +44,7 @@ describe Work do
       
       expect( book_list[0].category ).must_equal 'book'
       expect( book_list[-1].category ).must_equal 'book'
-      expect ( book_list.count ).must_equal 10
+      expect( book_list.count ).must_equal 10
     end
   end
 end
