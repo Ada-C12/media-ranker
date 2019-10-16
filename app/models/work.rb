@@ -36,6 +36,11 @@ class Work < ApplicationRecord
     return everything
   end 
   
+  def sort_by_votes(array_of_work_objs)
+    #TODO
+  end
+  
+  
   # Could I have DRY'd these up?  IDK...
   def self.all_movies(all_categories_hash)
     return all_categories_hash[:all_movies]

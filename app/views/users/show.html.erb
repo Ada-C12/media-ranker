@@ -1,9 +1,3 @@
-<h1>show page</h1>
-
-
-
-<hr>
-
 <main>
 
   <h2>User Summary: <%= @user.name %></h2>
@@ -23,13 +17,15 @@
       </thead>
 
       <tbody>
-      <tr>
-        <td>@MEDIA TITLE HERE</td>
-        <td>@MEDIA CREATOR HERE</td>
-        <td>@PUB YEAR HERE</td>
-        <td>@CATEGORY HERE</td>
-        <td>@VOTED ON DATE HERE</td>
-      </tr>
+        <% @user.votes.each do |vote| %>
+        <tr>
+        <td><%= link_to vote.work.title, work_path(id: vote.work_id) %></td>
+        <td><%= vote.work.creator %></td>
+        <td><%= vote.work.published_year %></td>
+        <td><%= vote.work.category %></td>
+        <td><%= display_date(vote.created_at) %></td>
+        </tr>
+        <% end %>
       </tbody>
 
     </table>
