@@ -1,0 +1,69 @@
+album1:
+  category: album
+  title: Blue Breaker
+  creator: Dr. Sarai Langosh
+  publication_year: 1949
+  description: Et et expedita non aut quo.
+album2: 
+  category: book
+  title: Kreb-Full-o Been
+  creator: Ms. Trevion Buckridge
+  publication_year: 2016
+  description: Vero consectetur delectus consequatur id aut accusantium unde excepturi.
+album3:
+  category: album
+  title: Wake-up Pie
+  creator: Timmy Streich I
+  publication_year: 1919
+  description: Voluptatem consequatur qui consectetur nisi officiis culpa
+album4:
+  category: album
+  title: Major Cup
+  creator: Jayde Bartoletti
+  publication_year: 1944
+  description: Quis recusandae cum est facere consequatur minima magni et.
+album5:
+  category: album
+  title: Holiday Choice
+  creator: Alexandria Lehner
+  publication_year: 1940
+  description: Excepturi voluptas ut voluptatum.
+album6:
+  category: Captain's Java
+  title: Sanjuanita Kshlerin
+  publication_year: 1993
+  description: Cupiditate ut accusamus et.
+book1: 
+  category: book
+  title: caJoe Treat
+  creator: Blaise Lesch
+  publication_year: 1968
+  description: Voluptatem adipisci qui velit.
+book2:
+  category: book
+  title: Summer Select
+  creator: Ms. Gwendolyn Ortiz
+  publication_year: 1946
+  description: Et molestiae eos nam odit aut sed.
+book3:
+  category: book
+  title: Postmodern Blend
+  creator: Meredith Brekke
+  publication_year: 1970
+  description: Dolorem fugit accusantium qui.
+movie1:
+  category: movie
+  title: E.T. the Extra-Terrestrial
+  creator: Steven Spielberg
+  publication_year: 1982
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+movie2:
+  category: Bluebery Treat
+  title: Frank Langosh Jr.
+  publication_year: 1976
+  description: Velit vitae rerum quo.
+movie3: 
+  category: American Extract
+  title: Antoine Stokes
+  publication_year: 1953
+  description: Iure explicabo officia illum.

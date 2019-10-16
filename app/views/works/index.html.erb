@@ -1,0 +1,25 @@
+<h1>List of Works</h1>
+
+<h3>Albums</h3>
+<ul>
+  <%@albums.each do |album|%>
+    <li><%=album.title%> --- <%=album.creator%> -- <%=album.publication_year%></li>
+  <%end%>
+</ul>
+
+
+<h3>Books</h3>
+<ul>
+  <%@books.each do |book|%>
+    <li><%=book.title%> --- <%=book.creator%> -- <%=book.publication_year%></li>
+  <%end%>
+</ul>
+
+
+<h3>Movies</h3>
+<ul>
+  <%@movies.each do |movie|%>
+    <li><%=movie.title%> --- <%=movie.creator%> -- <%=movie.publication_year%></li>
+  <%end%>
+</ul>
+
