@@ -15,8 +15,6 @@ class Work < ApplicationRecord
     return winner
   end
   
-  
-  
   def sort_by_votes(array_of_work_objs)
     #TODO
   end
@@ -31,8 +29,9 @@ class Work < ApplicationRecord
   
   def self.top_ten_in(category:)
     if ["movie", "book", "album"].include? category
-      all = Work.where(category: category).order(:votes.count)
-      return all[-10..-1]
+      # all = Work.where(category: category).order(:votes.count, :des)
+      all = Work.where(category: category)
+      return all[0..10]
     else
       raise ArgumentError, "CATEGORY must be one of these: movie, album, or book"
     end
