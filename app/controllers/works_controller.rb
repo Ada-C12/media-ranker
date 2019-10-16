@@ -6,7 +6,7 @@ class WorksController < ApplicationController
   
   def show
     work_id = params[:id]
-    @work_item = Work.find_by(id: work_id)
+    @work = Work.find_by(id: work_id)
   end
   
   def new
@@ -64,6 +64,6 @@ class WorksController < ApplicationController
   private 
   def work_params
     params.require(:category, :title, :creator, :publication_year).permit(:description)
-    
   end
   
+end

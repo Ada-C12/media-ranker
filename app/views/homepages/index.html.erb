@@ -29,7 +29,8 @@
 <div>
   <% @works.each do |work| %>
     <% if work.category == "book"%>
-    <p><%= work.title %> by <%= work.creator%></p>
+    <p><%= link_to work.title, work_path(work.id)%>by <%= work.creator%></p>
+    
     <br>
     <% end %>
   <% end %>

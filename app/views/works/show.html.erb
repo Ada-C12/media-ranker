@@ -1,0 +1,5 @@
+<h1><%= @work.title %></h1>
+<p>Created by: <%= @work.creator %></p>
+<p>Published: <%= @work.publication_year%></p>
+
+<%= link_to "Edit", edit_work_path(@work.id)%>
