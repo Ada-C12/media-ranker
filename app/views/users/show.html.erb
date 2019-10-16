@@ -1,0 +1,103 @@
+<head><style type="text/css">.turbolinks-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}</style>
+  
+  
+
+
+  <link rel="stylesheet" media="screen" href="/assets/application-23e0d10ed2d885fab99a6549bc004eca19f49cf694e045afebe16b6e9bf1345a.css">
+<link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Gudea:400,700|Hammersmith+One">
+  <link rel="stylesheet" media="all" href="/assets/application-23e0d10ed2d885fab99a6549bc004eca19f49cf694e045afebe16b6e9bf1345a.css" data-turbolinks-track="reload">
+  <script src="/assets/application-f29d14b755d80577972d103e106ff1c2bc9a53efbc3b1e775d62d596da7222db.js" data-turbolinks-track="reload"></script>
+  
+<title>Media Ranker 2.0</title><meta name="csrf-param" content="authenticity_token"><meta name="csrf-token" content="Uw/RI3Xqu16bta5tUthgQtmEw+Q5r2K000oyToqX2/djXtKmMqPCNGD++fP8Xpkw8kSGHAUqv2U79g4srW7hZw=="><link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-910822ff6cd5f6d37119171c4b716f1d4e5fe0e8ad5e408627659ebf8d7f16b1.ico"></head>
+<div id="screen-shader" style="
+            transition: opacity 0.1s ease 0s; 
+            z-index: 2147483647;
+            margin: 0; 
+            border-radius: 0; 
+            padding: 0; 
+            background: #c5b791; 
+            pointer-events: none; 
+            position: fixed; 
+            top: -10%; 
+            right: -10%; 
+            width: 120%; 
+            height: 120%; 
+            opacity: 0.5840;
+            mix-blend-mode: multiply; 
+            display: none;
+        "></div>
+<body>
+  <header class="app-header__header">
+    <h1>
+      <a href="/">Media Ranker</a>
+      <small>Ranking the Best of Everything</small>
+    </h1>
+
+    <nav class="app-header__nav">
+      <ul class="nav app-header__site-nav-container">
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/">View top media</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/works">View all media</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/works/new">Add a new work</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/users">View all users</a>
+        </li>
+      </ul>
+      <ul class="nav app-header__user-nav-container">
+
+        <li class="nav-item app-header__nav_item">
+          <a class="btn btn-primary" href="/users/480">Logged in as jkladslj</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="btn btn-primary" rel="nofollow" data-method="post" href="/logout">Log Out</a>
+        </li>
+
+
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+    <h2>User Summary: <a href="/users/285">yo</a></h2>
+<p>Joined site Apr 22, 2019</p>
+
+<section class="user-votes__container">
+  <h3 class="user-votes__header">Votes</h3>
+  <table class="table">
+    <thead>
+      <% @user.votes.each do |vote| %>
+        <tr>
+          <td><%=link_to Work.find_by(id: vote.work_id).name, work_path(vote.work.id) %></td>
+          <td><%=vote.work.creator%></td>
+          <td><%=vote.work.publication_year%></td>
+          <td><%=vote.work.category%></td>
+          <td><%=vote.created_at%></td>
+      </tr>
+      <% end %>
+    </thead>
+  </table>
+</section>
+
+<a class="btn btn-secondary" href="/users">See all Users</a>
+<a class="btn btn-primary" href="/">Back to Media List</a>
+
+  </main>
+
+
+</body>
