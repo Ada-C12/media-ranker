@@ -1,4 +1,5 @@
 class WorksController < ApplicationController
+  before_action :find_work, only: [:show, :edit, :destroy]
   
   def index
     @everything = Work.all_categories
@@ -27,21 +28,27 @@ class WorksController < ApplicationController
   end
   
   def show
-    @work = Work.find_by(id: params[:id].to_i)
+    # @work via before_action
   end
   
   def edit
+    # @work via before_action
   end
   
   def update
   end
   
   def destroy
+    # @work via before_action
   end
   
   private
   def form_params
     return params.require(:work).permit(:category, :title, :creator, :published_year, :description)
+  end
+  
+  def find_work
+    @work = Work.find_by(id: params[:id].to_i)
   end
   
 end

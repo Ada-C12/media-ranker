@@ -1,8 +1,7 @@
 <section>
   <%= form_with model: @work do |f| %>
     <div class="form-group">
-      <label>Category</label>
-      <select class="form-control" name="work[category]">
+      <select class="form-control" name=:category>
         <option value="album">Album</option>
         <option value="book">Book</option>
         <option value="movie">Movie</option>
