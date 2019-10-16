@@ -39,11 +39,11 @@
 
         <% else %>
           <li class="nav app-header__site-nav-container">
-            <%= link_to "Log Out", logout_path, method: :post %>
+            <%= link_to "Log Out", logout_path, class: "btn btn-primary", method: :post %>
           </li>
 
           <li class="nav app-header__site-nav-container">
-            <%= button_to "Logged in as #{User.find_by(id: session[:user_id]).username}", user_path(session[:user_id]), method: :get %>
+            <%= button_to "Logged in as #{User.find_by(id: session[:user_id]).username}", user_path(session[:user_id]), class: "btn btn-primary", method: :get %>
           </li>
         <% end %>
       </ul>
