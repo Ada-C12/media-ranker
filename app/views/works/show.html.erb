@@ -1,0 +1,13 @@
+<h1>Details of this media: </h1>
+
+<section>
+  <p>Category: <%= @work.category %> </p>
+  <p>Title: <%= @work.title %> </p>
+  <p>Creator: <%= @work.creator %> </p>
+  <p>Publication Year: <%= @work.publication_year %> </p>
+  <p>Description: <%= @work.description %> </p>
+
+</section>
+
+<%= link_to "Edit Work", edit_work_path(@work.id) %>
+<%= button_to "Delete Work", work_path, method: :delte, data: {confirm: "Delete this work?"} %>

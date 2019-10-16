@@ -1,0 +1,22 @@
+<h1>List of Works</h1>
+
+<section>
+  <ul>
+  Album:
+  <% @works.each do |work| %>
+    <% if work.category == "album" %>
+      <li> <%= link_to work.title, work_path(work.id) %> Created by: <%= work.creator %>
+    <% end %>
+  <% end%>
+  </ul>
+
+  <ul>
+  Book:
+  <% @works.each do |work| %>
+    <% if work.category == "book" %>
+      <li><%= link_to work.title, work_path(work.id) %> Created by: <%= work.creator %></li>
+      <% end %>
+  <% end%>
+      </li>
+  </ul> 
+</section>
