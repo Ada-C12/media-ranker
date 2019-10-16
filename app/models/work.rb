@@ -2,9 +2,9 @@ class Work < ApplicationRecord
   
   has_many :votes
   
-  validates :category, presence: true
-  # also must be Movie/Books/Album
+  validates :category, presence: true, inclusion: { in: %w(movie album book), message: "Only movie/album/book accepted" }
   
+  # HOLD UP!!! What about same names but diff category? book vs movie?!
   validates :title, presence: true, uniqueness: true
   validates :published_year, presence: true
   
@@ -13,10 +13,6 @@ class Work < ApplicationRecord
       piece.votes.count
     end
     return winner
-  end
-  
-  def sort_by_votes(array_of_work_objs)
-    #TODO
   end
   
   def self.all_in(category:)
