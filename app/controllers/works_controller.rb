@@ -1,18 +1,12 @@
 class WorksController < ApplicationController
+  before_action :find_work, only: [:show, :edit, :update, :destroy]
+  before_action :if_work_missing, only: [:show, :edit, :destroy]
+  
   def index
     @works = Work.all 
   end
   
-  def show
-    @work = Work.find_by(id: params[:id])
-    
-    if @work.nil?
-      # Might not be the correct redirect??
-      # The page you were looking for doesn't exist. You may have mistyped the address or the page may have moved.
-      head :not_found
-      return
-    end
-  end
+  def show ; end
   
   def new
     @work = Work.new
@@ -32,18 +26,9 @@ class WorksController < ApplicationController
     end
   end
   
-  def edit
-    @work = Work.find_by(id: params[:id])
-    
-    if @work.nil?
-      head :not_found
-      return
-    end
-  end
+  def edit ; end
   
-  def update
-    @work = Work.find_by(id: params[:id])
-    
+  def update 
     if @work.nil?
       head :not_found
       return
@@ -61,41 +46,29 @@ class WorksController < ApplicationController
   end
   
   def destroy
-    @work = Work.find_by(id: params[:id])
-    
-    if @work.nil?
-      head :not_found
-      return
-    end
-    
     @work.destroy
+    
+    flash[:warning] = "You didn't eject"
     
     flash[:success] = "Successfully destroyed #{@work.category} #{@work.id}"
     redirect_to root_path
     return
   end
   
-  # def upvote
-  
-  #   @work = Work.find_by(id: params[:id])
-  
-  #   if @work.nil?
-  #     head :not_found
-  #     return
-  #   end
-  
-  # A WHOLE LOT MORE CODE TO ADD A VOTE
-  
-  #redirect_to work_path(@work.id)
-  # flash: Successfully upvoted!
-  # but if you're on the index page then you remain there but with the flash message
-  
-  # A problem occurred: You must log in to do that
-  # end
-  
   private
   
   def work_params
     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+  end
+  
+  def find_work
+    @work = Work.find_by(id: params[:id])
+  end
+  
+  def if_work_missing
+    if @work.nil?
+      head :not_found
+      return
+    end
   end
 end

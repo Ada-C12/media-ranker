@@ -22,7 +22,7 @@ class VotesController < ApplicationController
       redirect_back(fallback_location: root_path)
       return
     else
-      flash[:warning] = "A problem occurred: Could not upvote"
+      flash[:warning] = "A problem occurred: Could not upvote. #{@vote.errors.messages}"
       redirect_back(fallback_location: root_path)
       return
     end

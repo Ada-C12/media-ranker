@@ -14,14 +14,11 @@ class Work < ApplicationRecord
       return nil
     end
     
-    spot = self.all.sample
-    
-    return spot
+    return self.all.max_by{ |work| work.votes.count }
   end
   
   def self.list_all_in_category(target_category)
-    all_in_category = self.where(category: target_category)
-    # return all_in_category.order(votes: :desc)
+    all_in_category = self.where(category: target_category).sort_by{ |work| work.votes.count }.reverse
     return all_in_category
   end
   
@@ -35,9 +32,5 @@ class Work < ApplicationRecord
     else
       return all_in_category[0,10]
     end
-  end
-  
-  def total_votes
-    #to be implemented when you actually connect to votes
   end
 end
