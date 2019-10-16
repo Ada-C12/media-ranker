@@ -1,9 +1,22 @@
 <h1>This is the Works Index</h1>
 
 <%= link_to "Create a work", new_work_path %> 
+<%= link_to "Homepage", root_path %> 
 
+<% books = Work.all.where(category: :book) %>
+<% albums = Work.all.where(category: :album) %>
+
+
+<h2>All Books</h2>
 <ul>
-<% @works.each do |work|  %>
-  <li><%= link_to work.title, work_path(work) %> </li>
+<%  books.each do |work|  %>
+  <li><%= link_to work.title, work_path(work) %>, <%= work.category %></li>
 <% end %>
+</ul>
+
+<h2>All Albums</h2>
 <ul>
+<%  albums.each do |work|  %>
+  <li><%= link_to work.title, work_path(work) %>, <%= work.category %></li>
+<% end %>
+</ul>

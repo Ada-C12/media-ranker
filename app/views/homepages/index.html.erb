@@ -1,3 +1,26 @@
 This is the Homepage
 
 <%= link_to "All Media", works_path%>
+
+<% books = Work.all.where(category: :book) %>
+<% albums = Work.all.where(category: :album) %>
+<% random_spotlight = Work.all.sample %>
+
+<h2>Media Spotlight:</h2>
+
+<%= link_to random_spotlight.title, work_path(random_spotlight) %>, <%= random_spotlight.category %>
+
+
+<h2>Top 10 Books</h2>
+<ul>
+<%  books.sample(10).each do |work|  %>
+  <li><%= link_to work.title, work_path(work) %>, <%= work.category %></li>
+<% end %>
+</ul>
+
+<h2>Top 10 Albums</h2>
+<ul>
+<%  albums.sample(10).each do |work|  %>
+  <li><%= link_to work.title, work_path(work) %>, <%= work.category %></li>
+<% end %>
+</ul>

@@ -4,11 +4,10 @@ class WorksController < ApplicationController
   end
   
   def show
-    work_id = params[:id]
-    @work = Work.find_by(id: work_id)
+    @work = Work.find_by(id: params[:id])
     
     if @work.nil?
-      flash[:error] = "Could not find work with id: #{work_id}"
+      flash[:error] = "Could not find work with id: #{params[:id]}"
       redirect_to works_path
       return
     end
@@ -19,7 +18,7 @@ class WorksController < ApplicationController
   end
   
   def create
-    @work = Work.new
+    @work = Work.new(work_params)
     
     if @work.save
       redirect_to work_path(@work)
@@ -69,8 +68,8 @@ class WorksController < ApplicationController
   
   private
   
-  # def work_params
-  #   return params.require(:work).permit(:category, :title)
-  # end
+  def work_params
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+  end
   
 end
