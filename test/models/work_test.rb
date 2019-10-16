@@ -31,4 +31,20 @@ describe Work do
       expect(@work.errors.messages).must_include :title
     end
   end
+  
+  # describe 'relations' do
+  #   it "has many votes" do
+  #   end
+  # end
+  
+  describe 'custom methods' do
+    it 'properly sorts works by specified category' do
+      all_works = Work.all
+      book_list = all_works.media_sort('book')
+      
+      expect( book_list[0].category ).must_equal 'book'
+      expect( book_list[-1].category ).must_equal 'book'
+      expect ( book_list.count ).must_equal 10
+    end
+  end
 end
