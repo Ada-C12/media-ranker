@@ -11,4 +11,7 @@ class Work < ApplicationRecord
     top_ten = Work.where(category: category).sample(10)
   end
   
+  def self.best_work(works)
+    spotlight = works.max_by {|work| work.votes.count}
+  end
 end

@@ -48,6 +48,8 @@ class WorksController < ApplicationController
     @top_ten_albums = Work.top_ten("album")
     @top_ten_books = Work.top_ten("book")
     @top_ten_movie = Work.top_ten("movie")
+    
+    @spotlight = Work.best_work(Work.all)
   end
   
   private

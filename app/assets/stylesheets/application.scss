@@ -63,11 +63,19 @@ a:hover{
 }
 
 .index-table{
-   margin: 1.5rem;
+   margin: 1rem;
+
    h1{
       margin-top: .5rem;
    }
-   h2{
-      // margin-top: rem;
-   }
+}
+
+.spotlight{
+   margin: 4rem; 
+   text-align: center;
+   display: block;
+}
+
+.spotlight-p{
+   text-align: left;
 }

@@ -1,3 +1,8 @@
+<section class="spotlight">
+  <h2>Media Spotlight: <%= link_to @spotlight.title, @spotlight.title %> by <%= @spotlight.creator %></h2>
+  <p><%= @spotlight.votes.count %> votes - <%= @spotlight.description %>
+</section>
+
 <section class="flex-container">
 
   <section class="top-ten">
