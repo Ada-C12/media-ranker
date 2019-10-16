@@ -7,9 +7,26 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('media-ranker-favicon.ico') %>
   </head>
 
   <body>
+    <section class="user-messages">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= name.capitalize %>: <%= message %></div>
+      <% end %>
+    </section>
+    <section>
+      <% if @work.errors.any? %>
+        <ul>
+          <% @work.errors.each do |column, message| %>
+            <li>
+              <%= column.capitalize %>:<%=message%>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </section>
     <%= yield %>
   </body>
 </html>
