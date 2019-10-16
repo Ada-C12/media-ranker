@@ -1,15 +1,49 @@
 class WorksController < ApplicationController
   
-  # before_action :find_work, only: [show, edit, update, destroy]
+  before_action :find_work, only: [:show, :edit, :update, :destroy]
   
   def index
     @works = Work.all
     @categories = ["movie", "book", "album"]
   end
   
-  # show
-  # create
-  # edit
-  # destroy
+  def show; end
+  
+  def create 
+    @work = Work.new(work_params)
+    if @work.save
+      redirect_to works_path
+    else
+      flash.now[:error] = "A problem occurred: Could not create album"
+      render :new
+    end
+  end
+  
+  def edit; end
+  
+  def update
+    if @work.update(work_params)
+      redirect_to work_path
+    else
+      @flash.now[:error] = "A problem occurred: Could not update album"
+      render :edit
+    end
+  end
+  
+  def destroy
+    @work.destroy
+    flash[:success] = "Successfully deleted!"
+    redirect_to works_path
+  end
+  
+  private
+  
+  def work_params
+    return params.require[:work].permit[:category, :title, :creator, :publication_year, :description ]
+  end
+  
+  def find_work
+    @work = Work.find(params[:id])
+  end
   
 end
