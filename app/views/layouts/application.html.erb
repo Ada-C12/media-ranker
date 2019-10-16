@@ -10,6 +10,47 @@
   </head>
 
   <body>
+
+    <nav>
+      <ul>
+        <li>
+          <%# This is the syntax for defining a link in HTML (More in depth in View Helpers lesson) %>
+          <%= link_to "Home!", root_path %>
+        </li>
+<%#
+        <li>
+          <%= link_to "Go to the Works Index Page", works_path %>
+  <%#      </li>
+        <li>
+          <%= link_to "Go to the Users Index Page", Users_path %>
+ <%#       </li>
+        <li>
+          <%= link_to "Let's make a NEW work", new_work_path %>
+   <%#     </li>
+    %>
+
+        <li>
+          <%= link_to "Log in", login_path %>
+        </li>
+        <li>
+          <%= link_to "Log out", logout_path, method: :post%>
+        </li>
+
+        <li>
+          <%= link_to "Current User", current_user_path %>
+        </li>
+
+
+      </ul>
+    </nav>
+
+    <section class="user-messages">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= name.capitalize %>: <%= message %></div>
+      <% end %>
+    </section>
+
+
     <%= yield %>
   </body>
 </html>
