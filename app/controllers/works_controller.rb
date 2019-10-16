@@ -1,10 +1,11 @@
 class WorksController < ApplicationController
+  before_action :find_work, only: [:show, :edit, :update]
+
   def index
     @works = Work.all
   end
 
   def show
-    @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
       return
@@ -27,11 +28,9 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work = Work.find_by(id: params[:id])
   end
 
   def update
-    @work = Work.find_by(id: params[:id])
     if @work.update(work_params)
       flash[:success] = "Successfully updated #{@work.category} #{@work.id}"
       return redirect_to work_path(@work.id)
@@ -56,6 +55,10 @@ class WorksController < ApplicationController
   end
 
   private
+
+  def find_work
+    @work = Work.find_by(id: params[:id])
+  end
 
   def work_params
     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
