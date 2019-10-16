@@ -58,12 +58,24 @@ movie1:
   publication_year: 1982
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 movie2:
-  category: Bluebery Treat
-  title: Frank Langosh Jr.
+  category: movie
+  title: Bluebery Treat
+  creator: Frank Langosh Jr.
   publication_year: 1976
   description: Velit vitae rerum quo.
 movie3: 
-  category: American Extract
-  title: Antoine Stokes
+  category: movie
+  title: American Extract
+  creator: Antoine Stokes
+  publication_year: 1953
+  description: Iure explicabo officia illum.
+in_valid_work_without_category:
+  title: American Extract Invalid
+  creator: Antoine Stokes
+  publication_year: 1953
+  description: Iure explicabo officia illum.
+in_valid_work_without_title:
+  category: movie
+  creator: Antoine Stokes
   publication_year: 1953
   description: Iure explicabo officia illum.

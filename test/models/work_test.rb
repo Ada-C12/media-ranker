@@ -1,6 +1,31 @@
 require "test_helper"
 
 describe Work do
+  describe "validations" do
+    it "can create a new work for valid input" do
+      is_valid = works(:album1).valid?
+      assert(is_valid)
+    end
+
+    it "is invalid if there is no category" do
+      work = works(:in_valid_work_without_category)
+
+      is_valid = work.valid?
+
+      refute( is_valid )
+    end
+
+    it "is invalid if there is no title" do
+      work = works(:in_valid_work_without_title)
+
+      is_valid = work.valid?
+
+      refute( is_valid )
+    end
+    
+    #Validation test for uniqueness for works with same title and category
+  end
+
   describe "self.works_by_category" do
     it "returns list of objects of the same category" do 
       expected_movies = Work.where(category: "movie")
