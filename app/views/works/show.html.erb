@@ -6,10 +6,11 @@
   <p><%= @work.description %></p>
 
   <section>
-    <a class="btn btn-primary" href="/">Back to Media Ranks</a>
-    <a class="btn btn-primary" href="/homepages/nope">Edit - go to works/:id/edit.html</a>
-    <a class="btn btn-primary" href="/homepages/nope">Upvote - still figuring out</a>
-    <a class="btn btn-danger" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/">Delete - go to works/id: show</a>
+    <button class="btn btn-primary"><%= link_to "Back to Media Ranks", root_path %></button>
+    <button class="btn btn-primary"><%= link_to "Edit", edit_work_path(id: @work.id) %></button>
+
+    <%# <button class="btn btn-primary"><%= link_to "UPVOTE??!!", method: "post", work_create_vote_path(work_id: @work.id) %></button> %>
+    <%# <button class="btn btn-danger"><%= link_to "Delete", method: :destroy, work_path(work_id: @work_id), data: { confirm: "Are you sure?" } %></button> %>
   </section>
 </section>
 
@@ -27,13 +28,9 @@
     <tbody>
       <tr>
         <td>voter name PLUS link to voter#show</td>
-        <td>vote creation date, use display_date()</td>
+        <td>vote creation date, use display_date</td>
       </tr>
     </tbody>
 </table>
 </section>
-
 </main>
-
-
-

@@ -19,7 +19,7 @@
       <tbody>
         <% @all_albums.each do |piece|%>
         <tr>
-          <td><%= piece.votes_earned %></td>
+          <td><%= piece.votes.count %></td>
           <td><%= link_to piece.title, work_path(id: piece.id) %></td>
           <td><%= piece.creator %></td>
           <td><%= piece.published_year %></td>
@@ -46,7 +46,7 @@
       <tbody>
         <% @all_books.each do |piece|%>
         <tr>
-          <td><%= piece.votes_earned %></td>
+          <td><%= piece.votes.count %></td>
           <td><%= link_to piece.title, work_path(id: piece.id) %></td>
           <td><%= piece.creator %></td>
           <td><%= piece.published_year %></td>
@@ -72,7 +72,7 @@
       <tbody>
         <% @all_movies.each do |piece|%>
         <tr>
-          <td><%= piece.votes_earned %></td>
+          <td><%= piece.votes.count %></td>
           <td><%= link_to piece.title, work_path(id: piece.id) %></td>
           <td><%= piece.creator %></td>
           <td><%= piece.published_year %></td>

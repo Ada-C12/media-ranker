@@ -1,12 +1,8 @@
-<h1>WTF?!! authenticity token??? what?</h1>
-
 <main>
 <h2>Add a New Work</h2>
 
 <section>
-  <form action="/works" method="post">
-    <%# there was soke wacky authenticity hidden stuff here, apparently necessary %>
-    
+  <%= form_with model: @work do |f| %>
     <div class="form-group">
       <label>Category</label>
       <select class="form-control" name="work[category]">
@@ -17,31 +13,27 @@
     </div>
 
     <div class="form-group">
-      <label>Title</label>
-      <input class="form-control" type="text" name="work[title]">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
     </div>
-
+    
     <div class="form-group">
-      <label>Creator</label>
-      <input class="form-control" type="text" name="work[creator]">
+      <%= f.label :creator %>
+      <%= f.text_field :creator %>
     </div>
-
+    
     <div class="form-group">
-      <label>Publication year</label>
-      <input class="form-control" type="text" name="work[publication_year]">
+      <%= f.label :published_year %>
+      <%= f.text_field :published_year %>
     </div>
-
+    
     <div class="form-group">
-      <label>Description</label>
-      <textarea class="form-control" type="text" name="work[description]"></textarea>
-    </div>
-
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+      
     <div class="form-group">
-      <input type="submit" name="commit" value="Create Work" class="btn btn-primary" data-disable-with="Create Work">
+      <%= f.submit "Create Work" %>
     </div>
 
-</section>
-
-
-
+  <% end %>
 </main>

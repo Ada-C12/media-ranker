@@ -14,12 +14,10 @@ class WorksController < ApplicationController
   def create
     # give default of 0 votes_earned
     @work = Work.new(form_params)
-    @work.votes_earned = 0
     
     if @work.save
       flash[:success] = "Successfully created #{@work.category}: #{@work.title}"
-      # redirect to work#show page
-      redirect_to nope_path
+      redirect_to work_path(id: @work.id)
       return
     else
       flash.now[:error] = "Unsuccessful save"
@@ -43,7 +41,7 @@ class WorksController < ApplicationController
   
   private
   def form_params
-    return params.require[:work].permit(:category, :title, :creator, :published_year, :description)
+    return params.require(:work).permit(:category, :title, :creator, :published_year, :description)
   end
   
 end
