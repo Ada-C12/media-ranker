@@ -12,8 +12,8 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     
-    if @work.save 
-      flash[:sucess] = "Work added successfully"
+    if @work.save
+      flash[:success] = "Work added successfully"
       redirect_to root_path
       return
     else

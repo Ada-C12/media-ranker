@@ -12,10 +12,15 @@
   <%=link_to "Media Ranker", root_path%>
   <%=link_to "View All Media", works_path%>
   <%=link_to "Add new Work", new_work_path%>
+
   <section class="flash">
-    <% flash.each do |name, message| %>
-      <div class="<%= name %>"><%= message %></div>
-    <% end %>
+    <% flash.each do |name, message|%>
+      <%if flash[:failure]%>
+        <div class="alert alert-danger" role="alert"%><%= message %></div>
+      <%elsif flash[:success]%>
+        <div class="alert alert-success" role="alert"%><%= message %></div>
+      <%end%>
+    <%end%>
   </section>
 
   <body>
