@@ -34,12 +34,11 @@ describe Work do
   # describe 'custom methods' do
   #   describe 'top_ten' do
   #     it 'returns ten books' do
-        # all_works = [:hello, :gentleman, :camino, :sixty_nine, :heartbreaker, :amadeus, :whiteley, :immortalists, :believers, :leithauser, :abominable]
-
-      #   expect(.top_ten.length).must_equal 10
-      # end
-      # fewer than 10 available?
-      # none available?
-    end
-  end
+  #
+#works = Work.all
+  #   expect(works.top_ten.length).must_equal 10
+  # end
+  # fewer than 10 available?
+  # none available?
 end
+

@@ -1,16 +1,11 @@
 class WorksController < ApplicationController
+  before_action :find_work, only: [:show, :edit, :update, :destroy]
+  before_action :if_work_missing, only: [:show, :edit, :update, :destroy]
   def index
     @works = Work.all
   end
 
-  def show
-    @work = Work.find_by(id: params[:id])
-
-    if @work.nil?
-      head :not_found
-      return
-    end
-  end
+  def show ; end
 
   def new
     @work = Work.new
@@ -30,20 +25,9 @@ class WorksController < ApplicationController
     end
   end
 
-  def edit
-    @work = Work.find_by(id: params[:id])
-    if @work.nil?
-      redirect_to edit_work_path
-      return
-    end
-  end
+  def edit ; end
 
   def update
-    @work = Work.find_by(id: params[:id])
-    if @work.nil?
-      redirect_to works_path
-      return
-    end
     if @work.update(work_params)
       flash[:success] = "Media edited successfully!"
       redirect_to work_path(@work.id)
@@ -55,12 +39,7 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    work = Work.find_by(id: params[:id])
-    if work.nil?
-      head :not_found
-      return
-    end
-    if work.destroy
+    if @work.destroy
       flash[:success] = "Work successfully deleted!"
       redirect_to works_path
       return
@@ -70,5 +49,17 @@ class WorksController < ApplicationController
   private
   def work_params
     return params.require(:work).permit(:title, :creator, :category, :release_date, :description)
+  end
+
+  def find_work
+    @work = Work.find_by(id: params[:id])
+  end
+
+  def if_work_missing
+    if @work.nil?
+      flash[:error] = "Work with id #{params[:id]} was not found!"
+      redirect_to works_path
+      return
+    end
   end
 end
