@@ -1,7 +1,7 @@
 class WorksController < ApplicationController
   def index
     # WHY IS MOVIE CAPS M?????
-    @movies = Work.where(category: "Movie")
+    @movies = Work.where(category: "movie")
     @albums = Work.where(category: "album")
     @books = Work.where(category: "book")
   end 
@@ -30,7 +30,7 @@ class WorksController < ApplicationController
   end 
 
   def edit
-    @work = Work.find_by(id:params[:id])
+    @work = Work.find_by(id: params[:id])
     
     if @work.nil?
       head :not_found
@@ -67,6 +67,6 @@ class WorksController < ApplicationController
   private
   
   def work_params
-    return params.require(:work).permit(:category, :title, :creator, :publication_year, :desciption)
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
 end

@@ -16,8 +16,7 @@
       <% @albums.each do |album| %>
       <tr>
         <td>VOTE COUNT</td>
-        <%# <%= link_to album.title, work_path(work.id), method: :get%>
-        <td><%= album.title%></td>
+        <td><%= link_to album.title, work_path(album.id), method: :get %></td>
         <td><%= album.creator %></td>
         <td><%= album.publication_year %></td>
         <td>VOTE BUTTON</td>
@@ -26,7 +25,6 @@
     </tbody>
   </table>
 </section>
-
 
 <section class="media-table">
   <h4>Books</h4>
@@ -44,8 +42,7 @@
       <% @books.each do |book| %>
       <tr>
         <td>VOTE COUNT</td>
-        <%# <%= link_to album.title, work_path(work.id), method: :get%>
-        <td><%= book.title%></td>
+        <td><%= link_to book.title, work_path(book.id), method: :get%></td>
         <td><%= book.creator %></td>
         <td><%= book.publication_year %></td>
         <td>VOTE BUTTON</td>
@@ -71,8 +68,7 @@
       <% @movies.each do |movie| %>
       <tr>
         <td>VOTE COUNT</td>
-        <%# <%= link_to movie.title, work_path(work.id), method: :get%>
-        <td><%= movie.title%></td>
+        <td><%= link_to movie.title, work_path(movie.id), method: :get %></td>
         <td><%= movie.creator %></td>
         <td><%= movie.publication_year %></td>
         <td>VOTE BUTTON</td>

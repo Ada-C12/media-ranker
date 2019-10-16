@@ -1,0 +1,22 @@
+<h2>List of Users</h2>
+
+<section class="user-table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Votes</th>
+        <th>Joined</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.username, user_path(user.id), method: :get %></td>
+        <td>USER VOTES</td>
+        <td>USER JOINED</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
