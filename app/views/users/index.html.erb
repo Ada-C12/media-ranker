@@ -1,0 +1,22 @@
+<main>
+    <h2>List of Users</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Votes</th>
+      <th>Joined</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <% @users.each do |user|%>
+          <td><a href = user ><%=user.username%></a></td>
+        <% end %>
+      </tr>
+  </tbody>
+</table>
+
+<a class="btn btn-secondary" href="/">Back to Media List</a>
+
+  </main>
