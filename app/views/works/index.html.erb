@@ -3,7 +3,7 @@
 <h3>Albums</h3>
 <ul>
   <%@albums.each do |album|%>
-    <li><%=album.title%> --- <%=album.creator%> -- <%=album.publication_year%></li>
+    <li><%=link_to album.title, work_path(album.id)%> --- <%=album.creator%> -- <%=album.publication_year%></li>
   <%end%>
 </ul>
 
@@ -11,7 +11,7 @@
 <h3>Books</h3>
 <ul>
   <%@books.each do |book|%>
-    <li><%=book.title%> --- <%=book.creator%> -- <%=book.publication_year%></li>
+    <li><%=link_to book.title, work_path(book.id)%> --- <%=book.creator%> -- <%=book.publication_year%></li>
   <%end%>
 </ul>
 
@@ -19,7 +19,7 @@
 <h3>Movies</h3>
 <ul>
   <%@movies.each do |movie|%>
-    <li><%=movie.title%> --- <%=movie.creator%> -- <%=movie.publication_year%></li>
+    <li><%=link_to movie.title, work_path(movie.id)%> --- <%=movie.creator%> -- <%=movie.publication_year%></li>
   <%end%>
 </ul>
 
