@@ -8,7 +8,7 @@ describe Work do
   end
   describe "validations" do
     it "can be valid" do
-      works = [@album, @movie, @book]
+      works = Work.all
 
       works.each do |work|
         assert(work.valid?)
@@ -54,16 +54,33 @@ describe Work do
     end
   end
 
+  describe "relationships" do
+    it "can have many votes" do
+      work = works(:pans_labyrinth)
+      user_1 = User.first
+      user_2 = User.last
+
+      pans_vote_1 = Vote.create(user: user_1, work: work)
+      pans_vote_2 = Vote.create(user: user_2, work: work)
+
+      expect(work.votes.count).must_be :>=, 0
+      work.votes.each do |vote|
+        expect(vote).must_be_instance_of Vote
+      end
+
+    end
+  end
+
   describe "spotlight" do
     #TODO
     it "returns the work with the most votes" do
 
     end
 
-    it "returns nil if no works exist" do
+    it "returns an empty array if no works exist" do
       Work.destroy_all
 
-      expect(Work.spotlight).must_be_nil
+      expect(Work.spotlight).must_equal []
     end
   end
 
