@@ -13,6 +13,29 @@ class WorksController < ApplicationController
     end
   end
   
+  def new
+    @work = Work.new
+  end
+  
+  def create
+    if params[:work].nil?
+      redirect_to new_work_path
+      return
+    end
+    
+    @work = Work.new(work_params)
+    
+    if @work.save
+      flash[:success] = "Successfully created #{@work.category} #{@work.id}."
+      redirect_to work_path(@work.id)
+      return
+    else
+      flash.now[:failure] = "A problem occurred: Could not create #{@work.category}."
+      render :new
+      return
+    end
+  end
+  
   def edit
     @work = Work.find_by(id: params[:id])
     
