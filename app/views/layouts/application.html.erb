@@ -36,7 +36,11 @@
 
   <section class="flash">
     <% flash.each do |name, message| %>
-      <div class="<%= name %>"><%= message %></div>
+      <% if name == "success" %>
+        <div class="alert alert-success" role="alert" class="<%= name %>"><%= message %></div>
+      <% else %>
+        <div class="alert alert-danger" role="alert" class="<%= name %>"><%= message %></div>
+      <% end %>
     <% end %>
   </section>
 

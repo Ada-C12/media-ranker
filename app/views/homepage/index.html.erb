@@ -24,12 +24,22 @@
               <small>by <%= work.creator %></small>
             </h4>
             <p><%= work.vote_count %> points - <%= work.votes.count %> votes</p>
-            <button type="button" class="btn btn-success">
-              <%= link_to "Upvote", work_upvote_path(work.id), method: :post, class: "vote-link" %> <span class="badge badge-light"> <%= work.upvote_count %> </span>
-            </button>
-            <button type="button" class="btn btn-danger">
-              <%= link_to "Downvote", work_downvote_path(work.id), method: :post, class: "vote-link" %> <span class="badge badge-light"> <%= work.downvote_count %> </span>
-            </button>
+            
+            <% current_user = User.find_by(id: session[:user_id])%>
+            <% if session[:user_id] == nil || current_user.already_voted(work.id) %>
+              <button type="button" class="btn btn-primary disabled">
+                <%= link_to "Upvote", work_upvote_path(work.id), method: :post, class: "vote-link" %> <span class="badge badge-light"> <%= work.upvote_count %> </span>
+              </button>
+              <button type="button" class="btn btn-primary disabled">
+                <%= link_to "Upvote", work_downvote_path(work.id), method: :post, class: "vote-link" %> <span class="badge badge-light"> <%= work.upvote_count %> </span>
+            <% else %>
+              <button type="button" class="btn btn-primary active">
+                <%= link_to "Upvote", work_upvote_path(work.id), method: :post, class: "vote-link" %> <span class="badge badge-light"> <%= work.upvote_count %> </span>
+              </button>
+              <button type="button" class="btn btn-primary active">
+                <%= link_to "Upvote", work_downvote_path(work.id), method: :post, class: "vote-link" %> <span class="badge badge-light"> <%= work.upvote_count %> </span>
+              </button>              
+            <% end %>
           </li>
         <% end %>
       </ul> 

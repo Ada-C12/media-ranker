@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :determine_user, only: [:login_form, :login]
+  
   def index
     @users = User.all
   end
