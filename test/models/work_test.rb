@@ -65,13 +65,26 @@ describe Work do
           expect(bogus5.errors.messages.values).must_include ["can't be blank"]
         end
       end
-      
     end
   end
   
+  describe "METHOD: spotlight_winner()" do
+    it "nominal case" do
+    end
+    
+    it "edge case" do
+    end
+  end
   
+  describe "METHOD: self.all_in()" do
+    it "nominal case" do
+    end
+    
+    it "edge case" do
+    end
+  end
   
-  describe "CUSTOM METHOD #1" do
+  describe "METHOD: self.top_ten_in()" do
     it "nominal case" do
     end
     
