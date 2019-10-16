@@ -8,10 +8,12 @@ class Work < ApplicationRecord
   end
   
   def self.top_ten_categorized
-    top_ten_categorized = all_works_categorized.map do |category, works|
-      works.sample(10)
+    all_works_categorized = self.all_works_categorized
+    top_ten_categorized = {}
+    all_works_categorized.each do |category, works|
+      top_ten_categorized[category] = works.sample(10)
+      # once there are votes, works.order(work.votes: :desc).limit(10) ??
     end
-
     return top_ten_categorized
   end
 
