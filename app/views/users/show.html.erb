@@ -1,6 +1,6 @@
 <section>
-  <h2>User Summary: <%= link_to @current_user.username, current_user_path %></h2>
-  <p>Joined site <%= @current_user.created_at %>
+  <h2>User Summary: <%= link_to @user.username, user_path(@user) %></h2>
+  <p>Joined site <%= @user.created_at %>
 </section>
 
 <section>
@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @current_user.votes.each do |vote| %>
+        <% @user.votes.each do |vote| %>
           <tr>
             <td><%= link_to vote.work.title, work_path(vote.work) %></td>
             <td><%= vote.work.creator %></td>
@@ -31,7 +31,5 @@
 
 <section>
   <button class="btn btn-outline-primary"><%= link_to "See all Users", users_path %> </button>
-  <button class="btn btn-outline-primary"><%= link_to "Upvote" %> </button>
-
-
+  <button class="btn btn-outline-primary"><%= link_to "Back to Media List", root_path %> </button>
 </section>
