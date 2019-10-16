@@ -15,7 +15,7 @@
     <ul class="list-group top-ten__list">
       <% @top_ten_movies.each do |piece| %>
         <li class="list-group-item">
-          <h4><%= link_to piece.title, work_path(id: piece.id) %> LINK GOES TO User#show?! WTF!!!
+          <h4><%= link_to piece.title, work_path(id: piece.id) %>
           <small class="top-ten__creator">by <%= piece.creator %></small>
           </h4>
           <p># <%= piece.votes_earned %> votes</p>
@@ -29,7 +29,7 @@
     <ul class="list-group top-ten__list">
       <% @top_ten_books.each do |piece| %>
         <li class="list-group-item">
-          <h4><%= link_to piece.title, work_path(id: piece.id) %> PLUS LINK
+          <h4><%= link_to piece.title, work_path(id: piece.id) %>
           <small class="top-ten__creator">by <%= piece.creator %></small>
           </h4>
           <p># <%= piece.votes_earned %> votes</p>
@@ -43,7 +43,7 @@
     <ul class="list-group top-ten__list">
       <% @top_ten_albums.each do |piece| %>
         <li class="list-group-item">
-          <h4><%= link_to piece.title, work_path(id: piece.id) %> PLUS LINK
+          <h4><%= link_to piece.title, work_path(id: piece.id) %>
           <small class="top-ten__creator">by <%= piece.creator %></small>
           </h4>
           <p># <%= piece.votes_earned %> votes</p>
