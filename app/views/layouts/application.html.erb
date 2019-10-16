@@ -10,6 +10,30 @@
   </head>
 
   <body>
+  <h1> Media| Ranking the Best of Everything</h1>
+  <nav class="navbar">
+      <ul class="nav app-header__site-nav-container">
+        <li class="nav-item app-header__nav_item">
+          <%# link_to "View top media", root_path %>
+          View top Media 
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <%= link_to "View all media", works_path, class:"nav-link"%>
+        </li >
+                <li>
+          <%= link_to "Add a new work", new_work_path,class:"nav-link" %>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <%= link_to "View all users", users_path,class:"nav-link" %>
+        </li>
+      </ul>
+    </nav>
+
+   <section class="user-messages">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
+      <% end %>
+    </section>
     <%= yield %>
   </body>
 </html>
