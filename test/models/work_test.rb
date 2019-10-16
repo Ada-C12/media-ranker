@@ -54,6 +54,35 @@ describe Work do
     end
   end
 
-  # custom method tests
-    #top-10/spotlight
+  describe "spotlight" do
+    #TODO
+    it "returns the work with the most votes" do
+
+    end
+
+    it "returns nil if no works exist" do
+      Work.destroy_all
+
+      expect(Work.spotlight).must_be_nil
+    end
+  end
+
+  describe "top_ten" do
+    #TODO
+    it "returns the top ten highest voted works, given a category" do
+    end
+
+    #TODO
+    it "returns a partial list of works if less than 10 works in a category exist" do
+
+    end
+
+    it "returns nil if no works for that category exist" do
+      Work.destroy_all
+      category = "album"
+
+      expect(Work.top_ten(category)).must_be_nil
+    end
+
+  end
 end
