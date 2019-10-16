@@ -12,6 +12,10 @@ class Work < ApplicationRecord
     return Work.order(title: :asc)
   end
   
+  # def self.spotlight
+  #   return Work.sample
+  # end
+
   # def self.movies
   #   return Work.where(category: "movie")
   # end

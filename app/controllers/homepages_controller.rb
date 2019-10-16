@@ -1,5 +1,7 @@
 class HomepagesController < ApplicationController
   def index
+    @works = Work.all
+    @spotlight = @works.sample
     @movies = Work.where(category: "movie")
     @top_movies = @movies.sample(10)
     @books = Work.where(category: "book")
