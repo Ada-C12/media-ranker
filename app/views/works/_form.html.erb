@@ -15,7 +15,7 @@
   <%= f.text_field :title %>
 
   <%= f.label :category %>
-  <%= f.text_field :category %>
+  <%= f.select :category, ['album', 'book', 'movie']%> 
 
   <%= f.label :creator %>
   <%= f.text_field :creator %>
