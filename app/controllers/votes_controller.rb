@@ -5,7 +5,7 @@ class VotesController < ApplicationController
 
     unless current_user
       flash[:status] = :warning
-      flash[:status] = "A problem occured: You must log in to do that"
+      flash[:message] = "A problem occured: You must log in to vote"
       redirect_to work_path(work)
       return
     end

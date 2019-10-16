@@ -57,6 +57,12 @@
 //   // justify-content: space-between;
 // }
 
+.btn-primary {
+  background-color: #26A69A;
+  color: white;
+  border-color:#26A69A;
+}
+
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -71,6 +77,10 @@ nav {
 
 .app-header__user-nav-container{
   margin-left: 35rem;
+}
+
+.spotlight {
+  padding: 2rem 2rem 2rem 2rem;
 }
 
 .top-ten__container {

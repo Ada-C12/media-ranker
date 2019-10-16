@@ -20,7 +20,7 @@ class WorksController < ApplicationController
   end
 
   def create
-    # @work = Work.new(work_params)
+    @work = Work.new(work_params)
 
     if @work.save
       flash[:status] = :success
