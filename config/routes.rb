@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   get "/works/main", to: "works#main", as: :main
   resources :works
-  
+  post "/works/:id/upvote", to: "works#upvote", as: "upvote"
   
   get "/login", to: "users#login_form", as: "login"
   post "/login", to: "users#login"

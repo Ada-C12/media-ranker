@@ -52,6 +52,23 @@ class WorksController < ApplicationController
     @spotlight = Work.best_work(Work.all)
   end
   
+  def upvote
+    current_user = User.find_by(id: session[:user_id])
+    work = Work.find_by(id: params[:id])
+    if current_user
+      vote = Vote.new(user_id: current_user.id, work_id: work.id)
+      if vote.save
+        flash[:success] = "Successfully Upvoted!"
+      else
+        flash[:error] = "Unable to upvote."
+      end
+    else
+      flash[:error] = "You must be logged in to perform this action."
+    end
+    
+    redirect_to work_path(work)
+  end
+  
   private
   
   def work_params

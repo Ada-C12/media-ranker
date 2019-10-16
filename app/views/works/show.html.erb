@@ -6,10 +6,27 @@
 
   <button class="btn btn-outline-primary"><%= link_to "Back to media ranks", main_path %> </button>
   <button class="btn btn-outline-primary"><%= link_to "Edit", edit_work_path(@work) %> </button>
-  <button class="btn btn-outline-primary"><%= link_to "Upvote" %> </button>
+  <button class="btn btn-outline-primary"><%= link_to "Upvote", upvote_path(@work), method: :post %> </button>
   <button class="btn btn-outline-danger"><%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure you would like to delete this work?"} %></button>
 
-
-  <h2>Votes for this movie:</h2>
+  <section>
+      <h2>Votes for this <%= @work.category %>:</h2>
+      <table class="table table-hover">
+        <thead class="thead">
+          <tr>
+            <th scope="col">User</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @work.votes.each do |vote| %>
+            <tr>
+              <td><%= link_to vote.user.username, user_path(vote.user) %></td>
+              <td><%= vote.created_at %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </section>
 
 </section>
