@@ -1,0 +1,20 @@
+<section>
+  <h1> User Summary <% @user.name %> </h1>
+  <h2> Joined site <% @user.joined_date.strftime('%b %d, %Y') %> </h2>
+</section>
+
+
+<section>
+  <h3> Votes </h3>
+  <ul>
+  <% @user.vote.each do |vote| %>
+    <li>
+      <%= vote.work.title %>
+      <%= vote.work.creator %>
+      <%= vote.work.publication_year %>
+      <%= vote.work.category.capitalize %>
+      <%= vote.date.strftime('%b %d, %Y') %>
+    </li>
+  <% end %>
+  </ul>
+</section>
