@@ -1,6 +1,10 @@
 class Work < ApplicationRecord
-  # validate presence & uniqueness  
+  # validate presence & uniqueness
+  validates :title, presence: true
+  validates :title, uniqueness: { scope: :category }
   
-  # use scope to get top ten of each
+  def category
+    where(:category => self.category)
+  end
   
 end
