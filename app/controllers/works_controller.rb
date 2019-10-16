@@ -64,5 +64,10 @@ class WorksController < ApplicationController
     end
   end
 
-end
+  private
+  
+  def work_params
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+  end
 
+end
