@@ -14,7 +14,6 @@ describe User do
     end
   end
   
-  
   describe "VALIDATIONS" do
     it "Can create User obj with correct attributes" do
       assert(user1.valid?)
