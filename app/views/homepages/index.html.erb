@@ -1,0 +1,54 @@
+<section class="top-ten_container">
+  <section class="top-ten_list-container">
+    <h2 class="top-ten_header">Top Movies</h2>
+
+    <%# <ul>
+  <% Work.each do |movie| %>
+    <%# <li> %>
+      <%# <h4><%= link_to movie.title, work_path(work) %> 
+      <%# By: <%= movie.creator </h4> %>
+    <%# </li> %>
+  <%# <% end %>
+<%# </ul> %> 
+
+
+<ul>
+  <% @top_movies.each do |work|  %>
+    <li>
+      <%= link_to work.title, work_path(work) %>
+      By: <%= work.creator %> 
+    </li>
+  <% end %>
+</ul>
+</section>
+</section>
+
+<section class="top-ten_container">
+  <section class="top-ten_list-container">
+    <h2 class="top-ten_header">Top Books</h2>
+
+<ul>
+  <% @top_books.each do |work|  %>
+    <li>
+      <%= link_to work.title, work_path(work) %>
+      By: <%= work.creator %> 
+    </li>
+  <% end %>
+</ul>
+</section>
+</section>
+
+<section class="top-ten_container">
+  <section class="top-ten_list-container">
+    <h2 class="top-ten_header">Top Albums</h2>
+
+<ul>
+  <% @top_albums.each do |work|  %>
+    <li>
+      <%= link_to work.title, work_path(work) %>
+      By: <%= work.creator %> 
+    </li>
+  <% end %>
+</ul>
+</section>
+</section>
