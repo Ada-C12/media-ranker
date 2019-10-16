@@ -32,5 +32,14 @@ class Work < ApplicationRecord
     return all_by_votes.first
   end
 
+  def upvote_count
+    return self.votes.where(vote_type: "upvote").count
+  end
+
+  def downvote_count
+    return self.votes.where(vote_type: "downvote").count
+  end
+
+
 end
 

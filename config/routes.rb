@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post "/login", to: "users#login"
   post "/logout", to: "users#logout", as: "logout"
   get "/users/current", to: "users#current", as: "current_user"
+  post "/users/current", to: "users#current"
 
   resources :works
   resources :users

@@ -24,8 +24,12 @@
               <small>by <%= work.creator %></small>
             </h4>
             <p><%= work.vote_count %> points - <%= work.votes.count %> votes</p>
-            <%= link_to "Upvote", work_upvote_path(work.id), method: :post, class: "vote-link" %>
-            <%= link_to "Downvote", work_downvote_path(work.id), method: :post, class: "vote-link" %>
+            <button type="button" class="btn btn-success">
+              <%= link_to "Upvote", work_upvote_path(work.id), method: :post, class: "vote-link" %> <span class="badge badge-light"> <%= work.upvote_count %> </span>
+            </button>
+            <button type="button" class="btn btn-danger">
+              <%= link_to "Downvote", work_downvote_path(work.id), method: :post, class: "vote-link" %> <span class="badge badge-light"> <%= work.downvote_count %> </span>
+            </button>
           </li>
         <% end %>
       </ul> 

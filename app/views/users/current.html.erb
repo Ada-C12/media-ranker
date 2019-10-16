@@ -1,0 +1,47 @@
+<main>
+  <header class="show-header">
+    <h1><%=@current_user.username%></h1>
+    <%= link_to "Edit", edit_user_path(@current_user.id), class: "edit-link" %>
+    <%= link_to "Delete", user_path(@current_user.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
+  </header>
+
+  <section class="show-details">
+    <ul>
+      <li> 
+        <strong class ="details-title">USERNAME: </strong><%= @current_user.username %>
+      </li>              
+      <li> 
+        <strong class ="details-title">USER SINCE: </strong><%= @current_user.created_at %>
+      </li>   
+      <li> 
+        <strong class ="details-title"># VOTES: </strong><%= @current_user.votes.count %>
+      </li>      
+    </ul>
+  </section>
+
+<% if @current_user.votes.count == 0 %>
+    <h4> <%= @current_user.username %> has no votes yet :( </h4>
+  <% else %>  
+    <section>
+      <h2>
+        <%= @current_user.username %> has voted <%= @current_user.votes.count %> times
+      </h2>
+      <table>
+        <tr>
+          <td>TYPE</td>
+          <td>TITLE</td>
+          <td>CREATOR</td>
+          <td>DATE</td>
+        </tr>
+        <% @current_user.votes.each do |vote|%>
+          <tr>
+            <td><%= vote.vote_type %></td>
+            <td><%= link_to vote.work.title, work_path(vote.work_id)%></td>
+            <td><%= vote.work.creator %></td>
+            <td><%= vote.created_at %></td>
+          </tr>
+        <% end%>
+      </table>
+    </section>
+  <% end %> 
+</main>
