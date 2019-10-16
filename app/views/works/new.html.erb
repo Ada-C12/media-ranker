@@ -1,2 +1,7 @@
 <h1>Works#new</h1>
 <p>Find me in app/views/works/new.html.erb</p>
+
+<%= render partial: "homepages/nav" %>
+
+<%= render partial: "form", locals: { action_name: "New", verb_name: "create" }  %>
+
