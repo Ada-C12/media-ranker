@@ -21,13 +21,28 @@ class WorksController < ApplicationController
   end
 
   def create
-    id = Work.create(work_params)&.id
-    redirect_to work_path(id)
+    work = Work.new(work_params)
+    
+    if work.save
+      flash[:success] = "created #{ work.category } #{ work.id }"
+      redirect_to work_path(work.id)
+    else
+      flash[:action] = "create #{ work.category }"
+      flash[:errors] = work.errors
+      redirect_to new_work_path
+    end
   end
 
   def destroy
-    Work.find_by(id: params[:id]).destroy
-    redirect_to works_path
+    work = Work.find_by(id: params[:id])
+    if work.destroy
+      flash[:success] = "destroyed #{ work.category } #{ work.id }"
+      redirect_to works_path
+    else
+      flash[:action] = "delete #{ work.category }"
+      flash[:errors] = work.errors
+      redirect_to work_path(work.id)
+    end
   end
 
   def edit
@@ -36,8 +51,15 @@ class WorksController < ApplicationController
 
   def update
     work = Work.find_by(id: params[:id])
-    work.update(work_params)
-    redirect_to work_path(work.id)
+    
+    if work.update(work_params)
+      flash[:success] = "edited #{ work.category } #{ work.id }"
+      redirect_to work_path(work.id)
+    else
+      flash[:action] = "edit #{ work.category }"
+      flash[:errors] = work.errors
+      redirect_to edit_work_path(work.id)
+    end
   end
 
   private

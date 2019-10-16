@@ -37,6 +37,25 @@
         </ul>
       </nav>
     </header>
+    <% begin %>
+      <section class='alert__container'>
+        <% if flash[:errors] %>
+          <div class='alert alert-warning'>
+            <span>A problem occurred: Could not <%= flash[:action] %></span>
+            <ul>
+              <% flash[:errors].each do |attr, error| %>
+                <li><%= attr %>: <%= error.join ', ' %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <% if flash[:success] %>
+          <div class='alert alert-success'>
+            <span>Successfully <%= flash[:success] %></span>
+          </div>
+        <% end %>
+      </section>
+    <% end unless flash.empty? %>
     <%= yield %>
   </body>
 </html>

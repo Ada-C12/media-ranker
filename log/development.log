@@ -1750,3 +1750,1084 @@ Processing by WorksController#new as HTML
 Completed 200 OK in 77ms (Views: 75.1ms | ActiveRecord: 0.0ms)
 
 
+Started POST "/works" for ::1 at 2019-10-16 10:57:51 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ksjhsMMQRLOnxT91klbyLIkt20LbRVp9/TTAsSTWgSEmTuXmGqUcBt7o6cd7dIB4ql1gwgs2AjMIiQ1Fcz32EQ==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (2.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:24
+  [1m[36mWork Exists (2.7ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:24
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:24
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 6.4ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"works", :id=>nil}, missing required keys: [:id]:
+  app/controllers/works_controller.rb:25:in `create'
+
+Started POST "/__better_errors/c1da02032da5a68e/variables" for ::1 at 2019-10-16 10:57:51 -0700
+Started GET "/" for ::1 at 2019-10-16 11:44:15 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (0.6ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.5ms)
+  Rendered works/_list.html.erb (0.5ms)
+  Rendered works/_list.html.erb (0.8ms)
+  Rendered works/main.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 7.4ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/mira/ada/w11/media-ranker/app/views/layouts/application.html.erb:52: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^:
+  app/views/layouts/application.html.erb:50:in `'
+
+Started POST "/__better_errors/0a2cf49f242599b7/variables" for ::1 at 2019-10-16 11:44:15 -0700
+Started GET "/" for ::1 at 2019-10-16 11:44:48 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (1.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (1.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.6ms)
+  Rendered works/_list.html.erb (0.9ms)
+  Rendered works/_list.html.erb (0.8ms)
+  Rendered works/main.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 3.6ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_do_block
+'.freeze;     begin do 
+                    ^~
+/Users/mira/ada/w11/media-ranker/app/views/layouts/application.html.erb:50: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/mira/ada/w11/media-ranker/app/views/layouts/application.html.erb:52: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^:
+  app/views/layouts/application.html.erb:40:in `'
+
+Started POST "/__better_errors/1614a83f0401bbc3/variables" for ::1 at 2019-10-16 11:44:48 -0700
+Started GET "/" for ::1 at 2019-10-16 11:45:13 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.9ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.5ms)
+  Rendered works/_list.html.erb (0.7ms)
+  Rendered works/_list.html.erb (1.1ms)
+  Rendered works/main.html.erb within layouts/application (8.7ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.7ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/mira/ada/w11/media-ranker/app/views/layouts/application.html.erb:52: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^:
+  app/views/layouts/application.html.erb:50:in `'
+
+Started POST "/__better_errors/53fbe06831dcc2ca/variables" for ::1 at 2019-10-16 11:45:13 -0700
+Started GET "/" for ::1 at 2019-10-16 11:45:28 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.6ms)
+  Rendered works/_list.html.erb (0.6ms)
+  Rendered works/_list.html.erb (0.5ms)
+  Rendered works/main.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 91ms (Views: 83.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 11:45:28 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.4ms)
+  Rendered works/_list.html.erb (1.0ms)
+  Rendered works/_list.html.erb (0.5ms)
+  Rendered works/main.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 71ms (Views: 64.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 11:45:50 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.8ms)
+  Rendered works/_list.html.erb (0.6ms)
+  Rendered works/_list.html.erb (0.7ms)
+  Rendered works/main.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 68ms (Views: 58.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 11:45:50 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:5
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:9
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.8ms)
+  Rendered works/_list.html.erb (0.7ms)
+  Rendered works/_list.html.erb (0.7ms)
+  Rendered works/main.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 78ms (Views: 71.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/works/2" for ::1 at 2019-10-16 11:45:54 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:17
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 65ms (Views: 54.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/works/2" for ::1 at 2019-10-16 11:48:32 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:17
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 68ms (Views: 62.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/works/2" for ::1 at 2019-10-16 11:57:57 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:17
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 66ms (Views: 61.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/works/2/edit" for ::1 at 2019-10-16 11:58:01 -0700
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWork Load (2.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:35
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (6.6ms)
+  Rendered works/edit.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 73ms (Views: 61.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 11:58:10 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (6.0ms)
+  Rendered works/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 58ms (Views: 52.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 11:58:12 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fYq0FlvIYImNL2YR6TPlhpPPVGqJxdJvrMgN3QBj3yKDTB4HyNcM1g6gO950ukpoXwaCvD18L4eigNrHG4Pi/Q==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 3.7ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"works", :id=>nil}, missing required keys: [:id]:
+  app/controllers/works_controller.rb:26:in `create'
+
+Started POST "/__better_errors/39109e9c9c174bad/variables" for ::1 at 2019-10-16 11:58:12 -0700
+Started POST "/works" for ::1 at 2019-10-16 12:01:36 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x/0kmmyJK6wyePtUN0kIj+0VW+C6e8Gg0lZbvKclKllzeyDMtTxzGUtVLebea3rbzmXgYGoIme4n65ZI8M5daQ==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 31ms (ActiveRecord: 10.7ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:01:36 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (2.4ms)
+  Rendered works/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 60ms (Views: 57.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:02:16 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (3.1ms)
+  Rendered works/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 50ms (Views: 47.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:02:18 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aDVELh3nYJU0oMPj1RbnJ4hMZp7ffCbEzhhI13dcCfvcs0B4xFI4IE2NFVE8NJVzqzzdHg8Pfoo7pYUjILd+yw==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 16ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:02:18 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (3.6ms)
+  Rendered works/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 70ms (Views: 67.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:02:55 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MnJ2OrgU+A4rubvZ+R63+kikjHptrcV7D7Ct6/3mnyuG9HJsYaGgu1KUbWsQPMWua9Q3+r3enTX6DWAfqg3oGw==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 3.4ms)
+
+
+
+RuntimeError - :
+  app/controllers/works_controller.rb:29:in `create'
+
+Started POST "/__better_errors/27b7370bc572abf1/variables" for ::1 at 2019-10-16 12:02:55 -0700
+Started POST "/__better_errors/27b7370bc572abf1/eval" for ::1 at 2019-10-16 12:03:05 -0700
+Started POST "/works" for ::1 at 2019-10-16 12:05:09 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MnJ2OrgU+A4rubvZ+R63+kikjHptrcV7D7Ct6/3mnyuG9HJsYaGgu1KUbWsQPMWua9Q3+r3enTX6DWAfqg3oGw==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 22ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:05:09 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (2.7ms)
+  Rendered works/new.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `messages' for {"title"=>["can't be blank"]}:Hash:
+  app/views/layouts/application.html.erb:45:in `_app_views_layouts_application_html_erb___3003271280996835422_70324855051400'
+
+Started POST "/__better_errors/1e8e66658b7a233a/variables" for ::1 at 2019-10-16 12:05:10 -0700
+Started GET "/works/new" for ::1 at 2019-10-16 12:05:45 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (2.8ms)
+  Rendered works/new.html.erb within layouts/application (5.1ms)
+Started GET "/works/new" for ::1 at 2019-10-16 12:05:45 -0700
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 3.8ms)
+
+
+
+NoMethodError - undefined method `messages' for {"title"=>["can't be blank"]}:Hash:
+  app/views/layouts/application.html.erb:45:in `_app_views_layouts_application_html_erb___3003271280996835422_70324851847600'
+
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (4.0ms)
+  Rendered works/new.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 2.6ms)
+
+
+
+NoMethodError - undefined method `messages' for {"title"=>["can't be blank"]}:Hash:
+  app/views/layouts/application.html.erb:45:in `_app_views_layouts_application_html_erb___3003271280996835422_70324855914300'
+
+Started POST "/__better_errors/5fa5193ff13891b6/variables" for ::1 at 2019-10-16 12:05:45 -0700
+Started POST "/__better_errors/5fa5193ff13891b6/variables" for ::1 at 2019-10-16 12:05:49 -0700
+Started POST "/__better_errors/5fa5193ff13891b6/variables" for ::1 at 2019-10-16 12:05:50 -0700
+Started POST "/__better_errors/5fa5193ff13891b6/variables" for ::1 at 2019-10-16 12:05:51 -0700
+Started GET "/works/new" for ::1 at 2019-10-16 12:05:56 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (5.2ms)
+  Rendered works/new.html.erb within layouts/application (8.8ms)
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `messages' for {"title"=>["can't be blank"]}:Hash:
+  app/views/layouts/application.html.erb:45:in `_app_views_layouts_application_html_erb___3003271280996835422_70324806976780'
+
+Started POST "/__better_errors/52c457dd608ea91a/variables" for ::1 at 2019-10-16 12:05:56 -0700
+Started GET "/works/new" for ::1 at 2019-10-16 12:06:10 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (6.2ms)
+  Rendered works/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 66ms (Views: 64.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:06:15 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5eEklaxXxnvB+JXarNDW4GHY5A4hVXiU/cick3mXxOvEYDEjwQHrJYqNOWDkTEPovfYEOj2DaymSu+GGg0oIw==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 2.1ms)
+
+
+
+NoMethodError - undefined method `messages' for #<Work:0x00007feb8b5c9300>:
+  app/controllers/works_controller.rb:28:in `create'
+
+Started POST "/__better_errors/aa2286fc4f644c43/variables" for ::1 at 2019-10-16 12:06:15 -0700
+Started POST "/works" for ::1 at 2019-10-16 12:06:53 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5eEklaxXxnvB+JXarNDW4GHY5A4hVXiU/cick3mXxOvEYDEjwQHrJYqNOWDkTEPovfYEOj2DaymSu+GGg0oIw==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 20ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:06:53 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (2.9ms)
+  Rendered works/new.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `messages' for {"title"=>["can't be blank"]}:Hash:
+  app/views/layouts/application.html.erb:45:in `_app_views_layouts_application_html_erb___3003271280996835422_70324808154940'
+
+Started POST "/__better_errors/e22b74034699fe52/variables" for ::1 at 2019-10-16 12:06:53 -0700
+Started GET "/works/new" for ::1 at 2019-10-16 12:07:19 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (4.1ms)
+  Rendered works/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 55ms (Views: 51.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:08:02 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (3.5ms)
+  Rendered works/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 76ms (Views: 73.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:08:05 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rD90pES9NjcPvAmHO87p/lvb0CYXalYlqXOstNqhzwUYuXDynQhugnaR3zXS7JuqeKtrpscZDmtczmFAjUq4NQ==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (3.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 14ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:08:05 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (2.5ms)
+  Rendered works/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 80ms (Views: 77.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:08:15 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q+KAo2/K7haO0U8fPtatNCDsSrlpnzo1yyWsAJKxQN8fZIT1tn+2o/f8ma3X9N9gA5zxObnsYns+mGH0xVo37w==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 6.8ms)
+
+
+
+RuntimeError - :
+  app/controllers/works_controller.rb:29:in `create'
+
+Started POST "/__better_errors/a3c8c5796e7d8555/variables" for ::1 at 2019-10-16 12:08:15 -0700
+Started POST "/__better_errors/a3c8c5796e7d8555/eval" for ::1 at 2019-10-16 12:08:20 -0700
+Started POST "/__better_errors/a3c8c5796e7d8555/eval" for ::1 at 2019-10-16 12:08:30 -0700
+Started POST "/works" for ::1 at 2019-10-16 12:09:45 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q+KAo2/K7haO0U8fPtatNCDsSrlpnzo1yyWsAJKxQN8fZIT1tn+2o/f8ma3X9N9gA5zxObnsYns+mGH0xVo37w==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.0ms)
+
+
+
+RuntimeError - :
+  app/controllers/works_controller.rb:29:in `create'
+
+Started POST "/__better_errors/c639e672434bcbef/variables" for ::1 at 2019-10-16 12:09:45 -0700
+Started POST "/works" for ::1 at 2019-10-16 12:09:58 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q+KAo2/K7haO0U8fPtatNCDsSrlpnzo1yyWsAJKxQN8fZIT1tn+2o/f8ma3X9N9gA5zxObnsYns+mGH0xVo37w==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 24ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:09:58 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (7.1ms)
+  Rendered works/new.html.erb within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 140ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `messages' for {"title"=>["can't be blank"]}:Hash:
+  app/views/layouts/application.html.erb:45:in `_app_views_layouts_application_html_erb___3003271280996835422_70324808021100'
+
+Started POST "/__better_errors/6f9add7c9078edbf/variables" for ::1 at 2019-10-16 12:09:58 -0700
+Started POST "/__better_errors/6f9add7c9078edbf/eval" for ::1 at 2019-10-16 12:12:24 -0700
+Started GET "/works/new" for ::1 at 2019-10-16 12:13:32 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (3.0ms)
+  Rendered works/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 69ms (Views: 66.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:13:34 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c6yx5W/6DS6cthcoI6/dl+/8NFY/L9WVWdKMHVR/ACnHKrWztk9Vm+WbwZrKja/DzIyP1u9cjdusb0HpA5R3GQ==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (7.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 16ms (ActiveRecord: 8.5ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:13:34 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (3.2ms)
+  Rendered works/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 73ms (Views: 70.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:14:15 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eUZRaOIZw6SMFoGhlGPT+eAOv1rUa5u/bATpRAZugePNwFU+O6ybEfU7VxN9QaGtw34E2gQYw/GZuSSwUYX20w==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 10ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:14:15 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (5.0ms)
+  Rendered works/new.html.erb within layouts/application (9.0ms)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `messages' for {"title"=>["can't be blank"]}:Hash:
+  app/views/layouts/application.html.erb:45:in `_app_views_layouts_application_html_erb___3003271280996835422_70324855147960'
+
+Started POST "/__better_errors/f69419f39d14eabe/variables" for ::1 at 2019-10-16 12:14:15 -0700
+Started GET "/works/new" for ::1 at 2019-10-16 12:17:15 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (3.9ms)
+  Rendered works/new.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 2.7ms)
+
+
+
+NoMethodError - undefined method `messages' for {"title"=>["can't be blank"]}:Hash:
+  app/views/layouts/application.html.erb:46:in `_app_views_layouts_application_html_erb___3003271280996835422_70324855548180'
+
+Started POST "/__better_errors/28adb645d6b0e15a/variables" for ::1 at 2019-10-16 12:17:16 -0700
+Started GET "/works/new" for ::1 at 2019-10-16 12:17:31 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (5.9ms)
+  Rendered works/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 60ms (Views: 58.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:18:15 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xlu26ntuepdY4T3lyA3/QPe+lo04xD8gq+f7TJmlolJy3bK8otsiIiHM61chL40U1M4tDei3Z25eWja4zk7VYg==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 3.5ms)
+
+
+
+RuntimeError - :
+  app/controllers/works_controller.rb:30:in `create'
+
+Started POST "/__better_errors/924568c859c52b8a/variables" for ::1 at 2019-10-16 12:18:15 -0700
+Started POST "/__better_errors/924568c859c52b8a/eval" for ::1 at 2019-10-16 12:18:19 -0700
+Started POST "/works" for ::1 at 2019-10-16 12:19:23 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xlu26ntuepdY4T3lyA3/QPe+lo04xD8gq+f7TJmlolJy3bK8otsiIiHM61chL40U1M4tDei3Z25eWja4zk7VYg==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 20ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:19:23 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (2.9ms)
+  Rendered works/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 68ms (Views: 65.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:19:50 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"klMs8JR/KGeXFMThNsx6zCQ137GFttBCIKplxlZp3z4m1SimTcpw0u45ElPf7giYB0VkMVXFiAzVF6gyAYKoDg==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 9ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:19:50 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (3.3ms)
+  Rendered works/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 74ms (Views: 72.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:20:12 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mjd5O+tYri8fr8xM7q/dy7akImM7PPClflK6SjyHbS8usX1tMu32mmaCGv4Hja+fldSZ4+tPqOuL73e+a2waHw==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (4.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 12ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:20:12 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (2.8ms)
+  Rendered works/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 89ms (Views: 72.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:20:28 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2lvtuW7dPFAgGzwI6sqkIiygn6OjuhILpRlFtIk/Ai1u3envt2hk5Vk26roD6NZ2D9AkI3PJSkVQpIhA3tR1HQ==", "work"=>{"category"=>"book", "title"=>"", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", ""], ["category", "book"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:25
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 10ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:20:28 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (5.7ms)
+  Rendered works/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 74ms (Views: 71.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:25:44 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4iSAmFhhXq2jeDh+fMEL6pEXOaR7o+t7sp8g1mfIoONWooTOgdQGGNpV7syV43m+smeCJKvQszVHIu0iMCPX0w==", "work"=>{"category"=>"album", "title"=>"Dirty Computer", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "Dirty Computer"], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[36mWork Create (0.6ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Dirty Computer"], ["creator", ""], ["description", ""], ["category", "album"], ["created_at", "2019-10-16 19:25:44.523375"], ["updated_at", "2019-10-16 19:25:44.523375"]]
+  ↳ app/controllers/works_controller.rb:25
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:25
+Redirected to http://localhost:3000/works/28
+Completed 302 Found in 28ms (ActiveRecord: 10.6ms)
+
+
+Started GET "/works/28" for ::1 at 2019-10-16 12:25:44 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 69ms (Views: 64.6ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/works/28" for ::1 at 2019-10-16 12:29:13 -0700
+Processing by WorksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"f0VMWhP6IV+b19qyq9+q1tBkAebnMhaZXJ7304ypYhPLw0gMyk956uL6DABC/diC8xS6ZjdBTtepIzon20IVIw==", "id"=>"28"}
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:37
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:38
+  [1m[36mWork Destroy (0.3ms)[0m  [1m[31mDELETE FROM "works" WHERE "works"."id" = $1[0m  [["id", 28]]
+  ↳ app/controllers/works_controller.rb:38
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:38
+Redirected to http://localhost:3000/works
+Completed 302 Found in 24ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/works" for ::1 at 2019-10-16 12:29:13 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (4.1ms)
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (1.7ms)
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movies"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (1.0ms)
+  Rendered works/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 86ms (Views: 81.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:29:17 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (2.8ms)
+  Rendered works/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 66ms (Views: 62.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:29:23 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"biC+u1gV41Nydn+dUr6TTc7TxJar6r9M1gx9EB+zF1aQ5hSqywqPDPH5IlLPNzyjAhoSQB9TQqTYRKoKBFMqiQ==", "work"=>{"category"=>"album", "title"=>"Dirty Computer", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:26
+  [1m[36mWork Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "Dirty Computer"], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:26
+  [1m[36mWork Create (0.9ms)[0m  [1m[32mINSERT INTO "works" ("title", "creator", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Dirty Computer"], ["creator", ""], ["description", ""], ["category", "album"], ["created_at", "2019-10-16 19:29:23.933849"], ["updated_at", "2019-10-16 19:29:23.933849"]]
+  ↳ app/controllers/works_controller.rb:26
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:26
+Redirected to http://localhost:3000/works/29
+Completed 302 Found in 17ms (ActiveRecord: 7.2ms)
+
+
+Started GET "/works/29" for ::1 at 2019-10-16 12:29:23 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 67ms (Views: 62.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/works/29/edit" for ::1 at 2019-10-16 12:34:18 -0700
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:49
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (3.2ms)
+  Rendered works/edit.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 94ms (Views: 74.3ms | ActiveRecord: 4.3ms)
+
+
+Started PATCH "/works/29" for ::1 at 2019-10-16 12:34:21 -0700
+Processing by WorksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4/NJmcvp+Vb5wQIUgeve/JnnUGORnYX4mdzip0dcT3B8yuVqsLtOCwM5iOwiGh6cANLCFNjG6e09OAX3ROP4AA==", "work"=>{"category"=>"album", "title"=>"Dirty Computer", "creator"=>"Janelle Monae", "published"=>"", "description"=>""}, "commit"=>"Update Work", "id"=>"29"}
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:53
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:55
+  [1m[36mWork Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."id" != $2 AND "works"."category" = $3 LIMIT $4[0m  [["title", "Dirty Computer"], ["id", 29], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:55
+  [1m[36mWork Update (0.4ms)[0m  [1m[33mUPDATE "works" SET "creator" = $1, "updated_at" = $2 WHERE "works"."id" = $3[0m  [["creator", "Janelle Monae"], ["updated_at", "2019-10-16 19:34:21.610323"], ["id", 29]]
+  ↳ app/controllers/works_controller.rb:55
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:55
+Redirected to http://localhost:3000/works/29
+Completed 302 Found in 15ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/works/29" for ::1 at 2019-10-16 12:34:21 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 65ms (Views: 61.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/works/29/edit" for ::1 at 2019-10-16 12:34:24 -0700
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mWork Load (3.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:49
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (7.2ms)
+  Rendered works/edit.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 82ms (Views: 71.5ms | ActiveRecord: 3.3ms)
+
+
+Started PATCH "/works/29" for ::1 at 2019-10-16 12:34:29 -0700
+Processing by WorksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A3z2fAwsjKonStSY8okZKQ+6/693M9FiPa1xk7tvs8ucRVqPd347992yXmBReNlJlo9t2D5ovXeZSZbDuNAEuw==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"Janelle Monae", "published"=>"", "description"=>""}, "commit"=>"Update Work", "id"=>"29"}
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:55
+  [1m[36mWork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."id" != $2 AND "works"."category" = $3 LIMIT $4[0m  [["title", ""], ["id", 29], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:55
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:55
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.1ms)
+
+
+
+ActionView::MissingTemplate - Missing template works/29 with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/mira/ada/w11/media-ranker/app/views"
+:
+  app/controllers/works_controller.rb:61:in `update'
+
+Started POST "/__better_errors/816c9bf22729c2ed/variables" for ::1 at 2019-10-16 12:34:29 -0700
+Started PATCH "/works/29" for ::1 at 2019-10-16 12:35:07 -0700
+Processing by WorksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YZQONt/O8/Tjg5A9S2OYwfxnpmFxFT+yBS4R8GHiMojVEgpgBnurQZquRo+iQeqV3xcd4aFmZ/zwk9wENglFuA==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"Janelle Monae", "published"=>"", "description"=>""}, "commit"=>"Update Work", "id"=>"29"}
+  [1m[36mWork Load (4.1ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:53
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:55
+  [1m[36mWork Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."id" != $2 AND "works"."category" = $3 LIMIT $4[0m  [["title", ""], ["id", 29], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:55
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:55
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (5.6ms)
+  Rendered works/new.html.erb within layouts/application (9.5ms)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 23.2ms)
+
+
+
+NoMethodError - undefined method `categories' for nil:NilClass:
+  app/views/works/_form.html.erb:4:in `block in _app_views_works__form_html_erb___4473361277367498236_70324855796700'
+  app/views/works/_form.html.erb:1:in `_app_views_works__form_html_erb___4473361277367498236_70324855796700'
+  app/views/works/new.html.erb:3:in `_app_views_works_new_html_erb__634727886125844050_70324851668840'
+  app/controllers/works_controller.rb:61:in `update'
+
+Started POST "/__better_errors/2dd0e7c161ec0283/variables" for ::1 at 2019-10-16 12:35:08 -0700
+Started PATCH "/works/29" for ::1 at 2019-10-16 12:35:49 -0700
+Processing by WorksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YZQONt/O8/Tjg5A9S2OYwfxnpmFxFT+yBS4R8GHiMojVEgpgBnurQZquRo+iQeqV3xcd4aFmZ/zwk9wENglFuA==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"Janelle Monae", "published"=>"", "description"=>""}, "commit"=>"Update Work", "id"=>"29"}
+  [1m[36mWork Load (1.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:55
+  [1m[36mWork Exists (9.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."id" != $2 AND "works"."category" = $3 LIMIT $4[0m  [["title", ""], ["id", 29], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:55
+Redirected to http://localhost:3000/works/new.29
+Completed 302 Found in 51ms (ActiveRecord: 15.5ms)
+
+
+Started GET "/works/new.29" for ::1 at 2019-10-16 12:35:49 -0700
+Processing by WorksController#new as 
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (6.0ms)
+  Rendered works/new.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 219ms (Views: 180.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:35:57 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UTBVBnXEPFMlXjxH555MM3cOQOyKxz/t9Ldpud02FS3ltlFQrHFk5lxz6vUOvD5nVH77bFq0Z6MBCqRNit1iHQ==", "work"=>{"category"=>"album", "title"=>"Dirty Computer", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:26
+  [1m[36mWork Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "Dirty Computer"], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:26
+  [1m[35m (13.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:26
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 40ms (ActiveRecord: 15.7ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:35:57 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (7.8ms)
+  Rendered works/new.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 151ms (Views: 148.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/works" for ::1 at 2019-10-16 12:36:26 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (12.2ms)
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (1.8ms)
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movies"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (1.3ms)
+  Rendered works/index.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 75ms (Views: 66.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:36:34 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (7.5ms)
+  Rendered works/new.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 106ms (Views: 102.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/works" for ::1 at 2019-10-16 12:36:37 -0700
+Processing by WorksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Xs2GSXQSqR1onKlHTMpZN+bnj7Gc9gKQDccp3BX3mP+gCyxY5w3FQusT9IjRQ/bZKi5ZZyhP/3gDj/7GDhelIA==", "work"=>{"category"=>"album", "title"=>"Dirty Computer", "creator"=>"", "published"=>"", "description"=>""}, "commit"=>"Create Work"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:26
+  [1m[36mWork Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."category" = $2 LIMIT $3[0m  [["title", "Dirty Computer"], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:26
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:26
+Redirected to http://localhost:3000/works/new
+Completed 302 Found in 24ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/works/new" for ::1 at 2019-10-16 12:36:37 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (3.2ms)
+  Rendered works/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 64ms (Views: 62.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+Started GET "/works" for ::1 at 2019-10-16 12:37:11 -0700
+Processing by WorksController#index as HTML
+  Rendering works/index.html.erb within layouts/application
+  [1m[36mWork Load (8.8ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (12.8ms)
+  [1m[36mWork Load (12.1ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (27.6ms)
+  [1m[36mWork Load (8.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movies"]]
+  ↳ app/views/works/_list.html.erb:14
+  Rendered works/_list.html.erb (9.6ms)
+  Rendered works/index.html.erb within layouts/application (61.3ms)
+Completed 200 OK in 183ms (Views: 146.7ms | ActiveRecord: 29.2ms)
+
+
+Started GET "/works/29" for ::1 at 2019-10-16 12:37:20 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mWork Load (6.6ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 100ms (Views: 87.0ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/works/29/edit" for ::1 at 2019-10-16 12:37:27 -0700
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mWork Load (10.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:49
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (4.5ms)
+  Rendered works/edit.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 180ms (Views: 163.0ms | ActiveRecord: 10.4ms)
+
+
+Started PATCH "/works/29" for ::1 at 2019-10-16 12:37:33 -0700
+Processing by WorksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lnDC3LZrcCbZnLim02p+2vYrqgHLrVQEM9aWnODxs98JSW4vzTnHeyNkMl5wm766bx44doL2OBGXMnHM404Erw==", "work"=>{"category"=>"album", "title"=>"Dirty Computer", "creator"=>"Janelle Monae", "published"=>"2018", "description"=>""}, "commit"=>"Update Work", "id"=>"29"}
+  [1m[36mWork Load (24.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:55
+  [1m[36mWork Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."id" != $2 AND "works"."category" = $3 LIMIT $4[0m  [["title", "Dirty Computer"], ["id", 29], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:55
+  [1m[36mWork Update (0.7ms)[0m  [1m[33mUPDATE "works" SET "published" = $1, "updated_at" = $2 WHERE "works"."id" = $3[0m  [["published", 2018], ["updated_at", "2019-10-16 19:37:33.479808"], ["id", 29]]
+  ↳ app/controllers/works_controller.rb:55
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/works_controller.rb:55
+Redirected to http://localhost:3000/works/29
+Completed 302 Found in 37ms (ActiveRecord: 27.2ms)
+
+
+Started GET "/works/29" for ::1 at 2019-10-16 12:37:33 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mWork Load (0.8ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  Rendered works/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 75ms (Views: 69.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/works/29/edit" for ::1 at 2019-10-16 12:37:36 -0700
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:49
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (9.9ms)
+  Rendered works/edit.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 130ms (Views: 126.3ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/works/29" for ::1 at 2019-10-16 12:37:40 -0700
+Processing by WorksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bkc36ocRiHYQ/hMWldKOmmwS3qyRgxJhy0/hUgFPoTSZfpsZ/EM/K+oGme42I0769SdM29jYfnRvqwYCAvAWRA==", "work"=>{"category"=>"album", "title"=>"", "creator"=>"Janelle Monae", "published"=>"2018", "description"=>""}, "commit"=>"Update Work", "id"=>"29"}
+  [1m[36mWork Load (21.7ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:53
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/works_controller.rb:55
+  [1m[36mWork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" = $1 AND "works"."id" != $2 AND "works"."category" = $3 LIMIT $4[0m  [["title", ""], ["id", 29], ["category", "album"], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:55
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/works_controller.rb:55
+Redirected to http://localhost:3000/works/29/edit
+Completed 302 Found in 36ms (ActiveRecord: 23.1ms)
+
+
+Started GET "/works/29/edit" for ::1 at 2019-10-16 12:37:40 -0700
+Processing by WorksController#edit as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:49
+  Rendering works/edit.html.erb within layouts/application
+  Rendered works/_form.html.erb (8.8ms)
+  Rendered works/edit.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 84ms (Views: 79.7ms | ActiveRecord: 0.3ms)
+
+
