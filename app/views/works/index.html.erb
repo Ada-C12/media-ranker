@@ -1,33 +1,83 @@
 <h2>List of Works</h2>
 
-<h4>Movies</h4>
-<table class="table">
-  <% @movies.each do |movie| %>
-    <%= link_to movie.title, work_path(work.id), method: :get%>
-    <%= movie.creator %>
-    <%= movie.publication_year %>
-  <% end %>
-  No movies in seed
-</table>
+<section class="media-table">
+  <h4>Albums</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="80">Votes</th>
+        <th>Title</th>
+        <th>Created By</th>
+        <th width="100">Published</th>
+        <th width="100">Upvote</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @albums.each do |album| %>
+      <tr>
+        <td>VOTE COUNT</td>
+        <%# <%= link_to album.title, work_path(work.id), method: :get%>
+        <td><%= album.title%></td>
+        <td><%= album.creator %></td>
+        <td><%= album.publication_year %></td>
+        <td>VOTE BUTTON</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
 
-<h4>Albums</h4>
-<table class="table">
-  <% @albums.each do |album| %>
-    <%# <%= link_to album.title, work_path(work.id), method: :get%>
-    <%= album.title%>
-    <%= album.creator %>
-    <%= album.publication_year %>
-    <br>
-  <% end %>
-</table>
 
-<h4>Books</h4>
-<table class="table">
-  <% @books.each do |book| %>
-    <%# <%= link_to album.title, work_path(work.id), method: :get%>
-    <%= book.title%>
-    <%= book.creator %>
-    <%= book.publication_year %>
-    <br>
-  <% end %>
-</table>
+<section class="media-table">
+  <h4>Books</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="80">Votes</th>
+        <th>Title</th>
+        <th>Created By</th>
+        <th width="100">Published</th>
+        <th width="100">Upvote</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+      <tr>
+        <td>VOTE COUNT</td>
+        <%# <%= link_to album.title, work_path(work.id), method: :get%>
+        <td><%= book.title%></td>
+        <td><%= book.creator %></td>
+        <td><%= book.publication_year %></td>
+        <td>VOTE BUTTON</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+
+<section class="media-table">
+  <h4>Movies</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="80">Votes</th>
+        <th>Title</th>
+        <th>Created By</th>
+        <th width="100">Published</th>
+        <th width="100">Upvote</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+      <tr>
+        <td>VOTE COUNT</td>
+        <%# <%= link_to movie.title, work_path(work.id), method: :get%>
+        <td><%= movie.title%></td>
+        <td><%= movie.creator %></td>
+        <td><%= movie.publication_year %></td>
+        <td>VOTE BUTTON</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
