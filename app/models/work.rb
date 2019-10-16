@@ -3,10 +3,9 @@ class Work < ApplicationRecord
     validates :title, presence:true 
 
 
-
-
-
-
+def self.by_category(category)
+return self.where(category: category)
+end
 
 
 end

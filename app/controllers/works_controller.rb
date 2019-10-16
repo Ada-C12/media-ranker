@@ -1,9 +1,12 @@
 class WorksController < ApplicationController
   def index
-    @works = Work.all
+		@movies = Work.by_category("movie")
+		@books = Work.by_category("book")
+		@albums = Work.by_category("album")
   end
 
 	def show
+		
   end
 
   def new
