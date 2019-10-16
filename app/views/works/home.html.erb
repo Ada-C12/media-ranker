@@ -3,7 +3,7 @@
     <section class="spotlight">
       <h2 class="spotlight__header">
         <span class="spotlight__header--prefit">
-          Media Spotlight:
+          Media Spotlight: <%= link_to Work.spotlight.title, work_path(Work.spotlight.id) %> by <%= Work.spotlight.creator %>
         </span>
       </h2>
     </section>
@@ -14,12 +14,13 @@
         </h2>
         <ul class="list-group top-ten__list">
           <% Work.where(category:"movie").each do |work| %>
+            <li class="list-group-item">
               <h4>
-                <li class="list-group-item">
-                  <%= link_to work.title, work_path(work.id)%>
-                  <small class="top-ten__creator"> by *USER* </small>
-                </li>
+                <%= link_to work.title, work_path(work.id)%>
+                <small class="top-ten__creator"> by <%= work.creator %> </small>
               </h4>
+              <p><%= work.votes.length %> votes </p>
+            </li>
             <%end%>
         </ul>
       </section>
@@ -29,10 +30,12 @@
         </h2>
         <ul class="list-group top-ten__list">
         <% Work.where(category:"book").each do |work| %>
-            <h4>
               <li class="list-group-item">
-                <%= link_to work.title, work_path(work.id)%>
-                <small class="top-ten__creator"> by *USER* </small>
+                <h4>
+                  <%= link_to work.title, work_path(work.id)%>
+                  <small class="top-ten__creator"> by <%= work.creator %></small>
+                </h4>
+              <p><%= work.votes.length %> votes </p>
               </li>
             </h4>
           <%end%>
@@ -44,10 +47,12 @@
         </h2>
         <ul class="list-group top-ten__list">
         <% Work.where(category:"album").each do |work| %>
-            <h4>
               <li class="list-group-item">
+              <h4>
                 <%= link_to work.title, work_path(work.id)%>
-                <small class="top-ten__creator"> by *USER* </small>
+                <small class="top-ten__creator"> by <%= work.creator %> </small>
+              </h4>
+              <p><%= work.votes.length %> votes </p>
               </li>
             </h4>
           <%end%>

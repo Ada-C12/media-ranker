@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
 root to: 'works#home'
-resources :works 
+
 resources :users 
+resources :works do 
+  resources :votes, shallow: true 
+end 
 
 get "/login", to: "users#login_form", as: "login"
 post "/login", to: "users#login"

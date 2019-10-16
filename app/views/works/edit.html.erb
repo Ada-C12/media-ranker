@@ -1,5 +1,4 @@
-<%# form_with is a view helper that will generate the proper form for us and will help us hook into the other controller actions %>
-<h2> Add a new work </h2>
+<h2> Edit a work </h2>
 <%= form_with model: @work do |f| %>
   <div class="form-group">
     <% @categories = ["album", "movie", "book"]%>
@@ -23,6 +22,6 @@
     <%= f.text_field :description, class: "form-control" %>
   </div>
   <div class="form-group">
-  <%= f.submit "Create Work", class: "btn btn-info" %>
+  <%= f.submit "Edit Work", class: "btn btn-info" %>
   </div>
 <% end %>
