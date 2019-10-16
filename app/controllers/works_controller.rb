@@ -8,6 +8,7 @@ class WorksController < ApplicationController
   end
   
   def new
+    @work = Work.new
   end
   
   def create
@@ -25,7 +26,21 @@ class WorksController < ApplicationController
       render action: "new"
       return
     end
-    
+  end
+  
+  def show
+    work_id = params[:id]
+    redirect_to user_path(id: work_id)
+    return
+  end
+  
+  def edit
+  end
+  
+  def update
+  end
+  
+  def destroy
   end
   
   private

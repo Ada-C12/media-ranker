@@ -2,7 +2,7 @@
 <section class="spotlight">
 <h2 class="spotlight__header">
 <span class="spotlight__header--prefix">Media Spotlight:</span>
-<a class="spotlight__link_to" href="/nope_path"><%= @spotlight_winner.title %></a> by <%= @spotlight_winner.creator %>
+<span class="spotlight__link_to"><%= link_to @spotlight_winner.title, user_path(id: @spotlight_winner.id) %></span> by <%= @spotlight_winner.creator %>WTF!!! link for this media goes to User's show page, NOT Work's show page!!!
 </h2>
 <p class="spotlight__description"> # votes - abc?</p>
 </section>
@@ -15,7 +15,7 @@
     <ul class="list-group top-ten__list">
       <% @top_ten_movies.each do |piece| %>
         <li class="list-group-item">
-          <h4><%= piece.title %> PLUS LINK
+          <h4><%= link_to piece.title, work_path(id: piece.id) %> LINK GOES TO User#show?! WTF!!!
           <small class="top-ten__creator">by <%= piece.creator %></small>
           </h4>
           <p># <%= piece.votes_earned %> votes</p>
