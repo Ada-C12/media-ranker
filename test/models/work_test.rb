@@ -2,12 +2,12 @@ require "test_helper"
 
 describe Work do
   it "can be instantiated" do
-    expect(works(:new_work).valid?).must_equal true
+    assert(works(:new_work).valid?)
   end
 
   it "will have the required fields" do
     works(:new_work).save
-    [:category, :title, :creator, :description,:publication_year].each do |field|
+    [:category, :title, :creator, :description,:publication_year, :vote_count].each do |field|
       expect(works(:new_work)).must_respond_to field
     end
   end
@@ -28,7 +28,7 @@ describe Work do
     it "must have a category" do
       works(:new_work).category = nil
 
-      expect(works(:new_work).valid?).must_equal false
+      refute(works(:new_work).valid?)
       expect(works(:new_work).errors.messages).must_include :category
       expect(works(:new_work).errors.messages[:category]).must_equal ["can't be blank"]
     end
@@ -36,7 +36,7 @@ describe Work do
     it "must have a title" do
       works(:new_work).title = nil
 
-      expect(works(:new_work).valid?).must_equal false
+      refute(works(:new_work).valid?)
       expect(works(:new_work).errors.messages).must_include :title
       expect(works(:new_work).errors.messages[:title]).must_include "can't be blank"
     end
@@ -44,7 +44,7 @@ describe Work do
     it "must have a description" do
       works(:new_work).description = nil
 
-      expect(works(:new_work).valid?).must_equal false
+      refute(works(:new_work).valid?)
       expect(works(:new_work).errors.messages).must_include :description
       expect(works(:new_work).errors.messages[:description]).must_include "can't be blank"
     end  
@@ -52,7 +52,7 @@ describe Work do
     it "must have a publication_year" do
       works(:new_work).publication_year = nil
 
-      expect(works(:new_work).valid?).must_equal false
+      refute(works(:new_work).valid?)
       expect(works(:new_work).errors.messages).must_include :publication_year
       expect(works(:new_work).errors.messages[:publication_year]).must_equal ["can't be blank"]
     end 
@@ -60,7 +60,7 @@ describe Work do
     it "must have a vote_count" do
       works(:new_work).vote_count = nil
 
-      expect(works(:new_work).valid?).must_equal false
+      refute(works(:new_work).valid?)
       expect(works(:new_work).errors.messages).must_include :vote_count
       expect(works(:new_work).errors.messages[:vote_count]).must_include "can't be blank"
     end  
@@ -70,10 +70,10 @@ describe Work do
       invalid_work2 = Work.create(category: "book", title: "Cool Book", creator: "Cooler Author", description: "Here is a desc",publication_year: 1993, vote_count: 0)
       invalid_work3 = Work.create(category: "album", title: "Cool Book", creator: "Cooler Author", description: "Here is a desc",publication_year: 1993, vote_count: 0)
 
-      expect(invalid_work2.valid?).must_equal false
+      refute(invalid_work2.valid?)
       expect(invalid_work2.errors.messages).must_include :title
       expect(invalid_work2.errors.messages[:title]).must_include "has already been taken"
-      expect(invalid_work3.valid?).must_equal true
+      assert(invalid_work3.valid?)
       expect(invalid_work3.errors.messages[:title]).wont_include "has already been taken"
     end
 
@@ -81,13 +81,13 @@ describe Work do
       invalid_work1 = Work.create(category: "book", title: "", creator: "", description: "Here is a desc",publication_year: 1993, vote_count: 0)
       invalid_work2 = Work.create(category: "album", title: "I'm a really long title, a title that is so long it is longer than 150 chars. This title is soo soo long and it's probably not really a real work title, someone is just trying to mess with my program.", creator: "I'm a really long creator, a creator that is so long it is longer than 150 chars. This creator is soo soo long and it's probably not really a real work creator, someone is just trying to mess with my program.", description: "Here is a desc",publication_year: 1993, vote_count: 0)
 
-      expect(invalid_work1.valid?).must_equal false
+      refute(invalid_work1.valid?)
       expect(invalid_work1.errors.messages).must_include :title
       expect(invalid_work1.errors.messages[:title]).must_include "is too short (minimum is 1 character)"
       expect(invalid_work1.errors.messages).must_include :creator
       expect(invalid_work1.errors.messages[:creator]).must_include "is too short (minimum is 1 character)"
       
-      expect(invalid_work2.valid?).must_equal false
+      refute(invalid_work2.valid?)
       expect(invalid_work2.errors.messages).must_include :title
       expect(invalid_work2.errors.messages[:title]).must_include "is too long (maximum is 150 characters)"
       expect(invalid_work2.errors.messages).must_include :creator
@@ -98,11 +98,11 @@ describe Work do
       invalid_work1 = Work.create(category: "album", title: "Title", creator: "Creator", description: "",publication_year: 1993, vote_count: 0)
       invalid_work2 = Work.create(category: "album", title: "Title", creator: "Creator", description: "Here is a description that is too long.Here is a description that is too long.Here is a description that is too long.Here is a description that is too long.Here is a description that is too long.Here is a description that is too long.Here is a description that is too long.Here is a description that is too long.Here is a description that is too long.Here is a description that is too long.",publication_year: 1993, vote_count: 0)
 
-      expect(invalid_work1.valid?).must_equal false
+      refute(invalid_work1.valid?)
       expect(invalid_work1.errors.messages).must_include :description
       expect(invalid_work1.errors.messages[:description]).must_include "is too short (minimum is 1 character)"
       
-      expect(invalid_work2.valid?).must_equal false
+      refute(invalid_work2.valid?)
       expect(invalid_work2.errors.messages).must_include :description
       expect(invalid_work2.errors.messages[:description]).must_include "is too long (maximum is 350 characters)"
     end

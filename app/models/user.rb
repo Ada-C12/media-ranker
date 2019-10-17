@@ -6,22 +6,40 @@ class User < ApplicationRecord
 
   def self.username_by_id(user_id)
     user = User.find_by(id: user_id)
-    return user.username if user
+    if user
+      return user.username 
+    else
+      return nil
+    end
   end
 
   def upvotes
-    return self.votes.where(vote_type: "upvote")
+    if self.votes.empty?
+      return nil
+    else
+      return self.votes.where(vote_type: "upvote")
+    end
   end
 
   def downvotes
-    return self.votes.where(vote_type: "downvote")
+    if self.votes.empty?
+      return nil
+    else
+      return self.votes.where(vote_type: "downvote")
+    end
   end
 
   def already_voted?(work_id)
-    if self.votes.find_by(work_id: work_id)
-      return true
+    work = Work.find_by(id: work_id)
+    
+    if work
+      if self.votes.find_by(work_id: work_id)
+        return true
+      else
+        return false
+      end
     else
-      return false
+      return nil
     end
   end
 end

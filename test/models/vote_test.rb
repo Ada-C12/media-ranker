@@ -6,7 +6,7 @@ describe Vote do
   }
 
   it "can be instantiated" do
-    expect(new_vote.valid?).must_equal true
+    assert(new_vote.valid?)
   end
 
   it "will have the required fields" do
@@ -36,7 +36,7 @@ describe Vote do
     it "must have a work_id" do
       new_vote.work_id = nil
 
-      expect(new_vote.valid?).must_equal false
+      refute(new_vote.valid?)
       expect(new_vote.errors.messages).must_include :work_id
       expect(new_vote.errors.messages[:work_id]).must_equal ["can't be blank"]
     end
@@ -44,7 +44,7 @@ describe Vote do
     it "must have a user_id" do
       new_vote.user_id = nil
 
-      expect(new_vote.valid?).must_equal false
+      refute(new_vote.valid?)
       expect(new_vote.errors.messages).must_include :user_id
       expect(new_vote.errors.messages[:user_id]).must_equal ["can't be blank"]
     end
@@ -52,7 +52,7 @@ describe Vote do
     it "must have a vote_type" do
       new_vote.vote_type = nil
 
-      expect(new_vote.valid?).must_equal false
+      refute(new_vote.valid?)
       expect(new_vote.errors.messages).must_include :vote_type
       expect(new_vote.errors.messages[:vote_type]).must_equal ["can't be blank"]
     end
@@ -125,5 +125,4 @@ describe Vote do
       end
     end
   end
-
 end
