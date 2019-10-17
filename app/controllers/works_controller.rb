@@ -5,6 +5,7 @@ class WorksController < ApplicationController
   before_action :find_work, only: [:show, :edit, :update]
 
     def index
+
         @works = Work.all
 
         @movies = Work.sort_by_category("movie")
@@ -14,6 +15,7 @@ class WorksController < ApplicationController
     end
   
     def show
+      
       work_id = params[:id].to_i
       @work = Work.find_by(id: work_id)
       if @work.nil?
@@ -28,6 +30,7 @@ class WorksController < ApplicationController
   
     def create
       @work = Work.new( work_params )
+      @params = work_params[:category]
       if @work.save
         redirect_to work_path(@work.id)
       else
@@ -41,6 +44,7 @@ class WorksController < ApplicationController
   
     def update
       @work = Work.find_by(id: params[:id] )
+      
       if @work.update( work_params )
         redirect_to work_path(@work.id)
       else
@@ -68,17 +72,5 @@ class WorksController < ApplicationController
     def topten
     end
 
-  
-    private             
-  
-    def author_params
-      return params.require(:work).permit(:name)
-    end
 
-    private
-
-    def find_work
-      @work = Work.find_by_id(params[:id])
-    end
-  
 end
