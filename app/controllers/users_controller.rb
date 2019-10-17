@@ -24,25 +24,18 @@ class UsersController < ApplicationController
       session[:user_id] = found_user.id
       flash[:success] = "Successfully logged in as a existing user #{found_user.username}"
     else
-      new_user = User.new(username: username)
-      if new_user.save
-        session[:user_id] = new_user.id
-        flash[:success] = "Successfully created new user #{new_user.username} with ID #{new_user.id}"
+      @new_user = User.new(username: username)
+
+      if @new_user.save
+        session[:user_id] = @new_user.id
+        flash[:success] = "Successfully created new user #{@new_user.username} with ID #{@new_user.id}"
       else
-        flash[:error] = "A problem occured: Could not log in"
-        redirect_to login_path
+        flash.now[:error] = "A problem occured: Could not log in"
+        render "users/login_form"
+        return
       end
     end
-    redirect_to root_path
-    return
-  end
-
-  def current
-    @user = User.find_by(id: session[:user_id])
-    if @user.nil?
-      head :not_found
-      return
-    end
+    return redirect_to root_path
   end
 
   def logout

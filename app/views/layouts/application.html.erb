@@ -59,6 +59,12 @@
                   <li><%= column %>: <%=message%></li>
                 <% end %>
               </ul>
+            <% elsif @new_user != nil && @new_user.errors.any? %>
+              <ul>
+                <% @new_user.errors.each do |column, message| %>
+                  <li><%= column %>: <%=message%></li>
+                <% end %>
+              </ul>
             <% end %>
           </div>
         <% end %>
