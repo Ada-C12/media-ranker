@@ -1,68 +1,50 @@
 class UsersController < ApplicationController
   def index
-    @user = User.all
+    @users = User.all
   end
 
   def show
-    user_id = params[:id].to_i
-    @user = User.find_by(id: user_id)
-
-    # @works = Work.where(user_id: user_id)
-
-    if @user.nil?
-        head :not_found
-        return
+    unless @user
+      head :not_found
     end
   end
-  
-  def new
+
+  def login_form
     @user = User.new
   end
 
-  # def create
-  #   @user = User.new(user_params)
+  def login
+    username = params[:user][:username]
+    found_user = User.find_by(username: username)
 
-  #   if @user.nil? || @user.validate_input
-  #     flash.now[:error] = "username: can't be blank"
-  #     render new_user_path
-  #   end
-  #   if @user.save
-  #     flash[:success] = "User added successfully"
+    if found_user
+      session[:user_id] = found_user.index
+      flash[:message] = "Logged in as returning user #{found_user.id}!"
+    else
+      new_user = User.create(username: username)
+      session[:user_id] = new_user.id
+      flash[:message] = "Created user #{new_user.id}"
+    end
+    return redirect_to root_path
+  end
 
-  #     redirect_to user_path(@user.id)
-  #   else
-  #     flash.now[:error] = "You didn't do it right."
-  #     render new_user_path
-  #   end
-  # end
+  def current
+    @current_user = User.find_by(id: session[:user_id])
+    unless @current_user
+      flash[:error] = "You must be logged in to see this page"
+      redirect_to root_path
+    end
+  end
 
-  # def edit
-  #   user_id = params[:id].to_i
-  #   @user = User.find_by(id: user_id)
-
-  #   if @user == nil
-  #     redirect_to user_path
-  #   end
-  # end
-
-  # def update
-  #   @user = User.find_by(id: params[:id])
-
-  #   unless @driver
-  #     head :not_found
-  #     return
-  #   end
-
-  #   if @user.save
-  #     redirect_to user_path(@user.id)
-  #   else
-  #     redirect_to user_path(@user)
-  #   end
-  # end
+  def logout
+    session[:user_id] = nil
+    flash[:message] = "You have logged out!"
+    return redirect_to root_path
+  end
 
   private
 
   def user_params
-      return params.require(:user).permit(:username, :vote_num, :joined_date)
+      return params.require(:user).permit(:username, :joined_date)
   end
 end

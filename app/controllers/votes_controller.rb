@@ -1,19 +1,14 @@
 class VotesController < ApplicationController
-  def index
-  end
-  
-  def show
-  end
-  
-  def new
-  end
 
   def create
+    work = Work.find_by(id: params[:work_id])
+    vote_params = vote.upvote
+    @vote = Vote.create(vote_params)
   end
 
-  def update
-  end
+  private
 
-  def destroy
+  def vote_params
+    return params.require(:vote).permit(:date_voted, :user_id, :work_id)
   end
 end

@@ -1,0 +1,37 @@
+
+
+<main>
+  <h2>List of Users</h2>
+
+  <section class="media-table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th width="80">Username</th>
+            <th width="20">Votes</th>
+            <th width="20">Joined</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <% @users.each do |user| %>
+                <tr>
+                  <td>
+                    <%= link_to user.username, user_path(id: user.id) %> 
+                  </td>
+                  <td>
+                    num-votes
+                    <%# <%= user.votes %> 
+                  </td>
+                  <td>
+                    <%= user.created_at.year %>
+                  </td>
+              <% end %>
+          </tr>
+        </tbody>
+      </table>
+  </section>
+
+  <a class="btn btn-secondary" href="/">View top media</a>
+  <a class="btn btn-primary" href="/works/new">Add a new work</a>
+</main>

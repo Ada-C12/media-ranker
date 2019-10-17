@@ -1,7 +1,20 @@
-require "test_helper"
+# require "test_helper"
 
-describe Work do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
-end
+# describe Work do
+#   describe "validations" do
+    
+#     it "can be valid" do
+#       is_valid = works().valid?
+
+#       assert( is_valid )
+#     end
+
+#     it "is invalid if there is no title" do
+#       book = works(:invalid_book_without_title)
+
+#       is_valid = book.valid?
+
+#       refute( is_valid )
+#     end
+# end
+
