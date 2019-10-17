@@ -1,13 +1,13 @@
 <main>
   <h2>Log In</h2>
 
-  <form action="/login" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="qPSotz86XP/4Zjm+GolUhlBhUEoTDa1ompzCK0ZraNsLrYoVFZR/g3vxF5GaSEZJqMrP/huRankT9IZWoHDSbA==">
+  <%= form_with model: @user, url: login_path do |f| %>
     <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username" class="form-control">
+      <%= f.label :username %>
+      <%= f.text_field :username, class:"form-control" %>
     </div>
     <div class="form-group">
-      <input type="submit" name="commit" value="Log In" class="btn btn-primary" data-disable-with="Log In">
+      <%= f.submit "Log in", class:"btn btn-primary" %>
     </div>
-  </form>
+  <% end %>
 </main>
