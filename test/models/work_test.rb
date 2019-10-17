@@ -16,7 +16,7 @@ describe Work do
 
   describe "relationships" do
     it "can have many votes" do
-      vote = votes(:vote1)
+      vote = votes(:valid_vote)
 
       expect(valid_work.votes.count).must_be :>=, 0
       valid_work.votes.each do |vote|
@@ -36,7 +36,7 @@ describe Work do
     
     it "must have a title" do
       invalid_work_title = works(:invalid_work_title)
-      
+
       expect(invalid_work_title.valid?).must_equal false
       expect(invalid_work_title.errors.messages).must_include :title
       expect(invalid_work_title.errors.messages[:title]).must_equal ["can't be blank"]

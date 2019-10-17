@@ -1,4 +1,5 @@
-user1:
+valid_user:
   username: Test User
-user2:
-  username: Test User 2
+
+invalid_user:
+  username: 

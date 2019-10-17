@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-
+  
   def show
     user_id = params[:id]
     
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       return
     end
   end
-
+  
   def login_form
     @user = User.new
   end
@@ -26,11 +26,15 @@ class UsersController < ApplicationController
       flash[:success] = "Successfully logged in as returning user #{username}"
     else
       @user = User.new(username: username)
-      @user.save
-
-      session[:user_id] = @user.id
-      session[:username] = @user.username
-      flash[:success] = "Successfully logged in as new user #{username}"
+      
+      if @user.save
+        session[:user_id] = @user.id
+        session[:username] = @user.username
+        flash[:success] = "Successfully logged in as new user #{username}"
+      else
+        flash[:success] = "There was error creating a new user"
+        redirect_to login_path
+      end
     end
     redirect_to root_path
   end

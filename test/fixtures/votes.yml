@@ -1,3 +1,11 @@
-vote1:
-  user_id: user1
+valid_vote:
+  user_id: valid_user
   work_id: valid_work
+
+invalid_vote_user:
+  user_id:
+  work_id: valid_work
+
+invalid_vote_work:
+  user_id: valid_user
+  work_id: 
