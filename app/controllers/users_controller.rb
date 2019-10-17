@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   
+  def index 
+    @users = User.all
+  end
+  
   def login
     username = params[:username]
     user = User.find_by(username: username)
