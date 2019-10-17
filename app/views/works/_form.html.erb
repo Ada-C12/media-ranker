@@ -1,4 +1,16 @@
 <section>
+  <% if @work.errors.any? %>
+    <div class="alert alert-warning">
+      <ul>
+        <% @work.errors.each do |column, message| %>
+          <li>
+            <%= column.capitalize %> <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= form_with model: @work, class: "work_form_class" do |f| %>
     <div class="form-group">
       <%= f.label :category %>

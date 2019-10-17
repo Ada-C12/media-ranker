@@ -1,6 +1,16 @@
 <main>
   <h2>Log In</h2>
-
+  <% if @user.errors.any? %>
+    <div class="alert alert-warning">
+      <ul>
+        <% @user.errors.each do |column, message| %>
+          <li>
+            <%= column.capitalize %> <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= form_with model: @user, url: login_path do |f| %>
     <div class="form-group">
       <%= f.label :username %>

@@ -49,10 +49,11 @@
     </nav>
   </header>
   <section class="alert__container">
-  <%if flash[:message]%>
-  <div class="alert alert-success"> 
-    <span><%= flash[:message]%></span>
-  </div>
+  
+    <%if flash[:message]%>
+      <div class="alert alert-success"> 
+        <span><%= flash[:message]%></span>
+      </div>
     <% end %>
 </section>
     <%= yield %>
