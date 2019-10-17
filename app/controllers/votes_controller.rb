@@ -3,12 +3,11 @@ class VotesController < ApplicationController
   def create
     @work = Work.find_by(id:params[:work_id])
     current_user = User.find_by(id: session[:user_id])
-    voted = current_user.votes.any? { |vote| vote.work_id == @work.id }
     if current_user.nil? 
       flash[:error] = "You must be logged in to do that"
       redirect_to work_path(@work.id)
       return
-    elsif voted == true 
+    elsif current_user.votes.any? { |vote| vote.work_id == @work.id } == true 
       flash[:error] = "You can't vote for something again silly"
       redirect_to work_path(@work.id)
       return
