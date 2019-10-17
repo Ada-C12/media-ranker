@@ -9,17 +9,18 @@ class Work < ApplicationRecord
   def self.find_spotlight
     return nil if Work.count < 1 
 
-    return Work.all.sample
+    spotlight = Work.all.max_by { |work| work.votes.length }
+
+    return spotlight
   end
 
   def self.top_ten(category)
     return nil unless category == :book || category == :album
 
     all_media = Work.all.where(category: category)
+    media_ascending = all_media.sort_by{ |work| work.votes.length }.reverse!
 
-    top_ten = all_media.sample(10)
-
-    return top_ten
+    return media_ascending.first(10)
   end
 
 end

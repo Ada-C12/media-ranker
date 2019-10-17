@@ -68,13 +68,21 @@ class WorksController < ApplicationController
   def upvote
     if session[:user_id].nil?
       flash[:warning] = "Please log in to vote"
-      render :new
-      return
-    else
-      Vote.create(user_id: session[:user_id], work_id: params[:id])
-      redirect_to root_path
+      redirect_to work_path(params[:id])
       return
     end
+
+    vote = Vote.new(user_id: session[:user_id], work_id: params[:id])
+
+    if vote.save
+      redirect_to root_path
+      return
+    else
+      flash[:error] = "Unable to vote twice for the same piece of media"
+      redirect_to work_path(params[:id])
+      return
+    end
+  
   end
   
   private
