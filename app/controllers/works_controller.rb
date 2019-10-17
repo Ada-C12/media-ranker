@@ -65,13 +65,19 @@ class WorksController < ApplicationController
   def upvote
     work = Work.find_by(id: params[:id])
     user = User.find_by(id: session[:user_id])
-    if user
-      Vote.create(work: work, user: user)
-      flash[:success] = "upvoted #{ work.title }"
-      redirect_to work_path(work.id)
-    else
+    voted = user.votes.any? { |vote| vote.work.id == work.id }
+    
+    if user.nil?
       flash[:errors] = { user: ["must be logged in to upvote"] }
       flash[:action] = "upvote"
+      redirect_to work_path(work.id)
+    elsif voted
+      flash[:errors] = { user: ["already upvoted #{ work.title }"] }
+      flash[:action] = "upvote"
+      redirect_to work_path(work.id)
+    else
+      Vote.create(work: work, user: user)
+      flash[:success] = "upvoted #{ work.title }"
       redirect_to work_path(work.id)
     end
   end
