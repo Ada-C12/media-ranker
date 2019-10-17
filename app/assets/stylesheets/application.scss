@@ -150,10 +150,13 @@ ul {
 
 .first-alert-container {
    margin-bottom: 0;
+   border-bottom: none;
+   margin-top: 2em;
 }
 
 .second-alert-container {
    height: 3em;
+   border-top: none;
 }
 
 .second-alert-message {

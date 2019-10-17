@@ -13,26 +13,23 @@
         </tr>
       </thead>
       <tbody>
-        <% @works.each do |work| %>
+        <% @albums.each do |work| %>
           <tr>
-            <% if work.category == 'album'%>
-                <td>
-                  <%= work.votes.count %>
-                </td>
-                <td>
-                  <%= link_to work.title, work_path(work.id) %>
-                </td>
-                <td>
-                  <%= work.creator %>
-                </td>
-                <td>
-                  <%= work.publication_year %>
-                </td>
-                <td>
-                  <%= link_to "Upvote", work_votes_path(work.id), method: :post, class: "btn btn-primary" %>
-                </td>
-              </ul>
-            <% end %>
+            <td>
+              <%= work.votes.count %>
+            </td>
+            <td>
+              <%= link_to work.title, work_path(work.id) %>
+            </td>
+            <td>
+              <%= work.creator %>
+            </td>
+            <td>
+              <%= work.publication_year %>
+            </td>
+            <td>
+              <%= link_to "Upvote", work_votes_path(work.id), method: :post, class: "btn btn-primary" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
@@ -51,26 +48,23 @@
         </tr>
       </thead>
       <tbody>
-        <% @works.each do |work| %>
+        <% @books.each do |work| %>
           <tr>
-            <% if work.category == 'movie'%>
-                <td>
-                  <%= work.votes.count %>
-                </td>
-                <td>
-                  <%= link_to work.title, work_path(work.id) %>
-                </td>
-                <td>
-                  <%= work.creator %>
-                </td>
-                <td>
-                  <%= work.publication_year %>
-                </td>
-                <td>
-                  <%# button Upvote, vote_path(work.id) %>
-                </td>
-              </ul>
-            <% end %>
+            <td>
+              <%= work.votes.count %>
+            </td>
+            <td>
+              <%= link_to work.title, work_path(work.id) %>
+            </td>
+            <td>
+              <%= work.creator %>
+            </td>
+            <td>
+              <%= work.publication_year %>
+            </td>
+            <td>
+              <%= link_to "Upvote", work_votes_path(work.id), method: :post, class: "btn btn-primary" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
@@ -89,26 +83,23 @@
         </tr>
       </thead>
       <tbody>
-        <% @works.each do |work| %>
+        <% @movies.each do |work| %>
           <tr>
-            <% if work.category == 'album'%>
-                <td>
-                  <%= work.votes.count %>
-                </td>
-                <td>
-                  <%= link_to work.title, work_path(work.id) %>
-                </td>
-                <td>
-                  <%= work.creator %>
-                </td>
-                <td>
-                  <%= work.publication_year %>
-                </td>
-                <td>
-                  <%# button Upvote, vote_path(work.id) %>
-                </td>
-              </ul>
-            <% end %>
+            <td>
+              <%= work.votes.count %>
+            </td>
+            <td>
+              <%= link_to work.title, work_path(work.id) %>
+            </td>
+            <td>
+              <%= work.creator %>
+            </td>
+            <td>
+              <%= work.publication_year %>
+            </td>
+            <td>
+              <%= link_to "Upvote", work_votes_path(work.id), method: :post, class: "btn btn-primary" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
