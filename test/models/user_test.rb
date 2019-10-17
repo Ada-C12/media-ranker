@@ -13,8 +13,8 @@ describe User do
 
   describe "relationships" do
     it "can have many votes" do
-      Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id)
-      Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id)
+      Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
+      Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
 
       expect(users(:new_user).votes.count).must_equal 2
       users(:new_user).votes.each do |vote|

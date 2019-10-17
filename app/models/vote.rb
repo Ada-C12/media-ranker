@@ -4,6 +4,7 @@ class Vote < ApplicationRecord
 
   validates :user_id, presence: true
   validates :work_id, presence: true
+  validates :vote_type, presence: true
 
   def self.all_upvotes
     if Vote.all

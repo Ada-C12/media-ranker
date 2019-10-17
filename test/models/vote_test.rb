@@ -1,9 +1,8 @@
 require "test_helper"
-require 'pry'
 
 describe Vote do
   let (:new_vote) {
-    Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id)
+    Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
   }
 
   it "can be instantiated" do
@@ -50,12 +49,20 @@ describe Vote do
       expect(new_vote.errors.messages[:user_id]).must_equal ["can't be blank"]
     end
   
+    it "must have a vote_type" do
+      new_vote.vote_type = nil
+
+      expect(new_vote.valid?).must_equal false
+      expect(new_vote.errors.messages).must_include :vote_type
+      expect(new_vote.errors.messages[:vote_type]).must_equal ["can't be blank"]
+    end
+    
   end
 
   describe "custom methods" do
     
     it 'self.all_upvotes works correctly' do 
-    
+      
     end
     
     it 'self.all_downvotes works correctly' do
