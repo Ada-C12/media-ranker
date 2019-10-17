@@ -1,7 +1,7 @@
 <main>
   <% if session[:user_id] %>
-    <h2>User Summary: <%=link_to @current_user.username, current_user_path %></h2>
-    <p>Joined site <%= @current_user.created_at.strftime("%b %d, %Y") %></p>
+    <h2>User Summary: <%=link_to @user.username, user_path(@user.id) %></h2>
+    <p>Joined site <%= @user.created_at.strftime("%b %d, %Y") %></p>
     <section class="user-votes__container">
       <h3 class="user-votes__header">Votes</h3>
       <table class="table">
@@ -15,15 +15,15 @@
           </tr>
         </thead>
         <tbody>
-          <%# votes.each do |vote| %>
+          <% @user.votes.each do |vote| %>
             <tr>
-              <td>vote.title</td>
-              <td>vote.creator</td>
-              <td>vote.publication_year</td>
-              <td>vote.category</td>
-              <td>vote.created_at.strftime("%b %d, %Y")</td>
+              <td><%=link_to vote.work.title, work_path(vote.work.id)%></td>
+              <td><%=vote.work.creator%></td>
+              <td><%=vote.work.publication_year%></td>
+              <td><%=vote.work.category%></td>
+              <td><%=vote.work.created_at.strftime("%b %d, %Y")%></td>
             </tr>
-          <%# end %>
+          <% end %>
         </tbody>
       </table>
     </section>
