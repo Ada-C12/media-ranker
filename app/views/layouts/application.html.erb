@@ -48,11 +48,24 @@
       </nav>
     </header>
 
-    <section class="flash">
-      <% flash.each do |name, message| %>
-        <div class="<%= name %>"><%= message %></div>
+      <% if flash[:error] %>
+        <div class="alert alert-warning first-alert-container">
+          <%= flash[:error] %>
+        </div>
+        <% if flash[:reason] %>
+          <div class="alert alert-warning second-alert-container">
+            <% if flash[:reason] %>
+              <ul>
+                <li class="second-alert-message"><%= flash[:reason] %></li>
+              </ul>
+            <% end %>
+          </div>
+        <% end %>
+      <% elsif flash[:success] %>
+        <div class="alert alert-success"">
+          <%= flash[:success] %>
+        </div>
       <% end %>
-    </section>
 
 
     <%= yield %>
