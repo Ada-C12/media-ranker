@@ -3,4 +3,12 @@ module ApplicationHelper
     return date.strftime("%B %d, %Y")
   end
 
+  def get_session_username
+    user = User.find_by(id: session[:user_id])
+    if user
+      return user.username
+    end
+
+  end
+
 end
