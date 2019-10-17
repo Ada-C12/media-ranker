@@ -23,13 +23,21 @@ class UsersController < ApplicationController
     name = params[:user][:name]
     user = User.find_by(name: name)
 
+    # if user.nil?
+    #   flash[:failure] = "You must have at least 2 characters."
+    #   render 
     if user 
       session[:user_id] = user.id
       flash[:success] = "Hello returning user #{name}."
     else
-      user = User.create(name: name, joined_date: Date.today)
-      session[:user_id] = user.id
-      flash[:success] = "Hello new user #{name}."
+      @user = User.create(name: name, joined_date: Date.today)
+      if @user.save
+        session[:user_id] = @user.id
+        flash[:success] = "Hello new user #{name}."
+      else
+        render :login_form
+        return
+      end
     end
     redirect_to root_path
   end

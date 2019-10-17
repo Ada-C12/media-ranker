@@ -76,6 +76,12 @@ class WorksController < ApplicationController
     work = Work.find_by(id: params[:id])
     current_user = User.find_by(id: session[:user_id])
 
+    if current_user.nil?
+      flash[:warning] = "You must be logged in to vote."
+      redirect_to works_path
+      return
+    end
+
     previous_vote = Vote.where(user_id: current_user.id, work_id: work.id)
 
     if previous_vote.exists?
@@ -86,7 +92,7 @@ class WorksController < ApplicationController
       @vote = Vote.create(user_id: current_user.id, work_id: work.id, date: Date.today)
       if @vote.save
         flash[:vote] = "Thank you for your vote!"
-        redirect_to work_path
+        redirect_to request.referrer
         return
       end
     end 

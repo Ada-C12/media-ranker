@@ -1,9 +1,8 @@
-<h1> Media Ranker </h1>
 
 <section class="spotlight">
   <% spotlight = Work.spotlight%>
-  <h2>Media Spotlight: <%= spotlight.title %> by <%= spotlight.creator %></h2>
-  <h3> <%= spotlight.description %> </h3>
+  <h2>Media Spotlight: <%= link_to spotlight.title, work_path(spotlight) %> by <%= spotlight.creator %></h2>
+  <h3> <%= spotlight.votes.count %> Votes - <%= spotlight.description %> </h3>
 
 </section>
 
@@ -11,7 +10,6 @@
   <h2> Top Albums </h2>
   <ol>
     <% albums = Work.top_ten("album") %>
-    <%# <% albums = albums.take(10)%> 
     <% if albums == [] %>
       <p> There are no works in this category </p>
     <% else %>
@@ -19,6 +17,7 @@
         <li>
           <%= link_to album.title, work_path(album) %>
           Created by: <%= album.creator%>
+          <%= album.votes.count %> Votes
         </li>  
       <% end %>
     <% end %>
@@ -36,6 +35,7 @@
         <li>
           <%= link_to book.title, work_path(book) %>
           Created by: <%= book.creator%>
+          <%= book.votes.count %> Votes
         </li>  
       <% end %>
     <% end %>
@@ -53,6 +53,7 @@
         <li>
           <%= link_to movie.title, work_path(movie) %>
           Created by: <%= movie.creator%>
+          <%= movie.votes.count %> Votes
         </li>  
       <% end %>
     <% end %>

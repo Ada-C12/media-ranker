@@ -1,5 +1,6 @@
 <h1> <%= @work.title %> </h1>
   <section>
+    <%= link_to "Show all Works", works_path %>
     <%= link_to "Edit", edit_work_path(@work) %>
     <%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure?"} %>
     <%= link_to "Upvote", upvote_path(@work), method: :post %>
@@ -27,14 +28,26 @@
   </section>
 
 <%# not working for some reason %>
-  <section>
+  <%# <section>
     <ul>
     <% @work.votes do |vote| %>
-     <% user = User.find(vote.user_id) %>
+     <%# <% user = User.find(vote.user_id) %> 
+      <%# <li> %>
+        <%# <%= user.name %> 
+        <%# <%= vote.date %> 
+      <%# </li> %>
+    <%# <% end %> 
+    <%# </ul> %>
+  <%# </section> %> 
+
+  <section>
+    <ul>
+      <% @work.votes.each do |vote| %>
+        <% user = User.find(vote.user_id) %> 
       <li>
-        <%= user.name %>
+        <%= link_to user.name, user_path(user.id) %> 
         <%= vote.date %>
       </li>
-    <% end %>
-    </ul>
+      <% end %>
+    <ul>
   </section>

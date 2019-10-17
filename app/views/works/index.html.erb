@@ -2,51 +2,57 @@
 
 <section>
   <h2> Movies </h2>
-  <ol>
+  <ul>
     <% movies = @works.where(category: "movie")%>
     <% movies.each do |work| %> 
       <%# <%= if work.category == "movie" %> 
         <li>
+          <%= work.votes.count %>
           <%= link_to work.title, work_path(work) %> 
           <%= work.category %> 
           <%= work.creator %> 
           <%= work.publication_year %> 
+          <%= link_to "Upvote", upvote_path(work), method: :post %>
         </li> 
       <%# <% end %>  
     <% end %> 
-  </ol>
+  </ul>
 </section>
 
 <section>
   <h2> Albums </h2>
-  <ol>
+  <ul>
     <% albums = @works.where(category: "album")%>
     <% albums.each do |work| %> 
       <%# <%= if work.category == "album" %> 
         <li>
+          <%= work.votes.count %>
           <%= link_to work.title, work_path(work) %> 
           <%= work.category %> 
           <%= work.creator %> 
           <%= work.publication_year %> 
+          <%= link_to "Upvote", upvote_path(work), method: :post %>
         </li> 
       <%# <% end %>  
     <% end %> 
-  </ol>
+  </ul>
 </section>
 
 <section>
   <h2> Books </h2>
-  <ol>
+  <ul>
     <% books = @works.where(category: "book")%>
     <% books.each do |work| %> 
       <%# <%= if work.category == "book" %> 
         <li>
+          <%= work.votes.count %>
           <%= link_to work.title, work_path(work) %> 
           <%= work.category %> 
           <%= work.creator %> 
           <%= work.publication_year %> 
+          <%= link_to "Upvote", upvote_path(work), method: :post %>
         </li> 
       <%# <% end %>  
     <% end %> 
-  </ol>
+  </ul>
 </section>
