@@ -2,7 +2,7 @@
 
 <%= form_with model: @work, class: 'create-work' do |f| %>
   <%= f.label :category %><br/>
-  <%= f.text_field :category %><br/>
+  <%= f.select :from, ['album', 'book','movie']%><br/>
 
   <%= f.label :title %><br/>
   <%= f.text_field :title %><br/>

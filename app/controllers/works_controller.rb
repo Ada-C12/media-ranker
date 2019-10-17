@@ -1,8 +1,8 @@
 class WorksController < ApplicationController
-
+  
   # before_action :find_book, only: [:show, :edit, :update, :destroy]
   #before_action :if _work_missing, only[:show, :edit, :destroy]
-   def index
+  def index
     @works = Work.all.order(:title) 
     @all_movies = Work.where(category: "movie")
     @all_books = Work.where(category: "book")
@@ -64,16 +64,22 @@ class WorksController < ApplicationController
   end
   
   def destroy
-    # work_id = params[:id]
-    # @work = Work.find_by(id: work_id)
+    work_id = params[:id]
+    @work = Work.find_by(id: work_id)
     
-    # if @work.nil?
-    #   head :not_found
-    #   return
-    # end
+    if @work.nil?
+      head :not_found
+      return
+    end
     
     @work.destroy
-    redirect_to works_path
+    deleted = Work.find_by(id: work_id)
+    if !deleted
+      flash[:success] = "Successfully deleted work"
+    else
+      flash[:warning] = "Can Not Delete"
+    end
+    redirect_to root_path
     return
   end
   
@@ -82,16 +88,17 @@ class WorksController < ApplicationController
   def work_params
     return params.require(:work).permit(:title, :creator, :description, :publication_year, :category)
   end
+  
   # def find_work
   #   @work = Work.find_by_id(params[:id])
   # end
   # def if work_missing
   #if @work.nil?
   # flash[:error] ="work with id#{params[:id] was not find."
-#   redirect_to root_path
-#   return
-# end
-# end
+  #   redirect_to root_path
+  #   return
+  # end
+  # end
 end 
 
 
