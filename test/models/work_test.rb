@@ -68,6 +68,14 @@ describe Work do
       expect(top_ten.first.id).must_equal Work.first.id
       
     end
+    
+    it "can get the work with the highest vote" do
+      spotlight = Work.spotlight
+      
+      expect(spotlight).must_be_instance_of Work
+      
+    end
+    
   end
   
 end

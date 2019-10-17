@@ -1,7 +1,8 @@
 <section class="spotlight">
   <h2 class="spotlight__header">
   <span class="spotlight__header--prefix">Media Spotlight</span>
-    <%= link_to "Work Title by Work Creator", root_path, class: "spotlight__link-to"%>
+    <% spotlight = Work.spotlight %>
+    <%= link_to spotlight.title, work_path(spotlight.id), class: "spotlight__link-to" %> by <%= spotlight.creator %>
   </h2>
   <p class="spotlight__description">
   0 votes - description

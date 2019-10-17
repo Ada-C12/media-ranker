@@ -5,6 +5,11 @@ class Work < ApplicationRecord
   
   def self.top_ten(cat)
     works_by_cat = self.where(category: cat)
-    return works_by_cat
+    return works_by_cat.slice(0, 10)
   end
+  
+  def self.spotlight
+    return Work.first
+  end
+  
 end
