@@ -14,7 +14,7 @@
     <th> Upvote </th>
   </tr>
 
-  <% @albums.each do |album| %>
+  <% @albums.top_three.each do |album| %>
     <tr>
       <td> <%= rand(1..100) %> </td>
       <td> <%= link_to album.title, work_path(album.id) %> </td>
@@ -35,7 +35,7 @@
     <th> Upvote </th>
   </tr>
 
-  <% @books.each do |book| %>
+  <% @books.top_three.each do |book| %>
     <tr>
       <td> <%= rand(1..100) %> </td>
       <td> <%= link_to book.title, work_path(book.id) %> </td>

@@ -8,6 +8,7 @@ class Work < ApplicationRecord
 
   def self.top_three
     sorted_work = Work.order(votes: :desc)
-    return sorted_work.first(3)
+    result = sorted_work.first(3)
+    return result
   end
 end
