@@ -28,8 +28,8 @@
     <tbody>
       <% @work.votes.each do |vote| %>
       <tr>
-        <td><%= vote.user.name %>voter name PLUS link to voter#show</td>
-        <td>vote creation date, use display_date</td>
+        <td><%= link_to vote.user.name, user_path(id: vote.user_id) %></td>
+        <td><%= display_date(vote.created_at)%></td>
       </tr>
       <% end %>
     </tbody>
