@@ -23,8 +23,6 @@
 
 .flex-container {
    display: flex;
-   flex-direction: row;
-   justify-content: center;
    justify-content: space-evenly;
 }
 
@@ -54,26 +52,31 @@ a:hover{
 
 .top-ten{
    margin-top: 1rem;
-
+   width: 25%;
    h1{
       margin-bottom: 1rem;
       border-bottom: 2px solid;
-      border-bottom-color: black;
+      border-bottom-color: #26A69A;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #26A69A;
    }
 }
 
 .index-table{
    margin: 1rem;
-
    h1{
       margin-top: .5rem;
    }
 }
 
 .spotlight{
-   margin: 4rem; 
+   margin: 3rem; 
    text-align: center;
    display: block;
+   border-bottom: 1px solid;
+   border-bottom-color: lightgrey;
+   padding-bottom: 2rem;
 }
 
 .spotlight-p{
