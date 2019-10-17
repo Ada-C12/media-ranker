@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-  def index 
+  def index
     @works = Work.all
   end
 
@@ -17,7 +17,7 @@ class WorksController < ApplicationController
     @work = Work.new
   end
 
-  def create 
+  def create
     @work = Work.new( 
       category: params[:work][:category],
       title: params[:work][:title],
@@ -63,6 +63,14 @@ class WorksController < ApplicationController
   end
 
   def destroy
+    @work = Work.find_by(id: params[:id])
 
+    if @work.nil?
+      redirect_to works_path
+    else
+      @work.destroy
+      flash[:delete] = "You successfully deleted #{@work.title}"
+      redirect_to works_path
+    end
   end
 end

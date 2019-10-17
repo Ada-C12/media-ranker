@@ -5,8 +5,16 @@ class UsersController < ApplicationController
   end
 
   def show 
-    #only available to a logged in user?
     @user = User.find_by(id: params[:id])
+  end
+
+  def current
+    # only available to current/logged-in user
+    @user = User.find_by(id: session[:user_id])
+    if @user.nil?
+      head :not_found
+      return
+    end 
   end
 
   def login_form
@@ -39,5 +47,5 @@ class UsersController < ApplicationController
     return redirect_to root_path
   end
 
-
+  
 end

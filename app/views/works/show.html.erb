@@ -10,4 +10,4 @@
 </section>
 
 <%= link_to "Edit Work", edit_work_path(@work.id) %>
-<%= button_to "Delete Work", work_path, method: :delte, data: {confirm: "Delete this work?"} %>
+<%= link_to "Delete Work", work_path(@work.id), method: :delete, data: {confirm: "Delete this work?"} %>

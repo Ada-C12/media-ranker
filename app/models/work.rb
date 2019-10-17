@@ -1,5 +1,11 @@
 class Work < ApplicationRecord
   has_many :votes
 
-  validates :title, prescence: true
+  validates :title, presence: true
+
+  def album_list
+    albums = Work.where(category = "album")
+    albums.vote.order()
+
+  end
 end
