@@ -1,0 +1,12 @@
+# string "category" - album, book, movie
+# string "title"
+# string "creator"
+# integer "publication_year"
+# text "description"
+
+album:
+  category: album
+  title: Biophilia
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
