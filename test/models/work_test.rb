@@ -42,12 +42,20 @@ describe Work do
       end
       
       it "should display all works if there are less than 10 pieces of work" do
+        works = Work.all
+        works.last.destroy
+
+        movies = Work.top_ten("movie")
+
+        expect(movies.length).must_equal 9
       end
     end
     
     describe "spotlight" do
-      it "should display one piece of work" do
+      it "should display one piece of Work" do
+        spotlit = Work.spotlight
 
+        expect(spotlit).must_be_instance_of Work
       end
     end
   end
