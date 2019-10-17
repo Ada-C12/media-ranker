@@ -1,4 +1,7 @@
 class Work < ApplicationRecord
+
+  validates :title, presence: true
+
   def self.all_works_categorized
     all_works_categorized = {}
     all_works_categorized[:albums] = Work.where(category: "album")
