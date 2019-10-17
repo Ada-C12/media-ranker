@@ -52,10 +52,11 @@ describe Work do
 
   describe "custom method(s)" do
     describe "top_three" do 
-      expect(Work.top_three).must_be_kind_of Array
-      expect(Work.top_three.count).must_equal 3
-      expect(Work.top_three.first.title).must_equal 'A'
-      expect(Work.top_three.last.title).must_equal 'Ghosteen'
+      top_three = Work.top_three
+      expect(top_three).must_be_kind_of Array
+      expect(top_three.count).must_equal 3
+      expect(top_three.first.title).must_equal 'A'
+      expect(top_three.last.title).must_equal 'Ghosteen'
     end
   end 
 end

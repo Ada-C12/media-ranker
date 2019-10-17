@@ -10,35 +10,38 @@
   </head>
 
   <body>
+    
+    <header class="app-header__header">
+      <h1>
+        <a href="/">Media Ranker</a>
+        <small>Ranking the Best of Everything</small>
+      </h1>
 
-    <header class="container">
-      <div class="row">
-        <div class="col-md">
-        </div>
-        <div class="col-md">
-        Media Ranker
-        </div>
-        <div class="row">
-        Ranking the Best of Everything
-        </div>
-        <div class="col-md">
-        </div>
-      </div>
+      <nav class="app-header__nav">
+        <ul class="nav app-header__site-nav-container">
+          <li class="nav-item app-header__nav_item">
+            <a class="nav-link" href="/">View top media</a>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <a class="nav-link" href="/works">View all media</a>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <a class="nav-link" href="/works/new">Add a new work</a>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <a class="nav-link" href="/users">View all users</a>
+          </li>
+        </ul>
 
-      <div class="row">
-        <div class="col-sm">
-          View top media
-        </div>
-        <div class="col-sm">
-          View all media
-        </div>
-        <div class="col-sm">
-          Add a new work
-        </div>
-        <div class="col-sm">
-          View all users
-        </div>
-      </div>
+        <ul class="nav app-header__user-nav-container">
+          <li class="nav-item app-header__nav_item">
+            <a class="btn btn-primary" href="/users/464">Logged in as haha</a>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <a class="btn btn-primary" rel="nofollow" data-method="post" href="/logout">Log Out</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <%= yield %>
