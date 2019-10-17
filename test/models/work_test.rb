@@ -72,6 +72,13 @@ describe Work do
 
         expect(Work.most_votes).must_equal @album
       end
+
+      it "returns a work if there are no votes" do
+        Vote.destroy_all
+        expect(Vote.count).must_equal 0
+
+        expect(Work.most_votes).must_be_instance_of Work
+      end
     end
 
     describe "top-ten" do
