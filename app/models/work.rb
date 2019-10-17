@@ -24,13 +24,10 @@ class Work < ApplicationRecord
   end
   
   def self.top_ten_in(category:)
-    if ["movie", "book", "album"].include? category
-      # all = Work.where(category: category).order(:votes.count, :des)
-      all = Work.where(category: category)
-      return all[0..10]
-    else
-      raise ArgumentError, "CATEGORY must be one of these: movie, album, or book"
-    end
+    all_in_category = self.all_in(category: category)
+    ranked = all_in_category.sort_by { |piece| piece.votes.count }
+    ranked.reverse!
+    return ranked[0..9]
   end
   
 end

@@ -12,7 +12,6 @@ class WorksController < ApplicationController
   end
   
   def create
-    # give default of 0 votes_earned
     @work = Work.new(form_params)
     if @work.save
       flash[:success] = "Successfully created #{@work.category}: #{@work.title}"
