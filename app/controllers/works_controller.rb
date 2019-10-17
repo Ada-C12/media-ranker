@@ -3,9 +3,9 @@ class WorksController < ApplicationController
   before_action :if_work_missing, only: [:show, :edit, :destroy]
   
   def index
-    @albums = Work.where(category: "album")
-    @movies = Work.where(category: "movie")
-    @books = Work.where(category: "book")
+    @albums = Work.sort_works("album")
+    @movies = Work.sort_works("movie")
+    @books = Work.sort_works("book")
   end
   
   def show; end
