@@ -2,9 +2,9 @@ class Work < ApplicationRecord
   has_many :votes
   validates :title, presence: true
 
-  def self.top_ten_category(category)
+  def self.sort_by_category(category)
     list = Work.where(category: category)
-    return list.sort_by {|work| work.votes.length}.reverse.slice(0..9)
+    return list.sort_by {|work| work.votes.length}.reverse
   end
 
   def self.spotlight

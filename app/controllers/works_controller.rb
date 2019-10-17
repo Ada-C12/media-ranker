@@ -2,9 +2,9 @@ class WorksController < ApplicationController
   
   def index
     @works = Work.all
-    @albums = Work.top_ten_category("album")
-    @books = Work.top_ten_category("book")
-    @movies = Work.top_ten_category("movie")
+    @albums = Work.sort_by_category("album")
+    @books = Work.sort_by_category("book")
+    @movies = Work.sort_by_category("movie")
   end
   
   def show
