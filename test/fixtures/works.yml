@@ -58,3 +58,6 @@ valid_work_9:
   creator: Tim Curry
   publication_year: 1992
   description: best movie ever
+valid_book:
+  category: book
+  title: the worst book ever

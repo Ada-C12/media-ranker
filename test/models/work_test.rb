@@ -49,6 +49,16 @@ describe Work do
 
         expect(movies.length).must_equal 9
       end
+
+      it "should return an empty array if no media for one category" do
+        book = Work.find_by(category: "book")
+        
+        expect(Work.top_ten("movie").length).must_equal 10
+        book.destroy
+
+        expect(Work.top_ten("book")).must_be_empty
+        expect(Work.top_ten("movie").length).must_equal 10
+      end
     end
     
     describe "spotlight" do
