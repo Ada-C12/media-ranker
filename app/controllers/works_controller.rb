@@ -47,6 +47,11 @@ class WorksController < ApplicationController
   end
 
   def upvote
+    if session[:user_id] == nil
+      flash[:error] = "Sorry, you must be logged in to vote!"
+      redirect_to works_path
+      return
+    end
     work = Work.find(params[:id])
     present = work.votes.find_by(user_id: session[:user_id])
     if present

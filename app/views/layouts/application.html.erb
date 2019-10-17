@@ -32,7 +32,8 @@
         </li>
 
         <% if session[:user_id] != nil %>
-<h2>You are logged in as user <%= User.find_by(id: session[:user_id]).username %></h2>
+<li class ="nav-item app-heading__nav_item">
+You are logged in as <%= User.find_by(id: session[:user_id]).username %>    </li>
 <%= link_to 'Log Out', logout_path, method: :post %>
 <% else %>
 <%= link_to 'Log In', login_path %>
@@ -52,14 +53,13 @@
       </ul>
     </nav>
   </header>
-    <%= yield %>
-
-
-  <section class="flash">
+    <section class="flash">
     <% flash.each do |name, message| %>
       <div class="<%= name %>"><%= message %></div>
     <% end %>
   </section>
+    <%= yield %>
+
  </body>
 
 </html>
