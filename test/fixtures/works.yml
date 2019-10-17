@@ -1,6 +1,72 @@
+valid_movie_1:
+  title: The best work ever one
+  category: movie
+  description: It's just the best movie
+  creator: me
+  publication_year: 2019
 valid_work:
   title: The best work ever
   category: book
-  description: It's just the best
+  description: It's just the best!
+  creator: me
+  publication_year: 2019
+valid_work_2:
+  title: The best work ever two
+  category: book
+  description: It's just the best!!
+  creator: me
+  publication_year: 2019
+valid_work_3:
+  title: The best work ever three
+  category: book
+  description: It's just the best!!!
+  creator: me
+  publication_year: 2019
+valid_work_4:
+  title: The best work ever four
+  category: book
+  description: It's just the best!!!!
+  creator: me
+  publication_year: 2019
+valid_work_5:
+  title: The best work ever five
+  category: book
+  description: It's just the best!!!!!
+  creator: me
+  publication_year: 2019
+valid_work_6:
+  title: The best work ever six
+  category: book
+  description: It's just the best!!!!!!
+  creator: me
+  publication_year: 2019
+valid_work_7:
+  title: The best work ever seven
+  category: book
+  description: It's just the best!!!!!!!
+  creator: me
+  publication_year: 2019
+valid_work_8:
+  title: The best work ever eight
+  category: book
+  description: It's just the best!!!!!!!!
+  creator: me
+  publication_year: 2019
+valid_work_9:
+  title: The best work ever nine
+  category: book
+  description: It's just the best!!!!!!!!!
+  creator: me
+  publication_year: 2019
+valid_work_10:
+  title: The best work ever ten
+  category: book
+  description: It's just the best!!!!!!!!!!
+  creator: me
+  publication_year: 2019
+valid_work_11:
+  title: The best work ever eleven
+  category: book
+  description: It's just the best!!!!!!!!!!!
   creator: me
   publication_year: 2019

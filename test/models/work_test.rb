@@ -34,11 +34,38 @@ describe Work do
   describe 'custom methods' do
     describe 'top_ten' do
       
+      it "should return 10 elements if there are 10 or more works of the given category created" do
+        top_books = Work.top_ten("book")
+        expect(top_books.length).must_equal 10
+      end 
+      
+      it "should return all works of a given category if there are less than 10 created" do
+        Work.all.last.destroy
+        Work.all.last.destroy
+        top_books = Work.top_ten("book")
+        expect(top_books.length).must_equal 9
+      end
+      
+      it "should return an empty array if there are no works of the given category" do
+        books = Work.where(category: "book")
+        
+        books.each do |book|
+          book.destroy
+        end
+        
+        expect(Work.all.length).must_equal 1
+        
+        top_books = Work.top_ten("book")
+        expect(top_books).must_be_empty
+      end
       
     end
     
     describe 'spotlight' do
-      
+      it "should be an instance of Work" do
+        spotlight = Work.spotlight
+        expect(spotlight).must_be_instance_of Work
+      end
     end
   end
 end
