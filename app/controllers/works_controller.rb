@@ -29,11 +29,12 @@ class WorksController < ApplicationController
   
   def create
     @work = Work.new(work_params) 
-    puts work_params
-    if @work.save
-      flash[:success] = "Work added successfully"
-      redirect_to work_path(@work) 
-    else
+    if @work.save 
+      flash[:success] = "work added successfully"
+      redirect_to root_path 
+      return
+    else 
+      flash.now[:failure] = "Work failed to save"
       render :new
       return
     end
@@ -88,7 +89,7 @@ class WorksController < ApplicationController
   def work_params
     return params.require(:work).permit(:title, :creator, :description, :publication_year, :category)
   end
-  
+
   # def find_work
   #   @work = Work.find_by_id(params[:id])
   # end
