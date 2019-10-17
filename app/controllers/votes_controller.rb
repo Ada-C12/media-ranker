@@ -1,16 +1,12 @@
 class VotesController < ApplicationController
-  def show
-  end
   
   def create
     date = Date.today
+    @vote = Vote.create(user_id: session[:user_id], work_id: params[:work_id], created_at: date)
+    
+    redirect_to work_path(params[:work_id])
   end 
   
-  def edit 
-  end
-  
-  def update
-  end
   
   def destroy
   end
@@ -18,6 +14,6 @@ class VotesController < ApplicationController
   private 
   
   def vote_params
-    return params.require(:vote, :user_id, :media_id, :date)
+    return params.require(:user, :work, :created_at)
   end 
 end

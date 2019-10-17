@@ -4,4 +4,6 @@
 
 <%= link_to "Edit", edit_work_path(@work.id)%>
 <%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Upvote", work_votes_path(@work.id), method: :post %>
 <%= link_to "Home", root_path %>
+<%= @work.votes.length%>

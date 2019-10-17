@@ -29,9 +29,20 @@
         <%= link_to "View all users", users_path, class: "nav-link"%>
       </li>
     </ul>
+    <%= form_with model:@user, url: login_path,  class: "form-inline my-2 my-lg-0" do |f|%>
+      <%= f.text_field :username, class: "form-control mr-sm-2", type: "login", placeholder: "login"%>
+      <%= f.submit "Login", class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% end %>
   </div>
 </nav>
   </header>
+  <div>
+  <section class="flash">
+    <% flash.each do |name, message| %>
+      <div class="alert alert-<%= name %>"><%= message %></div>
+    <% end %>
+  </section>
+  </div>
 
   <body>
     <%= yield %>

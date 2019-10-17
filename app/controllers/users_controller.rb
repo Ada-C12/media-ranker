@@ -19,10 +19,6 @@ class UsersController < ApplicationController
     redirect_to root_path
   end 
   
-  def login_form
-    @user = user.new
-  end 
-  
   def current 
     @current_user = User.find_by(id: session[:user_id])
     Raise
@@ -33,5 +29,9 @@ class UsersController < ApplicationController
   end
   
   def logout
+  end
+
+  def user_params 
+    user_params.require(:user).permit(:username)
   end
 end

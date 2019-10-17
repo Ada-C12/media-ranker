@@ -4,7 +4,18 @@ Rails.application.routes.draw do
   root 'homepages#index'
   
   
-  resources :works
+  resources :works do 
+    resources :votes, only: [:create]
+  end
   
-  resources :users
+  resources :users do
+    resources :votes, only: [:create] 
+  end
+  
+  resources :votes
+  
+  post "/login", to: "users#login", as: "login"
+  post "/logout", to: "users#logout", as: "logout"
+  get "/users/current", to: "users#current", as: "current_user"
+  
 end
