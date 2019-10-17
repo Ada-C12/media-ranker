@@ -1,14 +1,23 @@
-<section class="spotlight__header--prefix">
-<h1>Media Spotlight</h1>
-</section>
+<main>
+  <section class="spotlight">
+    <h2 section class="spotlight__header--prefix">
+      <span class="spotlight__header--prefix">Media Spotlight</span>
+    
+    </h2>
+    Spotlight description
+  </section>
 
-<% @categories.each do |category| %>
-<section class="top-ten__container">
-  <h2 class="top-ten__header">Top <%= category.capitalize %></h2>
+<hr class="root__hr" />
+
+  <% @categories.each do |category| %>
+  <section class="top-ten__container">
+    <h2 class="top-ten__header">Top <%= category.capitalize %></h2>
     <% @works.top_ten(category).each do |work| %>
       <ul>
         <li><h3><%= work.title %></h3> by <%= work.creator %></li>
       </ul>
     <% end %>
   <% end %>
-</section>
+  </section>
+  
+</main>
