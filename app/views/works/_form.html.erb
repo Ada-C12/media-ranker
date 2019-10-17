@@ -11,12 +11,13 @@
 <section>
 <%= form_with model: @work, class: "#{action_name}-work" do |f| %>
   <div class="form-group">
-  <%= f.label :category %>
-  <%= f.select :category , ["album", "book", "movie"], {}, {class: "form-control"} %>
+    <%= f.label :category %>
+    <%= f.select :category , ["album", "book", "movie"], {}, {class: "form-control"} %>
   </div>
+
   <div class="form-group">
-  <%= f.label :title %>
-  <%= f.text_field :title, class: "form-control" %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
 
   <%= f.label :creator %> 

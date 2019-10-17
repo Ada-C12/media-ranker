@@ -2,7 +2,7 @@ require "test_helper"
 
 describe VotesController do
   describe "create" do
-    it "can flash a warning when user not logged in" do
+    it "can flash a warning when user is not logged in" do
       post work_votes_path(works(:test).id)
 
       # puts "*********************"
@@ -11,6 +11,7 @@ describe VotesController do
       expect(flash[:status]).must_equal :warning
       expect(flash[:message]).must_equal "A problem occured: You must log in to vote"
       must_respond_with :redirect
+      must_redirect_to work_path(works(:test))
     end
   end
 end
