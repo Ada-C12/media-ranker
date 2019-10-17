@@ -85,7 +85,6 @@ describe Work do
     
   end
   
-  
   describe 'relations' do
     
   end
@@ -115,6 +114,11 @@ describe Work do
         
         expect(top_ten_blah.length).must_equal 0
       end
+      
+      it 'will return the top ten sorted by votes' do
+        
+      end
+      
     end
   end
   
