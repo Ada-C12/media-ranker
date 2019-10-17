@@ -17,55 +17,51 @@
 
   <body>
     <header class="app-header__header">
-    <h1>
-      <a href="/">Media Ranker</a>
-      <small>Ranking the Best of Everything</small>
-    </h1>
+      <h1>
+        <a href="/">Media Ranker</a>
+        <small>Ranking the Best of Everything</small>
+      </h1>
 
-    <nav class="app-header__nav">
-      <ul class="nav app-header__site-nav-container">
-        <li class="nav-item app-header__nav_item">
-          <a class="nav-link" href="/">View top media</a>
-        </li>
-        <li class="nav-item app-header__nav_item">
-          <a class="nav-link" href="/works">View all media</a>
-        </li>
-        <li class="nav-item app-header__nav_item">
-          <a class="nav-link" href="/works/new">Add a new work</a>
-        </li>
-        <li class="nav-item app-header__nav_item">
-          <a class="nav-link" href="/users">View all users</a>
-        </li>
-      </ul>
-      <ul class="nav app-header__user-nav-container">
+      <nav class="app-header__nav">
+        <ul class="nav app-header__site-nav-container">
+          <li class="nav-item app-header__nav_item">
+            <a class="nav-link" href="/">View top media</a>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <a class="nav-link" href="/works">View all media</a>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <a class="nav-link" href="/works/new">Add a new work</a>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <a class="nav-link" href="/users">View all users</a>
+          </li>
+        </ul>
+        <ul class="nav app-header__user-nav-container">
 
-        <li class="nav-item app-header__nav_item">
-          <a class="btn btn-primary" href="/login">Log In</a>
-        </li>
+          <li class="nav-item app-header__nav_item">
+            <a class="btn btn-primary" href="/login">Log In</a>
+          </li>
 
-      </ul>
-    </nav>
+        </ul>
+      </nav>
     </header>
 
-    <section >
+    <section class="alert__container" >
       <% flash.each do |name, message| %>
         <% if name == "success" %>
-          <div class="alert alert-success"><%= message %></div>
+          <div class="alert alert-success"><span><%= message %></span></div>
         <% else %>
-          <div class="alert__container"><%= message %></div>
+          <div class="alert alert-warning"><span><%= message %></span>
+            <% if @work != nil && @work.errors.any? %>
+              <ul>
+                <% @work.errors.each do |column, message| %>
+                  <li><%= column %>: <%=message%></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
         <% end %>
-      <% end %>
-    </section>
-
-    <section class="alert__container">
-      <% if @work != nil && @work.errors.any? %>
-        <ul>
-          <% @work.errors.each do |column, message| %>
-            <li>
-              <%= column.capitalize %>:<%=message%>
-            </li>
-          <% end %>
-        </ul>
       <% end %>
     </section>
     <%= yield %>
