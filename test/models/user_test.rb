@@ -62,7 +62,6 @@ describe User do
         last = users.last
 
         expect(first.joined_date > last.joined_date).must_equal true
-        
       end 
     end  
   end
