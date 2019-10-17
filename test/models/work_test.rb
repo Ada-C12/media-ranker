@@ -45,4 +45,30 @@ require "test_helper"
       expect(works(:wind).errors.messages[:category]).must_equal ["can't be blank"]
     end
   end
+
+  describe "custom methods" do
+    describe "top ten" do
+      it "returns <= 10 books, albums, movies" do
+        #Arrange-Assert
+        expect(Work.top_10("book").count).must_be :<=, 10
+        expect(Work.top_10("movie").count).must_be :<=, 10
+        expect(Work.top_10("album").count).must_be :<=, 10
+      end
+
+      it "returns zero if there are no books, albums or movies in database" do
+        #Arrange
+        Work.where(category: "book").delete_all  
+        Work.where(category: "album").delete_all
+        Work.where(category: "movie").delete_all      
+        
+        #Assert
+        expect(Work.top_10("book").count).must_equal 0
+        expect(Work.top_10("movie").count).must_equal 0      
+        expect(Work.top_10("album").count).must_equal 0    
+      end
+
+      # it "returns the spotlight"
+      # end
+    end
+  end
 end
