@@ -12,7 +12,7 @@ class WorksController < ApplicationController
     work_id = params[:id]
     @work = Work.find_by(id: work_id)
     if @work.nil?
-      head :not_found
+      render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
       return
     end
   end
