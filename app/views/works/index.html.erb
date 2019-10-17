@@ -25,7 +25,7 @@
             <%@works.where(category: "album").each do |work| %>
               <tr>
                 <td>votes</td>
-                <td><%= work.title%></td>
+                <td><%=link_to work.title, work_path(work.id)%></td>
                 <td><%=work.creator%></td>  
                 <td><%=work.publication_year%></td>
                 <td>vote/upvote</td>
@@ -35,185 +35,60 @@
         </table>
       </section>
 
-  <%# <section class="media-table">
-    <h4>Books</h4>
-    <table class="table">
-      <thead>
-        <tr>
-          <th width="80">Votes</th>
-          <th>Title</th>
-          <th>Created By</th>
-          <th width="100">Published</th>
-          <th width="100">Upvote</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td>9</td>
-            <td><a href="/works/484">POODR: how to be a bike mechanic for Rubyists</a></td>
-            <td>Sandi Metz</td>
-            <td>2012</td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/484/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td><a href="/works/297">Golden Compass</a></td>
-            <td>Philip Pullman</td>
-            <td>1995</td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/297/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td><a href="/works/323">Heart Mug </a></td>
-            <td></td>
-            <td></td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/323/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td><a href="/works/250">Major Equinox</a></td>
-            <td>Queen Satterfield</td>
-            <td>1997</td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/250/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td><a href="/works/397">The Martian</a></td>
-            <td>Andy Weir</td>
-            <td>2011</td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/397/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td><a href="/works/285">Beloved</a></td>
-            <td>Toni Morrison</td>
-            <td>1987</td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/285/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td><a href="/works/247">Green Forrester</a></td>
-            <td>Raquel Hirthe</td>
-            <td>0</td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/247/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td><a href="/works/380">Perfume</a></td>
-            <td>Patrick Süskind</td>
-            <td>1985</td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/380/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td><a href="/works/481">LOL</a></td>
-            <td></td>
-            <td></td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/481/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td><a href="/works/260">Hello Town</a></td>
-            <td>Laury Walter</td>
-            <td>2005</td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/260/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td><a href="/works/244">Summer Select</a></td>
-            <td>Ms. Gwendolyn Ortiz</td>
-            <td>1946</td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/244/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td><a href="/works/292">AI Super Powers</a></td>
-            <td>Kaifu Lee</td>
-            <td>2019</td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/292/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td><a href="/works/252">Winter Pie</a></td>
-            <td>Mr. Syble Kuhn</td>
-            <td>1970</td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/252/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td><a href="/works/293">tesr</a></td>
-            <td></td>
-            <td></td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/293/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td><a href="/works/332">A Wrinkle in Time</a></td>
-            <td>Madeleine L'Engle</td>
-            <td>1962</td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/332/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td><a href="/works/491">Heart Mug</a></td>
-            <td></td>
-            <td></td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/491/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td><a href="/works/434">title 3</a></td>
-            <td></td>
-            <td></td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/434/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td><a href="/works/307">Sitio do Picapau Amarelo</a></td>
-            <td>Monteiro Lobato</td>
-            <td>1920</td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/307/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td><a href="/works/438">To Kill a Mockingbird</a></td>
-            <td></td>
-            <td></td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/438/upvote">Upvote</a></td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td><a href="/works/478">To kill a mocking bird</a></td>
-            <td></td>
-            <td></td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/478/upvote">Upvote</a></td>
-          </tr>
-      </tbody>
-    </table>
-  </section>
-  <section class="media-table">
-    <h4>Movies</h4>
-    <table class="table">
-      <thead>
-        <tr>
-          <th width="80">Votes</th>
-          <th>Title</th>
-          <th>Created By</th>
-          <th width="100">Published</th>
-          <th width="100">Upvote</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td>1</td>
-            <td><a href="/works/498">Can't be a real title</a></td>
-            <td>Can't be a real creator</td>
-            <td>2300</td>
-            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/498/upvote">Upvote</a></td>
-          </tr>
-      </tbody>
-    </table>
-  </section> %>
+      <section class="media-table">
+        <h4>Books</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th width="80">Votes</th>
+              <th>Title</th>
+              <th>Created By</th>
+              <th width="100">Published</th>
+              <th width="100">Upvote</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <%@works.where(category: "book").each do |work| %>
+              <tr>
+                <td>votes</td>
+                <td><%= link_to work.title, work_path(work.id)%></td>
+                <td><%=work.creator%></td>  
+                <td><%=work.publication_year%></td>
+                <td>vote/upvote</td>
+              </tr>          
+            <%end %>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="media-table">
+        <h4>Movies</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th width="80">Votes</th>
+              <th>Title</th>
+              <th>Created By</th>
+              <th width="100">Published</th>
+              <th width="100">Upvote</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <%@works.where(category: "movie").each do |work| %>
+              <tr>
+                <td>votes</td>
+                <td><%=link_to work.title, work_path(work.id)%></td>
+                <td><%=work.creator%></td>  
+                <td><%=work.publication_year%></td>
+                <td>vote/upvote</td>
+              </tr>          
+            <%end %>
+          </tbody>
+        </table>
+      </section>
+
 
 <%# <a class="btn btn-secondary" href="/">View top media</a>
 <a class="btn btn-primary" href="/works/new">Add a new work</a> %>

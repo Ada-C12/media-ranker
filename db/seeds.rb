@@ -8,7 +8,7 @@
 
 require 'csv'
 
-WORK_FILE = Rails.root.join('db', 'seed_data', 'media-seeds.csv')
+WORK_FILE = Rails.root.join('db', 'seed_data', 'media_seeds.csv')
 puts "Loading raw work data from #{WORK_FILE}"
 
 work_failures = []
@@ -28,6 +28,6 @@ CSV.foreach(WORK_FILE, :headers => true) do |row|
   end
 end
 
-puts "Added #{work.count} work records"
+puts "Added #{Work.count} work records"
 puts "#{work_failures.length} work failed to save"
 

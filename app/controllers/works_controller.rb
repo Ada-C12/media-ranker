@@ -7,13 +7,13 @@ class WorksController < ApplicationController
   end
 
   def new
-    work = Work.new
+    @work = Work.new
   end
 
   def create
-    work = Work.new(work_params) 
-    if work.save
-      redirect_to work_path(work.id) 
+    @work = Work.new(work_params) 
+    if @work.save
+      redirect_to work_path(@work.id) 
       return
     else 
       render :new 
@@ -26,7 +26,7 @@ class WorksController < ApplicationController
   def edit ; end
   
   def update    
-    if work.update(work_params)
+    if @work.update(work_params)
       redirect_to work_path 
       return
     else 
@@ -36,7 +36,7 @@ class WorksController < ApplicationController
   end
 
   def destroy    
-    work.destroy
+    @work.destroy
     redirect_to root_path
     return
   end

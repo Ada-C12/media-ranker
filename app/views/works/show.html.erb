@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>All Media</title>
+  </head>
+
+  <body>
+  <main>
+    <section>
+      <h2><%=@work.title%></h2>
+      <p>Created by: <%=@work.creator%></p>
+      <p>Published: <%= @work.publication_year%></p>
+      <p><%=@work.description%></p>
+      <section>
+        <%= button_to 'Back to media ranks', root_path, method: :get, class: "btn btn-primary" %>
+        <%= button_to 'Edit', edit_work_path(@work.id), method: :get, class: "btn btn-primary" %>
+        <%= button_to 'Delete', work_path(@work.id), method: :delete, data: {confirm: "Are you sure?"} %>
+      </section>
+    </section>
+
+    <section class="works-votes__container">
+      <h3 class="works-votes__header">0 Votes for this Album</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </section>
+  </main>
+  </body>
+</html>
+
+
+
