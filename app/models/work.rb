@@ -9,7 +9,7 @@ class Work < ApplicationRecord
         ten_works << work
       end
     end
-    return ten_works
+    return ten_works.slice(0..9)
   end
   
   def self.spotlight

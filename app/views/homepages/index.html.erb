@@ -3,10 +3,11 @@
     <section class="spotlight">
       <h2 class="spotlight__header">
         <span class="spotlight__header--prefix">Media Spotlight</span>
-        <a class="spotlight__link-to" href="/works/402">To Thrill a Mockingbird</a> by Harper Leeee
+        <% spotlight = Work.spotlight %>
+        <%= link_to spotlight.title, work_path(spotlight.id), class: "spotlight__link-to" %> by <%= spotlight.creator %>
       </h2>
       <p class="spotlight__description">
-        4 votes - brand new
+        spotlight.votes.count votes - spotlight.description
       </p>
     </section>
 
