@@ -10,6 +10,7 @@ class VotesController < ApplicationController
       
       if session[:origin_prefix]
         redirect_to_origin
+        # return included in method above
       else
         flash[:error] = "Impossible! Where did you come from?"
         redirect_to nope_path
@@ -17,14 +18,18 @@ class VotesController < ApplicationController
       end
       
     else    
-      Vote.new(user_id: session[:user_id], work_id: params[:work_id])
-      unless Vote.valid?
-        flash[:error] = "Vote unsuccessful"
-        
-        return
-      else
+      # vote = Vote.new(user_id: session[:user_id], work_id: params[:work_id])
+      
+      user = User.find_by(id: session[:user_id])
+      work = Work.find_by(id: params[:work_id])
+      vote = Vote.new(user: user, work: work)
+      
+      if vote.save
         flash[:success] = "Successfully upvoted!"
-        
+        redirect_to_origin
+      else
+        flash[:error] = "Vote unsuccessful! #{list_error_messages(vote)}"
+        redirect_to_origin
         return
       end
     end

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     # works but not tested
     
     name_input = params[:user][:name]
-    @user = User.new(name: name_input, votes_casted: 0)
+    @user = User.new(name: name_input)
     
     if @user.valid?
       @user.save
