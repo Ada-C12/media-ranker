@@ -30,14 +30,22 @@
         <li class="nav-item app-header__nav_item">
           <a class="nav-link" href="/users">View all users</a>
         </li>
+
+        <% if session[:user_id] != nil %>
+<h2>You are logged in as user <%= User.find_by(id: session[:user_id]).username %></h2>
+<%= link_to 'Log Out', logout_path, method: :post %>
+<% else %>
+<%= link_to 'Log In', login_path %>
+<% end %>
       </ul>
       <ul class="nav app-header__user-nav-container">
-
+<!--
         <li class="nav-item app-header__nav_item">
           <a class="btn btn-primary" href="/users/477">Logged in as rufus</a>
         </li>
         <li class="nav-item app-header__nav_item">
           <a class="btn btn-primary" rel="nofollow" data-method="post" href="/logout">Log Out</a>
+          -->
         </li>
 
 
