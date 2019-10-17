@@ -37,23 +37,38 @@ describe UsersController do
   end
 
   describe "login" do
-    before do
-      @user = User.first
-      @login_data = {
-        user: {
-          username: @user.username,
-        },
-      }
-    end
-
-    # write tests for an existing user, new user, and nonexistent user
     it "logs in a returning user" do
+      perform_login
+
       post login_path(@login_data)
 
       expect(session[:user_id]).must_equal @user.id
     end
 
-    it "creates a new user when logging in" do
+    it "creates a new user when logging in if the user doesn't already exist" do
+      user_data = {
+        user: {
+          username: "A new user",
+        },
+      }
+
+      post login_path(params: user_data)
+      must_respond_with :redirect
+      must_redirect_to root_path
+
+      user = User.last
+      expect(session[:user_id]).must_equal user.id
+    end
+  end
+
+  describe "logout" do
+    it "returns 200 OK for a logged-in user" do
+      perform_login
+
+      post logout_path
+
+      must_respond_with :redirect
+      must_redirect_to root_path
     end
   end
 end
