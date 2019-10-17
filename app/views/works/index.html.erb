@@ -1,4 +1,4 @@
-<h1>UPVOTE BUTTON CHECKS IF U LOGGED IN FIRST!!!</h1>
+
 <h1>IF U LOGGED IN, will disable buttons for those u already voted on!</h1>
 
 <main>
@@ -17,16 +17,17 @@
       </thead>
 
       <tbody>
+      <% if @all_albums%>
         <% @all_albums.each do |piece|%>
         <tr>
           <td><%= piece.votes.count %></td>
           <td><%= link_to piece.title, work_path(id: piece.id) %></td>
           <td><%= piece.creator %></td>
           <td><%= piece.published_year %></td>
-          <%# <td><%= link_to "<a class='btn btn-primary'>".html_safe, method: :post, cast_vote_path %></td> %>
-          <%# <td><a class="btn btn-primary" data-method="post" href="/works">UPVOTE BUTTON</a></td> %>
+          <td><button class="btn btn-primary"><%= link_to "UPVOTE", work_create_vote_path(work_id: piece.id), method: :post %><% session[:origin_prefix] = "works" %></button></td>
         </tr>
         <% end %>
+      <% end %>
       </tbody>
 
     </table>
@@ -44,14 +45,16 @@
       </thead>
 
       <tbody>
-        <% @all_books.each do |piece|%>
-        <tr>
-          <td><%= piece.votes.count %></td>
-          <td><%= link_to piece.title, work_path(id: piece.id) %></td>
-          <td><%= piece.creator %></td>
-          <td><%= piece.published_year %></td>
-          <td><a class="btn btn-primary" rel="nofollow" data-method="get" href="/homepages/nope">UPVOTE BUTTON</a></td>
-        </tr>
+        <% if @all_books %>
+          <% @all_books.each do |piece|%>
+          <tr>
+            <td><%= piece.votes.count %></td>
+            <td><%= link_to piece.title, work_path(id: piece.id) %></td>
+            <td><%= piece.creator %></td>
+            <td><%= piece.published_year %></td>
+            <td><button class="btn btn-primary"><%= link_to "UPVOTE", work_create_vote_path(work_id: piece.id), method: :post %><% session[:origin_prefix] = "works" %></button></td>
+          </tr>
+          <% end %>
         <% end %>
       </tbody>
 
@@ -70,15 +73,17 @@
       </thead>
 
       <tbody>
+      <% if @all_movies %>
         <% @all_movies.each do |piece|%>
         <tr>
           <td><%= piece.votes.count %></td>
           <td><%= link_to piece.title, work_path(id: piece.id) %></td>
           <td><%= piece.creator %></td>
           <td><%= piece.published_year %></td>
-          <td><a class="btn btn-primary" rel="nofollow" data-method="get" href="/homepages/nope">UPVOTE BUTTON</a></td>
+          <td><button class="btn btn-primary"><%= link_to "UPVOTE", work_create_vote_path(work_id: piece.id), method: :post %><% session[:origin_prefix] = "works" %></button></td>
         </tr>
         <% end %>
+      <% end %>
       </tbody>
 
     </table>

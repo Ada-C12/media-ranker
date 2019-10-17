@@ -1,11 +1,12 @@
 <section>
   <%= form_with model: @work do |f| %>
     <div class="form-group">
-      <select class="form-control" name=:category>
+      <%= f.select :category, ['album', 'movie', 'book']%>
+      <%# <select class="form-control" name=:category>
         <option value="album">Album</option>
         <option value="book">Book</option>
         <option value="movie">Movie</option>
-      </select>
+      </select> %>
     </div>
 
     <div class="form-group">

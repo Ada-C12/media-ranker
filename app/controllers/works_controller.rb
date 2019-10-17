@@ -14,13 +14,12 @@ class WorksController < ApplicationController
   def create
     # give default of 0 votes_earned
     @work = Work.new(form_params)
-    
     if @work.save
       flash[:success] = "Successfully created #{@work.category}: #{@work.title}"
       redirect_to work_path(id: @work.id)
       return
     else
-      flash.now[:error] = "Unsuccessful save"
+      flash.now[:error] = "Unsuccessful save: #{@work.errors.messages}"
       render action: "new"
       return
     end
