@@ -50,6 +50,7 @@
     </header>
 
     <section class="alert__container">
+      <% if !flash.empty? %>
       <% flash.each_with_index do |(key, message), i| %>
         <% if i == 0 %>
           <div class="alert alert-<%= key %>">
@@ -61,6 +62,7 @@
       <% end %>
           </ul>
           </div>
+      <% end %>
     </section>
 
     <main>
