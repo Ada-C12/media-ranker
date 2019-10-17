@@ -21,13 +21,6 @@
         <th>Date</th>
       </tr>
     </thead>
-    <tbody>
-      <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.username, user_path(user.id), method: :get %></td>
-        <td><%= USER DATE %></td>
-      </tr>
-      <% end %>
-    </tbody>
+    
   </table>
 </section>
