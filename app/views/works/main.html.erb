@@ -10,13 +10,13 @@
   </section>
   <section>
     <section>
-      <%= render 'works/list', works: @top_movies, title: "Top Movies" %>
+      <%= render 'works/top', works: @top_movies, name: "Movies" %>
     </section>
     <section>
-      <%= render 'works/list', works: @top_books, title: "Top Books" %>
+      <%= render 'works/top', works: @top_books, name: "Books" %>
     </section>
     <section>
-      <%= render 'works/list', works: @top_albums, title: "Top Albums" %>
+      <%= render 'works/top', works: @top_albums, name: "Albums" %>
     </section>
   </section>
 </main>

@@ -5004,3 +5004,456 @@ Processing by WorksController#main as HTML
 Completed 200 OK in 93ms (Views: 70.7ms | ActiveRecord: 2.1ms)
 
 
+Started GET "/" for ::1 at 2019-10-16 17:04:09 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:6
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (0.7ms)
+  Rendered works/_list.html.erb (0.7ms)
+  Rendered works/_list.html.erb (0.6ms)
+  Rendered works/main.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 66ms (Views: 57.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 17:04:12 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:6
+  [1m[36mWork Load (1.9ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (1.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (1.0ms)
+  Rendered works/_list.html.erb (0.7ms)
+  Rendered works/_list.html.erb (0.6ms)
+  Rendered works/main.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 83ms (Views: 72.1ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 17:04:13 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:6
+  [1m[36mWork Load (0.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (5.5ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.7ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_list.html.erb (1.1ms)
+  Rendered works/_list.html.erb (0.9ms)
+  Rendered works/_list.html.erb (1.2ms)
+  Rendered works/main.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 96ms (Views: 77.4ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 17:05:15 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.6ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:6
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  Rendering works/main.html.erb within layouts/application
+  Rendered works/_top.html.erb (0.8ms)
+  Rendered works/_top.html.erb (1.8ms)
+  Rendered works/_top.html.erb (2.0ms)
+  Rendered works/main.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 77ms (Views: 69.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 17:05:32 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.6ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:6
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  Rendering works/main.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (3.0ms)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (20.0ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 4]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 5]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 6]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 11]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 13]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 17]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (18.2ms)
+  Rendered works/main.html.erb within layouts/application (48.3ms)
+Completed 200 OK in 114ms (Views: 92.2ms | ActiveRecord: 11.8ms)
+
+
+Started POST "/logout" for ::1 at 2019-10-16 17:18:46 -0700
+Processing by UsersController#logout as HTML
+  Parameters: {"authenticity_token"=>"eXogmfj7RXHuAs3PphNEj6lluZrZwNVF8yJnmvDVV2zN/CTPIU4dxJcvG31PMTbbihUCGgmzjQsGn6pupz4gXA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 17:18:46 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:6
+  [1m[36mWork Load (1.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  Rendering works/main.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (11.1ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (16.6ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 4]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 5]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 6]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 11]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 13]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 17]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (15.8ms)
+  Rendered works/main.html.erb within layouts/application (48.5ms)
+Completed 200 OK in 180ms (Views: 114.5ms | ActiveRecord: 21.2ms)
+
+
+Started GET "/works/30" for ::1 at 2019-10-16 17:18:48 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/show.html.erb:15
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/show.html.erb:24
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  Rendered works/show.html.erb within layouts/application (55.4ms)
+Completed 200 OK in 144ms (Views: 127.8ms | ActiveRecord: 7.2ms)
+
+
+Started POST "/works/30/upvote" for ::1 at 2019-10-16 17:18:49 -0700
+Processing by WorksController#upvote as HTML
+  Parameters: {"authenticity_token"=>"x8+4PVK0479N966IxbP8c0BaQJQgM+/5/XLCWJfYslRzSbxriwG7CjTaeDoskY4nYyr7FPBAt7cIzw+swDPFZA==", "id"=>"30"}
+  [1m[36mWork Load (16.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:66
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:67
+Redirected to http://localhost:3000/works/30
+Completed 302 Found in 24ms (ActiveRecord: 16.6ms)
+
+
+Started GET "/works/30" for ::1 at 2019-10-16 17:18:49 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (7.0ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/show.html.erb:15
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/show.html.erb:24
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  Rendered works/show.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 177ms (Views: 165.0ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/login" for ::1 at 2019-10-16 17:22:03 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 65ms (Views: 53.5ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/login" for ::1 at 2019-10-16 17:22:06 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vE/CEltExqIi74O50pTx6e/n/Bg/UPyDkbHwXLIGswmIXwm8Wvq8gSDYZnMGFgXoqPEaQRxVVN6EAFSCqrY5Qw==", "user"=>{"username"=>"calopter"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calopter"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 17:22:06 -0700
+
+SyntaxError - syntax error, unexpected '='
+    voted? = user.votes.any? { |vote| vot...
+           ^:
+  app/controllers/works_controller.rb:68:in `'
+
+Started POST "/__better_errors/f402705acfed914e/variables" for ::1 at 2019-10-16 17:22:06 -0700
+Started GET "/login" for ::1 at 2019-10-16 17:22:46 -0700
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 84ms (Views: 71.0ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/login" for ::1 at 2019-10-16 17:22:48 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rMWwJgk/MT0WG/21PL619xqVNLiyBF8bEu5bZfc1x+sYQ7Rw0IppiG82KwfVnMejOeWPOGJ3B1XnU5aRoN6w2w==", "user"=>{"username"=>"calopter"}, "commit"=>"Login"}
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calopter"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/" for ::1 at 2019-10-16 17:22:48 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/work.rb:6
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "movie"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "book"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."category" = $1 LIMIT $2[0m  [["category", "album"], ["LIMIT", 10]]
+  ↳ app/models/work.rb:10
+  Rendering works/main.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (8.9ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (16.9ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 4]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 5]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 6]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 11]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 13]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 17]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (19.8ms)
+  Rendered works/main.html.erb within layouts/application (55.4ms)
+Completed 200 OK in 143ms (Views: 107.4ms | ActiveRecord: 15.2ms)
+
+
+Started GET "/works/30" for ::1 at 2019-10-16 17:22:53 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/show.html.erb:15
+  [1m[36mVote Load (0.4ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/show.html.erb:24
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  Rendered works/show.html.erb within layouts/application (38.9ms)
+Completed 200 OK in 151ms (Views: 143.5ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/works/30/upvote" for ::1 at 2019-10-16 17:22:56 -0700
+Processing by WorksController#upvote as HTML
+  Parameters: {"authenticity_token"=>"It6md4NJx7ZaHwNn6zzZ1rUdwj4qQKwIZkBXuOkEW+eWWKIhWvyfAyMy1dUCHquClm15vvoz9EaT/ZpMvu8s1w==", "id"=>"30"}
+  [1m[36mWork Load (3.8ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:66
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:67
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/works_controller.rb:68
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:68
+Redirected to http://localhost:3000/works/30
+Completed 302 Found in 15ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/works/30" for ::1 at 2019-10-16 17:22:56 -0700
+Processing by WorksController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mWork Load (0.2ms)[0m  [1m[34mSELECT  "works".* FROM "works" WHERE "works"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/works_controller.rb:16
+  Rendering works/show.html.erb within layouts/application
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/show.html.erb:15
+  [1m[36mVote Load (0.4ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/show.html.erb:24
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/works/show.html.erb:26
+  Rendered works/show.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 89ms (Views: 80.3ms | ActiveRecord: 2.8ms)
+
+
