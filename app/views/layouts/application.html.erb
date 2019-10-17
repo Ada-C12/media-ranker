@@ -27,9 +27,12 @@
           </li>
           <li class="nav-item nav-link">
             <%= link_to "View all users", users_path %>
+          </li>    
+          <li class="nav-item nav-link ">
+            <%= link_to "Log in", login_path %>
           </li>
           <li class="nav-item nav-link ">
-            Log in
+            <%= link_to "Log out", logout_path, method: :post %>
           </li>
         </ul>
       </div>
