@@ -2,6 +2,11 @@ class UsersController < ApplicationController
 
   skip_before_action :determine_user, except: [:new, :create]
 
+
+    def index
+      @users = User.all
+    end
+
     def login_form
         @user = User.new
     end
@@ -9,12 +14,14 @@ class UsersController < ApplicationController
     def login
         username = params[:user][:username]
         user = User.find_by(username: username)
+
+        
         if user
           session[:user_id] = user.id
           flash[:success] = "Successfully logged in as returning user #{username}"
         else
-          user = User.create(username: username)
-          session[:user_id] = user.id
+          new_user = User.create(username: username)
+          session[:user_id] = new_user.id
           flash[:success] = "Successfully logged in as new user #{username}"
         end
       
@@ -33,8 +40,18 @@ class UsersController < ApplicationController
     def logout  
       # what if we are never logged in?
       session[:user_id] = nil
-      flash[:message] = "You have logged out"
+      flash[:message] = "You have logged out successfully"
       redirect_to root_path
     end
+
+    # def signup
+    #   username = params[:user][:username]
+    #   user = User.new(username: username)
+
+    #   if save
+    #     redirect_to root_path
+    #   end
+
+    # end
 
 end

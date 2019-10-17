@@ -9,4 +9,19 @@ class ApplicationController < ActionController::Base
     end
 
 
+    private
+
+    def find_work
+      @work = Work.find_by_id(params[:id])
+    end
+
+    private
+    
+    def work_params
+        return params.require(:work).permit(:category, :title, :description, :creator, :publication_year)
+    end
+  
+
+
+
 end
