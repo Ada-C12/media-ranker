@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   
   root to: "homepages#index"
   resources :works
-  resources :homepages
+
+  resources :users
+  get "/login", to: "users#login_form", as: "login_form"
+  post "/login", to: "users#login", as: "login"
+  post "/logout", to: "users#logout", as: "logout"
+
+  resources :homepages, only: [:index]
   
 end
