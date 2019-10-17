@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     return
   end
 
-  def show
+  def current 
     @current_user = User.find_by(id: params[:id])
     unless @current_user
       flash[:error] = "You must be logged in to see this page"
