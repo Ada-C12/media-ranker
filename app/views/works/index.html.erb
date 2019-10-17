@@ -1,18 +1,18 @@
 <h1>This is the Works Index</h1>
 
-<% books = Work.all.where(category: :book) %>
+<% books = Work.all.where(category: :book).sort_by{ |b| b.votes.length } %>
 <% albums = Work.all.where(category: :album) %>
 
 <h2>All Books</h2>
 <ul>
-<%  books.each do |work|  %>
+<% Work.top_ten(:book).each do |work|  %>
   <li><%= link_to work.title, work_path(work) %>, <%= work.category %></li>
 <% end %>
 </ul>
 
 <h2>All Albums</h2>
 <ul>
-<%  albums.each do |work|  %>
+<% Work.top_ten(:album).each do |work|  %>
   <li><%= link_to work.title, work_path(work) %>, <%= work.category %></li>
 <% end %>
 </ul>

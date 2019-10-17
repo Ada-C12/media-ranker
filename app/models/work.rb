@@ -14,13 +14,19 @@ class Work < ApplicationRecord
     return spotlight
   end
 
-  def self.top_ten(category)
+  def self.sort_media(category)
     return nil unless category == :book || category == :album
 
     all_media = Work.all.where(category: category)
     media_ascending = all_media.sort_by{ |work| work.votes.length }.reverse!
 
-    return media_ascending.first(10)
+    return media_ascending
+  end
+
+  def self.top_ten(category)
+    return nil unless category == :book || category == :album
+
+    return Work.sort_media(category).first(10)
   end
 
 end

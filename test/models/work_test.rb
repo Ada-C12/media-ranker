@@ -1,6 +1,6 @@
 require "test_helper"
 
-describe ApplicationHelper, :helper do
+describe Work do
   describe 'validation' do
     before do
       @obama = works(:obama)

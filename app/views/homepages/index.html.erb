@@ -22,14 +22,14 @@ This is the Homepage
 
 <h2>Top 10 Books</h2>
 <ul>
-<% Work.top_ten(:book).each do |work|  %>
+<% Work.sort_media(:book).first(10).each do |work|  %>
   <li><%= link_to work.title, work_path(work) %>, <%= work.category %></li>
 <% end %>
 </ul>
 
 <h2>Top 10 Albums</h2>
 <ul>
-<% Work.top_ten(:album).each do |work|  %>
+<% Work.sort_media(:album).first(10).each do |work|  %>
   <li><%= link_to work.title, work_path(work) %>, <%= work.category %></li>
 <% end %>
 </ul>
