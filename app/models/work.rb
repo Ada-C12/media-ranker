@@ -11,13 +11,11 @@ class Work < ApplicationRecord
     return Work.first
   end
   
-  def upvote
-    # creating a new vote with work id that's passed in as self
-    vote = Vote.new(id: self.id)
+  def self.upvote(current_user)
+    work_id = self.id
+    vote_params = {work_id: work_id, current_user: current_user.id}
     
-    # knows current user id
-    
-    # returns params we can use to make a new vote
+    return vote_params
     
   end
 end
