@@ -32,24 +32,23 @@ end
 puts "Added #{Work.count} media records"
 puts "#{work_failures.length} works failed to save"
 
-# input_users = [
-#   {
-#     name: "Shangri La"
-#   },
-#   {
-#     name: "Scooby Doo"
-#   },
-#   {
-#     name: "Lloyd Dobler"
-#   },
-#   {
-#     name: "Winnie LaPooh"
-#   },
-#   {
-#     name: "Minnie The Moocher"
-#   }
-# ]
-
+input_users = [
+  {
+    name: "Maida Vale"
+  },
+  {
+    name: "Marylebone"
+  },
+  {
+    name: "Holland Park"
+  },
+  {
+    name: "Kensington"
+  },
+  {
+    name: "Kennington"
+  },
+]
 user_failures = []
 input_users.each do |input_user|
   user = User.new(name: input_user[:name])
@@ -69,27 +68,32 @@ input_votes = [
   {
     id: 1,
     work_id: 1,
-    user_id: 1 
+    user_id: 1, 
+    date: Date.today
   },
   {
     id: 2,
     work_id: 2,
-    user_id: 2 
+    user_id: 2, 
+    date: Date.today
   },
   {
     id: 3,
     work_id: 3,
-    user_id: 3 
+    user_id: 3, 
+    date: Date.today
   },
   {
     id: 4,
     work_id: 4,
-    user_id: 4 
+    user_id: 4, 
+    date: Date.today
   },
   {
     id: 5,
     work_id: 5,
-    user_id: 5 
+    user_id: 5, 
+    date: Date.today
   }
 ]
 
