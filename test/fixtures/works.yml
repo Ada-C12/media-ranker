@@ -1,0 +1,24 @@
+wind:
+  category: book
+  title: Gone with the wind 
+  creator: Margaret Mitchell
+  publication_year: 1939
+  description: Epic Civil War drama focuses on the life of petulant southern belle Scarlett O'Hara 
+dahlio:
+  category: book
+  title: principles
+  creator: Ray Dahlio
+  publication_year: 2010
+  description: Founder of Bridgwater talks about the priciples that make him successful
+nemo:
+  category: movie
+  title: looking for nemo
+  creator: Disney
+  publication_year: 2000
+  description: Underwater story of a fish
+beatles:
+  category: album
+  title: Best of Beatles
+  creator: The Beatles
+  publication_year: 1980
+  description: Best songs of all times
