@@ -20,7 +20,7 @@
       <% @works.where(category: category).each do |work| %>
         <tr>
             <td>
-              <%= "num votes" %>
+              <%= work.votes.length %>
             </td>
             <td>
               <%= link_to work.title, work_path(work.id) %>

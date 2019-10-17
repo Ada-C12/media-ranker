@@ -1,4 +1,6 @@
 class Work < ApplicationRecord
+  has_many :votes
+  
   # validate presence & uniqueness
   validates :title, presence: true
   validates :title, uniqueness: { scope: :category }
@@ -12,5 +14,6 @@ class Work < ApplicationRecord
     works = Work.all
     return works.sample
   end
+
   
 end
