@@ -187,15 +187,16 @@ form label {
   font-weight: bolder;
 }
 
-.upvote:hover {
+
+.upvote:hover, .upvote div:hover {
   color: green
 }
 
-.downvote:hover {
-  color: red
+.upvote a:hover, .downvote a:hover {
+  color: grey
 }
 
-.downvote:hover, .upvote:hover  {
-  background-color: lightgrey;
+.downvote:hover, .downvote div:hover {
+  color: red
 }
 
