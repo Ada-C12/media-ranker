@@ -3,9 +3,8 @@ class Work < ApplicationRecord
   validates :title, presence: true
   validates :title, uniqueness: { scope: :category }
   
-  def category
-    return "album"
-    # where(:category => self.category)
+  def self.top_ten(cat)
+    works_by_cat = self.where(category: cat)
+    return works_by_cat
   end
-  
 end

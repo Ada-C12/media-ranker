@@ -47,10 +47,10 @@ describe Work do
   describe "custom methods" do
     it "can get the top ten works by vote" do
       # Arrange
-      top_ten = Work.top_ten("album")
+      top_ten = Work.top_ten("book")
       
       # Act
-      
+      p top_ten
       # Assert
       expect(top_ten.length).must_equal 10
       expect(top_ten.first.id).must_equal Work.first.id
@@ -58,8 +58,8 @@ describe Work do
     
     it "retrieves fewer than ten works if fewer than ten are in the category" do
       # Arrange
-      top_ten = Work.top_ten("movie")
-      
+      works = Work.top_ten("movie")
+      top_works = works.top_ten()
       # Act
       
       # Assert

@@ -40,6 +40,31 @@
   </ul>
   </header>
 
+  
+    <section class="alert__container">
+      <% flash.each do |name, message| %>
+        <% if flash[:success] %>
+          <% alert_class = "alert alert-success" %>
+        <% elsif flash[:error] %>
+          <% alert_class = "alert alert-warning" %>
+        <% end %>
+        <div class="<%= alert_class %>">
+          <span>
+            <%= message %>
+          </span>
+          <ul>
+          <% if @work != nil && @work.errors %>
+            <% @work.errors.each do |k, v| %>
+              <li>
+                <%= k %>: <%= v %>
+              </li>
+            <% end %>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </section>
+
     <main>
 
     <%= yield %>

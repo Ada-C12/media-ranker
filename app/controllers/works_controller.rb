@@ -14,12 +14,13 @@ class WorksController < ApplicationController
   end
   
   def create 
-    work = Work.new(work_params)
-    if work.save
-      redirect_to work_path(work.id)
+    @work = Work.new(work_params)
+    if @work.save
+      flash[:success] = "Successfully created " + @work.category + " " + @work.id
+      redirect_to work_path(@work.id)
     else
-      flash.now[:error] = "A problem occurred: Could not create " + work.category
-      @errors = work.errors
+      @errors = @work.errors
+      flash.now[:error] = "A problem occurred: Could not create " + @work.category
       render :new
     end
   end
@@ -30,14 +31,14 @@ class WorksController < ApplicationController
     if @work.update(work_params)
       redirect_to work_path
     else
-      @flash.now[:error] = "A problem occurred: Could not update album"
+      flash.now[:error] = "A problem occurred: Could not update album"
       render :edit
     end
   end
   
   def destroy
     @work.destroy
-    flash[:success] = "Successfully deleted!"
+    flash[:success] = "Successfully destroyed " + @work.category + " " + @work.id
     redirect_to root_path
   end
   
