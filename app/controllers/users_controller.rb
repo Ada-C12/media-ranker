@@ -26,6 +26,9 @@ class UsersController < ApplicationController
   def create
     @current_user = User.new(username: params[:username])
     if @current_user.save
+      flash[:success] = "WORKS"
+    else
+      flash[:error] = "Could not log in"
     end
     redirect_to root_path    
   end

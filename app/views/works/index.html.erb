@@ -32,7 +32,7 @@
             <%= work.publication_year %>
             </td>
             <td>
-            <%= link_to "Upvote", root_path, class: "btn btn-primary" %>
+            <%= link_to "Upvote", work_votes_path(work.id), method: :post, class: "btn btn-primary" %>
             </td>
           </tr>
           <% end %>
