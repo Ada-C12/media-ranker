@@ -1,25 +1,18 @@
-movie:
+valid_work:
   category: movie
   title: Test Movie
   creator: Test movie creator
   publication_year: 2019
   description: Test movie description
 
-album:
-  category: album
-  title: Test Album
-  creator: Test album creator
-  publication_year: 2018
-  description: Test movie description
-
-book:
-  category: book
-  title: Test Book
+invalid_work_category:
+  category: 
+  title: Test Title
   creator: Test book creator
   publication_year: 2017
   description: Test book description
 
-invalid_work:
+invalid_work_title:
   category: book
   title: 
   creator: Test book creator
