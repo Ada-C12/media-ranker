@@ -1,5 +1,18 @@
 class UsersController < ApplicationController
   
+  def index
+    @users = User.all
+  end
+  
+  def show
+    user_id = params[:id].to_i
+    @user = User.find_by(id: user_id)
+    if @user.nil?
+      head :not_found
+      return
+    end
+  end
+  
   def login_form
     @user = User.new
   end
@@ -32,6 +45,12 @@ class UsersController < ApplicationController
   
   def current
     @user = User.find_by(id: session[:user_id])
+    if @user.nil?
+      head :not_found
+      return
+    end
+    
   end
-  
 end
+
+
