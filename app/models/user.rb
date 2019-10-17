@@ -1,5 +1,5 @@
 class User < ApplicationRecord
   has_many :votes
   
-  validates :title, presence: true
+  validates :username, presence: true
 end
