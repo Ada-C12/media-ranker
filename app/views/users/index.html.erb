@@ -4,15 +4,15 @@
   <thead>
     <tr>
       <th scope="col">Username</th>
-      <th scope="col">Notes</th>
+      <th scope="col">Votes</th>
       <th scope="col">Joined</th>
     </tr>
   </thead>
   <tbody>
   <% @users.length.times do |i|%>
     <tr>
-      <th scope="row"><%= i + 1%></th>
       <td><%= @users[i].username %></td>
+      <td><%= @users[i].votes.count %></td>
       <td><%= @users[i].created_at %></td>
     </tr>
   <% end %>
