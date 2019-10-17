@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 
   resources :works
   resources :users
-  # resources :votes
-  # resources :passengers do 
-  #   resources :trips, shallow: true
-  # end
+
+  resources :works, :users do 
+    resources :votes, shallow: true
+  end
 
   get "/login", to: "users#login_form", as: "login"
   post "/login", to: "users#login"

@@ -1,0 +1,12 @@
+movie1:
+  category: movie
+  title: Mr. Tea
+  creator: Mr. Silicone
+  publication_year: 2019
+  description: Mr. Tea soaks in tea bath
+movie2:
+  category: movie
+  title: 
+  creator: Mr. Silicone
+  publication_year: 2019
+  description: Mr. Tea soaks in tea bath

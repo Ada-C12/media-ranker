@@ -32,18 +32,29 @@
           </li>
         </ul>
         <ul class="nav app-header__user-nav-container">
-          <%# CHECK TO SEE IF CURRENT_USER IS IN SESSION  %>
-          <%# IF CURRENT USER IS IN SESSION, CHANGE VIEW %>
-  
-          <li class="nav-item app-header__nav_item">
-            <a class="btn btn-primary" href="/users/422">Logged in as momo</a>
-          </li>
-          <li class="nav-item app-header__nav_item">
-            <a class="btn btn-primary" rel="nofollow" data-method="post" href="/logout">Log Out</a>
-          </li>
+          <% if session[:user_id] %>
+            <li class="nav-item app-header__nav_item">
+              <%# <a class="btn btn-primary" href="/users/422">Logged in as @user.username</a> %>
+              <p><%= link_to "Logged in as #{find_user.username}", user_path(session[:user_id]), method: :get %></p>
+            </li>
+            <li class="nav-item app-header__nav_item">
+              <%# <a class="btn btn-primary" rel="nofollow" data-method="post" href="/logout">Log Out</a> %>
+              <button><%= link_to "Logout", logout_path, method: :post %></button>
+            </li>
+          <% else %> 
+            <li class="nav-item app-header__nav_item">
+              <button><%= link_to "Login", login_path, method: :get %></button>
+            </li> 
+          <% end %> 
         </ul>
       </nav>
     </header>
+
+    <section class="user-messages">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= name.capitalize %>: <%= message %></div>
+      <% end %>
+    </section>
 
     <%= yield %>
   </body>
