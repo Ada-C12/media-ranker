@@ -14,12 +14,13 @@
       </tr>
     </thead>
     <tbody>
-      <%works.each_with_index do |work, i|%>
+      <%works.each do |work|%>
         <tr>
-          <th scope="row"><%=i%></th>
+          <th><%=work.votes.count%></th>
           <td><%=link_to work.title, work_path(work.id)%></td>
           <td><%=work.creator%></td>
           <td><%=work.publication_year%></td>
+          <td><%=link_to "Upvote", work_votes_path(work.id), method: :post, class: "btn btn-primary"%></td>
         </tr>
       <%end%>
     </tbody>
@@ -39,12 +40,13 @@
       </tr>
     </thead>
     <tbody>
-      <%works.each_with_index do |work, i|%>
+      <%works.each do |work|%>
         <tr>
-          <th scope="row"><%=i%></th>
+          <th><%=work.votes.count%></th>
           <td><%=link_to work.title, work_path(work.id)%></td>
           <td><%=work.creator%></td>
           <td><%=work.publication_year%></td>
+          <td><%=link_to "Upvote", work_votes_path(work.id), method: :post, class: "btn btn-primary"%></td>
         </tr>
       <%end%>
     </tbody>
@@ -65,12 +67,13 @@
       </tr>
     </thead>
     <tbody>
-      <%works.each_with_index do |work, i|%>
+      <%works.each do |work|%>
         <tr>
-          <th scope="row"><%=i%></th>
+          <th><%=work.votes.count%></th>
           <td><%=link_to work.title, work_path(work.id)%></td>
           <td><%=work.creator%></td>
           <td><%=work.publication_year%></td>
+          <td><%=link_to "Upvote", work_votes_path(work.id), method: :post, class: "btn btn-primary"%></td>
         </tr>
       <%end%>
     </tbody>
