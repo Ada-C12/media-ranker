@@ -18,4 +18,14 @@ describe User do
       assert User.create.votes
     end
   end
+
+  describe 'voted?' do
+    it 'returns true if a user has already voted for a work' do
+      
+    end
+    
+    it 'returns false if a user hasnt already voted for a work' do
+      
+    end
+  end
 end

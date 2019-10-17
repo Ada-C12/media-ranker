@@ -3,7 +3,7 @@ class Work < ApplicationRecord
   has_many :votes
   
   def self.spotlight
-    self.first
+    self.all.min
   end
 
   def self.top_ten category
