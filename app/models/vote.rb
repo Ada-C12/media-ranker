@@ -6,11 +6,19 @@ class Vote < ApplicationRecord
   validates :work_id, presence: true
 
   def self.all_upvotes
-    return Vote.all.where(vote_type: "upvote")
+    if Vote.all
+      return Vote.all.where(vote_type: "upvote")
+    else
+      return nil
+    end
   end
 
   def self.all_downvotes
-    return Vote.all.where(vote_type: "downvote")
+    if Vote.all
+      return Vote.all.where(vote_type: "downvote")
+    else
+      return nil
+    end 
   end
 
 end
