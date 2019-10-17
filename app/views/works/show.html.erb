@@ -5,6 +5,9 @@
 <h3><%= @work.publication_year%></h3>
 <h3><%= @work.description%></h3>
 
+
+<%# Added to this site <%= readable_date(@work.created_at) %> 
+
 <%= link_to "Back to media", root_path(@work) %> 
 <%= link_to "Edit", edit_work_path(@work) %> 
 <%= link_to "upvote", edit_work_path(@work) %> 

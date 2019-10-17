@@ -1,51 +1,66 @@
 <h1>All Works</h1>
 
-<ul>
-<% @works.each do |work|%>
-
- <%= link_to work.title, work_path(work) %>
- <%= work.creator%> 
-
-
-<%= link_to "Edit", edit_work_path(work) %>
-<%= link_to "Delete", work_path(work), method: :delete, data: {confirm: "Are you sure?"}%> 
-
-<%end%>
-
-</ul>
-
 <table class="table">
-  <thead>
+  <h2>Books</h2>
     <tr>
       <th scope="col">Votes</th>
       <th scope="col">Title</th>
-      <th scope="col">LasCreated By</th>
+      <th scope="col">Created By</th>
       <th scope="col">Published</th>
       <th scope="col">Upvote</th>
+    </tr>
+   
+     <% @all_books.each do |book|%>
+      <tr>  
+      <td>work.vote</td>
+      <td><%=book.title%></td>
+      <td><%=book.creator%></td>
+      <td><%=book.publication_year%></td>
+      <td>book.upvote</td>
+      </tr>
+    <%end%>
+</table>
 
-    </tr>
-  </thead>
-  <tbody>
+<table class="table">
+  <h2>Movies</h2>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/432/upvote">Upvote</a></td>
+      <th scope="col">Votes</th>
+      <th scope="col">Title</th>
+      <th scope="col">Created By</th>
+      <th scope="col">Published</th>
+      <th scope="col">Upvote</th>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+
+     <% @all_movies.each do |movie|%>
+      <tr>  
+        <td>movie.vote</td>
+        <td><%=movie.title%></td>
+        <td><%=movie.creator%></td>
+        <td><%=movie.publication_year%></td>
+        <td>movie.upvote</td>
+      </tr>
+    <%end%>
+</table>
+
+<table class="table">
+<h2>Albums</h2>
+  <tr>
+    <th scope="col">Votes</th>
+    <th scope="col">Title</th>
+    <th scope="col">Created By</th>
+    <th scope="col">Published</th>
+    <th scope="col">Upvote</th>
+  </tr>
+
+  <% @all_albums.each do |album|%>
+    <tr>  
+      <td>album.vote</td>
+      <td><%=album.title%></td>
+      <td><%=album.creator%></td>
+      <td><%=album.publication_year%></td>
+      <td>album.upvote</td>
     </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
+  <%end%>  
 </table>
 
 
