@@ -18,7 +18,7 @@
         <th scope"row"> <%= link_to work.title, work_path(work.id)%> </th>
         <th scope"row"> <%= work.creator%> </th>
         <th scope"row"> <%= work.publication_year%> </th>
-        <th scope"row"> <%= link_to "Upvote", root_path, class:"btn btn-info" %></th>
+        <th scope"row"> <%= link_to "Upvote", work_votes_path(work.id), method: :post, class:"btn btn-info" %></th>
       </tr>
       <%end%>
     </tbody>
