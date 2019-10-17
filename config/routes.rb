@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :works
+  resources :works do
+    resources :votes, only: [:index, :new]
+  end
 
-  resources :users, except: [:destroy, :update, :edit]
+  resources :users, except: [:destroy, :update, :edit] do
+    resources :votes, only: [:index, :new]
+  end
+  
   #get "/users/:id", to: "users#show", as: "user"
   get "/login", to: "users#login_form", as: "login"
   post "/login", to: "users#login"
