@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    user_id = params[:id].to_i
+    @user = User.find_by(id: user_id)
     unless @user
       head :not_found
     end
