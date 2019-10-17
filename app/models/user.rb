@@ -17,7 +17,7 @@ class User < ApplicationRecord
     return self.votes.where(vote_type: "downvote")
   end
 
-  def already_voted(work_id)
+  def already_voted?(work_id)
     if self.votes.find_by(work_id: work_id)
       return true
     else
