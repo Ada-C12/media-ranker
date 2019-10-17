@@ -36,14 +36,12 @@ class UsersController < ApplicationController
   end
 
   def logout
-    # TODO: What happens if we were never logged in?
     session[:user_id] = nil
     flash[:message] = "You have logged out successfully."
     redirect_to root_path
     return
   end
 
-  # used to direct to user's show page
   def current
     @user = User.find_by(id: session[:user_id])
   end

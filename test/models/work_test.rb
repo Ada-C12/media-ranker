@@ -12,7 +12,7 @@ describe Work do
 
   it "should invalidate for an unsuccessful work if there is no title" do
     is_valid = movie2.valid?
-
+    
     refute( is_valid )
   end
 
