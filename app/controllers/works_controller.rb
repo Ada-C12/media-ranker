@@ -7,7 +7,7 @@ class WorksController < ApplicationController
     def index
         @works = Work.all
 
-        @musics = Work.sort_by_category("music")
+        @movies = Work.sort_by_category("movie")
         @books = Work.sort_by_category("book")
         @albums = Work.sort_by_category("album")
         
