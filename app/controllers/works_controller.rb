@@ -89,8 +89,7 @@ class WorksController < ApplicationController
         redirect_to work_path
         return
       end
-    end
-    
+    end 
   end
   
 

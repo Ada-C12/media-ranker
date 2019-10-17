@@ -23,5 +23,18 @@
   </section>
   
   <section>
-  <%= @work.votes.count %> Votes for this <%= @work.category.capitalize %>
+    <%= @work.votes.count %> Votes for this <%= @work.category.capitalize %>
+  </section>
+
+<%# not working for some reason %>
+  <section>
+    <ul>
+    <% @work.votes do |vote| %>
+     <% user = User.find(vote.user_id) %>
+      <li>
+        <%= user.name %>
+        <%= vote.date %>
+      </li>
+    <% end %>
+    </ul>
   </section>
