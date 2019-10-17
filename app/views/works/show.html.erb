@@ -7,7 +7,9 @@
 
 
 <h3>Votes for <%= @work.title %></h3>
-
+<% Vote.where(work_id: @work.id).each do |vote|  %>
+  <li><%= vote.work.title %>, <%= vote.user.username %>, <%= vote.created_at %></li>
+<% end %>
 
 
 <%= link_to "Upvote", upvote_path(@work), method: :post %>

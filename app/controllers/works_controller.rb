@@ -66,12 +66,15 @@ class WorksController < ApplicationController
   end
 
   def upvote
-    unless session[:user].nil?
-      Vote.new(user_id: session[:user].id, work_id: params[:id])
-    else
+    if session[:user_id].nil?
       flash[:warning] = "Please log in to vote"
+      render :new
+      return
+    else
+      Vote.create(user_id: session[:user_id], work_id: params[:id])
+      redirect_to root_path
+      return
     end
-
   end
   
   private
