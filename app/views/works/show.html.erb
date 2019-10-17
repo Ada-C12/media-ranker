@@ -1,7 +1,13 @@
 
 
-<h2>Title: <%= @work.title %></h2>
-<h3>Author: <%= @work.creator %></h3>
+<h1><%= @work.title %></h1>
+<p>Created By: <%= @work.creator %></p>
+<p>Published: <%= @work.publication_date %></p>
+
 <p><%= @work.description%></p>
 
 <p><%= link_to "Return to work List", works_path %></p>
+
+<%# add buttons for edit, upvote, delete
+add in tally of total votes per medium
+table of user and date of who/when was voted %>

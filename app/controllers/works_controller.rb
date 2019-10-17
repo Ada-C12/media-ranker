@@ -1,7 +1,9 @@
 class WorksController < ApplicationController
   
   def index
-    @works = Work.order(:title)
+    # @album = Album.all(:title)
+    # @movie = Movie.all(:title)
+    # @book = Book.all(:title)
   end
   
   def show
