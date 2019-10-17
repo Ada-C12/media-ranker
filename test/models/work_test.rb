@@ -40,4 +40,41 @@ describe ApplicationHelper, :helper do
       expect(@obama.valid?).must_equal false
     end
   end
+
+  describe "find_spotlight" do
+    it "returns an item of media" do
+      spotlight = Work.find_spotlight
+
+      expect(spotlight).must_be_kind_of Work
+    end
+
+    it "returns nil if no media" do
+      works = Work.all
+      works.each do |work|
+        work.destroy
+      end
+
+      expect(Work.count).must_equal 0
+      expect(Work.find_spotlight).must_be_nil
+    end
+
+  end
+
+  describe "top_ten" do
+    it "returns 10 items of media when given category" do
+      sample = Work.top_ten(:book)
+
+      expect(sample.length).must_equal 10
+      sample.each do |work|
+        expect(work).must_be_kind_of Work
+      end
+    end
+
+    it "returns nil when not given category" do
+      invalid_sample = Work.top_ten(nil)
+
+      expect(invalid_sample).must_equal nil
+      
+    end
+  end
 end
