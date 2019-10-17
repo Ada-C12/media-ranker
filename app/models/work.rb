@@ -1,5 +1,5 @@
 class Work < ApplicationRecord
-  serialize :votes, Hash
+  serialize :votes, Array
 
   validates :category, presence: true
   validates :title, presence: true
