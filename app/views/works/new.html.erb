@@ -1,5 +1,6 @@
 <section class="container">
   <h2 class="text-green">New Work Form</h2>
+  <%= @params%>
   <% if @work.errors.any? %>
     <ul class="errors">
       <% @work.errors.each do |column, message| %>

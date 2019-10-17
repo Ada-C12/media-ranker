@@ -1,25 +1,20 @@
-
-<section>
+<main class="container">
+  <section>
     <article>
-        <h1>WorkList</h1>
-        <%= link_to "Add Work", new_work_path, class: 'btn' %>
-        <%= link_to "All Work", works_path, class: 'btn' %>
+      <h1>WorkList</h1>
+      <%= link_to "Add Work", new_work_path, class: 'btn' %>
+      <%= link_to "All Work", works_path, class: 'btn' %>
     </article>
     <article>
-        <h3><%=@work.category %></h3>
-        <h3><%=@work.title %></h3>
-        <h3><%=@work.creator %></h3>
-        <h3><%=@work.publication_year %></h3>
-        <h3><%=@work.description %></h3>
-        
-        <%= link_to "Edit Work", edit_work_path(@work.id), class: 'btn'%>
-
-
-
-    <p> About Work </p><%= @work.decription%>
-    <p> This work was published </p><%= readable_year (@work.publication_year)%>
-
+      <h3><%=@work.category %></h3>
+      <h3><%=@work.title %></h3>
+      <h3><%=@work.creator %></h3>
+      <h3><%=@work.publication_year %></h3>
+      <h3><%=@work.description %></h3>
+      <%= link_to "Edit Work", edit_work_path(@work.id), class: 'btn'%>
+      <p> About Work </p>
+      <%= @work.description%>
+      <p> This work was published </p>
     </article>
-
-
-</section>
+  </section>
+</mai>
