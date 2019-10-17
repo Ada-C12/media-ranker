@@ -2,13 +2,14 @@
 
   <main>
     <section class="spotlight">
-      <h2 class="spotlight__header">
-        <span class="spotlight__header--prefix">Media Spotlight</span>
-        <a class="spotlight__link-to" href="">To Thrill a Mockingbird</a> by Harper Leeee
-      </h2>
-      <p class="spotlight__description">
-        6 votes - brand new
-      </p>
+    <h2 class="spotlight__header">
+      <span class="spotlight__header--prefix">Media Spotlight</span>
+      <%= link_to Work.spotlight.title, work_path(Work.spotlight.id), class:"spotlight__link-to"%>
+      by <%= Work.spotlight.creator %>
+    </h2>
+    <p class="spotlight__description">
+      Work.spotlight.votes - <%= Work.spotlight.description %>
+    </p>
     </section>
 
     <hr class="root__hr">
@@ -19,7 +20,7 @@
         Top Movies
       </h2>
       <ul class="list-group top-ten__list">
-        <%= Work.top_ten("movie").each do |work|%>
+        <% Work.top_ten("movie").each do |work|%>
           <li class="list-group-item">
             <h4>
               <%= link_to work.title, work_path(work.id)%>

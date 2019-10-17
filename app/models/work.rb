@@ -10,9 +10,10 @@ class Work < ApplicationRecord
         top_ten_works << work
       end
     end
-    return top_ten_works
+    return top_ten_works.slice(0,10)
   end
 
-  def spotlight
+  def self.spotlight
+    return self.all.first
   end
 end
