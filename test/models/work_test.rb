@@ -179,6 +179,11 @@ describe Work do
   
   describe "relationships" do
     it "can have many votes" do
+      expect(works(:titanic).votes.count).must_be :>, 0
+      
+      works(:titanic).votes.each do |vote|
+        expect(vote).must_be_instance_of Vote
+      end
     end
   end
 end

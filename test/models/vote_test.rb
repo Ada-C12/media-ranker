@@ -69,10 +69,40 @@ describe Vote do
   end
   
   describe "relationships" do
-    it "has a user" do
+    describe "belongs to a user" do
+      it "can set the user through user" do
+        vote = Vote.new(work_id: @new_work.id)
+        
+        vote.user = @new_user
+        
+        expect(vote.user_id).must_equal @new_user.id
+      end
+      
+      it "can set the user through user_id" do
+        vote = Vote.new(work_id: @new_work.id)
+        
+        vote.user_id = @new_user.id
+        
+        expect(vote.user).must_equal @new_user
+      end
     end
     
-    it "has a work" do
+    describe "belongs to a work" do
+      it "can set the work through work" do
+        vote = Vote.new(user_id: @new_user.id)
+        
+        vote.work = @new_work
+        
+        expect(vote.work_id).must_equal @new_work.id
+      end
+      
+      it "can set the work through work_id" do
+        vote = Vote.new(user_id: @new_user.id)
+        
+        vote.work_id = @new_work.id
+        
+        expect(vote.work).must_equal @new_work
+      end
     end
   end
 end
