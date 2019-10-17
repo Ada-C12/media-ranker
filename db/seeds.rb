@@ -65,4 +65,46 @@ end
 puts "Added #{User.count} user records"
 puts "#{user_failures.length} users failed to save"
 
+input_votes = [
+  {
+    id: 1,
+    work_id: 1,
+    user_id: 1 
+  },
+  {
+    id: 2,
+    work_id: 2,
+    user_id: 2 
+  },
+  {
+    id: 3,
+    work_id: 3,
+    user_id: 3 
+  },
+  {
+    id: 4,
+    work_id: 4,
+    user_id: 4 
+  },
+  {
+    id: 5,
+    work_id: 5,
+    user_id: 5 
+  }
+]
+
+vote_failures = []
+input_votes.each do |input_vote|
+  vote = Vote.new(id: input_vote[:id], work_id: input_vote[:work_id], user_id: input_vote[:user_id])
+  successful = vote.save
+  if successful
+    puts "Created vote: #{vote.inspect}"
+  else
+    vote_failures << vote
+    puts "Failed to save vote: #{vote.inspect}"
+  end
+end
+
+puts "Added #{Vote.count} vote records"
+puts "#{vote_failures.length} votes failed to save"
 
