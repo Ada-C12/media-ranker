@@ -1,8 +1,8 @@
 class WorksController < ApplicationController
   def index
-    @albums = Work.where(category: "album")
-    @books = Work.where(category: "book")
-    @movies = Work.where(category: "movies")
+    @albums = Work.where(category: "album").sort
+    @books = Work.where(category: "book").sort
+    @movies = Work.where(category: "movies").sort
   end
   
   def main
