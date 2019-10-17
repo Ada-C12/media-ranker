@@ -39,6 +39,20 @@ nav h1 {
   text-align: center;
 }
 
+nav ul {
+  display: flex;
+  justify-content: space-evenly;;
+}
+
+nav li {
+  width: 10%
+}
+
+#logged-in-btn-container {
+  display: flex;
+  flex-direction: column;
+}
+
 
 a {
   color: #fa4f05;
