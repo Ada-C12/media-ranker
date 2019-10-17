@@ -42,4 +42,39 @@ class User < ApplicationRecord
       return nil
     end
   end
+
+  def already_downvoted?(work_id)
+    work = Work.find_by(id: work_id)
+    
+    if work
+      vote = self.votes.find_by(work_id: work_id)
+      if vote && vote.vote_type == "downvote"
+        return true
+      else
+        return false
+      end
+    else
+      return nil
+    end
+  end
+
+  def already_upvoted?(work_id)
+    work = Work.find_by(id: work_id)
+    
+    if work
+      vote = self.votes.find_by(work_id: work_id)
+      if vote && vote.vote_type == "upvote"
+        return true
+      else
+        return false
+      end
+    else
+      return nil
+    end
+  end
+
+
+
+
+
 end

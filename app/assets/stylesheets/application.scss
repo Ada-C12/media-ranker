@@ -142,59 +142,7 @@ form label {
   margin-top: 2%;
 }
 
-.btn {
-  font-size: 2rem;
-  text-align: center;
-}
 
-.btn a {
-  color: white;
-}
-.btn-vote { 
-  color: #FFFFFF; 
-  background-color: #FAC105; 
-  border-color: #E6B515;
-} 
-
-.btn-vote:hover, 
-.btn-vote:focus, 
-.btn-vote:active, 
-.btn-vote.active, 
-.open .dropdown-toggle.btn-vote { 
-  color: #FFFFFF; 
-  background-color: #FAC105; 
-  border-color: #E6B515; 
-} 
-
-.btn-vote:active, 
-.btn-vote.active, 
-.open .dropdown-toggle.btn-vote { 
-  background-image: none; 
-} 
-
-.btn-vote.disabled, 
-.btn-vote[disabled], 
-fieldset[disabled] .btn-vote, 
-.btn-vote.disabled:hover, 
-.btn-vote[disabled]:hover, 
-fieldset[disabled] .btn-vote:hover, 
-.btn-vote.disabled:focus, 
-.btn-vote[disabled]:focus, 
-fieldset[disabled] .btn-vote:focus, 
-.btn-vote.disabled:active, 
-.btn-vote[disabled]:active, 
-fieldset[disabled] .btn-vote:active, 
-.btn-vote.disabled.active, 
-.btn-vote[disabled].active, 
-fieldset[disabled] .btn-vote.active { 
-  background-color: #FAC105; 
-  border-color: #E6B515; 
-} 
-
-.btn-vote .badge { 
-  color: #FAC105; 
-  background-color: #FFFFFF; 
-}
 
 .top-media-sect h2 {
   border-bottom: 1px solid #fa4f05;
@@ -212,17 +160,29 @@ fieldset[disabled] .btn-vote.active {
   margin-bottom: 5%
 }
 
-.voting-sect button{
-  margin: 2%;
-}
-
 .voting-sect {
   display: flex;
   flex-direction: column;
-  max-width: 100%;
-  padding-right: 3%;
 }
 
-.top-work-details {
-  max-width: 100%;
+.voting-sect div {
+  display: flex;
+}
+
+.vote-active a {
+  color: black;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.vote-disabled div {
+  color: grey;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.alreadyvote {
+  color: #fa4f05;
+  font-size: 2rem;
+  font-weight: bolder;
 }

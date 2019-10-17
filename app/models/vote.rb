@@ -22,4 +22,19 @@ class Vote < ApplicationRecord
     end 
   end
 
+
+  def self.find_vote(user_id: user_id, work_id: work_id)
+    work = Work.find_by(id: work_id)
+    user = User.find_by(id: user_id)
+    if work && user
+      vote = Vote.find_by(user_id: user_id, work_id: work_id)
+      if vote
+        return vote
+      else
+        return []
+      end
+    else
+      return nil
+    end
+  end
 end

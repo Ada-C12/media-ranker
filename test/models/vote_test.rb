@@ -82,7 +82,7 @@ describe Vote do
 
       it 'returns nil if no votes' do
         Vote.destroy_all
-        expect(Vote.all_upvotes).must_equal nil
+        assert_nil(Vote.all_upvotes)
       end
 
       it 'returns [] if no upvotes (but there are downvotes)' do
@@ -114,7 +114,7 @@ describe Vote do
     
       it 'returns nil if no votes' do
         Vote.destroy_all
-        expect(Vote.all_downvotes).must_equal nil
+        assert_nil(Vote.all_downvotes)
       end
 
       it 'returns [] if no upvotes (but there are downvotes)' do
@@ -124,5 +124,39 @@ describe Vote do
         expect(Vote.all_downvotes).must_equal []
       end
     end
+  
+    describe 'find_vote' do
+      it 'finds vote given work_id and user_id' do
+        vote = new_vote
+        new_work = works(:new_work)
+        new_user = users(:new_user)
+        found_vote = Vote.find_vote(user_id: new_user, work_id: new_work)
+        expect(vote.id).must_equal found_vote.id
+      end
+      
+      it 'returns nil if given invalid user or work id' do
+        vote = new_vote
+        new_work = works(:new_work)
+        new_user = users(:new_user)
+        
+        found_vote = Vote.find_vote(user_id: -1, work_id: new_work)
+        assert_nil(found_vote)
+        
+        found_vote2 = Vote.find_vote(user_id: new_user, work_id: -1)
+        assert_nil(found_vote2)
+      end
+    
+      it 'returns [] if no vote exists given user/work id combo' do
+        Vote.destroy_all
+        new_work = works(:new_work)
+        new_user = users(:new_user)
+        
+        found_vote = Vote.find_vote(user_id: new_user, work_id: new_work)
+        expect(found_vote).must_equal []
+      end
+    
+    
+    end
+  
   end
 end
