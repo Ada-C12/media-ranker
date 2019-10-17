@@ -34,15 +34,29 @@ describe Work do
   end
 
   describe 'relations' do
+    it "can have many votes" do 
+      work = works(:rent)
+      expect(work.votes.count).must_equal 3
+
+      work.votes.each do |vote|
+        expect(vote).must_be_instance_of Vote
+      end
+    end
     
   end
 
   describe 'custom methods' do
 
     describe 'top_ten' do
-      it 'returns ten books' do #later will return top ten books
+      it 'returns ten books' do 
         test_list = Work.top_ten("album")
         expect(test_list.count).must_equal 10
+      end
+
+      it "orders the books by most votes" do
+        test_list = Work.top_ten("album")
+        expect(test_list.first.votes.count > test_list.last.votes.count).must_equal true
+
       end
 
       it 'returns all items if there are less than ten in the database' do 
