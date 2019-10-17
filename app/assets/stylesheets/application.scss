@@ -1,17 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- */
-/* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
 /* Import scss content */
 @import "**/*";
@@ -20,7 +6,7 @@
 
 * {
   font-family: "Gudea", "sans-serif";
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 a, h1, h2, h3, h4 {
@@ -48,19 +34,24 @@ a, h1, h2, h3, h4 {
   font-size: 2.5rem;
 }
 
-.spotlight__header-prefix {
+.spotlight__header a {
+  text-decoration: underline;
+}
+
+.spotlight__header-prefix, .spotlight__header-prefix a, .media-table h4, .user-votes__container h3,
+.works-votes__container h3 {
   color: black;
 }
 
-.spotlight__header-prefix a {
-  color: black;
+.root__hr {
+  border-bottom-color: #EEEEEE;
 }
 
 .app-header__header small {
   color: white;
 }
 
-.app-header__nav {
+.app-header__nav, .works-votes__container {
   padding-top: 25px;
 }
 
@@ -86,12 +77,7 @@ nav {
   margin-right: 2rem;
 }
 
-.app-header__nav_item a {
-  color: #00796B;
-  text-decoration: none;
-}
-
-.app-header__site-nav-container a {
+.app-header__nav_item a, .app-header__site-nav-container a {
   color: #00796B;
   text-decoration: none;
 }
@@ -101,19 +87,29 @@ nav {
 }
 
 .spotlight {
-  padding: 2rem 2rem 2rem 2rem;
+  padding: 2rem 2rem 1rem 2rem;
 }
 
 .top-ten__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 2em
+  grid-column-gap: 2em;
+  padding-top: 20px;
+}
+
+.top-ten__list-container a {
+  font-size: 24px;
 }
 
 .top-ten__header {
   color: #26A69A;
   border-bottom: 2px solid;
   border-bottom-color: #B2DFDB
+}
+
+.top-ten__creator {
+  font-size: 100%;
+  color: slategrey;
 }
 
 .works-buttons, .user-buttons {

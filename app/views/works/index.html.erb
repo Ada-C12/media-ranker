@@ -1,4 +1,4 @@
-<main>
+  <main>
   <h2>List of Works</h2>
   <section class="media-table">
     <h4>Albums</h4>
@@ -9,6 +9,7 @@
           <th>Title</th>
           <th>Created By</th>
           <th>Published</th>
+          <th>Upvote</th>
         </tr>
       </thead>
       <% Work.where(category: "album").sort_by { |work| work.votes.count }.reverse!.each do |work| %>
@@ -32,6 +33,7 @@
           <th>Title</th>
           <th>Created By</th>
           <th>Published</th>
+          <th>Upvote</th>
         </tr>
       </thead>
       <% Work.where(category: "book").sort_by { |work| work.votes.count }.reverse!.each do |work| %>
@@ -55,6 +57,7 @@
           <th>Title</th>
           <th>Created By</th>
           <th>Published</th>
+          <th>Upvote</th>
         </tr>
       </thead>
       <% Work.where(category: "movie").sort_by { |work| work.votes.count }.reverse!.each do |work| %>
