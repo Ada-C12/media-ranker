@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :works
   resources :users do
-    resources :votes, only [:new]
+    resources :votes, only: [ :new ]
   end
   
 end
