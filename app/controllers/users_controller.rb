@@ -15,8 +15,7 @@ class UsersController < ApplicationController
     name_input = params[:user][:name]
     @user = User.new(name: name_input)
     
-    if @user.valid?
-      @user.save
+    if @user.save
       session[:user_id] = @user.id
       flash[:success] = "Successfully logged #{@user.name} in as a new user!"
       redirect_to user_path(@user.id)
@@ -32,7 +31,7 @@ class UsersController < ApplicationController
         return
       else
         # bogus input 
-        flash.now[:error] = "Login unsuccessful!"
+        flash.now[:error] = "Login unsuccessful! #{list_error_messages(@user)}"
         render action: "login"
         return
       end

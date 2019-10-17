@@ -1,17 +1,5 @@
 <h1>Log IN</h1>
 
-<% if @user.errors.any? %>
-  <section>
-  <ul>
-  <% @user.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-    </ul>
-    </section>
-<% end %>
-
-<br>
-
 <%= form_with model: @user do |f|%>
   <%= f.label :name %>
   <br>

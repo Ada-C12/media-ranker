@@ -1,6 +1,6 @@
 class Work < ApplicationRecord
   
-  has_many :votes
+  has_many :votes, dependent: :nullify
   
   validates :category, presence: true, inclusion: { in: %w(movie album book), message: "Only movie/album/book accepted" }
   

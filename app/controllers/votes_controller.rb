@@ -34,10 +34,12 @@ class VotesController < ApplicationController
         end
       else
         flash[:error] = "Impossible, session is set when user logged in! Investigate!"
+        # JARED? Is this even possible? u said soemthing about dropped internet connections?
         redirect_to nope_path
         return
       end
       
+      # Make new Vote
       vote = Vote.new(user_id: session[:user_id], work_id: params[:work_id])
       if vote.save
         flash[:success] = "Successfully upvoted!"
@@ -73,4 +75,6 @@ class VotesController < ApplicationController
     end
   end
   
+  
+
 end

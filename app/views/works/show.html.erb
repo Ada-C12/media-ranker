@@ -9,7 +9,7 @@
     <button class="btn btn-primary"><%= link_to "Back to Media Ranks", root_path %></button>
     <button class="btn btn-primary"><%= link_to "Edit", edit_work_path(id: @work.id) %></button>
 
-    <button class="btn btn-primary"><%= link_to "UPVOTE??!!", work_create_vote_path(work_id: @work.id), method: :post %><% session[:origin_prefix] = "work" %></button> 
+    <button class="btn btn-primary"><%= link_to "Upvote", work_create_vote_path(work_id: @work.id), method: :post %><% session[:origin_prefix] = "work" %></button> 
     <button class="btn btn-danger"><%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" } %></button>
   </section>
 </section>
@@ -26,11 +26,13 @@
 
     <%# HERE are all the people who voted for this piece %>
     <tbody>
+      <% @work.votes.each do |vote| %>
       <tr>
-        <td>voter name PLUS link to voter#show</td>
+        <td><%= vote.user.name %>voter name PLUS link to voter#show</td>
         <td>vote creation date, use display_date</td>
       </tr>
+      <% end %>
     </tbody>
-</table>
+  </table>
 </section>
 </main>
