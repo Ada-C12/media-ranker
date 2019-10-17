@@ -22,4 +22,26 @@ describe Work do
 
     end
   end
+
+  describe "custom methods" do
+    it "can give back top ten of a media category" do
+      # Act/Arrange
+      top_ten = Work.top_ten("book")
+
+      # Assert
+      expect(top_ten.count).must_equal 10
+  
+    end
+    
+    it "can give the most voted media aka spotlight" do
+      # Act/Arrange
+      most_votes = Work.spotlight
+
+      # Assert
+      expect(most_votes.valid?).must_equal true
+
+    end
+
+
+  end
 end
