@@ -8,10 +8,11 @@ Rails.application.routes.draw do
     resources :votes, only: [:index, :post]
   end
   
-  # resources :users do
-  #   resources :votes, shallow: true
-  # end
+  resources :users, except: :delete
+  get "/login", to: "users#login_form", as: "login"
+  post "/login", to: "users#login"
+  post "/logout", to: "users#logout", as: "logout"
 
-  resources :votes, shallow: true
+  # resources :votes, shallow: true
   
 end
