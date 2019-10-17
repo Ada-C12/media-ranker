@@ -18,7 +18,8 @@ class WorksController < ApplicationController
       redirect_to work_path(id: @work.id)
       return
     else
-      flash.now[:error] = "Unsuccessful save: #{@work.errors.messages}"
+      flash.now[:error] = "Unsuccessful save:"
+      flash.now[:error_msgs] = list_error_messages(@work)
       render action: "new"
       return
     end
