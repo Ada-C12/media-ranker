@@ -10,7 +10,70 @@ movie2:
   title: the vvitch
   creator: some guy
   published_year: 2017
-  description: Rather boring, not scary.
+  description: Rather boring, not scary
+
+movie3:
+  category: movie
+  title: tusk
+  creator: kevin smith
+  published_year: 2014
+  description: weird and funny
+
+movie4:
+  category: movie
+  title: idiocracy
+  creator: mike judge
+  published_year: 2000
+  description: hilarious fun
+
+movie5:
+  category: movie
+  title: hereditary
+  creator: ari aster
+  published_year: 2017
+  description: super scary
+
+movie6:
+  category: movie
+  title: midsommar
+  creator: ari aster
+  published_year: 2019
+  description: scary but not that much
+
+movie7:
+  category: movie
+  title: the shining
+  creator: stanley kubrick
+  published_year: 1980
+  description: scary ass twins
+
+movie8:
+  category: movie
+  title: 28 days later
+  creator: danny boyle
+  published_year: 2003
+  description: lol it was so scary
+
+movie9:
+  category: movie
+  title: dawn of the dead
+  creator: some guy
+  published_year: 2003
+  description: fun zombie movie
+
+movie10:
+  category: movie
+  title: sean of the dead
+  creator: some other guy
+  published_year: 2005
+  description: cute and fun
+
+movie11:
+  category: movie
+  title: beloved beast
+  creator: jonathan holbrook
+  published_year: 2019
+  description: boring, my friend Sheila was by far the best thing in it
 
 book1:
   category: book

@@ -16,15 +16,19 @@ describe User do
   
   describe "VALIDATIONS" do
     it "Can create User obj with correct attributes" do
-      assert(user1.valid?)
-      user1.save!
-      db_user = User.first
+      assert(user1.save!)
+      db_user = User.find_by(name: user1.name)
       assert(db_user.name == user1.name)
       assert(db_user.votes.count == 0)
       
       # make user1 cast a vote
-      # assert(db_user.votes.count == 1)
+      assert(Vote.count == 0)
+      vote1 = Vote.create(user_id: db_user.id, work_id: Work.first.id)
+      assert(db_user.votes.count == 1)
+      assert(Vote.count == 1)
+      
       # assert(db_user.votes attributes are correct!)
+      
     end
     
     it "Won't create User obj, given blank name inputs" do
@@ -39,7 +43,8 @@ describe User do
     
     it "Won't create User obj, given copycat name inputs" do
       user1
-      assert(User.first.name == "Lisa Simpson")
+      db_user = User.find_by(name: user1.name)
+      assert(db_user.name == "Lisa Simpson")
       
       evil_twin = User.new(name: "Lisa Simpson")
       refute(evil_twin.save)
@@ -47,7 +52,6 @@ describe User do
       expect(evil_twin.errors.messages.values).must_include ["has already been taken"]
     end
   end
-  
   
   
   describe "CUSTOM METHOD #1" do

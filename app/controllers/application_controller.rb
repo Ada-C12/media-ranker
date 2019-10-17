@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
       end
       return msgs_strs_in_array
     else
-      raise ArgumentError, "Your rejected_obj.save was successful..."
+      raise ArgumentError, "You Don't need this method! Your #{rejected_obj}.save was successful..."
     end
   end
   

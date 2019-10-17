@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   get '/users/login', to: "users#login", as: "login"
   patch '/users', to: "users#logout", as: "logout"
+  
   resources :users, only: [:index, :create, :show] 
   
   resources :works do

@@ -11,7 +11,7 @@ class VotesController < ApplicationController
       
       if session[:origin_prefix]
         redirect_to_origin
-        # return included in method above
+        return
       else
         flash[:error] = "Impossible! Where did you come from?"
         redirect_to nope_path
@@ -26,15 +26,12 @@ class VotesController < ApplicationController
           first_vote = user.votes.select { |vote| vote.work_id == params[:work_id].to_i }
           if first_vote.any?
             flash[:error] = "You already voted for this, no double dipping!"
-            first_vote = nil
             redirect_to_origin
-            # weird, redirect_to_origin was written with return built in, and worked fine on line 13 above, but not here... JARED??!!
             return
           end
         end
       else
         flash[:error] = "Impossible, session is set when user logged in! Investigate!"
-        # JARED? Is this even possible? u said soemthing about dropped internet connections?
         redirect_to nope_path
         return
       end
@@ -44,6 +41,7 @@ class VotesController < ApplicationController
       if vote.save
         flash[:success] = "Successfully upvoted!"
         redirect_to_origin
+        return
       else
         flash[:error] = "Vote unsuccessful! #{list_error_messages(vote)}"
         redirect_to_origin
@@ -60,7 +58,7 @@ class VotesController < ApplicationController
     # this method will ...
     # 1. reset session[:origin_prefix] = nil
     # 2. redirect_to session[:origin_prefix]_path, followed by return 
-    # 3. WTF, step2's return doesn't always seem to work, sometimes need to add return after calling this method, idk why
+    # 3!!! When u call this method in real life, you STILL need to follow that up with a separate return!!!!
     
     if session[:origin_prefix] == "work"
       redirect_to work_path(id: params[:work_id])
@@ -76,5 +74,5 @@ class VotesController < ApplicationController
   end
   
   
-
+  
 end
