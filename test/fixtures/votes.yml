@@ -1,0 +1,4 @@
+vote_1:
+  work_id: 2
+  date: Time.now
+  user_id: 2

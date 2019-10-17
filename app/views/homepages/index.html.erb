@@ -1,37 +1,45 @@
 
-<%="Media Spotlight"%>
-<p><%work = @works.sample%>
-  <%=work.title%> by <%=work.creator%></p>
 
-<%="Top Albums"%>
 
 <p>
-<%10.times do %>
-
-  <%album = @albums.sample%>
-  <%=album.title%> by <%=album.creator%><br>
-<%end%>
+<%spotlight_array = Work.find_spotlight(@works)%>
+<%="Media Spotlight"%>:<%=spotlight_array[:title]%> by
+<%=spotlight_array[:creator]%><br>
+<%=spotlight_array.votes.count%> votes<br>
+<%=spotlight_array[:description]%>
+<%#work.title%> <%#work.creator%>
 </p>
 
+<%="Top Albums"%>
+  
+<p>
+<%work_array = Work.find_top_10("album")%>
+
+<%work_array.each do |work|%>
+  <%=work[:title]%> by <%=work[:creator]%> ... Vote count: <%=work.votes.count%><br>
+<%end%>
+</p>
 
 <%="Top Books"%>
 
 <p>
-<%10.times do %>
-  <%book = @books.sample%>
-  <%=book.title%> by <%=book.creator%><br>
+<%work_array = Work.find_top_10("book")%>
+
+<%work_array.each do |work|%>
+  <%=work[:title]%> by <%=work[:creator]%> ... Vote count: <%=work.votes.count%><br>
 <%end%>
 </p>
 
 <%="Top Movies"%>
 
 <p>
-<%10.times do %>
-  <%movie = @movies.sample%>
-  <%=movie.title%> by <%=movie.creator%><br>
+<%work_array = Work.find_top_10("movie")%>
+
+<%work_array.each do |work|%>
+  <%=work[:title]%> by <%=work[:creator]%> ... Vote count: <%=work.votes.count%><br>
 <%end%>
 </p>
-<%# is this 10.times some thing should go in the model?%>
+
 
 
 
