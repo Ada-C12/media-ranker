@@ -27,10 +27,6 @@ CSV.foreach(MEDIA_FILE, :headers => true) do |row|
   end
 end
 
-puts "Added #{Work.count} records"
-puts "#{media_failures.length} records failed to save"
-
-
 USER_FILE = Rails.root.join('db', 'users-seeds.csv')
 puts "Loading raw data from #{USER_FILE}"
 
@@ -47,6 +43,9 @@ CSV.foreach(USER_FILE, :headers => true) do |row|
   end
 end
 
+
+puts "Added #{Work.count} records"
+puts "#{media_failures.length} records failed to save"
 puts "Added #{User.count} records"
 puts "#{user_failures.length} records failed to save"
 
