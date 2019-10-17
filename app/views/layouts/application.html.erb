@@ -28,12 +28,16 @@
             <%= link_to "Add a new media", new_work_path, class: "nav-link" %>
           </li>
           <li class="nav-item app-header__nav_item">
-            <a class="nav-link" href="/">View all users</a>
-          </li>
+            <%= link_to "View all users", users_path, class: "nav-link" %>
+          </li>  
           </ul>
-          <ul class="nav app-header__user-nav-container">
+
+          <ul class="nav app-header__user-nav-container">  
           <li class="nav-item app-header__nav_item">
-            <a class="btn btn-primary" href="/">Log in</a>
+            <%= link_to "Log in", login_path, class: "btn btn-primary" %>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "Log out", logout_path, method: :post, class: "btn btn-primary" %>
           </li>
         </ul>
       </nav>
