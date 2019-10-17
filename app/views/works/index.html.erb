@@ -16,7 +16,7 @@ by
 <%= book.creator %>
 :
 <%= book.votes.length %> Votes
-<%= button_to 'Upvote', upvote_path %>
+<%= button_to 'Upvote', upvote_path(book.id) %>
 </li>
 <% end %>
 </ul>
@@ -29,7 +29,7 @@ by
 <%= album.creator %>
 :
 <%= album.votes.length %> Votes
-<%= button_to 'Upvote', upvote_path %>
+<%= button_to 'Upvote', upvote_path(album.id), method: :post %>
 </li>
 <% end %>
 </ul>
@@ -42,7 +42,7 @@ by
 <%= movie.creator %>
 :
 <%= movie.votes.length %> Votes
-<%= button_to 'Upvote', upvote_path %>
+<%= button_to 'Upvote', upvote_path(movie.id), method: :post %>
 </li>
 <% end %>
 </ul>
