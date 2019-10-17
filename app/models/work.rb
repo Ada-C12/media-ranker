@@ -7,7 +7,7 @@ class Work < ApplicationRecord
   validates :publication_year, presence: true, numericality: { only_integer: true }
 
   def self.top_three
-    Work.order(votes: :desc)
-    return Work.first(3)
+    sorted_work = Work.order(votes: :desc)
+    return sorted_work.first(3)
   end
 end

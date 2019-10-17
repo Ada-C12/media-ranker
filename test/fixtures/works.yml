@@ -1,28 +1,28 @@
-book:
+book_1:
   category: 'book'
   title: 'A'
   creator: 'a'
   publication_year: Date.today.year - 100
   description: 'aaa'
-  votes: ['olivia', 'danny', 'boba']
-book:
+  votes: 3
+book_2:
   category: 'book'
   title: 'B'
   creator: 'b'
   publication_year: Date.today.year - 50
   description: 'bbb'
-  votes: ['danny', 'boba']
-book:
+  votes: 2
+book_3:
   category: 'book'
   title: 'C'
   creator: 'c'
   publication_year: Date.today.year - 30
   description: 'ccc'
-  votes: ['boba']
+  votes: 1
 album:
   category: 'album'
   title: 'Ghosteen'
   creator: 'Nick Cave & The Bad Seeds'
   publication_year: Date.today.year
   description: 'Top album this year'
-  votes: []
+  votes: 0

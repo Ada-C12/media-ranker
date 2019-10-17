@@ -51,12 +51,11 @@ describe Work do
   end
 
   describe "custom method(s)" do
-    describe "top_three" do 
+    it "top_three" do 
       top_three = Work.top_three
-      expect(top_three).must_be_kind_of Hash
       expect(top_three.count).must_equal 3
       expect(top_three.first.title).must_equal 'A'
-      expect(top_three.last.title).must_equal 'Ghosteen'
+      expect(top_three.last.title).must_equal 'C'
     end
   end 
 end
