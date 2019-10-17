@@ -33,7 +33,7 @@
         </li>
       </ul>
 
-      <ul class="nav app-header__user-nav-container">
+      <ul class="nav app-header__user-nav-container ml-auto">
 
         <% if session[:user_id].nil? %>
           <li class="nav-item app-header__nav-item">
@@ -46,7 +46,7 @@
           </li>
 
           <li class="nav-item app-header__nav-item">
-            <%= link_to "Log Out", logout_path, class: "btn btn-primary", method: :post %>
+            <%= link_to "Log Out", logout_path, class: "btn btn-primary pull-right", method: :post %>
           </li>
         <% end %>
       </ul>

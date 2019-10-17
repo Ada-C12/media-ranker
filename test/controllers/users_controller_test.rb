@@ -10,6 +10,12 @@ describe UsersController do
   end
 
   describe "login" do
+
     # write tests for an existing user, new user, and nonexistent user
+    it "logs in a returning user" do
+    end
+
+    it "creates a new user when logging in" do
+    end
   end
 end

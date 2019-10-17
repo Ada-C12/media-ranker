@@ -6,18 +6,18 @@
     <h3 class="user-votes__header">Votes</h3>
     <table class="table">
       <thead>
-        <tr>
-          <th>Media Title</th>
-          <th>Created By</th>
-          <th>Published</th>
-          <th>Category</th>
-          <th>Voted On</th>
+        <tr class = "table-header">
+          <th scope="col">Media Title</th>
+          <th scope="col">Created By</th>
+          <th scope="col">Published</th>
+          <th scope="col">Category</th>
+          <th scope="col">Voted On</th>
         </tr>
       </thead>
       <% @user.votes.each do |vote| %>
       <tbody>
         <tr>
-          <td><%= vote.work.title%></td>
+          <td><%= link_to vote.work.title, work_path(vote.work)%></td>
           <td><%= vote.work.creator %></td>
           <td><%= vote.work.publication_year %></td>
           <td><%= vote.work.category.capitalize %></td>

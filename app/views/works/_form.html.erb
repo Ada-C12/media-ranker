@@ -8,13 +8,16 @@
     <%# <% end %>
   <%# </ul> %>
 <%# <% end %>
-
+<section>
 <%= form_with model: @work, class: "#{action_name}-work" do |f| %>
-  <%= f.label :category %> <br>
-  <%= f.select :category , ["album", "book", "movie"] %> <br>
-
-  <%= f.label :title %> <br>
-  <%= f.text_field :title %> <br>
+  <div class="form-group">
+  <%= f.label :category %>
+  <%= f.select :category , ["album", "book", "movie"], {}, {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %>
+  </div>
 
   <%= f.label :creator %> <br>
   <%= f.text_field :creator %> <br>
@@ -27,3 +30,4 @@
 
   <%= f.submit "#{action_name.capitalize} Work", class: "works-button" %>
 <% end %>
+</section>
