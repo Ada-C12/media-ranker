@@ -23,6 +23,13 @@ class VotesController < ApplicationController
       return
     else
       flash[:warning] = "A problem occurred: Could not upvote. #{@vote.errors.messages}"
+      
+      if @vote.errors.any?
+        @vote.errors.each do |column, message| 
+          flash[column.to_sym] = message
+        end
+      end
+      
       redirect_back(fallback_location: root_path)
       return
     end

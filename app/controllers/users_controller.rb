@@ -17,6 +17,13 @@ class UsersController < ApplicationController
         flash[:success] = "Successfully created new user #{@username} with ID #{@user.id}"
       else
         flash.now[:warning] = "A problem occurred: Could not log in"
+        
+        if @user.errors.any?
+          @user.errors.each do |column, message| 
+            flash.now[column.to_sym] = message
+          end
+        end
+        
         render :login_form  
         return
       end

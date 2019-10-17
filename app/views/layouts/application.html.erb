@@ -50,32 +50,17 @@
     </header>
 
     <section class="alert__container">
-      <% flash.each do |name, message| %>
-        <div class="alert alert-<%= name %>">
-          <span><%= message %></span>
-
-          <% if @user && @user.errors.any? %>
+      <% flash.each_with_index do |(key, message), i| %>
+        <% if i == 0 %>
+          <div class="alert alert-<%= key %>">
+            <span><%= message %></span>
             <ul>
-              <% @user.errors.each do |column, message| %>
-                <li>
-                  <%= column %>: <%= message %>
-                </li>
-              <% end %>
-            </ul>
-          <% end %>
-
-          <% if @work && @work.errors.any? %>
-            <ul>
-              <% @work.errors.each do |column, message| %>
-                <li>
-                  <%= column %>: <%= message %>
-                </li>
-              <% end %>
-            </ul>
-          <% end %>
-
-        </div>
+        <% else %>
+          <li><%= key %>: <%= message %></li>
+        <% end %>
       <% end %>
+          </ul>
+          </div>
     </section>
 
     <main>
