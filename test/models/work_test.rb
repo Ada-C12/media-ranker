@@ -72,26 +72,42 @@ describe Work do
   end
 
   describe "spotlight" do
-    #TODO
     it "returns the work with the most votes" do
+      highest_votes = works(:pans_labyrinth)
+      
+      spotlight = Work.spotlight
 
+      expect(spotlight).must_equal highest_votes
     end
 
-    it "returns an empty array if no works exist" do
+    it "returns nil if no works exist" do
       Work.destroy_all
 
-      expect(Work.spotlight).must_equal []
+      expect(Work.spotlight).must_be_nil
     end
   end
 
   describe "top_ten" do
-    #TODO
-    it "returns the top ten highest voted works, given a category" do
+    it "returns an array of works for a specific category in order of the number of votes they have" do
+      highest_votes_albums = works(:lux_prima)
+      least_votes_albums = works(:album_8)
+
+      top_ten_albums = Work.top_ten("album")
+
+      expect(top_ten_albums).must_be_instance_of Array
+      expect(top_ten_albums.length).must_equal 10
+      expect(top_ten_albums.first).must_equal highest_votes_albums
+      expect(top_ten_albums).wont_include least_votes_albums
     end
 
-    #TODO
     it "returns a partial list of works if less than 10 works in a category exist" do
+      books = Work.where(category: "book")
+      book_count = books.length
+      expect(book_count).must_be :<, 10
 
+      top_ten_books = Work.top_ten("book")
+
+      expect(top_ten_books.length).must_equal book_count
     end
 
     it "returns an empty array if no works for that category exist" do
@@ -100,6 +116,5 @@ describe Work do
 
       expect(Work.top_ten(category)).must_equal []
     end
-
   end
 end

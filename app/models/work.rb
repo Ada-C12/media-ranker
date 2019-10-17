@@ -1,9 +1,10 @@
 class Work < ApplicationRecord
-  has_many :votes, dependent: :nullify
+  has_many :votes, dependent: :delete_all
 
   validates :category, inclusion: { in: ["album", "book", "movie"] }
   validates :title, presence: true, uniqueness: { scope: :category }
 
+  #refactor to just be spotlight?
   def self.spotlight
     works = self.all
     spotlight = works.max_by{|work| work.votes.count}

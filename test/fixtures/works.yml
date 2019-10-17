@@ -16,3 +16,63 @@ turn:
   creator: Henry James
   publication_year: 1898
   description: A young and beautiful Governess is charged with the care of the angelic Flora and Miles. Soon, however, their companionship is marred by the appearance of two sinister and supernatural specters. These ghastly shadows are trying to possess the children, but only the Governess perceives this threat. In this house full of secrets and terror, it falls to her to drive out these phantoms.
+fever:
+  title: Fever to Tell
+  category: album
+  creator: Yeah Yeah Yeahs
+  publication_year: 2000
+  description: A good set of music
+london_calling:
+  title: London Calling
+  category: album
+  creator: The Clash
+  publication_year: 1980
+  description: A good set of music
+album_1:
+  title: Test Album
+  category: album
+  creator:
+  publication_year: 
+  description:
+album_2:
+  title: Now That's What I Call Music
+  category: album
+  creator:
+  publication_year: 
+  description:
+album_3:
+  title: Canciones de mi Padre
+  category: album
+  creator:
+  publication_year: 
+  description:
+album_4:
+  title: Another Album
+  category: album
+  creator:
+  publication_year: 
+  description:
+album_5:
+  title: Greatest Hits
+  category: album
+  creator:
+  publication_year: 
+  description:
+album_6:
+  title: The Doors
+  category: album
+  creator:
+  publication_year: 
+  description:
+album_7:
+  title: Kid A
+  category: album
+  creator:
+  publication_year: 
+  description:
+album_8:
+  title: OK Computer 
+  category: album
+  creator:
+  publication_year: 
+  description:
