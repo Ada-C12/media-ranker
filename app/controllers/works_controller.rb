@@ -46,39 +46,33 @@ class WorksController < ApplicationController
     end
   end
 
-  # def upvote
-  #   work = Work.find_by(id: params[:work_id])
-  #   if work.vote
-  #   if vote != nil # already voted
-  #     flash[:error] = "Sorry, you may only vote once for this work!"
-  #   else
-  #     vote = Vote.create(date: Date.today)
-  #     work = Work.find(params[:work_id])
-  #     p work
-  #     user = User.find(session[:user_id])
-  #     p user
-  #     work.votes << vote
-  #     user.votes << vote
-  #     p work.votes
-  #     p user.votes
-  #   end
-  #   :user => session[:user_id],
-
-
-    private
-    def work_params
-      return params.require(:work).permit(:title, :creator, :category, :release_date, :description)
-    end
-
-    def find_work
-      @work = Work.find_by(id: params[:id])
-    end
-
-    def if_work_missing
-      if @work.nil?
-        flash[:error] = "Work with id #{params[:id]} was not found!"
-        redirect_to works_path
-        return
-      end
+  def upvote
+    work = Work.find(params[:id])
+    present = work.votes.find_by(user_id: session[:user_id])
+    if present
+      flash[:error] = "Sorry, you may only vote once for this work!"
+    else
+      vote = Vote.create(date: Date.today)
+      user = User.find(session[:user_id])
+      work.votes << vote
+      user.votes << vote
     end
   end
+
+  private
+  def work_params
+    return params.require(:work).permit(:title, :creator, :category, :release_date, :description)
+  end
+
+  def find_work
+    @work = Work.find_by(id: params[:id])
+  end
+
+  def if_work_missing
+    if @work.nil?
+      flash[:error] = "Work with id #{params[:id]} was not found!"
+      redirect_to works_path
+      return
+    end
+  end
+end

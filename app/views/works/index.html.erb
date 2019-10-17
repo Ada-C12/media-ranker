@@ -29,7 +29,7 @@ by
 <%= album.creator %>
 :
 <%= album.votes.length %> Votes
-<%= button_to 'Upvote', upvote_path(album.id), method: :post %>
+<%= button_to 'Upvote', upvote_path(album.id) %>
 </li>
 <% end %>
 </ul>
@@ -42,7 +42,7 @@ by
 <%= movie.creator %>
 :
 <%= movie.votes.length %> Votes
-<%= button_to 'Upvote', upvote_path(movie.id), method: :post %>
+<%= button_to 'Upvote', upvote_path(movie.id) %>
 </li>
 <% end %>
 </ul>

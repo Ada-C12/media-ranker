@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   root 'homepages#index'
   get '/homepages', to: 'homepages#index', as: 'homepages'
 
-  post '/works/:id/upvote', to: 'votes#create' , as: 'upvote'
+  post '/works/:id/upvote', to: 'works#upvote' , as: 'upvote'
 end

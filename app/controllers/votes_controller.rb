@@ -1,13 +1,13 @@
 class VotesController < ApplicationController
-  def create
-    if params[:work_id]
-      work = Work.find_by(id: params[:work_id])
-      if work.votes.find_by(user: session[:user_id]).nil?
-      @vote = work.votes.new
-      @vote.save
-      end
-    end
-  end
+  # def create
+  #   if params[:work_id]
+  #     work = Work.find_by(id: params[:work_id])
+  #     if work.votes.find_by(user: session[:user_id]).nil?
+  #     @vote = work.votes.new
+  #     @vote.save
+  #     end
+  #   end
+  # end
   # def create
   #   vote = Vote.where(:user => session[:user_id], :work => params[:work_id] )
   #   if vote != nil # already voted
