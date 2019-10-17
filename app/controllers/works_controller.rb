@@ -26,6 +26,8 @@ class WorksController < ApplicationController
     if @work.id?
       redirect_to work_path(@work.id)
     else
+      flash.now[:alert_class] = "warning"
+        flash.now[:warning] = "errors: #{@work.errors.first}"
       render new_work_path, status: :unprocessable_entity
     end
   end

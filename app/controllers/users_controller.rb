@@ -8,13 +8,21 @@ class UsersController < ApplicationController
     user = User.find_by(username: user_username)
     if user.nil?
       # create new user
-      user = User.create(username: user_username)
-      render :login_form if user.errors.any?
+      @user = User.create(username: user_username)
+      if @user.errors.any?
+        flash.now[:alert_class] = "warning"
+        flash.now[:warning] = "errors: #{@user.errors.first}"
+        render :login_form
+        return
+      else
       session[:user_id] = user.id
-      flash[:success] = "Successfully created user #{user.username} and logged in!"
+      flash[:alert_class] = "success"
+      flash[:success] = "Successfully created new user #{user.username} with ID #{user.id}"
+      end
     else
       session[:user_id] = user.id
-      flash[:success] = "Successfully logged in as #{user.username}!"
+      flash[:alert_class] = "success"
+      flash[:success] = "Successfully logged in as existing user #{user.username}"
     end
     redirect_to root_path
   end
