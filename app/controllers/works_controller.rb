@@ -64,7 +64,15 @@ class WorksController < ApplicationController
     redirect_to works_path
     return
   end
-  
+
+  def upvote
+    unless session[:user].nil?
+      Vote.new(user_id: session[:user].id, work_id: params[:id])
+    else
+      flash[:warning] = "Please log in to vote"
+    end
+
+  end
   
   private
   

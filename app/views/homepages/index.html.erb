@@ -20,7 +20,6 @@ This is the Homepage
   </li>
 <%end%>
 
-
 <h2>Top 10 Books</h2>
 <ul>
 <% Work.top_ten(:book).each do |work|  %>
@@ -34,3 +33,8 @@ This is the Homepage
   <li><%= link_to work.title, work_path(work) %>, <%= work.category %></li>
 <% end %>
 </ul>
+
+<h2>All votes</h2>
+<% Vote.all.each do |vote|  %>
+  <li><%= vote.work.title %>, <%= vote.user.username %></li>
+<% end %>
