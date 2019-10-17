@@ -15,9 +15,9 @@ class UsersController < ApplicationController
         render :login_form
         return
       else
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       flash[:alert_class] = "success"
-      flash[:success] = "Successfully created new user #{user.username} with ID #{user.id}"
+      flash[:success] = "Successfully created new user #{@user.username} with ID #{@user.id}"
       end
     else
       session[:user_id] = user.id
