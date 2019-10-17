@@ -7,7 +7,7 @@ describe Vote do
   end
   
   let (:valid_work) {
-    works(:valid_work)
+    works(:movie)
   }
   let (:valid_user) {
     users(:valid_user)

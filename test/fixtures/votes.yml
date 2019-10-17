@@ -1,15 +1,15 @@
 valid_vote:
   user: valid_user
-  work: valid_work
+  work: movie
 
-valid2_work2:
+valid2_album:
   user: valid_user
-  work: work2
+  work: album
 
-valid3_work3:
+valid3_book:
   user: valid_user
-  work: work3
+  work: book
 
-valid4_work3:
+valid4_book:
   user: user2
-  work: work3
+  work: book
