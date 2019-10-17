@@ -1,7 +1,7 @@
 class WorksController < ApplicationController
   
   # before_action :find_book, only: [:show, :edit, :update, :destroy]
-  #before_action :if _work_missing, only[:show, :edit, :destroy]
+  # before_action :if _work_missing, only[:show, :edit, :destroy]
   def index
     @works = Work.all.order(:title) 
     @all_movies = Work.where(category: "movie")
@@ -90,16 +90,16 @@ class WorksController < ApplicationController
     return params.require(:work).permit(:title, :creator, :description, :publication_year, :category)
   end
 
-  # def find_work
-  #   @work = Work.find_by_id(params[:id])
-  # end
-  # def if work_missing
-  #if @work.nil?
-  # flash[:error] ="work with id#{params[:id] was not find."
-  #   redirect_to root_path
-  #   return
-  # end
-  # end
-end 
+#   def find_work
+#     @work = Work.find_by_id(params[:id])
+#   end
+#   def if work_missing
+#   if @work.nil?
+#   flash[:error] ="work with id#{params[:id] was not find."
+#     redirect_to root_path
+#     return
+#   end
+#   end
+ end 
 
 

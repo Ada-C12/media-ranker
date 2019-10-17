@@ -3,10 +3,10 @@
       <section class="spotlight">
     <h2 class="spotlight__header">
       <span class="spotlight__header--prefix">Media Spotlight</span>
-      <a class="spotlight__link-to" href="/works/484">POODR: how to be a bike mechanic for Rubyists</a> by oops
+      <%= link_to Work.spotlight.title, work_path(Work.spotlight.id), class: "spotlight__link-to" %> by <%= Work.spotlight.creator%>
     </h2>
     <p class="spotlight__description">
-      11 votes - Metz also wants you to buy 99 bottles
+ 
     </p>
   </section>
 

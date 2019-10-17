@@ -1,40 +1,54 @@
-<h1>All Works</h1>
 
-<table class="table">
-  <h2>Books</h2>
-    <tr>
-      <th scope="col">Votes</th>
+<main class="container">
+  <section>
+    <h2 class="text-green">List of Works</h2>
+    </section>
+
+<%# List for albums %>
+  <section class="spotlight">
+    <h4>Books</h4>
+    <table class="table">
+      <thead>
+        <tr>
+      <th scope="col"width=80>Votes</th>
       <th scope="col">Title</th>
       <th scope="col">Created By</th>
-      <th scope="col">Published</th>
-      <th scope="col">Upvote</th>
+      <th scope="col"width=100>Published</th>
+      <th scope="col"width=100>Upvote</th>
     </tr>
+    </thead>
+        <tbody>
    
      <% @all_books.each do |book|%>
       <tr>  
       <td>work.vote</td>
-      <td><%=book.title%></td>
+      <td><%= link_to book.title, work_path(book.id)%></td>
       <td><%=book.creator%></td>
       <td><%=book.publication_year%></td>
-      <td>book.upvote</td>
+      <td><%=button_tag "book.upvote", action: "new", class: "btn btn_primary" %></td>
       </tr>
     <%end%>
-</table>
-
-<table class="table">
-  <h2>Movies</h2>
+ </tbody>
+  </table>
+</section>
+  <section class="spotlight">
+    <h4>Movies</h4>
+    <table class="table">
+      <thead>
     <tr>
-      <th scope="col">Votes</th>
+      <th scope="col"width=80>Votes</th>
       <th scope="col">Title</th>
       <th scope="col">Created By</th>
-      <th scope="col">Published</th>
-      <th scope="col">Upvote</th>
+      <th scope="col"width=100>Published</th>
+      <th scope="col"width=100>Upvote</th>
     </tr>
+    </thead>
+        <tbody>
 
      <% @all_movies.each do |movie|%>
       <tr>  
         <td>movie.vote</td>
-        <td><%=movie.title%></td>
+        <td><%= link_to movie.title%></td>
         <td><%=movie.creator%></td>
         <td><%=movie.publication_year%></td>
         <td>movie.upvote</td>
@@ -45,17 +59,19 @@
 <table class="table">
 <h2>Albums</h2>
   <tr>
-    <th scope="col">Votes</th>
-    <th scope="col">Title</th>
-    <th scope="col">Created By</th>
-    <th scope="col">Published</th>
-    <th scope="col">Upvote</th>
-  </tr>
+    <th scope="col"width=80>Votes</th>
+      <th scope="col">Title</th>
+      <th scope="col">Created By</th>
+      <th scope="col"width=100>Published</th>
+      <th scope="col"width=100>Upvote</th>
+    </tr>
+    </thead>
+        <tbody>
 
   <% @all_albums.each do |album|%>
     <tr>  
       <td>album.vote</td>
-      <td><%=album.title%></td>
+      <td><%= link_to album.title%></td>
       <td><%=album.creator%></td>
       <td><%=album.publication_year%></td>
       <td>album.upvote</td>

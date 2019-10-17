@@ -11,4 +11,8 @@ class Work < ApplicationRecord
       return works
     end
   end
+
+  def self.spotlight
+    return self.all.first
+  end
 end

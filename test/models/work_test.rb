@@ -25,7 +25,7 @@ describe Work do
       new_work = Work.new(title: 'test work')
       new_work.save
       @work.title = new_work.title
-      @work.save
+      @work.save            
       expect(@work.valid?).must_equal false
       expect(@work.errors.messages).must_include :title
     end
