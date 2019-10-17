@@ -1,4 +1,7 @@
 class WorksController < ApplicationController
+
+  before_action :require_user, only: [:upvote]
+
   def index
     @works = Work.all
   end
@@ -24,7 +27,6 @@ class WorksController < ApplicationController
       creator: params[:work][:creator],
       publication_year: params[:work][:publication_year],
       description: params[:work][:description],
-      # vote_id: params[:work][:vote_id]
       )
 
       if @work.save
@@ -70,6 +72,37 @@ class WorksController < ApplicationController
     else
       @work.destroy
       flash[:delete] = "You successfully deleted #{@work.title}"
+      redirect_to works_path
+    end
+  end
+
+  def upvote
+
+    @user = User.find_by(id: session[:user_id])
+    @work = Work.find_by(id: params[:id])
+
+    #if work.id is in Vote
+
+    if Vote.find_by(user_id: @user.id, work_id: @work.id).nil?
+
+    @vote = Vote.create(user_id: @user.id, work_id: @work.id)
+
+      if @vote
+        flash[:success] = "you voted!"
+        redirect_to work_path(@work.id)
+      end
+    else
+      flash[:error] = "You've already voted for this work!"
+      redirect_to works_path
+    end
+  end
+
+  private
+
+  def require_user
+    @user = User.find_by(id: session[:user_id])
+    if @user.nil?
+      flash[:error] = "you must be logged in"
       redirect_to works_path
     end
   end

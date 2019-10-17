@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def current
-    # only available to current/logged-in user
+    # this action should only be available to current/logged-in user
     @user = User.find_by(id: session[:user_id])
     if @user.nil?
       head :not_found

@@ -1,0 +1,10 @@
+valid_work:
+  category: book
+  title: The Hobbit
+  creator: J.P. Tolkin
+  publication_year: 2000
+  description: Frodo goes on a journey
+invalid_work:
+  category: book
+  creator: J.K. Rowling
+  publication_year: 2001

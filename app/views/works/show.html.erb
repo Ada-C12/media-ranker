@@ -11,3 +11,4 @@
 
 <%= link_to "Edit Work", edit_work_path(@work.id) %>
 <%= link_to "Delete Work", work_path(@work.id), method: :delete, data: {confirm: "Delete this work?"} %>
+<%= link_to "Upvote", upvote_path, method: :post %>

@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   #will replace with homepages#index when complete
 
   resources :works
-  
-  resources :votes 
+  post '/works/:id/upvote', to: "works#upvote", as: "upvote"
   # do
   #   resources :users, shallow: true
   #   resources :works, shallow:true
