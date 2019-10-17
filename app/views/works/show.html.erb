@@ -7,9 +7,31 @@
     <section>
       <%= link_to "Back to media ranks", root_path, class: "btn btn-primary"%>
       <%= link_to "Edit", edit_work_path(@work.id), class: "btn btn-primary"%>
-      <%# link_to "Upvote", TBD, class: "btn btn-primary"%>
+      <%= link_to "Upvote", work_votes_path(@work.id), method: :post, class: "btn btn-primary" %>
       <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"%>
     </section>
   </section>
 
+  <section class="works-votes__container">
+    <h3 class="works-votes__header"> 
+      <%= @work.votes.count %> Votes for this <%= @work.category.capitalize %>
+    </h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @work.votes.each do |vote| %>
+          <tr>
+            <% voter = vote.user %>
+            <td><%= link_to voter.name, user_path(voter.id) %></td>
+            <td><%= vote.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
 </main>
