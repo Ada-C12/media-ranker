@@ -8,9 +8,11 @@
       by <%= @spotlight.creator %>
     <% end %>
   </h2>
-  <p class="spotlight__description">
-    <%= @spotlight.votes.count %> votes - <%= @spotlight.description %>
-  </p>
+  <% if !@spotlight.nil? %>
+    <p class="spotlight__description">
+      <%= @spotlight.votes.count %> votes - <%= @spotlight.description %>
+    </p>
+  <% end %>
 </section>
 
 <hr class="root__hr" />

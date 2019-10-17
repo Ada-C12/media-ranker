@@ -2,10 +2,10 @@ require "test_helper"
 
 describe Vote do
   before do
-    @new_user = User.create(username: "Mochi Cat")
+    @new_user = User.create!(username: "Mochi Cat")
     
     
-    @new_work = Work.create(
+    @new_work = Work.create!(
       category: "book", 
       title: "Harry Potter", 
       creator: "JK Rowling", 

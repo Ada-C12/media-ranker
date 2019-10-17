@@ -12,7 +12,4 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
   
   post "/works/:work_id/upvote", to: "votes#upvote", as: "upvote"
-  
-  # post '/works/:id/upvote', to: 'votes#upvote', as: 'upvote'
-  # Tiff this needs to be a nested route for votes through works
 end
