@@ -1,6 +1,5 @@
 class WorksController < ApplicationController
-	def index
-		
+  def index
     @movies = Work.by_category("movie")
     @books = Work.by_category("book")
     @albums = Work.by_category("album")
@@ -11,41 +10,50 @@ class WorksController < ApplicationController
     if @work.nil?
       head :not_found
       return
-		end
-
+    end
   end
 
-	def new
-		@work = Work.new 
+  def new
+    @work = Work.new
   end
 
-	def create
+  def create
+    @work = Work.new(work_params)
 
-		@work = Work.new( work_params )
-
-		if @work.save
+    if @work.save
       flash[:success] = "Successfully created #{@work.category} #{@work.id}"
       redirect_to work_path(@work.id)
-		else
+    else
       flash.now[:error] = "A problem occurred: Could not create album
       title: can't be blank"
       render new_work_path
     end
-		
   end
 
   def edit
+    @work = Work.find_by(id: params[:id])
   end
 
   def update
+		@work = Work.find_by(id: params[:id])
+		
+    if @work.update(work_params)
+      flash[:success] = "Successfully updated#{@work.category} #{@work.id}"
+      redirect_to work_path(@work.id)
+    else
+      flash.now[:error] = "A problem occurred: Could not create album
+      title: can't be blank"
+      render new_work_path
+    end
   end
 
-  def destory
-	end
-	private 
-	def work_params
+	def destory
 		
-    return params.require(:work).permit(:category,:title,:creator,:publication_year, :description)
+  end
 
+  private
+
+  def work_params
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
 end
