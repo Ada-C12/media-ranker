@@ -1,23 +1,24 @@
 require "test_helper"
 
 describe User do
-  let (:user) {
+  let (:valid_user) {
     users(:valid_user)
   }
   it "can be instantiated" do
-    expect(user.valid?).must_equal true
+    expect(valid_user.valid?).must_equal true
   end
 
   it "will have the required fields" do
-    expect(user).must_respond_to :username
+    expect(valid_user.username).wont_be_nil
+    expect(valid_user).must_respond_to :username
   end
 
   describe "relationships" do
     it "can have many votes" do
       vote = votes(:valid_vote)
 
-      expect(user.votes.count).must_be :>=, 0
-      user.votes.each do |vote|
+      expect(valid_user.votes.count).must_be :>=, 0
+      valid_user.votes.each do |vote|
         expect(vote).must_be_instance_of Vote
       end
     end

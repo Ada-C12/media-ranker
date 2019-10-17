@@ -9,6 +9,12 @@ describe Work do
   end
 
   it "will have the required fields" do
+    expect(valid_work.category).wont_be_nil
+    expect(valid_work.title).wont_be_nil
+    expect(valid_work.creator).wont_be_nil
+    expect(valid_work.publication_year).wont_be_nil
+    expect(valid_work.description).wont_be_nil
+
     [:category, :title, :creator, :publication_year, :description].each do |attribute|
       expect(valid_work).must_respond_to attribute
     end
@@ -28,7 +34,6 @@ describe Work do
   describe "validations" do
     it "must have a category" do
       invalid_work_category = works(:invalid_work_category)
-
       expect(invalid_work_category.valid?).must_equal false
       expect(invalid_work_category.errors.messages).must_include :category
       expect(invalid_work_category.errors.messages[:category]).must_equal ["can't be blank"]

@@ -1,11 +1,11 @@
 valid_vote:
-  user_id: valid_user
-  work_id: valid_work
+  user: valid_user
+  work: valid_work
 
 invalid_vote_user:
-  user_id:
-  work_id: valid_work
+  user:
+  work: valid_work
 
 invalid_vote_work:
-  user_id: valid_user
-  work_id: 
+  user: valid_user
+  work: 
