@@ -36,7 +36,6 @@ class WorksController < ApplicationController
     end
   end
 
-
   def update
     @work = Work.find_by(id: params[:id])
     
@@ -62,6 +61,7 @@ class WorksController < ApplicationController
       redirect_to works_path
     end
   end 
+
 
   private
   

@@ -14,4 +14,20 @@
 
 <section>
   <h3>NUMBER votes for this CATEGORY</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.username, user_path(user.id), method: :get %></td>
+        <td><%= USER DATE %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </section>
