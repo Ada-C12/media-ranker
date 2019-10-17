@@ -1,13 +1,3 @@
-<%# <% if @work.errors.any? %>
-  <%# <h1>Errors</h1> %>
-  <%# <ul class="alert alert-danger"> %>
-    <%# <% @work.errors.each do |column, message| %> 
-      <%# <li> %>
-        <%#<strong><%= column.capitalize %><%#</strong> <%= message %>
-      <%# </li> %>
-    <%# <% end %>
-  <%# </ul> %>
-<%# <% end %>
 <section>
 <%= form_with model: @work, class: "#{action_name}-work" do |f| %>
   <div class="form-group">

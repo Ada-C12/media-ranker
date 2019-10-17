@@ -26,5 +26,9 @@
       </tbody>
       <% end %>
     </table>
+    <section class ="user-buttons">
+      <%= button_to "See all users", users_path, class: "btn btn-secondary mr-2", method: :get %>
+      <%= button_to "Back to media list", root_path, class: "btn btn-primary mr-2", method: :get %>
+    </section>
   </section>
 </main>

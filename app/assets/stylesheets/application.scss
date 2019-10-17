@@ -23,6 +23,11 @@
   font-weight: bold;
 }
 
+a, h1, h2, h3, h4 {
+  color: #26A69A;
+  font-weight: bold;
+}
+
 .app-header__header {
   background-color: #B2DFDB;
   text-align: center;
@@ -43,6 +48,14 @@
   font-size: 2.5rem;
 }
 
+.spotlight__header-prefix {
+  color: black;
+}
+
+.spotlight__header-prefix a {
+  color: black;
+}
+
 .app-header__header small {
   color: white;
 }
@@ -55,6 +68,10 @@
   background-color: #26A69A;
   color: white;
   border-color:#26A69A;
+}
+
+.btn-primary:hover {
+  background-color: darkgreen;
 }
 
 nav {
@@ -90,12 +107,18 @@ nav {
 .top-ten__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 2em
 }
 
-.works-buttons {
+.top-ten__header {
+  color: #26A69A;
+  border-bottom: 2px solid;
+  border-bottom-color: #B2DFDB
+}
+
+.works-buttons, .user-buttons {
   display: flex;
   flex-direction: row;
-  margin-right: 50px;
 }
 
 .nav > li {

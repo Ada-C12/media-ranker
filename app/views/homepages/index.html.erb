@@ -1,15 +1,12 @@
 <main>
   <section class="spotlight">
-    <%# <% if @works != nil %>
       <h2 class="spotlight__header">
         <span class="spotlight__header-prefix">Media Spotlight: </span>
         <%= link_to Work.top_media.title, work_path(Work.top_media.id) %> by <%= Work.top_media.creator %>
       </h2>
 
       <p class="spotlight__description"><%= Work.top_media.votes.count %> votes - Description: <%= Work.top_media.description %> </p>
-    <%# <% else %>
-      <%# <h2>Media Spotlight: </h2> %>
-    <%# <% end %>
+
   </section>
 
   <section class="top-ten__container">
