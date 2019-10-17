@@ -13,11 +13,11 @@
     <tbody>
       <% (works).each do |w| %>
         <tr>
-          <td><%= %></td>
+          <td><%= w.votes.count %></td>
           <td><%= link_to w.title, work_path(w.id) %></td>
           <td><%= w.creator %></td>
           <td><%= w.published %></td>
-          <td><%= %></td>
+          <td><%= link_to "Upvote", upvote_work_path(w.id), method: :post, class: "btn btn-primary" %></td>
         </tr>
       <% end %>
     </tbody>
