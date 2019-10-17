@@ -15,13 +15,14 @@ class VotesController < ApplicationController
     end
   end
   
-  def new
-    @vote = Vote.new
-  end
   
   def create
-    # use params returned from work model
+    # check to see if there is a current user, if not flash error message
+    current_user = User.find_by(id: session[:user_id])
+    vote_params = Work.upvote(current_user)
+    
     @vote = Vote.new( vote_params )
+    
     if @vote.save
       redirect_to vote_path(@vote.id)
     else
