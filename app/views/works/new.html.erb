@@ -1,16 +1,16 @@
-<h2>New Work Form</h2>
-
-<% if @work.errors.any? %>
-  <ul class="errors">
-    <% @work.errors.each do |column, message| %>
-      <li>
-        <strong><%= column.capitalize %></strong> <%= message %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
-
-<%# This is how we render a partial with the name _form.html.erb ! %>
-<%# Sometimes we want to pass a local variable to the partial. That's the locals part! %>
-<%# For every local variable that we want to define for our partial, we put it in locals (Just as a reminder, locals is a hash) %>
-<%= render partial: "form", locals: { submit_button_label: "Create Work", work_form_class: "new-work-form" } %>
+<section class="container">
+  <h2 class="text-green">New Work Form</h2>
+  <% if @work.errors.any? %>
+    <ul class="errors">
+      <% @work.errors.each do |column, message| %>
+        <li>
+          <strong><%= column.capitalize %></strong> <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%# This is how we render a partial with the name _form.html.erb ! %>
+  <%# Sometimes we want to pass a local variable to the partial. That's the locals part! %>
+  <%# For every local variable that we want to define for our partial, we put it in locals (Just as a reminder, locals is a hash) %>
+  <%= render partial: "form", locals: { submit_button_label: "Create Work", work_form_class: "new-work-form" } %>
+</section>

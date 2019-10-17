@@ -1,37 +1,25 @@
 <%# form_with is a view helper that will generate the proper form for us and will help us hook into the other controller actions %>
 <%= form_with model: @work, class: work_form_class do |f| %>
-
   <%# f.text_field :somenameofsomeattributeonbook ... in this case, :title %>
-  <%= f.label :category %>
-  <%= f.text_field :category %>
-  <%= f.label :work %>
-  <%  %>
-
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :work %>
-
-  <%= f.label :creator %>
-  <%= f.text_field :creator %>
-  <%= f.label :work %>
-
-
-  <%= f.label :publication_year %>
-  <%= f.text_field :publication_year %>
-  <%= f.label :work %>
-
-  <%= f.select :work_id, @work.map{ |work| [work.name, work.id] } %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  
-
-
-
-
-
-
-
-
-  <%= f.submit submit_button_label, class: "book-form-button" %>
-
+  <div class="form-group">
+    <%= f.label :category %>
+    <%= select_tag(:id, options_for_select([['album', 1], ['book', 2], ['movie', 3]]), class: "form-control") %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :creator %>
+    <%= f.text_field :creator, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :publication_year %>
+    <%= f.text_field :publication_year, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= text_area(:post, :body, rows: 3, class: "form-control") %>
+  </div>
+  <%= f.submit submit_button_label, class: "btn btn-primary" %>
 <% end %>
