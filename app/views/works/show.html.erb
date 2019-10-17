@@ -1,8 +1,11 @@
+
 <h2><%= @work.title%> </h2>
 <p>Created by: <%=@work.creator%></p>
 <p>Published: <%=@work.publication_year%></p>
-<%# back to media ranks link use homepage%> 
+<%= link_to "Back to media ranks", root_path,class: "btn btn-primary" %>
 <%= link_to "Edit", edit_work_path, class: "btn btn-primary" %>
+<%= link_to "Delete", work_path(@work.id ), method: :delete, data: { confirm: "Are YOU sure?" }, class:"btn btn-danger" %>
+
 <%# add upvote button%>
 <%# add delete button%>
 
@@ -15,6 +18,7 @@
    
   </tr>
 
+   
    <% @work.votes.each do |vote| %>
   <tr>
     <td> <%=vote.user.username %></td>

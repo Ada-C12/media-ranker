@@ -30,8 +30,13 @@ class WorksController < ApplicationController
     end
   end
 
-  def edit
-    @work = Work.find_by(id: params[:id])
+	def edit
+	
+		@work = Work.find_by(id: params[:id])
+		if @work.nil?
+			head :not_found 
+			return 
+		end 
   end
 
   def update
@@ -47,7 +52,18 @@ class WorksController < ApplicationController
     end
   end
 
-	def destory
+	def destroy
+
+    found_work = Work.find_by( id: params[:id] )
+    if found_work.nil?
+      redirect_to books_path
+      return
+    else
+			found_work.destroy
+			flash[:success] = "Successfully destroyed #{found_work.category} #{found_work.id}"
+      redirect_to root_path
+      return
+    end
 		
   end
 
