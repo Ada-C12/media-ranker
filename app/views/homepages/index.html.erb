@@ -14,7 +14,8 @@
     <h2 class="top-ten__header">Top <%= category.capitalize %></h2>
     <% @works.top_ten(category).each do |work| %>
       <ul>
-        <li><h3><%= work.title %></h3> by <%= work.creator %></li>
+        <li><h3><%= work.title %></h3> by <%= work.creator %><br>
+        <%= work.votes.count %> votes</li>
       </ul>
     <% end %>
   <% end %>
