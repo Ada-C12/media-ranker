@@ -1,6 +1,8 @@
 class Work < ApplicationRecord
 
   validates :title, presence: true
+  validates :title, uniqueness: { scope: :category }
+
 
   def self.all_works_categorized
     all_works_categorized = {}
