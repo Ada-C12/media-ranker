@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
 
   def create
-    work = Work.find_by(id: params[:work_id])
+    # work = Work.find_by(id: params[:work_id])
     vote_params = vote.upvote
     @vote = Vote.create(vote_params)
   end

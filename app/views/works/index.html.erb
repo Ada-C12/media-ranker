@@ -17,13 +17,14 @@
         </thead>
         <tbody>
           <tr>
+            <% vote_tally = works.votes.length %>
             <% works_array = [:album, :book, :movie] %>
             <% works_array.each do |category|%>
               <% works = Work.where(category: category)%>
                 <% works.each do |work| %>
                 <tr>
                   <td>
-                    Num
+                    <%= vote_tally %>
                   </td>
                   <td>
                     <%= link_to work.title, work_path(id: work.id) %> 
@@ -35,7 +36,7 @@
                     <%= work.publication_year%>
                   </td>
                   <td>
-                    <a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/406/upvote">Upvote</a>
+                    <%= link_to "Upvote", works_path(id: work.id), class:"btn btn-primary" %>
                   </td>
                 <% end %>
             <% end %>
