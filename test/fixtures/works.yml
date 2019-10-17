@@ -1,0 +1,12 @@
+# book:
+#   category: 'book'
+#   title: 'Harry Potter and the Philosopher's Stone'
+#   creator: 'J. K. Rowling'
+#   publication_year: 1997
+#   description: 'First book in the series'
+# album:
+#   category: 'album'
+#   title: 'Ghosteen'
+#   creator: 'Nick Cave & The Bad Seeds'
+#   publication_year: 2019
+#   description: 'Top album this year'
