@@ -17,7 +17,7 @@
           <tr>
             <% if work.category == 'album'%>
                 <td>
-                  <%# Votes.count %>
+                  <%= work.votes.count %>
                 </td>
                 <td>
                   <%= link_to work.title, work_path(work.id) %>
@@ -29,7 +29,7 @@
                   <%= work.publication_year %>
                 </td>
                 <td>
-                  <%# button Upvote, vote_path(work.id) %>
+                  <%= link_to "Upvote", work_votes_path(work.id), method: :post, class: "btn btn-primary" %>
                 </td>
               </ul>
             <% end %>
@@ -55,7 +55,7 @@
           <tr>
             <% if work.category == 'movie'%>
                 <td>
-                  <%# Votes.count %>
+                  <%= work.votes.count %>
                 </td>
                 <td>
                   <%= link_to work.title, work_path(work.id) %>
@@ -93,7 +93,7 @@
           <tr>
             <% if work.category == 'album'%>
                 <td>
-                  <%# Votes.count %>
+                  <%= work.votes.count %>
                 </td>
                 <td>
                   <%= link_to work.title, work_path(work.id) %>
