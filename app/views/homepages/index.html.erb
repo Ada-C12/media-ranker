@@ -9,7 +9,7 @@
         <p>No media have been added yet</p>
       <% end %>
     </h2>
-    <p class="spotlight__description">VOTES - brand new</p>
+    <p class="spotlight__description"><%= @spotlight.votes.count %> votes - <%= @spotlight.description %></p>
   </section>
 
   <hr class="root__hr">
@@ -21,10 +21,10 @@
         <% @top_ten_movies.each do |movie| %>
           <li class="list-group-item">
             <h4>
-              <%= link_to movie.title, work_path(movie.id)%>
-              <small class="top-ten__creator">by <%=movie.creator%> </small>
+              <%= link_to movie.title, work_path(movie.id) %>
+              <small class="top-ten__creator">by <%= movie.creator %> </small>
             </h4>
-            <p>VOTES</p>
+            <p><%= movie.votes.count %> votes</p>
           </li>
         <% end %>
       </ul>
@@ -39,7 +39,7 @@
               <%= link_to book.title, work_path(book.id)%>
               <small class="top-ten__creator">by <%=book.creator%> </small>
             </h4>
-            <p>VOTES</p>
+            <p><%= book.votes.count %> votes</p>
           </li>
         <% end %>
       </ul>
@@ -54,7 +54,7 @@
               <%= link_to album.title, work_path(album.id)%>
               <small class="top-ten__creator">by <%=album.creator%> </small>
             </h4>
-            <p>VOTES</p>
+            <p><%= album.votes.count %> votes</p>
           </li>
         <% end %>
       </ul>
