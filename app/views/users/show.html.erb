@@ -1,47 +1,50 @@
 <main>
   <header class="show-header">
     <h1><%=@user.username%></h1>
-    <%= link_to "Edit", edit_user_path(@user.id), class: "edit-link" %>
-    <%= link_to "Delete", user_path(@user.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
+    <section class="edit-delete-links">
+      <%= link_to "Edit", edit_user_path(@user.id), class: "edit-link" %>
+      <%= link_to "Delete", user_path(@user.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
+    <section>
   </header>
-
-  <section class="show-details">
-    <ul>
-      <li> 
-        <strong class ="details-title">USERNAME: </strong><%= @user.username %>
-      </li>              
-      <li> 
-        <strong class ="details-title">USER SINCE: </strong><%= @user.created_at %>
-      </li>   
-      <li> 
-        <strong class ="details-title"># VOTES: </strong><%= @user.votes.count %>
-      </li>      
-    </ul>
-  </section>
+  
+  <h5>User Since <%= @user.created_at %> </h5>
 
 <% if @user.votes.count == 0 %>
     <h4> <%= @user.username %> has no votes yet :( </h4>
   <% else %>  
     <section>
-      <h2>
-        <%= @user.username %> has voted <%= @user.votes.count %> times
-      </h2>
+      <h2><%= @user.upvotes.count %> Likes</h2>
       <table>
         <tr>
-          <td>TYPE</td>
-          <td>USER</td>
+          <td>TITLE</td>
+          <td>CREATOR</td>
           <td>DATE</td>
         </tr>
-        <% @user.votes.each do |vote|%>
+        <% @user.upvotes.each do |vote|%>
           <tr>
-            <td><%= vote.vote_type %></td>
-            <td>
-              <%= link_to vote.user.username, user_path(vote.user_id)%>
-            </td>
+            <td><%= link_to vote.work.title, work_path(vote.work_id)%></td>
             <td><%= vote.created_at %></td>
           </tr>
         <% end%>
-      </table>
+      </table>      
+    </section>
+
+    <section>
+      <h2><%= @user.downvotes.count %> Dislikes</h2>
+      <table>
+        <tr>
+          <td>TITLE</td>
+          <td>CREATOR</td>
+          <td>DATE</td>
+        </tr>
+        <% @user.downvotes.each do |vote|%>
+          <tr>
+            <td><%= link_to vote.work.title, work_path(vote.work_id)%></td>
+            <td><%= vote.work.creator %></td>
+            <td><%= vote.created_at %></td>
+          </tr>
+        <% end%>
+      </table>      
     </section>
   <% end %> 
 

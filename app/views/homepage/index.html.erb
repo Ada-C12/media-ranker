@@ -30,13 +30,13 @@
 
             <% if vote.blank? %>
               <div class="vote-active">
-                <%= link_to "↑", work_upvote_path(work.id), method: :post, class: "vote-link" %>
+                <%= link_to "↑", work_upvote_path(work.id), method: :post, class: "vote-link upvote" %>
               </div>
               
               <span class="badge"> <%= work.vote_count %> </span>
               
               <div class="vote-active">
-                <%= link_to "↓", work_downvote_path(work.id), method: :post, class: "vote-link" %>
+                <%= link_to "↓", work_downvote_path(work.id), method: :post, class: "vote-link downvote" %>
               </div>      
             
             <% elsif vote.vote_type == "upvote" %>

@@ -41,6 +41,22 @@ class Work < ApplicationRecord
     return self.votes.where(vote_type: "downvote").count
   end
 
+  def upvotes
+    if self.votes.empty?
+      return nil
+    else
+      return self.votes.where(vote_type: "upvote").order(:created_at)
+    end
+  end
+
+  def downvotes
+    if self.votes.empty?
+      return nil
+    else
+      return self.votes.where(vote_type: "downvote").order(:created_at)
+    end
+  end
+
 
 end
 

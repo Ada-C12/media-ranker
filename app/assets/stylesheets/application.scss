@@ -170,19 +170,32 @@ form label {
 }
 
 .vote-active a {
-  color: black;
-  font-size: 2rem;
-  font-weight: bolder;
-}
-
-.vote-disabled div {
   color: grey;
   font-size: 2rem;
   font-weight: bolder;
 }
 
-.alreadyvote {
-  color: #fa4f05;
+.vote-disabled div {
+  color: lightgray;
   font-size: 2rem;
   font-weight: bolder;
 }
+
+.alreadyvote a {
+  color: black;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.upvote:hover {
+  color: green
+}
+
+.downvote:hover {
+  color: red
+}
+
+.downvote:hover, .upvote:hover  {
+  background-color: lightgrey;
+}
+
