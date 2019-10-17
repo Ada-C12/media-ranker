@@ -7,18 +7,18 @@ class Vote < ApplicationRecord
   validates :vote_type, presence: true
 
   def self.all_upvotes
-    if Vote.all
-      return Vote.all.where(vote_type: "upvote")
-    else
+    if Vote.all.empty?
       return nil
+    else
+      return Vote.all.where(vote_type: "upvote")
     end
   end
 
   def self.all_downvotes
-    if Vote.all
-      return Vote.all.where(vote_type: "downvote")
-    else
+    if Vote.all.empty?
       return nil
+    else
+      return Vote.all.where(vote_type: "downvote")
     end 
   end
 

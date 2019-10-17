@@ -61,12 +61,68 @@ describe Vote do
 
   describe "custom methods" do
     
-    it 'self.all_upvotes works correctly' do 
-      
+    describe 'self.all_upvotes' do
+      it 'returns all upvotes correctly - ignore downvotes' do
+        new_vote.save
+        upvotes = Vote.all_upvotes
+        expect(upvotes.count).must_equal 1
+        
+        Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
+        upvotes = Vote.all_upvotes
+        expect(upvotes.count).must_equal 2
+        
+        Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
+        upvotes = Vote.all_upvotes
+        expect(upvotes.count).must_equal 3
+
+        Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "downvote")
+        upvotes = Vote.all_upvotes
+        expect(upvotes.count).must_equal 3
+      end
+
+      it 'returns nil if no votes' do
+        Vote.destroy_all
+        expect(Vote.all_upvotes).must_equal nil
+      end
+
+      it 'returns [] if no upvotes (but there are downvotes)' do
+        Vote.destroy_all
+        Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "downvote")
+        
+        expect(Vote.all_upvotes).must_equal []
+      end
     end
     
-    it 'self.all_downvotes works correctly' do
+    describe 'self.all_downvotes' do
+      it 'returns all downvotes correctly - ignore upvotes' do
+        new_vote.save
+        downvotes = Vote.all_downvotes
+        expect(downvotes.count).must_equal 0
+        
+        Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "downvote")
+        downvotes = Vote.all_downvotes
+        expect(downvotes.count).must_equal 1
+        
+        Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "downvote")
+        downvotes = Vote.all_downvotes
+        expect(downvotes.count).must_equal 2
+
+        Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
+        downvotes = Vote.all_downvotes
+        expect(downvotes.count).must_equal 2
+      end
     
+      it 'returns nil if no votes' do
+        Vote.destroy_all
+        expect(Vote.all_downvotes).must_equal nil
+      end
+
+      it 'returns [] if no upvotes (but there are downvotes)' do
+        Vote.destroy_all
+        Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
+        
+        expect(Vote.all_downvotes).must_equal []
+      end
     end
   end
 
