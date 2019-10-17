@@ -32,23 +32,23 @@ end
 puts "Added #{Work.count} media records"
 puts "#{work_failures.length} works failed to save"
 
-input_users = [
-  {
-    name: "Shangri La"
-  },
-  {
-    name: "Scooby Doo"
-  },
-  {
-    name: "Lloyd Dobler"
-  },
-  {
-    name: "Winnie LaPooh"
-  },
-  {
-    name: "Minnie The Moocher"
-  }
-]
+# input_users = [
+#   {
+#     name: "Shangri La"
+#   },
+#   {
+#     name: "Scooby Doo"
+#   },
+#   {
+#     name: "Lloyd Dobler"
+#   },
+#   {
+#     name: "Winnie LaPooh"
+#   },
+#   {
+#     name: "Minnie The Moocher"
+#   }
+# ]
 
 user_failures = []
 input_users.each do |input_user|
