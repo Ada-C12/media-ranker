@@ -54,7 +54,11 @@
 
     <section class="alert__container">
       <% flash.each do |name, message| %>
-        <div class="alert alert-success">
+        <% if name == "success" %>
+          <div class="alert alert-success">
+        <% elsif name == "error" %>
+          <div class="alert alert-warning">
+        <% end %>
           <span><%= message %></span>
         </div>
       <% end %>
