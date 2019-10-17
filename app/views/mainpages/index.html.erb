@@ -1,16 +1,10 @@
-<h2> List of Works </h2>
-
-<br>
-
 <div>
   <% @top_work = @works.sample %>
   <p> Media Spotlight: <%= link_to "#{@top_work.title}", work_path(@top_work.title) %> by <%= @top_work.creator %> </p>
   <p> vote - <%= @top_work.description %> </p>
 </div>
 
-<br>
-
-<h3> Albums </h3>
+<h3> Top Albums </h3>
 <table class='table'>
   <tr>
     <th> Votes </th>
@@ -31,7 +25,7 @@
   <% end %>
 </table>
 
-<h3> Books </h3>
+<h3> Top Books </h3>
 <table class='table'>
   <tr>
     <th> Votes </th>

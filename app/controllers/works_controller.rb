@@ -41,6 +41,32 @@ class WorksController < ApplicationController
     end
   end
 
+  def update
+    @work = work.find_by(id: params[:id])
+
+    if @work.update(work_params)
+      redirect_to work_path(@work)
+      return
+    else
+      render :edit
+      return
+    end
+  end
+
+  def destroy
+    @work = work.find_by(id: params[:id])
+
+    if @work.nil?
+      flash[:error] = "Could you find media #{@work.name}"
+      redirect_to works_path
+      return
+    end
+
+    @work.destroy
+    redirect_to works_path
+    return
+  end
+
   private
 
   def work_params
