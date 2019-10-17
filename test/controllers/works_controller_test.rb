@@ -12,6 +12,12 @@ describe WorksController do
     end
 
     it "responds with success when there are no works saved" do
+      works.each do |work|
+        work.destroy
+      end
+
+      expect(Work.count).must_equal 0
+
       get works_path
 
       must_respond_with :success
