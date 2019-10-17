@@ -34,6 +34,7 @@ describe Work do
   describe "validations" do
     it "must have a category" do
       invalid_work_category = works(:invalid_work_category)
+
       expect(invalid_work_category.valid?).must_equal false
       expect(invalid_work_category.errors.messages).must_include :category
       expect(invalid_work_category.errors.messages[:category]).must_equal ["can't be blank"]
@@ -50,11 +51,33 @@ describe Work do
 
   describe "custom methods" do
     describe "most_votes" do
+      before do
+        @work2 = works(:work2)
+        @work3 = works(:work3)
+        @user2 = users(:user2)
+      end
+      it "returns accurate work with most votes" do
+        expect(valid_work.votes.count).must_equal 1
+        expect(@work2.votes.count).must_equal 1
+        expect(@work3.votes.count).must_equal 2
 
+        expect(Work.most_votes).must_equal @work3
+      end
+
+      it "returns in alphabetical order if tied" do
+        vote = Vote.create(user: @user2, work: @work2)
+
+        expect(@work2.votes.count).must_equal 2
+        expect(@work3.votes.count).must_equal 2
+
+        expect(Work.most_votes).must_equal @work2
+      end
     end
 
     describe "top_ten_movies" do
-
+      it "sorts in reverse alphabetical order if tied" do
+        
+      end
     end
 
     describe "top_ten_books" do

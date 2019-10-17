@@ -39,7 +39,7 @@ describe Vote do
   
   describe "validations" do
     it "must have a user_id" do
-      invalid_vote_user = votes(:invalid_vote_user)
+      invalid_vote_user = Vote.create(user: nil, work: valid_work)
 
       expect(invalid_vote_user.valid?).must_equal false
       expect(invalid_vote_user.errors.messages).must_include :user
@@ -47,7 +47,7 @@ describe Vote do
     end
 
     it "must have a work_id" do
-      invalid_vote_work = votes(:invalid_vote_work)
+      invalid_vote_work = Vote.create(user: valid_user, work: nil)
 
       expect(invalid_vote_work.valid?).must_equal false
       expect(invalid_vote_work.errors.messages).must_include :work

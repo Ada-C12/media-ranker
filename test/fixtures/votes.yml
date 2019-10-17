@@ -2,10 +2,14 @@ valid_vote:
   user: valid_user
   work: valid_work
 
-invalid_vote_user:
-  user:
-  work: valid_work
-
-invalid_vote_work:
+valid2_work2:
   user: valid_user
-  work: 
+  work: work2
+
+valid3_work3:
+  user: valid_user
+  work: work3
+
+valid4_work3:
+  user: user2
+  work: work3
