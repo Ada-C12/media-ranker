@@ -2,58 +2,46 @@
 <html>
   <head>
     <title>Media Ranker 2.0</title>
- 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag  %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  
   </head>
-<body>
-  <header class="app-header__header">
-    <h1>
-      <%= link_to "Media Ranker", root_path %>
-      <small>Ranking the Best of Everything</small>
-    </h1>
-
-    <nav class="app-header__nav">
-      <ul class="nav app-header__site-nav-container">
-        <li class="nav-item app-header__nav_item">
-          <%= link_to "View top media", root_path %>
+  <body>
+    <header class="jumbotron rounded-0 pb-2">
+      <div class="container mb-5">
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-1">
+          </div>
+          <div class="col-md-auto d-flex">
+            <h1 class=""><%= link_to "Media Ranker", root_path, class: "text-danger" %></h1>
+            <h1 class="text-white"> | Ranking the Best of Everything</h1>
+          </div>
+          <div class="col col-lg-1">
+          </div>
+        </div>
+      </div>
+      <ul class="nav row">
+        <li class="col-sm nav-item">
+          <%= link_to "View top media", root_path, class: "nav-link" %>
         </li>
-
-
-        <li class="nav-item app-header__nav_item">
-          <%= link_to "View all media", root_path %>
+        <li class="col-sm nav-item">
+          <%= link_to "View all media", works_path, class: "nav-link" %>
         </li>
-
-        <li class="nav-item app-header__nav_item">
-          <%# <a class="nav-link" href="/works/new">Add a new work</a> %>
-          <%= link_to "Add a new work", root_path %>
+        <li class="col-sm nav-item">
+          <%= link_to "Add a new work", new_work_path, class: "nav-link" %>
         </li>
-
-        <li class="nav-item app-header__nav_item">
-          <%= link_to "View all users", root_path %>
+        <li class="col-sm nav-item">
+          <%= link_to "View all users", root_path, class: "nav-link" %>
         </li>
-
-      </ul>
-      <ul class="nav app-header__user-nav-container">
-
-        <li class="nav-item app-header__nav_item">
+        <li class="col-sm nav-item">
+        </li>
+        <li class="col-sm">
           <%= link_to "Log in", root_path, class:"btn btn-primary"%>
+          <%= link_to "Log out" , root_path, class:"btn btn-secondary"%>
         </li>
-        <li class="nav-item app-header__nav_item">
-          <%= link_to "Log out" , root_path, class:"btn btn-primary"%>
-          <%# <a class="btn btn-primary" rel="nofollow" data-method="post" href="/logout">Log Out</a> %>
-        </li>
-
       </ul>
-    </nav>
-  </header>
-
+    </header>
     <%= yield %>
-
-</body>
-  
+  </body>
 </html>
