@@ -1,6 +1,6 @@
 <main>
-    <h2>User Summary: <%= @user.username %></h2>
-<p>Joined site <%= @user.created_at %></p>
+  <h2>User Summary: <%= @user.username %></h2>
+  <p>Joined site <%= readable_date(@user.created_at) %></p>
 
 <section class="user-votes__container">
   <h3 class="user-votes__header">Votes</h3>
