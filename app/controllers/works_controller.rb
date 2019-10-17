@@ -75,10 +75,20 @@ class WorksController < ApplicationController
   def upvote
     work = Work.find_by(id: params[:id])
     current_user = User.find_by(id: session[:user_id])
-    @vote = Vote.create(user_id: current_user.id, work_id: work.id, date: Date.today)
-    if @vote.save
-      flash[:vote] = "Thank you for your vote!"
+
+    previous_vote = Vote.where(user_id: current_user.id, work_id: work.id)
+
+    if previous_vote.exists?
+      flash[:second_vote] = "You already voted for this work. Please vote for another."
       redirect_to work_path
+      return
+    else
+      @vote = Vote.create(user_id: current_user.id, work_id: work.id, date: Date.today)
+      if @vote.save
+        flash[:vote] = "Thank you for your vote!"
+        redirect_to work_path
+        return
+      end
     end
     
   end
