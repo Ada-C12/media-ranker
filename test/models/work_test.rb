@@ -9,10 +9,12 @@ describe Work do
       publication_year: 2010
     )
   }
-
-  it "can be instantiated" do
-    expect(text_work.valid?).must_equal true
-  end
+  
+  describe "initilaiztaion" do
+    it "can be instantiated" do
+      expect(text_work.valid?).must_equal true
+    end
+  end 
 
   describe "validations" do 
     it "must have a category" do
@@ -47,4 +49,13 @@ describe Work do
       expect(text_work.errors.messages[:publication_year]).must_equal ["can't be blank", "is not a number"]
     end
   end
+
+  describe "custom method(s)" do
+    describe "top_three" do 
+      expect(Work.top_three).must_be_kind_of Array
+      expect(Work.top_three.count).must_equal 3
+      expect(Work.top_three.first.title).must_equal 'A'
+      expect(Work.top_three.last.title).must_equal 'Ghosteen'
+    end
+  end 
 end

@@ -1,12 +1,28 @@
-# book:
-#   category: 'book'
-#   title: 'Harry Potter and the Philosopher's Stone'
-#   creator: 'J. K. Rowling'
-#   publication_year: 1997
-#   description: 'First book in the series'
-# album:
-#   category: 'album'
-#   title: 'Ghosteen'
-#   creator: 'Nick Cave & The Bad Seeds'
-#   publication_year: 2019
-#   description: 'Top album this year'
+book:
+  category: 'book'
+  title: 'A'
+  creator: 'a'
+  publication_year: Date.today.year - 100
+  description: 'aaa'
+  votes: ['olivia', 'danny', 'boba']
+book:
+  category: 'book'
+  title: 'B'
+  creator: 'b'
+  publication_year: Date.today.year - 50
+  description: 'bbb'
+  votes: ['danny', 'boba']
+book:
+  category: 'book'
+  title: 'C'
+  creator: 'c'
+  publication_year: Date.today.year - 30
+  description: 'ccc'
+  votes: ['boba']
+album:
+  category: 'album'
+  title: 'Ghosteen'
+  creator: 'Nick Cave & The Bad Seeds'
+  publication_year: Date.today.year
+  description: 'Top album this year'
+  votes: []
