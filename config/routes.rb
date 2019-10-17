@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'homepages#index'
   
-  resources :users, only: [:index, :show]
+  resources :works
   
-  resources :works do
+  resources :users, only: [:index, :show] do
     resources :votes, only: [:create]
   end
   
