@@ -35,10 +35,20 @@ describe Work do
 
   describe "custom methods" do
     describe "top-ten" do
+      it "should display the 10 elements if there 10 or more works listed" do
+        movies = Work.top_ten("movie")
+
+        expect(movies.length).must_equal 10
+      end
       
+      it "should display all works if there are less than 10 pieces of work" do
+      end
     end
     
     describe "spotlight" do
+      it "should display one piece of work" do
+
+      end
     end
   end
 end

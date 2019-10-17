@@ -4,3 +4,57 @@ valid_work:
   creator: Tim Curry
   publication_year: 1992
   description: best movie ever
+valid_work_1:
+  category: movie
+  title: Pulp Fiction
+  creator: Tim Curry
+  publication_year: 1992
+  description: best movie ever
+valid_work_2:
+  category: movie
+  title: Selena
+  creator: Tim Curry
+  publication_year: 1992
+  description: best movie ever
+valid_work_3:
+  category: movie
+  title: Toy Story
+  creator: Tim Curry
+  publication_year: 1992
+  description: best movie ever
+valid_work_4:
+  category: movie
+  title: Wolf of Wall Street
+  creator: Tim Curry
+  publication_year: 1992
+  description: best movie ever
+valid_work_5:
+  category: movie
+  title: The Departed
+  creator: Tim Curry
+  publication_year: 1992
+  description: best movie ever
+valid_work_6:
+  category: movie
+  title: Finding Nemo
+  creator: Tim Curry
+  publication_year: 1992
+  description: best movie ever
+valid_work_7:
+  category: movie
+  title: The Big Short
+  creator: Tim Curry
+  publication_year: 1992
+  description: best movie ever
+valid_work_8:
+  category: movie
+  title: Moonlight
+  creator: Tim Curry
+  publication_year: 1992
+  description: best movie ever
+valid_work_9:
+  category: movie
+  title: Scream
+  creator: Tim Curry
+  publication_year: 1992
+  description: best movie ever
