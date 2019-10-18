@@ -8,7 +8,10 @@
 by
 <%= book.creator %>
 :
-<%= book.votes.length %> Votes
+<span class="badge badge-pill badge-info"><%=book.votes.length%>
+<% if book.votes.length == 1 %>Vote</span>
+<% else %>Votes</span>
+<%end%>
 <%= button_to 'Upvote', upvote_path(book.id) %>
 </li>
 <% end %>
@@ -21,7 +24,10 @@ by
 by
 <%= album.creator %>
 :
-<%= album.votes.length %> Votes
+<span class="badge badge-pill badge-info"><%=album.votes.length%>
+<% if album.votes.length == 1 %>Vote</span>
+<% else %>Votes</span>
+<%end%>
 <%= button_to 'Upvote', upvote_path(album.id) %>
 </li>
 <% end %>
@@ -34,7 +40,10 @@ by
 by
 <%= movie.creator %>
 :
-<%= movie.votes.length %> Votes
+<span class="badge badge-pill badge-info"><%=movie.votes.length%>
+<% if movie.votes.length == 1 %>Vote</span>
+<% else %>Votes</span>
+<%end%>
 <%= button_to 'Upvote', upvote_path(movie.id) %>
 </li>
 <% end %>
