@@ -9,10 +9,6 @@ class Work < ApplicationRecord
   def self.sort(category)
     all_works = Work.where(category: category)
     
-    sorted_works = all_works.sort_by {|work| -work.votes.count}
-  end
-
-  def self.top_three(category)
-    Work.where(category: category).first(3)
+    sorted_works = all_works.sort_by { |work| -work.votes.count}
   end
 end
