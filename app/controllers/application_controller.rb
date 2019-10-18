@@ -1,7 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :require_log_in, only: [:upvote]
+  before_action :logged_in_user
   
   private 
+  
+  def logged_in_user
+    @logged_in_user = User.find_by(id: session[:user_id])
+  end
   
   def require_log_in
     @user = User.find_by(id: session[:user_id])

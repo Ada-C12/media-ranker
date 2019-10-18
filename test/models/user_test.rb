@@ -28,31 +28,6 @@ describe User do
     end
   end
   
-  describe "custom methods" do
-    describe "self.is_logged_in" do
-      it "returns false when session id is nil" do
-        session_id = nil
-        
-        expect(User.is_logged_in(session_id)).must_equal false
-      end
-      
-      it "returns false when no User found with user id corresponding to session id" do
-        session_id = -1
-        
-        expect(User.is_logged_in(session_id)).must_equal false
-      end
-      
-      it "returns true when session id is valid" do
-        new_user.save 
-        expect(User.first).wont_be_nil
-        
-        session_id = User.first.id
-        
-        expect(User.is_logged_in(session_id)).must_equal true
-      end
-    end
-  end
-  
   describe "relationships" do
     it "can have many votes" do
       expect(users(:doug).votes.count).must_be :>, 1
