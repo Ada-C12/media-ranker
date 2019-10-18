@@ -24,21 +24,19 @@ class VotesController < ApplicationController
   end
   
   def create
-    if params[:work_id]
-      @vote = Vote.new(
-        user_id: session[:user_id],
-        work_id: params[:work_id],
-      )
-      
-      if @vote.save
-        redirect_to work_path(params[:work_id])
-        return
-      else
-        render :new
-        return
-      end
+    params[:work_id]
+    @vote = Vote.new(
+      user_id: session[:user_id],
+      work_id: params[:work_id],
+    )
+    
+    if @vote.save
+      flash[:success] = "You have successfully voted for #{@current_work.title}"
+      redirect_to works_path
+      return
     else
-      redirect_to votes_path
+      redirect_to work_path(params[:work_id])
+      return
     end
   end
   
