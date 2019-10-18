@@ -3,6 +3,7 @@ require "test_helper"
 describe User do
   
   let (:user1) { users(:user1) }
+  let (:album2) { works(:album2) }
   
   describe "RELATIONS" do
     it "can have many votes" do
@@ -16,19 +17,15 @@ describe User do
   
   describe "VALIDATIONS" do
     it "Can create User obj with correct attributes" do
-      assert(user1.save!)
+      assert(user1.valid?)
       db_user = User.find_by(name: user1.name)
       assert(db_user.name == user1.name)
-      assert(db_user.votes.count == 0)
+      assert(db_user.votes.count == 13)
       
-      # make user1 cast a vote
-      assert(Vote.count == 0)
-      vote1 = Vote.create(user_id: db_user.id, work_id: Work.first.id)
-      assert(db_user.votes.count == 1)
-      assert(Vote.count == 1)
-      
-      # assert(db_user.votes attributes are correct!)
-      
+      # make user1 cast a new valid vote
+      vote1a2 = Vote.create(user_id: db_user.id, work_id: album2.id)
+      assert(db_user.votes.count == 14)
+      assert(db_user.votes.last == Vote.last)
     end
     
     it "Won't create User obj, given blank name inputs" do
