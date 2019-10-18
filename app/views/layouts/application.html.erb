@@ -60,9 +60,18 @@
         <% end %>
         <div class="<%= alert_class %>">
           <span>
+          <% if message["name"] %>
+            <%= message["name"] %>
+          <% else %>
             <%= message %>
+          <% end %>
           </span>
           <ul>
+          <% if message["message"] %>
+            <li>
+            <%= message["message"] %>
+            </li>
+          <% end %>
           <% if @work != nil && @work.errors %>
             <% @work.errors.each do |k, v| %>
               <li>
@@ -70,6 +79,14 @@
               </li>
             <% end %>
           <% end %>
+          <% if @user != nil && @user.errors %>
+            <% @user.errors.each do |k, v| %>
+              <li>
+                <%= k %>: <%= v %>
+              </li>
+            <% end %>
+          <% end %>
+
           </ul>
         </div>
       <% end %>
