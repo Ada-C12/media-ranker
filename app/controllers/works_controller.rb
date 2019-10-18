@@ -3,7 +3,9 @@ class WorksController < ApplicationController
   before_action :require_user, only: [:upvote]
 
   def index
-    @works = Work.all
+    @albums = Work.album_list
+    @books = Work.book_list
+    @movies = Work.movie_list
   end
 
   def show
@@ -33,7 +35,7 @@ class WorksController < ApplicationController
         flash[:success] = "#{@work.title} added successfully"
         redirect_to work_path(@work.id)
       else
-        flash.now[:error] = "You didn't do that correctly"
+        flash.now[:error] = @work.errors { }
         render new_work_path
       end
   end
@@ -88,7 +90,7 @@ class WorksController < ApplicationController
     @vote = Vote.create(user_id: @user.id, work_id: @work.id)
 
       if @vote
-        flash[:success] = "you voted!"
+        flash[:success] = "Yay you voted!"
         redirect_to work_path(@work.id)
       end
     else
@@ -102,7 +104,7 @@ class WorksController < ApplicationController
   def require_user
     @user = User.find_by(id: session[:user_id])
     if @user.nil?
-      flash[:error] = "you must be logged in"
+      flash[:error] = "You must be logged in first"
       redirect_to works_path
     end
   end

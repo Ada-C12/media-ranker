@@ -7,15 +7,35 @@ class Work < ApplicationRecord
   # this method will be used in homepages view and works#index view
 
 
-  # 
+  # https://stackoverflow.com/questions/16996618/rails-order-by-results-count-of-has-many-association
   def self.album_list
-
     return Work
       .where(category: "album")
       .left_joins(:votes)
       .group(:id)
       .order('COUNT(votes.id) DESC')
+  end
 
-    #iterate through each work to count the vote
+  def self.book_list
+    return Work
+    .where(category: "book")
+    .left_joins(:votes)
+    .group(:id)
+    .order('COUNT(votes.id) DESC')
+  end
+
+  def self.movie_list 
+    return Work
+    .where(category: "movie")
+    .left_joins(:votes)
+    .group(:id)
+    .order('COUNT(votes.id) DESC')
+  end
+
+  def self.spotlight
+    return Work
+    .left_joins(:votes)
+    .group(:id)
+    .order('COUNT(votes.id) DESC')
   end
 end

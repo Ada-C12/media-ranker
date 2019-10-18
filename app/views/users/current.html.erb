@@ -1,8 +1,7 @@
-<h1>User Summary: </h1>
+<h1>About the Current User...</h1>
 
-<section>
-  <p>Username: <%= @user.username %></p>
-  <p>Joined Site On: <%= @user.created_at%></p>
-
-  <%# Display info about votes made by a user%>
-</section>
+<% if @user.nil? %>
+  <p>I am not logged in!</p>
+<% else %>
+  <p>I'm logged in! My name is: <%= @user.username %></p>
+<% end %>

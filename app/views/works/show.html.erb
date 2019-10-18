@@ -12,3 +12,12 @@
 <%= link_to "Edit Work", edit_work_path(@work.id) %>
 <%= link_to "Delete Work", work_path(@work.id), method: :delete, data: {confirm: "Delete this work?"} %>
 <%= link_to "Upvote", upvote_path, method: :post %>
+
+<% vote_list = Vote.where(work_id: @work.id)%>
+<%= vote_list.length %> Votes
+
+<% vote_list.each do |vote| %>
+  <% user_id = vote.user_id%>
+  <% user = User.find(user_id)%>
+  <%= user.username%> <%= vote.created_at%>
+<%end%>
