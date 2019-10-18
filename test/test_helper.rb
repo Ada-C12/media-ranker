@@ -63,4 +63,20 @@ class ActiveSupport::TestCase
       vote1a1: votes(:vote1a1)
     }
   end
+  
+  def desc_order?(array_of_Work_objs)
+    # manually tested w/ print statements
+    if array_of_Work_objs.length == 1
+      # BASE CASE
+      return true
+    elsif array_of_Work_objs[0].votes.count >= array_of_Work_objs[1].votes.count
+      # puts array_of_Work_objs[0].title, "with #{array_of_Work_objs[0].votes.count}"
+      # puts array_of_Work_objs[1].title, "with #{array_of_Work_objs[1].votes.count}\n\n\n"
+      # RECURSE
+      return desc_order?(array_of_Work_objs[1..-1])
+    elsif array_of_Work_objs[0].votes.count < array_of_Work_objs[1].votes.count
+      # not in descending order
+      return false
+    end
+  end
 end

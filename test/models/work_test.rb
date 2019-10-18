@@ -14,11 +14,15 @@ describe Work do
       assert(movie1.votes.count == 5)
     end
     
-    it "workObj.votes exists and can return Vote objs" do
+    it "work_obj.votes exists and can return Vote objs" do
       movie1.votes.each do |vote|
         assert(vote.class == Vote)
         assert(vote.work.title == movie1.title)
       end 
+    end
+    
+    it "if work_obj gets deleted, its dependent votes are too" do
+    
     end
     
   end
@@ -101,64 +105,103 @@ describe Work do
       assert( Work.spotlight_winner == expected_winner)
     end
     
-    it "edge case" do
+    it "edge case: zero votes for everyone" do
       Vote.destroy_all
       assert(Vote.count == 0)
-      p Work.spotlight_winner
+      result = Work.spotlight_winner
+      
+      assert(result.id == nil)
+      assert(result.title == "N/A")
+      assert(result.creator == "NOBODY")
+      assert(result.description == "ZERO VOTES for any of the works, that's why you're seeing this super special default message")
     end
   end
   
-  # describe "METHOD: self.all_in()" do
-  # it "nominal case" do
-  #   # arrange, already verified in "VALIDATIONS"
-  #   Work.all.each do |piece|
-  #     piece.save
-  #   end
+  describe "METHOD: self.all_in()" do
+    it "nominal case: check all correct seeds from db are returned" do
+      # checking that Work.all_in(category: "movie") will return relevant objects with matching category
+      # ditto with category: "book" or "album"
+      
+      categories = ["movie", "book", "album"]
+      categories.each_with_index do |category, index|
+        all_in_category = Work.all_in(category: category)
+        if category == "movie"
+          assert(all_in_category.count == 11)
+        else
+          assert(all_in_category.count == 2)
+        end
+        
+        all_in_category.each do |piece|
+          assert(piece.category == categories[index])
+        end
+      end
+    end
+    
+    it "edge case: what if nothing is in database?" do
+      Work.destroy_all
+      assert(Work.count == 0)
+      
+      categories = ["movie", "book", "album"]
+      categories.each_with_index do |category, index|
+        all_in_category = Work.all_in(category: category)
+        assert(all_in_category.count == 0)
+      end
+    end
+  end
   
-  #   # act/assert
-  #   categories = ["movie", "book", "album"]
-  #   categories.each_with_index do |category, index|
-  #     all_in_category = Work.all_in(category: category)
-  #     if category == "movie"
-  #       assert(all_in_category.count == 11)
-  #     else
-  #       assert(all_in_category.count == 2)
-  #     end
-  
-  #     all_in_category.each do |db_piece|
-  #       assert(db_piece.category == categories[index])
-  
-  #       # this is ok b/c work titles must be unique
-  #       yml_piece = all_yml_works.select do |piece| 
-  #         (piece.title == db_piece.title) && (piece.category == db_piece.category)
-  #       end
-  
-  #       attributes = [ :title, :published_year, :creator, :category, :description]
-  #       # attributes.each do |attrib|
-  #       #   puts "LOOKING AT #{attrib}"
-  #       #   # puts yml_piece[attrib] , "VS", db_piece[attrib]
-  #       #   assert( yml_piece[attrib] == db_piece[attrib] )
-  #       # end
-  #     end
-  #   end
-  # end
-  
-  #   it "edge case: what if nothing is in database?" do
-  #     Work.destroy_all
-  #     categories = ["movie", "book", "album"]
-  #     categories.each_with_index do |category, index|
-  #       all_in_category = Work.all_in(category: category)
-  #       assert(all_in_category.count == 0)
-  #     end
-  #   end
-  # end
-  
-  # describe "METHOD: self.top_ten_in()" do
-  #   it "nominal case" do
-  #     #### need votes
-  #   end
-  
-  #   it "edge case" do
-  #   end
-  # end
+  describe "METHOD: self.top_ten_in()" do
+    it "nominal case: check top 10 seeds in albums are in correct category, and show up in desc order" do
+      top10 = Work.top_ten_in(category: "album")
+      assert(top10.count == 2)
+      assert(desc_order?(top10))
+      top10.each do |piece|
+        assert(piece.category == "album")
+      end
+    end
+    
+    it "nominal case: check top 10 seeds in books are in correct category, and show up in desc order" do
+      top10 = Work.top_ten_in(category: "book")
+      assert(top10.count == 2)
+      assert(desc_order?(top10))
+      top10.each do |piece|
+        assert(piece.category == "book")
+      end
+    end
+    
+    it "nominal case: check top 10 seeds in movies are in correct category, and show up in desc order" do
+      top10 = Work.top_ten_in(category: "movie")
+      assert(top10.count == 10)
+      assert(desc_order?(top10))
+      top10.each do |piece|
+        assert(piece.category == "movie")
+      end
+      
+      movie11 = yml[:movie11]
+      refute(top10.include? movie11)
+    end
+    
+    it "edge case: if no works exist in a category, should return empty array" do
+      Work.destroy_all
+      assert(Work.count == 0)
+      
+      %w[movie album book].each do |cat|  
+        top10 = Work.top_ten_in(category: cat)
+        assert(top10 == [])
+      end
+    end
+    
+    it "edge case: if no votes exist in a category, should return array of max 10 in random order" do
+      Vote.destroy_all
+      assert(Vote.count == 0)
+      
+      %w[movie album book].each do |cat|  
+        top10 = Work.top_ten_in(category: cat)
+        assert (top10.length <= 10)
+        top10.each do |piece|
+          assert(piece.category == cat)
+          assert(piece.votes.count == 0)
+        end
+      end
+    end
+  end
 end

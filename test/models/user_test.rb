@@ -21,6 +21,10 @@ describe User do
         assert(vote.user_id == db_user2.id)
       end
     end
+    
+    it "if work_obj gets deleted, its dependent votes are too" do
+      assert(false)
+    end
   end
   
   describe "VALIDATIONS" do

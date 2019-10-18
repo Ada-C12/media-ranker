@@ -14,7 +14,7 @@ class Work < ApplicationRecord
       piece.votes.count
     end
     if winner.votes.count == 0
-      return Work.new(title:"N/A", description: "Absolutely no votes for any of the works, that's why you're seeing this super special default message", published_year:Date.today.year, category: "book", creator: "NOBODY")
+      return Work.new(title:"N/A", description: "ZERO VOTES for any of the works, that's why you're seeing this super special default message", published_year:Date.today.year, category: "book", creator: "NOBODY")
     else
       return winner
     end
