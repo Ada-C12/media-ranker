@@ -4,9 +4,21 @@
 
 .spotlight {
    text-align: center; 
+   color: black;
 }
 
 .spotlight_lt {
     text-decoration: underline;
+    color: #26A69A;
+}
+
+.top_ten {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2em;
+}
+
+
+body {
     color: #26A69A;
 }
