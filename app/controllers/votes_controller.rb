@@ -9,7 +9,7 @@ class VotesController < ApplicationController
     
     if @vote.nil?
       flash[:error] = "Could not find vote ID #{ params[:id] }"
-      redirect_to votes_path
+      re  direct_to votes_path
       return
     end 
   end

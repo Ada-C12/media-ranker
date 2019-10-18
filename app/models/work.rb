@@ -6,9 +6,13 @@ class Work < ApplicationRecord
   validates :creator, presence: true
   validates :publication_year, presence: true, numericality: { only_integer: true }
 
-  def self.top_three
-    # sorted_work = Work.order((work.votes.count): :desc)
-    # result = sorted_work.first(3)
-    return Work.first(3)
+  def self.sort(category)
+    all_works = Work.where(category: category)
+    
+    sorted_works = all_works.sort_by {|work| -work.votes.count}
+  end
+
+  def self.top_three(category)
+    Work.where(category: category).first(3)
   end
 end
