@@ -36,5 +36,4 @@ class Work < ApplicationRecord
     end
     return movies
   end
-  
 end

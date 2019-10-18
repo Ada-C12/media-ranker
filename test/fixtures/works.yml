@@ -1,0 +1,24 @@
+book1:
+  category: book
+  title: Book One
+  creator: Book1 Author
+  publication_year: 2000
+  description: This is a desc of book one.
+album1:
+  category: album
+  title: Album One
+  creator: Album1 Author
+  publication_year: 2002
+  description: This is a desc of album one.
+movie1:
+  category: movie
+  title: Movie One
+  creator: Movie1 Author
+  publication_year: 2004
+  description: This is a desc of movie one.
+book2:
+  category: book
+  title: Book Two
+  creator: Book2 Author
+  publication_year: 2006
+  description: This is a desc of book two.
