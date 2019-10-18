@@ -52,6 +52,7 @@ class WorksController < ApplicationController
       return
     else 
       work.destroy
+      flash[:delete] = "You deleted work #{work.title}"
       redirect_to works_path
       return
     end
