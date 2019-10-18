@@ -1,9 +1,7 @@
 class WorksController < ApplicationController
   
   def index
-    # @album = Album.all(:title)
-    # @movie = Movie.all(:title)
-    # @book = Book.all(:title)
+    @works = Work.all
   end
   
   def show
@@ -55,27 +53,23 @@ class WorksController < ApplicationController
     end
   end
   
-  def login
-    
-  end
-  
-  def logout
-    
-  end
-  
   def destroy
     work_id = params[:id]
     @work = Work.find_by(id: work_id)
-    
     if @work.nil?
       head :not_found
       return
     end
-    
     @work.destroy
-    
     redirect_to works_path
     return
   end
   
-end#end of class
+  private 
+  def work_params
+    return params.require(:work).permit(:category, :title, :creator,
+      :description, :publication_date)
+    end
+    
+  end#end of class
+  
