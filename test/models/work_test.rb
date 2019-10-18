@@ -129,4 +129,21 @@ describe Work do
       expect(spotlight_feature).must_equal album
     end
   end
+  
+  describe "relationships" do 
+    before do 
+      # Arrange
+      @user = User.create(username: "hello_world")
+      @user2 = User.create(username: "goodmorning world!")
+      @movie = Work.create(category: "movie", title: "Nightmare Before Chirstmas", creator: "Tim Burton", publication_year: 1993, description: "Jack Skellington tries to bring Christmas magic to Halloween Town. Chaos ensues.")
+      @vote = Vote.create(user_id: @user.id, work_id: @movie.id)
+      @vote2 = Vote.create(user_id: @user2.id, work_id: @movie.id)
+    end 
+    
+    it "can have many votes" do 
+      # Assert
+      expect(@movie.votes.length).must_equal 2
+      expect(@movie.votes[0]).must_be_kind_of Vote 
+    end
+  end
 end
