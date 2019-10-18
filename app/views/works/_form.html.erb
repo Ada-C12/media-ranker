@@ -1,6 +1,5 @@
 <%= form_with model: @work do |f| %>
 
-  <%# f.text_field :somenameofsomeattributeonbook ... in this case, :title %>
   <div class="form-group">
   <%= f.label :category %>
   <%= f.select :category, [ 'album', 'book', 'movie' ],{ :include_blank => false },{:class  =>"form-control"} %>

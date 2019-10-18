@@ -31,18 +31,26 @@
         </li>
       </ul>
       <ul class="nav app-header__user-nav-container">
-
+      <%if session[:user_id]%>
+         <li class="nav-item app-header__nav_item">
+        <%=link_to "logged in as #{User.find_by(id: session[:user_id]).username}", user_path(id: session[:user_id]), class: "btn btn-primary"%>
+        </li>
         <li class="nav-item app-header__nav_item">
+        <%=link_to "logout",logout_path,method: :post, class: "btn btn-primary"%>
+        </li>
+       
+        <%else%>
+       <li class="nav-item app-header__nav_item">
         <%=link_to "login",login_path, class: "btn btn-primary"%>
         </li>
-
+        <%end%>
       </ul>
     </nav>
   
 </header>
-   <section class="user-messages">
+   <section class="alert__container">
       <% flash.each do |name, message| %>
-        <div class="<%= name %>"><%= message %></div>
+        <div class="alert alert-success"><%= message %></div>
       <% end %>
     </section>
     <%= yield %>
