@@ -1,15 +1,48 @@
-<!DOCTYPE html>
+
+ <!DOCTYPE html> 
 <html>
-  <head>
-    <title>MediaRanker</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Media Ranker</title>
+  <%= stylesheet_link_tag  "application" %>
+  <%= javascript_include_tag  "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<%= yield %>
 
-  <body>
-    <%= yield %>
-  </body>
+</body>
 </html>
+ 
+  <link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+  
+
+  
+  <header>
+    <h1>
+      <a href="/">Media Ranker</a> | Ranking the Best of Everything
+    </h1>
+
+
+    <nav>
+      <ul>
+        <li>
+          <%= link_to "View top media", root_path, class: 'nav_link_to' %>
+        </li>
+        <li>
+          <%= link_to "View all media", works_path, class: 'nav_link_to' %>
+        </li>
+                <li>
+          <%= link_to "Add a new work", new_work_path, class: 'nav_link_to' %>
+        </li>
+        <li>
+          <%= link_to "View all users", users_path, class: 'nav_link_to' %>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+    

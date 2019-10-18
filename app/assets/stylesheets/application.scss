@@ -15,3 +15,40 @@
     @import "bootstrap";
     /* Import scss content */
     @import "**/*";
+
+
+ header {
+    background-color: #B2DFDB;
+    max-width: 100%;
+    margin-bottom: .5rem;
+    padding: 2rem 1rem 0.5rem 1rem;
+ }
+
+   header h1 {
+      color: white;
+      font-family: "Gudea", san-serif;
+      font-style: normal;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+   }
+   
+
+   header h1 a {
+      color: #FF5722;
+      text-decoration: none;
+   }
+
+  nav ul {
+     list-style-type: none;
+  }
+
+ 
+  .nav_link_to {
+     color:#00796B;
+     text-decoration: none;
+  }
+
+  .body_link_to {
+
+  }
