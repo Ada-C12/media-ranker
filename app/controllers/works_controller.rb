@@ -1,7 +1,5 @@
 class WorksController < ApplicationController
-<<<<<<< Updated upstream
-end
-=======
+  
   
   def index
     @works = Work.all
@@ -50,6 +48,4 @@ end
     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
     
   end
-  
-end      
->>>>>>> Stashed changes
+end

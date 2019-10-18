@@ -1,6 +1,5 @@
 class Work < ApplicationRecord
-<<<<<<< Updated upstream
-=======
+  
   
   def self.spotlight
     @works = Work.all.sample
@@ -19,5 +18,5 @@ class Work < ApplicationRecord
   # search for the ten longest votes
   # return that as an array to list through in the erb
   
->>>>>>> Stashed changes
+  
 end
