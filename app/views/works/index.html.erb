@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <% albums = @works.where(category: "album") %>
+        <% albums = @works.where(category: "album").order('votes_count DESC NULLS LAST') %>
         <% albums.each do |album| %>
           <tr>
             <td><%= album.votes.count %></td>
@@ -39,7 +39,7 @@
         </tr>
       </thead>
       <tbody>
-        <% books = @works.where(category: "book") %>
+        <% books = @works.where(category: "book").order('votes_count DESC NULLS LAST') %>
         <% books.each do |book| %>
           <tr>
             <td><%= book.votes.count %></td>
@@ -65,7 +65,7 @@
         </tr>
       </thead>
       <tbody>
-        <% movies = @works.where(category: "movie") %>
+        <% movies = @works.where(category: "movie").order('votes_count DESC NULLS LAST') %>
         <% movies.each do |movie| %>
           <tr>
             <td><%= movie.votes.count %></td>
