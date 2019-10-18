@@ -84,22 +84,52 @@ class WorksController < ApplicationController
     return
   end
   
+  def upvote
+    user = User.find_by(id: session[:user_id])
+    # if user.votes.find_by(work_id: @work.id)
+    #   flash[:warning] = "can't vote twice"
+    #   redirect_to works_path
+    # else
+    if user.nil?
+      flash[:warning] = "you must login first!!"
+      redirect_back(fallback_location: works_path(work_id: params[:id]))
+      return
+    end
+
+    @vote = Vote.new(work_id: params[:id], user_id: session[:user_id])
+    if @vote.save 
+      flash[:success] = "Thank you for voting!"
+      redirect_to  works_path(work_id: params[:id])
+      return
+    else 
+      puts @vote.errors.to_a
+      flash[:warning] = "failed to save!!"
+      redirect_back(fallback_location: works_path(work_id: params[:id]))
+      return
+    end
+  end
+
+  def sort
+    @all_albums = sort_works.all_albums
+  end
+  
   private
   
   def work_params
     return params.require(:work).permit(:title, :creator, :description, :publication_year, :category)
   end
-
-#   def find_work
-#     @work = Work.find_by_id(params[:id])
-#   end
-#   def if work_missing
-#   if @work.nil?
-#   flash[:error] ="work with id#{params[:id] was not find."
-#     redirect_to root_path
-#     return
-#   end
-#   end
- end 
+  
+  def find_work
+    @work = Work.find_by_id(params[:id])
+  end
+  
+  def if work_missing
+    if @work.nil?
+      flash[:error] = "work with id #{params[:id]} was not find"
+      redirect_to root_path
+      return
+    end
+  end
+end
 
 

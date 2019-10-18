@@ -1,6 +1,7 @@
 class Work < ApplicationRecord
+  has_many :votes
   # validations
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: true  
 
   def self.top_ten(category)
     works = Work.where(category: category)

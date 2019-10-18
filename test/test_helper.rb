@@ -24,5 +24,5 @@ class ActiveSupport::TestCase
     expect(session[:user_id]).must_equal user.id
 
     return user
-  end
+  end 
 end
