@@ -16,42 +16,54 @@
     /* Import scss content */
     @import "**/*";
 
-    body {
-      font-family: 'Gudea', sans-serif;
-    }
+body, html {
+  font-family: 'Gudea', sans-serif;
+}
 
-    .nav {
-       display: flex;
-       flex-wrap: wrap;
-       padding-left: 0;
-       margin-bottom: 0;
-       list-style: none;
-    }
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
     
-    .app-header__header {
-      max-width: 100%;
-      background-color: #B2DFDB;
-      margin-bottom: 0.5rem;
-      padding: 2rem 1rem 0.5rem 1rem;
-  }
+.app-header__header {
+  max-width: 100%;
+  background-color: #B2DFDB;
+  margin-bottom: 0.5rem;
+  padding: 2rem 1rem 0.5rem 1rem;
+}
 
-    .app-header__header h1 a {
-      color: #FF5722;
-      padding-right: 25px;
-      margin-right: 15px;
-      border-right: white 2px solid;
-    }
+.app-header__header h1 a {
+  color: #FF5722;
+  padding-right: 25px;
+  margin-right: 15px;
+  border-right: white 2px solid;
+}
     
-    .app-header__header h1 small {
-       color: white;
-    }
+.app-header__header h1 small {
+    color: white;
+}
 
-    .btn-primary {
-       background-color: #26A69A;
-       color: white;
-       border-color: #26A69A
-    }
+.btn-primary {
+    background-color: #26A69A;
+    color: white;
+    border-color: #26A69A
+}
 
-    .app-header__nav_item .nav-link {
-      color: #00796B;
-  }
+.app-header__nav_item .nav-link {
+    color: #00796B;
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+}
+
+a, h2, h3 {
+  color: #26A69A;
+}

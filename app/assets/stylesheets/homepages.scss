@@ -10,6 +10,22 @@ main {
   padding: 0 2rem 2rem 2rem;
 }
 
+.spotlight__header {
+  color: #26A69A;
+}
+
+.spotlight__header--prefix {
+  color: #424242;
+}
+
+.spotlight__link-to {
+  border-bottom: 2px solid;
+}
+
+.spotlight__description {
+  margin-bottom: 0;
+}
+
 .root__hr {
   margin: 0px auto 3rem auto;
   color: #EEEEEE;
@@ -19,10 +35,6 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 2em;
-}
-
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-  display: block;
 }
 
 .top-ten__header {
@@ -35,4 +47,9 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   list-style-type: none;
   margin-left: 0;
   padding-left: 0;
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
 }

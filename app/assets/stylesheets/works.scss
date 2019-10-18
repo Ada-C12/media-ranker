@@ -1,3 +1,22 @@
 // Place all the styles related to the Works controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+
+a, h2, h3 {
+  color: #26A69A;
+}
+
+form {
+  display: block;
+  margin-top: 0em;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
