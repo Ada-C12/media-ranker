@@ -59,6 +59,17 @@ class WorksController < ApplicationController
     end
   end
   
+  def upvote
+    work = Work.find_by(id: params[:id])
+    found_user = User.find_by(id: session[:user_id])
+    if found_user
+      Vote.create(work: work, user: found_user)
+      return redirect_to works_path
+    else
+      flash[:message] = "Cannot vote without logging in"
+      return redirect_to works_path
+    end
+  end
   
   private
   

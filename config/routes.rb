@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get "/homepages", to: "homepages#index"
   
   resources :works
+  post "/works/:id/upvote", to: "works#upvote", as: "upvote"
+
   
   get "/users", to: "users#index"
   get "/users/:id", to: "users#show", as: "user"
