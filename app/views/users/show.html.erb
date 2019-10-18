@@ -1,2 +1,12 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<%= render partial: "homepages/nav" %>
+
+<ul>
+  <li> Username: <%= link_to @user.name, user_path(@user.id) %> </li>
+    <ul>
+      <li> Votes: <%= @user.votes.count %> </li>
+      <li> Joined on: <%= @user.created_at %> </li>
+    </ul>
+</ul>
