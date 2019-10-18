@@ -55,7 +55,7 @@ describe User do
   
   describe "relationships" do
     it "can have many votes" do
-      expect(users(:doug).votes.count).must_be :>, 0
+      expect(users(:doug).votes.count).must_be :>, 1
       
       users(:doug).votes.each do |vote|
         expect(vote).must_be_instance_of Vote
