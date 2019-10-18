@@ -1,10 +1,17 @@
-<h1> Media Spotlight: </h1>
+<section class="spotlight">
+<h2 class="spotlight_header">
+<span class="spotlight__header--prefix">
+Media Spotlight:
+</span>
+<a class="spotlight__link-to" </section>
 <% chosen = @works.sample %>
 <%= link_to chosen.title, work_path(chosen) %>
 (<%= chosen.category %>)
+</a>
 by
 <%= chosen.creator %>
-
+</h2>
+<span class="badge badge-pill badge-success"><%=chosen.votes.length%> Votes</span>
 <h1> Top Books: </h1>
 <ul>
 <% chosen = @works.where(category: "book").top_ten %>
