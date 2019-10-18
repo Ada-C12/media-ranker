@@ -1,20 +1,17 @@
 require "test_helper"
 
 describe User do
-  let(:new_user) {
-    User.new(username: "test")
-  }
   describe "validations" do
     it "validates that there is a username" do
-      result = new_user.valid?
+      result = users(:test).valid?
 
       expect(result).must_equal true
     end
 
     it "is invalid if there is no username" do
-      new_user.username = nil
+      users(:test).username = nil
 
-      result = new_user.valid?
+      result = users(:test).valid?
 
       expect(result).must_equal false
     end
@@ -22,7 +19,7 @@ describe User do
 
   describe "relationships" do
     it "has a zero to many relationship with votes" do
-      new_user.save
+      users(:test).save
       user = User.first
 
       expect(user.votes.count).must_be :>=, 0
