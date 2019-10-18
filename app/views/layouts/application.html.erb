@@ -34,7 +34,8 @@
 
           <ul class="nav app-header__user-nav-container">  
           <li class="nav-item app-header__nav_item">
-            <%= link_to "Log in", login_path, class: "btn btn-primary" %>
+          <% label = session[:user_id] ? "Log in as #{User.find_by(id: session[:user_id]).username}" : "Log in"%>
+            <%= link_to label, login_path, class: "btn btn-primary" %>
           </li>
           <li class="nav-item app-header__nav_item">
             <%= link_to "Log out", logout_path, method: :post, class: "btn btn-primary" %>
@@ -42,10 +43,11 @@
         </ul>
       </nav>
     </header>
+
     <main>
       <section class="user-messages">
         <% flash.each do |name, message| %>
-          <div class="<%= name %>"><%= name.capitalize %>: <%= message %></div>
+          <div class="<%= name %>"><%= message %></div>
         <% end %>
       </section>
       
