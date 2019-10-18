@@ -42,6 +42,11 @@ body, html {
   justify-content: space-between;
 }
 
+.app-header__header h1 {
+  text-align: center;
+  margin: 25px auto 40px;
+}
+
 .app-header__header h1 a {
   color: #FF5722;
   padding-right: 25px;
