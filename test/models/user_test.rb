@@ -142,6 +142,73 @@ describe User do
           refute(new_user.already_voted?(new_work.id))
         end
       end
+    
+      describe 'already_upvoted?' do
+        it 'returns true if user has already upvoted given work_id' do
+          new_user = users(:new_user)
+          new_work = works(:new_work)
+          Vote.create(work_id: new_work.id, user_id: new_user.id, vote_type: "upvote") 
+          
+          assert(new_user.already_upvoted?(new_work.id))
+        end
+        
+        it 'returns false if user has not already upvoted given work_id' do
+          new_user = users(:new_user)
+          new_work = works(:new_work)
+          Vote.create(work_id: new_work.id, user_id: new_user.id, vote_type: "downvote")
+          
+          refute(new_user.already_upvoted?(new_work.id))
+        end
+        
+        it 'returns nil if given work doesnt exist' do
+          new_user = users(:new_user)
+          new_work = works(:new_work)
+          Vote.create(work_id: new_work.id, user_id: new_user.id, vote_type: "upvote") 
+          
+          assert_nil(new_user.already_upvoted?(-1))
+        end
+
+        it 'returns false if user has no votes' do
+          new_user = users(:new_user)
+          new_work = works(:new_work)
+          
+          refute(new_user.already_upvoted?(new_work.id))
+        end
+      end
+
+      describe 'already_downvoted?' do
+        it 'returns true if user has already downvoted given work_id' do
+          new_user = users(:new_user)
+          new_work = works(:new_work)
+          Vote.create(work_id: new_work.id, user_id: new_user.id, vote_type: "downvote") 
+          
+          assert(new_user.already_downvoted?(new_work.id))
+        end
+        
+        it 'returns false if user has not already downvoted given work_id' do
+          new_user = users(:new_user)
+          new_work = works(:new_work)
+          Vote.create(work_id: new_work.id, user_id: new_user.id, vote_type: "upvote")
+          
+          refute(new_user.already_downvoted?(new_work.id))
+        end
+        
+        it 'returns nil if given work doesnt exist' do
+          new_user = users(:new_user)
+          new_work = works(:new_work)
+          Vote.create(work_id: new_work.id, user_id: new_user.id, vote_type: "downvote") 
+          
+          assert_nil(new_user.already_downvoted?(-1))
+        end
+
+        it 'returns false if user has no votes' do
+          new_user = users(:new_user)
+          new_work = works(:new_work)
+          
+          refute(new_user.already_downvoted?(new_work.id))
+        end
+      end    
+
     end
   end
 end

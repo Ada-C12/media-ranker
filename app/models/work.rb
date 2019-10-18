@@ -12,21 +12,36 @@ class Work < ApplicationRecord
   has_many :votes, dependent: :destroy
 
   def self.categories
-    cat_hash = {}
-    Work.all.order(:category).each do |work|
-      if !cat_hash[work.category]
-        cat_hash[work.category] = true
+    works_by_cat = Work.all.order(:category)
+    if works_by_cat && !works_by_cat.empty?
+      cat_hash = {}
+      works_by_cat.each do |work|
+        if !cat_hash[work.category]
+          cat_hash[work.category] = true
+        end
       end
+      return cat_hash.keys
+    else
+      return nil
     end
-    return cat_hash.keys
   end
 
   def self.all_by_votes
-    return Work.all.order(vote_count: :desc)
+    works_by_points = Work.all.order(vote_count: :desc)
+    if works_by_points && !works_by_points.empty?
+      return Work.all.order(vote_count: :desc)
+    else
+      return nil
+    end
   end
 
   def self.top_by_category(num:num, category:category)
-    return Work.where(category: category).order(vote_count: :desc).first(num)
+    works = Work.where(category: category).order(vote_count: :desc).first(num)
+    if works && !works.empty?
+      return works
+    else
+      return nil
+    end
   end
   
   def self.top_work

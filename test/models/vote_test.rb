@@ -154,9 +154,6 @@ describe Vote do
         found_vote = Vote.find_vote(user_id: new_user, work_id: new_work)
         expect(found_vote).must_equal []
       end
-    
-    
     end
-  
   end
 end

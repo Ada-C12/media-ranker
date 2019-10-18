@@ -110,17 +110,64 @@ describe Work do
   end
 
   describe "custom methods" do
-    it 'self.categories works correctly' do
+    before do
+      @work_1 = works(:new_work)
+      @work_2 = Work.create(category: "book", title: "Work 2", creator: "Creator 2", description: "desc", publication_year: 2019, vote_count: 2 )
+      @work_3 = Work.create(category: "book", title: "Work 3", creator: "Creator 3", description: "desc", publication_year: 2019, vote_count: 3 )
+      @work_4 = Work.create(category: "album", title: "Work 4", creator: "Creator 4", description: "desc", publication_year: 2019, vote_count: 4 )
+      @work_5 = Work.create(category: "movie", title: "Work 5", creator: "Creator 5", description: "desc", publication_year: 2019, vote_count: 5 )
     end
-    it 'self.all_by_votes works correctly' do
+
+    describe 'self.categories' do
+      it 'returns unique categories sorted alphabetically' do
+        expect(Work.categories).must_equal ["album", "book",  "movie"]
+      end
+
+      it 'returns nil if no works' do
+        Work.destroy_all
+        assert_nil(Work.categories)
+      end
     end
-    it 'self.top_by_category works correctly' do
+
+    describe 'self.all_by_votes' do
+      it 'returns all works sorted by vote_count in descending order' do
+        expect(Work.all_by_votes.count).must_equal 5
+        expect(Work.all_by_votes.first).must_equal @work_5
+        expect(Work.all_by_votes.last).must_equal @work_1
+        Work.all_by_votes.each do |work|
+          expect(work).must_be_instance_of Work
+        end
+      end
+      
+      it 'returns nil if no works' do
+        Work.destroy_all
+        assert_nil(Work.all_by_votes)
+      end
     end
-    it 'self.top_work works correctly' do
+
+
+    describe 'self.top_by_category' do
+      it 'returns given num works by given category ordered by vote count' do
+        works = Work.top_by_category(num:2, category:"book")
+        expect(works.count).must_equal 2
+        expect(works.first).must_equal @work_3
+        expect(works.last).must_equal @work_2
+      end
+      it 'returns nil if no works' do
+        Work.destroy_all
+        works = Work.top_by_category(num:2, category:"book")
+        assert_nil(works)
+      end
     end
-    it 'upvote_count works correctly' do
+
+    describe 'self.top_work' do
     end
-    it 'downvote_count works correctly' do
+
+    describe 'upvote_count' do
     end
+
+    describe 'downvote_count' do
+    end
+
   end
 end
