@@ -1,52 +1,54 @@
+<main>
+  <% if @work.errors.any? %>
+    <section class ="alert alert-danger">
+      <h1> Errors </h1>
+      <ul>
+        <% @work.errors.each do |column, message| %>
+          <li>
+            <strong><%= column.capitalize %></strong> <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
 
-<% if @work.errors.any? %>
-  <section class ="alert alert-danger">
-    <h1> Errors </h1>
-    <ul>
-      <% @work.errors.each do |column, message| %>
-        <li>
-          <strong><%= column.capitalize %></strong> <%= message %>
-        </li>
+  <h2> <%= action_name %> Work </h2>
+
+  <section>
+    
+      <%= form_with model: @work do |f| %>
+        <div class="form-group">
+          <%= f.label "Title" %> 
+          <%= f.text_field :title %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Category" %> 
+          <%= f.select :category, ["album", "book", "movie"] %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Creator" %>
+          <%= f.text_field :creator %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Publication year" %>
+          <%= f.text_field :publication_year %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Description" %>
+          <%= f.text_field :description %>
+        </div> 
+
+        <div class="form-group">
+          <%= f.submit "#{verb_name}", class: "btn btn-primary"%>
+        </div>
       <% end %>
     </ul>
-  </section>
-<% end %>
-
-<h1> <%= action_name %> Work </h1>
-
-<ul>
-  <%= form_with model: @work do |f| %>
-    <li>
-      <%= f.label "Title:" %>
-      <%= f.text_field :title %>
-    </li>
-
-    <li>
-      <%= f.label "Category:" %>
-      <%= f.select :category, ["album", "book", "movie"] %>
-    </li>
-
-    <li>
-      <%= f.label "Creator:" %>
-      <%= f.text_field :creator %>
-    </li>
-
-    <li>
-      <%= f.label "Publication year:" %>
-      <%= f.text_field :publication_year %>
-    </li>
-
-    <li>
-      <%= f.label "Description:" %>
-      <%= f.text_field :description %>
-    </li> 
-
-    <li>
-      <%= f.submit "#{verb_name}" %>
-    </li>
-  <% end %>
-</ul>
-
+  <section>
+</main>
 
 
 
