@@ -3,7 +3,7 @@
   <%# f.text_field :somenameofsomeattributeonbook ... in this case, :title %>
   <div class="form-group">
     <%= f.label :category %>
-    <%= select(:work, :category, options_for_select([['album'], ['book'], ['movie']]), { include_blank: true }, class: "form-control")%>
+    <%= f.select :category, [['album'], ['book'], ['movie']] , { }, {class: "form-control"}%>
   </div>
   <div class="form-group">
     <%= f.label :title %>

@@ -13,9 +13,9 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= link_to user.username, current_user_path(user.id) %></td>
+          <td><%= link_to user.username, user_path(user.id) %></td>
           <td><%= user.votes.length %></td>
-          <td><%= readable_date(user.id) %></td>
+          <td><%= readable_date(user.created_at) %></td>
         </tr>
       <% end %>
     </tbody>
