@@ -5,12 +5,16 @@ Rails.application.routes.draw do
   resources :works
   resources :users
 
-  resources :works, :users do 
-    resources :votes, shallow: true
+  #removed :users from parent for now 
+  resources :works do 
+    member do 
+      post 'upvote'
+    end 
+    # resources :votes, shallow: true
   end
 
   get "/login", to: "users#login_form", as: "login"
   post "/login", to: "users#login"
   post "/logout", to: "users#logout", as: "logout"
-  get "/users/current", to: "users#current", as: "current_user"
+  # get "/users/current", to: "users#current", as: "current_user"
 end

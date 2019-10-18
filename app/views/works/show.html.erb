@@ -5,15 +5,15 @@
   <p>Published: <%= @work.publication_year %></p>
 
   <section>
-    <button type="button" class="btn btn-primary"><%= link_to "Back to media ranks", root_path, method: :get%></button>
-    <button type="button" class="btn btn-primary"><%= link_to "Edit", edit_work_path, method: :get%></button>
-    <button type="button" class="btn btn-primary"><%= link_to "Upvote" %></button>
-    <button type="button" class="btn btn-danger"><%= link_to "Delete", work_path(@work.id), method: :delete%></button>
+    <button type="button" class="btn btn-primary"><%= link_to "Back to media ranks", root_path, method: :get %></button>
+    <button type="button" class="btn btn-primary"><%= link_to "Edit", edit_work_path, method: :get %></button>
+    <button type="button" class="btn btn-primary"><%= link_to "Upvote", upvote_work_path(@work.id), method: :post %></button>
+    <button type="button" class="btn btn-danger"><%= link_to "Delete", work_path(@work.id), method: :delete %></button>
   </section>
 </section>
 
 <section>
-  <h3>NUMBER votes for this CATEGORY</h3>
+  <h3><%= Vote.where(work_id: @work.id).length %> votes for this <%= @work.category%></h3>
   <table class="table">
     <thead>
       <tr>

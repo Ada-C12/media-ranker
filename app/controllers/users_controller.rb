@@ -27,7 +27,6 @@ class UsersController < ApplicationController
     else
       new_user = User.new(username: username)
       new_user.save
-      # TODO: What happens if saving fails?
       session[:user_id] = new_user.id
       flash[:message] = "Created a new user. Welcome!"
     end
@@ -42,43 +41,9 @@ class UsersController < ApplicationController
     return
   end
 
-  def current
-    @user = User.find_by(id: session[:user_id])
-  end
-
-  # def login
-  #   username = params[:user][:username]
-  #   user = User.find_by(username: username)
-  #   if user
-  #     session[:user_id] = user.id
-  #     flash[:success] = "Successfully logged in as returning user #{username}"
-  #   else
-  #     user = User.create(username: username)
-  #     session[:user_id] = user.id
-  #     flash[:success] = "Successfully logged in as new user #{username}"
-  #   end
-  
-  #   redirect_to root_path
-  # end
-
   # def current
-  #   @current_user = User.find_by(id: session[:user_id])
-  #   unless @current_user
-  #     flash[:error] = "You must be logged in to see this page"
-  #     redirect_to root_path
-  #   end
+  #   @user = User.find_by(id: session[:user_id])
   # end
-
-  # def logout
-  #   @current_user = User.find_by(id: session[:user_id])
-  #   if @current_user.nil? 
-  #     flash[:error] = "You must be logged in to logout"
-  #   else 
-  #     session[:user_id] = nil
-  #     flash[:logged_out] = "Successfully logged out" 
-  #     redirect_to root_path
-  #   end 
-  # end 
 
 
   private

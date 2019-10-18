@@ -13,8 +13,8 @@
       <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.username, user_path(user.id), method: :get %></td>
-        <td>USER VOTES</td>
-        <td>USER JOINED</td>
+        <td><%= Vote.where(user_id: user.id).length %></td>
+        <td><%= user.created_at %></td>
       </tr>
       <% end %>
     </tbody>
