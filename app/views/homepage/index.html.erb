@@ -1,10 +1,16 @@
-<section ><h2 class='spotlight'>Media Spotlight:</h2><h2><%= link_to "First work", works_path, class: "spotlight_lt" %></h2> by </section>
-<p>Votes</p>
+<section><h2 class='spotlight'>Media Spotlight: <%= link_to "First work", works_path, class: "spotlight_lt" %> by Some Creator </h2></section>
+<p>27 Votes - Description</p>
 
 <div class='top_ten'>
 <section>
   <h2>Top Movies</h2>
-  </section>
+  <ul>
+  <% @top_ten_movies.each do |movie| %>
+    <li><%= movie.title%> <%= movie.creator %> <%= movie.votes.length %>Votes </li>
+  <% end %>
+  </ul>
+</section>
+
 <section><h2>Top Books</h2></section>
 <section><h2>Top Music</h2></section>
 </div>
