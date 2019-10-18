@@ -79,7 +79,7 @@ describe Work do
       it "splits the work objects into categories (plural) and stores them in a hash" do
         # Arrange
         # make sure there is one work of each category in the test database
-        Work.delete_all
+        Work.destroy_all
         @categories.each do |category|
           Work.create(category: category, title: "Any kind of #{category}!", creator: "Who knows", publication_year: 2016, description: "This #{category} is VERY SCAREY" )
         end
@@ -104,7 +104,7 @@ describe Work do
       it "stores the hash value as an empty array if there are no works for the given category/key" do
         # Arrange
         # make sure there are no works in the test database
-        Work.delete_all
+        Work.destroy_all
         # Act
         # store Work.all_works_categorized into a variable
         all_works_categorized = Work.all_works_categorized
