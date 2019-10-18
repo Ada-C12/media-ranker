@@ -1,0 +1,39 @@
+<main>
+    <h2>User Summary: <a href="/users/#{session[:user_id]}">"#{session[:user.id].name}"</a></h2>
+<p>Joined site Oct 17, 2019</p>
+
+<section class="user-votes__container">
+  <h3 class="user-votes__header">Votes</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Media Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Category</th>
+        <th>Voted On</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><a href="#">A work I upvoted </a></td>
+          <td></td>
+          <td></td>
+          <td>the work's category</td>
+          <td>the date I voted on it</td>
+        </tr>
+        <tr>
+          <td><a href="#">Another work I upvoted</a></td>
+          <td>the work's creator</td>
+          <td>the work's publication date</td>
+          <td>the work's category</td>
+          <td>the date I voted on it</td>
+        </tr>
+    </tbody>
+  </table>
+</section>
+
+<a class="btn btn-secondary" href="/users">See all Users</a>
+<a class="btn btn-primary" href="/">Back to Media List</a>
+
+  </main>
