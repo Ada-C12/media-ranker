@@ -26,7 +26,6 @@ class UsersController < ApplicationController
   end
   
   def current
-    @current_user = User.find_by(id: session[:user_id])
     unless @current_user
       flash[:error] = "You must be logged in to view this page."
       redirect_to root_path
@@ -52,5 +51,6 @@ class UsersController < ApplicationController
   def user_params
     return params.require(:work).permit(:username)
   end
+  
 end
 
