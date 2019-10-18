@@ -67,5 +67,37 @@ describe Work do
         expect(spotlight).must_be_instance_of Work
       end
     end
+    
+    describe 'relationships' do
+      it 'can have votes' do
+        work = works(:valid_work)
+        user = users(:valid_user)
+        user_2 = users(:valid_user_2)
+        
+        vote_1 = Vote.create(user: user, work: work)
+        vote_2 = Vote.create(user: user_2, work: work)
+        
+        expect(work.votes.count).must_equal 2
+        expect(work.votes.first).must_be_instance_of Vote
+      end
+    end
+    
+    describe 'upvote' do
+      before do
+        @work = works(:valid_work)
+        @user = users(:valid_user)
+      end
+      
+      it 'should create an instance of Vote' do
+        @work.upvote(@user.id)
+        expect(@work.votes.first).must_be_instance_of Vote
+      end
+      
+      it 'should increase the count of votes for a piece of work' do
+        expect(@work.votes.count).must_equal 0
+        @work.upvote(@user.id)
+        expect(@work.votes.count).must_equal 1
+      end
+    end
   end
 end
