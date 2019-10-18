@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   get "/login", to: "users#login_form", as: "login"
   post "/login", to: "users#login"
   post "/logout", to: "users#logout", as: "logout"
-  get "/users/current", to: "users#current", as: "current_user" 
+  # get "/users/current", to: "users#current", as: "current_user"
+  # current method redirects to user_path so this route and view can be reused for link_to on "show all users" method 
+  get "/users/:id", to: "users#show", as: "user" 
+
+  # work GET    /works/:id(.:format)                                                                     works#show
+
 
 # need votes routes
 
