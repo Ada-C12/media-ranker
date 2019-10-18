@@ -23,15 +23,12 @@ class UsersController < ApplicationController
     found_user = User.find_by(username: username)
     
     if found_user
-      # We DID find a user!
       session[:user_id] = found_user.id
       flash[:message] = "Logged in as returning user!"
       return redirect_to root_path
     else
-      # We did not find an existing user. Let's try to make one!
       @user = User.new(username: username)
       if @user.save
-        # TODO: What happens if saving fails?
         session[:user_id] = @user.id
         flash[:message] = "Created a new user. Welcome!"
         return redirect_to root_path
@@ -43,7 +40,6 @@ class UsersController < ApplicationController
   end
   
   def logout
-    # TODO: What happens if we were never logged in?
     session[:user_id] = nil
     flash[:message] = "You have logged out successfully."
     return redirect_to root_path
