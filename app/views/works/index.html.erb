@@ -16,30 +16,69 @@
       </tr>
       <% Work.all_by_votes.each do |work| %>
           <tr>
-          <% current_user = User.find_by(id: session[:user_id])%>
-          <% if current_user == nil || !current_user.already_voted?(work.id) %>
-            <td>
-              <button type="button" class="btn btn-vote active">
-              <%= link_to "↑", work_upvote_path(work.id), method: :post, class: "vote-link" %> <span class="badge"> <%= work.upvote_count %> </span>
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-vote active">
-                <%= link_to "↓", work_downvote_path(work.id), method: :post, class: "vote-link" %> <span class="badge"> <%= work.downvote_count %> </span>
-              </button>
-            </td>
-          <% else %>
-            <td>
-              <button type="button" class="btn btn-vote disabled">
-                ↑ <span class="badge"> <%= work.upvote_count %> </span>
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-vote disabled">
-                ↓ <span class="badge"> <%= work.downvote_count %> </span>    
-              </button>
-            </td>      
-          <% end %>     
+            <section class="voting-sect">
+              <% current_user = User.find_by(id: session[:user_id])%>
+              <% if current_user.nil? %>
+                <% vote = [] %>
+              <% else %>
+                <% vote = Vote.find_vote(user_id: current_user.id, work_id: work.id) %>
+              <% end %>
+
+              <% if vote.blank? %>
+                  <td class="vote-active upvote">
+                    <%= link_to "↑", work_upvote_path(work.id), method: :post, class: "vote-link upvote" %>
+                    <span class="badge"> <%= work.upvote_count %> </span>
+                  </td>
+                                    
+                  <td class="vote-active downvote">
+                    <%= link_to "↓", work_downvote_path(work.id), method: :post, class: "vote-link downvote" %>
+                    <span class="badge"> <%= work.downvote_count %> </span>
+                  </td>   
+              
+              <% elsif vote.vote_type == "upvote" %>
+                <td class="alreadyvote upvote"> 
+                  <%= link_to "↑", vote_path(vote.id), method: :delete %>
+                  <span class="badge"> <%= work.upvote_count %> </span>
+                </td>
+                
+                <td class="vote-disabled downvote">
+                    <%= link_to "↓", changevote_path(id: vote.id), method: :post %>
+                    <span class="badge"> <%= work.downvote_count %> </span>
+                </td>
+              
+              <% elsif vote.vote_type == "downvote" %> 
+                <td class="vote-disabled upvote">
+                    <%= link_to "↑", changevote_path(id: vote.id), method: :post %>
+                    <span class="badge"> <%= work.upvote_count %> </span> 
+                </td>
+
+
+                <td class="alreadyvote downvote">
+                  <%= link_to "↓", vote_path(vote.id), method: :delete %>
+                  <span class="badge"> <%= work.downvote_count %> </span>
+                </td>         
+
+              <% end %>
+            </section>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <td><%= work.vote_count %></td>
             <td><%= work.category %></td>
             <td><%= link_to work.title, work_path(work.id) %></td>

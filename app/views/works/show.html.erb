@@ -1,22 +1,64 @@
 <main>
   <header class="show-header">
-    <h4><%= @work.category.capitalize %></h4>
-    <h1><%= @work.title %>
-      <small><%= @work.vote_count %> points </small>
-    </h1>
-    <h4>by <%= @work.creator %> (<%= @work.publication_year %>)</h4>
-    <p><%= @work.vote_count %> Points - <%= @work.votes.count %> Votes </p>
-    <p><%= @work.description %></p>
 
-    <section class="voting-sect">
-      <%= link_to "Upvote", work_upvote_path(@work.id), method: :post, class: "vote-link" %>
-      <%= link_to "Downvote", work_downvote_path(@work.id), method: :post, class: "vote-link" %>            
+    <section class="voting-sect" id="show-works-voting">
+      <% current_user = User.find_by(id: session[:user_id])%>
+      <% if current_user.nil? %>
+        <% vote = [] %>
+      <% else %>
+        <% vote = Vote.find_vote(user_id: current_user.id, work_id: @work.id) %>
+      <% end %>
+
+      <% if vote.blank? %>
+          <div class="vote-active upvote">
+            <%= link_to "↑", work_upvote_path(@work.id), method: :post, class: "vote-link upvote" %>
+          </div>
+          
+          <span class="badge"> <%= @work.vote_count %> </span>
+          
+          <div class="vote-active downvote">
+            <%= link_to "↓", work_downvote_path(@work.id), method: :post, class: "vote-link downvote" %>
+          </div>   
+      
+      <% elsif vote.vote_type == "upvote" %>
+        <div class="alreadyvote upvote"> 
+          <%= link_to "↑", vote_path(vote.id), method: :delete %>
+        </div>
+        
+        <span class="badge"> <%= @work.vote_count %> </span>
+        
+        <div class="vote-disabled downvote">
+            <%= link_to "↓", changevote_path(id: vote.id), method: :post %>
+        </div>
+      
+      <% elsif vote.vote_type == "downvote" %> 
+        <div class="vote-disabled upvote">
+            <%= link_to "↑", changevote_path(id: vote.id), method: :post %>
+        </div>
+        
+        <span class="badge"> <%= @work.vote_count %> </span>
+
+        <div class="alreadyvote downvote">
+          <%= link_to "↓", vote_path(vote.id), method: :delete %>
+        </div>         
+
+      <% end %>
     </section>
-    <section class="edit-delete-links">
-      <%= link_to "Edit", edit_work_path(@work.id), class: "edit-link" %>
-      <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
+
+    <section id="show-works-details">
+      <h4 id='show-works-category'><%= @work.category.upcase %></h4>
+      <h1><%= @work.title %></h1>
+      <h4>by <%= @work.creator %> (<%= @work.publication_year %>)</h4>
+      <p><%= @work.vote_count %> Points - <%= @work.votes.count %> Votes </p>
+      <p><%= @work.description %></p>
     </section>
   </header>
+
+  
+  <section class="edit-delete-links">
+    <%= link_to "Edit", edit_work_path(@work.id), class: "edit-link" %>
+    <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
+  </section>
 
   <% if @work.votes.count == 0 %>
     <h4> There are no votes for <%= @work.title %> yet :( </h4>
