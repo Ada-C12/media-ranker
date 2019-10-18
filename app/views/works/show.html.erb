@@ -9,31 +9,31 @@
     <%= link_to "Edit", edit_work_path( @work.id ), class:"btn btn-primary" %>
     <a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/:id/upvote">Upvote</a>
     <%= link_to "Delete", work_path( @work.id ), method: :delete, data: { confirm: "Are you sure you want to delete this Media?" }, class:"btn btn-danger" %>
+    </section>
   </section>
-</section>
 
-<section class="works-votes__container">
-  <h3 class="works-votes__header"><%= @work.votes.length %> Votes for this Album</h3>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>User</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
+  <section class="works-votes__container">
+    <h3 class="works-votes__header"><%= @work.votes.length %> Votes for this Album</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
 
-    <%# @work.votes.each
-    link_to vote.user.username, user_path(vote.user_id%>
-      <tr>
-        <td><a href="/users/439">stupendousc</a></td>
-        <td>Oct 17, 2019</td>
-      
-      </tr><tr>
-        <td><a href="/users/425">brilatimer</a></td>
-        <td>Oct 17, 2019</td>
-      
-      </tr><tr>
-        <td><a href="/users/435">anonymous</a></td>
-        <td>Oct 17, 2019</td>
-</tr></tbody></table></section></main>
+      <% @work.votes.each do |work| %>
+        <tr>
+          <td>
+            <%= link_to vote.user.username, user_path(vote.user_id) %>
+          </td>
+          <td>
+            <%= readable_date(vote.created_at) %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </section>
+</main>
