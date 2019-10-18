@@ -16,8 +16,7 @@ class WorksController < ApplicationController
   def create 
     @work = Work.new(work_params)
     if @work.save
-      raise
-      flash[:success] = "Successfully created " + @work.category + " " + @work.id
+      flash[:success] = "Successfully created " + @work.category + " " + @work.id.to_s
       redirect_to work_path(@work.id)
     else
       @errors = @work.errors
@@ -38,8 +37,10 @@ class WorksController < ApplicationController
   end
   
   def destroy
+    votes = Vote.where(work_id: @work.id)
+    votes.destroy_all
     @work.destroy
-    flash[:success] = "Successfully destroyed " + @work.category + " " + @work.id
+    flash[:success] = "Successfully destroyed " + @work.category + " " + @work.id.to_s
     redirect_to root_path
   end
   
