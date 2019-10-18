@@ -17,4 +17,10 @@ class Work < ApplicationRecord
   def self.spotlight
     return self.all.first
   end
+  
+  def upvote(user_id)
+    @work = Work.find_by(id: self.id)
+    current_user = User.find_by(id: user_id)
+    @work.votes << Vote.create(user_id: user_id)
+  end
 end

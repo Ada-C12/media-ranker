@@ -58,20 +58,28 @@
           <div class="alert alert-success">
             <span><%= message %></span>
           </div>
+        <% elsif name == "errors" %>
+          <div class="alert alert-warning">
+            <span><%= message.first %></span>
+            <ul>
+              <% message[1..-1].each do |m| %>
+              <li> <%= m %> </li>
+              <% end %>
+            </ul>
+          </div>
         <% else %>
           <div class="alert alert-warning">
             <span><%= message %></span>
             <% if @work != nil && @work.errors.any? %>
-              <ul class="errors">
+              <ul>
                 <% @work.errors.each do |column, message| %>
                   <li>
                   <%= column %>: <%= message %>
                   </li>
                 <% end %>
               </ul>
-            <% else %>
-            <%# <% elsif @user != nil && @user.errors.any? %> 
-              <ul class="errors">
+            <% elsif @user != nil && @user.errors.any? %>
+              <ul>
                 <% @user.errors.each do |column, message| %>
                   <li>
                   <%= column %>: <%= message %>
