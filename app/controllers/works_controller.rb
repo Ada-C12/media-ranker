@@ -13,7 +13,7 @@ class WorksController < ApplicationController
     @work = Work.find_by(id: work_id)
 
     if @work.nil?
-      redirect to root_path
+      redirect_to root_path
       return
     end
   end
@@ -25,14 +25,14 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
 
-      if @work.save
-        flash[:success] = "#{@work.title} added successfully"
-        redirect_to work_path(@work.id)
-      else
-        # add custom work.errors
-        flash.now[:error] = @work.errors { }
-        render new_work_path
-      end
+    if @work.save
+      flash[:success] = "#{@work.title} added successfully"
+      redirect_to work_path(@work.id)
+    else
+      # add custom work.errors
+      flash.now[:error] = @work.errors { }
+      render new_work_path
+    end
   end
 
   def edit
@@ -61,7 +61,12 @@ class WorksController < ApplicationController
     if @work.nil?
       redirect_to works_path
     else
+      # Since I created a primary key relationship between Work and Vote in Work model, I need to destroy the vote object first
+      @votes = Vote.where(work_id: @work.id)
+      @votes.each {|vote| vote.destroy }
+
       @work.destroy
+      
       flash[:delete] = "You successfully deleted #{@work.title}"
       redirect_to works_path
     end
@@ -75,13 +80,11 @@ class WorksController < ApplicationController
 
       @vote = Vote.create(user_id: @user.id, work_id: @work.id)
 
-      if @vote
-        flash[:success] = "Yay you voted!"
-        redirect_to work_path(@work.id)
-      else
+      flash[:success] = "Yay you voted!"
+      redirect_to work_path(@work.id)
+    else
       flash[:error] = "You've already voted for this work!"
       redirect_to works_path
-      end
     end
   end
 

@@ -21,10 +21,15 @@
         <a class="nav-item nav-link" href= "/works">View All Media</a>
         <a class="nav-item nav-link" href="/works/new">Add a new work</a>
         <a class="nav-item nav-link" href="/users">View all users</a>
+        
+        
         <a class="nav-item nav-link" href="/login">Log In</a>
+
+      <% if session[:user_id]%>
         <a class="nav-item nav-link" data-method="post" href="/logout">Log Out</a>
 
         <a class="nav-item nav-link" data-method="get" href="users/current">My Account</a>
+      <% end%>
 
         <%# <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> %>
       </div>
@@ -40,3 +45,5 @@
     <%= yield %>
   </body>
 </html>
+
+<h2>User Summary: <a href="/users/285">yo</a></h2>
