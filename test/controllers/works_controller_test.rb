@@ -190,4 +190,62 @@ describe WorksController do
     end
   end
 
+  describe "upvote" do
+    before do
+      @work = works(:westover)
+      @user = User.create!(username: "New")
+
+
+    end
+
+    it "votes when user is logged in and vote is unique" do
+      login_data = {
+        user: {
+          username: @user.username
+        }
+      }
+
+      post login_path, params: login_data
+
+      expect{
+        post upvote_path(@work.id)
+      }.must_change "Vote.count", 1
+
+      must_respond_with :redirect
+      must_redirect_to root_path
+    end
+
+    it "user cannot vote when they are not logged in" do
+
+      expect{
+        post upvote_path(@work.id)
+      }.wont_change "Vote.count"
+
+      expect(flash[:warning]).must_equal "Please log in to vote"
+      must_respond_with :redirect
+      must_redirect_to work_path(@work.id)
+
+    end
+
+    it "user cannot vote when they have already voted for that media" do
+      login_data = {
+        user: {
+          username: @user.username
+        }
+      }
+
+      post login_path, params: login_data
+      post upvote_path(@work.id)
+
+      expect{
+        post upvote_path(@work.id)
+      }.wont_change "Vote.count"
+
+      expect(flash[:error]).must_equal "Unable to vote twice for the same piece of media"
+      must_respond_with :redirect
+      must_redirect_to work_path(@work.id)
+    end
+
+  end
+
 end
