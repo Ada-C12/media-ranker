@@ -7,9 +7,10 @@ describe UsersController do
   
   describe "index" do
     it "index lists all users, responds with success" do
+      users_in_fixtures = 8
       get users_path 
       must_respond_with :success
-      assert_equal 8, User.count
+      assert_equal users_in_fixtures, User.count
     end
     
     it "index is empty if no instances of user exist, still responds with success" do
@@ -28,7 +29,7 @@ describe UsersController do
   end
   
   describe "create" do
-    it "creating a new user increases the total number of users, responds with success" do
+    it "creating a new user increases the total number of user" do
       username = "Testy"
       
       user_hash = {
