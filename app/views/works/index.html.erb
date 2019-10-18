@@ -12,9 +12,9 @@
       </tr>
     </thead>
     <tbody>
-      <% @works.where(category: category).each do |work| %>
+      <% @works.sort_by_vote(category).each do |work| %>
       <tr>
-        <th scope"row"> <%= "#" %> </th> 
+        <th scope"row"> <%= work.votes.length %> </th> 
         <th scope"row"> <%= link_to work.title, work_path(work.id)%> </th>
         <th scope"row"> <%= work.creator%> </th>
         <th scope"row"> <%= work.publication_year%> </th>

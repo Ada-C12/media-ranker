@@ -8,7 +8,8 @@
 require 'csv'
 
 CSV.read(Rails.root.join('db', 'media-seeds.csv'), headers: true).each do |row|
-  t = Work.create(row.to_hash)
+  t = Work.new(row.to_hash)
+  successful = t.save
   if !successful 
     work_failures << work
     puts "failed to save work : #{work.inspect}"
