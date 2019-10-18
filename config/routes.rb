@@ -6,16 +6,17 @@ Rails.application.routes.draw do
   
   resources :works do 
     resources :votes, only: [:create]
+    end
+    
+    resources :users do
+      resources :votes, only: [:create] 
+    end
+    
+    resources :votes
+    
+    post "/login", to: "users#login", as: "login"
+    post "/logout", to: "users#logout", as: "logout"
+    get "/users/current", to: "users#current", as: "current_user"
+    
   end
   
-  resources :users do
-    resources :votes, only: [:create] 
-  end
-  
-  resources :votes
-  
-  post "/login", to: "users#login", as: "login"
-  post "/logout", to: "users#logout", as: "logout"
-  get "/users/current", to: "users#current", as: "current_user"
-  
-end

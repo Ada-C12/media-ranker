@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     @users = User.all
   end
   
+  def show
+    user_id = params[:id]
+    @user = User.find_by(id: user_id)
+  end
+  
   def login
     username = params[:username]
     user = User.find_by(username: username)
@@ -30,7 +35,7 @@ class UsersController < ApplicationController
   
   def logout
   end
-
+  
   def user_params 
     user_params.require(:user).permit(:username)
   end
