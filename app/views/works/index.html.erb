@@ -1,18 +1,61 @@
-<h1>This is the Works Index</h1>
+<section class="index-header">
+<h2>List of Works</h2>
+</section>
 
-<% books = Work.all.where(category: :book).sort_by{ |b| b.votes.length } %>
-<% albums = Work.all.where(category: :album) %>
+<section class="list-container">
+  <section class="works-list">
 
-<h2>All Books</h2>
-<ul>
-<% Work.top_ten(:book).each do |work|  %>
-  <li><%= link_to work.title, work_path(work) %>, <%= work.category %></li>
-<% end %>
-</ul>
+    <h3>All Books</h3>
 
-<h2>All Albums</h2>
-<ul>
-<% Work.top_ten(:album).each do |work|  %>
-  <li><%= link_to work.title, work_path(work) %>, <%= work.category %></li>
-<% end %>
-</ul>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Votes</th>
+          <th scope="col">Title</th>
+          <th scope="col">Created By</th>
+          <th scope="col">Published</th>
+          <th scope="col">Upvote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Work.sort_media(:book).each do |work|  %>
+        <tr>
+          <td><%= work.votes.length%></td>
+          <td><%= link_to work.title, work_path(work) %></td>
+          <td><%= work.creator %></td>
+          <td><%= work.publication_year %></td>
+          <td><%= link_to "upvote", work_path(work), method: :post %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+
+
+
+<section class="works-list">
+  <h3>All Albums</h3>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Votes</th>
+        <th scope="col">Title</th>
+        <th scope="col">Created By</th>
+        <th scope="col">Published</th>
+        <th scope="col">Upvote</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Work.sort_media(:album).each do |work|  %>
+      <tr>
+        <td><%= work.votes.length%></td>
+        <td><%= link_to work.title, work_path(work) %></td>
+        <td><%= work.creator %></td>
+        <td><%= work.publication_year %></td>
+        <td><%= link_to "upvote", work_path(work), method: :post %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
