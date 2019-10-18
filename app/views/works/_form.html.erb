@@ -1,4 +1,16 @@
 <%= form_with model: @work, class: 'form pagecontent' do |f| %>
+  <% if @work.errors.any? %>
+    <section class="alert alert-warning">
+      <ul>
+        <% @work.errors.each do |column, message| %>
+          <li>
+            <strong><%= column.capitalize %></strong> <%= message %>
+          </li>
+        <% end %>
+      </ul>
+      </section>
+  <% end %>
+
   <div class="form-group">
     <h2><%= message %></h2>
   </div>

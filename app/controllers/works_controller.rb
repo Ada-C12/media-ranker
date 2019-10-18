@@ -20,7 +20,7 @@ class WorksController < ApplicationController
       flash[:success] = "Successfully created #{@work.category} '#{@work.title}''."
       redirect_to work_path(@work.id)
       return
-    else 
+    else
       render :new 
       return
     end
@@ -132,7 +132,7 @@ class WorksController < ApplicationController
   
   def if_work_missing
     if @work.nil?
-      flash[:error] = "That work was not found."
+      flash[:warning] = "That work was not found."
       redirect_to root_path
       return
     end
