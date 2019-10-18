@@ -1,7 +1,9 @@
 class VotesController < ApplicationController
   
   def create
-    @vote = Vote.new(vote_params) #instantiate a new vote
+    
+    @vote = Vote.new(date: Date.today, work_id: params[:id], user_id: session[:user_id])
+    # raise
     if @vote.save # save returns true if the database insert succeeds
       flash[:success] = "Successfully upvoted!"
       redirect_to root_path

@@ -51,6 +51,26 @@ class WorksController < ApplicationController
     end
   end
   
+  def upvote 
+
+    @vote = Vote.new(date: Date.today, work_id: params[:work_id], user_id: session[:user_id])
+
+    # user_id = @current_user.id
+    # work_id = @work.id
+    # date = date.today
+    # vote_params = {
+    #   vote: 
+    #   {
+    #     user_id: user_id, 
+    #     work_id: work_id, 
+    #     date: date
+    #   }
+    # }
+    # Vote.create(vote_params)
+    # render :show
+  end
+  
+  
   def destroy
     work_id = params[:id]
     @work = Work.find_by(id: work_id)

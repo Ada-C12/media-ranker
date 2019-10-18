@@ -11,9 +11,6 @@ class Work < ApplicationRecord
   def self.alpha_works
     return Work.order(title: :asc)
   end
-
-  def self.upvote
-    
-  end
-    
+  
+  
 end
