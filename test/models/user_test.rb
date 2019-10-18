@@ -43,6 +43,4 @@ describe User do
       end
     end
   end
-
-  #custom methods
 end
