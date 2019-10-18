@@ -1,8 +1,8 @@
 class Work < ApplicationRecord
+  has_many :votes
 
   validates :title, presence: true
   validates :title, uniqueness: { scope: :category }
-
 
   def self.all_works_categorized
     all_works_categorized = {}
@@ -25,4 +25,14 @@ class Work < ApplicationRecord
   def self.spotlight
     return Work.all.sample
   end
+
+  def upvote(user_id)
+    current_vote_count = self.votes.count
+    new_vote = Vote.new(user_id: user_id, work_id: self.id)
+    if new_vote.valid?
+      self.votes << new_vote
+    end
+    return new_vote
+  end
+
 end
