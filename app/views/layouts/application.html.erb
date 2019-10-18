@@ -43,15 +43,6 @@
         </ul>
       </nav>
     </header>
-
-    <main>
-      <section class="user-messages">
-        <% flash.each do |name, message| %>
-          <div class="<%= name %>"><%= message %></div>
-        <% end %>
-      </section>
-      
       <%= yield %>
-    </main>
   </body>
 </html>

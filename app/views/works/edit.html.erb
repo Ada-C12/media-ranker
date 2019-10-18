@@ -1,12 +1,18 @@
-<% if @work.errors.any? %>
-<ul class="errors">
-  <% @work.errors.each do |column, message| %>
-    <li>
-      <strong><%= column.capitalize %></strong> <%= message %>
-    </li>
+<section class="alert__container">
+  <% if @work.errors.any? %>
+    <div class="alert alert-warning">    
+      <% flash.each do |name, message| %>
+        <span><%= message %></span>
+      <% end %>
+      <ul>
+        <% @work.errors.each do |column, message| %>
+          <li><%= column.capitalize %><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
-</ul>
-<% end %>
-
-<h2>Edit a work</h2>
-<%= render partial: "form", locals: {submit_button_label: "Update work"} %>
+</section>
+<main>
+  <h2>Edit This <%=@work.category%></h2>
+  <%= render partial: "form", locals: {submit_button_label: "Update work"} %>
+</main>

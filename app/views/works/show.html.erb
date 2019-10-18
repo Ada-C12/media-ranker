@@ -1,7 +1,35 @@
-<h2><%=@work.title%></h2>
-<p>Created by: <%= @work.creator%></p>
-<p>Published: <%= @work.publication_year%></p>
-<p><%= @work.description%></p>
+<main>
+  <section>
+    <h2><%=@work.title%></h2>
+    <p>Created by:  <%= @work.creator%></p>
+    <p>Published: <%= @work.publication_year%></p>
+    <p><%= @work.description%></p>
+    <section>
+      <%=link_to "Back to media ranks", root_path, class: "btn btn-primary" %>
+      <%=link_to "Edit", edit_work_path(@work.id), class: "btn btn-primary" %>
+      <a class="btn btn-primary" rel="nofollow" data-method="post" href="#">Upvote</a>
+      <%=link_to "Delete", work_path(@work.id), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"}%>
+    </section>
+  </section>
 
-<%=link_to "Edit work", edit_work_path(@work.id)%>
-<%=link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure?"}%>
+  <section class="works-votes__container">
+    <h3 class="works-votes__header"><%=@work.votes.length%> Votes for this <%=@work.category.capitalize%></h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%@work.votes.each do |vote|%>
+          <tr>
+            <% user = User.find_by(id: vote.user_id)%>
+            <td><a href="#"><%=user.username%></a></td>
+            <td><%=user.created_at.strftime("%b %d, %Y")%> </td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </section>
+</main>
