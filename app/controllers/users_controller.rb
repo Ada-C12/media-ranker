@@ -7,19 +7,19 @@ class UsersController < ApplicationController
   end
   
   def login_form
-    @current_user = User.new
+    @user = User.new
   end
   
   def login
-    @current_user = User.find_by(username: params[:username])
-    if @current_user
-      session[:user_id] = @current_user.id
-      flash[:success] = "Successfully logged in as returning user #{@current_user.username}"
+    @user = User.find_by(username: params[:username])
+    if @user
+      session[:user_id] = @user.id
+      flash[:success] = "Successfully logged in as returning user #{@user.username}"
     else
-      @current_user = User.new(username: params[:username])
-      if @current_user.save
-        session[:user_id] = @current_user.id
-        flash[:success] = "Successfully logged in as new user #{@current_user.username}"
+      @user = User.new(username: params[:username])
+      if @user.save
+        session[:user_id] = @user.id
+        flash[:success] = "Successfully logged in as new user #{@user.username}"
         redirect_to root_path
       else
         flash.now[:error] = "Could not log in"
@@ -29,16 +29,16 @@ class UsersController < ApplicationController
   end
   
   def current 
-    @current_user = User.find(session[:user_id])
-    unless @current_user
+    @user = User.find(session[:user_id])
+    unless @user
       flash[:error] = "You are not logged in"
       redirect_to root_path
     end
   end
   
   # def create
-  #   @current_user = User.new(username: params[:username])
-  #   if @current_user.save
+  #   @user = User.new(username: params[:username])
+  #   if @user.save
   #     flash[:success] = "WORKS"
   #   else
   #     flash[:error] = "Could not log in"
@@ -49,8 +49,8 @@ class UsersController < ApplicationController
   def show; end
   
   def logout
-    @current_user = User.find_by(id: session[:user_id])
-    if @current_user
+    @user = User.find_by(id: session[:user_id])
+    if @user
       session[:user_id] = nil
       flash[:success] = "You have been successfully logged out"
       redirect_to root_path
