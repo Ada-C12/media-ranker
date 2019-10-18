@@ -8,9 +8,17 @@ class Work < ApplicationRecord
     works = Work.all
     if works.nil? || works.length == 0
       return ""
-    elsif works.length < 10
-      return works.sample(works.length)
-    else return works.sample(10)
+    end
+    hash = {}
+    works.each do |work|
+      hash[work.id] = work.votes.length
+    end
+    sorted_array = hash.sort_by { |key, value| -value }
+    sorted_array.map! {|subarray| Work.find(subarray[0])}
+
+    if sorted_array.length < 10
+      return sorted_array
+    else return sorted_array[0..9]
     end
   end
 end

@@ -30,7 +30,6 @@
         <li class="nav-item app-header__nav_item">
           <a class="nav-link" href="/users">View all users</a>
         </li>
-
         <% if session[:user_id] != nil %>
 <li class ="nav-item app-heading__nav_item">
 You are logged in as <%= User.find_by(id: session[:user_id]).username %>    </li>
