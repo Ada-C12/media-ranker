@@ -21,6 +21,10 @@ body, html {
   font-family: 'Gudea', sans-serif;
 }
 
+main {
+  padding: 2rem;
+}
+
 .nav {
     display: flex;
     flex-wrap: wrap;
@@ -62,6 +66,10 @@ body, html {
     background-color: #26A69A;
     color: white;
     border-color: #26A69A
+}
+
+.app-header__site-nav-container .app-header__nav_item {
+  margin-right: 2rem;
 }
 
 .app-header__nav_item .nav-link {

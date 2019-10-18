@@ -1,23 +1,31 @@
 
   <%= form_with model: @work, class: "form" do |f| %>
-<section>
-    
-    
+    <div class="form-group">
     <%= f.label :category %><br>
     <%= select_tag(:category, raw('<option value="Album">Album</option><option value="Book">Book</option><option value="Movie">Movie</option>')) %>
+    </div>
     <br>
+    <div class="form-group">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
+    </div>
     <br>
+    <div class="form-group">
     <%= f.label :creator %><br>
     <%= f.text_field :creator %>
+    </div>
     <br>
+    <div class="form-group">
     <%= f.label :publication_year %><br>
     <%= f.text_field :publication_year %>
+    </div>
     <br>
+    <div class="form-group">
     <%= f.label :description %><br>
     <%= f.text_field :description %>
+    </div>
     <br>
     <%= f.submit "#{action_name} Work", class: "btn btn-primary" %>
-</section>
+
 <% end %>
+
