@@ -53,7 +53,7 @@ class WorksController < ApplicationController
   
   def upvote 
 
-    @vote = Vote.new(date: Date.today, work_id: params[:work_id], user_id: session[:user_id])
+    @vote = Vote.new(work_id: params[:work_id], user_id: session[:user_id])
 
     # user_id = @current_user.id
     # work_id = @work.id

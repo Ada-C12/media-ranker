@@ -5,7 +5,7 @@ describe Vote do
   before do
     @user = users(:user1)
     @work = works(:kindred)
-    @vote = Vote.create(user_id: @user.id, work_id: @work.id, date: Date.today)
+    @vote = Vote.create(user_id: @user.id, work_id: @work.id)
     
   end
   
