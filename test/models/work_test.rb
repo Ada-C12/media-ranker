@@ -24,6 +24,12 @@ describe Work do
       expect(new_work.valid?).must_equal false
       expect(new_work.errors.messages).must_include :title
     end
+
+    it "is invalid when the publication year is not greater than 1000" do
+      new_work.publication_year = 999
+      expect(new_work.valid?).must_equal false
+      expect(new_work.errors.messages).must_include :publication_year
+    end
   end
 
   describe "relationships" do
