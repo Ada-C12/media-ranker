@@ -2,42 +2,59 @@ require "test_helper"
 
 describe User do
   
-  let (:user1) { users(:user1) }
-  let (:db_user1) { User.find_by(name: user1.name) }
-  let (:user2) { users(:user2) }
-  let (:db_user2) { User.find_by(name: user2.name) }
-  let (:album2) { works(:album2) }
+  let (:yml) { let_yml_superhash }
+  let (:user1) { yml[:user1] }
+  let (:user2) { yml[:user2] }
+  let (:movie1) { yml[:movie1] }
   
   describe "RELATIONS" do
     it "can have many votes" do
-      assert(db_user1.votes.count == 13)
-      assert(db_user2.votes.count == 4)
+      assert(user1.votes.count == 13)
+      assert(user2.votes.count == 4)
+      
+      [user1, user2].each do |user_instance|
+        user_instance.votes.each do |vote|
+          assert(vote.class == Vote)
+        end
+      end
     end
     
-    it "userObj.votes exists and can return correct Vote objs" do
-      votes_array = db_user2.votes
+    it "can add votes" do
+      assert(user1.votes.count == 13)
+      new_vote = Vote.create(work: movie1, user_id: user1.id)
+      assert(user1.votes.count == 14)
+    end
+    
+    it "user_obj.votes exists and can return correct Vote objs" do
+      votes_array = user2.votes
       votes_array.each do |vote|
         assert(vote.class == Vote)
-        assert(vote.user_id == db_user2.id)
+        assert(vote.user_id == user2.id)
       end
     end
     
     it "if work_obj gets deleted, its dependent votes are too" do
-      assert(false)
+      assert(user2.votes.count == 4)
+      
+      user2.destroy 
+      refute(User.find_by(name: user2.name))
+      
+      assert(user2.votes.count == 0)
+      # what happens to the votes themselves? We're testing that in vote_test.rb
     end
   end
   
   describe "VALIDATIONS" do
     it "Can create User obj with correct attributes" do
-      assert(user1.valid?)
-      db_user1 = User.find_by(name: user1.name)
-      assert(db_user1.name == user1.name)
-      assert(db_user1.votes.count == 13)
+      assert(User.create(name: "Ned Flanders"))
+      new_user = User.last
+      assert(new_user.name == "Ned Flanders")
+      assert(new_user.votes.count == 0)
       
-      # make user1 cast a new valid vote
-      vote1a2 = Vote.create(user_id: db_user1.id, work_id: album2.id)
-      assert(db_user1.votes.count == 14)
-      assert(db_user1.votes.last == Vote.last)
+      # make new_user cast a new valid vote
+      Vote.create!(user_id: new_user.id, work_id: movie1.id)
+      assert(new_user.votes.count == 1)
+      assert(new_user.votes.last == Vote.last)
     end
     
     it "Won't create User obj, given blank name inputs" do

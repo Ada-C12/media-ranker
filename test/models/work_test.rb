@@ -35,6 +35,7 @@ describe Work do
       refute(Work.find_by(title: "joker"))
       
       assert(movie1.votes.count == 0)
+      # what happens to the votes themselves? We're testing that in vote_test.rb
     end
     
   end
