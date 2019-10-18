@@ -2,7 +2,8 @@
 <p>Creator: <%= @work.creator %></p>
 <p>Release Date: <%= @work.release_date %></p>
 <p>Description: <%= @work.description %></p>
-<p>Number of votes: <%= @work.votes %></p>
+<span class="badge badge-pill badge-info"><%=book.votes.length%>
+<% if book.votes.length == 1 %>Vote</span>
 
 <%= link_to 'Edit this Work', edit_work_path %>
 <br>

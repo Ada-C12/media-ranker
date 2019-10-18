@@ -4,7 +4,7 @@
 <h2> Books: </h2>
 <ul>
 <% books = @works.where(category: "book") %>
-<% books = books.sort_works %>
+<% books = Work.sort_works(books) %>
 <% books.each do |book| %>
 <li> <%= link_to book.title, work_path(book) %>
 by
@@ -22,7 +22,7 @@ by
 <h2> Music Albums: </h2>
 <ul>
 <% albums = @works.where(category: "album") %>
-<% albums = albums.sort_works %>
+<% albums = Work.sort_works(albums) %>
 <% albums.each do |album| %>
 <li> <%= link_to album.title, work_path(album) %>
 by
@@ -40,7 +40,7 @@ by
 <h2> Movies: </h2>
 <ul>
 <% movies = @works.where(category: "movie") %>
-<% movies = movies.sort_works %>
+<% movies = Work.sort_works(movies) %>
 <% movies.each do |movie| %>
 <li> <%= link_to movie.title, work_path(movie) %>
 by
