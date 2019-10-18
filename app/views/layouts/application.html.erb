@@ -38,14 +38,14 @@
             
             <% if session[:user_id].nil? %>
               <li>
-                <button type="button" class="btn btn-outline-primary"><li><%= link_to "Log In", login_path %></li></button>
+                <button type="button" class="btn btn-primary"><li><%= link_to "Log In", login_path %></li></button>
               </li>
             <%else%>
               <li>
-                <button type="button" class="btn btn-outline-primary"><li><%= link_to "Logged in as #{User.find_by(id: session[:user_id]).username}", current_user_path %></li></button>
+                <button type="button" class="btn btn-primary"><li><%= link_to "Logged in as #{User.find_by(id: session[:user_id]).username}", current_user_path %></li></button>
               </li>
               <li>
-                <button type="button" class="btn btn-outline-primary"><li><%= link_to "Logout", logout_path, method: :post %></li></button>
+                <button type="button" class="btn btn-primary"><li><%= link_to "Logout", logout_path, method: :post %></li></button>
               </li>
           <%end%>
 

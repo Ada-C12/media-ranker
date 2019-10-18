@@ -1,4 +1,4 @@
-<%= form_with model: @work, class: 'form' do |f| %>
+<%= form_with model: @work, class: 'form pagecontent' do |f| %>
   <div class="form-group">
     <h2><%= message %></h2>
   </div>
@@ -28,6 +28,6 @@
     <%= f.text_area :description, class: "form-control" %>
   </div>
   
-  <%= f.submit "#{action_name} Work", class: "work-button" %>
+  <%= f.submit "#{action_name} Work", class: "btn btn-primary" %>
 
 <% end %>

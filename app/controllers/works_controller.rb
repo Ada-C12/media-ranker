@@ -61,6 +61,17 @@ class WorksController < ApplicationController
     prev = Rails.application.routes.recognize_path(request.referrer)
     can_vote = true
     
+    if !current_user
+      flash[:warning] = "You must be logged in to perform this action."
+      if prev[:action] == "index"
+        redirect_to works_path
+      else
+        redirect_to work_path(current_work)
+      end
+      
+      return
+    end
+    
     votes.each do |vote|
       if vote.user_id == current_user.id
         can_vote = false
@@ -68,7 +79,7 @@ class WorksController < ApplicationController
     end
     
     if votes.length != 0 && !current_user
-      flash[:error] = "You must be logged in to perform this action."
+      flash[:warning] = "You must be logged in to perform this action."
       if prev[:action] == "index"
         redirect_to works_path
       else
@@ -78,7 +89,7 @@ class WorksController < ApplicationController
       return
       
     elsif votes.length != 0 && can_vote == false
-      flash[:error] = "You may only vote for this media once."
+      flash[:warning] = "You may only vote for this media once."
       if prev[:action] == "index"
         redirect_to works_path
       else
@@ -97,7 +108,7 @@ class WorksController < ApplicationController
         flash[:error] = "Unable to upvote."
       end
     else
-      flash[:error] = "You must be logged in to perform this action."
+      flash[:warning] = "You must be logged in to perform this action."
     end
     
     if prev[:action] == "index"
