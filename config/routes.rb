@@ -12,9 +12,4 @@ Rails.application.routes.draw do
   get "/users/index", to: "users#index", as: "users"
   get "/users/:id", to: "users#show", as: "user"
   
-  resources :works do
-    resources :votes, only: [:upvote]
-  end
-  
-  
 end

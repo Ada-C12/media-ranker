@@ -44,12 +44,36 @@ describe Vote do
   end
   
   describe 'relations' do
+    let (:vote) {Vote.create(work_id: works(:heart).id, user_id: users(:taro).id)}
     
     it 'can have only one user and one work' do
-      vote = Vote.create(work_id: works(:heart).id, user_id: users(:taro).id)
-      
       expect(vote.user).must_equal users(:taro)
       expect(vote.work).must_equal works(:heart)
     end
+    
+    it 'can set the work through work' do
+      vote.work = works(:blue)
+      
+      expect(vote.work_id).must_equal works(:blue).id
+    end
+    
+    it 'can set the work through work_id' do
+      vote.work_id = works(:blue).id
+      
+      expect(vote.work).must_equal works(:blue)
+    end
+    
+    it 'can set the user through user' do
+      vote.user = users(:mario)
+      
+      expect(vote.user_id).must_equal users(:mario).id
+    end
+    
+    it 'can set the user through user_id' do
+      vote.user_id = users(:mario).id
+      
+      expect(vote.user).must_equal users(:mario)
+    end
+    
   end
 end

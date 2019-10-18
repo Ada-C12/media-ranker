@@ -1,76 +1,79 @@
-<section class="index-table">
+<body>
+  <section class="index-table">
 
-  <h2>List of Works</h2>
-  <h3>Albums</h3>
-  <table class="table table-hover">
-    <thead class="thead">
-      <tr>
-        <th scope="col">Votes</th>
-        <th scope="col">Title</th>
-        <th scope="col">Created By</th>
-        <th scope="col">Published</th>
-        <th scope="col">Upvote</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @albums.each do |album| %>
+    <h2>List of Works</h2>
+    <h3>Albums</h3>
+    <table class="table table-hover">
+      <thead class="thead">
         <tr>
-          <td><%= album.votes.count %></td>
-          <td><%= link_to album.title, work_path(album) %></td>
-          <td><%= album.creator%></td>
-          <td><%= album.publication_year %></td>
-          <td><button class="btn btn-primary"><%= link_to "Upvote", upvote_path(album), method: :post %> </button></td>
+          <th scope="col">Votes</th>
+          <th scope="col">Title</th>
+          <th scope="col">Created By</th>
+          <th scope="col">Published</th>
+          <th scope="col">Upvote</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @albums.each do |album| %>
+          <tr>
+            <td><%= album.votes.count %></td>
+            <td><%= link_to album.title, work_path(album) %></td>
+            <td><%= album.creator%></td>
+            <td><%= album.publication_year %></td>
+            <td><button class="btn btn-primary"><%= link_to "Upvote", upvote_path(album), method: :post %> </button></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-  <h2>Books</h2>
-  <table class="table table-hover">
-    <thead class="thead">
-      <tr>
-        <th scope="col">Votes</th>
-        <th scope="col">Title</th>
-        <th scope="col">Created By</th>
-        <th scope="col">Published</th>
-        <th scope="col">Upvote</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @books.each do |book| %>
+    <h2>Books</h2>
+    <table class="table table-hover">
+      <thead class="thead">
         <tr>
-          <td><%= book.votes.count %></td>
-          <td><%= link_to book.title, work_path(book) %></td>
-          <td><%= book.creator%></td>
-          <td><%= book.publication_year %></td>
-          <td><button class="btn btn-primary"><%= link_to "Upvote", upvote_path(book), method: :post %> </button></td>
+          <th scope="col">Votes</th>
+          <th scope="col">Title</th>
+          <th scope="col">Created By</th>
+          <th scope="col">Published</th>
+          <th scope="col">Upvote</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @books.each do |book| %>
+          <tr>
+            <td><%= book.votes.count %></td>
+            <td><%= link_to book.title, work_path(book) %></td>
+            <td><%= book.creator%></td>
+            <td><%= book.publication_year %></td>
+            <td><button class="btn btn-primary"><%= link_to "Upvote", upvote_path(book), method: :post %> </button></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-  <h2>Movies</h2>
-  <table class="table table-hover">
-    <thead class="thead">
-      <tr>
-        <th scope="col">Votes</th>
-        <th scope="col">Title</th>
-        <th scope="col">Created By</th>
-        <th scope="col">Published</th>
-        <th scope="col">Upvote</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @movies.each do |movie| %>
+    <h2>Movies</h2>
+    <table class="table table-hover">
+      <thead class="thead">
         <tr>
-          <td><%= movie.votes.count %></td>
-          <td><%= link_to movie.title, work_path(movie) %></td>
-          <td><%= movie.creator%></td>
-          <td><%= movie.publication_year %></td>
-          <td><button class="btn btn-primary"><%= link_to "Upvote", upvote_path(movie), method: :post %> </button></td>
+          <th scope="col">Votes</th>
+          <th scope="col">Title</th>
+          <th scope="col">Created By</th>
+          <th scope="col">Published</th>
+          <th scope="col">Upvote</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @movies.each do |movie| %>
+          <tr>
+            <td><%= movie.votes.count %></td>
+            <td><%= link_to movie.title, work_path(movie) %></td>
+            <td><%= movie.creator%></td>
+            <td><%= movie.publication_year %></td>
+            <td><button class="btn btn-primary"><%= link_to "Upvote", upvote_path(movie), method: :post %> </button></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-</section>
+  </section>
+
+</body>

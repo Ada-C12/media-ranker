@@ -1,44 +1,46 @@
-<section class="spotlight">
-  <h2>Media Spotlight: <%= link_to @spotlight.title, work_path(@spotlight.id) %> by <%= @spotlight.creator %></h2>
-  <p><%= @spotlight.votes.count %> votes - <%= @spotlight.description %>
-</section>
-
-<section class="flex-container">
-
-  <section class="top-ten">
-    <h1>Top Albums</h1>
-      <ul>
-        <% @top_ten_albums.each do |album| %>
-          <li>
-            <h4> <%= link_to album.title, work_path(album) %><small> by <%= album.creator %></small></h4>
-            <p><%= album.votes.count %> votes</p>
-          </li>
-        <% end %>
-      </ul>
+<body>
+  <section class="spotlight">
+    <h2>Media Spotlight: <%= link_to @spotlight.title, work_path(@spotlight.id) %> by <%= @spotlight.creator %></h2>
+    <p><%= @spotlight.votes.count %> votes - <%= @spotlight.description %>
   </section>
 
-  <section class="top-ten">
-    <h1>Top Books</h1>
-      <ul>
-        <% @top_ten_books.each do |book| %>
-          <li>
-            <h4> <%= link_to book.title, work_path(book) %><small> by <%= book.creator %></small></h4>
-            <p><%= book.votes.count %> votes</p>
-          </li>
-        <% end %>
-      </ul>
-  </section>
+  <section class="flex-container">
 
-  <section class="top-ten">
-    <h1>Top Movies</h1>
-      <ul>
-        <% @top_ten_movie.each do |movie| %>
-          <li>
-            <h4> <%= link_to movie.title, work_path(movie) %><small> by <%= movie.creator %></small></h4>
-            <p><%= movie.votes.count %> votes</p>
-          </li>
-        <% end %>
-      </ul>
-  </section>
+    <section class="top-ten">
+      <h1>Top Albums</h1>
+        <ul>
+          <% @top_ten_albums.each do |album| %>
+            <li>
+              <h4> <%= link_to album.title, work_path(album) %><small> by <%= album.creator %></small></h4>
+              <p><%= album.votes.count %> votes</p>
+            </li>
+          <% end %>
+        </ul>
+    </section>
 
-</section>
+    <section class="top-ten">
+      <h1>Top Books</h1>
+        <ul>
+          <% @top_ten_books.each do |book| %>
+            <li>
+              <h4> <%= link_to book.title, work_path(book) %><small> by <%= book.creator %></small></h4>
+              <p><%= book.votes.count %> votes</p>
+            </li>
+          <% end %>
+        </ul>
+    </section>
+
+    <section class="top-ten">
+      <h1>Top Movies</h1>
+        <ul>
+          <% @top_ten_movie.each do |movie| %>
+            <li>
+              <h4> <%= link_to movie.title, work_path(movie) %><small> by <%= movie.creator %></small></h4>
+              <p><%= movie.votes.count %> votes</p>
+            </li>
+          <% end %>
+        </ul>
+    </section>
+
+  </section>
+</body>
