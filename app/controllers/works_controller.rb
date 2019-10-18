@@ -2,9 +2,9 @@ class WorksController < ApplicationController
   before_action :find_work, only: [:show, :edit, :update, :destroy]
   
   def index
-    @all_movies = Work.all_in(category: "movie")
-    @all_albums = Work.all_in(category: "album")
-    @all_books = Work.all_in(category: "book")
+    @all_movies = Work.ranked_all_in(category: "movie")
+    @all_albums = Work.ranked_all_in(category: "album")
+    @all_books = Work.ranked_all_in(category: "book")
   end
   
   def new
@@ -27,6 +27,11 @@ class WorksController < ApplicationController
   
   def show
     # @work via before_action
+    unless @work
+      flash[:error] = "LOL that piece of media got deleted. Womp womp!"
+      redirect_to nope_path
+      return
+    end
   end
   
   def edit

@@ -39,8 +39,8 @@ class UsersController < ApplicationController
   end
   
   def show
+    # why params[:id] and not session[:id]? b/c I want to show page even if you're not logged in
     @user = User.find_by(id: params[:id])
-    # using params[:id] instead of session[:user_id], not as secure for user privacy, but we dont' care for thsi project
     unless @user
       flash[:error] = "User does not exist!"
       redirect_to root_path

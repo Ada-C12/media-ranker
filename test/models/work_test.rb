@@ -224,4 +224,64 @@ describe Work do
       end
     end
   end
+  
+  
+  describe "METHOD: self.ranked_all_in()" do
+    it "nominal case: check top seeds in albums are in correct category, and show up in desc order" do
+      ranked = Work.ranked_all_in(category: "album")
+      assert(ranked.count == 2)
+      assert(desc_order?(ranked))
+      ranked.each do |piece|
+        assert(piece.category == "album")
+      end
+    end
+    
+    it "nominal case: check top seeds in books are in correct category, and show up in desc order" do
+      ranked = Work.ranked_all_in(category: "book")
+      assert(ranked.count == 2)
+      assert(desc_order?(ranked))
+      ranked.each do |piece|
+        assert(piece.category == "book")
+      end
+    end
+    
+    it "nominal case: check top seeds in movies are in correct category, and show up in desc order" do
+      ranked = Work.ranked_all_in(category: "movie")
+      assert(ranked.count == 11)
+      assert(desc_order?(ranked))
+      ranked.each do |piece|
+        assert(piece.category == "movie")
+      end
+    end
+    
+    it "edge case: if no works exist in a category, should return empty array" do
+      Work.destroy_all
+      assert(Work.count == 0)
+      
+      %w[movie album book].each do |cat|  
+        ranked = Work.ranked_all_in(category: cat)
+        assert(ranked == [])
+      end
+    end
+    
+    it "edge case: if no votes exist in a category, should return everything anyway" do
+      Vote.destroy_all
+      assert(Vote.count == 0)
+      
+      %w[movie album book].each do |cat|  
+        ranked = Work.ranked_all_in(category: cat)
+        
+        if cat == "movie"
+          assert(ranked.count == 11)
+        else
+          assert(ranked.count == 2)
+        end
+        
+        ranked.each do |piece|
+          assert(piece.category == cat)
+          assert(piece.votes.count == 0)
+        end
+      end
+    end
+  end
 end

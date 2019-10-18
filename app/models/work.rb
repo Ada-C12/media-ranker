@@ -28,10 +28,14 @@ class Work < ApplicationRecord
     end
   end
   
+  def self.ranked_all_in(category:)
+    unsorted = all_in(category: category)
+    sorted = unsorted.sort_by { |work| work.votes.count }
+    return sorted.reverse!
+  end
+  
   def self.top_ten_in(category:)
-    all_in_category = self.all_in(category: category)
-    ranked = all_in_category.sort_by { |piece| piece.votes.count }
-    ranked.reverse!
+    ranked = self.ranked_all_in(category: category)
     return ranked[0..9]
   end
   
