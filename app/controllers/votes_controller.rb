@@ -9,7 +9,7 @@ class VotesController < ApplicationController
       @user = User.find(session[:user_id])
       vote = Vote.new(user_id: @user.id, work_id: params[:work_id])
       vote.save
-      flash[:success] = "Vote added! Vote #{vote}"
+      flash[:success] = "Successfully upvoted!"
       redirect_to works_path
     else
       flash.now[:error] = "You must log in to do that"

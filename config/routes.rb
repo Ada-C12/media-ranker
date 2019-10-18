@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   end
   
   resources :users
-  get "/login", to: "users#login_form", as: "login_form"
-  post "/login", to: "users#login", as: "login"
+  get "/login", to: "users#login_form", as: "login"
+  post "/login", to: "users#login"
   post "/logout", to: "users#logout", as: "logout"
   
   resources :homepages, only: [:index]

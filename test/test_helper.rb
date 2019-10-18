@@ -15,15 +15,11 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   
   # # uncomment this once you're done with setting up the User
-  # def perform_login(user = User.first)
-  #   params = {
-  #     user: {
-  #       username: user.username
-  #     }
-  #   }
-  #   post login_path(params)
-  
-  #   expect(session[:user_id]).must_equal user.id
-  # end
+  def perform_login(user = User.first)
+    p user.id
+    post login_path(username: user.username)
+    
+    expect(session[:user_id]).must_equal user.id
+  end
   
 end

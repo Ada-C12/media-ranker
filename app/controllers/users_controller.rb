@@ -16,22 +16,35 @@ class UsersController < ApplicationController
       session[:user_id] = @current_user.id
       flash[:success] = "Successfully logged in as returning user #{@current_user.username}"
     else
-      @current_user = User.create(username: params[:username])
-      session[:user_id] = @current_user.id
-      flash[:success] = "Successfully logged in as new user #{@current_user.username}"
+      @current_user = User.new(username: params[:username])
+      if @current_user.save
+        session[:user_id] = @current_user.id
+        flash[:success] = "Successfully logged in as new user #{@current_user.username}"
+        redirect_to root_path
+      else
+        flash.now[:error] = "Could not log in"
+        render :login_form
+      end
     end
-    redirect_to root_path
   end
   
-  def create
-    @current_user = User.new(username: params[:username])
-    if @current_user.save
-      flash[:success] = "WORKS"
-    else
-      flash[:error] = "Could not log in"
+  def current 
+    @current_user = User.find(session[:user_id])
+    unless @current_user
+      flash[:error] = "You are not logged in"
+      redirect_to root_path
     end
-    redirect_to root_path    
   end
+  
+  # def create
+  #   @current_user = User.new(username: params[:username])
+  #   if @current_user.save
+  #     flash[:success] = "WORKS"
+  #   else
+  #     flash[:error] = "Could not log in"
+  #   end
+  #   redirect_to root_path    
+  # end
   
   def show; end
   
@@ -50,9 +63,9 @@ class UsersController < ApplicationController
   
   private
   
-  # def user_params
-  #   return params.require(:user).permit(:username)
-  # end
+  def user_params
+    return params.require(:user).permit(:username)
+  end
   
   
   
