@@ -39,6 +39,5 @@ describe User do
       expect(@user.votes.length).must_equal 2
       expect(@user.votes[0]).must_be_kind_of Vote
     end
-    
   end
 end
