@@ -11,12 +11,14 @@ class UsersController < ApplicationController
   end
   
   def login
-    @user = User.find_by(username: params[:username])
+    @user = User.find_by(username: params[:user][:username])
+    
     if @user
       session[:user_id] = @user.id
       flash[:success] = "Successfully logged in as returning user #{@user.username}"
+      redirect_to root_path
     else
-      @user = User.new(username: params[:username])
+      @user = User.new(username: params[:user][:username])
       if @user.save
         session[:user_id] = @user.id
         flash[:success] = "Successfully logged in as new user #{@user.username}"
@@ -36,15 +38,15 @@ class UsersController < ApplicationController
     end
   end
   
-  # def create
-  #   @user = User.new(username: params[:username])
-  #   if @user.save
-  #     flash[:success] = "WORKS"
-  #   else
-  #     flash[:error] = "Could not log in"
-  #   end
-  #   redirect_to root_path    
-  # end
+  def create
+    @user = User.new(username: params[:user][:username])
+    if @user.save
+      flash[:success] = "WORKS"
+    else
+      flash[:error] = "Could not log in"
+    end
+    redirect_to root_path    
+  end
   
   def show; end
   
