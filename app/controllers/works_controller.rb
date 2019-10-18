@@ -17,6 +17,7 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params) 
     if @work.save
+      flash[:success] = "Successfully created #{@work.category} '#{@work.title}''."
       redirect_to work_path(@work.id)
       return
     else 
@@ -29,6 +30,7 @@ class WorksController < ApplicationController
   
   def update
     if @work.update(work_params)
+      flash[:success] = "Successfully updated #{@work.category} '#{@work.title}''."
       redirect_to work_path(@work)
       return
     else 
@@ -119,7 +121,7 @@ class WorksController < ApplicationController
   
   def if_work_missing
     if @work.nil?
-      flash[:error] = "Work #{work.title} was not found."
+      flash[:error] = "That work was not found."
       redirect_to root_path
       return
     end
