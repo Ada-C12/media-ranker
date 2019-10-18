@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'works#top_ten'
   
   get '/works/top_ten', to: 'works#top_ten', as: 'top_ten_works'
+  post '/work/:id/upvote', to: 'works#upvote', as: 'upvote_work'
 
   resources :works do
     resources :votes, only: [:index, :post]
