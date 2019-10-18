@@ -60,6 +60,10 @@ header {
   border-right: white 2px solid;
 }
 
+.app-header__header h1 a:hover {
+  text-decoration: none;
+}
+
 .app-header__header h1 small {
   color: white;
 }
