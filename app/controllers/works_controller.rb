@@ -5,9 +5,9 @@ class WorksController < ApplicationController
   def media_spotlight
     @work = Work.most_votes
 
-    @movies = Work.top_ten_movies
-    @books = Work.top_ten_books
-    @albums = Work.top_ten_albums
+    @movies = Work.top_ten("movie")
+    @books = Work.top_ten("book")
+    @albums = Work.top_ten("album")
   end
 
   def index
@@ -51,7 +51,6 @@ class WorksController < ApplicationController
   end
   
   def update
-    
     if @work.nil?
       head :not_found
       return

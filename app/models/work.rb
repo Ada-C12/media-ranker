@@ -12,21 +12,9 @@ class Work < ApplicationRecord
     return works.sort_by { |work| work.votes.count }.reverse!
   end
 
-  def self.top_ten_movies
-    movies = sort_by_votes(Work.where(category: "movie"))
-    sorted_movies = movies.sort_by { |work| work.votes.count }.reverse!
-    return sorted_movies[0...10]
-  end
-
-  def self.top_ten_books
-    books = sort_by_votes(Work.where(category: "book"))
-    sorted_books = books.sort_by { |work| work.votes.count }.reverse!
-    return sorted_books[0...10]
-  end
-
-  def self.top_ten_albums
-    albums = sort_by_votes(Work.where(category: "album"))
-    sorted_albums = albums.sort_by { |work| work.votes.count }.reverse!
-    return sorted_albums[0...10]
+  def self.top_ten(category)
+    works = sort_by_votes(Work.where(category: category))
+    sorted_works = works.sort_by { |work| work.votes.count }.reverse!
+    return sorted_works[0...10]
   end
 end

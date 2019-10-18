@@ -90,13 +90,13 @@ describe Work do
         expect(valid_work.votes.count).must_equal 1
         expect(movie2.votes.count).must_equal 0
 
-        expect(Work.top_ten_movies.first).must_equal valid_work
-        expect(Work.top_ten_movies.last).must_equal movie2
+        expect(Work.top_ten("movie").first).must_equal valid_work
+        expect(Work.top_ten("movie").last).must_equal movie2
       end
     end
 
     describe "top-ten" do
-      describe "top_ten_movies" do
+      describe "top_ten(movie)" do
         let (:movie2) {
           works(:movie2)
         }
@@ -104,12 +104,12 @@ describe Work do
           expect(valid_work.votes.count).must_equal 1
           expect(movie2.votes.count).must_equal 0
 
-          expect(Work.top_ten_movies.first).must_equal valid_work
-          expect(Work.top_ten_movies.last).must_equal movie2
+          expect(Work.top_ten("movie").first).must_equal valid_work
+          expect(Work.top_ten("movie").last).must_equal movie2
         end
 
         it "only includes movies" do
-          Work.top_ten_movies.each do |work|
+          Work.top_ten("movie").each do |work|
             expect(work.category).must_equal "movie"
           end
         end
@@ -120,7 +120,7 @@ describe Work do
           Work.destroy_all
           expect(Work.count).must_equal 0
 
-          expect(Work.top_ten_movies).must_be_empty
+          expect(Work.top_ten("movie")).must_be_empty
         end
       end
 
@@ -135,12 +135,12 @@ describe Work do
           expect(book.votes.count).must_equal 2
           expect(book2.votes.count).must_equal 0
 
-          expect(Work.top_ten_books.first).must_equal book
-          expect(Work.top_ten_books.last).must_equal book2
+          expect(Work.top_ten("book").first).must_equal book
+          expect(Work.top_ten("book").last).must_equal book2
         end
 
         it "only includes books" do
-          Work.top_ten_books.each do |work|
+          Work.top_ten("book").each do |work|
             expect(work.category).must_equal "book"
           end
         end
@@ -151,7 +151,7 @@ describe Work do
           Work.destroy_all
           expect(Work.count).must_equal 0
 
-          expect(Work.top_ten_books).must_be_empty
+          expect(Work.top_ten("book")).must_be_empty
         end
       end
 
@@ -166,12 +166,12 @@ describe Work do
           expect(album.votes.count).must_equal 1
           expect(album2.votes.count).must_equal 0
 
-          expect(Work.top_ten_albums.first).must_equal album
-          expect(Work.top_ten_albums.last).must_equal album2
+          expect(Work.top_ten("album").first).must_equal album
+          expect(Work.top_ten("album").last).must_equal album2
         end
 
         it "only includes albums" do
-          Work.top_ten_albums.each do |work|
+          Work.top_ten("album").each do |work|
             expect(work.category).must_equal "album"
           end
         end
@@ -182,7 +182,7 @@ describe Work do
           Work.destroy_all
           expect(Work.count).must_equal 0
 
-          expect(Work.top_ten_albums).must_be_empty
+          expect(Work.top_ten("album")).must_be_empty
         end
       end
     end
