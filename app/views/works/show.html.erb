@@ -1,53 +1,45 @@
-<h1> <%= @work.title %> </h1>
+<main>
   <section>
-    <%= link_to "Show all Works", works_path %>
-    <%= link_to "Edit", edit_work_path(@work) %>
-    <%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure?"} %>
-    <%= link_to "Upvote", upvote_path(@work), method: :post %>
-  </section>
+    <h2> <%= @work.title %> </h2>
+        <p>
+          Created by:<%= @work.creator %>
+        </p>
+        <p>  
+          Published: <%= @work.publication_year %>
+        </p>
+        <p></p>
+      <section>
+        <%= link_to "Show all Works", works_path, class: "btn btn-primary" %>
+        <%= link_to "Edit", edit_work_path(@work), class: "btn btn-primary" %>
+        <%= link_to "Upvote", upvote_path(@work), method: :post, class: "btn btn-primary" %>
+        <%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      </section>
+    </section>
 
-  <section>
-    <ul>
-      <li>
-        <%= @work.category %>
-      </li>
-      <li>
-        <%= @work.creator %>
-      </li>
-      <li>  
-        <%= @work.publication_year %>
-      </li>
-      <li>
-        <%= @work.description %>
-      </li>
-    </ul>
-  </section>
-  
-  <section>
-    <%= @work.votes.count %> Votes for this <%= @work.category.capitalize %>
-  </section>
+    
+    
+    <section class="works-votes__container">
+      <h3 class="works-votes__header"> <%= @work.votes.count %> Votes for this <%= @work.category.capitalize %> </h3>
+    </section>
 
-<%# not working for some reason %>
-  <%# <section>
-    <ul>
-    <% @work.votes do |vote| %>
-     <%# <% user = User.find(vote.user_id) %> 
-      <%# <li> %>
-        <%# <%= user.name %> 
-        <%# <%= vote.date %> 
-      <%# </li> %>
-    <%# <% end %> 
-    <%# </ul> %>
-  <%# </section> %> 
+    <table class="table">
+      <thead>
+        <tr>
+          <th> User </th>
+          <th> Date </th>
+        </tr>
 
-  <section>
-    <ul>
-      <% @work.votes.each do |vote| %>
-        <% user = User.find(vote.user_id) %> 
-      <li>
-        <%= link_to user.name, user_path(user.id) %> 
-        <%= vote.date %>
-      </li>
-      <% end %>
-    <ul>
-  </section>
+      </thead>
+
+      <tbody>
+        <% @work.votes.each do |vote| %>
+          <% user = User.find(vote.user_id) %> 
+        <tr>
+          <td> <%= link_to user.name, user_path(user.id) %> </td>
+          <td> <%= vote.date %> </td>
+        </tr>
+        <% end %>
+      <tbody>
+    </table>
+
+  </main>
