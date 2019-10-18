@@ -1,5 +1,5 @@
 class Work < ApplicationRecord
-  has_many :votes
+  has_many :votes, dependent: :destroy
 
   validates :title, presence: true
   validates :category, presence: true
@@ -15,18 +15,19 @@ class Work < ApplicationRecord
   end
 
   def self.sort_media(category)
-    return nil unless category == :book || category == :album
+    return [] unless category == :book || category == :album
 
     all_media = Work.all.where(category: category)
-    media_ascending = all_media.sort_by{ |work| work.votes.length }.reverse!
+    media_ascending = all_media.sort_by { |work| work.votes.length }.reverse!
 
     return media_ascending
   end
 
   def self.top_ten(category)
-    return nil unless category == :book || category == :album
+    return [] unless category == :book || category == :album
 
     return Work.sort_media(category).first(10)
   end
 
 end
+

@@ -58,6 +58,12 @@ warren:
   creator: Elizabeth Warren
   publication_year: 2014
   description: A Fighting Chance is a 2014 memoir by the American academic and senior Massachusetts United States Senator Elizabeth Warren. The book details Warren's life from her upbringing in Oklahoma City to her unexpectedly successful bid for the United States Senate in 2012.
+raisah:
+  category: book
+  title: Raisah's book
+  creator: Raisah
+  publication_year: 2014
+  description: blah blah
 potter:
   category: album
   title: Harry Potter and the Philosopher's Stone
