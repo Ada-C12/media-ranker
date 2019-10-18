@@ -58,22 +58,28 @@ describe Work do
     
     it "retrieves fewer than ten works if fewer than ten are in the category" do
       # Arrange
-      works = Work.top_ten("movie")
-      top_works = works.top_ten()
+      # works = 
+      top_works = Work.top_ten("book")
+      p top_works
       # Act
       
       # Assert
-      expect(top_ten.length).must_equal Work.all.length
-      expect(top_ten.length).must_be_less_than 10
-      expect(top_ten.first.id).must_equal Work.first.id
+      expect(top_works.length).must_equal Work.all.length
+      # expect(top_works.length).must_be_less_than 10
+      expect(top_works.first.id).must_equal Work.first.id
       
     end
     
     it "can get the work with the highest vote" do
+      work = Work.last
+      user = User.first
+      vote = Vote.create(user_id: user.id, work_id: work.id)
+      work.reload
+      
       spotlight = Work.spotlight
       
       expect(spotlight).must_be_instance_of Work
-      
+      expect(spotlight.votes.length).must_equal work.votes.length      
     end
     
   end

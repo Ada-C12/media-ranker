@@ -22,7 +22,8 @@
 </section>
 
 <section class="works-votes__container">
-  <h3 class="works-votes__header">1 Votes for this Book</h3>
+  <h3 class="works-votes__header">
+  <%= @work.votes.length %> Votes for this Book</h3>
   <table class="table">
     <thead>
       <tr>
@@ -31,10 +32,17 @@
       </tr>
     </thead>
     <tbody>
+      <% @work.votes.each do |vote| %>
       <tr>
-        <td><a href="/users/266">dee</a></td>
-        <td>Oct 16, 2019</td>      
+        <td>
+        <% voter = User.find(vote.user_id) %>
+        <%= link_to voter.username, user_path(voter.id) %>
+        </td>
+        <td>
+        <%= vote.created_at.to_date %>
+        </td>      
       </tr>
+      <% end %>
     </tr>
     </tbody>
   </table>

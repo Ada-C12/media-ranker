@@ -14,14 +14,7 @@ class Work < ApplicationRecord
     works = Work.all
     
     a = 0
-    spotlight = works.first
-    while a < works.length - 1 do
-      if works[a].votes.length < works[a+1].votes.length
-        spotlight = works[a+1]
-      else
-        spotlight = works[a]
-      end
-    end
+    spotlight = works.max_by{|work| work.votes.length}
     return spotlight
     
   end

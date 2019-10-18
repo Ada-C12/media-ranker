@@ -5,7 +5,7 @@
     <%= link_to spotlight.title, work_path(spotlight.id), class: "spotlight__link-to" %> by <%= spotlight.creator %>
   </h2>
   <p class="spotlight__description">
-  0 votes - description
+  <%= spotlight.votes.length %> votes - description
   </p>
 </section>
 <hr class="root__hr">
@@ -24,7 +24,7 @@
         <%= link_to work.title, work_path(work.id) %>
         <small class="top-ten__creator">by <%= work.creator %></small>
         </h4>
-        <p>votes</p>
+        <p><%= work.votes.length %> votes</p>
       </li>
       <% end %>
     </ul>
