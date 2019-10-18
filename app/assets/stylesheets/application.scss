@@ -17,10 +17,10 @@
     @import "**/*";
 
 
-   h1, .h1 {
-      background-color: yellow;
-      font-size: 2.5rem;
-   }
+   // h1, .h1 {
+   //    background-color: yellow;
+   //    font-size: 2.5rem;
+   // }
 
    * {
       border: 1em, dashed, lightgray;
@@ -32,8 +32,13 @@
    }
 
    .app-header__header {
+      max-width: 100%;
       background-color: #B2DFDB;
+      margin-ottom: 0.5rem;
+      padding: 2rem 1rem 0.5rem 1rem;
+
       display: block;
+
    }
 
    .app-header__header a {
@@ -82,44 +87,44 @@
       list-style: none;
    }
 
-   .alert__container {
+//    .alert__container {
 
-   }
+//    }
 
-   .alert {
-      //standard
-   }
+//    .alert {
+//       //standard
+//    }
 
-   .alert-success, .alert-warning, .alert-primary {
-      //standard
-   }
+//    .alert-success, .alert-warning, .alert-primary {
+//       //standard
+//    }
 
-   h1, h2, h3, h4, h5 {
-      font-weight: bold;
-   }
+//    h1, h2, h3, h4, h5 {
+//       font-weight: bold;
+//    }
 
-   body, h1, h2, h3, h4, h5 {
-      font-family: "Gudea", sans-serif;
-   }
+//    body, h1, h2, h3, h4, h5 {
+//       font-family: "Gudea", sans-serif;
+//    }
 
-   // ARE THESE BUTTONS UNIVERSAL?
-.btn:hover {
-   background-color: rgb(21, 94, 86);
- }
+//    // ARE THESE BUTTONS UNIVERSAL?
+// .btn:hover {
+//    background-color: rgb(21, 94, 86);
+//  }
  
- .btn-secondary {
-   // i don' think anything needed here
- }
+//  .btn-secondary {
+//    // i don' think anything needed here
+//  }
  
- .btn-primary {
-   background-color: #26A69A;
-   border-color: #26A69A;
-   color: white;
- }
+//  .btn-primary {
+//    background-color: #26A69A;
+//    border-color: #26A69A;
+//    color: white;
+//  }
 
 
-// SUPER SPECIAL IDs
-#logo-banner{
-   display: block;
+// // SUPER SPECIAL IDs
+// #logo-banner{
+//    display: block;
 
-}
+// }
