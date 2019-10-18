@@ -12,6 +12,7 @@ by
 <li> <%= link_to book.title, work_path(book) %>
 by
 <%= book.creator %>
+<span class="badge badge-pill badge-info"><%=book.votes.length%> Votes</span>
 </li>
 <% end %>
 </ul>
@@ -23,6 +24,7 @@ by
 <li> <%= link_to album.title, work_path(album) %>
 by
 <%= album.creator %>
+<span class="badge badge-pill badge-info"><%=album.votes.length%> Votes</span>
 </li>
 <% end %>
 </ul>
@@ -34,6 +36,7 @@ by
 <li> <%= link_to movie.title, work_path(movie) %>
 by
 <%= movie.creator %>
+<span class="badge badge-pill badge-info"><%=movie.votes.length%> Votes</span>
 </li>
 <% end %>
 </ul>
