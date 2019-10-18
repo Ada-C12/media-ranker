@@ -17,6 +17,108 @@
 /* Import scss content */
 @import "**/*";
 
+:root {
+  --dark-blue: rgb(0, 57, 95);
+  --light-blue:rgb(76, 143, 219);
+  --orange:rgb(233, 197, 144);
+  --gray:rgb(76, 76, 78);
+}
+
 body {
-  margin: 20px;
+  background-color: white;
+  color: var(--dark-blue);
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+a {
+  color: var(--light-blue);
+}
+
+.header-container {
+  margin: 0 0 30px 0;
+  text-transform: lowercase;
+}
+
+.page-container {
+  padding: 5%;
+}
+
+.nav-container {
+  padding: 20px;
+  background-color: var(--orange);
+  color: var(--dark-blue);
+  text-align: center;
+  font-weight: bolder;
+  background-size: 100%;
+}
+
+.nav-container h1, h3 {
+  font-size: 3em;
+  text-transform: lowercase;
+}
+
+.nav-container h1 {
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.nav-container h3 {
+  font-size: 2em;
+}
+
+.nav-elements {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 30px;
+}
+
+.menu-container ul, .login-container ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.menu-container ul li, .login-container ul li {
+  list-style-type: none;
+  font-size: 1.2em;
+  text-transform: lowercase;
+  font-weight: normal;
+}
+
+.top-ten-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.spotlight-container {
+  margin: 3% 0;
+  text-align: center;
+}
+
+.spotlight-container h2 {
+  display: inline;
+  font-size: 1.5em;
+  font-weight: bold;
+
+}
+
+.spotlight-container p {
+  display: inline;
+  font-size: 1.5em;
+}
+
+.spotlight-container h2 {
+  font-family: 'Merriweather Sans', sans-serif;
+
+}
+
+.top-ten-list {
+  margin: 30px;
+}
+
+.top-ten-list h2 {
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.top-ten-container li {
+  list-style-type: none;
 }

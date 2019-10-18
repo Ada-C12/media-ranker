@@ -1,40 +1,47 @@
-This is the Homepage
 
-<%= link_to "All Media", works_path%>
+<section class="spotlight-container">
+  <h2>Media Spotlight:</h2> 
+  <p><% spotlight = Work.find_spotlight %>
+  <%= link_to spotlight.title, work_path(spotlight) %>, by <%= spotlight.creator %>
+  </p>
+</section>
 
-<h2>Media Spotlight:</h2>
+<section class="top-ten-container">
+  <section class="top-ten-list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Top 10 Books</th>
+       </tr>
+      </thead>
+      <tbody>
+        <% Work.sort_media(:book).first(10).each do |work|  %>
+        <tr>
+          <td><%= link_to work.title, work_path(work) %>, by <%= work.creator %> <br/>
+          <%= work.votes.length %> Votes
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
 
-<% spotlight = Work.find_spotlight %>
-<%= link_to spotlight.title, work_path(spotlight) %>, <%= spotlight.category %>
-
-<% if session[:user_id].nil? %>
-  <li>
-    <%= link_to "Login", login_path %>
-  </li>
-<%else%>
-  <li>
-    <%= link_to "Logout", logout_path, method: :post %>
-  </li>
-  <li>
-    Logged in as <%= User.find_by(id: session[:user_id]).username %>
-  </li>
-<%end%>
-
-<h2>Top 10 Books</h2>
-<ul>
-<% Work.sort_media(:book).first(10).each do |work|  %>
-  <li><%= link_to work.title, work_path(work) %>, <%= work.category %></li>
-<% end %>
-</ul>
-
-<h2>Top 10 Albums</h2>
-<ul>
-<% Work.sort_media(:album).first(10).each do |work|  %>
-  <li><%= link_to work.title, work_path(work) %>, <%= work.category %></li>
-<% end %>
-</ul>
-
-<h2>All votes</h2>
-<% Vote.all.each do |vote|  %>
-  <li><%= vote.work.title %>, <%= vote.user.username %></li>
-<% end %>
+  <section class="top-ten-list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Top 10 Albums</th>
+       </tr>
+      </thead>
+      <tbody>
+        <% Work.sort_media(:album).first(10).each do |work|  %>
+        <tr>
+          <td><%= link_to work.title, work_path(work) %>, by <%= work.creator %> <br/>
+          <%= work.votes.length %> Votes
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+</section>
