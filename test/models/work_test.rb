@@ -5,7 +5,9 @@ describe Work do
   let (:yml) { let_yml_superhash }
   
   describe "RELATIONS" do
+    
     let(:movie1) { yml[:movie1] }
+    
     it "can have many votes" do
       assert(movie1.votes.count == 4)
       new_vote = Vote.create(work: movie1, user_id: yml[:user6].id)
@@ -18,6 +20,7 @@ describe Work do
         assert(vote.work.title == movie1.title)
       end 
     end
+    
   end
   
   describe "VALIDATIONS" do
@@ -80,26 +83,30 @@ describe Work do
         end
       end
       
-      # it "bogus published_year" do
-      #   bad_args = ["", nil, "  "]
-      #   bad_args.each do |bad_arg|
-      #     bogus5 = Work.new(category:"album", title: "ok", published_year: bad_arg)
-      #     refute(bogus5.save)
-      #     expect(bogus5.errors.messages.keys).must_include :published_year
-      #     expect(bogus5.errors.messages.values).must_include ["can't be blank"]
-      #   end
-      # end
+      it "bogus published_year" do
+        bad_args = ["", nil, "  "]
+        bad_args.each do |bad_arg|
+          bogus5 = Work.new(category:"album", title: "ok", published_year: bad_arg)
+          refute(bogus5.save)
+          expect(bogus5.errors.messages.keys).must_include :published_year
+          expect(bogus5.errors.messages.values).must_include ["can't be blank"]
+        end
+      end
     end
   end
   
-  # describe "METHOD: spotlight_winner()" do
-  #   it "nominal case" do
-  #     # need votes
-  #   end
-  
-  #   it "edge case" do
-  #   end
-  # end
+  describe "METHOD: spotlight_winner()" do
+    it "nominal case" do
+      expected_winner = yml[:movie1]
+      assert( Work.spotlight_winner == expected_winner)
+    end
+    
+    it "edge case" do
+      Vote.destroy_all
+      assert(Vote.count == 0)
+      p Work.spotlight_winner
+    end
+  end
   
   # describe "METHOD: self.all_in()" do
   # it "nominal case" do
