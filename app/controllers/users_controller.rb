@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       redirect_to works_path
       return
     else
-      user = User.create(username: username)
+      user = User.create(username: username, date_joined: Date.today)
       session[:user_id] = user.id
       flash[:success] = "Succesfully logged in as new user #{username}"
     end
