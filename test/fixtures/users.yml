@@ -1,12 +1,12 @@
 tacocat:
-  name: tacocat
+  username: tacocat
 bob:
-  name: Bob Belcher
+  username: Bob Belcher
 tina:
-  name: Tina Belcher
+  username: Tina Belcher
 linda:
-  name: Linda Belcher
+  username: Linda Belcher
 louise:
-  name: Louise Belcher
+  username: Louise Belcher
 gene:
-  name: Gene Belcher
+  username: Gene Belcher

@@ -12,9 +12,9 @@ describe User do
 
     it "is invalid if a user with the same name already exists" do
       original_user = users(:tina)
-      name = original_user.name
+      name = original_user.username
 
-      second_user = User.new(name: name)
+      second_user = User.new(username: name)
 
       refute(second_user.valid?)
     end
@@ -22,7 +22,7 @@ describe User do
     it "is invalid if no name is given" do
       user = users(:tacocat)
 
-      user.name = ""
+      user.username = ""
 
       refute(user.valid?)
     end

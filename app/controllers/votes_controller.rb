@@ -12,8 +12,8 @@ class VotesController < ApplicationController
       else
         #how can I make this a flash.now?
         #need render for error message?
-        flash[:error] = "A problem occurred: Could not upvote"
-        redirect_back(fallback_location: :back)
+        flash.now[:error] = "A problem occurred: Could not upvote"
+        render :back
         return
       end
     else

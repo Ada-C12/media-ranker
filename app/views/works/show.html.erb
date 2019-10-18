@@ -27,7 +27,7 @@
         <% @work.votes.order(created_at: :desc).each do |vote| %>
           <tr>
             <% voter = vote.user %>
-            <td><%= link_to voter.name, user_path(voter.id) %></td>
+            <td><%= link_to voter.username, user_path(voter.id) %></td>
             <td><%= format_date(vote.created_at) %></td>
           </tr>
         <% end %>
