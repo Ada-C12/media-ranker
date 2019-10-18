@@ -9,9 +9,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
+
+<nav class="navbar navbar-light">
   <%=link_to "Media Ranker", root_path%>
   <%=link_to "View All Media", works_path%>
   <%=link_to "Add new Work", new_work_path%>
+  <%=link_to "Log In", login_form_path, :class => "btn btn-primary"%> 
+</nav>
+
 
   <section class="flash">
     <% flash.each do |name, message| %>

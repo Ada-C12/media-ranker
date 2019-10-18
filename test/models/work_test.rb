@@ -72,26 +72,30 @@ describe Work do
       # run it through the method and muake sure the length of the returned result
       # is 10
 
-      edited_works = []
-      edited_works = works.slice(1..-1)
+      # edited_works = []
+      # edited_works = works.slice(1..-1)
 
-      edited_works.each_with_index do |work, index|
-        puts users[index].id
-        Vote.create!(work_id: work.id, date: Time.now, user_id: users[index].id)
-      end
+      # edited_works.each_with_index do |work, index|
+      #   puts users[index].id
+      #   Vote.create!(work_id: work.id, date: Time.now, user_id: users[index].id)
+      # end
       
-
       result = Work.find_top_10("movie")
       expect(result.length).must_equal 10
 
-      # figure out how to not include thriller
-      # figure out how to be certain that the first vote is not included in the results
-
+        i = 0
       
+      result.each_with_index do |work, index|
+        break if index == 9
+        work_votes = work.votes 
+        # work_votes2 = result[index + 1].votes
+        work_votes2 = result[index + 1]
 
-      # how to loop through all works except for one
-      # how to get the user to change with each iteration
+        expect(work_votes.length).wont_be :<, work_votes2.votes.length
+      end 
     end 
+
+
 
     it "returns 1 work if there is only 1 work" do
       result = Work.find_top_10("album")
@@ -99,10 +103,10 @@ describe Work do
       expect(result.length).must_equal 1
     end 
 
-    it "returns 0 works if there is no work" do
-      result = Work.find_top_10("shoes")
-      expect(result.length).must_equal 0
-    end 
+    # it "returns 0 works if there is no work" do
+    #   result = Work.find_top_10("shoes")
+    #   expect(result.length).must_equal 0
+    # end 
   end 
 
   describe "find_spotlight" do

@@ -8,6 +8,8 @@ class WorksController < ApplicationController
     @movies = Work.where(category: "movie")
     @albums= Work.where(category: "album")
     @books = Work.where(category: "book")
+
+
   end
 
   def new
@@ -75,6 +77,23 @@ class WorksController < ApplicationController
       return 
     # end 
   end
+
+  def upvote
+    # Every time a user votes, I need to append another row onto the votes table. 
+    # But first, check for the work id and the user id in the votes table. 
+    user = User.find_by(id: session[:id])
+    work = Work.find_by(id: params[:id])
+
+    result = Vote.user_already_vote?(work, user)
+
+    if result == true 
+      flash[:success] = "Successfully upvoted!"
+      redirect_to works_path
+    elsif result == false
+      flash[:error] = "Could not upvote. The user has already voted for this work."
+      redirect_to works_path
+    end 
+  end 
 
   private
   
