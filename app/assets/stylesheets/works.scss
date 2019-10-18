@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: grey;
+}
+
 .table {
   width: 100%;
   margin-bottom: 1rem;

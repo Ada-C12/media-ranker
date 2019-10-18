@@ -16,6 +16,7 @@
     /* Import scss content */
     @import "**/*";
 
+
 body, html {
   font-family: 'Gudea', sans-serif;
 }
@@ -33,6 +34,12 @@ body, html {
   background-color: #B2DFDB;
   margin-bottom: 0.5rem;
   padding: 2rem 1rem 0.5rem 1rem;
+}
+
+.app-header__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .app-header__header h1 a {
@@ -66,4 +73,15 @@ h1, h2, h3, h4, h5 {
 
 a, h2, h3 {
   color: #26A69A;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
 }
