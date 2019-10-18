@@ -1,0 +1,26 @@
+<section class="index-header">
+<h2>List of Users</h2>
+</section>
+
+<section class="list-container">
+  <section class="users-list">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Votes</th>
+        <th scope="col">Joined</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% User.all.each do |user|  %>
+      <tr>
+        <td><%= link_to user.username, user_path(user) %></td>
+        <td><%= user.votes.length %></td>
+        <td><%= user.created_at.to_date %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </section>
+</section>
