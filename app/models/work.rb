@@ -2,7 +2,7 @@ class Work < ApplicationRecord
   has_many :votes
   # validations
   validates :title, presence: true, uniqueness: true  
-
+  
   def self.top_ten(category)
     works = Work.where(category: category)
     n = works.length
@@ -12,8 +12,17 @@ class Work < ApplicationRecord
       return works
     end
   end
-
+  
   def self.spotlight
-    return self.all.first
+    
+    works = self.all.sort_by do |work|
+      -work.votes.count
+    end
+    
+    if works.count == 0
+      return nil
+    end
+    
+    return works.first
   end
 end
