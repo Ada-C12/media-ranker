@@ -13,7 +13,7 @@ class VotesController < ApplicationController
         if vote.save
           flash[:success] = "Successfully upvoted!"
         else
-          flash[:warning] = "A problem occurred: Could not upvote"
+          flash[:warning] = "A problem occurred: Could not upvote."
         end
 
       end
