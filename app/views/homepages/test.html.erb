@@ -39,3 +39,54 @@
     </ul>
   </section>
 </main>
+
+
+
+
+
+
+
+<html>
+
+  <main>
+      <section class="spotlight">
+    <h2 class="spotlight__header">
+      <span class="spotlight__header--prefix">Media Spotlight</span>
+      <a class="spotlight__link-to" href="/works/402">To Thrill a Mockingbird</a> by Harper Leeee
+    </h2>
+    <p class="spotlight__description">
+      6 votes - brand new
+    </p>
+  </section>
+
+<hr class="root__hr">
+
+<section class="top-ten__container">
+  <section class="top-ten__list-container">
+  <% titles_array = ["Movies", "Books", "Albums"] %>
+  <% titles_array.each do |title| %>
+    <h4><%= title %></h4>
+    <ul class="list-group top-ten__list">
+      <% top_array = Work.top_ten(title)%>
+      <% top_array.each do |work| %>
+      <li class="list-group-item">
+        <h4><%= link_to work.title, work_path(id: work.id) %><small> by <%= work.creator %></small></h4>
+        <p><%= work.votes.length %></p>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+
+  <!-- <a href="/works.books">View More Books</a> -->
+  </section>
+
+  <!-- <a href="/works.albums">View More Albums</a> -->
+  </section>
+
+</section>
+
+</main>
+
+
+</body></html>

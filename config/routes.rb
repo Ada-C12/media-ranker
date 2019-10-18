@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :works do
-    resources :votes, shallow: true
+    resources :votes, only: [:create]
   end
   
   get "/login", to: "users#login_form", as: "login"

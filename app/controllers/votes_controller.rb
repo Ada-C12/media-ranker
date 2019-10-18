@@ -1,14 +1,22 @@
 class VotesController < ApplicationController
 
   def create
-    # work = Work.find_by(id: params[:work_id])
-    vote_params = vote.upvote
-    @vote = Vote.create(vote_params)
+    
+    unless session[:user_id]
+      flash[:error] = "You must be logged in to vote!"
+      redirect_to root_path
+      return
+    end
+
+    vote = Vote.create(work_id: params[:work_id], user_id: session[:user_id])
+    vote.save
+    
+    if vote.save
+      redirect_to work_path(params[:work_id])
+    else
+      flash[:error] = "You can only vote once for each work!"
+      redirect_to root_path
+    end
   end
 
-  private
-
-  def vote_params
-    return params.require(:vote).permit(:date_voted, :user_id, :work_id)
-  end
 end

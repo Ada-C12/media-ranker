@@ -1,7 +1,26 @@
 require "test_helper"
 
 describe UsersController do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  describe "current" do
+    it "responds with not found when user hasn't logged in" do
+      #No arrange needed
+
+      #Act
+      get current_user_path
+
+      #Assert
+      must_respond_with :not_found
+    end
+
+    it "returns 200 OK for a logged-in user" do
+      # Arrange
+      perform_login
+    
+      # Act
+      get current_user_path
+    
+      # Assert
+      must_respond_with :success
+    end
+  end
 end

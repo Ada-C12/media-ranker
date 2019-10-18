@@ -7,7 +7,4 @@ class User < ApplicationRecord
     # username can't be nil and can't equal spaces  
   end
 
-  def current_user
-    
-  end
 end

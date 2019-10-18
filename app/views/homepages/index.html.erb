@@ -4,7 +4,7 @@
       <section class="spotlight">
     <h2 class="spotlight__header">
       <span class="spotlight__header--prefix">Media Spotlight</span>
-      <a class="spotlight__link-to" href="/works/402">To Thrill a Mockingbird</a> by Harper Leeee
+      <%= link_to Work.spotlight.title, work_path(Work.spotlight.id) %>by <%= Work.spotlight.creator %>
     </h2>
     <p class="spotlight__description">
       6 votes - brand new
@@ -19,7 +19,7 @@
     Top Movies
   </h2>
   <ul class="list-group top-ten__list">
-    <% movies = Work.where(category: :movie)%>
+    <% movies = Work.top_ten("movie")#where(category: :movie)%>
     <% movies.each do |work| %>
     <li class="list-group-item">
       <h4><%= link_to work.title, work_path(id: work.id) %><small> by <%= work.creator %></small></h4>
