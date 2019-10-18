@@ -7,7 +7,8 @@ class Work < ApplicationRecord
   
   def self.top_ten(cat)
     works_by_cat = self.where(category: cat)
-    return works_by_cat.max_by(10) {|work| work.votes.length}
+    top_ten = works_by_cat.max_by(10) {|work| work.votes.length}
+    return top_ten.compact
   end
   
   def self.spotlight

@@ -16,3 +16,51 @@ drag:
   creator: Simon Doonan
   publication_year: 2019
   description: awesome
+hp1:
+  category: book
+  title: Harry Potter and the Sorcerer's Stone
+  creator: JK Rowling
+  publication_year: 1993
+  description: Harry Potter finds a rock
+hp2:
+  category: book
+  title: Harry Potter and the Chamber of Secrets
+  creator: JK Rowling
+  publication_year: 1993
+  description: Harry Potter finds secrets in a chamber
+hp3:
+  category: book
+  title: Harry Potter and the Prisoner of Secrets
+  creator: JK Rowling
+  publication_year: 1993
+  description: Harry Potter finds secrets in a prisoner
+hp4:
+  category: book
+  title: Harry Potter and the Terrible, Horrible, No-Good, Very Bad Day
+  creator: JK Rowling
+  publication_year: 1993
+  description: Harry Potter lives his life
+hp5:
+  category: book
+  title: Harry Potter and Harry Dresden
+  creator: JK Rowling
+  publication_year: 1993
+  description: Harry Dresden is a superior wizard. Much more camp.
+hp6:
+  category: book
+  title: Harry Potter and the Last of the Mohicans
+  creator: JK Rowling
+  publication_year: 1993
+  description: Crossover event of the century
+hp7:
+  category: book
+  title: Harry Potter and the Underwhelming Finale
+  creator: JK Rowling
+  publication_year: 1993
+  description: All was well.
+ptl:
+  category: album
+  title: Permission To Land
+  creator: The Darkness
+  publication_year: 2004
+  description: pure good rock
