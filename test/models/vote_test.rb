@@ -19,42 +19,35 @@ describe Vote do
     end
     
     it "cannot have multiples of work & user combo (unique votes only)" do
-      vote1m1
-      # p vote1m1.user
-      # p vote1m1.work
-      # dup_vote = Vote.new(user: vote1m1.user, work: vote1m1.work)
-      # p dup_vote.valid?
-      # p dup_vote
-      assert(false)
+      # I didn't have this as part of Model's job, my ctrller did this part instead
     end
     
-    it "if its assoc'd work obj gets deleted, all votes dependent on it are now invalid" do
+    it "if its assoc'd work obj gets deleted, votes are not gone" do
+      # just because a candidate died while running for office, doesn't mean the vote ain't legit
+      before = Vote.count
       work = vote1m1.work
-      assert(work.votes.count == 4)
-      
       work.destroy
       refute(Work.find_by(id: work.id))
       
+      # the only thing the vote obj is affected by should be the work attrib
+      # but it remains in the Vote database
       updated_vote = Vote.find_by(id: vote1m1.id)
-      refute(updated_vote.valid?)
+      assert(updated_vote.work == nil)
+      assert(Vote.count == before)
     end
     
-    it "if its assoc'd user obj gets deleted, all votes dependent on it are now invalid" do
-      single = yml[:vote1m10]
-      sad = single.work
-      p sad.votes.count
-      
+    it "if its assoc'd user obj gets deleted, votes are not gone" do
+      # just because a voter died after voting, doesn't mean the vote ain't legit
+      before = Vote.count
       user = vote1m1.user
-      assert(user.votes.count == 13)
-      
       user.destroy
       refute(User.find_by(id: user.id))
       
+      # the only thing the vote obj is affected by should be the work attrib
+      # but it remains in the Vote database
       updated_vote = Vote.find_by(id: vote1m1.id)
-      refute(updated_vote.valid?) 
-      
-      p sad.votes.first
-
+      assert(updated_vote.user == nil)
+      assert(Vote.count == before)
     end
   end
   
@@ -64,8 +57,8 @@ describe Vote do
       assert(any_democrat.save)
     end
     
-    it "won't create Vote obj with bogus user_id" do
-      anonymous_troll = Vote.new(user_id: nil, work: Work.first)
+    it "won't create Vote obj with bogus user" do
+      anonymous_troll = Vote.new(user: nil, work: Work.first)
       refute(anonymous_troll.save)
       
       msgs = anonymous_troll.errors.messages
@@ -74,8 +67,8 @@ describe Vote do
       assert(msgs.values.include? ["must exist"])
     end
     
-    it "won't create Vote obj with bogus work_id" do
-      trump_prez_ballot = Vote.new(user_id: User.first, work: nil)
+    it "won't create Vote obj with bogus work" do
+      trump_prez_ballot = Vote.new(user: User.first, work: nil)
       refute(trump_prez_ballot.save)
       
       msgs = trump_prez_ballot.errors.messages
