@@ -27,6 +27,7 @@
       <% books.each do |work| %>
         <li>
           <%= link_to work.title, work_path(id: work.id) %> by <%= work.creator %>
+          <%= work.votes %>
         </li>
       <% end %>
       <h2>Albums</h2>
@@ -34,6 +35,7 @@
       <% albums.each do |work| %>
         <li>
           <%= link_to work.title, work_path(id: work.id) %> by <%= work.creator %>
+          <%= work.votes %>
         </li>
       <% end %>
     </ul>

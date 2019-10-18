@@ -19,11 +19,11 @@
     Top Movies
   </h2>
   <ul class="list-group top-ten__list">
-    <% movies = Work.top_ten("movie")#where(category: :movie)%>
+    <% movies = Work.top_ten("movie")%>
     <% movies.each do |work| %>
     <li class="list-group-item">
-      <h4><%= link_to work.title, work_path(id: work.id) %><small> by <%= work.creator %></small></h4>
-      <p><% Vote.where(work_id: work.id)%></p>
+      <h4><%= link_to work.title, work_path(work.id) %><small> by <%= work.creator %></small></h4>
+      <p><%= work.votes.length %></p>
     </li>
     <% end %>
   </ul>
@@ -34,10 +34,11 @@
     Top Books
   </h2>
   <ul class="list-group top-ten__list">
-    <% books = Work.where(category: :book).sample(10)%>
+    <% books = Work.top_ten("book")%>
     <% books.each do |work| %>
     <li class="list-group-item">
-      <h4><%= link_to work.title, work_path(id: work.id) %><small> by <%= work.creator %></small></h4>
+      <h4><%= link_to work.title, work_path(work.id) %><small> by <%= work.creator %></small></h4>
+      <p><%= work.votes.length %></p>
     </li>
     <% end %>
   </ul>
@@ -48,10 +49,11 @@
     Top Albums
   </h2>
   <ul class="list-group top-ten__list">
-    <% albums = Work.where(category: :album).sample(10)%>
+    <% albums = Work.top_ten("album")%>
     <% albums.each do |work| %>
     <li class="list-group-item">
-      <h4><%= link_to work.title, work_path(id: work.id) %><small> by <%= work.creator %></small></h4>
+      <h4><%= link_to work.title, work_path(work.id) %><small> by <%= work.creator %></small></h4>
+      <p><%= work.votes.length %></p>
     </li>
     <% end %>
   </ul>
