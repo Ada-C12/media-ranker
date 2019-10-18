@@ -21,12 +21,12 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     if @work.save
-      flash[:success] = "New work created!"
+      flash[:success] = "Successfully created #{@work.category} #{@work.id}"
       redirect_to work_path(Work.find_by(title: @work.title, category: @work.category))
       return
     end
     
-    flash.now[:error] = "Failed to create work!"
+    flash.now[:error] = "A problem occurred: Could not create #{@work.category}"
     render :new
   end
   
@@ -52,7 +52,7 @@ class WorksController < ApplicationController
       flash[:success] = existing_work.title + " has been deleted!"
       existing_work.destroy
     end
-    redirect_to works_path
+    redirect_to root_path
     return
   end
 
