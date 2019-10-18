@@ -1,73 +1,40 @@
+require 'date'
+
 class UsersController < ApplicationController
   def index
     @users = User.all
   end
 
-  def new
+  def login_form
     @user = User.new
   end
 
-  def show
-    @user = User.find_by(id: params[:id])
-
-    if @user.nil?
-      head :not_found
-      return
-    end
-  end
-
-  def edit
-    @user = User.find_by(id: params[:id])
-
-    if @user.nil?
-      head :not_found
-      return
-    end
-  end
-
-  def create
-    @user = User.new(user_params)
-
-    if @user.save
-      flash[:success] = "user added successfully"
-      redirect_to users_path
-      return
+  def login
+    name = params[:user][:name]
+    user = User.find_by(name: name)
+    if user
+      session[:user_id] = user.id
+      flash[:success] = "Successfully logged in as returning user #{name}"
     else
-      flash.now[:failure] = "user failed to save"
-      render :new
-      return
+      user = User.create(name: name, joined: Date.today)
+      session[:user_id] = user.id
+      flash[:success] = "Successfully logged in as new user #{name}"
+    end
+  
+    redirect_to root_path
+  end
+
+  def current
+    @current_user = User.find_by(id: session[:user_id])
+    unless @current_user
+      flash[:error] = "You must be logged in to vote"
+      redirect_to root_path
     end
   end
 
-  def update
-    @user = User.find_by(id: params[:id])
-
-    if @user.update(user_params)
-      redirect_to user_path(@user)
-      return
-    else
-      render :edit
-      return
-    end
-  end
-
-  def destroy
-    @user = User.find_by(id: params[:id])
-
-    if @user.nil?
-      flash[:error] = "Could you find user #{@user.name}"
-      redirect_to users_path
-      return
-    end
-
-    @user.destroy
-    redirect_to users_path
-    return
-  end
-
-  private
-
-  def user_params
-    return params.require(:user).permit(:name)
+  def logout
+    session[:user_id] = nil
+    flash[:success] = 
+    redirect_to root_path
   end
 end
