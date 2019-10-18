@@ -10,5 +10,4 @@ class Work < ApplicationRecord
   def self.top_10(category)
     return Work.where(category: category).sample(10)
   end
-
 end
