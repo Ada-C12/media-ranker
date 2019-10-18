@@ -17,7 +17,8 @@ by
 <%end%>
 <h1> Top Books: </h1>
 <ul>
-<% chosen = @works.where(category: "book").top_ten %>
+<% chosen = @works.where(category: "book") %>
+<% chosen = Work.top_ten(chosen) %>
 <% chosen.each do |book| %>
 <li> <%= link_to book.title, work_path(book) %>
 by
@@ -32,7 +33,8 @@ by
 
 <h1> Top Music Albums: </h1>
 <ul>
-<% chosen = @works.where(category: "album").top_ten %>
+<% chosen = @works.where(category: "album") %>
+<% chosen = Work.top_ten(chosen)%>
 <% chosen.each do |album| %>
 <li> <%= link_to album.title, work_path(album) %>
 by
@@ -47,7 +49,8 @@ by
 
 <h1> Top Movies: </h1>
 <ul>
-<% chosen = @works.where(category: "movie").top_ten %>
+<% chosen = @works.where(category: "movie") %>
+<% chosen = Work.top_ten(chosen)%>
 <% chosen.each do |movie| %>
 <li> <%= link_to movie.title, work_path(movie) %>
 by

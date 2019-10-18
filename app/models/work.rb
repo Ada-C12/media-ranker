@@ -16,16 +16,16 @@ class Work < ApplicationRecord
     sorted_array = hash.sort_by { |key, value| -value }
     sorted_array.map! {|subarray| Work.find(subarray[0])}
   end
-end
 
-def self.top_ten
-  works = Work.all
-  if works.nil? || works.length == 0
-    return ""
-  end
-  sorted_array = sort_works(works)
-  if sorted_array.length < 10
-    return sorted_array
-  else return sorted_array[0..9]
+
+  def self.top_ten(works)
+    if works.nil? || works.length == 0
+      return ""
+    end
+    sorted_array = sort_works(works)
+    if sorted_array.length < 10
+      return sorted_array
+    else return sorted_array[0..9]
+    end
   end
 end
