@@ -7,22 +7,35 @@ class UsersController < ApplicationController
       @users = User.all
     end
 
+    def show
+      user_id = params[:id].to_i
+      @user = User.find_by(id: user_id)
+
+      @user_votes = Vote.where(user_id: user_id)
+
+      if @user_votes.length > 0
+        @user_votes.each do |vote|
+        @works = Work.find_by(id: vote.work_id)
+        end
+      end
+    end
+
     def login_form
         @user = User.new
     end
 
     def login
-        username = params[:user][:username]
+        username = params[:user][:username] # params = {"user": {"username": "sara"}}
         user = User.find_by(username: username)
 
         
         if user
-          session[:user_id] = user.id
-          flash[:success] = "Successfully logged in as returning user #{username}"
+          session[:user_id] = user.id # session = {"user_id": 1}
+          flash[:success] = "Successfully logged in as returning user #{username}!"
         else
           new_user = User.create(username: username)
           session[:user_id] = new_user.id
-          flash[:success] = "Successfully logged in as new user #{username}"
+          flash[:success] = "Successfully logged in as new user #{username}!"
         end
       
         redirect_to root_path
@@ -40,7 +53,7 @@ class UsersController < ApplicationController
     def logout  
       # what if we are never logged in?
       session[:user_id] = nil
-      flash[:message] = "You have logged out successfully"
+      flash[:success] = "You have logged out successfully"
       redirect_to root_path
     end
 

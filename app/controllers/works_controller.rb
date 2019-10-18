@@ -54,16 +54,13 @@ class WorksController < ApplicationController
   
     def destroy
   
-      the_correct_work = Work.find_by( id: params[:id] )
+      work = Work.find_by( id: params[:id] )
   
-      if the_correct_work.nil?
-        redirect_to work_path
-        return
-      else
-        the_correct_work.destroy
+      
+        work.destroy
+        flash[:success] = "Successfully destroyed #{work.category} #{work.id}"
         redirect_to root_path
         return
-      end
     end
 
     def spotlight
