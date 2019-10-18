@@ -28,12 +28,12 @@ class UsersController < ApplicationController
     #   render 
     if user 
       session[:user_id] = user.id
-      flash[:success] = "Hello returning user #{name}."
+      flash[:success] = "Hello returning user #{name}"
     else
       @user = User.create(name: name, joined_date: Date.today)
       if @user.save
         session[:user_id] = @user.id
-        flash[:success] = "Hello new user #{name}."
+        flash[:success] = "Hello new user #{name}"
       else
         render :login_form
         return

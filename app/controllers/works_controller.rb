@@ -22,7 +22,7 @@ class WorksController < ApplicationController
     @work = Work.create(work_params)
 
     if @work.save
-      redirect_to work_path
+      redirect_to work_path(@work)
       return
     else
       render :new
