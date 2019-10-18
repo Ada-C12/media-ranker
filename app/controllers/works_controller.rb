@@ -18,12 +18,39 @@ class WorksController < ApplicationController
   end
   
   def edit
+    @work = Work.find_by(id: params[:id])
+    return redirect_to works_path unless @work
   end
   
   def update
+    @work = Work.find_by(id: params[:id])
+    return head :not_found unless @work
+    if @work.update(work_params)
+      redirect_to works_path
+    else
+      render "edit"
+    end
   end
   
   def destroy
+    @work = Work.find_by(id: params[:id])
+    return redirect_to works_path unless @work 
+    update_votes
+    @work.destroy
+    redirect_to works_path
+  end
+  
+  
+  def show
+    @work = Work.find_by(id: params[:id])
+  end
+  
+  def update_votes
+    @votes = Vote.where(work_id: @work.id)
+    @votes.each do |vote|
+      vote.work_id = 0
+      vote.save
+    end 
   end
   
   private

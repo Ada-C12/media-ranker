@@ -60,12 +60,80 @@ describe WorksController do
   end
   
   describe "edit" do
+    it "responds with success when fetching the edit page for an existing, valid work" do
+      work = Work.last
+      get edit_work_path(work.id)
+      must_respond_with :success
+    end
+    
+    it "responds with redirect when fetching the edit page for a nonexistant work" do 
+      work = Work.last
+      get edit_work_path(-9)
+      must_respond_with :redirect
+    end
   end
   
   describe "update" do 
+    before do 
+      @work = Work.last
+      @work_hash = {
+        work: {
+          ref_name: @work.name,
+          ref_description: @work.description,
+          ref_creator: @work.creator,
+          ref_category: @work.category,
+          ref_publication_year: @work.publication_year,
+        }
+      }
+    end
+    
+    it "upon updating, the edited field changes, but the other fields remain the same" do
+      id = @work.id
+      test_params = {work: { name: "Testy Name" } }
+      
+      #name
+      patch work_path(id), params: test_params
+      expect(Work.find(id).name).must_equal test_params[:work][:name]
+      
+      expect(Work.find(id).description).must_equal @work_hash[:work][:ref_description]
+      expect(Work.find(id).creator).must_equal @work_hash[:work][:ref_creator]
+      expect(Work.find(id).category).must_equal @work_hash[:work][:ref_category]
+      expect(Work.find(id).publication_year).must_equal @work_hash[:work][:ref_publication_year]
+      
+      #if additional time, add more tests that check that as a single field changes, the others remain the same 
+      ##description
+      ##creator
+      ##category      
+      ##publication_year
+    end
+    
+    it "upon updating, the count remains the same" do
+      id = @work.id
+      test_params = {work: { name: "Testy Name" } }
+      expect{patch work_path(id), params: test_params}.wont_change "Work.count"
+      
+      must_respond_with :redirect
+    end
   end
   
   describe "destroy" do
+    it "verifies that the count of works decreases by 1 upon deletion and the site redirects" do
+      test_work = Work.last
+      expect {delete work_path(Work.last.id)}.must_change "Work.count", -1
+      
+      must_respond_with :redirect
+    end
+    
+    it "verifies that the count of total votes in unaffected by the deletion of a work" do
+      test_work = Work.last
+      expect {delete work_path(Work.last.id)}.wont_change "Vote.count"
+    end
+    
+    it "does not change the count of works if the work id is invalid" do
+      test_work = Work.last
+      expect {delete work_path(-9)}.wont_change "Work.count"
+      
+    end
   end
   
 end

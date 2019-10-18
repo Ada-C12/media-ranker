@@ -1,0 +1,11 @@
+<h1> <%= @work.name %></h1>
+<section class="work-details">
+  <p> Created by: <%= @work.creator %> </p>
+  <p> Published: <%= @work.publication_year %> </p>
+</section>
+<section>
+  <%= link_to "Back to media ranks" , works_path %>
+  <%= link_to "edit", edit_work_path(@work.id) %>
+
+  <%= link_to "delete", work_path(@work.id), method: :delete %>
+</section>

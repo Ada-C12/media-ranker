@@ -1,9 +1,9 @@
 class Work < ApplicationRecord
   
-  # validation: name, can't be empty
-  # validation: name, can't be duplicating another name
-  # category: must be one of the following 3 values: album, book, movie
+  validates :name, presence: true
+  validates :name, uniqueness: true
   
+  validates :category, inclusion: { in: %w(album book movie), message: "%{value} is not a valid category" }
   
   has_many :votes
 end
