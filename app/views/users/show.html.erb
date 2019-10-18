@@ -16,19 +16,14 @@
       </tr>
     </thead>
     <tbody>
+         <% User.find_by(id: session[:user_id]).votes.each do |vote| %>
         <tr>
-          <td><a href="#">A work I upvoted </a></td>
-          <td></td>
-          <td></td>
-          <td>the work's category</td>
-          <td>the date I voted on it</td>
-        </tr>
-        <tr>
-          <td><a href="#">Another work I upvoted</a></td>
-          <td>the work's creator</td>
-          <td>the work's publication date</td>
-          <td>the work's category</td>
-          <td>the date I voted on it</td>
+          <td> <a href="/works/<%= vote.work_id %>"><%=Work.find_by(id: vote.work_id).title %> </a></td>
+          <td> <%= Work.find_by(id: vote.work_id).creator %></td>
+          <td> <%= Work.find_by(id: vote.work_id).publication %></td>
+          <td> <%= Work.find_by(id: vote.work_id).category %></td>
+          <td> <%= vote.created_at.strftime("%b %d, %Y") %></td>
+          <%end%>
         </tr>
     </tbody>
   </table>
