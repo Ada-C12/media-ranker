@@ -37,4 +37,18 @@ describe VotesController do
       
     end
   end
+  describe "validations" do
+    it "does not allow a duplicate vote" do
+      work = Work.first
+      user = User.first
+      perform_login(user)
+      
+      post work_votes_path(work.id)
+      
+      expect{ post work_votes_path(work.id)}.must_differ "work.votes.count", 0
+      
+      must_respond_with :redirect
+      
+    end
+  end
 end
