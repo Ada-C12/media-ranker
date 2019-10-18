@@ -1,0 +1,14 @@
+valid_user:
+  username: hahaha
+
+invalid_user:
+  id: 1
+
+user1:
+  username: user1
+
+user2:
+  username: user2
+
+user3:
+  username: user3

@@ -1,0 +1,35 @@
+valid_work:
+  title: POODR
+  category: book
+  description: A resource we use at Ada
+  creator: metz
+
+invalid_work_without_title:
+  category: book
+  description: A resource we use at Ada
+  creator: metz
+
+invalid_work_without_category:
+  title: POODR
+  description: A resource we use at Ada
+  creator: metz
+
+list_work_1:
+  title: POODR1
+  category: ruby
+
+list_work_2:
+  title: POODR2
+  category: ruby
+
+list_work_3:
+  title: POODR3
+  category: ruby
+
+list_work_4: 
+  title: game1
+  category: game
+
+list_work_5: 
+  title: game2
+  category: game

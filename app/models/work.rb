@@ -1,6 +1,8 @@
 class Work < ApplicationRecord
-  has_many :votes
+  has_many :votes, :dependent => :destroy
   validates :title, presence: true
+  validates :category, presence: true
+  
   def self.category_list(category)
     list = Work.where(category: category).sort_by{ |work| - work.votes.length }
     return list
