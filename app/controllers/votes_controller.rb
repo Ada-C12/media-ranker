@@ -2,7 +2,7 @@ class VotesController < ApplicationController
   def create
     current_user = User.find_by(id: session[:user_id])
     work = Work.find_by(id: params[:work_id])
-
+    
     if current_user
       @vote = Vote.new(user: current_user, work: work)
       if @vote.save
@@ -10,10 +10,10 @@ class VotesController < ApplicationController
         redirect_back(fallback_location: :back)
         return
       else
-        #how can I make this a flash.now?
-        #need render for error message?
-        flash.now[:error] = "A problem occurred: Could not upvote"
-        render :back
+        flash[:errors] = []
+        flash[:errors] << "A problem occurred: Could not upvote"
+        flash[:errors] << @vote.errors
+        redirect_back(fallback_location: :back)
         return
       end
     else
@@ -21,6 +21,5 @@ class VotesController < ApplicationController
       redirect_back(fallback_location: :back)
       return
     end
-
   end
 end
