@@ -6,29 +6,17 @@ class Work < ApplicationRecord
   
   #Each work must have at least a title that is unique within its category - album, book, or movie.
   #This current method does not account for if no upvotes have been made yet.
+  #Account for possibility of no works being voted on 
   def self.spotlight
     begin
       Vote.select(:work_id).group(:work_id).order("count(work_id) desc").first.work
     rescue 
       Work.first
     end
-    # max_work_count = 0
-    # spotlight = ""
-    # Work.all.each do |work|
-    #   if work.votes.count > max_work_count 
-    #     max_work_count = work.votes.count
-    #     spotlight = work
-    #   end  
-    # end
-    # return spotlight 
   end 
 
   #Maybe make a method that lists all works by order of vote
   #Then top ten will call that method
-  # def works_sorted_by_votes
-  #   Work.joins("left join votes on votes.work_id = works.id").group("works.id").order("count(works.id) DESC").limit(10)
-  # end 
-
   #So we can call this by saying Work.top_ten(movie), Work.top_ten(book)
   #We can sort all of the works by # of votes and select the top ten from that
   #Or we can select the top ten highest 
@@ -40,7 +28,7 @@ class Work < ApplicationRecord
     # end 
     #Need first ten of these works 
 
-    Work.where(category: category).sort_by { |work| work.votes.length }.first(10).reverse 
+    Work.where(category: category).sort_by { |work| -work.votes.length }.first(10)
 
   end 
 
