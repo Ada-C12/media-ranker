@@ -1,7 +1,8 @@
 class Work < ApplicationRecord
   has_many :votes
 
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true
+  validates :title, uniqueness: true
 
   def self.spotlight
     works = self.all
