@@ -10,6 +10,13 @@ describe Work do
     
     it "can have many votes" do
       assert(movie1.votes.count == 4)
+      movie1.votes.each do |vote|
+        assert(vote.class == Vote)
+        assert(vote.work_id == movie1.id)
+      end
+    end
+    
+    it "can add votes" do
       new_vote = Vote.create(work: movie1, user_id: yml[:user6].id)
       assert(movie1.votes.count == 5)
     end
@@ -22,7 +29,12 @@ describe Work do
     end
     
     it "if work_obj gets deleted, its dependent votes are too" do
-    
+      assert(movie1.votes.count == 4)
+      
+      movie1.destroy 
+      refute(Work.find_by(title: "joker"))
+      
+      assert(movie1.votes.count == 0)
     end
     
   end
