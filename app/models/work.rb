@@ -23,9 +23,7 @@ def self.top_ten
   if works.nil? || works.length == 0
     return ""
   end
-
   sorted_array = sort_works(works)
-
   if sorted_array.length < 10
     return sorted_array
   else return sorted_array[0..9]

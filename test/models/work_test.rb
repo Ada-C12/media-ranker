@@ -33,7 +33,7 @@ describe Work do
 
   describe 'custom methods' do
     describe 'top_ten' do
-      it 'returns ten books' do
+      it 'returns ten works' do
         works = Work.all
         expect(works.top_ten.length).must_equal 10
       end
@@ -46,6 +46,16 @@ describe Work do
         works = []
         expect(works.top_ten.length).must_equal 0
       end
+    end
+
+    describe 'sort_works' do
+      it 'can sort more than ten things and does not freak out when a work has no votes--nil or 0' do
+        works = Work.all
+        works = Work.sort_works(works)
+        expect(works.length).must_equal 11
+        expect(works.first).must_include "Hello"
+      end
+
     end
   end
 end
