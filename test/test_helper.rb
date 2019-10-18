@@ -13,8 +13,11 @@ class ActiveSupport::TestCase
   
   def let_yml_superhash
     # returns a big old hash for drying out of LET statements, 
-    # b/c i'm sick of specifying which yml file things come out of,
+    # PROS: i'm sick of specifying which yml file things come out of,
     # maybe i could've dried this out too, but i'm only doing this one time so whatever
+    # CONS: all keys across all yaml files must be unique, bc the way i named things below
+    # CONS: did this really save me that much time? IDK... fun experiment though
+    
     return { 
       album1: works(:album1), 
       album2: works(:album2),
