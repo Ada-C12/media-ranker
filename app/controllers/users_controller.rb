@@ -25,13 +25,6 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
   
-  def current
-    unless @current_user
-      flash[:error] = "You must be logged in to view this page."
-      redirect_to root_path
-    end
-  end
-  
   def logout
     flash[:success] = "Sucecssfully logged out."
     session[:user_id] = nil
