@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_224343) do
+ActiveRecord::Schema.define(version: 2019_10_18_055358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(version: 2019_10_17_224343) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.date "joined"
-    t.text "votes"
+    t.bigint "votes_id"
+    t.index ["votes_id"], name: "index_users_on_votes_id"
   end
 
   create_table "votes", force: :cascade do |t|
@@ -40,10 +41,13 @@ ActiveRecord::Schema.define(version: 2019_10_17_224343) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "votes"
     t.date "publication_year"
+    t.bigint "votes_id"
+    t.index ["votes_id"], name: "index_works_on_votes_id"
   end
 
+  add_foreign_key "users", "votes", column: "votes_id"
   add_foreign_key "votes", "users"
   add_foreign_key "votes", "works"
+  add_foreign_key "works", "votes", column: "votes_id"
 end
