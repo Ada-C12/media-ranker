@@ -103,10 +103,10 @@ describe Work do
       expect(result.length).must_equal 1
     end 
 
-    # it "returns 0 works if there is no work" do
-    #   result = Work.find_top_10("shoes")
-    #   expect(result.length).must_equal 0
-    # end 
+    it "returns 0 works if there is no work" do
+      result = Work.find_top_10("book")
+      expect(result.length).must_equal 0
+    end 
   end 
 
   describe "find_spotlight" do
