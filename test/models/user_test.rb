@@ -16,4 +16,11 @@ describe User do
       expect(user[:username]).must_equal "testinguser"
     end
 
+    it "must have a title" do 
+
+    end 
+
+    it "must have a category" do 
+    end 
+
 end
