@@ -1,20 +1,39 @@
-<h2>Work Title: <%= @work.title %></h2>
+<section class="show-container">
 
-<% votes = @work.votes %>
+  <h2><%= @work.title %></h2>
 
-<p>Category: <%= @work.category %> <br/>
-Creator: <%= @work.creator %> </p>
-<p>Publication Year: <%= @work.publication_year %> </p>
-<p>Description: <%= @work.description %> </p>
+  <section class="show-details">
+    <p>Creator: <%= @work.creator %> </p>
+    <p>Publication Year: <%= @work.publication_year %> </p>
+    <p>Description: <%= @work.description %> </p>
+  </section>
 
+  <section class="show buttons">
+    <%= link_to "Upvote", upvote_path(@work), method: :post, class: "btn btn-primary" %>
+    <%= link_to "Edit", edit_work_path(@work), class: "btn btn-primary" %>
+    <%= link_to "Delete", work_path(@work), method: :delete, data: { confirm: "Are you sure you want to delete this piece of media?" }, class: "btn btn-primary" %>
+  </section>
 
-<h3>Votes for <%= @work.title %></h3>
-<% votes.each do |vote|  %>
-  <li><%= vote.work.title %>, <%= vote.user.username %>, <%= vote.created_at %></li>
-<% end %>
+  <section class="votes-list">
+    <h3>Votes for this <%= @work.category %></h3>
 
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">User</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @work.votes.each do |vote|  %>
+        <tr>
+          <td><%= vote.user.username %></td>
+          <td><%= vote.created_at.to_date %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+</section>
 
-<%= link_to "Upvote", upvote_path(@work), method: :post %>
-<%= link_to "Edit", edit_work_path(@work)%>
-<%= link_to "Delete", work_path(@work), method: :delete, data: { confirm: "Are you sure you want to delete this piece of media?" } %>
 
