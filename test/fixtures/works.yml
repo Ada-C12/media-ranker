@@ -39,17 +39,3 @@ book2:
   creator: Second Test book creator
   publication_year: 2016
   description: Second Test book description
-
-invalid_work_category:
-  category: 
-  title: Test Title
-  creator: Test book creator
-  publication_year: 2017
-  description: Test book description
-
-invalid_work_title:
-  category: book
-  title: 
-  creator: Test book creator
-  publication_year: 2017
-  description: Test book description

@@ -4,6 +4,7 @@ describe Work do
   let (:valid_work) {
     works(:movie)
   }
+
   it "can be instantiated" do
     expect(valid_work.valid?).must_equal true
   end
@@ -33,7 +34,7 @@ describe Work do
 
   describe "validations" do
     it "must have a category" do
-      invalid_work_category = works(:invalid_work_category)
+      invalid_work_category = Work.create(category: nil, title: "Test Title", creator: "Test book creator", publication_year: 2017, description: "Test book description")
 
       expect(invalid_work_category.valid?).must_equal false
       expect(invalid_work_category.errors.messages).must_include :category
@@ -41,7 +42,7 @@ describe Work do
     end
     
     it "must have a title" do
-      invalid_work_title = works(:invalid_work_title)
+      invalid_work_title = Work.create(category: "book", title: nil, creator: "Test book creator", publication_year: 2017, description: "Test book description")
 
       expect(invalid_work_title.valid?).must_equal false
       expect(invalid_work_title.errors.messages).must_include :title

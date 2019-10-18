@@ -8,20 +8,24 @@ class Work < ApplicationRecord
     return Work.all.max_by { |work| work.votes.count }
   end
 
+  def self.sort_by_votes(works)
+    return works.sort_by { |work| work.votes.count }.reverse!
+  end
+
   def self.top_ten_movies
-    movies = Work.where(category: "movie")
+    movies = sort_by_votes(Work.where(category: "movie"))
     sorted_movies = movies.sort_by { |work| work.votes.count }.reverse!
     return sorted_movies[0...10]
   end
 
   def self.top_ten_books
-    books = Work.where(category: "book")
+    books = sort_by_votes(Work.where(category: "book"))
     sorted_books = books.sort_by { |work| work.votes.count }.reverse!
     return sorted_books[0...10]
   end
 
   def self.top_ten_albums
-    albums = Work.where(category: "album")
+    albums = sort_by_votes(Work.where(category: "album"))
     sorted_albums = albums.sort_by { |work| work.votes.count }.reverse!
     return sorted_albums[0...10]
   end
