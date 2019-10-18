@@ -1,17 +1,22 @@
 require "test_helper"
 
 describe Work do
-  let (:album1) { works(:album1) }
-  let (:book1) { works(:book1) }
-  let (:movie1) { works(:movie1) }
-  let (:album2) { works(:album2) }
-  let (:book2) { works(:book2) }
-  let (:movie2) { works(:movie2) }
+  
+  let (:let_hash) { let_turbo }
+  
+  
+  # let (:album1) { works(:album1) }
+  # let (:book1) { works(:book1) }
+  # let (:movie1) { works(:movie1) }
+  # let (:album2) { works(:album2) }
+  # let (:book2) { works(:book2) }
+  # let (:movie2) { works(:movie2) }
   let (:some_yml_works) { [album1, book1, movie1, album2, book2, movie2] }
   
   describe "RELATIONS" do
     it "can have many votes" do
-      ### NEED Votes Model
+      db_album1 = get_db_work(yml_key: let_hash[:movie1])
+      p db_album1.votes.count
     end
     
     it "workObj.votes exists and can return Vote objs" do
@@ -99,7 +104,7 @@ describe Work do
     #   Work.all.each do |piece|
     #     piece.save
     #   end
-      
+    
     #   # act/assert
     #   categories = ["movie", "book", "album"]
     #   categories.each_with_index do |category, index|
@@ -109,15 +114,15 @@ describe Work do
     #     else
     #       assert(all_in_category.count == 2)
     #     end
-        
+    
     #     all_in_category.each do |db_piece|
     #       assert(db_piece.category == categories[index])
-          
+    
     #       # this is ok b/c work titles must be unique
     #       yml_piece = all_yml_works.select do |piece| 
     #         (piece.title == db_piece.title) && (piece.category == db_piece.category)
     #       end
-          
+    
     #       attributes = [ :title, :published_year, :creator, :category, :description]
     #       # attributes.each do |attrib|
     #       #   puts "LOOKING AT #{attrib}"
