@@ -63,16 +63,17 @@ class WorksController < ApplicationController
   end 
 
   def upvote
-    if session[:user_id] == nil
-      #FLASH NOT WORKING
-      flash[:message] = "Must be logged in to upvote."
-      return
-    else 
+    if session[:user_id]
       @work = Work.find_by(id: params[:id])
 
       @work.votes.create(work_id: @work.id, user_id:session[:user_id])
       flash[:message] = "Upvote done!"
       redirect_to works_path
+
+    else 
+      #FLASH NOT WORKING
+      flash.now[:message] = "Must be logged in to upvote."
+      return
     end 
   end 
 
