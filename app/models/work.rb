@@ -1,6 +1,8 @@
 class Work < ApplicationRecord
   validates :title, presence: true
   validates :title, uniqueness: { scope: :category, message: "has already been taken"}
+
+  has_many :votes
   
   def self.top_ten(category)
     all_works = self.all
