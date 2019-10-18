@@ -1,6 +1,7 @@
 <section>
   <%= form_with model: @work do |f| %>
     <div class="form-group">
+      <%= f.label :category %>
       <%= f.select :category, ['album', 'movie', 'book']%>
       <%# <select class="form-control" name=:category>
         <option value="album">Album</option>
@@ -9,7 +10,7 @@
       </select> %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group form-control">
       <%= f.label :title %>
       <%= f.text_field :title %>
     </div>
@@ -29,7 +30,7 @@
       <%= f.text_field :description %>
 
     <div class="form-group">
-      <%= f.submit %>
+      <input type="submit" value="CreateWork" class="btn btn-primary">
     </div>
 
   <% end %>

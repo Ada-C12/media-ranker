@@ -33,8 +33,8 @@
       </ul>
       <ul class="nav app-header__user-nav-container">
         <% if session[:user_id] %>
-          <button class="btn btn-primary"><%= link_to "Logged in as #{username_from_session}", user_path(id: session[:user_id]) %></button>
-          <button class="btn btn-primary"><%= link_to "Log Out", logout_path, method: :patch %></button>
+          <%= link_to "Logged in as #{username_from_session}", user_path(id: session[:user_id]), class: "btn btn-primary" %>
+          <%= link_to "Log Out", logout_path, method: :patch, class: "btn btn-primary"%>
         <% else %>
         <li class="nav-item app-header__nav_item">
           <a class="btn btn-primary" href="/users/login">Log In</a>
