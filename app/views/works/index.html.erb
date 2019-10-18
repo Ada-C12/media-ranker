@@ -6,7 +6,7 @@
   <%# <% 3.times do %> %>
 
   <% @albums.each do |album| %>
-   <li> <%= link_to album.title, work_path(album.id) %>
+    <li> <%= link_to album.title, work_path(album.id) %>
     <%= album.votes.length%>votes </li>
     <% end%>
     <%# <% end%> %>

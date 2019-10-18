@@ -23,18 +23,13 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.new( 
-      category: params[:work][:category],
-      title: params[:work][:title],
-      creator: params[:work][:creator],
-      publication_year: params[:work][:publication_year],
-      description: params[:work][:description],
-      )
+    @work = Work.new(work_params)
 
       if @work.save
         flash[:success] = "#{@work.title} added successfully"
         redirect_to work_path(@work.id)
       else
+        # add custom work.errors
         flash.now[:error] = @work.errors { }
         render new_work_path
       end
@@ -52,14 +47,8 @@ class WorksController < ApplicationController
   def update
     @work = Work.find_by(id: params[:id])
 
-    if @work.update(
-      category: params[:work][:category],
-      title: params[:work][:title],
-      creator: params[:work][:creator],
-      publication_year: params[:work][:publication_year],
-      description: params[:work][:description],
-      )
-      flash[:edit_success] = "You successfully edited a work"
+    if @work.update( work_params)
+      flash[:edit_success] = "You successfully edited #{@work.title}"
       redirect_to work_path(@work.id)
     else
       render new_work_path
@@ -79,23 +68,20 @@ class WorksController < ApplicationController
   end
 
   def upvote
-
     @user = User.find_by(id: session[:user_id])
     @work = Work.find_by(id: params[:id])
 
-    #if work.id is in Vote
-
     if Vote.find_by(user_id: @user.id, work_id: @work.id).nil?
 
-    @vote = Vote.create(user_id: @user.id, work_id: @work.id)
+      @vote = Vote.create(user_id: @user.id, work_id: @work.id)
 
       if @vote
         flash[:success] = "Yay you voted!"
         redirect_to work_path(@work.id)
-      end
-    else
+      else
       flash[:error] = "You've already voted for this work!"
       redirect_to works_path
+      end
     end
   end
 
@@ -107,5 +93,9 @@ class WorksController < ApplicationController
       flash[:error] = "You must be logged in first"
       redirect_to works_path
     end
+  end
+  
+  def work_params
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
 end

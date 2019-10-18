@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   end
 
   def current
-    # this action should only be available to current/logged-in user
     @user = User.find_by(id: session[:user_id])
     if @user.nil?
       head :not_found
@@ -27,16 +26,13 @@ class UsersController < ApplicationController
     found_user = User.find_by(username: username)
 
     if found_user
-      # We DID find a user!
       session[:user_id] = found_user.id
-      flash[:message] = "Logged in as returning user!"
+      flash[:message] = "Welcome back #{found_user.username}"
     else
-      # We did not find an existing user. Let's try to make one!
       new_user = User.new(username: username)
       new_user.save
-      # TODO: What happens if saving fails?
       session[:user_id] = new_user.id
-      flash[:message] = "Created a new user. Welcome!"
+      flash[:message] = "Welcome!"
     end
     return redirect_to root_path
   end
@@ -47,5 +43,4 @@ class UsersController < ApplicationController
     return redirect_to root_path
   end
 
-  
 end
