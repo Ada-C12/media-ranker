@@ -20,22 +20,41 @@ describe Vote do
     
     it "cannot have multiples of work & user combo (unique votes only)" do
       vote1m1
-      p vote1m1.user
-      p vote1m1.work
-      dup_vote = Vote.new(user: vote1m1.user, work: vote1m1.work)
-      p dup_vote.valid?
-      p dup_vote
+      # p vote1m1.user
+      # p vote1m1.work
+      # dup_vote = Vote.new(user: vote1m1.user, work: vote1m1.work)
+      # p dup_vote.valid?
+      # p dup_vote
       assert(false)
     end
     
-    it "if its assoc'd work obj gets deleted, so does this vote" do
+    it "if its assoc'd work obj gets deleted, all votes dependent on it are now invalid" do
+      work = vote1m1.work
+      assert(work.votes.count == 4)
       
+      work.destroy
+      refute(Work.find_by(id: work.id))
       
+      updated_vote = Vote.find_by(id: vote1m1.id)
+      refute(updated_vote.valid?)
     end
     
-    it "if its assoc'd user obj gets deleted, so does this vote" do
+    it "if its assoc'd user obj gets deleted, all votes dependent on it are now invalid" do
+      single = yml[:vote1m10]
+      sad = single.work
+      p sad.votes.count
       
+      user = vote1m1.user
+      assert(user.votes.count == 13)
       
+      user.destroy
+      refute(User.find_by(id: user.id))
+      
+      updated_vote = Vote.find_by(id: vote1m1.id)
+      refute(updated_vote.valid?) 
+      
+      p sad.votes.first
+
     end
   end
   
