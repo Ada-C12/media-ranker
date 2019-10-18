@@ -75,6 +75,26 @@ describe Work do
         expect(Work.top_ten("book")).must_be_empty
         expect(Work.top_ten("movie").length).must_equal 10
       end
+
+      it "should display works in descending order by number of votes" do
+        user_1 = users(:valid_user)
+        user_2 = users(:valid_user_2)
+
+        work_1 = works(:valid_work)
+        work_2 = works(:valid_work_1)
+
+        work_2.upvote(user_1.id)
+        work_2.upvote(user_2.id)
+        work_2.reload
+
+        expect(work_2.votes.count).must_equal 2
+
+        work_1.upvote(user_1.id)
+        work_1.reload
+        expect(work_1.votes.count).must_equal 1
+
+        expect(Work.top_ten("movie").first).must_equal work_2
+      end
     end
     
     describe "spotlight" do
@@ -82,6 +102,26 @@ describe Work do
         spotlit = Work.spotlight
 
         expect(spotlit).must_be_instance_of Work
+      end
+
+      it "should display the work with most votes" do
+        user_1 = users(:valid_user)
+        user_2 = users(:valid_user_2)
+
+        work_1 = works(:valid_work)
+        work_2 = works(:valid_work_1)
+
+        work_2.upvote(user_1.id)
+        work_2.upvote(user_2.id)
+        work_2.reload
+
+        expect(work_2.votes.count).must_equal 2
+
+        work_1.upvote(user_1.id)
+        work_1.reload
+        expect(work_1.votes.count).must_equal 1
+
+        expect(Work.spotlight).must_equal work_2
       end
     end
 
