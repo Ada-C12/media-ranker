@@ -12,9 +12,16 @@ describe User do
 
 
   describe "relationships" do
+    before do
+      @new_work2 = Work.create(category: "book", title: "Cool Book2", creator: "Cooler Author", description: "Here is a desc", publication_year: 1993, vote_count: 0
+      )
+      @new_work3 = Work.create(category: "book", title: "Cool Book3", creator: "Cooler Author", description: "Here is a desc", publication_year: 1993, vote_count: 0
+      )
+    end
+
     it "can have many votes" do
       Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
-      Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
+      Vote.create(work_id: @new_work2.id, user_id: users(:new_user).id, vote_type: "upvote")
 
       expect(users(:new_user).votes.count).must_equal 2
       users(:new_user).votes.each do |vote|
@@ -58,15 +65,22 @@ describe User do
       end
 
       describe 'upvotes' do
+        before do
+          @new_work2 = Work.create(category: "book", title: "Cool Book2", creator: "Cooler Author", description: "Here is a desc", publication_year: 1993, vote_count: 0
+          )
+          @new_work3 = Work.create(category: "book", title: "Cool Book3", creator: "Cooler Author", description: "Here is a desc", publication_year: 1993, vote_count: 0
+          )
+        end
+
         it 'returns upvotes for given user - ignores downvotes' do
           new_user = users(:new_user) 
           Vote.create(work_id: works(:new_work).id, user_id: new_user.id, vote_type: "upvote")
           expect(new_user.upvotes.count).must_equal 1
           
-          Vote.create(work_id: works(:new_work).id, user_id: new_user.id, vote_type: "upvote")
+          Vote.create(work_id: @new_work2.id, user_id: new_user.id, vote_type: "upvote")
           expect(new_user.upvotes.count).must_equal 2
 
-          Vote.create(work_id: works(:new_work).id, user_id: new_user.id, vote_type: "downvote")
+          Vote.create(work_id: @new_work2.id, user_id: new_user.id, vote_type: "downvote")
           expect(new_user.upvotes.count).must_equal 2
         end
 
@@ -84,15 +98,22 @@ describe User do
       end
 
       describe 'downvotes' do
+        before do
+          @new_work2 = Work.create(category: "book", title: "Cool Book2", creator: "Cooler Author", description: "Here is a desc", publication_year: 1993, vote_count: 0
+          )
+          @new_work3 = Work.create(category: "book", title: "Cool Book3", creator: "Cooler Author", description: "Here is a desc", publication_year: 1993, vote_count: 0
+          )
+        end
+
         it 'returns downvotes for given user - ignores upvotes' do
           new_user = users(:new_user) 
           Vote.create(work_id: works(:new_work).id, user_id: new_user.id, vote_type: "downvote")
           expect(new_user.downvotes.count).must_equal 1
           
-          Vote.create(work_id: works(:new_work).id, user_id: new_user.id, vote_type: "downvote")
+          Vote.create(work_id: @new_work2.id, user_id: new_user.id, vote_type: "downvote")
           expect(new_user.downvotes.count).must_equal 2
 
-          Vote.create(work_id: works(:new_work).id, user_id: new_user.id, vote_type: "upvote")
+          Vote.create(work_id: @new_work3.id, user_id: new_user.id, vote_type: "upvote")
           expect(new_user.downvotes.count).must_equal 2
         end
 

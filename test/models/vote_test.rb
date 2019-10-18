@@ -4,6 +4,18 @@ describe Vote do
   let (:new_vote) {
     Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
   }
+  
+  let (:new_work2) {
+    Work.create(category: "book", title: "Cool Book2", creator: "Cooler Author", description: "Here is a desc", publication_year: 1993, vote_count: 0)
+  }
+
+  let (:new_work3) {
+    Work.create(category: "book", title: "Cool Book3", creator: "Cooler Author", description: "Here is a desc", publication_year: 1993, vote_count: 0)
+  }
+
+  let (:new_work4) {
+    Work.create(category: "book", title: "Cool Book4", creator: "Cooler Author", description: "Here is a desc", publication_year: 1993, vote_count: 0)
+  }
 
   it "can be instantiated" do
     assert(new_vote.valid?)
@@ -56,6 +68,12 @@ describe Vote do
       expect(new_vote.errors.messages).must_include :vote_type
       expect(new_vote.errors.messages[:vote_type]).must_equal ["can't be blank"]
     end
+
+    it "must have a unique user_id in the score of the work_id" do
+      new_vote.save
+      new_vote2 = Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
+      refute(new_vote2.valid?)
+    end
     
   end
 
@@ -67,15 +85,15 @@ describe Vote do
         upvotes = Vote.all_upvotes
         expect(upvotes.count).must_equal 1
         
-        Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
+        Vote.create(work_id: new_work2.id, user_id: users(:new_user).id, vote_type: "upvote")
         upvotes = Vote.all_upvotes
         expect(upvotes.count).must_equal 2
         
-        Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
+        Vote.create(work_id: new_work3.id, user_id: users(:new_user).id, vote_type: "upvote")
         upvotes = Vote.all_upvotes
         expect(upvotes.count).must_equal 3
 
-        Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "downvote")
+        Vote.create(work_id: new_work4.id, user_id: users(:new_user).id, vote_type: "downvote")
         upvotes = Vote.all_upvotes
         expect(upvotes.count).must_equal 3
       end
@@ -99,15 +117,15 @@ describe Vote do
         downvotes = Vote.all_downvotes
         expect(downvotes.count).must_equal 0
         
-        Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "downvote")
+        Vote.create(work_id: new_work2.id, user_id: users(:new_user).id, vote_type: "downvote")
         downvotes = Vote.all_downvotes
         expect(downvotes.count).must_equal 1
         
-        Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "downvote")
+        Vote.create(work_id: new_work3.id, user_id: users(:new_user).id, vote_type: "downvote")
         downvotes = Vote.all_downvotes
         expect(downvotes.count).must_equal 2
 
-        Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
+        Vote.create(work_id: new_work4.id, user_id: users(:new_user).id, vote_type: "upvote")
         downvotes = Vote.all_downvotes
         expect(downvotes.count).must_equal 2
       end

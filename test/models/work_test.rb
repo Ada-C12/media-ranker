@@ -1,6 +1,10 @@
 require "test_helper"
 
 describe Work do
+  let (:new_user2) {
+    User.create(username: "Tacocat")
+  }
+
   it "can be instantiated" do
     assert(works(:new_work).valid?)
   end
@@ -15,7 +19,7 @@ describe Work do
   describe "relationships" do
     it "can have many votes" do
       Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
-      Vote.create(work_id: works(:new_work).id, user_id: users(:new_user).id, vote_type: "upvote")
+      Vote.create(work_id: works(:new_work).id, user_id: new_user2.id, vote_type: "upvote")
 
       expect(works(:new_work).votes.count).must_equal 2
       works(:new_work).votes.each do |vote|
@@ -161,9 +165,18 @@ describe Work do
     end
 
     describe 'self.top_work' do
+      it 'returns top work by vote_count' do
+        expect(Work.top_work).must_equal @work_5
+      end
+
+      it 'returns nil if no works' do
+        Work.destroy_all
+        assert_nil(Work.top_work)
+      end
     end
 
     describe 'upvote_count' do
+      
     end
 
     describe 'downvote_count' do

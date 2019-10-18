@@ -45,11 +45,21 @@ class Work < ApplicationRecord
   end
   
   def self.top_work
-    return all_by_votes.first
+    works = all_by_votes
+    if works
+      return works.first
+    else
+      return nil
+    end
   end
 
   def upvote_count
-    return self.votes.where(vote_type: "upvote").count
+    votes = self.votes
+    if votes && !votes.empty?
+      return self.votes.where(vote_type: "upvote").count
+    else
+      return nil
+    end
   end
 
   def downvote_count
