@@ -16,14 +16,28 @@ class Work < ApplicationRecord
     all_works_categorized = self.all_works_categorized
     top_ten_categorized = {}
     all_works_categorized.each do |category, works|
-      top_ten_categorized[category] = works.sample(10)
-      # once there are votes, works.order(work.votes: :desc).limit(10) ??
+      category_sorted = works.sort_by { |work| -work.votes.count }
+      top_ten_categorized[category] = category_sorted[0..9]
     end
     return top_ten_categorized
   end
 
   def self.spotlight
-    return Work.all.sample
+    top_ten_categorized = self.top_ten_categorized
+    number_one_voted = nil
+    top_ten_categorized.each do |category, works|
+      if number_one_voted == nil
+        number_one_voted = works.first
+      elsif works.first == nil
+        next
+      elsif number_one_voted.votes.count < works.first.votes.count
+        number_one_voted = works.first
+      elsif number_one_voted.votes.count == works.first.votes.count && works.first.updated_at > number_one_voted.updated_at
+        number_one_voted = works.first
+      end
+    end
+
+    return number_one_voted
   end
 
   def upvote(user_id)
