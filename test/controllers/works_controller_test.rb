@@ -190,4 +190,30 @@ describe WorksController do
     end
   end
 
+  describe "upvote" do
+    it "a user can vote if they are logged in and have not voted for it before" do
+      work = works(:westover)
+      user = User.create!(username: "New")
+      login_data = {
+        user: {
+          username: user.username
+        }
+      }
+
+      post login_path, params: login_data
+
+      post upvote_path, params:[work.id]
+
+      must_respond_with :redirect
+      must_redirect_to root_path
+
+    end
+
+    it "a user cannot vote if they are not logged in" do
+    end
+
+    it "a user cannot vote for a work they have already voted for" do
+    end
+  end
+
 end
