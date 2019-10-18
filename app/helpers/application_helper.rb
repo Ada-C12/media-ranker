@@ -5,8 +5,8 @@ module ApplicationHelper
       "<span class='date' title='".html_safe +
       date.to_s +
       "'>".html_safe +
-      time_ago_in_words(date) +
-      " ago</span>".html_safe
+      date.to_date.to_s +
+      " </span>".html_safe
     )
   end
 end

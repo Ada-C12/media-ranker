@@ -24,7 +24,11 @@
               <%= link_to movie.title, work_path( movie.id ) %>
               <small class="top-ten__creator"> by <%= movie.creator %></small>
             </h4>
-            <p><%= movie.votes.length %></p>
+            <% if movie.votes.length == 0 || movie.votes.length == 1 %>
+              <p><%= movie.votes.length %> vote</p>
+            <% else %>
+              <p><%= movie.votes.length %> votes</p>
+            <% end %>
           </li>
         <% end %>
       </ul>
@@ -41,7 +45,11 @@
               <%= link_to book.title, work_path( book.id ) %>
               <small class="top-ten__creator"> by <%= book.creator %></small>
             </h4>
-            <p><%= book.votes.length %></p>
+            <% if book.votes.length == 0 || book.votes.length == 1 %>
+              <p><%= book.votes.length %> vote</p>
+            <% else %>
+              <p><%= book.votes.length %> votes</p>
+            <% end %>
           </li>
         <% end %>
       </ul>
@@ -58,7 +66,11 @@
               <%= link_to album.title, work_path( album.id ) %>
               <small class="top-ten__creator"> by <%= album.creator %></small>
             </h4>
-            <p><%= album.votes.length %></p>
+            <% if album.votes.length == 0 || album.votes.length == 1 %>
+              <p><%= album.votes.length %> vote</p>
+            <% else %>
+              <p><%= album.votes.length %> votes</p>
+            <% end %>
           </li>
         <% end %>
       </ul>
