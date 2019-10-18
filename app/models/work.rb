@@ -18,4 +18,15 @@ class Work < ApplicationRecord
   def self.spotlight
     return self.all.first
   end
+
+  def upvote(user_id)
+    work = Work.find_by(id: self.id)
+    @new_user = User.find(user_id)
+    work.votes.each do |vote|
+      if vote.user == @new_user
+        return false
+      end
+    end
+    work.votes << Vote.create(user_id: user_id)
+  end
 end
