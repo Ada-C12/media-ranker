@@ -5,6 +5,4 @@ class Vote < ApplicationRecord
   
   # only action needed is votes#create
   
-  
-  
 end

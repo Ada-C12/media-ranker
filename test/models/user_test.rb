@@ -3,29 +3,37 @@ require "test_helper"
 describe User do
   
   let (:user1) { users(:user1) }
+  let (:db_user1) { User.find_by(name: user1.name) }
+  let (:user2) { users(:user2) }
+  let (:db_user2) { User.find_by(name: user2.name) }
   let (:album2) { works(:album2) }
   
   describe "RELATIONS" do
     it "can have many votes" do
-      ### NEED Votes Model
+      assert(db_user1.votes.count == 13)
+      assert(db_user2.votes.count == 4)
     end
     
-    it "userObj.votes exists and can return Vote objs" do
-      ### NEED Votes Model
+    it "userObj.votes exists and can return correct Vote objs" do
+      votes_array = db_user2.votes
+      votes_array.each do |vote|
+        assert(vote.class == Vote)
+        assert(vote.user_id == db_user2.id)
+      end
     end
   end
   
   describe "VALIDATIONS" do
     it "Can create User obj with correct attributes" do
       assert(user1.valid?)
-      db_user = User.find_by(name: user1.name)
-      assert(db_user.name == user1.name)
-      assert(db_user.votes.count == 13)
+      db_user1 = User.find_by(name: user1.name)
+      assert(db_user1.name == user1.name)
+      assert(db_user1.votes.count == 13)
       
       # make user1 cast a new valid vote
-      vote1a2 = Vote.create(user_id: db_user.id, work_id: album2.id)
-      assert(db_user.votes.count == 14)
-      assert(db_user.votes.last == Vote.last)
+      vote1a2 = Vote.create(user_id: db_user1.id, work_id: album2.id)
+      assert(db_user1.votes.count == 14)
+      assert(db_user1.votes.last == Vote.last)
     end
     
     it "Won't create User obj, given blank name inputs" do
@@ -52,11 +60,7 @@ describe User do
   
   
   describe "CUSTOM METHOD #1" do
-    it "nominal case" do
-    end
-    
-    it "edge case" do
-    end
+    # NONE USED
   end
   
 end
