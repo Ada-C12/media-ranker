@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update, :destroy]
+  before_action :find_user, only: [:show, :edit] #, :update, :destroy]
   before_action :missing_user, only: [:show, :edit]
   
   def index
@@ -24,32 +24,32 @@ class UsersController < ApplicationController
     end
   end
   
-  def edit ; end
+  # def edit ; end
   
-  def update
-    if @user.nil?
-      head :not_found
-      return
-    elsif @user.update(user_params)
-      redirect_to user_path(@user.id)
-      return
-    else 
-      render :edit
-      return
-    end
-  end
+  # def update
+  #   if @user.nil?
+  #     head :not_found
+  #     return
+  #   elsif @user.update(user_params)
+  #     redirect_to user_path(@user.id)
+  #     return
+  #   else 
+  #     render :edit
+  #     return
+  #   end
+  # end
   
-  def destroy
-    if @user.nil?
-      head :not_found
-      return
-    elsif @user.destroy
-      redirect_to users_path
-      return
-    else
-      render :show
-    end
-  end
+  # def destroy
+  #   if @user.nil?
+  #     head :not_found
+  #     return
+  #   elsif @user.destroy
+  #     redirect_to users_path
+  #     return
+  #   else
+  #     render :show
+  #   end
+  # end
   
   private
   
