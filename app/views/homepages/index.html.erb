@@ -8,17 +8,18 @@
   </section>
 
 <hr class="root__hr" />
-
+<section class="top-ten__container">
   <% @categories.each do |category| %>
-  <section class="top-ten__container">
+  <section class="top-ten__list-container">
     <h2 class="top-ten__header">Top <%= category.capitalize %></h2>
     <% @works.top_ten(category).each do |work| %>
-      <ul>
+      <ul class="list-group top-ten__list">
         <li><h3><%= work.title %></h3> by <%= work.creator %><br>
         <%= work.votes.count %> votes</li>
       </ul>
     <% end %>
+    </section>
   <% end %>
-  </section>
   
+  </section>
 </main>
