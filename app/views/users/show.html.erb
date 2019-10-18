@@ -1,0 +1,7 @@
+<h2> User Summary: <%= @user.name %> </h2>
+<p> Joined site: <%= @user.joined %> </h3>
+
+<a class='btn' href=works_path>Back to media ranks</a>
+<a class='btn' href=work_path(work) action: patch>Edit</a>
+<a class='btn' href=work_path(work) action: patch>Upvote</a>
+<a class='btn' href=works_path(work) action: delete>Delete</a>
