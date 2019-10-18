@@ -4,6 +4,11 @@ require 'rails/test_help'
 require 'minitest/rails'
 require 'minitest/autorun'
 require 'minitest/reporters'
+require 'simplecov'
+SimpleCov.start do
+  add_filter 'test/' # Tests should not be checked for coverage.
+end
+SimpleCov.start
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -73,12 +78,9 @@ class ActiveSupport::TestCase
       # BASE CASE
       return true
     elsif array_of_Work_objs[0].votes.count >= array_of_Work_objs[1].votes.count
-      # puts array_of_Work_objs[0].title, "with #{array_of_Work_objs[0].votes.count}"
-      # puts array_of_Work_objs[1].title, "with #{array_of_Work_objs[1].votes.count}\n\n\n"
       # RECURSE
       return desc_order?(array_of_Work_objs[1..-1])
     elsif array_of_Work_objs[0].votes.count < array_of_Work_objs[1].votes.count
-      # not in descending order
       return false
     end
   end

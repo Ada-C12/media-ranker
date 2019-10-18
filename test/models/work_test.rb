@@ -160,6 +160,13 @@ describe Work do
         assert(all_in_category.count == 0)
       end
     end
+    
+    it "edge case: what if someone requests Work.all_in(category: 'BOGUS')?" do
+      bad_args = ["garbage", "MOVIE", "ALBUM", "BOOK", nil, "", "   ", 123]
+      bad_args.each do |bad_arg|
+        expect { Work.all_in(category: bad_arg) }.must_raise ArgumentError        
+      end
+    end
   end
   
   describe "METHOD: self.top_ten_in()" do
