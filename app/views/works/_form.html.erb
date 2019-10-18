@@ -8,19 +8,43 @@
   </ul>
 <% end %>
 
-<%= form_with model: @work, class: work_form_class do |f| %>
 
-  <%= f.label :category %>
-  <%= f.select :category, Work.categories.map{ |category| category } %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :creator %>
-  <%= f.text_field :creator %>
-  <%= f.label :publication_year %>
-  <%= f.text_field :publication_year %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  
-  <%= f.submit submit_button_label, class: "work-form-button" %>
 
-<% end %>
+
+<section>
+  <form action="/works" accept-charset="UTF-8" method="post">
+    <input name="utf8" type="hidden" value="✓">
+    <input type="hidden" name="authenticity_token" value="srak6UBoCwbA/cIS9mxc1gcC2j4+3gM1MDc2oXfdyuvvCNc+Fnm7jlP+T0oUeQYGx75vwLjHWUKXhnONtXqv9w==">
+    
+    <div class="form-group">
+      <label>Category</label>
+      <select class="form-control" name="work[category]">
+        <option value="album">album</option>
+        <option value="book">book</option>
+        <option value="movie">movie</option></select>
+    </div>
+
+    <div class="form-group">
+      <label>Title</label>
+      <input class="form-control" type="text" name="work[title]">
+    </div>
+
+    <div class="form-group">
+      <label>Creator</label>
+      <input class="form-control" type="text" name="work[creator]">
+    </div>
+
+    <div class="form-group">
+      <label>Publication year</label>
+      <input class="form-control" type="text" name="work[publication_year]">
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea class="form-control" name="work[description]"></textarea>
+    </div>
+
+    <div class="form-group">
+      <input type="submit" name="commit" value="Create Work" class="btn btn-primary" data-disable-with="Create Work">
+    </div>
+</form></section>

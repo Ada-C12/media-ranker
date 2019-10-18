@@ -1,15 +1,18 @@
 <main>
-  <h1> List of All Users</h1>
+  <h1> List of Users</h1>
 
   <section>
-    <table>
-      <tr class='table-header'>
-        <td>USERNAME</td>
-        <td>USER SINCE</td>
-        <td># VOTES</td>
-        <td>EDIT</td>
-        <td>DELETE</td>
-      </tr>
+    <table class="table table-hover">
+      <thead>
+        <tr class='table-header'>
+          <th scope="col">USERNAME</th>
+          <th scope="col">USER SINCE</th>
+          <th scope="col"># VOTES</th>
+          <th scope="col">EDIT</th>
+          <th scope="col">DELETE</th>
+        </tr>
+      </thead>
+
       <% User.all.order(:username).each do |user| %>
           <tr>
             <td><%= link_to user.username, user_path(user.id) %></td>
@@ -19,6 +22,7 @@
             <td><%= link_to "Delete", user_path(user.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %></td>
           </tr>
       <% end %>
+      </tbody>
     </table>
   </section>
 </main>

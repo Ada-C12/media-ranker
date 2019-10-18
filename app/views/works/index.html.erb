@@ -1,19 +1,22 @@
 <main>
-  <h1> List of All Works</h1>
+  <h1> List of Works</h1>
 
   <section>
-    <table>
-      <tr class='table-header'>
-        <td>UPVOTE</td>
-        <td>DOWNVOTE</td>
-        <td>POINTS</td>
-        <td>CATEGORY</td>
-        <td>TITLE</td>
-        <td>CREATOR</td>
-        <td>PUBLISHED</td>
-        <td>EDIT</td>
-        <td>DELETE</td>
-      </tr>
+    <table class="table table-hover">
+      <thead>
+        <tr class='table-header'>
+          <th scope="col">UPVOTES</th>
+          <th scope="col">DOWNVOTES</th>
+          <th scope="col">POINTS</th>
+          <th scope="col">CATEGORY</th>
+          <th scope="col">TITLE</th>
+          <th scope="col">CREATOR</th>
+          <th scope="col">PUBLISHED</th>
+          <th scope="col">EDIT</th>
+          <th scope="col">DELETE</th>
+        </tr>
+      </thead>
+
       <% Work.all_by_votes.each do |work| %>
           <tr>
             <section class="voting-sect">
@@ -60,25 +63,7 @@
 
               <% end %>
             </section>
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
             <td><%= work.vote_count %></td>
             <td><%= work.category %></td>
             <td><%= link_to work.title, work_path(work.id) %></td>
@@ -87,7 +72,8 @@
             <td><%= link_to "Edit", edit_work_path(work.id), class: "edit-link" %></td>
             <td><%= link_to "Delete", work_path(work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %></td>
           </tr>
-      <% end %>
+        <% end %>
+      </tbody>
     </table>
   </section>
 </main>
