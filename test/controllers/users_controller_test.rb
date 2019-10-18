@@ -62,11 +62,12 @@ describe UsersController do
   end
 
   describe "logout" do
-    it "returns 200 OK for a logged-in user" do
+    it "logs a user out if logged in" do
       perform_login
 
       post logout_path
 
+      expect(session[:user_id]).must_be_nil
       must_respond_with :redirect
       must_redirect_to root_path
     end

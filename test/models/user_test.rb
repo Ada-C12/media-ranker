@@ -5,7 +5,7 @@ describe User do
     User.new(username: "test")
   }
   describe "validations" do
-    it "validates that there is good data" do
+    it "validates that there is a username" do
       result = new_user.valid?
 
       expect(result).must_equal true
