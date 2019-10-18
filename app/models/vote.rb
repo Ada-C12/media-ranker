@@ -1,5 +1,6 @@
 class Vote < ApplicationRecord
-
+  belongs_to :work
+  belongs_to :user
     
   def self.new_vote
     current_user = User.find_by(id: session[:user_id])

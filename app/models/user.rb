@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  serialize :votes, Array
+  has_many :votes, dependent: :nullify
 
   validates :name, presence: true
 end
