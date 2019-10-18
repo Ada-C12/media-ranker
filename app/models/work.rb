@@ -11,9 +11,9 @@ class Work < ApplicationRecord
     return Work.first
   end
   
-  def self.upvote(current_user)
+  def upvote(current_user)
     work_id = self.id
-    vote_params = {work_id: work_id, current_user: current_user.id}
+    vote_params = {work_id: work_id, user_id: current_user.id}
     
     return vote_params
     

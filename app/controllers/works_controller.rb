@@ -26,6 +26,22 @@ class WorksController < ApplicationController
     end
   end
   
+  def vote
+    # check to see if there is a current user, if not flash error message
+    current_user = User.find_by(id: session[:user_id])
+    # p params
+    current_work = Work.find_by(id: params[:id])
+    vote_params = current_work.upvote(current_user)
+    
+    @vote = Vote.new( vote_params )
+    
+    if @vote.save
+      redirect_to work_path(current_work.id)
+    else
+      render root_path
+    end
+  end
+  
   def edit
     @work = Work.find_by(id: params[:id] )
     if @work.nil?
