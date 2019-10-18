@@ -4,7 +4,9 @@ describe Work do
   describe 'validations' do 
     # Arrange
     before do 
+      @user = User.create(username: "hello_world")
       @movie = Work.create(category: "movie", title: "Nightmare Before Chirstmas", creator: "Tim Burton", publication_year: 1993, description: "Jack Skellington tries to bring Christmas magic to Halloween Town. Chaos ensues.")
+      @vote = Vote.create(user_id: @user.id, work_id: @movie.id)
     end
     
     #Act
@@ -109,22 +111,22 @@ describe Work do
       expect(albums.length).must_equal 1
       expect(albums.first.category).must_equal "album"
     end
-  end # describe end
-  
+  end 
   
   describe "spotlight" do 
     it "features a spotlight media work" do 
       # Arrange
+      user = User.create(username: "hello_world")
       movie = Work.create(category: "movie", title: "Lion King", creator: "Disney", publication_year: 1994, description: "hamlet with lions")
       book =  Work.create(category: "book", title: "POODR", creator: "Sandy Betz", publication_year: 2010, description: "required reading")
       album =  Work.create(category: "album", title: "1989", creator: "Taylor Swift", publication_year: 2015, description: "Welcome to New York")
+      vote = Vote.create(work_id: album.id, user_id: user.id)
       
       # Act
       spotlight_feature = Work.spotlight
       
       # Assert
-      expect(spotlight_feature).wont_be_nil
+      expect(spotlight_feature).must_equal album
     end
   end
-  
 end
