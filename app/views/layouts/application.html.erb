@@ -50,23 +50,41 @@
 
       <% if flash[:error] %>
         <div class="alert alert-warning first-alert-container">
-          <%= flash[:error] %>
-        </div>
+        <%= flash[:error] %>
         <% if flash[:reason] %>
-          <div class="alert alert-warning second-alert-container">
-            <% if flash[:reason] %>
-              <ul>
-                <li class="second-alert-message"><%= flash[:reason] %></li>
-              </ul>
-            <% end %>
-          </div>
+          <ul>
+            <li class="second-alert-message"><%= flash[:reason] %></li>
+          </ul>
         <% end %>
+        <% if @user %>
+          <% if @user.errors.any? %>
+            <ul>
+              <% @user.errors.each do |column, message| %>
+                <li>
+                  <%= column %>: <%= message %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        <% end %>
+        <% if @work %>
+          <% if @work.errors.any? %>
+            <ul>
+              <% @work.errors.each do |column, message| %>
+                <li>
+                  <%= column %>: <%= message %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        <% end %>
+      </div>
       <% elsif flash[:success] %>
         <div class="alert alert-success first-alert-container">
           <%= flash[:success] %>
         </div>
       <% end %>
-
+    
 
     <%= yield %>
   </body>

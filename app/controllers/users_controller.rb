@@ -31,12 +31,12 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         session[:username] = @user.username
         flash[:success] = "Successfully logged in as new user #{username}"
+        redirect_to root_path
       else
-        flash[:success] = "There was error creating a new user"
-        redirect_to login_path
+        flash[:error] = "A problem occurred: Could not log in"
+        render :login_form
       end
     end
-    redirect_to root_path
   end
   
   def logout
