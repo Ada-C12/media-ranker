@@ -3,7 +3,14 @@ class Work < ApplicationRecord
   
   validates :title, presence: true
 
-  def works_sorted_by_vote
-    
+  def self.spotlight
+    top_work = Work.all.sort_by{|work| work.votes.length}.last
+    return top_work
+  end 
+
+  def self.top_ten(category)
+    works = Work.where(category: category).sort_by{|work| work.votes.length}.reverse
+    top_ten = works.slice(0,9)
+    return top_ten
   end 
 end

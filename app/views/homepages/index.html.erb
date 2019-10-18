@@ -1,33 +1,51 @@
 <main id="spotlight">
   <% random = @works.sample %>
-  <h2>Spotlight: <%= random.title %></h2>
-  <p>Description: <%= random.description %></p>
+  <h2>Spotlight: <%= link_to Work.spotlight.title, work_path(Work.spotlight.id)%></h2>
+  <p>Synopsis: <%= Work.spotlight.description %></p>
 </main>
 <section class="top-ten">
   <section class="top-category">
     <h2>Top albums</h2>
     <ul>
-      <% albums = @albums.sample(10) %>
+      <% albums = Work.top_ten("album") %>
       <% albums.each do |album|%>
-        <li><%= album.title %></li>
+        <li>
+          <h4>
+            <%= album.title %>
+            <small>by <%= album.creator %></small>
+          </h4>
+          <p><%= album.votes.length%> votes</p>
+        </li>
       <% end %>
     </ul>
   </section>
   <section class="top-category">
     <h2>Top books</h2>
     <ul>
-      <% books = @books.sample(10) %>
+      <% books = Work.top_ten("book") %>
       <% books.each do |book|%>
-        <li><%= book.title %></li>
+        <li>
+          <h4>
+            <%= book.title %>
+            <small>by <%= book.creator %></small>
+          </h4>
+          <p><%= book.votes.length%> votes</p>
+        </li>
       <% end %>
     </ul>
   </section>
   <section class="top-category">
     <h2>Top movies</h2>
     <ul>
-      <% movies = @movies.sample(10) %>
+      <% movies = Work.top_ten("movie") %>
       <% movies.each do |movie|%>
-        <li><%= movie.title %></li>
+        <li>
+          <h4>
+            <%= movie.title %>
+            <small>by <%= movie.creator %></small>
+          </h4>
+          <p><%= movie.votes.length%> votes</p>
+        </li>
       <% end %>
     </ul>
   </section>
