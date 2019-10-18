@@ -30,4 +30,25 @@ describe Work do
       expect(@work.errors.messages).must_include :title
     end
   end
+  
+  describe 'relations' do 
+    it 'has votes' do
+      work = Work.first
+      votes = work.votes
+      votes.each do |vote|
+        expect(vote).must_be_instance_of Vote
+      end
+    end
+  end
+  
+  describe 'top ten' do
+    it "return the top ten for each category" do
+      
+      top = Work.spotlight
+      all_work = Work.all
+      all_work.each do |work|
+        expect(top.votes.count).must_be :>=, work.votes.count
+      end
+    end
+  end
 end

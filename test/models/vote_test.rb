@@ -1,7 +1,10 @@
 require "test_helper"
 
-describe Vote do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
-end
+class VoteTest < ActiveSupport::TestCase
+  describe Vote do
+    describe "validations" do
+      it "can be valid" do
+   
+
+
+
