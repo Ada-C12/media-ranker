@@ -82,6 +82,19 @@ describe Work do
       end
     end
 
+    describe "sort_by_votes" do
+      let (:movie2) {
+          works(:movie2)
+        }
+      it "sorts works accurately" do
+        expect(valid_work.votes.count).must_equal 1
+        expect(movie2.votes.count).must_equal 0
+
+        expect(Work.top_ten_movies.first).must_equal valid_work
+        expect(Work.top_ten_movies.last).must_equal movie2
+      end
+    end
+
     describe "top-ten" do
       describe "top_ten_movies" do
         let (:movie2) {
