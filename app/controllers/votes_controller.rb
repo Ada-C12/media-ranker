@@ -25,11 +25,9 @@ class VotesController < ApplicationController
   
   def create
     if params[:work_id]
-      vote_parameter = Vote.new_vote
       @vote = Vote.new(
-        user_id: vote_parameter[:user_id],
-        work_id: vote_parameter[:work_id],
-        date: vote_parameter[:date]
+        user_id: session[:user_id],
+        work_id: params[:work_id],
       )
       
       if @vote.save
@@ -83,7 +81,7 @@ class VotesController < ApplicationController
   private
   
   def vote_params
-    return params.require(:vote).permit(:date, :rating, :cost, :vote_id, :driver_id)
+    return params.require(:vote).permit(:work_id, :user_id)
   end
   
 end
