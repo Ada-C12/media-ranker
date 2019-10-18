@@ -9,26 +9,47 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  
   <body>
-    <nav>
-    
-      <section>
-        <h1> Media Ranker | Ranking the Best of Everything </h1>
-        <%= link_to "Top Works", root_path %>
-        <%= link_to "All Works", works_path %>
-        <%= link_to "Create a New Work", new_work_path %>
-        <%= link_to "All Users", users_path %>
-      </section>
+  
+   <header class="app-header__header">
+      <h1> 
+        <%= link_to "Media Ranker", root_path%> 
+        <small> Ranking the Best of Everything </small>
+      </h1>
 
-      <section class="login_logout">
-        <% if session[:user_id] == nil %>
-          <%= link_to "Login", login_path %>
-        <% else %>
-          <%= link_to "Logout", logout_path, method: :post %>
-          <%= link_to "Current User: #{User.find_by(id: session[:user_id]).name}", user_path(User.find_by(id: session[:user_id]).id) %>
-        <% end %>
-      </section>
+      <nav class="app-header__nav">
+
+        
+
+          <ul class= "nav app-header__site-nav-container">
+            <li> <%=  link_to "Top Works", root_path, class: "nav-item app-header__nav_item" %> </li>
+            <li> <%= link_to "All Works", works_path, class: "nav-item app-header__nav_item" %> </li>
+            <li> <%= link_to "Create a New Work", new_work_path, class: "nav-item app-header__nav_item" %> </li>
+            <li> <%= link_to "All Users", users_path, class: "nav-item app-header__nav_item" %> </li>
+          </ul>
+     
+
+          <ul class="nav app-header__user-nav-container">
+            <% if session[:user_id] == nil %>
+             <li class="nav-item app-header__nav_item"> 
+                <%= link_to "Login", login_path, class: "btn btn-primary"  %>
+             </li>
+            <% else %>
+              <li class="nav-item app-header__nav_item"> 
+                <%= link_to "Logout", logout_path, method: :post, class: "btn btn-primary" %>
+              </li>
+              <li class="nav-item app-header__nav_item">
+                <%= link_to "Current User: #{User.find_by(id: session[:user_id]).name}", user_path(User.find_by(id: session[:user_id]).id), class: "btn btn-primary"  %>
+              </li>
+            <% end %>
+          </ul>
+
+      
+
     </nav>
+
+  </header>
 
 
     <section class="flash">
