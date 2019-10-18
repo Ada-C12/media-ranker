@@ -1,7 +1,19 @@
 require "test_helper"
 
 describe Work do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  
+  describe "validations" do
+
+    it "van be valid" do
+      is_valid = works(:work1).valid?
+      assert( is_valid )
+    end
+
+    it "is invalid if there is no title" do 
+      work = works(:)
+
+  
+
+
+
 end
