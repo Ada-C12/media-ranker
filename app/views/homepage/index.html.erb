@@ -47,12 +47,16 @@
                 <span class="badge"> <%= work.vote_count %> </span>
                 
                 <div class="vote-disabled downvote">
-                  <div>↓</div>   
+                  <div>
+                    <%= link_to "↓", changevote_path(id: vote.id), method: :post %>
+                  </div>   
                 </div>
               
               <% elsif vote.vote_type == "downvote" %> 
                 <div class="vote-disabled upvote">
-                  <div>↑</div>
+                  <div>
+                    <%= link_to "↑", changevote_path(id: vote.id), method: :post %>
+                  </div>
                 </div>
                 
                 <span class="badge"> <%= work.vote_count %> </span>
@@ -69,7 +73,7 @@
               <%= link_to work.title, work_path(work.id) %>
               <small>by <%= work.creator %></small>
             </h4>
-            <p>Submited <%= work.created_at %> by </p>
+            <p>Submited <%= work.created_at %> </p>
             <p><strong><%= work.vote_count %> points</strong> | <%= work.votes.count %> votes</p>
           </section>
           </li>
