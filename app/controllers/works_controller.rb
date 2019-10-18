@@ -72,8 +72,8 @@ class WorksController < ApplicationController
 
     else 
       #FLASH NOT WORKING
-      flash.now[:message] = "Must be logged in to upvote."
-      return
+      flash[:message] = "Must be logged in to upvote."
+      return redirect_to works_path 
     end 
   end 
 

@@ -12,24 +12,9 @@ describe Work do
     refute( movie2.valid? )
   end
 
-  it "user adds new work correctly, should be successful" do
-    # new_work = {
-    #   work: {
-    #     category:"movie", 
-    #     title:"Howl's Moving Castle", 
-    #     creator:"Hayao Miyazaki", 
-    #     publication_year:2010, 
-    #     description:"Girl turns into an old woman"
-    #   }
-    # }
-    
-    # expect{post works_path, params: new_work}.must_differ "Work.count", 1
-  end
-
-  it "user adds new work incorrectly, should be unsuccessful" do
-  end
-
-  it "should set a vote (relationship test)" do
+  it "should have a vote (relationship test)" do
+    vote = Vote.new(user_id:1, work_id:1)
+    vote.work = movie1 
+    expect(vote.work_id).must_equal movie1.id
   end 
-  
 end

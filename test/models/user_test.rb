@@ -13,5 +13,8 @@ describe User do
   end
 
   it "should have vote (relationship test)" do 
+    vote = Vote.new(user_id:1, work_id:1)
+    vote.user = user1
+    expect(vote.user_id).must_equal user1.id
   end 
 end
