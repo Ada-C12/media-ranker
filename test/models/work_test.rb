@@ -33,6 +33,22 @@ describe Work do
     end
   end
 
+  describe "relationships" do
+    it "can have votes" do
+      work = works(:valid_work)
+      user_1 = users(:valid_user)
+      user_2 = users(:valid_user_2)
+
+      vote_1 = Vote.create(user_id: user_1.id, work_id: work.id)
+      vote_2 = Vote.create(user_id: user_2.id, work_id: work.id)
+
+      expect(work.votes.count).must_equal 2
+      work.votes.each do |vote|
+        expect(vote).must_be_instance_of Vote
+      end
+    end
+  end
+
   describe "custom methods" do
     describe "top-ten" do
       it "should display the 10 elements if there 10 or more works listed" do
@@ -66,6 +82,30 @@ describe Work do
         spotlit = Work.spotlight
 
         expect(spotlit).must_be_instance_of Work
+      end
+    end
+
+    describe "upvote" do
+      it "should create an instance of vote" do
+        work = works(:valid_work)
+        user = users(:valid_user)
+
+        work.upvote(user.id)
+
+        expect(work.votes.first).must_be_instance_of Vote
+      end
+
+      it "should increase the count of votes for a piece of work" do
+        work = works(:valid_work)
+        user = users(:valid_user)
+        user_2 = users(:valid_user_2)
+
+        work.upvote(user.id)
+        expect(work.votes.count).must_equal 1
+
+        work.upvote(user_2.id)
+
+        expect(work.votes.count).must_equal 2
       end
     end
   end
