@@ -8,13 +8,12 @@ class Work < ApplicationRecord
   def self.top_category(category)
     works = self.all 
     top_category = Work.where(category: category)
-    return top_category
+    return top_category.max_by(10) { |work| work.votes.length }
   end
   
   def self.spotlight
     works = self.all 
-    spotlight = works.sample 
-    return spotlight
+    return works.max_by { |work| work.votes.length }
   end
   
 end
