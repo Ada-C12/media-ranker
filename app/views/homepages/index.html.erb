@@ -1,7 +1,10 @@
 <main id="spotlight">
   <% random = @works.sample %>
-  <h2>Spotlight: <%= link_to Work.spotlight.title, work_path(Work.spotlight.id)%></h2>
-  <p>Synopsis: <%= Work.spotlight.description %></p>
+  <h2>
+    Spotlight: <%= link_to Work.spotlight.title, work_path(Work.spotlight.id)%>
+    <small>by <%= Work.spotlight.creator %></small>
+  </h2>
+  <p><%= Work.spotlight.votes.length %> votes - Synopsis: <%= Work.spotlight.description %></p>
 </main>
 <section class="top-ten">
   <section class="top-category">
