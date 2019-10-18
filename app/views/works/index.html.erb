@@ -21,7 +21,7 @@
           <td><%= link_to piece.title, work_path(id: piece.id) %></td>
           <td><%= piece.creator %></td>
           <td><%= piece.published_year %></td>
-          <td><button class="btn btn-primary"><%= link_to "UPVOTE", work_create_vote_path(work_id: piece.id), method: :post %><% session[:origin_prefix] = "works" %></button></td>
+          <td><button id="upvote" class="btn btn-primary"><%= link_to "Upvote", work_create_vote_path(work_id: piece.id), method: :post %><% session[:origin_prefix] = "works" %></button></td>
         </tr>
         <% end %>
       <% end %>
@@ -49,7 +49,7 @@
             <td><%= link_to piece.title, work_path(id: piece.id) %></td>
             <td><%= piece.creator %></td>
             <td><%= piece.published_year %></td>
-            <td><button class="btn btn-primary"><%= link_to "UPVOTE", work_create_vote_path(work_id: piece.id), method: :post %><% session[:origin_prefix] = "works" %></button></td>
+            <td><button id="upvote" class="btn btn-primary"><%= link_to "Upvote", work_create_vote_path(work_id: piece.id), method: :post %><% session[:origin_prefix] = "works" %></button></td>
           </tr>
           <% end %>
         <% end %>
@@ -77,7 +77,7 @@
           <td><%= link_to piece.title, work_path(id: piece.id) %></td>
           <td><%= piece.creator %></td>
           <td><%= piece.published_year %></td>
-          <td><button class="btn btn-primary"><%= link_to "UPVOTE", work_create_vote_path(work_id: piece.id), method: :post %><% session[:origin_prefix] = "works" %></button></td>
+          <td><button id="upvote" class="btn btn-primary"><%= link_to "Upvote", work_create_vote_path(work_id: piece.id), method: :post %><% session[:origin_prefix] = "works" %></button></td>
         </tr>
         <% end %>
       <% end %>

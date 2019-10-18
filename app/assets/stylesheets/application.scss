@@ -26,6 +26,10 @@
       border: 1em, dashed, red;
    }
 
+   main {
+      padding: 2rem;
+   }
+
 // banner on top of page
    header, nav {
       dispay: block;
@@ -72,7 +76,7 @@
       color: #00796B;
    }
 
-   .nav-link:hover {
+   .nav-link:hover , #upvote:hover {
       color: #00796B;
    }
 
@@ -137,7 +141,6 @@ main {
    color: white;
  }
 
-
 // SUPER SPECIAL IDs
 // #logo-banner{
 //    display: block;
@@ -145,4 +148,8 @@ main {
 // }
 #logo {
    font-weight: bold;
+}
+
+#upvote {
+   color: white;
 }
