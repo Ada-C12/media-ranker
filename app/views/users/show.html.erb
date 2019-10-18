@@ -15,15 +15,15 @@
         </tr>
       </thead>
       <tbody>
-          @user.votes.each do |vote|
+          <% @user.votes.each do |vote| %>
             <tr>
-              <td>< link_to vote.work.title, work_path(vote.work.id)></td>
-              <td>< vote.work.creator></td>
-              <td><= vote.work.publication_year></td>
-              <td><= vote.work.category ></td>
-              <td><= vote.work.created_at ></td>
+              <td><%= link_to vote.work.title, work_path(vote.work.id) %></td>
+              <td><%= vote.work.creator %></td>
+              <td><%= vote.work.publication_year %></td>
+              <td><%= vote.work.category %></td>
+              <td><%= vote.work.created_at %></td>
             </tr>
-           end
+          <% end %>
       </tbody>
     </table>
   </section>
