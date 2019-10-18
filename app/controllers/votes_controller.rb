@@ -12,9 +12,11 @@ class VotesController < ApplicationController
       flash[:success] = "Successfully upvoted!"
       redirect_to request.referrer
     else
-      @new_user.errors.add(:user, "has already voted for this work")
+      # @new_user.errors.add(:user, "has already voted for this work")
       # raise
-      flash[:error] = "A problem occurred: Could not upvote!"
+      flash[:errors] = []
+      flash[:errors] << "A problem occurred: Could not upvote!"
+      flash[:errors] << "user: has already voted for this work"
       redirect_to request.referrer
     end
   end
