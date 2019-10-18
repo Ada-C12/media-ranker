@@ -3,13 +3,12 @@
   <p>Created By: <%= @work.creator %></p>
   <p>Published: <%= @work.publication_year %></p>
   <p><%= @work.description %></p>
-</section>
-
-<section>
-  <%= link_to "Back to media ranks", root_path, class: "btn btn-primary" %>
-  <%= link_to "Edit", edit_work_path(@work.id), class: "btn btn-primary" %>
-  <%= link_to "Upvote", upvote_work_path(@work.id), method: :post, class: "btn btn-primary" %>
-  <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  <section>
+    <%= link_to "Back to media ranks", root_path, class: "btn btn-primary" %>
+    <%= link_to "Edit", edit_work_path(@work.id), class: "btn btn-primary" %>
+    <%= link_to "Upvote", upvote_work_path(@work.id), method: :post, class: "btn btn-primary" %>
+    <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  </section>
 </section>
 
 <section class="works-votes__container">
@@ -27,9 +26,7 @@
           <td><%= link_to vote.user.username, user_path(vote.user.id)%></td>
           <td><%= vote.created_at %></td>
         </tr>    
-        <% end %>
-      <tr>
-      </tr>
+      <% end %>
     </tbody>
   </table>
 </section>
