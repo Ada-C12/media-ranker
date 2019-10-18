@@ -7,13 +7,8 @@
   <%= javascript_include_tag  "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
 
-</body>
-</html>
- 
   <link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
   
@@ -40,9 +35,15 @@
           <%= link_to "View all users", users_path, class: 'nav_link_to' %>
         </li>
       </ul>
+      <button type="button" class="btn btn-primary">Log In</button>
+      <button type="button" class="btn btn-primary">Log Out</button>
     </nav>
   </header>
 
+<body>
 
+<%= yield %>
 
-    
+</body>
+</html>
+ 

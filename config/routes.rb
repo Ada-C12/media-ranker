@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   
-  root to: "works#index"
+  root to: "homepage#index"
   
-  resources :votes
-  resources :users
-  resources :works 
+  
+  resources :votes, :users, :works 
   
 end
