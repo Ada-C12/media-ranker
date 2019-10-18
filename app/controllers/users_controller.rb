@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       new_user.save
       # TODO: What happens if saving fails?
       session[:user_id] = new_user.id
-      flash[:message] = "Created a new user. Welcome!"
+      flash[:message] = "Successfully created new user #{new_user.username} with ID #{new_user.id}"
     end
     
     return redirect_to root_path

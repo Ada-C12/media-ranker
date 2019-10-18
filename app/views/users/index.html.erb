@@ -1,0 +1,28 @@
+<main>
+  <h2>List of Votes</h2>
+
+  <section class="media-table">
+    <h4>Votes</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th width=80>Username</th>
+          <th>Votes</th>
+          <th width=100>Joined</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td>__</td>
+              <td><%=link_to user.username, work_path( user.id ) %></td>
+            </tr>
+          <% end %>
+      </tbody>
+    </table>
+  </section>
+
+  <a class="btn btn-secondary" href="/">View top media</a>
+  <a class="btn btn-primary" href="/works/new">Add a new work</a>
+
+  </main>
