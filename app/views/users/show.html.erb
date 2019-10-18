@@ -1,6 +1,7 @@
 <main>
-    <h2>User Summary: <a href="/users/#{session[:user_id]}">"#{session[:user.id].name}"</a></h2>
-<p>Joined site on _________</p>
+    <h2>User Summary: <a href="/users/<%= User.find_by(id: session[:user_id]).id %>"><%= User.find_by(id: session[:user_id]).name %></a></h2>
+
+<p>Joined site on <%= User.find_by(id: session[:user_id]).created_at.strftime("%b %d, %Y") %></p>
 
 <section class="user-votes__container">
   <h3 class="user-votes__header">Votes</h3>
