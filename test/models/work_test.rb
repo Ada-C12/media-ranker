@@ -146,4 +146,31 @@ describe Work do
       expect(@movie.votes[0]).must_be_kind_of Vote 
     end
   end
+  
+  describe "custom methods" do 
+    before do 
+      @movie = Work.create(category: "movie", title: "Nightmare Before Chirstmas", creator: "Tim Burton", publication_year: 1993, description: "Jack Skellington tries to bring Christmas magic to Halloween Town. Chaos ensues.")
+      @movie2 = Work.create(category: "movie", title: "Hocus Pocus", creator: "Fox", publication_year: 1993, description: "some stuff.")
+      @movie3 = Work.create(category: "movie", title: "Some", creator: "Fox", publication_year: 1993, description: "some stuff.")
+      @movie4 = Work.create(category: "movie", title: "Thing", creator: "Fox", publication_year: 1993, description: "some stuff.")
+      @movie5 = Work.create(category: "movie", title: "Cool!", creator: "Fox", publication_year: 1993, description: "some stuff.")
+      @movie6 = Work.create(category: "movie", title: "Leaves", creator: "Fox", publication_year: 1993, description: "some stuff.")
+      @movie7 = Work.create(category: "movie", title: "Branches", creator: "Fox", publication_year: 1993, description: "some stuff.")
+      @movie8 = Work.create(category: "movie", title: "Nodes", creator: "Fox", publication_year: 1993, description: "some stuff.")
+      @movie9 = Work.create(category: "movie", title: "Search", creator: "Fox", publication_year: 1993, description: "some stuff.")
+      @movie10 = Work.create(category: "movie", title: "Merge", creator: "Fox", publication_year: 1993, description: "some stuff.")
+      @movie11 = Work.create(category: "movie", title: "Cookies", creator: "Fox", publication_year: 1993, description: "some stuff.")
+      @movie12 = Work.create(category: "movie", title: "Pumpkin Spice", creator: "Fox", publication_year: 1993, description: "some stuff.")
+      @movie13 = Work.create(category: "movie", title: "Coffee", creator: "Fox", publication_year: 1993, description: "some stuff.")
+      @movie14 = Work.create(category: "movie", title: "Tea", creator: "Fox", publication_year: 1993, description: "some stuff.")
+      @movie15 = Work.create(category: "movie", title: "Soda", creator: "Fox", publication_year: 1993, description: "some stuff.")
+      
+    end
+    it "has a spotlight feature based on most votes" do 
+      
+    end
+    
+    it "shows 10 highest rated votes per category" do 
+    end
+  end
 end

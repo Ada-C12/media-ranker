@@ -6,4 +6,24 @@
 <%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure?"} %>
 <%= link_to "Upvote", work_votes_path(@work.id), method: :post %>
 <%= link_to "Home", root_path %>
-<%= @work.votes.length%>
+
+<div>
+<h2><%= @work.votes.length%> votes</h2>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @work.votes.length.times do |i|%>
+    <tr>
+      <td><%= @work.votes[i].user.username %></td>
+      <td><%= @work.votes[i].user.created_at %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
