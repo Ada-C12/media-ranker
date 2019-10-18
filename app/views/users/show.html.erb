@@ -1,25 +1,42 @@
-<section>
-  <h1> User Summary: <%= @user.name %> </h1>
-  <h2> Joined site <%= @user.joined_date.strftime('%b %d, %Y') %> </h2>
-</section>
+<main>
+  <section>
+    <h2> User Summary: <%= @user.name %> </h2>
+    <p> Joined site <%= @user.joined_date.strftime('%b %d, %Y') %> </p>
+  </section>
 
 
-<section>
-  <h3> Votes </h3>
-  <ul>
-  <% @user.votes.each do |vote| %>
-    <li>
-      <%= link_to vote.work.title, work_path(vote.work_id) %>
-      <%= vote.work.creator %>
-      <%= vote.work.publication_year %>
-      <%= vote.work.category.capitalize %>
-      <%= vote.date.strftime('%b %d, %Y') %>
-    </li>
-  <% end %>
-  </ul>
-</section>
+  <section class="user-votes__container">
+    <h3 class="user-votes__header"> Votes </h3>
 
-<section>
-  <%= link_to "See all Users", users_path %>
-  <%= link_to "See all Works", works_path%>
-</section>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Work Title</th>
+          <th>Created By</th>
+          <th>Published</th>
+          <th>Category</th>
+          <th>Voted On</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        
+          <% @user.votes.each do |vote| %>
+            <tr>
+              <td> <%= link_to vote.work.title, work_path(vote.work_id) %> </td>
+              <td> <%= vote.work.creator %> </td>
+              <td> <%= vote.work.publication_year %> </td>
+              <td> <%= vote.work.category.capitalize %> </td>
+              <td> <%= vote.date.strftime('%b %d, %Y') %> </td>
+            </tr>
+          <% end %>
+      </tbody>
+
+    </table>
+  </section>
+
+  <section>
+    <%= link_to "See all Users", users_path, class: "btn btn-secondary" %>
+    <%= link_to "See all Works", works_path, class: "btn btn-primary" %>
+  </section>
+</main>
