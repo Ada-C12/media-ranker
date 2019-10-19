@@ -50,9 +50,16 @@
   </header>
   <section class="alert__container">
   
-    <%if flash[:message]%>
+    <% if flash[:message]%>
       <div class="alert alert-success"> 
         <span><%= flash[:message]%></span>
+      </div>
+    <% end %>
+
+    <% if flash[:error] %>
+      <div class="alert alert-warning">
+        <span>A problem occurred: Could not upvote</span>
+        <p><%= flash[:error] %></p>
       </div>
     <% end %>
 </section>

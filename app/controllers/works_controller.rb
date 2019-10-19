@@ -1,6 +1,6 @@
 class WorksController < ApplicationController
   before_action :find_work, only: [:show, :edit, :update]
-
+  
   def index
     @works = Work.all
     @albums = Work.sort_by_category("album")
@@ -62,9 +62,19 @@ class WorksController < ApplicationController
   def upvote
     work = Work.find_by(id: params[:id])
     found_user = User.find_by(id: session[:user_id])
+    # exiting_vote = Vote.find_by(work_id: params[:id], user)
     if found_user
-      Vote.create(work: work, user: found_user)
-      return redirect_to works_path
+      vote = Vote.new(work: work, user: found_user)
+        if vote.save
+          flash[:message] = "Successfully upvoted"
+          return redirect_to works_path
+        else
+          vote.errors.each do |column, message|
+            flash[:error] = message
+          end
+
+          return redirect_to works_path
+        end
     else
       flash[:message] = "Cannot vote without logging in"
       return redirect_to works_path
@@ -76,7 +86,7 @@ class WorksController < ApplicationController
   def find_work
     @work = Work.find_by(id: params[:id])
   end
-
+  
   def work_params
     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
