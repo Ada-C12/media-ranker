@@ -16,7 +16,7 @@ class Work < ApplicationRecord
     all_of_type = []
     
     # put all objects of provided category in an array
-    Work.where(category: "movie").each do |work|
+    Work.where(category: category).each do |work|
       all_of_type << work
     end
     
