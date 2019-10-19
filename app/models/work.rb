@@ -32,7 +32,7 @@ class Work < ApplicationRecord
         next
       elsif number_one_voted.votes.count < works.first.votes.count
         number_one_voted = works.first
-      elsif number_one_voted.votes.count == works.first.votes.count && works.first.updated_at > number_one_voted.updated_at
+      elsif number_one_voted.votes.count == works.first.votes.count && works.first.votes.last.updated_at > number_one_voted.votes.last.updated_at
         number_one_voted = works.first
       end
     end

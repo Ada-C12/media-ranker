@@ -18,7 +18,7 @@ album:
 ## 10 more albums, with votes
 
 ##
-top_album:
+top_album:  ## ALSO SPOTLIGHT WORK -- 5 VOTES
   category: album
   title: Biophilia 2
   creator: Bjork
@@ -94,70 +94,70 @@ album_11:
 ##
 top_book:
   category: book
-  title: Biophilia 2
+  title: Guinness Book of World Records 2
   creator: Bjork
   publication_year: 2011
   description: interesting noises
 
 book_3:
   category: book
-  title: Biophilia 3
+  title: Guinness Book of World Records 3
   creator: Bjork
   publication_year: 2011
   description: interesting noises
 
 book_4:
   category: book
-  title: Biophilia 4
+  title: Guinness Book of World Records 4
   creator: Bjork
   publication_year: 2011
   description: interesting noises
 
 book_5:
   category: book
-  title: Biophilia 5
+  title: Guinness Book of World Records 5
   creator: Bjork
   publication_year: 2011
   description: interesting noises
   
 book_6:
   category: book
-  title: Biophilia 6
+  title: Guinness Book of World Records 6
   creator: Bjork
   publication_year: 2011
   description: interesting noises
 
 book_7:
   category: book
-  title: Biophilia 7
+  title: Guinness Book of World Records 7
   creator: Bjork
   publication_year: 2011
   description: interesting noises
 
 book_8:
   category: book
-  title: Biophilia 8
+  title: Guinness Book of World Records 8
   creator: Bjork
   publication_year: 2011
   description: interesting noises
 
 book_9:
   category: book
-  title: Biophilia 9
+  title: Guinness Book of World Records 9
   creator: Bjork
   publication_year: 2011
   description: interesting noises
 
 book_10:
   category: book
-  title: Biophilia 10
+  title: Guinness Book of World Records 10
   creator: Bjork
   publication_year: 2011
   description: interesting noises
 
 book_11:
   category: book
-  title: Biophilia 11
+  title: Guinness Book of World Records 11
   creator: Bjork
   publication_year: 2011
   description: interesting noises

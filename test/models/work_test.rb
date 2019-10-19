@@ -160,10 +160,30 @@ describe Work do
     end
 
     describe "spotlight" do
+      before do
+        @highest_voted_work = works(:top_album) # 5 votes
+        @lower_voted_work = works(:top_book) # 3 votes
+      end
       # Your code here
-      # Arrange
-      # Act
-      # Assert
+      it "returns the work with the highest vote" do
+        # store spotlight in a variable
+        spotlight_work = Work.spotlight
+        expect(spotlight_work.title).must_equal @highest_voted_work.title
+        expect(spotlight_work.category).must_equal @highest_voted_work.category
+      end
+
+      it "returns the work that was most recently upvoted if there is a tie between 2 works" do
+        # add two votes to a lower_voted_work
+        @lower_voted_work.votes.create(user_id: users(:user_4).id, work_id: @lower_voted_work.id)
+        @lower_voted_work.votes.create(user_id: users(:user_5).id, work_id: @lower_voted_work.id)
+        # Act
+        spotlight_work = Work.spotlight
+        # Assert
+        # check that spotlight is now the lower voted work's title and category, or id??
+        expect(spotlight_work.id).must_equal @lower_voted_work.id        
+        expect(spotlight_work.title).must_equal @lower_voted_work.title
+        expect(spotlight_work.category).must_equal @lower_voted_work.category
+      end
     end
   end
 end
