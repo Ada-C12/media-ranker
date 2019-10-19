@@ -48,8 +48,8 @@
     </nav>
 
      <section class="flash">
-    <% flash.each do |name, message| %>
-      <div class="alert alert-<%= name %>"><%= message %></div>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
   </section>
   

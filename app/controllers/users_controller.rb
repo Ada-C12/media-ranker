@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def current
     @current_user = User.find_by(id: session[:user_id])
     unless @current_user
-      flash[:error] = "You must be logged in to see this page"
+      flash[:danger] = "You must be logged in to do that."
       redirect_to login_path #redirect to login page
     end
     redirect_to user_path #user show page
@@ -29,6 +29,7 @@ class UsersController < ApplicationController
   
   def logout
     session[:user_id] = nil
+    flash[:success] = "Successfully logged out."
     redirect_to root_path
   end
   

@@ -1,19 +1,21 @@
 class VotesController < ApplicationController
   
   def create
-    
     @vote = Vote.new(work_id: params[:id], user_id: session[:user_id])
-    # raise
-    if @vote.save # save returns true if the database insert succeeds
-      flash[:success] = "Successfully upvoted!"
+    if session[:user_id] == nil
+      flash[:warning] = "You must be logged in to vote."
       redirect_to work_path
-      # eventually the work page will show the new vote 
-      return
-    else 
-      flash.now[:failure] = "Vote failed :("
-      redirect_to root_path
-      # should probably redirect to work page but we don't know that at the moment
-      return
+    elsif session[:user_id]
+      if @vote.save # save returns true if the database insert succeeds
+        flash[:success] = "Successfully upvoted!"
+        redirect_to work_path
+        # eventually the work page will show the new vote 
+        return
+      else 
+        flash.now[:failure] = "Vote failed :("
+        redirect_to work_path
+        return
+      end
     end
     
   end
