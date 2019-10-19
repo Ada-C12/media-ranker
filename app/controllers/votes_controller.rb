@@ -7,7 +7,7 @@ class VotesController < ApplicationController
     if @vote.save
       redirect_to work_path(params[:work_id])
     else 
-      flash[:error] = "A problem occured: You already voted for this work."
+      flash[:warning] = "A problem occured: You already voted for this work."
       redirect_to root_path
     end
   end 
@@ -19,6 +19,6 @@ class VotesController < ApplicationController
   private 
   
   def vote_params
-    return params.require(:user, :work, :created_at)
+    return params.require(:vote).permit(:user, :work, :created_at)
   end 
 end

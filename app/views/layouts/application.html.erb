@@ -10,7 +10,7 @@
   </head>
   <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Media Ranker | Ranking the Best of Everything</a>
+  <%= link_to "Media Ranker | Ranking the Best of Everything", root_path%>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -30,14 +30,13 @@
       </li>
     </ul>
     <% if session[:user_id].nil?%>
-      <%= form_with model:@user, url: login_path,  class: "form-inline my-2 my-lg-0" do |f|%>
+      <%= form_with url: login_path,  class: "form-inline my-2 my-lg-0" do |f|%>
         <%= f.text_field :username, class: "form-control mr-sm-2", type: "login", placeholder: "login"%>
         <%= f.submit "Login", class: "btn btn-outline-success my-2 my-sm-0" %>
-        <% end %>
+      <% end %>
     <% else %>
-      <% @user = User.find_by(id: session[:user_id])%>
-      <%= form_with model: @user, url: logout_path, method: :post, class: "form-inline my-2 my-lg-0" do |f| %>
-      <%= link_to "Logged in as #{@user.username}", user_path(@user.id), class: "btn btn-outline-success my-2 my-sm-0" %>
+      <%= form_with model: current_user, url: logout_path, method: :post, class: "form-inline my-2 my-lg-0" do |f| %>
+      <%= link_to "Logged in as #{current_user.username}", user_path(current_user.id), class: "btn btn-outline-success my-2 my-sm-0" %>
       <%= f.submit "Logout", class: "btn btn-outline-success my-2 my-sm-0" %>
       <% end %>
     <% end %>
