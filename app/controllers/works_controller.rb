@@ -56,9 +56,7 @@ class WorksController < ApplicationController
   
   def upvote
     current_work = Work.find_by(id: params[:id])
-    votes = Vote.where(work_id: current_work.id)
     prev = Rails.application.routes.recognize_path(request.referrer)
-    can_vote = true
     
     if !@current_user
       flash[:warning] = "You must be logged in to perform this action."
@@ -70,13 +68,9 @@ class WorksController < ApplicationController
       return
     end
     
-    votes.each do |vote|
-      if vote.user_id == @current_user.id
-        can_vote = false
-      end
-    end
+    previous_vote = Vote.where(work_id: current_work.id, user_id: @current_user.id)
     
-    if votes.length != 0 && can_vote == false
+    if previous_vote.exists?
       flash[:warning] = "You may only vote for this media once."
       if prev[:action] == "index"
         redirect_to works_path
@@ -84,24 +78,20 @@ class WorksController < ApplicationController
         redirect_to work_path(current_work)
       end
       return
-      
-    end
-    
-    if @current_user
+    else
       vote = Vote.new(user_id: @current_user.id, work_id: current_work.id)
       if vote.save
         flash[:success] = "Successfully Upvoted!"
       else
         flash[:error] = "Unable to upvote."
       end
-    else
-      flash[:warning] = "You must be logged in to perform this action."
-    end
-    
-    if prev[:action] == "index"
-      redirect_to works_path
-    else
-      redirect_to work_path(current_work)
+      
+      if prev[:action] == "index"
+        redirect_to works_path
+      else
+        redirect_to work_path(current_work)
+      end
+      return
     end
     
   end
