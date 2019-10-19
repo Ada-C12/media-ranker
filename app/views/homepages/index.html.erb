@@ -8,10 +8,12 @@
 <main>
 <section class="spotlight">
 <h2 class="spotlight__header">Media Spotlight</h2>
+<% unless Work.spotlight.nil?%>
 <span>Title: <% feature = Work.spotlight%>
  <%=link_to feature.title, work_path(feature.id), class: "spotlight__link-to" %> <br>Creator: <%= feature.creator%>
  <p class="spotlight__description"><%= feature.votes.count %> votes</p>
 </span>
+<% end %>
 </section>
 <hr class="root__hr">
 
