@@ -1,10 +1,11 @@
 class VotesController < ApplicationController
+  before_action :find_current_user, only: :create
+
   def create
-    current_user = User.find_by(id: session[:user_id])
     work = Work.find_by(id: params[:work_id])
     
-    if current_user
-      @vote = Vote.new(user: current_user, work: work)
+    if @current_user
+      @vote = Vote.new(user: @current_user, work: work)
       if @vote.save
         flash[:success] = "Successfully upvoted!"
         redirect_back(fallback_location: :back)

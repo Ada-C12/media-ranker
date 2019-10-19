@@ -20,12 +20,21 @@ describe Vote do
       refute(new_vote.valid?)
     end
 
-    it "is invalid if it does not have a valid user" do
+    it "is invalid if it does not have a user" do
+      work = works(:turn)
+
+      new_vote = Vote.new(work: work)
+
+      refute(new_vote.valid?)
     end
 
 
-    it "is invalid if it does not have a valid work" do
+    it "is invalid if it does not have a work" do
+      user = users(:tacocat)
 
+      new_vote = Vote.new(user: user)
+
+      refute(new_vote.valid?)
     end
   end
 
@@ -37,6 +46,4 @@ describe Vote do
       expect(vote.work).must_be_instance_of Work
     end
   end
-
-  #custom validations
 end
