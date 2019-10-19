@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+valid_user_with_username:
+  username: testuser
+
+invalid_user_without_username:
+  username: ""
