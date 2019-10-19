@@ -23,19 +23,18 @@ describe Work do
     end
   end
 
-  # describe "relationships" do
-  #   it "can have many votes" do
-  #     # Arrange
-  #     new_work.save
-  #     work = Work.first
+  describe "relationships" do
+    it "can have many votes" do
+      # Arrange
+      album_with_votes = works(:top_album)
 
-  #     # Assert
-  #     expect(work.votes.count).must_be :>=, 0
-  #     work.votes.each do |vote|
-  #       expect(vote).must_be_instance_of Vote
-  #     end
-  #   end
-  # end
+      # Assert
+      expect(album_with_votes.votes.count).must_be :>=, 0
+      album_with_votes.votes.each do |vote|
+        expect(vote).must_be_instance_of Vote
+      end
+    end
+  end
 
   describe "validations" do
     it "must have a title" do
