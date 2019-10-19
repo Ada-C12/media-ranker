@@ -4,7 +4,7 @@
 <h2>Albums</h2>
   <table class="table">
     <thead>
-    <%works = @works.where(category: "album")%>
+    <%works = @works.where(category: "album").order(votes_count: :desc)%>
       <tr>
         <th scope="col" width="80">Votes</th>
         <th scope="col">Title</th>

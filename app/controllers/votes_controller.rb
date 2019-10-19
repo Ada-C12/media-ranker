@@ -11,6 +11,7 @@ class VotesController < ApplicationController
       if vote.save
         flash[:success] = "Successfully upvoted!"
         redirect_back(fallback_location: :back)
+        Work.increment_counter(:votes_count, work.id)
       else
         flash[:error] = "A problem occurred: Could not upvote"
         redirect_back(fallback_location: :back)
