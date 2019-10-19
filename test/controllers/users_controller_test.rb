@@ -49,6 +49,7 @@ describe UsersController do
   describe "CREATE" do
     describe "NOT as a logged in user" do
       it "Can log in existing user, show flash, and update session[:user_id]" do
+        ##### THIS ALSO TESTS login(yml_key)
         login(user1)
         must_redirect_to user_path(id: user1.id)
         assert(flash[:success] == "Welcome back, #{user1.name}" )
@@ -78,41 +79,41 @@ describe UsersController do
   
   describe "SHOW" do
     
-    it "Can show existing user's page" do
-      get user_path(id: user1.id)
-      must_respond_with :success
+    describe "NOT as a logged in user" do
+      it "Can show existing user's page" do
+        get user_path(id: user1.id)
+        must_respond_with :success
+      end
+      
+      it "Nonexistent user gets sent back to root_path" do
+        get user_path(id: -666)
+        
+        must_redirect_to root_path
+        assert(flash[:error] == "User does not exist!")
+      end
     end
     
-    it "Nonexistent user gets sent back to root_path" do
-      get user_path(id: -666)
-      
-      must_redirect_to root_path
-      assert(flash[:error] == "User does not exist!")
+    describe "As a logged in user" do
+      # Unnecessary, since this method does not look at session at all
     end
     
   end
   
   describe "LOGOUT" do
-    describe "Logging out as a valid user..." do
-      # it "will update session, and  flash msg when sent to root path" do
-      #   user1
-      #   post users_path, params: user1_params 
-      #   assert(session[:user_id] == user1.id)
-      
-      #   patch logout_path
-      #   assert(session[:user_id] == nil)
-      #   assert(flash[:success] == "Successfully logged out #{user1.name}" )
-      #   must_redirect_to root_path
-      # end
+    
+    describe "As a logged in user" do
+      it "logout will update session, and  flash msg when sent to root path" do
+        login(user1)
+        
+        patch logout_path
+        assert(session[:user_id] == nil)
+        assert(flash[:success] == "Successfully logged out #{user1.name}" )
+        must_redirect_to root_path
+      end
     end
     
-    describe "Logging out as a bogus user (impossible via normal site clicks)..." do
-      it "will flash msg when sent to nope_path" do
-        puts "???"
-        get root_path
-        assert(session[:user_id] == nil)
-        puts "!!!"
-      end
+    describe "NOT as a logged in user (impossible via normal site clicks)..." do
+      # IDK I know enough to test this, so I won't.
     end
   end
   

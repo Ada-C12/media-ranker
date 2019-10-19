@@ -50,15 +50,10 @@ class UsersController < ApplicationController
   
   def logout
     user = User.find_by(id: session[:user_id])
-    if user 
-      flash[:success] = "Successfully logged out #{user.name}"
-      session[:user_id] = nil
-      redirect_to root_path
-      return
-    else
-      flash[:error] = "How did you even set session[:user_id] to a bogus number to begin with?"
-      redirect_to nope_path
-    end
+    flash[:success] = "Successfully logged out #{user.name}"
+    session[:user_id] = nil
+    redirect_to root_path
+    return
   end
   
 end
