@@ -6,6 +6,7 @@ describe UsersController do
   let (:yml) { let_yml_superhash }
   let (:user1) { yml[:user1] }
   let (:user1_params) { { user: { name: user1.name } } }
+  let (:new_user_params) { { user: { name: "Smithers" } } }
   let (:ctrller) { UsersController.new }
   
   describe "INDEX" do
@@ -24,15 +25,23 @@ describe UsersController do
   end
   
   describe "CREATE" do
-    it "Can log in existing user, and update session[:user_id]" do
+    it "Can log in existing user, show flash, and update session[:user_id]" do
       user1
       post users_path, params: user1_params
       must_redirect_to user_path(id: user1.id)
       assert(flash[:success] == "Welcome back, #{user1.name}" )
+      assert(session[:user_id] == user1.id)
+
     end
     
-    it "Can create and log in new user, and update session[:user_id]" do
+    it "Can create and log in new user, show flash, and update session[:user_id]" do
       
+      post users_path, params: new_user_params
+      smithers = User.find_by(name: "Smithers")
+      must_redirect_to user_path(id: smithers.id)
+      assert(flash[:success] == "Successfully logged Smithers in as a new user!" )
+      assert(session[:user_id] == smithers.id)
+
     end
     
     it "Logging invalid user results in render and a flash[:error]" do
@@ -60,6 +69,7 @@ describe UsersController do
   end
   
   # describe "LOGOUT" do
+
   # end
   
 end
