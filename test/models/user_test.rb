@@ -16,4 +16,17 @@ describe User do
       expect(user_without_username.valid?).must_equal false
     end
   end
+
+  describe "relationships" do
+    it "can have many votes" do
+      # Arrange
+      user_with_votes = users(:user_1)
+
+      # Assert
+      expect(user_with_votes.votes.count).must_be :>=, 0
+      user_with_votes.votes.each do |vote|
+        expect(vote).must_be_instance_of Vote
+      end
+    end
+  end
 end
