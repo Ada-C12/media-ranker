@@ -12,3 +12,23 @@
     <a class="btn btn-danger" data-confirm="Are you sure you want to delete <%= @work.title %>?" rel="nofollow" data-method="delete" href="/works/<%= @work.id %>">Delete</a>
   </section>
 
+
+<section class="works-votes__container">
+  <h3 class="works-votes__header"><%= @work.votes.count %> votes for this <%= @work.category %> </h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @work.votes.each do |vote|%>
+      <tr>
+        <td><a href="/users/<%= vote.user_id %>"><%= User.find_by(id: vote.user_id).name %> </a></td>
+        <td><%= vote.created_at.strftime("%b %d, %Y") %></td>
+      </tr>
+<% end %>      
+
+</tr></tbody></table></section></main>
+
