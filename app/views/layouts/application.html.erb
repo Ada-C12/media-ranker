@@ -39,12 +39,16 @@
           <% elsif %>
             <a class="btn btn-primary">Logged in as <%=User.find_by(id: session[:user_id]).name%></a>
             <a class="btn btn-primary" data-method="post" href="/logout">Log Out</a>
-            <%# <%=link_to "Logout EXPERIMENNNTTT", logout_path, method: :post%> 
           <% end %>
           </li>
         </ul> 
       </nav>
     </header>
+     <section class="flash">
+    <% flash.each do |name, message| %>
+      <div class="<%= name %>"><%= message %></div>
+    <% end %>
+  </section>
     <%= yield %>
   </body>
 </html>

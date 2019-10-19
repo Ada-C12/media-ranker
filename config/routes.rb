@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   post "/login", to: "users#login"
   post "/logout", to: "users#logout", as: "logout"
   get "/user/current", to: "users#current", as: "current_user"
-   
-  resources :users, only: [:show] do
+  
+  resources :works, only: [:show] do
     resources :votes, only: [:create]
   end
 

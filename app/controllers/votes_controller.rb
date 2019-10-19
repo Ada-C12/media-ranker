@@ -1,58 +1,19 @@
 class VotesController < ApplicationController
 
   def create
-    @work = Work.find_by(params[:id])
-    
-    # long_date = DateTime.now.to_s
-    # date = long_date[0..9]
-    binding.pry
-    vote = Vote.new(work_id: @work.id, user_id: @current_user.id, date: Time.now)
-    vote.save
-    # @work.update(active: true) 
-    redirect_to vote_path(params[:vote_id])
-    return
-  # else 
-  #   render :new 
-  #   return
-  end
+    user = User.find_by(id: session[:user_id])
+    @work = Work.find_by(id: params[:work_id])
+    vote = Vote.new(work_id: params[:work_id], user_id: user.id, date: Time.now)
 
-  def show
-    @vote = Vote.find_by(id: params[:id])
-    if @vote.nil?
-      redirect_to root_path
-      return 
-    end
-  end
-    
-  def update
-    @trip = Trip.find_by(id: params[:id])
-    if @trip.nil?
-      redirect_to root_path
-    elsif 
-      if @trip.rating == nil
-        @trip.update(rating: params[:trip][:rating])
-        @trip.driver.update(active: false)
-        redirect_to passenger_path(@trip.passenger_id)
-      else
-        @trip.update(rating: params[:trip][:rating], cost: params[:trip][:cost])
-        redirect_to trip_path
-      end
+    if @work.votes.find_by(user_id: user.id) == nil 
+      vote.save
+      flash[:success] = "Successfully voted!"
+    elsif session[:user_id] == nil
+      flash.now[:failure] = "A problem occurred: You must log in to do that"
     else 
-      render :edit 
+      flash[:failure] = "You cannot vote more than once for same work."
     end
+    redirect_to works_path
   end
-  
-  # def destroy
-  #   @trip = Trip.find_by(id: params[:id])
-    
-  #   if @trip.nil?
-  #     head :not_found
-  #     return
-  #   end
-    
-  #   @trip.destroy
-  #   redirect_to root_path
-  #   return
-  # end
 
 end
