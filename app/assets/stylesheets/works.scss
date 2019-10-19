@@ -1,3 +1,27 @@
 // Place all the styles related to the Works controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.row_header {
+    grid-template-columns: 6;
+    justify-content: space-around;
+    color: black;
+}
+
+.show_header {
+    grid-template-row: 4;
+    color: black;
+}
+
+.btn-primary {
+    background-color: #00796B;
+    color: white;
+    border-color: #26A69A;
+    justify-content: space-around;
+   }
+ 
+.btn-primary-delete {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
