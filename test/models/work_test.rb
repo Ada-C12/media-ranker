@@ -66,6 +66,46 @@ describe Work do
       expect(spotlight.votes.length).must_equal work.votes.length      
     end
     
+    it "updates the Media Spotlight if another work gets more votes" do
+      work1 = Work.find_by(title: "Millions of Cats")
+      work2 = Work.find_by(title: "Permission To Land")
+      user1 = User.find_by(username: "Rose")
+      user2 = User.find_by(username: "Blanche")
+      
+      vote = Vote.create(user_id: user1.id, work_id: work1.id)
+      work1.reload
+      spotlight = Work.spotlight
+      
+      expect(spotlight.title).must_equal work1.title
+      
+      vote = Vote.create(user_id: user1.id, work_id: work2.id)
+      vote = Vote.create(user_id: user2.id, work_id: work2.id)
+      
+      work2.reload
+      spotlight = Work.spotlight
+      
+      expect(spotlight.title).must_equal work2.title
+    end
+    
+    it "maintains the current Media Spotlight if another work gets the same number of votes" do
+      work1 = Work.find_by(title: "Millions of Cats")
+      work2 = Work.find_by(title: "Permission To Land")
+      user = User.find_by(username: "Rose")
+      
+      vote = Vote.create(user_id: user.id, work_id: work1.id)
+      work1.reload
+      spotlight = Work.spotlight
+      
+      expect(spotlight.title).must_equal work1.title
+      
+      vote = Vote.create(user_id: user.id, work_id: work2.id)
+      
+      work2.reload
+      spotlight = Work.spotlight
+      
+      expect(spotlight.title).must_equal work1.title
+    end
+    
   end
   
 end
