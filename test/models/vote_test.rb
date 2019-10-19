@@ -3,7 +3,7 @@ require "test_helper"
 describe Vote do
   describe 'relations' do
     it 'has a work' do
-      expect(Vote.create).must_respond_to :work
+      expect(Vote.create).must_respond_to :work_id
       expect(Vote.create).must_respond_to :work
     end
 
