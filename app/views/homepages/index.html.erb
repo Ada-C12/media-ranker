@@ -5,11 +5,12 @@
       <% if @spotlight %>
         <%= link_to @spotlight.title, work_path(@spotlight.id), class: "spotlight__link-to" %>
         by <%= @spotlight.creator %>
+        </h2>
         <p class="spotlight__description"><%= @spotlight.votes.count %> votes - <%= @spotlight.description %></p>
       <% else %>
         <p>No media have been added yet</p>
       <% end %>
-    </h2>
+    
   </section>
 
   <hr class="root__hr">
