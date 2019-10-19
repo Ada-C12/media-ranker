@@ -5,11 +5,13 @@ class WorksController < ApplicationController
   before_action :if_work_missing, only: [:show, :edit, :destroy]
 
   def index
-    @movies = Work.where(category: "movie")
-    @albums= Work.where(category: "album")
-    @books = Work.where(category: "book")
+    @movies = Work.sort_by_category("movie")
+    @albums = Work.sort_by_category("album")
+    @books = Work.sort_by_category("book")
 
-
+    # @movies = Work.where(category: "movie")
+    # @albums= Work.where(category: "album")
+    # @books = Work.where(category: "book")
   end
 
   def new

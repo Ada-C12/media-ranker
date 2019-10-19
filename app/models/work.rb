@@ -32,4 +32,16 @@ class Work < ApplicationRecord
 
     return spotlight.first
   end
+
+  def self.sort_by_category(category)
+    list = Work.where(category: category)
+    # return list.sort_by do |work| work.votes.length
+    # end.reverse
+
+    ordered_list = list.sort_by do |work|
+      work.votes.length
+    end
+
+    return ordered_list.reverse
+  end
 end
