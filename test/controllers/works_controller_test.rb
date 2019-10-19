@@ -127,15 +127,22 @@ describe WorksController do
   
   describe "DESTROY" do
     
-    it "can destroy valid work, then send to root with flash msg" do
-      # expect{delete work_path(id: album1.id)}.must_differ "Work.count", -1
-      # must_redirect_to root_path
+    describe "destroying valid work..." do
+      it "if successful, will send to root with flash msg" do
+        expect{delete work_path(id: album1.id)}.must_differ "Work.count", -1
+        must_redirect_to root_path
+        assert(flash[:success] == "Successfully deleted #{album1.title}")
+      end
       
-      # assert(flash[:success] == "Successfully deleted #{album1.title}")
-      
+      it "if unsuccessful, " do
+        # expect{delete work_path(id: album1.id)}.must_differ "Work.count", 0
+      end
     end
     
-    it "" do
+    it "if trying to delete invalid work, will get sent to nope_path with flash msg" do
+      expect{delete work_path(id: -666)}.must_differ "Work.count", 0
+      assert(flash[:error] == "Why you trying to delete something that doesn't even exist? That's not how stuff works...")
+      must_redirect_to nope_path
     end
     
   end
