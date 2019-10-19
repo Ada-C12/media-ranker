@@ -14,12 +14,14 @@ CSV.foreach(WORKS_FILE, :headers => true) do |row|
   work.category = row["category"]
   work.title = row["title"]
   work.creator = row["creator"]
-  work.publication_date = row["publication_date"]
+  work.publication_date = row["publication_date"].to_i
   work.description = row["description"]
   successful = work.save
   if !successful
     work_failures << work
     puts "Failed to save work: #{work.inspect}"
+    puts "#{work.errors.messages}"
+    puts "\n\n\n*****#{work.publication_date}*****"
   else
     puts "Created work: #{work.inspect}"
   end
