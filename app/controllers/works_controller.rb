@@ -1,5 +1,7 @@
 class WorksController < ApplicationController
   
+  before_action :find_user 
+  
   def new
     @work = Work.new
   end
@@ -23,6 +25,8 @@ class WorksController < ApplicationController
   end
   
   def update
+    # If the raise below is uncommented AND the app gets to this raise after we click on the "Update Work" button, THEN that means that things are working as expected :D (in terms of edit form -> actually updating)
+    # raise
     @work = Work.find_by(id: params[:id])
     return head :not_found unless @work
     if @work.update(work_params)
@@ -57,6 +61,10 @@ class WorksController < ApplicationController
   
   def work_params
     params.require(:work).permit(:name, :description, :creator, :category, :publication_year)
+  end
+  
+  def find_user
+    @current_user = User.find_by(id: session[:user_id])
   end
   
 end

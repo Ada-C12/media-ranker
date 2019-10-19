@@ -1,40 +1,22 @@
 <h1> Edit This <%=@work.category.capitalize %> </h1>
 
-<form>
-  <div class="form-group">
-    <label for=<%=@work.category%> >Category</label>
-    <select class="form-control">
+<%= form_with model: @work do |f|%>
+  <fieldset>
+    <%= f.label :category %>
+    <%= f.text_field :category %>
 
-      <option <%=value="album" %> > <%= if @work.category == value then selected = "selected" end %>album</option>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-      <option value="book"><%= if @work.category == value then selected = "selected" end %>book</option>
-      
-      <option value="movie"><%= if @work.category == value then selected = "selected" end %>movie</option>
+    <%= f.label :creator %>
+    <%= f.text_field :creator %>
 
-    </select>
-  </div>
+    <%= f.label :publication_year %>
+    <%= f.text_field :publication_year %>
 
+    <%= f.label :description%>
+    <%= f.text_area rows = "2" %>
 
-  <div class="form-group">
-    <label for= <%= @work.name %> > Title</label>
-    <input type="title" class="form-control" id="exampleInputPassword1" placeholder= <%= @work.name %>>
-  </div>
-
-  <div class="form-group">
-    <label for= <%= @work.creator %> > Creator</label>
-    <input type="title" class="form-control" id="exampleInputPassword1" placeholder= <%= @work.creator %>>
-  </div>
-
-  <div class="form-group">
-    <label for= <%= @work.publication_year %> > Publication Year </label>
-    <input type="title" class="form-control" id="exampleInputPassword1" placeholder= <%= @work.publication_year %>>
-  </div>
-
-    <div class="form-group">
-    <label for= <%= @work.description %>>Description</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder= <%= @work.description %> ></textarea>
-  </div> 
-
-  <button type="submit" class="btn btn-primary" method ="patch">Update Work</button>
-
-</form>
+    <%= f.submit "Update Work" %>
+  </fieldset>
+<% end %>
