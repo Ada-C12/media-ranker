@@ -105,11 +105,14 @@ describe WorksController do
       
       it "if unsuccessful, will render same page with flash msgs" do
         set_of_bad_params.each do |bad_params|
-          patch work_path(id: album1.id), params: bad_params
-          must_respond_with :success
-          assert(flash[:error] == "Failed to update #{bad_params.title}")
-          # did not feel like testing the individual messages, I just want to know they exist
-          assert(flash.now[:error_msgs])
+          # ok to update title to same title as before, therefore skipping one of the bad_params 
+          unless bad_params[:work][:title] == album1.title
+            patch work_path(id: album1.id), params: bad_params
+            must_respond_with :success
+            assert(flash.now[:error] == "Failed to update #{bad_params[:work][:title]}")
+            # did not feel like testing the individual messages, I just want to know they exist
+            assert(flash.now[:error_msgs])
+          end
         end
       end
     end
@@ -124,7 +127,12 @@ describe WorksController do
   
   describe "DESTROY" do
     
-    it "" do
+    it "can destroy valid work, then send to root with flash msg" do
+      # expect{delete work_path(id: album1.id)}.must_differ "Work.count", -1
+      # must_redirect_to root_path
+      
+      # assert(flash[:success] == "Successfully deleted #{album1.title}")
+      
     end
     
     it "" do
