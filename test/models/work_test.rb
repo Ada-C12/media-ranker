@@ -2,12 +2,6 @@ require "test_helper"
 
 describe Work do
   
-  it "can be instantiated" do
-    is_valid = works(:work1).valid?
-    
-    assert( is_valid )
-  end
-  
   it "will have the required fields" do
     valid_work = works.first
     [:category, :title, :creator, :publication_year, :description].each do |field|
@@ -25,7 +19,14 @@ describe Work do
   
   
   describe "validations" do
-    it "must have a title" do
+    
+    it "can be valid" do
+      is_valid = works(:work1).valid?
+      
+      assert( is_valid )
+    end
+
+    it "gives an error if there is no title" do
       is_invalid = works(:work1)
       is_invalid.title = nil
       
@@ -37,6 +38,12 @@ describe Work do
   end
   
   describe "custom methods" do
+    
+    it "can sort a category" do
+      
+      
+    end
+    
     it "can give back top ten of a media category" do
       # Act/Arrange
       top_ten = Work.top_ten("book")
@@ -45,13 +52,13 @@ describe Work do
       expect(top_ten.count).must_equal 10
       
     end
-    
+
     it "can give the most voted media aka spotlight" do
       # Act/Arrange
       most_votes = Work.spotlight
       
       # Assert
-      expect(most_votes.valid?).must_equal true
+      expect(most_votes.votes.count).must_equal 4
       
     end
     

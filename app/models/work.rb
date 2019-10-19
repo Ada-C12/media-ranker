@@ -2,6 +2,7 @@ class Work < ApplicationRecord
   has_many :votes, dependent: :destroy
   validates :title, presence: true
   
+  
   def self.sort_by_category(category)
     list = Work.where(category: category)
     return list.sort_by {|work| work.votes.length}.reverse
