@@ -29,9 +29,17 @@
         <%= link_to "View all users", users_path, class: "nav-link"%>
       </li>
     </ul>
-    <%= form_with model:@user, url: login_path,  class: "form-inline my-2 my-lg-0" do |f|%>
-      <%= f.text_field :username, class: "form-control mr-sm-2", type: "login", placeholder: "login"%>
-      <%= f.submit "Login", class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% if session[:user_id].nil?%>
+      <%= form_with model:@user, url: login_path,  class: "form-inline my-2 my-lg-0" do |f|%>
+        <%= f.text_field :username, class: "form-control mr-sm-2", type: "login", placeholder: "login"%>
+        <%= f.submit "Login", class: "btn btn-outline-success my-2 my-sm-0" %>
+        <% end %>
+    <% else %>
+      <% @user = User.find_by(id: session[:user_id])%>
+      <%= form_with model: @user, url: logout_path, method: :post, class: "form-inline my-2 my-lg-0" do |f| %>
+      <%= link_to "Logged in as #{@user.username}", user_path(@user.id), class: "btn btn-outline-success my-2 my-sm-0" %>
+      <%= f.submit "Logout", class: "btn btn-outline-success my-2 my-sm-0" %>
+      <% end %>
     <% end %>
   </div>
 </nav>
@@ -43,7 +51,6 @@
     <% end %>
   </section>
   </div>
-
   <body>
     <%= yield %>
   </body>
