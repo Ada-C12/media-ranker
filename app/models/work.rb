@@ -1,6 +1,7 @@
 class Work < ApplicationRecord
   has_many :votes, dependent: :destroy
   validates :title, presence: true
+  validates_uniqueness_of :title, scope: :category
   
   def self.sort_by_category(category)
     list = Work.where(category: category)
