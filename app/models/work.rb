@@ -13,8 +13,7 @@ class Work < ApplicationRecord
   end
 
   def self.top_ten(category)
-    works = sort_by_votes(Work.where(category: category))
-    sorted_works = works.sort_by { |work| work.votes.count }.reverse!
+    sorted_works = sort_by_votes(Work.where(category: category))
     return sorted_works[0...10]
   end
 end
