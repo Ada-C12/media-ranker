@@ -145,20 +145,17 @@ describe Work do
       end
       it "filters all_works_categorized and returns all works in a category if there are fewer than 10 works in the category" do
         # Arrange
-        #   make sure there are 3 works in each category:
-        #     1 of them has 2 votes
-        #     1 of them has 1 vote
-        #     1 of them has 0 votes
+        #   make sure there are no works in each category
+        Work.destroy_all
         # Act
         #   store Work.top_ten_categorized into a variable
+        top_ten_categorized = Work.top_ten_categorized
         # Assert
         #   expect the variable:
-        #     is a hash
-        #     is the same length as there are categories
-        #     each value has <10 works
-        #     each category's first work has 2 votes
-        #     each category's last work has 0 votes
-          
+        #    is a hash
+        expect(top_ten_categorized).must_be_instance_of Hash
+        #    is the same length as there are categories
+        expect(top_ten_categorized.length).must_equal @categories.length
       end
     end
 
