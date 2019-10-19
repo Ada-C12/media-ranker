@@ -1,7 +1,5 @@
 <h1>List of Works</h1>
 
-<p><%= link_to "Home", root_path %></p>
-
 <section>
 <h2>Albums</h2>
 <table class="table">
@@ -82,3 +80,8 @@
   </tbody>
 </table>
 </section>
+
+<span>
+<%= link_to "View top media", root_path, class: "btn btn-secondary btn space"%>
+<%= link_to "Add a new work", new_work_path, class: "btn btn-primary btn space"%>
+</span>

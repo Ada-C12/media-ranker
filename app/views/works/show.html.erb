@@ -2,10 +2,10 @@
 <p>Created by: <%= @work.creator %></p>
 <p>Published: <%= @work.publication_year%></p>
 
-<%= link_to "Edit", edit_work_path(@work.id)%>
-<%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure?"} %>
-<%= link_to "Upvote", work_votes_path(@work.id), method: :post %>
-<%= link_to "Home", root_path %>
+<%= link_to "Edit", edit_work_path(@work.id), class:"btn btn-primary btn-space"%>
+<%= link_to "Delete", work_path(@work.id), class:"btn btn-danger btn-space", method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Upvote", work_votes_path(@work.id), class:"btn btn-primary btn-space", method: :post %>
+<%= link_to "Home", root_path, class:"btn btn-primary btn-space" %>
 
 <div>
 <h2><%= @work.votes.length%> votes</h2>

@@ -6,49 +6,56 @@
 </head>
 <body>
 <main>
-<section class="media_spotlight">
-<h2>Media Spotlight</h2>
+<section class="spotlight">
+<h2 class="spotlight__header">Media Spotlight</h2>
 <span>Title: <% feature = Work.spotlight%>
- <%= link_to feature.title, work_path(feature.id) %> <br>Creator: <%= feature.creator%>
- <p><%= feature.votes.count %> votes</p>
+ <%=link_to feature.title, work_path(feature.id), class: "spotlight__link-to" %> <br>Creator: <%= feature.creator%>
+ <p class="spotlight__description"><%= feature.votes.count %> votes</p>
 </span>
 </section>
+<hr class="root__hr">
 
-<section>
-<h2>Top Movies</h2>
+<div class="row">
+<section class="col-4">
+<h2 class="category">Top Movies</h2>
 <div>
 <% movies = @works.top_category("movie") %>
     <% movies.each do |work|%>
-    <p><%= link_to work.title, work_path(work.id)%> by <%= work.creator%></p>
+    <h4><%= link_to work.title, work_path(work.id)%></h4> 
+    <p>by <%= work.creator%></p>
     <p><%= work.votes.count %> votes</p>
     <br>
     <% end %>
 </div>
 </section>
 
-<section>
-<h2>Top Books</h2>
+
+<section class="col-4">
+<h2 class="category">Top Books</h2>
 <div>
   <% books = @works.top_category("book") %>
     <% books.each do |work| %>
-    <p><%= link_to work.title, work_path(work.id)%> by <%= work.creator%></p>
+    <h4><%= link_to work.title, work_path(work.id)%></h4> 
+    <p>by <%= work.creator%></p>
     <p><%= work.votes.count %> votes</p>
     <br>
     <% end %>
 </div>
 </section>
 
-<section>
-<h2>Top Albums</h2>
+<section class="col-4">
+<h2 class="category">Top Albums</h2>
 <div>
   <% albums = @works.top_category("album")%>
   <% albums.each do |work| %>
-    <p><%= link_to work.title, work_path(work.id)%> by <%= work.creator%></p>
+    <h4><%= link_to work.title, work_path(work.id)%></h4> 
+    <p>by <%= work.creator%></p>
     <p> <%= work.votes.count %> votes</p>
     <br>
   <% end %>
 </div>
 </section>
+</div>
 
 </main>
 </body>
