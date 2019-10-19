@@ -49,11 +49,11 @@
     </header>
 
       <% if flash[:error] %>
-        <div class="alert alert-warning first-alert-container">
+        <div class="alert alert-warning alert-container">
         <%= flash[:error] %>
         <% if flash[:reason] %>
           <ul>
-            <li class="second-alert-message"><%= flash[:reason] %></li>
+            <li><%= flash[:reason] %></li>
           </ul>
         <% end %>
         <% if @user %>
@@ -80,7 +80,7 @@
         <% end %>
       </div>
       <% elsif flash[:success] %>
-        <div class="alert alert-success first-alert-container">
+        <div class="alert alert-success alert-container">
           <%= flash[:success] %>
         </div>
       <% end %>
