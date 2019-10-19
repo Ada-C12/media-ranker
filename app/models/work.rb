@@ -12,6 +12,13 @@ class Work < ApplicationRecord
     return Work.order(title: :asc)
   end
   
+  def self.spotlight
+    
+    spotlight = Work.all.max_by(1) { |work| work.votes.count }
+    
+    return spotlight
+  end
+  
   def self.top_ten(category)
     all_of_type = []
     
