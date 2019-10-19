@@ -16,5 +16,7 @@ describe ApplicationController do
       upstanding_citizen = User.create(name: "Caroline")
       expect{users_ctrller.list_error_messages(upstanding_citizen)}.must_raise ArgumentError      
     end
+    
   end
+  
 end
