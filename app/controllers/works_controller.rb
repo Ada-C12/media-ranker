@@ -28,7 +28,7 @@ class WorksController < ApplicationController
   def show
     # @work via before_action
     unless @work
-      flash[:error] = "LOL that piece of media got deleted. Womp womp!"
+      flash[:error] = "That book/album/movie does not exist in our database. Womp womp!"
       redirect_to nope_path
       return
     end
@@ -36,6 +36,11 @@ class WorksController < ApplicationController
   
   def edit
     # @work via before_action
+    unless @work
+      flash[:error] = "Can't let you edit something that doesn't exist. A-doy!"
+      redirect_to nope_path
+      return
+    end
   end
   
   def update

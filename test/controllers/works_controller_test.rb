@@ -64,23 +64,32 @@ describe WorksController do
     
   end
   
-  ##### STOPPED HERE
   describe "SHOW" do
     
-    it "" do
+    it "can show valid work's individual page" do
+      get work_path(id: album1.id)
+      must_respond_with :success
     end
     
-    it "" do
+    it "if work invalid, send to nope_path with flash msg" do
+      get work_path(id: -666)
+      must_redirect_to nope_path 
+      assert(flash[:error] == "That book/album/movie does not exist in our database. Womp womp!")
     end
     
   end
   
   describe "EDIT" do
     
-    it "" do
+    it "can show correct page given valid work id" do
+      get edit_work_path(id: album1.id)
+      must_respond_with :success
     end
     
-    it "" do
+    it "if invalid work id, " do
+      get edit_work_path(id: -666)
+      must_redirect_to nope_path
+      assert(flash[:error] == "Can't let you edit something that doesn't exist. A-doy!")
     end
     
   end
