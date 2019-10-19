@@ -6,8 +6,8 @@ class VotesController < ApplicationController
     # raise
     if @vote.save # save returns true if the database insert succeeds
       flash[:success] = "Successfully upvoted!"
-      redirect_to root_path
-      # should probably redirect to work page but we don't know that at the moment
+      redirect_to work_path
+      # eventually the work page will show the new vote 
       return
     else 
       flash.now[:failure] = "Vote failed :("
