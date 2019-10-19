@@ -68,6 +68,11 @@ main {
     border-color: #26A69A
 }
 
+.btn:hover {
+  background-color: #00796B;
+  color: white;
+}
+
 .app-header__site-nav-container .app-header__nav_item {
   margin-right: 2rem;
 }

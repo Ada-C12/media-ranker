@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Table styling
 table {
   display: table;
   border-collapse: separate;
@@ -15,13 +16,20 @@ table {
   background-color: transparent;
 }
 
-th {
-  display: table-cell;
-  font-weight: bold;
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
 }
 
+.table td {
+  vertical-align: top;
+}
 
+*, ::before, ::after {
+  box-sizing: border-box;
+}
 
+// General styling
 a, h2, h3 {
   color: #26A69A;
 }
