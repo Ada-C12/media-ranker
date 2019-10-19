@@ -5,8 +5,19 @@ class Work < ApplicationRecord
   validates :category, presence: true
 
   def self.spotlight
-    spotlight = Work.first
-    return spotlight
+    works = Work.all
+    max = 0
+    work_id = 0
+
+    works.each do |work|
+      votes_per_work = work.votes.count
+      if votes_per_work > max
+        max = votes_per_work
+        work_id = work.id
+      end
+    end
+
+    return works.find_by(id: work_id)
   end
   
   def self.top_10(category)

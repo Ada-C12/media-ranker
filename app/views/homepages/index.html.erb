@@ -13,7 +13,7 @@
         <%= link_to Work.spotlight.title, work_path(Work.spotlight.id)%> by <%= Work.spotlight.creator%>
       </h2>
       <p class="spotlight__description">
-        8 votes - Metz also wants you to buy 99 bottles
+      <%=Work.spotlight.votes.count%> votes - <%=Work.spotlight.description%>
       </p>
     </section>
 
@@ -29,7 +29,7 @@
             <%= link_to movie.title, work_path(movie.id)%>
             <small class="top-ten__creator"> by <%=movie.creator%></small>         
           </h4>
-          <p> votes</p>
+          <p><%=movie.votes.count%> votes</p>
           </li>
           <%end %>
         </ul>
@@ -45,7 +45,7 @@
             <%= link_to book.title, work_path(book.id)%>
             <small class="top-ten__creator"> by <%=book.creator%></small>         
           </h4>
-          <p> votes</p>
+          <p><%=book.votes.count%> votes</p>
            </li>
           <%end %>
         </ul>
@@ -61,7 +61,7 @@
             <%= link_to album.title, work_path(album.id)%>
             <small class="top-ten__creator"> by <%=album.creator%></small>         
           </h4>
-          <p> votes</p>
+          <p><%=album.votes.count%> votes</p>
           </li>
           <%end %>
         </ul>
