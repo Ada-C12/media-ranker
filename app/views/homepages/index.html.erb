@@ -6,7 +6,7 @@
       by <%=@spotlight.creator%>
     </h2>
     <p class="spotlight__description">
-      <%=@spotlight.description%>
+      <%="#{@spotlight.votes.count} votes - #{@spotlight.description}"%>
     </p>
   </section>
   <hr class="root__hr">
@@ -21,7 +21,7 @@
           <%=link_to movie.title, work_path(movie.id)%>
           <small class="top-ten__creator">by <%=movie.creator%></small>
           </h4>
-          <p><%=movie.publication_year%></p>
+          <p><%=movie.votes.count%></p>
         <%end%>
         </li>
       </ul>
@@ -36,7 +36,7 @@
           <%=link_to book.title, work_path(book.id)%>
           <small class="top-ten__creator">by <%=book.creator%></small>
           </h4>
-          <p><%=book.publication_year%></p>
+          <p><%=book.votes.count%></p>
         <%end%>
         </li>
       </ul>
@@ -51,7 +51,7 @@
           <%=link_to album.title, work_path(album.id)%>
           <small class="top-ten__creator">by <%=album.creator%></small>
           </h4>
-          <p><%=album.publication_year%></p>
+          <p><%=album.votes.count%></p>
         <%end%>
         </li>
       </ul>

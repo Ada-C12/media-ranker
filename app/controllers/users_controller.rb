@@ -18,10 +18,12 @@ class UsersController < ApplicationController
     if user
       session[:user_id] = user.id
       flash[:success] = "You have sucessfully logged in #{user.name}"
-    else
+    elsif user != ""
       user = User.create(name: params[:user][:name])
       session[:user_id] = user.id
       flash[:success] = "New user #{user.name} sucessfully created"
+    else
+      flash[:error] = "A problem occurred: Could not log in"
     end
     redirect_to root_path
   end
