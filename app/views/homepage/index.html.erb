@@ -11,6 +11,22 @@
   </ul>
 </section>
 
-<section><h2>Top Books</h2></section>
-<section><h2>Top Music</h2></section>
+<section>
+  <h2>Top Books</h2>
+  <ul>
+  <% @top_ten_books.each do |book| %>
+    <li><%= book.title%> <%= book.creator %> <%= book.votes.length %>Bookes </li>
+  <% end %>
+  </ul>
+</section>
+
+<section>
+  <h2>Top Albums</h2>
+  <ul>
+  <% @top_ten_albums.each do |album| %>
+    <li><%= album.title%> <%= album.creator %> <%= album.votes.length %>Votes </li>
+  <% end %>
+  </ul>
+</section>
+
 </div>
