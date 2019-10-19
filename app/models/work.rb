@@ -9,9 +9,10 @@ class Work < ApplicationRecord
     return sorted_media
   end 
   
-  def self.top_voted
+  def self.top_voted 
     return Work.order(votes_count: :desc).first
   end
+  
   
   def self.top_ten(category)
     sorted_media = self.media_sort(category)

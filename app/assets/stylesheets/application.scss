@@ -98,3 +98,32 @@ body {
   text-align: left;
   background-color: #fff;
 }
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.app-header__nav_item .nav-link {
+  color: #00796B;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}

@@ -55,10 +55,11 @@ describe Work do
       expect( book_list.count ).must_equal 10
     end
     
-    it 'properly identifies the top voted work when there are votes' do
-      top_voted = Work.top_voted
+    it 'properly identifies the top voted work' do
+      top_voted = Work.top_voted # when there are votes
       
       expect(top_voted).must_equal works(:winter)
+      
     end
     
     it 'identifies the top ten voted works by category' do
