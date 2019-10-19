@@ -1,5 +1,5 @@
 class Work < ApplicationRecord
-  has_many :votes, dependent: :restrict_with_error
+  has_many :votes, dependent: :destroy
   validates :title, presence: true
   
   def self.sort_by_category(category)
