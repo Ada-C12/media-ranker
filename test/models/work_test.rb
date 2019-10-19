@@ -40,26 +40,34 @@ describe Work do
   describe "custom methods" do
     
     it "can sort a category" do
-      
+      vote_sort = Work.sort_by_category("book")
+      max_vote = vote_sort.first.votes.count
+      min_vote = vote_sort.last.votes.count
+
+      expect(max_vote).must_equal 4
+      expect(min_vote).must_equal 0
       
     end
     
     it "can give back top ten of a media category" do
       # Act/Arrange
       top_ten = Work.top_ten("book")
-      
+      max_vote_title = top_ten.first.title
+
+
       # Assert
       expect(top_ten.count).must_equal 10
+      expect(max_vote_title).must_equal "Hounds of Baskerville"
       
     end
 
     it "can give the most voted media aka spotlight" do
       # Act/Arrange
       most_votes = Work.spotlight
-      
+      spotlight_title = most_votes.title
       # Assert
       expect(most_votes.votes.count).must_equal 4
-      
+      expect(spotlight_title).must_equal "Hounds of Baskerville"
     end
     
     
