@@ -1,16 +1,17 @@
+<% if @user.errors.any? %>
+  <div class="alert alert-warning">
+    <span>A problem occurred: Could not log in</span>
+    <ul>
+      <% @user.errors.each do |column, message| %>
+        <li>
+          <%= column %>: <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <main>
   <h2>Log In</h2>
-  <% if @user.errors.any? %>
-    <div class="alert alert-warning">
-      <ul>
-        <% @user.errors.each do |column, message| %>
-          <li>
-            <%= column.capitalize %> <%= message %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   <%= form_with model: @user, url: login_path do |f| %>
     <div class="form-group">
       <%= f.label :username %>

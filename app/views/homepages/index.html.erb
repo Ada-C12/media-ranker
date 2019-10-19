@@ -5,7 +5,7 @@
       <%=link_to "#{Work.spotlight.title}", work_path(Work.spotlight.id), class:"spotlight__link-to" %> by <%= Work.spotlight.creator %>
     </h2>
     <p class="spotlight__description">
-      <%= Work.spotlight.votes.length %> votes
+      <%= Work.spotlight.votes.length %> votes - <%= Work.spotlight.description %>
     </p>
   </section>
 

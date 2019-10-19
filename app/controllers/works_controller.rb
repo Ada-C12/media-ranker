@@ -65,16 +65,16 @@ class WorksController < ApplicationController
     # exiting_vote = Vote.find_by(work_id: params[:id], user)
     if found_user
       vote = Vote.new(work: work, user: found_user)
-        if vote.save
-          flash[:message] = "Successfully upvoted"
-          return redirect_to works_path
-        else
-          vote.errors.each do |column, message|
-            flash[:error] = message
-          end
-
-          return redirect_to works_path
+      if vote.save
+        flash[:message] = "Successfully upvoted"
+        return redirect_to works_path
+      else
+        vote.errors.each do |column, message|
+          flash[:error] = message
         end
+        
+        return redirect_to works_path
+      end
     else
       flash[:message] = "Cannot vote without logging in"
       return redirect_to works_path

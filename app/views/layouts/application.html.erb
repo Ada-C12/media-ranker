@@ -59,7 +59,9 @@
     <% if flash[:error] %>
       <div class="alert alert-warning">
         <span>A problem occurred: Could not upvote</span>
-        <p><%= flash[:error] %></p>
+        <ul>
+          <li><%= flash[:error] %></li>
+        </ul>
       </div>
     <% end %>
 </section>

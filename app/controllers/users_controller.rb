@@ -24,13 +24,13 @@ class UsersController < ApplicationController
     
     if found_user
       session[:user_id] = found_user.id
-      flash[:message] = "Logged in as returning user!"
+      flash[:message] = "Successfully logged in as existing user #{found_user.username}"
       return redirect_to root_path
     else
       @user = User.new(username: username)
       if @user.save
         session[:user_id] = @user.id
-        flash[:message] = "Created a new user. Welcome!"
+        flash[:message] = "Successfully created new user #{@user.username} with ID #{@user.id}"
         return redirect_to root_path
       else
         render :login_form
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   
   def logout
     session[:user_id] = nil
-    flash[:message] = "You have logged out successfully."
+    flash[:message] = "Successfully logged out"
     return redirect_to root_path
   end
   
