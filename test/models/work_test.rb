@@ -105,8 +105,8 @@ describe Work do
       end
       
       it "returns one spotlight when there is a tie for max votes" do
-        user = users(:henry)
-        work = works(:lotr)
+        user = users(:john)
+        work = works(:avengers)
         
         Vote.new(user_id: user.id, work_id: work.id)
         
@@ -137,7 +137,18 @@ describe Work do
       end
       
       it "returns works in descending order of vote count" do
+        expect(Work.where(category: "movie").length).must_equal 10
+        
         expect(Work.list_all_in_category("movie").first.title).must_equal "Titanic"
+        expect(Work.list_all_in_category("movie")[1].title).must_equal "Avengers Endgame"
+        expect(Work.list_all_in_category("movie")[2].title).must_equal "Avatar"
+        expect(Work.list_all_in_category("movie")[3].title).must_equal "Star Wars The Force Awakens"
+        expect(Work.list_all_in_category("movie")[4].title).must_equal "Jurassic World"
+        expect(Work.list_all_in_category("movie")[5].title).must_equal "The Lion King"
+        expect(Work.list_all_in_category("movie")[6].title).must_equal "Furious 7"
+        expect(Work.list_all_in_category("movie")[7].title).must_equal "Black Panther"
+        expect(Work.list_all_in_category("movie")[8].title).must_equal "Harry Potter and the Deathly Hallows"
+        expect(Work.list_all_in_category("movie")[9].title).must_equal "Frozen"
       end
     end
     
