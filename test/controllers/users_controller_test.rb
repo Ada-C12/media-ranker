@@ -57,7 +57,7 @@ describe UsersController do
       end
       
       it "Can create and log in new user, show flash, and update session[:user_id]" do
-        post users_path, params: new_user_params
+        expect{post users_path, params: new_user_params}.must_differ "User.count", 1
         smithers = User.find_by(name: "Smithers")
         must_redirect_to user_path(id: smithers.id)
         assert(flash[:success] == "Successfully logged Smithers in as a new user!" )
