@@ -84,4 +84,9 @@ class ActiveSupport::TestCase
       return false
     end
   end
+  
+  def login(yml_user_key)
+    post users_path, params: { user: { name: user1.name } } 
+  end
+  
 end
