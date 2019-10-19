@@ -1,3 +1,5 @@
+require 'pry'
+
 class VotesController < ApplicationController
   
   def create
@@ -5,8 +7,12 @@ class VotesController < ApplicationController
     if session[:user_id] == nil
       flash[:warning] = "You must be logged in to vote."
       redirect_to work_path
+      return
     elsif session[:user_id]
-      if @vote.save # save returns true if the database insert succeeds
+      if Vote.where(user_id: session[:user_id], work_id: params[:id]).count != 0
+        flash[:warning] = "You can only vote once for a work."
+        redirect_to work_path
+      elsif @vote.save # save returns true if the database insert succeeds
         flash[:success] = "Successfully upvoted!"
         redirect_to work_path
         # eventually the work page will show the new vote 
