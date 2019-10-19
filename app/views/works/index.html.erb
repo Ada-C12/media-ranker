@@ -1,12 +1,31 @@
 <h1>Media Ranker</h1>
-<h2>Works</h2>
-<%# find me in the homepage, i'm the root path! %>
-
+<%# <p>app/views/works/index.html.erb</p> %>
+<%# find me in the homepage, i'm the root path %>
+<h2>SPOTLIGHT</h2>
 <ul>
-  <% @works.each do |work|  %>
+  <% @spotlight.each do |work|  %>
     <li>
-      <%= link_to work.title, work_path(work) %>
-      By: <%= work.title %> <%= link_to "Edit", edit_work_path(work) %> <%= link_to "Delete", work_path(work), method: :delete, data: {confirm: "Are you sure?"}%>
-    </li>
-  <% end %>
-</ul>
+      <%= link_to work.title, work_path(work.id) %>
+      <% end %>
+      </ul>
+
+<h3>MOVIES</h3>
+        <% @movies.each do |work|  %>
+    <li>
+      <%= link_to movie.title, work_path(movie.id) %>
+      <% end %>
+      </ul>
+
+<h3>BOOKS</h3>
+        <% @books.each do |work|  %>
+    <li>
+      <%= link_to book.title, work_path(book.id) %>
+      <% end %>
+      </ul>
+
+<h3>ALBUMS</h3>
+        <% @albums.each do |work|  %>
+    <li>
+      <%= link_to albums.title, work_path(albums.id) %>
+      <% end %>
+      </ul>

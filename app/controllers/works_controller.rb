@@ -1,11 +1,15 @@
 class WorksController < ApplicationController
   
   def index
-    @works = Work.all
+    @movies = Work.where(category: "movies")
+    @books = Work.where(category: "books")
+    @albums = Work.where(category: "albums")
+    @spotlight = Work.all.sample(10)
   end
   
   def show
     @work = Work.find_by(id: params[:id])
+    
   end
   
   def create

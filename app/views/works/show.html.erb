@@ -5,8 +5,11 @@
 <p>Published: <%= @work.publication_date %></p>
 
 <p><%= @work.description%></p>
+<p><%= link_to "Back to Media Ranks", works_path %></p>
+<p><%= link_to "Edit", works_path %></p>
+<%# <p><%= link_to "Upvote", works_path %>
+<p><%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure?"}%></p>
 
-<p><%= link_to "Return to work List", works_path %></p>
 
 <%# add functionality for adding works, 
 add buttons for edit, upvote, delete
