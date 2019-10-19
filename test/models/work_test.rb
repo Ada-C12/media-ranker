@@ -66,8 +66,8 @@ describe Work do
       most_votes = Work.spotlight
       spotlight_title = most_votes.title
       # Assert
-      expect(most_votes.votes.count).must_equal 4
-      expect(spotlight_title).must_equal "Hounds of Baskerville"
+      expect(most_votes.votes.count).must_equal 5
+      expect(spotlight_title).must_equal "A Night at the Opera"
     end
     
     

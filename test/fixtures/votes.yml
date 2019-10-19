@@ -53,3 +53,23 @@ vote13:
 vote14:
   work: work5
   user: user2
+
+vote15:
+  work: work12
+  user: user1
+
+vote16:
+  work: work12
+  user: user2
+
+vote17:
+  work: work12
+  user: user3
+
+vote18:
+  work: work12
+  user: user4
+
+vote19:
+  work: work12
+  user: user5

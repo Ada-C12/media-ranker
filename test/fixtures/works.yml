@@ -74,3 +74,10 @@ work11:
   creator: George RR Martin
   publication_year: 2020
   description: One day...
+
+work12:
+  category: album
+  title: A Night at the Opera
+  creator: Queen
+  publication_year: 1975
+  description: Bohemian Rhaspody is so so good
