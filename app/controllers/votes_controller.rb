@@ -1,5 +1,3 @@
-# To make a vote, we need one vote and one user
-
 class VotesController < ApplicationController
   
   def index
@@ -14,23 +12,6 @@ class VotesController < ApplicationController
       return
     end
   end
-  
-  
-  # def create
-  #   # check to see if there is a current user, if not flash error message
-  #   current_user = User.find_by(id: session[:user_id])
-  #   p params
-  
-  #   vote_params = Work.upvote(current_user)
-  
-  #   @vote = Vote.new( vote_params )
-  
-  #   if @vote.save
-  #     redirect_to vote_path(@vote.id)
-  #   else
-  #     render new_vote_path
-  #   end
-  # end
   
   def edit
     @vote = Vote.find_by(id: params[:id] )

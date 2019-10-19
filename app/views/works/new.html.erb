@@ -1,13 +1,15 @@
-<h2>New Work Form</h2>
-
-<% if @work.errors.any? %>
-  <ul class="errors">
-    <% @work.errors.each do |column, message| %>
-      <li>
-        <strong><%= column.capitalize %></strong> <%= message %>
-      </li>
+<main>
+  <h2>New Work Form</h2>
+  <section>
+    <% if @work.errors.any? %>
+      <ul class="errors">
+        <% @work.errors.each do |column, message| %>
+          <li>
+            <strong><%= column.capitalize %></strong> <%= message %>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
-
-<%= render partial: "form", locals: { submit_button_label: "Create Work", work_form_class: "new-work-form" } %>
+    <%= render partial: "form", locals: { submit_button_label: "Create Work"} %>
+  </section>
+</main>
