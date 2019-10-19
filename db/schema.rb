@@ -11,21 +11,21 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2019_10_16_012302) do
-
+  
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
+  
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
+  
   create_table "votes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
+  
   create_table "works", force: :cascade do |t|
     t.string "category"
     t.string "title"
@@ -35,5 +35,5 @@ ActiveRecord::Schema.define(version: 2019_10_16_012302) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
+  
 end
