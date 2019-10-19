@@ -15,9 +15,11 @@ class Work < ApplicationRecord
   def self.top_ten(category)
     all_of_type = []
     
-    # put all objects of provided category in an array
+    # put all objects of provided category with at least one vote in an array
     Work.where(category: category).each do |work|
-      all_of_type << work
+      if work.votes.count >= 1
+        all_of_type << work
+      end
     end
     
     # select the top ten objects by vote count
