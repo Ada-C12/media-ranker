@@ -31,7 +31,7 @@ class VotesController < ApplicationController
           end
         end
       else
-        flash[:error] = "Impossible, session is set when user logged in! Investigate!"
+        flash[:error] = "How did you end up with a bogus session[:user_id]?! Investigate!"
         redirect_to nope_path
         return
       end
