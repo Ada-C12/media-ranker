@@ -1,6 +1,6 @@
 module ApplicationHelper
   def readable_date(date)
-    return date.strftime("%B %d, %Y")
+    return date.localtime.strftime("%B %d, %Y")
   end
 
   def get_session_username
