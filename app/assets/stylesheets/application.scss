@@ -1,0 +1,153 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+    /* Custom bootstrap variables must be set or imported *before* bootstrap. */
+    @import "bootstrap";
+    /* Import scss content */
+    @import "**/*";
+
+.app-header__header {
+   max-width: 100%;
+   background-color: #B2DFDB;
+   margin-bottom: 0.5rem;
+   padding: 2rem 1rem 0.5rem 1rem;
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+   display: block;
+}
+
+*, *::before, *::after {
+   box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5 {
+   font-family: "Gudea", sans-serif;
+}
+
+body {
+   margin: 0;
+   font-size: 1rem;
+   font-weight: 400;
+   line-height: 1.5;
+   color: #212529;
+   text-align: left;
+   background-color: #fff;
+}
+
+body a:hover {
+   text-decoration: none;
+   color: rgb(1, 107, 95);
+}
+
+.app-header__header h1 {
+   text-align: center;
+   margin: 25px auto 40px auto;
+}
+
+h1, h2, h3, h4, h5 {
+   font-weight: bold;
+}
+
+h1, .h1 {
+   font-size: 2.5rem;
+}
+
+h1 {
+   display: block;
+   margin-block-start: 0.67em;
+   margin-block-end: 0.67em;
+   margin-inline-start: 0px;
+   margin-inline-end: 0px;
+}
+
+.app-header__header h1 a {
+   color: #FF5722;
+   padding-right: 25px;
+   margin-right: 15px;
+   border-right: white 2px solid;
+}
+
+.app-header__header h1 a:hover {
+   text-decoration: none;
+}
+
+.app-header__header h1 small {
+   color: white;
+}
+
+small {
+   font-size: 80%;
+   font-weight: 400;
+}
+
+.app-header__nav {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.nav {
+   display: flex;
+   flex-wrap: wrap;
+   padding-left: 0;
+   margin-bottom: 0;
+   list-style: none;
+}
+
+.app-header__user-nav-container li:first-child{
+   padding-right: 2em;
+}
+
+ul {
+   margin-top: 0;
+}
+
+ul {
+   margin-block-start: 1em;
+   margin-block-end: 1em;
+   margin-inline-start: 0px;
+   margin-inline-end: 0px;
+   padding-inline-start: 40px;
+}
+
+.app-header__site-nav-container .app-header__nav_item {
+   margin-right: 2rem;
+}
+
+.app-header__nav_item {
+   margin-top: 1rem;
+}
+
+.app-header__nav_item .nav-link {
+   color: #00796B;
+}
+
+.nav-link {
+   display: block;
+   padding: 0.5rem 1rem;
+}
+
+.btn-primary {
+   background-color: #26A69A;
+   color: white;
+   border-color: #26A69A;
+}
+
+.btn-primary:hover {
+   background-color: rgb(1, 107, 95);
+}
+
+.alert-container {
+   margin-top: 2em;
+}

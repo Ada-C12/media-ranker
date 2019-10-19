@@ -1,0 +1,22 @@
+<main>
+  <section class="spotlight">
+    <h2 class="spotlight__header">
+      <span class="spotlight__header--prefix">
+        Media Spotlight:
+      </span>
+      <%= link_to @work.title, work_path(@work.id), class: "spotlight__link-to" %> by <%= @work.creator %>
+    </h2>
+    <p class="spotlight__description">
+      <%= @work.votes.count %> votes - 
+      <%= @work.description %>
+    </p>
+  </section>
+
+  <hr class="root__hr">
+
+  <section class="top-ten__container">
+    <%= render partial: "media_spotlight", locals: { works: @movies, header: 'Movies' } %>
+    <%= render partial: "media_spotlight", locals: { works: @books, header: 'Books' } %>
+    <%= render partial: "media_spotlight", locals: { works: @albums, header: 'Albums' } %>
+  </section>
+</main>

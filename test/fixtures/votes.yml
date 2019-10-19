@@ -1,0 +1,15 @@
+valid_vote:
+  user: valid_user
+  work: movie
+
+valid2_album:
+  user: valid_user
+  work: album
+
+valid3_book:
+  user: valid_user
+  work: book
+
+valid4_book:
+  user: user2
+  work: book
