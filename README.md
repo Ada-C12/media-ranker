@@ -167,3 +167,21 @@ Once your test coverage is comprehensive, your HTML is semantic, your user stori
 
 ## What we're looking for
 You can find what instructors will be looking for in the [feedback](feedback.md) markdown document.
+
+<%= form_with model: @work do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+  <%= f.label :creator %>
+  <%= f.text_field :creator %>
+   <%= f.label :publication_year %>
+  <%= f.text_field :publication_year %>
+   <%= f.label :description %>
+  <%= f.text_field :description %>
+ 
+  
+  <%= f.submit submit_button_label, class: "form-button" %>
+
+<% end %>

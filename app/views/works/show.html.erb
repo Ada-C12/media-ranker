@@ -1,0 +1,36 @@
+
+<%# Add in buttons to link : Back to media ranks, edit, upvote, delete %>
+<%# You Still have to add the votes for this work
+<%# you also have to add all users who voted for this page and their names %>
+<%# usernames, also the year and timestamp for when they voted for this work %> 
+
+<section>
+  <h2><%=@work.title%></h2>
+  <p>Created by:<%=@work.creator%></p>
+  <p>Published:<%=@work.publication_year%></p>
+  <section>
+    <a class="btn btn-primary" href="/">Back to media ranks</a>
+    <a class="btn btn-primary" href="/works/476/edit">Edit</a>
+    <a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/476/upvote">Upvote</a>
+    <%# <a class="btn btn-danger" data-confirm="Are you sure?" rel="nofollow" data-method="destroy" href="/works/:id">Delete</a> %>
+    <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure you want to delete this work?" }, class: "btn btn-danger" %>
+  </section>
+</section>
+
+<section class="works-votes__container">
+  <h3 class="works-votes__header"><%=@work.votes.length%> Votes for this Album</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="/users/435">anonymous</a></td>
+        <td>Oct 17, 2019</td>
+      </tr><tr>
+        <td><a href="/users/402">Beyonce Knowles</a></td>
+        <td>Oct 17, 2019</td>
+</tr></tbody></table></section>
