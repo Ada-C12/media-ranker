@@ -3,7 +3,7 @@ require "test_helper"
 describe Vote do
   describe 'validations' do
     before do
-      @vote = Vote.create(work_id: works(:heart).id, user_id: users(:taro).id)
+      @vote = Vote.create(work_id: works(:huggy).id, user_id: users(:taro).id)
     end
     
     it 'is valid when all valid fields are present' do
@@ -31,13 +31,13 @@ describe Vote do
     end
     
     it 'is valid if a user votes on a different vote' do
-      valid_vote = Vote.create(work_id: works(:blue).id, user_id: users(:taro).id)
+      valid_vote = Vote.create(work_id: works(:a).id, user_id: users(:taro).id)
       
       expect(valid_vote.valid?).must_equal true
     end
     
     it 'is valid if that user has not voted on that work before' do
-      valid_vote = Vote.create(work_id: works(:heart).id, user_id: users(:mario).id)
+      valid_vote = Vote.create(work_id: works(:heart).id, user_id: users(:potato).id)
       
       expect(valid_vote.valid?).must_equal true
     end

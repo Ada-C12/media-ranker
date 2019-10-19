@@ -88,8 +88,6 @@ describe Work do
   describe 'relations' do
     it 'can have multiple votes' do
       work = works(:heart)
-      vote1 = Vote.create(work_id: work.id, user_id: users(:taro).id)
-      vote2 = Vote.create(work_id: work.id, user_id: users(:mario).id)
       
       expect(work.votes.count).must_equal 2
       work.votes.each do |vote|
@@ -98,7 +96,7 @@ describe Work do
     end
     
     it 'can have no votes' do
-      work = works(:heart)
+      work = works(:hello)
       
       expect(work.votes.count).must_equal 0
     end
@@ -132,11 +130,6 @@ describe Work do
     end
     
     describe 'sort_works' do
-      before do
-        vote1 = Vote.create(work_id: works(:heart).id, user_id: users(:taro).id)
-        vote2 = Vote.create(work_id: works(:heart).id, user_id: users(:mario).id)
-      end
-      
       it 'will property sort the media by votes in descending order' do
         sorted_books = Work.sort_works('book')
         
@@ -146,22 +139,12 @@ describe Work do
     end
     
     describe 'best_work' do
-      it 'will return the first media if nothing has votes' do
-        expect(Work.best_work(Work.all).title).must_equal works(:heart).title
-      end
-      
       it 'will return the work with the most votes if there are votes' do
-        vote1 = Vote.create(work_id: works(:heart).id, user_id: users(:taro).id)
-        vote2 = Vote.create(work_id: works(:heart).id, user_id: users(:mario).id)
-        
         expect(Work.best_work(Work.all).title).must_equal works(:heart).title
       end
       
       it 'if there is a tie it will return the last instance with the most votes' do
-        vote1 = Vote.create(work_id: works(:blue).id, user_id: users(:taro).id)
-        vote2 = Vote.create(work_id: works(:blue).id, user_id: users(:mario).id)
-        
-        expect(Work.best_work(Work.all).title).must_equal works(:blue).title
+        expect(Work.best_work(Work.all).title).must_equal works(:heart).title
       end
     end
     

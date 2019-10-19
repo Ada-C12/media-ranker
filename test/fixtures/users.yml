@@ -2,4 +2,9 @@ taro:
   username: corgi
 mario: 
   username: mario
-  
+no_vote_person:
+  username: yo
+potato:
+  username: potato
+tomato:
+  username: tomato

@@ -29,9 +29,6 @@ describe User do
     it 'can have multiple votes' do
       user = users(:taro)
       
-      vote1 = Vote.create(work_id: works(:heart).id, user_id: user.id)
-      vote2 = Vote.create(work_id: works(:blue).id, user_id: user.id)
-      
       expect(user.votes.count).must_equal 2
       user.votes.each do |vote|
         expect(vote).must_be_instance_of Vote
@@ -39,7 +36,7 @@ describe User do
     end
     
     it 'can have no votes' do
-      user = users(:taro)
+      user = users(:no_vote_person)
       
       expect(user.votes.count).must_equal 0
     end
