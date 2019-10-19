@@ -1,18 +1,23 @@
 <main>
     <h2>List of Users</h2>
+
 <table class="table">
-  <thead>
+    <theader>
     <tr>
-      <th>Username</th>
-      <th>Votes</th>
-      <th>Joined</th>
+      <td>Username</td>
+      <td>Votes</td>
+      <td>Joined</td>
     </tr>
-  </thead>
+    </theader>
   <tbody>
-      <tr>
         <% @users.each do |user|%>
+          <tr>
           <td><%=link_to user.username, user_path(user.id)%></td>
+          <td><%= Vote.where(id: user.id).count%></td>
+          <td><%= user.created_at%></td>
         <% end %>
       </tr>
   </tbody>
 </table>
+
+

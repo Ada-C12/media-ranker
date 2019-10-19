@@ -21,8 +21,9 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find_by(id:params[:id])
-    
+    @votes = Vote.where(user_id: @user.id)
     head :not_found if @user.nil?
+    
   end
   
   def login_form

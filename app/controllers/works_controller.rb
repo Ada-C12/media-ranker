@@ -57,6 +57,20 @@ class WorksController < ApplicationController
     end 
   end
   
+  def spotlight
+    @works = Work.all
+  end
+  
+  def main
+    @spotlight = Work.all.sample
+    
+    @top_albums = Work.where(category: "album").limit(10)
+    @top_books = Work.where(category:  "book").limit(10)
+    @top_movies = Work.where(category: "movie").limit(10)
+  end
+  
+  
+  
   private
   
   def work_params

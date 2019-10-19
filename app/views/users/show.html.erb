@@ -1,1 +1,28 @@
 <h1> This is a user's page <%=@user.username%></h1>
+
+<h2>User Summary <%=@user.username %></h2>
+<p> Joined site <%=@user.created_at%>
+
+<table>
+  <h2> Votes </h2>
+    <theader>
+      <tr>
+        <td>Media Title</td>
+        <td>Created By</td>
+        <td>Published</td>
+        <td>Category</td>
+        <td>Voted On</td>
+      </tr>
+    </theader>
+    <tbody>
+      <% @votes.each do |vote| %>
+          <tr>
+            <td><%= link_to Work.find_by(id: vote.work_id).name, work_path(vote.work.id) %></td>
+            <td><%= Work.find_by(id: vote.work_id).creator %></td>
+            <td><%= Work.find_by(id: vote.work_id).publication_year %></td>
+            <td><%= Work.find_by(id: vote.work_id).category %></td>
+            <td><%= vote.created_at %></td>
+          </tr>
+        <% end %>
+    </tbody>
+  </table>
