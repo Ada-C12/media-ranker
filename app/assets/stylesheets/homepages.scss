@@ -48,3 +48,21 @@ main {
   margin-left: 0;
   padding-left: 0;
 }
+
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
+  border: none;
+}
+
+small, .small {
+  font-size: 80%;
+  font-weight: 400;
+}
+
+.top-ten__creator {
+  color: slategrey;
+}

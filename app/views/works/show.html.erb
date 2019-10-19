@@ -13,7 +13,7 @@
       <%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure you want to delete this #{@work.category}?"}, class: "btn btn-danger" %>
     </section>
   </section>
-
+<br>
   <section class="works-votes__container">
     <h3 class="works-votes__header"><%= @work.votes_count %> Votes for this <%= @work.category.capitalize %></h3>
     <table class="table">

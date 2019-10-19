@@ -5,7 +5,7 @@ class Work < ApplicationRecord
   
   
   def self.media_sort(category)
-    sorted_media = Work.where(category: category)
+    sorted_media = Work.where(category: category).order(votes_count: :desc)
     return sorted_media
   end 
   
@@ -15,9 +15,6 @@ class Work < ApplicationRecord
   
   
   def self.top_ten(category)
-    sorted_media = self.media_sort(category)
-    arrange_by_votes = sorted_media.order(votes_count: :desc)
-    
-    return arrange_by_votes[0..9]
+    return self.media_sort(category)[0..9]
   end
 end

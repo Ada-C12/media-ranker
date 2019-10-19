@@ -17,7 +17,7 @@ class VotesController < ApplicationController
       vote = Vote.new(user_id: user.id, work_id: work.id)
       if vote.save
         flash[:success] = "Successfully upvoted!"
-        redirect_to works_path
+        redirect_to work_path(work.id)
         return
       else
         flash.now[:failure] = "Upvote failed."

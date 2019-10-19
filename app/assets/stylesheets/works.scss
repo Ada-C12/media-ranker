@@ -15,6 +15,13 @@ table {
   background-color: transparent;
 }
 
+th {
+  display: table-cell;
+  font-weight: bold;
+}
+
+
+
 a, h2, h3 {
   color: #26A69A;
 }
@@ -54,3 +61,8 @@ label {
 *, ::before, ::after {
   box-sizing: border-box;
 }
+
+.works-votes__header {
+  color: black;
+}
+
