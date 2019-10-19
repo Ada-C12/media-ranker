@@ -7,9 +7,9 @@ class VotesController < ApplicationController
     
     # first check if user is logged in
     if !session[:user_id]
-      flash[:error] = "Must be logged in to vote"
       
       if session[:origin_prefix]
+        flash[:error] = "Must be logged in to vote"
         redirect_to_origin
         return
       else
