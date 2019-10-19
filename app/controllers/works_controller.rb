@@ -8,6 +8,16 @@ class WorksController < ApplicationController
   
   def create
     @work = Work.new(work_params)
+    if @work.name == ""
+      flash[:message] = "Work name can't be empty!"
+      render new_work_path
+      return
+    elsif !@work.valid?
+      flash[:message] = "Two works in the same category can't have the same name."
+      render new_work_path
+      return
+    end
+    
     if @work.save
       redirect_to root_path
     else

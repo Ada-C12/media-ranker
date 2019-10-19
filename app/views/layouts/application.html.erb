@@ -11,6 +11,15 @@
 
   <body>
 
+
+
+
+    <section class="flash" >
+      <% flash.each do |name, message| %>
+        <%= message %>
+      <% end %>
+    </section>
+
     <nav>
       <ul>
         <li><%= link_to "View top media", root_path %></li>
@@ -27,5 +36,6 @@
     </nav>
 
     <%= yield %>
+
   </body>
 </html>

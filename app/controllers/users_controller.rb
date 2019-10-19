@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path
     else
+      flash[:message] = "Username can't be empty!"
       render new_user_path
     end
   end
@@ -41,8 +42,18 @@ class UsersController < ApplicationController
     else
       @user = User.new(username: params[:user][:username])
       session[:user_id] = @user.id
-      @user = User.save
-      flash[:message] = "successfully logged in as new user #{@user.username}"
+      
+      if @user.username == ""
+        flash[:message] = "Username can't be empty!"
+        redirect_to login_path  
+        return
+      end
+      
+      if @user = User.save
+        flash[:message] = "successfully logged in as new user #{@user.username}"
+      else 
+        redirect_to root_path
+      end
     end
   end
   
