@@ -4,9 +4,235 @@
 # integer "publication_year"
 # text "description"
 
+# Valid Album for validation tests
+## **Special** (don't delete)
 album:
   category: album
   title: Biophilia
   creator: Bjork
   publication_year: 2011
   description: interesting noises
+
+# For top 10 test - 11 of each category
+
+## 10 more albums, with votes
+
+##
+top_album:
+  category: album
+  title: Biophilia 2
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+album_3:
+  category: album
+  title: Biophilia 3
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+album_4:
+  category: album
+  title: Biophilia 4
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+album_5:
+  category: album
+  title: Biophilia 5
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+  
+album_6:
+  category: album
+  title: Biophilia 6
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+album_7:
+  category: album
+  title: Biophilia 7
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+album_8:
+  category: album
+  title: Biophilia 8
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+album_9:
+  category: album
+  title: Biophilia 9
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+album_10:
+  category: album
+  title: Biophilia 10
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+album_11:
+  category: album
+  title: Biophilia 11
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+
+## 11 books, with votes
+
+##
+top_book:
+  category: book
+  title: Biophilia 2
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+book_3:
+  category: book
+  title: Biophilia 3
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+book_4:
+  category: book
+  title: Biophilia 4
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+book_5:
+  category: book
+  title: Biophilia 5
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+  
+book_6:
+  category: book
+  title: Biophilia 6
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+book_7:
+  category: book
+  title: Biophilia 7
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+book_8:
+  category: book
+  title: Biophilia 8
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+book_9:
+  category: book
+  title: Biophilia 9
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+book_10:
+  category: book
+  title: Biophilia 10
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+book_11:
+  category: book
+  title: Biophilia 11
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+
+## 11 movies, with votes
+
+##
+top_movie:
+  category: movie
+  title: Biophilia 2
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+movie_3:
+  category: movie
+  title: Biophilia 3
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+movie_4:
+  category: movie
+  title: Biophilia 4
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+movie_5:
+  category: movie
+  title: Biophilia 5
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+  
+movie_6:
+  category: movie
+  title: Biophilia 6
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+movie_7:
+  category: movie
+  title: Biophilia 7
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+movie_8:
+  category: movie
+  title: Biophilia 8
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+movie_9:
+  category: movie
+  title: Biophilia 9
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+movie_10:
+  category: movie
+  title: Biophilia 10
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+
+movie_11:
+  category: movie
+  title: Biophilia 11
+  creator: Bjork
+  publication_year: 2011
+  description: interesting noises
+

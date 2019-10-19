@@ -123,23 +123,25 @@ describe Work do
 
     describe "top_ten_categorized" do
       it "takes all_works_categorized and filters to only contain the top 10 works, ordered by votes.length descending" do
-        # Your code here
         # Arrange
-        #   make sure there are 11 works in each category:
-        #     1 of them has 2 votes
-        #     9 of them has 1 vote
-        #     1 of them has 0 votes  <- this one should not exist in the result
+        # IS THE FIXTURES
         # Act
         #   store Work.top_ten_categorized into a variable
+        top_ten_categorized = Work.top_ten_categorized
         # Assert
         #   expect the variable:
         #     is a hash
+        expect(top_ten_categorized).must_be_instance_of Hash
         #     is the same length as there are categories
+        expect(top_ten_categorized.length).must_equal @categories.length
         #     each value has 10 works
-        #     there are no works that have 0 votes
-        #     each category's first work has 2 votes
-        #     each category's last work has 1 vote
-          
+        top_ten_categorized.each do |category, works|
+          expect(works.length).must_equal 10
+          category_singular = category.to_s.singularize
+          top_category_title = works("top_#{category_singular}".to_sym).title
+          expect(works.first.title).must_equal top_category_title
+        end
+        # first title equals the top title for the category (from the fixture)
       end
       it "filters all_works_categorized and returns all works in a category if there are fewer than 10 works in the category" do
         # Arrange
