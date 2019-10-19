@@ -86,6 +86,7 @@ class ActiveSupport::TestCase
   end
   
   def login(yml_user_key)
+    # this will be tested in users_controller_test.rb, users#create section
     post users_path, params: { user: { name: user1.name } } 
   end
   
