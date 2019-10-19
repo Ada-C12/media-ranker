@@ -35,9 +35,12 @@ class UsersController < ApplicationController
   end
 
   def logout
-    #TODO add something if user was not logged in
-    session[:user_id] = nil
-    flash[:success] = "Successfully logged out"
+    if session[:user_id] == nil
+      flash[:error] = "Action unavailable. No user logged in"
+    else
+      session[:user_id] = nil
+      flash[:success] = "Successfully logged out"
+    end
     return redirect_to root_path
   end
 end
