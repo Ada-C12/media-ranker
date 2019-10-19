@@ -45,13 +45,20 @@ class WorksController < ApplicationController
   
   def update
     # @work via before_action
-    if @work.update(form_params)
-      flash[:success] = "Successfully updated #{@work.title}"
-      redirect_to work_path(id: @work.id)
-      return
+    if @work
+      if @work.update(form_params)
+        flash[:success] = "Successfully updated #{@work.title}"
+        redirect_to work_path(id: @work.id)
+        return
+      else
+        flash.now[:error] = "Failed to update #{@work.title}"
+        flash.now[:error_msgs] = list_error_messages(@work)
+        render action: "edit"
+        return
+      end
     else
-      flash.now[:error] = "Failed to update #{@work.title}"
-      render action: "edit"
+      flash[:error] = "How u gonna update something that doesn't exist. COME ON!"
+      redirect_to nope_path
       return
     end
   end

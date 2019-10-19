@@ -5,6 +5,12 @@ describe WorksController do
   let (:yml) { let_yml_superhash }
   let (:album1) { yml[:album1] }
   let (:ctrller) { WorksController.new }
+  let (:bad_category1) { { work:{category:"GARBAGE", title:"ok", creator:"ok", published_year:123, description:"ok"} } }
+  let (:bad_category2) { { work:{category:nil, title:"ok", creator:"ok", published_year:123, description:"ok"} } }
+  let (:bad_title1) { { work:{category:"album", title:nil, creator:"ok", published_year:123, description:"ok"} } }
+  let (:bad_title2) { { work:{category:"album", title:album1.title, creator:"ok", published_year:123, description:"ok"} } }
+  let (:bad_pub_year1) { { work:{category:"album", title:"ok", creator:"ok", published_year:nil, description:"ok"} } }
+  let (:set_of_bad_params) { [ bad_category1, bad_category2, bad_title1, bad_title2, bad_pub_year1] }
   
   describe "INDEX" do
     
@@ -42,12 +48,6 @@ describe WorksController do
     end
     
     it "If bogus inputs, won't create Work obj, but will render same page with flash msgs" do
-      bad_category1 = { work:{category:"GARBAGE", title:"ok", creator:"ok", published_year:123, description:"ok"} }
-      bad_category2 = { work:{category:nil, title:"ok", creator:"ok", published_year:123, description:"ok"} }
-      bad_title1 = { work:{category:"album", title:nil, creator:"ok", published_year:123, description:"ok"} }
-      bad_title2 = { work:{category:"album", title:album1.title, creator:"ok", published_year:123, description:"ok"} }
-      bad_pub_year1 = { work:{category:"album", title:"ok", creator:"ok", published_year:nil, description:"ok"} }
-      set_of_bad_params = [ bad_category1, bad_category2, bad_title1, bad_title2, bad_pub_year1]
       
       current_works_qty = Work.count
       
@@ -58,7 +58,6 @@ describe WorksController do
         # did not feel like testing the individual messages, I just want to know they exist
         assert(flash.now[:error_msgs])
       end
-      
       
     end
     
@@ -96,10 +95,29 @@ describe WorksController do
   
   describe "UPDATE" do
     
-    it "" do
+    describe "nominal case: legit work obj" do
+      it "after a successful save, will redirect to work's own show page with flash msg" do
+        new_title = "build a bridge instead"
+        patch work_path(id: album1.id), params: { work: { title: new_title } }
+        must_redirect_to work_path(id: album1.id)
+        assert(flash[:success] == "Successfully updated #{new_title}")
+      end
+      
+      it "if unsuccessful, will render same page with flash msgs" do
+        set_of_bad_params.each do |bad_params|
+          patch work_path(id: album1.id), params: bad_params
+          must_respond_with :success
+          assert(flash[:error] == "Failed to update #{bad_params.title}")
+          # did not feel like testing the individual messages, I just want to know they exist
+          assert(flash.now[:error_msgs])
+        end
+      end
     end
     
-    it "" do
+    it "trying to update an invalid work will get sent to nope_path with flash msg" do
+      patch work_path(id: -666)
+      must_redirect_to nope_path
+      assert(flash[:error] == "How u gonna update something that doesn't exist. COME ON!")
     end
     
   end
