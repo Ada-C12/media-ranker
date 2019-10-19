@@ -17,13 +17,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">View top media</a>
+      <%= link_to "View top media", root_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to "View all media", works_path, class: "nav-link"%>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/works/new">Add a new work</a>
+        <%= link_to "Add a new work",new_work_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to "View all users", users_path, class: "nav-link"%>

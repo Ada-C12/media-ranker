@@ -11,7 +11,7 @@
   <tbody>
   <% @users.length.times do |i|%>
     <tr>
-      <td><%= @users[i].username %></td>
+      <td><%= link_to @users[i].username, user_path(@users[i].id)  %></td>
       <td><%= @users[i].votes.count %></td>
       <td><%= @users[i].created_at %></td>
     </tr>

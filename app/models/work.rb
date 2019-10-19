@@ -16,4 +16,9 @@ class Work < ApplicationRecord
     return works.max_by { |work| work.votes.length }
   end
   
+  def self.sorted_works(category)
+    category_works = Work.where(category: category)
+    sorted_works = category_works.sort_by { |work| -work.votes.length }
+    return sorted_works
+  end
 end
