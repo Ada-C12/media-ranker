@@ -2,11 +2,8 @@ class HomepagesController < ApplicationController
   def index
     @works = Work.all
     @spotlight = @works.sample
-    @movies = Work.where(category: "movie")
-    @top_movies = @movies.sample(10)
-    @books = Work.where(category: "book")
-    @top_books = @books.sample(10)
-    @albums = Work.where(category: "album")
-    @top_albums = @albums.sample(10)
+    @top_movies = Work.top_ten("movie")
+    @top_books = Work.top_ten("book")
+    @top_albums = Work.top_ten("album")
   end
 end
