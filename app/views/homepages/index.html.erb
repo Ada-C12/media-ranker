@@ -17,9 +17,10 @@
 <ul class="list-group top-ten__list">
   <% @top_movies.each do |work|  %>
     <li class="list-group-item">
-        <h4>
-      <%= link_to work.title, work_path(work) %>
-      by <%= work.creator %> 
+    <h4>
+      <%= link_to work.title, work_path(work) %> 
+      <small class="top-ten__creator">
+      by <%= work.creator %> </small></h4>
     <p><%= work.votes.count%> votes </p>
     </li>
   <% end %>
@@ -29,11 +30,12 @@
 
 <h2 class="top-ten_header">Top Books</h2>
 <ul class="list-group top-ten__list">
-  <% @top_books.each do |work|  %>
+<% @top_books.each do |work|  %>
     <li class="list-group-item">
-        <h4>
-      <%= link_to work.title, work_path(work) %>
-      by <%= work.creator %> 
+    <h4>
+      <%= link_to work.title, work_path(work) %> 
+      <small class="top-ten__creator">
+      by <%= work.creator %> </small></h4>
     <p><%= work.votes.count%> votes </p>
     </li>
   <% end %>
@@ -43,11 +45,12 @@
 
 <h2 class="top-ten_header">Top Albums</h2>
 <ul class="list-group top-ten__list">
-  <% @top_albums.each do |work|  %>
+<% @top_albums.each do |work|  %>
     <li class="list-group-item">
-        <h4>
-      <%= link_to work.title, work_path(work) %>
-      by <%= work.creator %> 
+    <h4>
+      <%= link_to work.title, work_path(work) %> 
+      <small class="top-ten__creator">
+      by <%= work.creator %> </small></h4>
     <p><%= work.votes.count%> votes </p>
     </li>
   <% end %>
