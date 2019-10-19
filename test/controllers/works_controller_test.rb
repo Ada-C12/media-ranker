@@ -135,7 +135,7 @@ describe WorksController do
       end
       
       it "if unsuccessful, " do
-        # expect{delete work_path(id: album1.id)}.must_differ "Work.count", 0
+        # IDK how to test this, I just wrote the ctrller code in case it happens
       end
     end
     
