@@ -5457,3 +5457,1030 @@ Processing by WorksController#show as HTML
 Completed 200 OK in 89ms (Views: 80.3ms | ActiveRecord: 2.8ms)
 
 
+Started GET "/" for ::1 at 2019-10-19 13:49:05 -0700
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mira/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (57.5ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/models/work.rb:6
+  [1m[35m (43.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 4]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 5]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 6]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 11]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 13]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (5.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (5.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 17]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 20]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 22]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 24]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 29]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movie"]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (1.4ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/models/work.rb:10
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[36mWork Load (1.4ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/models/work.rb:10
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 29]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 4]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 5]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 6]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 11]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 13]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 17]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 20]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 22]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 24]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 29]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 4]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 29]]
+  ↳ app/models/work.rb:18
+  Rendering works/main.html.erb within layouts/application
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/main.html.erb:8
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (3.1ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (12.9ms)
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 4]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 29]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 6]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 11]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 13]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 17]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 20]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (20.7ms)
+  Rendered works/main.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 1302ms (Views: 887.5ms | ActiveRecord: 146.6ms)
+
+
+  [1m[36mVote Load (0.5ms)[0m  [1m[34mSELECT "votes".* FROM "votes"[0m
+  [1m[36mUser Load (44.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWork Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "works" WHERE "works"."title" IS NULL AND "works"."category" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mWork Load (1.6ms)[0m  [1m[34mSELECT  "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/works/new" for ::1 at 2019-10-19 14:56:19 -0700
+Processing by WorksController#new as HTML
+  Rendering works/new.html.erb within layouts/application
+  Rendered works/_form.html.erb (14.0ms)
+  Rendered works/new.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 96ms (Views: 68.8ms | ActiveRecord: 8.3ms)
+
+
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movie"]]
+  [1m[36mWork Load (0.8ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+Started GET "/" for ::1 at 2019-10-19 15:01:17 -0700
+Processing by WorksController#main as HTML
+  [1m[36mWork Load (2.9ms)[0m  [1m[34mSELECT "works".* FROM "works"[0m
+  ↳ app/models/work.rb:6
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 4]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 5]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 6]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 11]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 13]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 17]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 20]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 22]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 24]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 29]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  ↳ app/models/work.rb:18
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 29]]
+  ↳ app/models/work.rb:18
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "movie"]]
+  ↳ app/models/work.rb:10
+  [1m[36mWork Load (0.3ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "book"]]
+  ↳ app/models/work.rb:10
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 15]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/models/work.rb:18
+  [1m[36mWork Load (0.4ms)[0m  [1m[34mSELECT "works".* FROM "works" WHERE "works"."category" = $1[0m  [["category", "album"]]
+  ↳ app/models/work.rb:10
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 29]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 29]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 4]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 5]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 29]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 6]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 24]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 22]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 20]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 17]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 13]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 11]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 24]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 4]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 24]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 29]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 4]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 29]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 5]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 5]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 11]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 5]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 6]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 22]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 13]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 20]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 17]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 17]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 22]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 17]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 22]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 17]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 13]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 20]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 20]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 11]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 11]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 6]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 20]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 6]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 13]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 6]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 11]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 5]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 20]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 5]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 13]]
+  ↳ app/models/work.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 5]]
+  ↳ app/models/work.rb:18
+  Rendering works/main.html.erb within layouts/application
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/main.html.erb:8
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 30]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (1.5ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 25]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 3]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 18]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 10]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 21]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 23]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 14]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 9]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 12]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 7]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (11.6ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 29]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 4]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 24]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 2]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 22]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 19]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 16]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 17]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 8]]
+  ↳ app/views/works/_top.html.erb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."work_id" = $1[0m  [["work_id", 6]]
+  ↳ app/views/works/_top.html.erb:12
+  Rendered works/_top.html.erb (13.6ms)
+  Rendered works/main.html.erb within layouts/application (35.7ms)
+Completed 200 OK in 404ms (Views: 84.7ms | ActiveRecord: 29.8ms)
+
+

@@ -10,7 +10,7 @@ class Work < ApplicationRecord
     self.where(category: category).sort.take(10)
   end
 
-  def categories
+  def self.categories
     [:album, :book, :movie]
   end
 
