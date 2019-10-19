@@ -68,22 +68,8 @@ describe Work do
 
   describe "find_top_10" do
     it "can find the top 10 of a category" do
-      #creeate a test database with 11 instances for each category. 
-      # run it through the method and muake sure the length of the returned result
-      # is 10
-
-      # edited_works = []
-      # edited_works = works.slice(1..-1)
-
-      # edited_works.each_with_index do |work, index|
-      #   puts users[index].id
-      #   Vote.create!(work_id: work.id, date: Time.now, user_id: users[index].id)
-      # end
       
       result = Work.find_top_10("movie")
-      expect(result.length).must_equal 10
-
-        i = 0
       
       result.each_with_index do |work, index|
         break if index == 9
@@ -95,7 +81,10 @@ describe Work do
       end 
     end 
 
-
+    it "top 10 must be 10 in length" do
+      result = Work.find_top_10("movie")
+      expect(result.length).must_equal 10
+    end 
 
     it "returns 1 work if there is only 1 work" do
       result = Work.find_top_10("album")
@@ -110,7 +99,13 @@ describe Work do
   end 
 
   describe "find_spotlight" do
-    
-  end
+    it "number of votes determines media spotlight" do
 
+      top_10 = Work.find_top_10("movie")
+
+      spotlight = Work.find_spotlight(top_10)
+
+      expect(spotlight.votes).must_equal top_10.first.votes
+    end 
+  end
 end
