@@ -37,12 +37,25 @@
           <% label = session[:user_id] ? "Log in as #{User.find_by(id: session[:user_id]).username}" : "Log in"%>
             <%= link_to label, login_path, class: "btn btn-primary" %>
           </li>
-          <li class="nav-item app-header__nav_item">
-            <%= link_to "Log out", logout_path, method: :post, class: "btn btn-primary" %>
-          </li>
+          <%if session[:user_id]%>
+            <li class="nav-item app-header__nav_item">
+              <%= link_to "Log out", logout_path, method: :post, class: "btn btn-primary" %>
+            </li>
+          <%end%>
         </ul>
       </nav>
     </header>
-      <%= yield %>
+
+    <%if !flash.empty?%>  
+      <section class="alert__container">
+        <div class="alert alert-warning">  
+          <% flash.each do |name, message| %>
+            <span><%= message %></span>
+          <% end %>
+        </div>
+      </section>
+    <%end%>
+    
+    <%= yield %>
   </body>
 </html>

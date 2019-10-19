@@ -1,17 +1,15 @@
-<section class="alert__container">
-  <% if @work.errors.any? %>
-    <div class="alert alert-warning">    
-      <% flash.each do |name, message| %>
-        <span><%= message %></span>
-      <% end %>
-      <ul>
-        <% @work.errors.each do |column, message| %>
-          <li><%= column.capitalize %><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-</section>
+<% if @work.errors.any? %>
+  <section class="alert__container">
+      <div class="alert alert-warning">    
+        <ul>
+          <% @work.errors.each do |column, message| %>
+            <li><%= column.capitalize %><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+  </section>
+<% end %>
+
 <main>
   <h2>Edit This <%=@work.category%></h2>
   <%= render partial: "form", locals: {submit_button_label: "Update work"} %>
