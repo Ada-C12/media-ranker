@@ -26,7 +26,9 @@ class WorksController < ApplicationController
       redirect_to root_path
       return
     else
-      flash.now[:failure] = "Work did not add successfully"
+      @work.errors.each do |column, message|
+        flash.now[:failure] = "Could not create new work. #{column.capitalize} #{message}"
+      end
       render :new 
       return 
     end
@@ -74,6 +76,9 @@ class WorksController < ApplicationController
     #   redirect_to works_path
     #   return
     # elsif 
+      
+      @work.votes.destroy_all
+      # don't want to keep votes with a foreign key that doesn't exist anymore
       @work.destroy
       redirect_to works_path
       return 
@@ -81,8 +86,13 @@ class WorksController < ApplicationController
   end
 
   def upvote
-    # Every time a user votes, I need to append another row onto the votes table. 
-    # But first, check for the work id and the user id in the votes table. 
+
+    if session[:id].nil?
+      flash[:error] = "A problem occured: You must be logged in to do that."
+      redirect_to works_path
+      return 
+    end 
+
     user = User.find_by(id: session[:id])
     work = Work.find_by(id: params[:id])
 
@@ -91,9 +101,11 @@ class WorksController < ApplicationController
     if result == true 
       flash[:success] = "Successfully upvoted!"
       redirect_to works_path
+      return
     elsif result == false
       flash[:error] = "Could not upvote. The user has already voted for this work."
       redirect_to works_path
+      return
     end 
   end 
 
