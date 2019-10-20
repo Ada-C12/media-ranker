@@ -62,4 +62,28 @@ describe Work do
       end
     end
   end
+
+  describe "self.sort(category) method" do
+    it 'properly sort the books by votes count' do
+      vote_1 = Vote.create(user_id: User.first.id, work_id: Work.find_by(title: 'A').id)
+      vote_2 = Vote.create(user_id: User.second.id, work_id: Work.find_by(title: 'A').id)
+      vote_3 = Vote.create(user_id: User.first.id, work_id: Work.find_by(title: 'B').id)
+
+      sorted_list = Work.sort('book')
+
+      expect(sorted_list.first.title).must_equal 'A'
+      expect(sorted_list.last.title).must_equal 'C'
+    end
+
+    it 'properly sort the albums by votes count' do
+      vote_1 = Vote.create(user_id: User.first.id, work_id: Work.find_by(title: 'D').id)
+      vote_2 = Vote.create(user_id: User.second.id, work_id: Work.find_by(title: 'D').id)
+      vote_3 = Vote.create(user_id: User.first.id, work_id: Work.find_by(title: 'E').id)
+
+      sorted_list = Work.sort('album')
+
+      expect(sorted_list.first.title).must_equal 'D'
+      expect(sorted_list.last.title).must_equal 'F'
+    end
+  end
 end
