@@ -128,6 +128,13 @@ describe Work do
       # Assert
       expect(spotlight_feature).must_equal album
     end
+    
+    it "return nil if there is no spotlight feature" do 
+      Work.destroy_all
+      spotlight = Work.spotlight 
+
+      expect(spotlight).must_be_nil
+    end
   end
   
   describe "relationships" do 
