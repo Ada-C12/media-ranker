@@ -1,10 +1,10 @@
 <main>
-  <h2>List of Users</h2>
+  <h2 id="green_text">List of Users</h2>
 
   <table class="table">
     <thead>
       <tr>
-        <th>USERNAME</th>
+        <th class="wide-column">USERNAME</th>
         <th>VOTES</th>
         <th>JOINED</th>
       </tr>
@@ -13,7 +13,7 @@
     <tbody>
       <% @users.each do |user| %>
       <tr>
-        <td><%= link_to user.name, user_path(id: user.id) %></td>
+        <td class="wide-column"><%= link_to user.name, user_path(id: user.id) %></td>
         <td><%= user.votes.count %></td>
         <td><%= display_date(user.created_at) %></td>
       </tr>
