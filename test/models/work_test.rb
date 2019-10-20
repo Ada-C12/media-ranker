@@ -113,12 +113,12 @@ describe Work do
 
         work_2.upvote(user_1.id)
         work_2.upvote(user_2.id)
-        work_2.reload
+        # work_2.reload
 
         expect(work_2.votes.count).must_equal 2
 
         work_1.upvote(user_1.id)
-        work_1.reload
+        # work_1.reload
         expect(work_1.votes.count).must_equal 1
 
         expect(Work.spotlight).must_equal work_2
