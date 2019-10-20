@@ -3,6 +3,7 @@ require "test_helper"
 describe User do
   let (:user1) {users(:user1)}
   let (:user2) {users(:user2)}
+  let (:user3) {users(:user3)}
 
   it "shoud validiate a successful work" do 
     assert( user1.valid? )
@@ -19,6 +20,11 @@ describe User do
   end 
 
   it "should validate if a username is already in the database or not" do 
+    assert( user1.valid? )
+
+    user3 = User.new(username: "Naruto")
+
+    refute( user3.valid? )
     
   end 
 end
