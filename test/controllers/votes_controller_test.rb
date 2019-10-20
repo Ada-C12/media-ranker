@@ -11,12 +11,31 @@ describe VotesController do
   describe "CREATE" do
     
     describe "If user is NOT logged in" do
-      it "can't create vote, and get sent back to wherever page u came from with flash msg" do
-        get root_path
-        refute(session[:user_id])
-        refute(session[:origin_prefix])
-        expect{post work_create_vote_path(work_id: movie1.id)}.must_differ "Vote.count", 0
+      
+      describe "can't create vote... " do
+        
+        it "... then redirected to same Works index page and see flash msg" do
+          get works_path
+          refute(session[:user_id])
+          assert(session[:origin_prefix] == "works")
+
+          expect{post work_create_vote_path(work_id: movie1.id)}.must_differ "Vote.count", 0
+          must_redirect_to works_path
+          assert(flash[:error] == "Must be logged in to vote")
+        end
+        
+        it "... then redirected to same Works/:id show page and see flash msg" do
+          get work_path(id: movie1.id)
+          refute(session[:user_id])
+          assert(session[:origin_prefix] == "work")
+
+          expect{post work_create_vote_path(work_id: movie1.id)}.must_differ "Vote.count", 0
+          must_redirect_to work_path(id: movie1.id)
+          assert(flash[:error] == "Must be logged in to vote")
+        end
+        
       end
+      
     end
     
     describe "If user is LOGGED IN" do
@@ -29,7 +48,7 @@ describe VotesController do
       
       describe "if user never voted for this work, can create vote with correct attribs..." do
         
-        it "... and redirected to same Works index page and see flash msg" do
+        it "... then redirected to same Works index page and see flash msg" do
           
           get works_path
           assert(session[:origin_prefix] == "works")
@@ -43,7 +62,7 @@ describe VotesController do
           must_redirect_to works_path
         end
         
-        it "... and redirected to same Works/:id show page and see flash msg" do
+        it "... then redirected to same Works/:id show page and see flash msg" do
           
           get work_path(id: movie1.id)
           assert(session[:origin_prefix] == "work")
@@ -65,7 +84,7 @@ describe VotesController do
           expect{post work_create_vote_path(work_id: movie1.id)}.must_differ "Vote.count", 1
         end
         
-        it "... and redirected to same Works index page and see flash msg" do
+        it "... then redirected to same Works index page and see flash msg" do
           # cast 2nd vote, get rejected
           get works_path
           assert(session[:origin_prefix] == "works")
@@ -76,7 +95,7 @@ describe VotesController do
           must_redirect_to works_path
         end
         
-        it "... and redirected to same Works/:id show page and see flash msg" do
+        it "... then redirected to same Works/:id show page and see flash msg" do
           # cast 2nd vote, get rejected
           get work_path(id: movie1.id)
           assert(session[:origin_prefix] == "work")
@@ -85,11 +104,6 @@ describe VotesController do
           
           assert(flash[:error] == "You already voted for this, no double dipping!")
           must_redirect_to work_path(id: movie1.id)
-        end
-        
-        it "weird edge case: made it past initial session[:user_id] check, but with a bogus id that doesn't match any actual User" do
-          
-          #####
         end
         
       end
