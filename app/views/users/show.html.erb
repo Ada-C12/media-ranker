@@ -15,7 +15,7 @@
     </tbody>
 <% Vote.where(user_id: @user.id).each do |vote| %>
 <tr>
-<td><%=vote.work.title%></td>
+<td><%=link_to vote.work.title, work_path(vote.work.id) %></td>
 <td><%=vote.work.creator%></td>
 <td><%=vote.work.release_date%></td>
 <td><%=vote.work.category%></td>
