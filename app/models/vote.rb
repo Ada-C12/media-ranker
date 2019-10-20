@@ -4,6 +4,5 @@ class Vote < ApplicationRecord
   
   validates :work, presence: true
   validates :user, presence: true
-  # validates :date, presence: true
   
 end
