@@ -2,7 +2,7 @@
   <%= form_with model: @work do |f| %>
     <div class="form-group">
       <%= f.label :category %>
-      <select class="form-control" name="work[category]">
+      <select class="form-control" value=<%=@work.category%> name="work[category]">
         <option value="album">Album</option>
         <option value="book">Book</option>
         <option value="movie">Movie</option>
@@ -11,23 +11,22 @@
 
     <div class="form-group">
       <%= f.label :title %>
-      <input type="text" name="work[title]" class="form-control">
+      <input type="text" value="<%=@work.title%>" name="work[title]" class="form-control">
     </div>
     
     <div class="form-group">
       <%= f.label :creator %>
-      <input type="text" name="work[creator]" class="form-control">
+      <input type="text" value="<%=@work.creator%>" name="work[creator]" class="form-control">
     </div>
     
     <div class="form-group">
       <%= f.label :published_year %>
-      <input type="text" name="work[published_year]" class="form-control">
+      <input type="text" value="<%=@work.published_year%>" name="work[published_year]" class="form-control">
     </div>
     
     <div class="form-group">
       <%= f.label :description %>
-      <textarea name="work[description]" class="form-control">
-      </textarea>
+      <%= f.text_area :description, class: "form-control" %>
     </div>
 
     <div class="form-group">
