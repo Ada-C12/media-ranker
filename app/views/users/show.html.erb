@@ -1,8 +1,11 @@
-<h1>User Summary: </h1>
+<section class = "show">
+<h2>User Summary: </h2>
 
-<section>
+
   <p>Username: <%= @user.username %></p>
-  <p>Joined Site On: <%= @user.created_at%></p>
+  <p>Joined Site On: <%= @user.created_at.strftime("%m/%d/%Y")%></p>
 
   <%# Display info about votes made by a user%>
 </section>
+
+

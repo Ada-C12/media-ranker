@@ -1,9 +1,28 @@
-<h1>List of Users<h1>
+<main>
+    <h2>List of Users</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Votes</th>
+      <th>Joined</th>
+    </tr>
+  </thead>
 
-<section>
-  <ul>
+  <tbody>
   <% @users.each do |user| %>
-    <%= link_to user.username, user_path(user.id) %>
+      <tr>
+        
+        <td><%= link_to user.username, user_path(user.id) %></td>
+        <td><%= user.votes.length %></td>
+        <td><%= user.created_at.strftime("%m/%d/%Y")%></td>
     <% end %>
-  </ul>
-</section>
+        
+      </tr>
+      
+
+  </tbody>
+</table>
+
+<a class="btn btn-secondary" href="/">Back to Media List</a>
+  </main>
