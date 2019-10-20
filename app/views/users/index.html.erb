@@ -1,0 +1,16 @@
+<section>
+  <h2>List of Users</h2>
+  <section>
+  Username
+  Votes
+  Joined
+  </section>
+
+<section>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user.username %></li>
+    <li><%= user.votes %></li>
+    <li><%= user.created_at %></li>
+  <% end %>
+</section>

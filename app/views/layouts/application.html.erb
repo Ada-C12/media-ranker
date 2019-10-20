@@ -25,8 +25,8 @@
           <%= link_to "View all media", works_path, class: 'nav_link_to' %>
           <%= link_to "Add a new work", new_work_path, class: 'nav_link_to' %>
           <%= link_to "View all users", users_path, class: 'nav_link_to' %>
-      <button type="button" class="btn btn-primary">Log In</button>
-      <button type="button" class="btn btn-primary">Log Out</button>
+      <button type="button" class="btn btn-primary"><%= link_to "Log In", login_path %></button>
+      <button type="button" class="btn btn-primary"><%= link_to "Log Out", root_path %></button>
     </nav>
   </header>
 

@@ -1,8 +1,8 @@
 <h2> <%= @work.title %> </h2>
 <section>
-<p>Created by:<p>
-<p>Published:</p>
-<p>Description?:</p>
+<p>Created by: <%= @work.creator %><p>
+<p>Published: <%= @work.publication_year %></p>
+<p>Description: <%= @work.description %></p>
 <p><button type="button" class="btn btn-primary"><%= link_to "Back to Media Ranks", root_path %></button>
 <button type="button" class="btn btn-primary"><%= link_to "Edit", edit_work_path %></button>
 <button type="button" class="btn btn-primary"><%= link_to "Upvote"%></button>
