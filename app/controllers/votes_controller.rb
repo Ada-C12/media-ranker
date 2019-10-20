@@ -5,7 +5,7 @@ class VotesController < ApplicationController
     current_user = User.find_by(id: session[:user_id])
     
     if current_user == nil
-      flash.now[:message] = "You must be logged in to vote!"
+      flash[:message] = "You must be logged in to vote!"
       return redirect_to root_path
     end
     

@@ -10,11 +10,13 @@
     </tr>
     </theader>
   <tbody>
-        <% @users.each do |user|%>
-          <tr>
-          <td><%=link_to user.username, user_path(user.id)%></td>
-          <td><%= Vote.where(id: user.id).count%></td>
-          <td><%= user.created_at%></td>
+      <% @users.each do |user|%>
+        <tr>
+          <% if user.id != 0 %>
+            <td><%=link_to user.username, user_path(user.id)%></td>
+            <td><%= Vote.where(id: user.id).count%></td>
+            <td><%= user.created_at%></td>
+          <% end %>
         <% end %>
       </tr>
   </tbody>

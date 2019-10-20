@@ -40,6 +40,7 @@ class WorksController < ApplicationController
     @work = Work.find_by(id: params[:id])
     return head :not_found unless @work
     if @work.update(work_params)
+      flash[:message] = "You have successfully edited this work!"
       redirect_to works_path
     else
       render "edit"
@@ -49,7 +50,7 @@ class WorksController < ApplicationController
   def destroy
     @work = Work.find_by(id: params[:id])
     return redirect_to works_path unless @work 
-    update_votes
+    # update_votes
     @work.destroy
     redirect_to works_path
   end
@@ -59,20 +60,43 @@ class WorksController < ApplicationController
     @work = Work.find_by(id: params[:id])
   end
   
-  def update_votes
-    @votes = Vote.where(work_id: @work.id)
-    @votes.each do |vote|
-      vote.work_id = 0
-      vote.save
-    end 
-  end
+  # def update_votes
+  #   @votes = Vote.where(work_id: @work.id)
+  #   @votes.each do |vote|
+  #     vote.work_id = 0
+  #     vote.save
+  #   end 
+  # end
   
-  def spotlight
-    @works = Work.all
+  def find_spotlight
+    
+    works = Work.all
+    work_ids = {}
+    works.each do |work|
+      if work_ids.has_key?(work.id)
+        work_ids[work.id] += 1
+      else
+        work_ids[work.id] = 1
+      end
+    end
+    
+    work_ids.sort_by{|key, value| value}
+    
+    work_ids.sort_by {|k, v| v}
+    
+    work_ids.keys
+    
+    spotlight_id = work_ids.first
+    
+    return spotlight_id
   end
   
   def main
-    @spotlight = Work.all.sample
+    
+    @spotlight = Work.find_by(id: find_spotlight)
+    if @spotlight == nil
+      @spotlight = Work.first
+    end
     
     @top_albums = Work.where(category: "album").limit(10)
     @top_books = Work.where(category:  "book").limit(10)
