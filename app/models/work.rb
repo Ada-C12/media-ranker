@@ -13,9 +13,8 @@ class Work < ApplicationRecord
       end
     end
 
-    
-    return top_ten_works.sort_by { |work| work.votes.count }.reverse
-    # return top_ten_works.max_by(10) { |work| work.votes.count }
+    # top_ten_works.sort_by { |work| work.votes.count }.reverse
+    return top_ten_works.max_by(10) { |work| work.votes.count }
   end
 
   def self.spotlight
