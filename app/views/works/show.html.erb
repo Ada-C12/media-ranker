@@ -1,0 +1,29 @@
+<h1><%= @work.title %></h1>
+<p>Created by: <%= @work.creator %></p>
+<p>Published: <%= @work.publication_year%></p>
+
+<%= link_to "Edit", edit_work_path(@work.id), class:"btn btn-primary btn-space"%>
+<%= link_to "Delete", work_path(@work.id), class:"btn btn-danger btn-space", method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Upvote", work_votes_path(@work.id), class:"btn btn-primary btn-space", method: :post %>
+<%= link_to "Home", root_path, class:"btn btn-primary btn-space" %>
+
+<div>
+<h2><%= @work.votes.length%> votes</h2>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @work.votes.length.times do |i|%>
+    <tr>
+      <td><%= link_to @work.votes[i].user.username, user_path(@work.votes[i].user_id) %></td>
+      <td><%= @work.votes[i].user.created_at %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
