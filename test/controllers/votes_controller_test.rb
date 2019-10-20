@@ -18,7 +18,7 @@ describe VotesController do
           get works_path
           refute(session[:user_id])
           assert(session[:origin_prefix] == "works")
-
+          
           expect{post work_create_vote_path(work_id: movie1.id)}.must_differ "Vote.count", 0
           must_redirect_to works_path
           assert(flash[:error] == "Must be logged in to vote")
@@ -28,7 +28,7 @@ describe VotesController do
           get work_path(id: movie1.id)
           refute(session[:user_id])
           assert(session[:origin_prefix] == "work")
-
+          
           expect{post work_create_vote_path(work_id: movie1.id)}.must_differ "Vote.count", 0
           must_redirect_to work_path(id: movie1.id)
           assert(flash[:error] == "Must be logged in to vote")
@@ -76,6 +76,16 @@ describe VotesController do
           must_redirect_to work_path(id: movie1.id)
         end
         
+        describe "if somehow voting fails..." do
+          
+          it "will get sent to nope_path and see flash msg" do
+            expect{post work_create_vote_path(user: user6, work_id: -666)}.must_differ "Vote.count", 0
+            
+            assert(flash[:error] == "Vote unsuccessful! Investigate!")
+            must_redirect_to nope_path
+          end
+          
+        end
       end
       
       describe "if user already voted for this work item, should NOT create vote" do

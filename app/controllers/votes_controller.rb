@@ -12,39 +12,29 @@ class VotesController < ApplicationController
         flash[:error] = "Must be logged in to vote"
         redirect_to_origin
         return
-      else
-        flash[:error] = "Impossible! Where did you come from?"
-        redirect_to nope_path
-        return
       end
       
     else   
       # then check if user already voted for this work
       user = User.find_by(id: session[:user_id])
-      if user
-        if user.votes.any?
-          first_vote = user.votes.select { |vote| vote.work_id == params[:work_id].to_i }
-          if first_vote.any?
-            flash[:error] = "You already voted for this, no double dipping!"
-            redirect_to_origin
-            return
-          end
+      if user.votes.any?
+        first_vote = user.votes.select { |vote| vote.work_id == params[:work_id].to_i }
+        if first_vote.any?
+          flash[:error] = "You already voted for this, no double dipping!"
+          redirect_to_origin
+          return
         end
-      else
-        flash[:error] = "How did you end up with a bogus session[:user_id]?! Investigate!"
-        redirect_to nope_path
-        return
       end
       
       # Make new Vote
       vote = Vote.new(user_id: session[:user_id], work_id: params[:work_id])
       if vote.save
-        flash[:success] = "Successfully upvoted!"
+        flash.now[:success] = "Successfully upvoted!"
         redirect_to_origin
         return
       else
-        flash[:error] = "Vote unsuccessful! #{list_error_messages(vote)}"
-        redirect_to_origin
+        flash[:error] = "Vote unsuccessful! Investigate!"
+        redirect_to nope_path
         return
       end
     end
