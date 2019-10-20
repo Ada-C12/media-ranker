@@ -1,23 +1,30 @@
-<h2> Details for <%= @work.title %> </h2>
-<p>Creator: <%= @work.creator %></p>
-<p>Release Date: <%= @work.release_date %></p>
-<p>Description: <%= @work.description %></p>
-<p><%= @work.votes.length%>
+<section>
+  <h2> <%= @work.title %> </h2>
+  <p>Created by: <%= @work.creator %></p>
+  <p>Release Date: <%= @work.release_date %></p>
+  <p>Description: <%= @work.description %></p>
+  <p></p>
+  <section>
+<a class="btn btn-primary"><%= button_to 'Back to All Media Works', works_path %></a>
+<a class="btn btn-primary"><%= button_to 'Edit this Work', edit_work_path %></a>
+<a class="btn btn-primary"><%= button_to 'Upvote', upvote_path(@work.id) %></a>
+<a class="btn btn-danger"><%= button_to 'Delete this Work', work_path(@work), method: :delete, data: {confirm: "Are you sure?"} %> </a>
+</section>
+<section class="works-votes__container">
+  <h3 class="works-votes__header"><%= @work.votes.length%>
 <% if @work.votes.length == 1 %>Vote</span>
 <% else %>Votes</span>
-<%end%>:</p>
-<ul>
+<%end%>:</h3>
+<table class="table">
+<thead>
+  <tr>
+    <th>User</th>
+    <th>Vote Date</th>
+  </tr>
+</thead>
 <% @work.votes.each do |vote|%>
+<tr>
 <% user = User.find_by(id: vote.user_id) %>
-<li>User: <%= user.username %>; Date: <%= vote.date%>
-</li>
+<td> <%= user.username %> </td>
+<td> <%= vote.date%> </td></tr>
 <% end %>
-</ul>
-<%= button_to 'Upvote', upvote_path(@work.id) %>
-<%= link_to 'Edit this Work', edit_work_path %>
-<br>
-<%= link_to 'Delete this Work', work_path(@work), method: :delete, data: {confirm: "Are you sure?"} %>
-<br>
-<%= link_to 'Back to All Media Works', works_path %>
-<br>
-<%= link_to 'Home', root_path %>
