@@ -17,7 +17,6 @@ class Work < ApplicationRecord
   end 
 
   def self.find_spotlight(work)
-    # all_works = Work.al
     if work == nil
       return []
     end 

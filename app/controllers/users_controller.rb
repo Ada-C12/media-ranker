@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       user = User.create(username: username, joined: Time.now)
       session[:id] = user.id
 
+
       flash[:success] = "Successfully logged in as new user #{username}"
     end
     session[:username] = user.username
@@ -40,6 +41,7 @@ class UsersController < ApplicationController
 
   def logout
     session[:id] = nil
+
     # @current_user = User.find_by(id: session[:user_id])
     flash[:success] = "You are now logged out"
     redirect_to root_path 

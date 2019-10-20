@@ -10,14 +10,6 @@ describe Work do
     Work.create!(category: "Book", title: "The Fantastic Four", creator: "Wallace Rubenstein", publication_year: "2000", description: "Disgrace")
   }
 
-
-  # know I have let, but just wanted to see how the fixtures work. This before block is needed for fixtures.
-  # before do
-  #   @work = works(:exmachina)
-  #   @vote = votes(:vote_1)
-  #   @user = users(:user_1)
-  # end
-
   describe 'relations' do
     it "can access the votes for each work" do
     
@@ -67,7 +59,7 @@ describe Work do
   end 
 
   describe "find_top_10" do
-    it "can find the top 10 of a category" do
+    it "displays descending ordered list of top 10 works" do
       
       result = Work.find_top_10("movie")
       
@@ -107,5 +99,34 @@ describe Work do
 
       expect(spotlight.votes).must_equal top_10.first.votes
     end 
+  end
+
+  describe "sort_by_category" do
+    it "sorts each category by number of votes" do
+      result = Work.sort_by_category("album")
+ 
+      result.each_with_index do |work, index|
+        break if index = result.length - 1
+
+        work_votes = work.votes
+        work_votes2 = result[index + 1]
+
+        expect(work_votes.length).wont_be :<, work_votes2.votes.length
+      end 
+    end
+  end 
+
+  it "returns 1 work if there is only 1 work" do
+    result = Work.find_top_10("album")
+
+    expect(result.length).must_equal 1
+  end
+
+  it "returns a list of works even if none of them have votes" do
+    books_works = works(:thriller)
+
+    result = Work.sort_by_category(books_works.category)
+
+    expect(result.length).must_equal 1
   end
 end

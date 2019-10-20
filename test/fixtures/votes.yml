@@ -3,7 +3,7 @@ vote_1:
   # you can give it an object name and it will automatically find
   # that object's id.
   date: Time.now
-  user_id: 2
+  user: user_1
 vote_2:
   work: bigshort
   date: Time.now

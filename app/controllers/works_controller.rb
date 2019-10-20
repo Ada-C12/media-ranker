@@ -109,7 +109,7 @@ class WorksController < ApplicationController
     end 
   end 
 
-  private
+  private # controller filters
   
   #strong params
   def work_params

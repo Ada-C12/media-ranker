@@ -22,10 +22,8 @@ let (:new_user) {
     it "can access the votes for each user" do
     
       vote = Vote.create!(work_id: @work.id, date: Time.now, user_id: @user.id)
-      print @work.id
-      print @user.id
 
-      expect(@user.votes.count).must_equal 1
+      expect(@user.votes.count).must_equal 2
     end 
   end
 
