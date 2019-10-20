@@ -1,5 +1,3 @@
-require 'pry'
-
 class VotesController < ApplicationController
   
   def create

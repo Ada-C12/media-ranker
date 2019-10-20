@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   # Set the homepage route
-  root 'homepages#index'
+  # root 'homepages#index'
+
+  root 'welcome#index'
   
   resources :works 
   
