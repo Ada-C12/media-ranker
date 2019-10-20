@@ -1,6 +1,7 @@
 class Work < ApplicationRecord
   has_many :votes
 
+  validates :title, presence: true
   validates :title, uniqueness: { scope: :category, message: "You can't add a work with the same title!"}
 
   # https://stackoverflow.com/questions/16996618/rails-order-by-results-count-of-has-many-association

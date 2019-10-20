@@ -29,9 +29,10 @@ class WorksController < ApplicationController
       flash[:success] = "#{@work.title} added successfully"
       redirect_to work_path(@work.id)
     else
-      # add custom work.errors
-      flash.now[:error] = @work.errors { }
+      @error = @work.errors.messages[:title]
+      flash.now[:error] = "Error: #{@error}"
       render new_work_path
+      return
     end
   end
 
