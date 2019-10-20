@@ -42,5 +42,32 @@ class WorkTest < ActiveSupport::TestCase
 
     end
 
+      describe 'relations' do
+        it 'can set the work through "work"' do
+          # Create two models
+          # work = Work.create!(title: "TestTitle")
+          # user = User.new(username: "test user")
+    
+          # Make the models relate to one another
+          user.work = work
+    
+          # work_id should have changed accordingly
+          expect(user.work_id).must_equal work.id
+        end
+    
+        it 'can set the work through "work_id"' do
+          # Create two models
+
+          # work = Work.create!(title: "test worl")
+          # user = User.new(username: "test user")
+    
+          # Make the models relate to one another
+          user.work_id = work.id
+    
+          # author should have changed accordingly
+          expect(user.work).must_equal work
+        end
+      end
+    
   end
 end
