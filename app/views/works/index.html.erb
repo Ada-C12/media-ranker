@@ -1,5 +1,5 @@
 <main>
-<h2 id="green_text">List of Works</h2>
+<h2 class="green_text">List of Works</h2>
   <section class="media-table">
     <h4>Albums</h4>
     <table class="table">
@@ -18,7 +18,7 @@
         <% @all_albums.each do |piece|%>
         <tr>
           <td><%= piece.votes.count %></td>
-          <td id="green_text"><%= link_to piece.title, work_path(id: piece.id) %></td>
+          <td class="green_text"><%= link_to piece.title, work_path(id: piece.id) %></td>
           <td><%= piece.creator %></td>
           <td><%= piece.published_year %></td>
           <td><button id="upvote" class="btn btn-primary"><%= link_to "Upvote", work_create_vote_path(work_id: piece.id), method: :post %><% session[:origin_prefix] = "works" %></button></td>
