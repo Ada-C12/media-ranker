@@ -1,8 +1,17 @@
-bob:
-  username: Bob
+user1:
+  username: 'bob'
 
-yasmin:
-  usernme: Yasmin
+user2:
+  username: 'yasmin'
 
-tom:
-  username: Tom
+user3:
+  username: 'tom'
+
+user4:
+  username: 'jdkd'
+
+user5:
+  username: 'red'
+
+user6:
+  username: 'blue'

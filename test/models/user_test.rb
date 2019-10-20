@@ -5,7 +5,7 @@ describe User do
     before do
       # Arrange
       @user = User.new(username:'bob')
-    end
+    end 
     
     it 'is valid when all fields are present' do
       # Act
@@ -32,16 +32,19 @@ describe User do
 
   describe 'relations' do 
     it 'has votes' do
-      @username.votes.each do |vote|
+      user = users(:bob)
+      expect(user.votes.count).must_equal 2
+      user.votes.each do |vote|
         expect(vote).must_be_instance of Vote
       end
     end
 
     it "has many works" do
+      user = users(:bob)
+      expect(user.works.count).must_equal 2
       @username.works.each do |work|
         expect(work).must_be_instance of Work
-
       end
-    end
-  end  
+    end 
+  end
 end
