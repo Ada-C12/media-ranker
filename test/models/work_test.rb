@@ -86,4 +86,21 @@ describe Work do
       expect(sorted_list.last.title).must_equal 'F'
     end
   end
+
+  describe "self.sort method" do
+    it 'properly sort all works by votes count' do
+      vote_1 = Vote.create(user_id: User.first.id, work_id: Work.find_by(title: 'A').id)
+      vote_1 = Vote.create(user_id: User.second.id, work_id: Work.find_by(title: 'A').id)
+      vote_2 = Vote.create(user_id: User.second.id, work_id: Work.find_by(title: 'A').id)
+      vote_3 = Vote.create(user_id: User.first.id, work_id: Work.find_by(title: 'B').id)
+      vote_1 = Vote.create(user_id: User.first.id, work_id: Work.find_by(title: 'D').id)
+      vote_2 = Vote.create(user_id: User.second.id, work_id: Work.find_by(title: 'D').id)
+      vote_3 = Vote.create(user_id: User.first.id, work_id: Work.find_by(title: 'E').id)
+
+      sorted_list = Work.sort
+
+      expect(sorted_list.first.title).must_equal 'A'
+      expect(sorted_list.last.title).must_equal 'F'
+    end
+  end
 end

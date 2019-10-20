@@ -38,14 +38,14 @@
             <li class="nav-item app-header__nav_item">
               <%= link_to "Login", {controller: "users", action: "login"}, class: "btn btn-primary" %>
             </li>
-          <%else%>
+          <% else %>
             <li class="nav-item app-header__nav_item">
               <%= link_to "Logout", {controller: "users", action: "logout"}, class: "btn btn-primary", method: :post %>
             </li>
             <li class="nav-item app-header__nav_item">
-              <%= link_to "Logged in as #{User.find_by(id: session[:user_id]).name}", user_path(User.find_by(id: session[:user_id]).id), class: "btn btn-primary" %>
+              <%= link_to "Logged in as #{User.find(session[:user_id]).name}", user_path(session[:user_id]), class: "btn btn-primary" %>
             </li>
-          <%end%>
+          <% end %>
         </ul>
       </nav>
     </header>

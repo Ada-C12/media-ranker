@@ -2,7 +2,25 @@
 <p> Created by: <%= @work.creator %> </h3>
 <p> Published: <%= @work.publication_year %> </p>
 
-<a class='btn' href=works_path>Back to media ranks</a>
-<a class='btn' href=work_path(work) action: patch>Edit</a>
-<a class='btn' href=work_path(work) action: patch>Upvote</a>
-<a class='btn' href=works_path(work) action: delete>Delete</a>
+<a class="btn btn-primary" href=works_path>Back to media ranks</a>
+<a class="btn btn-primary" href=work_path(work) action: patch>Edit</a>
+<a class="btn btn-primary" href=work_path(work) action: patch>Upvote</a>
+<a class="btn btn-danger" href=works_path(work) action: delete>Delete</a>
+
+<br>
+<br>
+
+<h3 id="work_votes_list"> <%= @work.votes.count %> Votes for this <%= @work.category.capitalize %> </h3>
+<table class='table'>
+  <tr>
+    <th> User </th>
+    <th> Date </th>
+  </tr>
+
+  <% @work.votes.each do |vote| %>
+    <tr>
+      <td> <%= User.find(vote.user_id).name %> </td>
+      <td> <%= vote.created_at %> </td>
+    </tr>
+  <% end %>
+</table>

@@ -2,6 +2,7 @@ class WorksController < ApplicationController
   def index
     @albums = Work.sort('album')
     @books = Work.sort('book')
+    @works = Work.top
   end
 
   def new

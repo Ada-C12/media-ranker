@@ -14,5 +14,6 @@ CSV.foreach(Rails.root.join('db/media_seeds.csv'), headers: true) do |row|
   w.title = row['title']
   w.creator = row['creator']
   w.publication_year = row['publication_year']
+  w.description = row['description']
   w.save
 end
