@@ -10,7 +10,7 @@
           <th>Created By</th>
           <th>Published</th>
           <th>Category</th>
-          <th>Voted On</th>
+          <th>Voted</th>
         </tr>
       </thead>
       <tbody>
@@ -20,7 +20,8 @@
             <td><%= vote.work.creator %></td>
             <td><%= vote.work.publication_year %></td>
             <td><%= vote.work.category %></td>
-            <td><%= vote.created_at %></td>
+            <%# <td><%= vote.created_at %>
+            <td><%= readable_date(vote.created_at) %></td>
           </tr>
         <% end %>
       </tbody>
