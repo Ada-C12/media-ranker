@@ -4,7 +4,8 @@
 Media Spotlight:
 </span>
 <a class="spotlight__link-to" </section>
-<% chosen = @works.sample %>
+<% sorted = Work.sort_works(@works) %>
+<% chosen = sorted.first %>
 <%= link_to chosen.title, work_path(chosen) %>
 (<%= chosen.category %>)
 </a>
