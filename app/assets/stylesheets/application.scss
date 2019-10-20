@@ -141,5 +141,27 @@ a {
   margin: 5% 0 2% 0;
 }
 
+.logged-in-as {
+  font-size: .9em;
+  display: inline-block;
+  line-height: 1.2em;
+  text-align: right;
+}
 
+.user-name {
+  display: block;
+  text-align: right;
+  color: rgb(0, 128, 117);
+}
 
+.error, .warning {
+  background-color: pink;
+  margin: 3% 0;
+  padding: 1%;
+}
+
+.success {
+  background-color: rgb(163, 241, 163);
+  margin: 3% 0;
+  padding: 1%;
+}

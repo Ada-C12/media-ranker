@@ -19,10 +19,10 @@
     <section class="nav-elements">
       <section class="menu-container">
         <ul>
-          <li><%= link_to "home", root_path %></li>
-          <li><%= link_to "all media", works_path %></li>
-          <li><%= link_to "create new media", new_work_path%></li>
-          <li><%= link_to "all users", users_path %></li>
+          <li><%= link_to "home", root_path, class: "btn btn-info" %></li>
+          <li><%= link_to "all media", works_path, class: "btn btn-info" %></li>
+          <li><%= link_to "create new media", new_work_path, class: "btn btn-info" %></li>
+          <li><%= link_to "all users", users_path, class: "btn btn-info" %></li>
         </ul>
       </section>
 
@@ -34,10 +34,10 @@
           </li>
         <%else%>
           <li>
-            <%= link_to "Logout", logout_path, method: :post, class: "btn btn-primary" %>
+            <p class="logged-in-as">Logged in as <span class="user-name"><%= User.find_by(id: session[:user_id]).username %></span></p>
           </li>
           <li>
-            Logged in as <%= User.find_by(id: session[:user_id]).username %>
+            <%= link_to "Logout", logout_path, method: :post, class: "btn btn-primary" %>
           </li>
         <%end%>
         </ul>

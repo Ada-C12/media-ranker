@@ -78,7 +78,7 @@ class WorksController < ApplicationController
       redirect_to root_path
       return
     else
-      flash[:error] = "Unable to vote twice for the same piece of media"
+      flash[:error] = "Unable to vote twice for the same work"
       redirect_to work_path(params[:id])
       return
     end
