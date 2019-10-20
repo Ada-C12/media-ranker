@@ -1,7 +1,7 @@
 <main>
-    <h2>User Summary: <a href="/users/<%= User.find_by(id: session[:user_id]).id %>"><%= User.find_by(id: session[:user_id]).name %></a></h2>
+    <h2>User Summary: <a href="/users/<%= @user.id %>"><%= @user.name %></a></h2>
 
-<p>Joined site on <%= User.find_by(id: session[:user_id]).created_at.strftime("%b %d, %Y") %></p>
+<p>Joined site on <%= @user.created_at.strftime("%b %d, %Y") %></p>
 
 <section class="user-votes__container">
   <h3 class="user-votes__header">Votes</h3>
@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-         <% User.find_by(id: session[:user_id]).votes.each do |vote| %>
+         <% @user.votes.each do |vote| %>
         <tr>
           <td> <a href="/works/<%= vote.work_id %>"><%=Work.find_by(id: vote.work_id).title %> </a></td>
           <td> <%= Work.find_by(id: vote.work_id).creator %></td>

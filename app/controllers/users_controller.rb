@@ -1,5 +1,18 @@
 class UsersController < ApplicationController
   
+  def current
+    @current_user = User.find_by(id: session[:user_id])
+    unless @current_user
+      flash[:danger] = "You must be logged in to do that."
+      redirect_to login_path #redirect to login page
+    end
+    redirect_to user_path #user show page
+  end
+
+  def index
+    @users = User.all 
+  end
+
   def login_form
     @user = User.new
   end
@@ -17,22 +30,12 @@ class UsersController < ApplicationController
     end
     redirect_to root_path
   end
-  
-  def current
-    @current_user = User.find_by(id: session[:user_id])
-    unless @current_user
-      flash[:danger] = "You must be logged in to do that."
-      redirect_to login_path #redirect to login page
-    end
-    redirect_to user_path #user show page
-  end
-  
+    
   def logout
     session[:user_id] = nil
     flash[:success] = "Successfully logged out."
     redirect_to root_path
   end
-  
   
   def show
     @user = User.find_by(id: params[:id])
