@@ -25,6 +25,12 @@ describe Work do
       expect(@work.valid?).must_equal false
       expect(@work.errors.messages).must_include :release_date
     end
+
+    it 'is invalid if the release date is greater than 9999, not a year' do
+      @work.release_date = 2042915
+      expect(@work.valid?).must_equal false
+      expect(@work.errors.messages).must_include :release_date
+    end
   end
 
   describe 'relations' do
