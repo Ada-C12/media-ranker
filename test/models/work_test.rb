@@ -33,7 +33,7 @@ describe Work do
       expect(movie.errors.messages[:title]).must_equal ["can't be blank"]
     end
     
-    it "title must be unique" do
+    it "title must be unique for category" do
       movie.title = works(:dumplings).title
       
       expect(movie.valid?).must_equal false
