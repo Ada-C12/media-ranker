@@ -65,12 +65,16 @@ main {
 .btn-primary {
     background-color: #26A69A;
     color: white;
-    border-color: #26A69A
+    border-color: #26A69A;
 }
 
 .btn:hover {
   background-color: #00796B;
   color: white;
+}
+
+.app-header__user-nav-container .nav-item {
+  margin-left: 2rem;
 }
 
 .app-header__site-nav-container .app-header__nav_item {
@@ -112,22 +116,5 @@ body {
   margin: 2rem 0 1rem 0;
 }
 
-.alert-success {
-  color: #155724;
-  background-color: #d4edda;
-  border-color: #c3e6cb;
-}
 
-.alert {
-  position: relative;
-  padding: 0.75rem 1.25rem;
-  margin-bottom: 1rem;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-}
 
-.alert-warning {
-  color: #856404;
-  background-color: #fff3cd;
-  border-color: #ffeeba;
-}

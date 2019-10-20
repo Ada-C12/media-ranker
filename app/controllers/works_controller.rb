@@ -1,18 +1,13 @@
 class WorksController < ApplicationController
   before_action :find_work, only: [:show, :edit, :update, :destroy]
-  before_action :if_work_missing, only: [:edit, :update, :destroy]
+  before_action :if_work_missing, only: [:show, :edit, :update, :destroy]
   
   def index
     @works = Work.all
     @categories = ["album", "book", "movie"]
   end
   
-  def show
-    if @work.nil?
-      redirect_to works_path
-      return
-    end
-  end
+  def show; end
   
   def new
     @work = Work.new
@@ -46,7 +41,7 @@ class WorksController < ApplicationController
       redirect_to work_path
       return
     else
-      flash.now[:failure] = "#{@work.category.capitalize} failed to update."
+      flash.now[:danger] = "#{@work.category.capitalize} failed to update."
       render :edit
       return
     end
@@ -71,7 +66,7 @@ class WorksController < ApplicationController
   
   def if_work_missing
     if @work.nil?
-      flash.now[:failure] = "#{@work.category.capitalize} not found."
+      flash[:danger] = "Work not found."
       redirect_to works_path
       return
     end

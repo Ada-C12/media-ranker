@@ -2,9 +2,9 @@
   <h2>Log In</h2>
   <%= form_with model: @user, url: login_path do |f| %>
     <%= f.label :username %>
-    <%= f.text_field :username, class: "form-control" %>
+    <%= f.text_field :username, class: "form-control", :required => 'required' %>
     <br>
-    <%= f.submit "Log In", class: "btn btn-primary" %>
+    <%= f.submit "Log In", class: "btn btn-primary" %>  
   <% end %>
 <br>
 <article>

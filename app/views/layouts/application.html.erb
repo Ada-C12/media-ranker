@@ -23,14 +23,14 @@
       <li class="nav-item app-header__nav_item"><%= link_to "View all users", users_path, class: "nav-link" %></li>
     </ul>
     <ul class="nav app-header__user-nav-container">
-    <% if session[:user_id].nil? %>
-      <li class="nav-item app-header__nav_item"> <%= link_to "Log In", login_path, class: "btn btn-primary" %></li>
-    <% else%>
-      <li class="nav-item app-header__nav_item">
-      <%= link_to "Logged in as #{User.find_by(id: session[:user_id]).username}", user_path(session[:user_id]), class: "btn btn-primary" %>
-      </li>
-      <li class="nav-item app-header__nav_item"><%= link_to "Logout", logout_path, method: :post, class: "btn btn-primary" %></li>
-    <%end%>
+      <% if session[:user_id].nil? %>
+        <li class="nav-item app-header__nav_item"> <%= link_to "Log In", login_path, class: "btn btn-primary" %></li>
+      <% else%>
+        <li class="nav-item app-header__nav_item">
+        <%= link_to "Logged in as #{User.find_by(id: session[:user_id]).username}", user_path(session[:user_id]), class: "btn btn-primary" %>
+        </li>
+        <li class="nav-item app-header__nav_item"><%= link_to "Logout", logout_path, method: :post, class: "btn btn-primary" %></li>
+      <%end%>
     </ul>
   </nav>
   </header>

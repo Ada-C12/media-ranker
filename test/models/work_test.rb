@@ -37,12 +37,6 @@ describe Work do
       work = works(:rocky)
       expect(work.votes.count).must_equal 2
     end
-    
-    it 'a vote belongs to a user and a work' do
-      vote = votes(:hal_movie)
-      expect(vote.user_id).must_equal users(:hallie).id
-      expect(vote.work_id).must_equal works(:rocky).id
-    end
   end
   
   describe 'custom methods' do

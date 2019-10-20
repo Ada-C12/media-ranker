@@ -1,6 +1,9 @@
 hal_movie:
   user: hallie
   work: rocky
+hal_book:
+  user: hallie
+  work: joe_treat
 milo_movie:
   user: milo
   work: rocky
