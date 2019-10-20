@@ -38,7 +38,7 @@
             <% if session[:user_id].nil? %>
           <a class="btn btn-primary" href="/login">Log In</a>
             <%else%>
-          <a class="btn btn-primary" href="/users/<%= User.find_by(id: session[:user_id]).id %>">Logged in as <%= User.find_by(id: session[:user_id]).name %></a>
+          <a class="btn btn-primary" href="/users/<%= User.find_by(id: session[:user_id]).id %>">Logged in as <%= User.find_by(id: session[:user_id]).name %></a> 
         </li>
         <li class="nav-item app-header__nav_item">
           <a class="btn btn-primary" rel="nofollow" data-method="post" href="/logout">Log Out</a>
