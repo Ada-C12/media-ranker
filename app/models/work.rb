@@ -37,7 +37,19 @@ class Work < ApplicationRecord
     
   end
   
-  
-  
-  
+  def self.votes_descending(category)
+    
+    all_of_type = []
+    
+    Work.where(category: category).each do |work|
+      all_of_type << work
+    end
+    
+    votes_descending = all_of_type.max_by(1000) do |type|       
+      type.votes.count
+    end
+    return votes_descending
+    
+  end
 end
+  
