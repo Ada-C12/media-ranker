@@ -1,0 +1,34 @@
+
+<h2>User Summary: <%= link_to "#{@user}", user_path %></h2>
+<%# <h3>Joined site <%= @user.created_at.strftime("%b %d, %Y")%></h3>  %>
+<h2>Votes</h2>
+<table>
+  <thead>
+    <tr>
+      <th scope="col"width=400>Media Title</th>
+      <th scope="col"width=400>Created By</th>
+      <th scope="col"width=400>Published</th>
+      <th scope="col"width=400>Category</th>
+      <th scope="col"width=400>Voted on</th>
+    </tr>
+  </thead>
+
+
+  <tr>
+     <%# <% @votes.each do |vote| %>     %>
+        <%# <%= link_to vote.work.title, work_path(vote.work_id)%> %>
+         <%# <%= vote.work.creator %>   %>
+         <%# <%= vote.work.publication_year %>  %>
+         <%# <%= vote.work.category %>  %>
+         <%# <%= vote.work.created_at.strftime("%b %d, %Y") %> %>
+      </tr>
+    <%# <% end %> %>
+    </table>
+
+
+
+ <%= link_to "see all Users", users_path %><a>
+ <%= link_to "Back to Media List", root_path %><a>
+
+
+

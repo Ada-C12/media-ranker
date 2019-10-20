@@ -32,6 +32,7 @@
   </table>
 </section>
   <section class="spotlight">
+
     <h4>Movies</h4>
     <table class="table">
       <thead>
@@ -56,17 +57,20 @@
     <%end%>
 </table>
 
-<table class="table">
-<h2>Albums</h2>
-  <tr>
-    <th scope="col"width=80>Votes</th>
+
+<section class="spotlight">
+    <h4>Movies</h4>
+    <table class="table">
+      <thead>
+    <tr>
+      <th scope="col"width=80>Votes</th>
       <th scope="col">Title</th>
       <th scope="col">Created By</th>
       <th scope="col"width=100>Published</th>
       <th scope="col"width=100>Upvote</th>
     </tr>
-    </thead>
-        <tbody>
+  </thead>
+<tbody>
 
   <% @all_albums.each do |album|%>
     <tr>  

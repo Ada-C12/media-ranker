@@ -31,10 +31,12 @@ class WorksController < ApplicationController
     @work = Work.new(work_params) 
     if @work.save 
       flash[:success] = "work added successfully"
-      redirect_to root_path 
+     redirect_to  works_path
       return
     else 
-      flash.now[:failure] = "Work failed to save"
+      flash.now[:failure] = "A problem occurred: Could not create album
+title: can't be blank failed to save" 
+      puts "failed work"
       render :new
       return
     end
@@ -86,10 +88,6 @@ class WorksController < ApplicationController
   
   def upvote
     user = User.find_by(id: session[:user_id])
-    # if user.votes.find_by(work_id: @work.id)
-    #   flash[:warning] = "can't vote twice"
-    #   redirect_to works_path
-    # else
     if user.nil?
       flash[:warning] = "you must login first!!"
       redirect_back(fallback_location: works_path(work_id: params[:id]))

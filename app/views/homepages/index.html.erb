@@ -5,8 +5,7 @@
       <span class="spotlight__header--prefix">Media Spotlight</span>
       <%= link_to Work.spotlight.title, work_path(Work.spotlight.id), class: "spotlight__link-to" %> by <%= Work.spotlight.creator%>
     </h2>
-    <p class="spotlight__description">
- 
+    <p class="spotlight__description"><%=Work.spotlight.votes.count%> votes - <%=Work.spotlight.description%>
     </p>
   </section>
 

@@ -14,7 +14,6 @@ class Work < ApplicationRecord
   end
   
   def self.spotlight
-    
     works = self.all.sort_by do |work|
       -work.votes.count
     end

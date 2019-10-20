@@ -57,6 +57,14 @@ body {
   border: 0px;
 }
 
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+}
 
-
-
+.app-header__header {
+    max-width: 100%;
+    background-color: #B2DFDB;
+    margin-bottom: 0.5rem;
+    padding: 2rem 1rem 0.5rem 1rem;
+}

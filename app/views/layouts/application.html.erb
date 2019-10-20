@@ -14,7 +14,7 @@
           <div class="col col-lg-1">
           </div>
           <div class="col-md-auto d-flex">
-            <h1 class=""><%= link_to "Media Ranker", root_path, class: "text-danger" %></h1>
+            <h1 class=""><%= link_to "Media Ranker", root_path, class: "text-danger"%></h1>
             <h1 class="text-white"> | Ranking the Best of Everything</h1>
           </div>
           <div class="col col-lg-1">
@@ -36,26 +36,24 @@
         </li>
         <li class="col-sm nav-item">
         </li>
-        <li class="col-sm">
+        <%# <li class="col-sm"> %>
+        <section class="login-info">
          <% if session[:user_id].nil? %>
           <%= link_to "Login", login_path, class:"btn btn-primary"%>
           <%else%>
           <li>
+          Logged in as <%= User.find_by(id: session[:user_id]).username %>
           <%= link_to "Logout" , logout_path, method: :post, class:"btn btn-secondary"%>
-        </li>
-        <li>
-        Logged in as <%= User.find_by(id: session[:user_id]).username %>
         </li>
         <%end%>
       </ul>
 
-      <section class="flash">
+    <section class="flash">
     <% flash.each do |name, message| %>
       <div class="<%= name %>"><%= message %></div>
     <% end %>
-  </section>
-
-    </header>
+    </section>
+  </header>
     <%= yield %>
   </body>
 </html>

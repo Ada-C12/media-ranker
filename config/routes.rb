@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :works
   resources :homepages
   resources :votes
+  resources :users
 
   get "/login", to: "users#login_form", as: "login"
   post "/login", to: "users#login"
@@ -14,4 +15,5 @@ Rails.application.routes.draw do
   get "/users", to: "users#index", as: "all_users"
   get "/works/:id/upvote", to: "works#upvote", as: "upvote_work"
   post "/works/:id/upvote", to: "works#upvote"
+ 
  end

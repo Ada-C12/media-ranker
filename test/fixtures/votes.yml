@@ -1,4 +1,8 @@
-valid_vote:
+valid_vote1:
   user: bob
   work_id: 1
+
+  valid_vote2:
+    user:yasmin
+    work_id: 2
 
