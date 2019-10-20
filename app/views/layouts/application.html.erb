@@ -54,10 +54,10 @@
 
     <div class="login_logout">
       <% if session[:user_id] %>
-          <button type="button" class="btn btn-outline-dark"><%= link_to "Logged in as #{User.username_by_id(session[:user_id])}", current_user_path, class: "nav-link" %></button>    
-          <button type="button" class="btn btn-outline-dark"><%= link_to "Logout", logout_path, method: :post, class: "nav-link", class: "login-link" %></button>
+          <button type="button" class="btn btn-login-logout"><%= link_to "Logged in as #{User.username_by_id(session[:user_id])}", current_user_path, class: "nav-link" %></button>    
+          <button type="button" class="btn btn-login-logout"><%= link_to "Logout", logout_path, method: :post, class: "nav-link", class: "login-link" %></button>
       <% else %>
-          <button type="button" class="btn btn-outline-dark"><%= link_to "Login", login_path, class: "nav-link", class: "login-link" %></button>
+          <button type="button" class="btn btn-login-logout"><%= link_to "Login", login_path, class: "nav-link", class: "login-link" %></button>
       <% end %>
       </nav>   
     </div>

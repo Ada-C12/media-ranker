@@ -95,13 +95,13 @@ class Work < ApplicationRecord
     
     if points
       if upvotes && !downvotes
-        return "- Highly Rated :)"
+        return "- Highly Rated on MediaRanker"
       elsif downvotes && !upvotes
-        return "- Poorly Rated :("
-      elsif points > 0 && upvotes > downvotes
-        return "- Highly Rated :)"
-      elsif points < 0 || downvotes > upvotes
-        return "- Poorly Rated :("
+        return "- Poorly Rated on MediaRanker"
+      elsif points > 0 && upvotes > downvotes && upvotes > 1
+        return "- Highly Rated on MediaRanker"
+      elsif points < 0 || downvotes > upvotes 
+        return "- Poorly Rated on MediaRanker"
       else
         return nil
       end

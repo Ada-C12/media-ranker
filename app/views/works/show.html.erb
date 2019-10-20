@@ -10,11 +10,12 @@
       <% end %>
 
       <% if vote.blank? %>
+        <% points = @work.vote_count %>
           <div class="vote-active upvote">
             <%= link_to "↑", work_upvote_path(@work.id), method: :post, class: "vote-link upvote" %>
           </div>
           
-          <span class="badge"> <%= @work.vote_count %> </span>
+          <span class="badge"> <%= points %> </span>
           
           <div class="vote-active downvote">
             <%= link_to "↓", work_downvote_path(@work.id), method: :post, class: "vote-link downvote" %>
@@ -25,7 +26,7 @@
           <%= link_to "↑", vote_path(vote.id), method: :delete %>
         </div>
         
-        <span class="badge"> <%= @work.vote_count %> </span>
+        <span class="badge"> <%= points %> </span>
         
         <div class="vote-disabled downvote">
             <%= link_to "↓", changevote_path(id: vote.id), method: :post %>
@@ -36,7 +37,7 @@
             <%= link_to "↑", changevote_path(id: vote.id), method: :post %>
         </div>
         
-        <span class="badge"> <%= @work.vote_count %> </span>
+        <span class="badge"> <%= points %> </span>
 
         <div class="alreadyvote downvote">
           <%= link_to "↓", vote_path(vote.id), method: :delete %>
@@ -46,17 +47,27 @@
     </section>
 
     <section id="show-works-details">
-      <p>Submited <%= readable_date(@work.created_at) %> <p>
-      <h4 id='show-works-category'><%= @work.category.upcase %></h4>
-      <h1><%= @work.title %>
-        <% current_user = User.find_by(id: session[:user_id])%>
-        <% if !current_user.nil? && current_user.already_voted?(@work.id) %>
+    <% submitted = readable_date(@work.created_at) %>
+    <% category = @work.category %>
+    <% title = @work.title %>
+    <% creator = @work.creator %>
+    <% publication_year = @work.publication_year %>
+    <% points = @work.vote_count %>
+    <% total_votes = @work.votes.count %>
+    <% description = @work.description %>
+    <% current_user = User.find_by(id: session[:user_id])%>
+    <% current_user_already_voted = current_user.already_voted?(@work.id) %>
+
+      <p>Submited <%= submitted %> <p>
+      <h4 id='show-works-category'><%= category.upcase %></h4>
+      <h1><%= title %>
+        <% if !current_user.nil? && current_user_already_voted %>
           <small class="you-voted">  - You voted!</small>
         <% end %>
       </h1>
-      <h4>by <%= @work.creator %> (<%= @work.publication_year %>)</h4>
-      <p><%= @work.vote_count %> Point<%= s_end?(@work.vote_count)%>  | <%= @work.votes.count %> Vote<%= s_end?(@work.votes.count)%> </p>
-      <p><%= @work.description %></p>
+      <h4>by <%= creator %> (<%= publication_year %>)</h4>
+      <p><%= points %> Point<%= s_end?(points)%>  | <%= total_votes %> Vote<%= s_end?(total_votes)%> </p>
+      <p><%= description %></p>
     </section>
   </header>
   

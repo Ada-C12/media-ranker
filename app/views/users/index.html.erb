@@ -15,12 +15,16 @@
 
       
       <% User.all.order(created_at: :desc).each do |user| %>
+          <% total_votes = user.votes %>
+          <% upvotes = user.upvotes %>
+          <% downvotes = user.downvotes %>
+          
           <tr>
             <td><%= link_to user.username, user_path(user.id) %></td>
             <td><%= readable_date(user.created_at) %></td>
-            <td><%= user.votes.count %></td>
-            <td><%= user.upvotes.count %></td>
-            <td><%= user.downvotes.count %></td>
+            <td><%= total_votes.count if total_votes %></td>
+            <td><%= upvotes.count if upvotes %></td>
+            <td><%= downvotes.count if downvotes %></td>
           </tr>
       <% end %>
       </tbody>
