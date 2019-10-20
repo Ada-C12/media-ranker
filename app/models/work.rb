@@ -10,7 +10,7 @@ class Work < ApplicationRecord
 
   def self.top_ten(category)
     works = Work.where(category: category).sort_by{|work| work.votes.length}.reverse
-    top_ten = works.slice(0,9)
+    top_ten = works.slice(0,10)
     return top_ten
   end 
 end

@@ -1,7 +1,7 @@
 <main id="spotlight">
   <% random = @works.sample %>
   <h2>
-    Spotlight: <%= link_to Work.spotlight.title, work_path(Work.spotlight.id)%>
+    Media Spotlight: <%= link_to Work.spotlight.title, work_path(Work.spotlight.id)%>
     <small>by <%= Work.spotlight.creator %></small>
   </h2>
   <p><%= Work.spotlight.votes.length %> votes - Synopsis: <%= Work.spotlight.description %></p>

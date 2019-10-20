@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @albums.each do |album| %>
+      <% @albums.sort_by{|album| album.votes.length}.reverse.each do |album| %>
       <tr>
         <td><%= Vote.where(work_id: album.id).length %></td>
         <td><%= link_to album.title, work_path(album.id), method: :get %></td>
@@ -39,7 +39,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @books.each do |book| %>
+      <% @books.sort_by{|book| book.votes.length}.reverse.each do |book| %>
       <tr>
         <td><%= Vote.where(work_id: book.id).length %></td>
         <td><%= link_to book.title, work_path(book.id), method: :get%></td>
@@ -65,7 +65,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @movies.each do |movie| %>
+      <% @movies.sort_by{|movie| movie.votes.length}.reverse.each do |movie| %>
       <tr>
         <td><%= Vote.where(work_id: movie.id).length %></td>
         <td><%= link_to movie.title, work_path(movie.id), method: :get %></td>
