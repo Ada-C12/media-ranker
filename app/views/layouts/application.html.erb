@@ -33,13 +33,14 @@
 
         <% if session[:user_id] != nil %>
 <li class ="nav-item app-heading__nav_item">
-You are logged in as <%= User.find_by(id: session[:user_id]).username %>    </li>
+  <a class="nav-link">
+You are logged in as <%= User.find_by(id: session[:user_id]).username %> </a></li>
 <li class="nav-item app-header__nav_item">
-<%= link_to 'Log Out', logout_path, method: :post %>
+<a class="nav-link"> <%= link_to 'Log Out', logout_path, method: :post %> </a>
 </li>
 <% else %>
 <li class="nav-item app-header__nav_item">
-<%= link_to 'Log In', login_path %>
+<a class="nav-link"> <%= link_to 'Log In', login_path %> </a>
 </li>
 <% end %>
 
