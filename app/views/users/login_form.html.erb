@@ -3,9 +3,14 @@
 
 <%= form_with model: @user, url: login_path do |f| %>
 
+  <%= f.label :username  %>
+  <%= f.text_field :username %> 
+
+  <%= f.submit "Log In" %> 
+
   <div class="form-group">
     <label><%= f.label :username  %></label>
-    <input class="form-control" name="work[title]">
+    <input class="form-control" name="work[username]">
   </div>
 
   <input class="btn btn-primary" <%= f.submit "Log In" %> 
