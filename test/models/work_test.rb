@@ -12,8 +12,12 @@ describe Work do
   
   describe "relationships" do
     it "can have many votes" do
-      
-      
+      valid_work = works(:work2)
+
+      expect(valid_work.votes.count).must_equal 4
+      valid_work.votes.each do |vote|
+        expect(vote).must_be_instance_of Vote
+      end      
     end
   end
   
@@ -26,15 +30,25 @@ describe Work do
       assert( is_valid )
     end
 
-    it "gives an error if there is no title" do
+    it "must have a title, otherwise an error message" do
       is_invalid = works(:work1)
       is_invalid.title = nil
       
       # Assert
-      expect(is_invalid.valid?).must_equal false
+      refute(is_invalid.valid?)
       expect(is_invalid.errors.messages).must_include :title
       expect(is_invalid.errors.messages[:title]).must_equal ["can't be blank"]
     end
+
+    it "gives an error for new work creation if title already exist in a category" do
+      is_invalid = Work.create(category: "book", title: "The Fall")
+
+      refute(is_invalid.valid?)
+      expect(is_invalid.errors.messages).must_include :title
+      expect(is_invalid.errors.messages[:title]).must_equal ["has already been taken"]
+
+    end
+
   end
   
   describe "custom methods" do
