@@ -15,14 +15,24 @@ describe User do
       expect(existing_user.valid?).must_equal true
     end
     
-    # I've not had success with invalidating an empty entry. I added a 'required' 
-    # parameter to the login form instead.
+    it 'is not valid when username is nil' do
+      @test_user.username = nil
+      expect(@test_user.valid?).must_equal false
+      expect(@test_user.errors.messages).must_include :username
+    end
   end
   
   describe 'relations' do
-    it 'a user can have many votes' do
+    before do
+      @test_user = User.create!(username: "primo")
+    end
+    it 'permits a user to have many votes' do
       user = users(:hallie)
       expect(user.votes.count).must_equal 2
+    end
+    
+    it 'permits a user to have zero votes' do
+      expect(@test_user.votes.count).must_equal 0
     end
     
   end
