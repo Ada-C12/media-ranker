@@ -41,7 +41,6 @@ class Work < ApplicationRecord
   end
 
   def upvote(user_id)
-    current_vote_count = self.votes.count
     new_vote = Vote.new(user_id: user_id, work_id: self.id)
     if new_vote.valid?
       self.votes << new_vote
