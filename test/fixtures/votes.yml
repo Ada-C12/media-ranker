@@ -1,12 +1,12 @@
-hal_movie:
-  user: hallie
-  work: rocky
 hal_book:
   user: hallie
-  work: joe_treat
-milo_movie:
+  work: green
+hal_album:
+  user: hallie
+  work: blue
+milo_book:
   user: milo
-  work: rocky
+  work: green
 kathy_album:
   user: kathy
   work: wake-up

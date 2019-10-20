@@ -159,24 +159,4 @@ huggy_star:
   publication_year: 1962
   description: Voluptatem ea aspernatur nesciunt ipsa quis error corporis placeat.
   votes_count: 0
-rudy:
-  category: movie
-  title: Rudy
-  creator: Joe Schmoe
-  publication_year: 1986
-  description: Little guy scores big.
-  votes_count: 0
-league:
-  category: movie
-  title: A League of Their Own
-  creator: Penny Marshall
-  publication_year: 1992
-  description: The all American women's baseball league.
-  votes_count: 0
-rocky:
-  category: movie
-  title: Rocky
-  creator: Sylvester Stallone
-  publication_year: 1976
-  description: Underdog boxing movie.
-  votes_count: 0
+

@@ -4,7 +4,7 @@ describe Work do
   describe 'validations' do
     before do
       # Arrange
-      @work = Work.new(category: "movie", title: "A River Runs Through It", creator: "Robert Redford", publication_year: 1991, description: "Fly fishing in Montana")
+      @work = Work.new(category: "book", title: "A River Runs Through It", creator: "Norman Maclean", publication_year: 1991, description: "Fly fishing in Montana")
     end
     
     it 'is valid when all fields are present' do
@@ -25,7 +25,7 @@ describe Work do
     end
     
     it 'is invalid if the title is not unique within the same category' do
-      @work.title = works(:rocky).title
+      @work.title = works(:green).title
       
       expect(@work.valid?).must_equal false
       expect(@work.errors.messages).must_include :title
@@ -34,7 +34,7 @@ describe Work do
   
   describe 'relations' do
     it 'a work can have many votes' do
-      work = works(:rocky)
+      work = works(:green)
       expect(work.votes.count).must_equal 2
     end
   end
@@ -48,6 +48,10 @@ describe Work do
       expect(book_list[0].category).must_equal 'book'
       expect(book_list[-1].category).must_equal 'book'
       expect(book_list.count).must_equal 10
+      
+      movie_list = all_works.media_sort('movie')
+      expect(movie_list.count).must_equal 0
+      expect(movie_list.first).must_equal nil
     end
     
     it 'properly identifies the top voted work' do
@@ -64,8 +68,8 @@ describe Work do
       expect(top_albums.first).must_equal works(:winter)
       expect(top_albums.last).must_equal works(:goodbye)
       
-      top_movies = Work.top_ten('movie') #There are 0 voted movies
-      expect(top_movies.count).must_equal 3
+      top_books = Work.top_ten('book') #There are 0 voted books
+      expect(top_books.count).must_equal 10
     end
   end
 end
