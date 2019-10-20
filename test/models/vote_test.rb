@@ -34,15 +34,6 @@ describe Vote do
       
     end
     
-    it "is invalid without a date" do
-      
-      @vote.date = nil
-      
-      expect(@vote.valid?).must_equal false
-      expect(@vote.errors.messages).must_include :date
-      
-    end
-    
   end
   
 end

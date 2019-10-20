@@ -56,6 +56,26 @@ describe Work do
       end
       
     end
+
+    describe 'top_ten' do
+      
+      it 'only adds works with at least one vote' do
+        # test_list = Work.alpha_works
+        
+        # expect( test_list[0].title ).must_equal works(:kindred).title
+        # expect( test_list[-1].title ).must_equal works(:bride).title
+        
+      end
+
+      it "works are in the expected order" do
+
+      end
+
+      it "returns the expected number of works" do
+
+      end
+      
+    end
     
   end
   
