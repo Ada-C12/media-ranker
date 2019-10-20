@@ -2,7 +2,7 @@ class Work < ApplicationRecord
   has_many :votes#, dependent: :nullify
   validates :title, presence: true
   validates :category, presence: true
-  validates :release_date, numericality: { only_integer: true}
+  validates :release_date, numericality: { only_integer: true, less_than_or_equal_to: 9999 }
 
   def self.sort_works(works)
     hash = {}
