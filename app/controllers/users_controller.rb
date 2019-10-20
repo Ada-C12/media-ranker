@@ -11,25 +11,30 @@ class UsersController < ApplicationController
     end
   end
 
-  def login_form 
-    @user = User.new 
-  end 
+  def login_form
+    @user = User.new
+  end
+
   def login
     username = params[:user][:username]
-    user = User.find_by(username: username)
-    if user
-      session[:user_id] = user.id
+    return_user = User.find_by(username: username)
+    if return_user
+      session[:user_id] = return_user.id
       flash[:success] = "Successfully logged in as returning user #{username}"
     else
-      new_user = User.create(username: username)
-      session[:user_id] = new_user.id
-      flash[:success] = "Successfully logged in as new user #{username}"
+      @user = User.new(username: username)
+      session[:user_id] = @user.id
+      if @user.save
+        flash[:success] = "Successfully logged in as new user #{username}"
+      else
+        render :login_form
+        return 
+      end
     end
-  
+
     redirect_to root_path
-  
   end
- 
+
   def logout
     @user = User.find_by(id: session[:user_id])
 
@@ -40,11 +45,11 @@ class UsersController < ApplicationController
       flash[:error] = "Unsuccessfully logged out"
     end
     redirect_to root_path
-  end 
+  end
 
   private
+
   def user_params
     return params.require(:user).permit(:username)
   end
-
 end

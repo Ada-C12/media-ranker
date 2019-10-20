@@ -2,7 +2,9 @@
       <section class="spotlight">
     <h2 class="spotlight__header">
       <span class="spotlight__header--prefix">Media Spotlight</span>
-      <%=link_to" #{@spotlight.title} by #{@spotlight.creator}",work_path(@spotlight.id)%> 
+      <%=link_to" #{@spotlight.title} ",work_path(@spotlight.id),class: "spotlight__link-to" %> by <%=@spotlight.creator%>
+
+     
     </h2>
     <p class="spotlight__description">
       <%=@spotlight.votes.length%> Votes 

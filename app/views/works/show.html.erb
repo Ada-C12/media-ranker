@@ -9,7 +9,7 @@
 
 
 <section class="works-votes__container">
-<h3 class="works-votes__header"> <%=@work.votes.length%> Votes for this <%=@work.category%></h3>
+<h3 class="works-votes__header"> <%=@work.votes.length%> Votes for this <%=@work.category.capitalize%></h3>
 <table class="table">
   <tr>
     <th>User</th>
@@ -20,7 +20,7 @@
    
    <% @work.votes.each do |vote| %>
   <tr>
-    <td> <%=vote.user.username %></td>
+    <td> <%= link_to vote.user.username, user_path(vote.user.id) %></td>
     <td><%=readable_date(vote.created_at)%></td>
   </tr>
   <% end %>
