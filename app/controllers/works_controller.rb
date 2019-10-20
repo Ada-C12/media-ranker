@@ -24,7 +24,7 @@ class WorksController < ApplicationController
 
       redirect_to work_path(@work.id)
     else
-      flash.now[:warning] = "A problem occurred: Could not create #{@work.category}"#
+      flash.now[:error] = "A problem occurred: Could not create #{@work.category}"#
       render new_work_path #:edit also works
     end
   end
@@ -52,12 +52,12 @@ class WorksController < ApplicationController
     the_correct_work = Work.find_by( id: params[:id] )
 
     if the_correct_work.nil?
+      flash.now[:error] = "Could not delete work."
       redirect_to works_path
-      return
     else
       the_correct_work.destroy
+      flash[:success] = "Successfully destroyed #{the_correct_work.category} #{the_correct_work.id}"
       redirect_to root_path
-      return
     end
   end
 

@@ -1,11 +1,10 @@
 <html>
-  <main>
+
     <% if @work.errors.any? %>
     <% flash.each do |key, value| %>
-    
       <div class= "alert alert-warning" class=<%= flash_class(key)%> >
       <% unless flash[key].blank? %>
-        <%= value %>
+       <span><%= value %></span>
         <% end %>
         <ul>
         <% @work.errors.each do |column, message| %>
@@ -17,6 +16,7 @@
       </div>
     <% end %>
     <% end %>
+  <main>
 
     <h2>Add a new work</h2>
 

@@ -37,21 +37,21 @@
               <%= link_to "Log In", login_path, class:"btn btn-primary" %>
             <% elsif session[:user_id] %>
               <%= link_to "Logged in as user!", user_path(session[:user_id]), class:"btn btn-primary" %>
+              <%= link_to "Logout", logout_path, method: :post, class:"btn btn-primary" %>
             <% end %>
-          </li>
-
-          <li class="nav-item app-header__nav_item">
-            <%= link_to "Logout", logout_path, method: :post, class:"btn btn-primary" %>
           </li>
         </ul>
       </nav>
   </header>
   <body>
-      <section class="user-messages">
-        <% flash.each do |name, message| %>
-          <div class="<%= name %>"><%= name.capitalize %>: <%= message %></div>
-        <% end %>
-      </section>
+
+    <% flash.each do |key, value| %>
+      <div class= "alert alert-<%key%>" class=<%= flash_class(key)%> >
+      <% unless flash[key].blank? %>
+       <span><%= value %></span>
+       <% end %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

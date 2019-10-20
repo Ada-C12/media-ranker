@@ -1,28 +1,28 @@
-    <% flash.each do |key, value| %>
-    <div class= "alert alert-warning" class=<%= flash_class(key)%> >
-     <% unless flash[key].blank? %>
-      <%= value %>
-      <% end %>
-
-    </div>
-    <% end %>
-
-    <% if @work.errors.any? %>
-    <div class="alert alert-warning">
-      <ul>
-        <% @work.errors.each do |column, message| %>
-          <li>
-            <strong><%= column %></strong> <%= message %>
-          </li>
-      <% end %>
-      </ul>
-    </div>
-    <% end %>
-
 
 <% flash.each do |message_type, message| %>
   <div class="alert alert-<%= message_type %>"><%= message %></div>
 <% end %>
+
+
+
+
+
+    <% if @work.errors.any? %>
+    <% flash.each do |key, value| %>
+      <div class= "alert alert-warning" class=<%= flash_class(key)%> >
+      <% unless flash[key].blank? %>
+       <span><%= value %></span>
+        <% end %>
+        <ul>
+        <% @work.errors.each do |column, message| %>
+          <li>
+            <%= column %>: <%= message %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <% end %>
 
 
 
