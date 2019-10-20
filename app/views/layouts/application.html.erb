@@ -44,27 +44,26 @@
             <%= link_to "Log In", login_path, class:"btn btn-primary" %>
           </li>
         <% end %>
-
       </ul>
     </nav>
-  </header>
-  <section class="alert__container">
+    </header>
+    <section class="alert__container">
   
-    <% if flash[:message]%>
-      <div class="alert alert-success"> 
-        <span><%= flash[:message]%></span>
-      </div>
-    <% end %>
+      <% if flash[:message]%>
+        <div class="alert alert-success"> 
+          <span><%= flash[:message]%></span>
+        </div>
+      <% end %>
 
-    <% if flash[:error] %>
-      <div class="alert alert-warning">
-        <span>A problem occurred: Could not upvote</span>
-        <ul>
-          <li><%= flash[:error] %></li>
-        </ul>
-      </div>
-    <% end %>
-</section>
+      <% if flash[:error] %>
+        <div class="alert alert-warning">
+          <span>A problem occurred: Could not upvote</span>
+          <ul>
+            <li><%= flash[:error] %></li>
+          </ul>
+        </div>
+      <% end %>
+    </section>
     <%= yield %>
   </body>
 </html>

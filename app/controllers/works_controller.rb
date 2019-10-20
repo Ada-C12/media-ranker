@@ -41,6 +41,7 @@ class WorksController < ApplicationController
       return
     end
     if @work.update(work_params)
+      flash[:message] = "Successfully updated #{@work.category} ID #{@work.id}"
       redirect_to work_path(@work.id)
     else
       render new_work_path
@@ -63,7 +64,7 @@ class WorksController < ApplicationController
   def upvote
     work = Work.find_by(id: params[:id])
     found_user = User.find_by(id: session[:user_id])
-    # exiting_vote = Vote.find_by(work_id: params[:id], user)
+    
     if found_user
       vote = Vote.new(work: work, user: found_user)
       if vote.save

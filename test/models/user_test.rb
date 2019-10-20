@@ -28,7 +28,7 @@ describe User do
       assert( is_valid )
     end
     
-    it "must have a username" do
+    it "must have a username, otherwise an error message" do
       is_invalid = users(:user1)
       is_invalid.username = nil
       

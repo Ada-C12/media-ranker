@@ -45,7 +45,4 @@ class UsersController < ApplicationController
     return redirect_to root_path
   end
   
-  # def current
-  #   @user = User.find_by(id: session[:user_id])
-  # end
 end
