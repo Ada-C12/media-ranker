@@ -5,6 +5,16 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+
+  def show
+    user_id = params[:id]
+    @user = User.find_by(id: user_id)
+    if @user.nil?
+      redirect_to users_path
+      return
+    end     
+  end
+
   def login_form
     @user = User.new
   end

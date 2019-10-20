@@ -31,11 +31,11 @@ class WorksController < ApplicationController
     @work = Work.new(work_params) 
     if @work.save 
       flash[:success] = "work added successfully"
-     redirect_to  works_path
+     redirect_to  work_path(@work.id)
       return
     else 
       flash.now[:failure] = "A problem occurred: Could not create album
-title: can't be blank failed to save" 
+      title: can't be blank failed to save" 
       puts "failed work"
       render :new
       return

@@ -1,6 +1,6 @@
 
-<h2>User Summary: <%= link_to "#{@user}", user_path %></h2>
-<%# <h3>Joined site <%= @user.created_at.strftime("%b %d, %Y")%></h3>  %>
+<h2>User Summary: <%= @user.username %></h2>
+<h4>Joined site <%=@user.created_at.to_date%></h4> 
 <h2>Votes</h2>
 <table>
   <thead>
@@ -13,22 +13,26 @@
     </tr>
   </thead>
 
+  <tbody>
+    <tr>
+     <% @user.votes.each do |vote|%> 
+     <tr>
+      <td><%= link_to vote.work.title, work_path(vote.work_id)%></td>
+      <td><%= vote.work.creator %></td>
+      <td><%= vote.work.publication_year %></td>
+      <td><%= vote.work.category %></td>
+      <td><%= @user.created_at.to_date %></td> 
+    </tr>
+    <% end %> 
+    </tbody>
 
-  <tr>
-     <%# <% @votes.each do |vote| %>     %>
-        <%# <%= link_to vote.work.title, work_path(vote.work_id)%> %>
-         <%# <%= vote.work.creator %>   %>
-         <%# <%= vote.work.publication_year %>  %>
-         <%# <%= vote.work.category %>  %>
-         <%# <%= vote.work.created_at.strftime("%b %d, %Y") %> %>
-      </tr>
-    <%# <% end %> %>
-    </table>
+  </table>
 
 
 
- <%= link_to "see all Users", users_path %><a>
- <%= link_to "Back to Media List", root_path %><a>
+ <%= link_to "see all Users", users_path, class:"btn-secondary" %><a>
+ <%= link_to "Back to Media List", root_path, class:"btn-primary" %><a>
+
 
 
 

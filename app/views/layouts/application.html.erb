@@ -4,9 +4,11 @@
     <title>Media Ranker 2.0</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag  %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
   <body>
     <header class="jumbotron rounded-0 pb-2">
       <div class="container mb-5">
@@ -14,13 +16,15 @@
           <div class="col col-lg-1">
           </div>
           <div class="col-md-auto d-flex">
-            <h1 class=""><%= link_to "Media Ranker", root_path, class: "text-danger"%></h1>
+            <h1> <%= link_to "Media Ranker", root_path, class: "text-danger"%></h1>
             <h1 class="text-white"> | Ranking the Best of Everything</h1>
           </div>
+
           <div class="col col-lg-1">
           </div>
         </div>
       </div>
+      
       <ul class="nav row">
         <li class="col-sm nav-item">
           <%= link_to "View top media", root_path, class: "nav-link" %>

@@ -3,5 +3,5 @@ class Vote < ApplicationRecord
   belongs_to :work
   validates :work, presence: true
   validates :user, uniqueness: { scope: :work,
-    message: "you can nlt vote twice" }
+    message: "you can not vote twice" }
 end
