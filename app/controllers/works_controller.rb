@@ -72,7 +72,7 @@ class WorksController < ApplicationController
         return
       else
         flash[:error] = "Deletion failed for some reason"
-        render
+        redirect_to nope_path
         return
       end
     else
