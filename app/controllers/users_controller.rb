@@ -6,6 +6,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+
+    if @user.nil?
+      head :not_found
+      return
+    end 
   end 
 
   def login_form
@@ -16,9 +21,9 @@ class UsersController < ApplicationController
     username = params[:username]
 
     user = User.find_by(username: username)
-    if user
+    if user != nil
       session[:id] = user.id
-      # make sure these names are named the same.
+      # make sure the session keys are named the same.
 
       flash[:success] = "Successfully logged in as returning user #{username}"
     else
@@ -35,7 +40,6 @@ class UsersController < ApplicationController
   def logout
     session[:id] = nil
 
-    # @current_user = User.find_by(id: session[:user_id])
     flash[:success] = "You are now logged out"
     redirect_to root_path 
   end 

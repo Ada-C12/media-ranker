@@ -14,6 +14,10 @@ describe Vote do
 
       expect(votes(:vote_1).work_id).must_equal works(:exmachina).id
     end 
+
+    it "can access the user for each vote" do
+      expect(votes(:vote_1).user_id).must_equal users(:user_1).id
+    end 
   end
 
   describe "instantiations" do
