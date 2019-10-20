@@ -56,14 +56,19 @@ class Work < ApplicationRecord
   def upvote_count
     votes = self.votes
     if votes && !votes.empty?
-      return self.votes.where(vote_type: "upvote").count
+      return self.upvotes.count
     else
       return nil
     end
   end
 
   def downvote_count
-    return self.votes.where(vote_type: "downvote").count
+    votes = self.votes
+    if votes && !votes.empty?
+      return self.downvotes.count
+    else
+      return nil
+    end
   end
 
   def upvotes
@@ -79,6 +84,29 @@ class Work < ApplicationRecord
       return nil
     else
       return self.votes.where(vote_type: "downvote").order(:created_at)
+    end
+  end
+
+
+  def rated?
+    points = self.votes.count
+    upvotes = self.upvotes.count
+    downvotes = self.downvotes.count
+    
+    if points
+      if upvotes && !downvotes
+        return "- Highly Rated :)"
+      elsif downvotes && !upvotes
+        return "- Poorly Rated :("
+      elsif points > 0 && upvotes > downvotes
+        return "- Highly Rated :)"
+      elsif points < 0 || downvotes > upvotes
+        return "- Poorly Rated :("
+      else
+        return nil
+      end
+    else 
+      return nil
     end
   end
 

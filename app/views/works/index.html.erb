@@ -5,20 +5,19 @@
     <table class="table table-hover">
       <thead>
         <tr class='table-header'>
-          <th scope="col">UPVOTES</th>
-          <th scope="col">DOWNVOTES</th>
-          <th scope="col">POINTS</th>
+          <th scope="col">POINTS</th>          
+          <th scope="col">UPVOTE</th>
+          <th scope="col">DOWNVOTE</th>
           <th scope="col">CATEGORY</th>
           <th scope="col">TITLE</th>
           <th scope="col">CREATOR</th>
           <th scope="col">PUBLISHED</th>
-          <th scope="col">EDIT</th>
-          <th scope="col">DELETE</th>
         </tr>
       </thead>
 
       <% Work.all_by_votes.each do |work| %>
           <tr>
+            <td><%= work.vote_count %></td>
             <section class="voting-sect">
               <% current_user = User.find_by(id: session[:user_id])%>
               <% if current_user.nil? %>
@@ -64,13 +63,11 @@
               <% end %>
             </section>
   
-            <td><%= work.vote_count %></td>
             <td><%= work.category %></td>
             <td><%= link_to work.title, work_path(work.id) %></td>
             <td><%= work.creator %></td>
             <td><%= work.publication_year %></td>
-            <td><%= link_to "Edit", edit_work_path(work.id), class: "edit-link" %></td>
-            <td><%= link_to "Delete", work_path(work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %></td>
+
           </tr>
         <% end %>
       </tbody>

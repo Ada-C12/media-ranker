@@ -8,7 +8,9 @@
         <%= link_to top_work.title, work_path(top_work) %> by <%= top_work.creator %>
       </span>
     </h2>
-    <p><%= top_work.description %> | <%= top_work.votes.count %> votes</p>
+    <p>
+      <%= top_work.description %> | <%= top_work.votes.count %> vote<%= s_end?(top_work.votes.count) %>  - <%= top_work.vote_count %> point<%= s_end?(top_work.vote_count) %>
+    </p>
   </section>
 
   <section id ="top-media-container">
@@ -65,18 +67,25 @@
             </section>
 
 
-          <section class="top-work-details">
-            <h4>
-              <%= link_to work.title, work_path(work.id) %>
-              <small>by <%= work.creator %></small>
-            </h4>
-            <p>Submited <%= work.created_at %> </p>
-            <p><strong><%= work.vote_count %> points</strong> | <%= work.votes.count %> votes
-              <% if !current_user.nil? && current_user.already_voted?(work.id) %>
-                <span class="you-voted">  - You voted!</span>
-              <% end %>
-            </p>    
-          </section>
+            <section class="top-work-details">
+              <% total_votes = work.votes.count %>
+              <% total_points = work.vote_count %>
+              
+              <h4>
+                <%= link_to work.title, work_path(work.id) %>
+                <small>by <%= work.creator %></small>
+              </h4>
+
+              <p>Submited <%= readable_date(work.created_at) %> </p>
+              
+              <p><strong><%= total_points %> point<%= s_end?(total_points) %> </strong> | <%= total_votes %> vote<%= s_end?(total_votes) %>
+                
+                <% if !current_user.nil? && current_user.already_voted?(work.id) %>
+                  <span class="you-voted">  - You voted!</span>
+                <% end %>
+              </p>    
+            </section>
+        
           </li>
         
         <% end %>

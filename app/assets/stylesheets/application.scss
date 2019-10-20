@@ -28,25 +28,50 @@ main {
   min-height: 100vh;
 }
 
-nav {
+nav, .bg-main-nav, footer{
   background-color: #fac105;
-  padding: 3%;
-  padding-bottom: 1%;
-  padding-top: 4%;
-}
-
-nav h1 {
+  padding: 2%;
   text-align: center;
 }
 
-nav ul {
-  display: flex;
-  justify-content: space-evenly;;
+.nav-header {
+  padding: 5%;
+  padding-top: 10%;
 }
 
-nav li {
-  width: 10%
+@media (max-width: 978px) {
+  .nav-header {
+    padding-top: 20%;
+  }
 }
+
+.bg-main-nav {
+  font-size: 1.2rem
+}
+
+.main-nav {
+  padding-left: 2%;
+  color: white;
+}
+
+
+.navbar-toggler-icon  {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+} 
+.navbar-toggler {
+  border-color: rgba(0,0,0,0.5);
+} 
+
+.login_logout {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 0;
+
+}
+.login_logout button {
+  margin-left: 0.5%
+}
+
 
 #logged-in-btn-container {
   display: flex;
@@ -54,8 +79,12 @@ nav li {
 }
 
 
-a {
+main a {
   color: #fa4f05;
+}
+
+a, footer {
+  color: white
 }
 
 a:hover {
@@ -154,6 +183,22 @@ form label {
   padding: 1.5%;
 }
 
+@media (max-width: 800px) {
+  #top-media-container {
+    display:flex;
+    flex-direction: column;
+  }
+  
+  .top-media-sect {
+    width: 90%;
+  }
+
+  #media-spotlight-container {
+    margin-top: 5%
+  }
+}
+
+
 .top-media-sect li {
   display: flex;
   border-bottom: solid rgba(250, 79, 5, 0.25) 1px;
@@ -163,7 +208,7 @@ form label {
   padding-left: 2%
 }
 
-.top-media-sect li:hover {
+.top-media-sect li:hover, #media-spotlight-container:hover {
   border: dotted 3px grey;
   border-radius: 25px
 }
@@ -242,4 +287,13 @@ form label {
 
 td, th {
   text-align: center;
+}
+
+.likes-dislikes-container {
+  display: flex;
+}
+
+.show-likes-sect {
+  padding-left: 5%;
+  padding-right: 5%
 }

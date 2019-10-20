@@ -46,61 +46,89 @@
     </section>
 
     <section id="show-works-details">
+      <p>Submited <%= readable_date(@work.created_at) %> <p>
       <h4 id='show-works-category'><%= @work.category.upcase %></h4>
-      <h1><%= @work.title %></h1>
+      <h1><%= @work.title %>
+        <% current_user = User.find_by(id: session[:user_id])%>
+        <% if !current_user.nil? && current_user.already_voted?(@work.id) %>
+          <small class="you-voted">  - You voted!</small>
+        <% end %>
+      </h1>
       <h4>by <%= @work.creator %> (<%= @work.publication_year %>)</h4>
-      <p><%= @work.vote_count %> Points - <%= @work.votes.count %> Votes </p>
+      <p><%= @work.vote_count %> Point<%= s_end?(@work.vote_count)%>  | <%= @work.votes.count %> Vote<%= s_end?(@work.votes.count)%> </p>
       <p><%= @work.description %></p>
     </section>
   </header>
-
   
   <section class="edit-delete-links">
-    <%= link_to "Edit", edit_work_path(@work.id), class: "edit-link" %>
-    <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
+    <button type="button" class="btn btn-secondary">
+      <%= link_to "Edit #{@work.title}", edit_work_path(@work.id), class: "edit-link" %>
+    </button>
+    <button type="button" class="btn btn-secondary">
+      <%= link_to "Delete #{@work.title}", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
+    </button>
   </section>
 
-  <% if @work.votes.count == 0 %>
-    <h4> There are no votes for <%= @work.title %> yet :( </h4>
-  <% else %> 
-    <section>
-      <h2> <%=@work.upvotes.count %> Likes</h2>
-      <table>
-        <tr>
-          <td>USER</td>
-          <td>DATE</td>
-        </tr>
-        <% @work.upvotes.each do |vote|%>
-          <tr>
-            <td><%= link_to vote.user.username, user_path(vote.user_id)%>
-            </td>
-            <td><%= vote.created_at %></td>
-          </tr>
-        <% end%>
-      </table>
-    </section>
+  <% total_votes = @work.votes %>
+  <% total_upvotes = @work.upvotes %>
+  <% total_downvotes = @work.downvotes %>
+  <h4> <%= total_votes.count %> Total Vote<%= s_end?(total_votes.count)%>
 
-    <section>
-      <h2> <%=@work.downvotes.count %> Dislikes</h2>
-      <table>
-        <tr>
-          <td>USER</td>
-          <td>DATE</td>
-        </tr>
-        <% @work.downvotes.each do |vote|%>
-          <tr>
-            <td><%= link_to vote.user.username, user_path(vote.user_id)%>
-            </td>
-            <td><%= vote.created_at %></td>
-          </tr>
-        <% end%>
-      </table>
-    </section>
-  
-  
-  
-  
-  
+    <% if total_votes.count > 0 %>
+      <%= @work.rated? %>
+    <% end %>
+  </h4>
+
+    <section class="likes-dislikes-container">
+      <% if total_votes.count == 0 %>
+        <h4> Add a new vote for <%= @work.title %>! </h4>
+      <% else %> 
+        <% if total_upvotes.count > 0 %>
+          <section class="show-likes-sect">
+            <h2> <%= total_upvotes.count %> Like<%= s_end?(total_upvotes.count)%> </h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Submited</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% total_upvotes.each do |vote|%>
+                  <tr>
+                    <td><%= link_to vote.user.username, user_path(vote.user_id)%>
+                    </td>
+                    <td><%= readable_date(vote.created_at) %></td>
+                  </tr>
+                <% end%>
+              </tbody>
+            </table>
+          </section>
+        <% end %>
+
+        <% if total_downvotes.count > 0 %>
+          <section class="show-dislikes-sect">
+            <h2> <%=total_downvotes.count %> Dislike<%= s_end?(total_downvotes.count)%></h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Submitted</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% total_downvotes.each do |vote|%>
+
+                  <tr>
+                    <td><%= link_to vote.user.username, user_path(vote.user_id)%>
+                    </td>
+                    <td><%= readable_date(vote.created_at) %></td>
+                  </tr>
+                <% end%>
+              </tbody>
+            </table>
+          </section>
+        <% end %>
   <% end %>  
 
 

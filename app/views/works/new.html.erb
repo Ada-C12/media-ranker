@@ -1,4 +1,4 @@
 <main>
 <h1>Add New Work</h1>
-  <%= render partial: "form", locals: { submit_button_label: "Create Work", work_form_class: "new-work-form" } %>
+  <%= render partial: "form", locals: { submit_button_label: "Create", work_form_class: "new-work-form", url_path: works_path, method: :post } %>
 </main>

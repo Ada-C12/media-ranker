@@ -11,4 +11,12 @@ module ApplicationHelper
     )
   end
 
+  def s_end?(num)
+    if num && num.abs != 1
+      return "s"
+    end
+  end
+
+
 end
+

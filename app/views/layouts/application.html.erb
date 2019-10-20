@@ -10,48 +10,70 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Gudea:400,700&display=swap" rel="stylesheet">
 
+    <%= favicon_link_tag asset_path('purple-monster.png') %>
   </head>
 
   <body>
-    <nav>
-    <h1>
-      <%= link_to "Media Ranker", root_path, class: "main-logo-link" %>
-      <small id="main-logo-sub">Ranking the Best of Everything</small>
-    </h1>
-    <ul>
-      <li><%= link_to "Top Media", root_path, class: "nav-link" %></li>
-      <li><%= link_to "All Media", works_path, class: "nav-link" %></li>
-      <li><%= link_to "Add New Media", new_work_path, class: "nav-link" %></li>
-      <li><%= link_to "View All Users", users_path, class: "nav-link"  %></li>
+    <nav class="nav-header">
+      <h1>
+        <%= link_to "Media Ranker", root_path, class: "main-logo-link" %>
+        <small id="main-logo-sub">Ranking the Best of Everything</small>
+      </h1>
+    </nav>
+
+
+    <nav class="navbar fixed-top navbar-expand-lg bg-main-nav">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to "Top Media", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Media
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to "All Media", works_path, class: "nav-link dropdown-item" %>
+              <%= link_to "Add New Media", new_work_path, class: "nav-link dropdown-item" %>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Users
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to "All Users", users_path, class: "nav-link dropdown-item"  %>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    <div class="login_logout">
       <% if session[:user_id] %>
-      <section id="logged-in-btn-container">
-        <li>
-        <button type="button" class="btn btn-outline-dark"><%= link_to "Logged in as #{User.username_by_id(session[:user_id])}", current_user_path, class: "nav-link" %></button>
-        </li>      
-        
-        <li>
+          <button type="button" class="btn btn-outline-dark"><%= link_to "Logged in as #{User.username_by_id(session[:user_id])}", current_user_path, class: "nav-link" %></button>    
           <button type="button" class="btn btn-outline-dark"><%= link_to "Logout", logout_path, method: :post, class: "nav-link", class: "login-link" %></button>
-        </li>
-      </section> 
       <% else %>
-        <li><%= link_to "Login", login_path, class: "nav-link", class: "login-link" %></li>
+          <button type="button" class="btn btn-outline-dark"><%= link_to "Login", login_path, class: "nav-link", class: "login-link" %></button>
       <% end %>
-      
-      
-    </ul>
-  </nav>
+      </nav>   
+    </div>
 
-  <section class="flash">
-    <% flash.each do |name, message| %>
-      <% if name == "success" %>
-        <div class="alert alert-success" role="alert" class="<%= name %>"><%= message %></div>
-      <% else %>
-        <div class="alert alert-danger" role="alert" class="<%= name %>"><%= message %></div>
+    <section class="flash">
+      <% flash.each do |name, message| %>
+        <% if name == "success" %>
+          <div class="alert alert-success" role="alert" class="<%= name %>"><%= message %></div>
+        <% else %>
+          <div class="alert alert-danger" role="alert" class="<%= name %>"><%= message %></div>
+        <% end %>
       <% end %>
-    <% end %>
-  </section>
-
+    </section>
 
     <%= yield %>
+  
+    <footer>© 2019 Emily Ball</footer>
   </body>
 </html>

@@ -27,14 +27,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find_by(id: params[:id])
-      
-    if @user.nil?
-      head :not_found
-      return
-    end
-  end
 
   def update
     @user = User.find_by(id: params[:id])

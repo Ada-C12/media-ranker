@@ -18,7 +18,7 @@ class User < ApplicationRecord
     if self.votes.empty?
       return nil
     else
-      return self.votes.where(vote_type: "upvote").order(:created_at)
+      return self.votes.where(vote_type: "upvote").order(created_at: :desc)
     end
   end
 
@@ -26,7 +26,7 @@ class User < ApplicationRecord
     if self.votes.empty?
       return nil
     else
-      return self.votes.where(vote_type: "downvote").order(:created_at)
+      return self.votes.where(vote_type: "downvote").order(created_at: :desc)
     end
   end
 

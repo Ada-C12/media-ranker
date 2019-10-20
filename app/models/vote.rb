@@ -38,3 +38,4 @@ class Vote < ApplicationRecord
     end
   end
 end
+

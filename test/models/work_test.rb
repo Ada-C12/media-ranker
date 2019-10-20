@@ -175,11 +175,17 @@ describe Work do
       end
     end
 
-    describe 'upvote_count' do
+    describe 'upvotes & upvote_count' do
+      it 'returns upvotes (ordered by creation date) and count of upvotes for given work' do
+        work = works[:new_work]
+        
+
+
+      end
       
     end
 
-    describe 'downvote_count' do
+    describe 'downvotes & downvote_count' do
     end
 
   end
