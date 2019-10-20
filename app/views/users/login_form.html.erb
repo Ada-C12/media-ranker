@@ -1,11 +1,14 @@
-<main>
+<main class="form-group">
 <h2>Log In</h2>
 
   <%= form_with model: @user, url: login_path do |f| %>
+  <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %>
-
+  </div>
+  <div class="form-group">
     <%= f.submit "Log In", class: "btn btn-primary" %>
+  </div>
   <% end %>
 
 </main>

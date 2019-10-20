@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(name: params[:user][:name])
     
-    
     if @user
       session[:user_id] = @user.id
       flash[:success] = "You have sucessfully logged in #{@user.name}"
@@ -29,6 +28,7 @@ class UsersController < ApplicationController
        else
         flash[:error] = "A problem occurred: Could not log in"
         redirect_back(fallback_location: :back)
+        @user = User.new(name: params[:user][:name])
       end
     end
     

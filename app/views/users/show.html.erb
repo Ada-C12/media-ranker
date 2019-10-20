@@ -1,6 +1,6 @@
 <main>
   <h2>User Summary: <%=link_to @user.name, user_path(@user.id)%></h2>
-  <p>Joined site <%=@user.created_at%></p>
+  <p>Joined site <%=pretty_date(@user.created_at)%></p>
   <section class="user-votes__container">
     <h3 class="user-votes__header">Votes</h3>
     <table class="table">
@@ -21,7 +21,7 @@
           <td><%=vote.work.creator%></td>
           <td><%=vote.work.publication_year%></td>
           <td><%=vote.work.category%></td>
-          <td><%=vote.created_at%></td>
+          <td><%=pretty_date(vote.created_at)%></td>
         </tr>
       <%end%>
     </tbody>
