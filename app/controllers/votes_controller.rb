@@ -31,10 +31,11 @@ class VotesController < ApplicationController
     )
     
     if @vote.save
-      flash[:success] = "You have successfully voted for #{@current_work.title}"
+      flash[:success] = "You have successfully voted"
       redirect_to works_path
       return
     else
+      flash[:error] = "You can't vote for the same media more than once"
       redirect_to work_path(params[:work_id])
       return
     end

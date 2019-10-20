@@ -7,13 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'csv'
-require 'date'
 
 CSV.foreach(Rails.root.join('db/media_seeds.csv'), headers: true) do |row|
   w = Work.new
   w.category = row['category']
   w.title = row['title']
   w.creator = row['creator']
-  w.publication_year = Date.strptime(row['publication_year'], '%Y')
+  w.publication_year = row['publication_year']
   w.save
 end

@@ -20,4 +20,5 @@ describe User do
       expect(text_user.errors.messages[:name]).must_equal ["can't be blank"]
     end
   end
+
 end

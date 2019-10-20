@@ -2,27 +2,23 @@ book_1:
   category: 'book'
   title: 'A'
   creator: 'a'
-  publication_year: Date.today.year - 100
+  publication_year: '2019-10-18 21:48:21.003403'
   description: 'aaa'
-  votes: 3
 book_2:
   category: 'book'
   title: 'B'
   creator: 'b'
-  publication_year: Date.today.year - 50
+  publication_year: '2019-10-18 21:48:21.003403'
   description: 'bbb'
-  votes: 2
 book_3:
   category: 'book'
   title: 'C'
   creator: 'c'
-  publication_year: Date.today.year - 30
+  publication_year: '2019-10-18 21:48:21.003403'
   description: 'ccc'
-  votes: 1
 album:
   category: 'album'
   title: 'Ghosteen'
   creator: 'Nick Cave & The Bad Seeds'
-  publication_year: Date.today.year
+  publication_year: '2019-10-18 21:48:21.003403'
   description: 'Top album this year'
-  votes: 0

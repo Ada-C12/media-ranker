@@ -1,10 +1,16 @@
-<div>
-  <% @top_work = @works.sample %>
-  <p> Media Spotlight: <%= link_to "#{@top_work.title}", work_path(@top_work.title) %> by <%= @top_work.creator %> </p>
-  <p> vote - <%= @top_work.description %> </p>
-</div>
+<section class="spotlight">
+  <h2 class="spotlight__header">
+    <span class="spotlight__header--prefix">Media Spotlight</span>
+    <%= link_to "#{Work.first.title} by #{Work.first.creator}", work_path(Work.first.id), class: "spotlight__link-to" %>
+  </h2>
+  <p class="spotlight__description">
+    <%= Work.first.votes.count %> Votes - Published: <%= Work.first.publication_year %>
+  </p>
+</section>
 
-<h3> Top Albums </h3>
+<br>
+
+<h3> Top#3 Albums </h3>
 <table class='table'>
   <tr>
     <th> Votes </th>
@@ -25,7 +31,7 @@
   <% end %>
 </table>
 
-<h3> Top Books </h3>
+<h3> Top#3 Books </h3>
 <table class='table'>
   <tr>
     <th> Votes </th>

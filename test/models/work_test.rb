@@ -50,12 +50,14 @@ describe Work do
     end
   end
 
-  describe "custom method(s)" do
-    it "top_three" do 
-      top_three = Work.top_three
-      expect(top_three.count).must_equal 3
-      expect(top_three.first.title).must_equal 'A'
-      expect(top_three.last.title).must_equal 'C'
+  describe "relationships" do
+    it "can have many votes" do
+      work = Work.first
+      
+      expect(work.votes.count).must_be :>, 0
+      work.votes.each do |vote|
+        expect(vote.must_be_instance_of Vote
+      end
     end
-  end 
+  end
 end
