@@ -22,9 +22,9 @@
           </thead>
           
           <tbody>
-            <%@works.where(category: "album").each do |work| %>
+            <%Work.sort_desc("album").each do |work| %>
               <tr>
-                <td width="80"><%=work.votes.count%></td>
+                <td width="80"><%=work.total_votes%></td>
                 <td><%=link_to work.title, work_path(work.id)%></td>
                 <td><%=work.creator%></td>  
                 <td><%=work.publication_year%></td> 
@@ -49,9 +49,9 @@
           </thead>
           
           <tbody>
-            <%@works.where(category: "book").each do |work| %>
+            <%Work.sort_desc("book").each do |work| %>
               <tr>
-                <td><%=work.votes.count%></td>
+                <td><%=work.total_votes%></td>
                 <td><%= link_to work.title, work_path(work.id)%></td>
                 <td><%=work.creator%></td>  
                 <td><%=work.publication_year%></td>
@@ -76,9 +76,9 @@
           </thead>
           
           <tbody>
-            <%@works.where(category: "movie").each do |work| %>
+            <%Work.sort_desc("movie").each do |work| %>
               <tr>
-                <td><%=work.votes.count%></td>
+                <td><%=work.total_votes%></td>
                 <td><%=link_to work.title, work_path(work.id)%></td>
                 <td><%=work.creator%></td>  
                 <td><%=work.publication_year%></td>
@@ -89,10 +89,8 @@
         </table>
       </section>
 
-
-<%# <a class="btn btn-secondary" href="/">View top media</a>
-<a class="btn btn-primary" href="/works/new">Add a new work</a> %>
-
+      <%=link_to "View top media", root_path, :class=>"btn btn-secondary"%>
+      <%=link_to "Add a new work", new_work_path, :class=>"btn btn-primary"%> 
 
     </main>
   </body>

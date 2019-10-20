@@ -12,6 +12,7 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.new(work_params) 
+    @work.total_votes = 0
     if @work.save
       redirect_to work_path(@work.id) 
       return
@@ -45,7 +46,7 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description, :total_votes)
   end
 
   def find_work

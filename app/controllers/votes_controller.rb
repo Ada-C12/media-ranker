@@ -8,6 +8,8 @@ class VotesController < ApplicationController
       if @work.votes.find_by(user_id: user.id) == nil
         vote.save
         flash[:success] = "Successfully voted!"
+        new_votes_total = @work.total_votes + 1
+        @work.update(total_votes: new_votes_total)
       else 
         flash[:failure] = "You cannot vote more than once for same work."
       end

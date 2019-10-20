@@ -18,16 +18,22 @@ class UsersController < ApplicationController
 
   def login
     name = params[:user][:name]
-    user = User.find_by(name: name)
-    if user
-      session[:user_id] = user.id
-      flash[:success] = "Successfully logged in as returning user #{name}"
+    
+    if name == ""
+      flash[:failure] = "Name cannot be blank"
+      redirect_to login_path
     else
-      user = User.create(name: name)
-      session[:user_id] = user.id
-      flash[:success] = "Successfully logged in as #{name}"
+      user = User.find_by(name: name)
+      if user
+        session[:user_id] = user.id
+        flash[:success] = "Successfully logged in as returning user #{name}"
+      else
+        user = User.create(name: name)
+        session[:user_id] = user.id
+        flash[:success] = "Successfully logged in as #{name}"
+      end  
+      redirect_to root_path   
     end
-    redirect_to root_path
   end
 
   def current
