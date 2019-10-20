@@ -7,8 +7,7 @@
   <section>
 <a class="btn btn-primary" href="/works"> Back to All Media Works </a>
 <a class="btn btn-primary" href=<%=edit_work_path(@work)%>> Edit this Work </a>
-<%#=button_to 'Edit this Work', edit_work_path(@work), method: :get %>
-<a class="btn btn-primary"> <%= button_to 'Upvote', upvote_path %> </a>
+<a class="btn btn-primary"> <%=button_to 'Upvote', upvote_path(@work.id), method: :post%> </a>
 <a class="btn btn-danger"> <%= button_to 'Delete this Work', work_path(@work), method: :delete, data: {confirm: "Are you sure?"} %> </a>
 </section>
 <section class="works-votes__container">

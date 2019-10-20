@@ -61,7 +61,8 @@ class WorksController < ApplicationController
       user = User.find(session[:user_id])
       work.votes << vote
       user.votes << vote
-      redirect_to works_path
+      flash[:success] = "Vote logged!"
+      redirect_to work_path
       return
     end
   end
