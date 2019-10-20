@@ -1,0 +1,83 @@
+work1:
+  category: book
+  title: Murder on the Orient Express
+  creator: Agatha Christie
+  publication_year: 1920
+  description: spoilers
+
+work2:
+  category: book
+  title: Hounds of Baskerville
+  creator: Arthur Conan Doyle
+  publication_year: 1920
+  description: yeah, hound
+
+work3:
+  category: book
+  title: A Study in Red
+  creator: Arthur Conan Doyle
+  publication_year: 1920
+  description: revenge
+
+work4:
+  category: book
+  title: The Fall
+  creator: Arthur Conan Doyle
+  publication_year: 1920
+  description: falling
+
+work5:
+  category: book
+  title: Curtain
+  creator: Agatha Christie
+  publication_year: 1920
+  description: last of Pierot
+
+work6:
+  category: book
+  title: Bees
+  creator: Someone
+  publication_year: 1920
+  description: colony
+
+work7:
+  category: book
+  title: Short Story
+  creator: Someone2
+  publication_year: 1920
+  description: not too long
+
+work8:
+  category: book
+  title: About a Movie
+  creator: NotAuthor
+  publication_year: 1920
+  description: why movies are cool
+
+work9:
+  category: book
+  title: Books vs Movies
+  creator: Heheh
+  publication_year: 1920
+  description: books are better
+
+work10:
+  category: book
+  title: Game of Thrones
+  creator: George RR Martin
+  publication_year: 1990
+  description: started it all
+
+work11:
+  category: book
+  title: Dream for Spring
+  creator: George RR Martin
+  publication_year: 2020
+  description: One day...
+
+work12:
+  category: album
+  title: A Night at the Opera
+  creator: Queen
+  publication_year: 1975
+  description: Bohemian Rhaspody is so so good

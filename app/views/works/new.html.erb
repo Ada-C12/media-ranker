@@ -1,0 +1,17 @@
+<% if @work.errors.any? %>
+  <div class="alert alert-warning">
+    <span>A problem occurred: Could not create <%= @work.category%></span>
+    <ul>
+      <% @work.errors.each do |column, message| %>
+        <li>
+          <%= column %>: <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<main>
+  <h2> Add a new work </h2>
+
+  <%= render partial: "form", locals: {button: "Create Work", work_form_class: "create-work-form"}%>
+</main>
