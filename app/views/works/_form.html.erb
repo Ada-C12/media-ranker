@@ -1,0 +1,17 @@
+<%# form_with is a view helper that will generate the proper form for us and will help us hook into the other controller actions %>
+<%= form_with model: @work do |f| %>
+
+  
+  <%= f.label :category %>
+  <%= f.select :category, ['album', 'book', 'movie'], {}, {class: "form-control"} %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :creator %>
+  <%= f.text_field :creator %>
+  <%= f.label :publication_year %>
+  <%= f.text_field :publication_year %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.submit "Submit (fix this)", class: "btn btn-primary" %>
+
+<% end %>

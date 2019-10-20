@@ -9,7 +9,7 @@ class WorksController < ApplicationController
   end
   
   def show
-    @work = Work.where(title: params[:title])
+    @work = Work.find_by(id: params[:id])
     if @work.nil?
       flash[:error] = "That work does not exist"
       redirect_to new_work_path
@@ -30,14 +30,30 @@ class WorksController < ApplicationController
     end
   end
   
-  # def index
-  #   work_title = params[:title]
+  def edit
+    @work = Work.find_by(id: params[:id])
+    if @work.nil?
+      redirect_to work_path
+    end
+  end
   
-  #   if work_title.nil?
-  #     redirect_to root_path
-  #   else
-  
-  #   end
+  def update
+    @work = Work.find_by(id: params[:id])
+    if@work.nil?
+      flash[:error] = "Media could not be found"
+      redirect_to works_path
+      return
+    end
+    
+    if @work.update( work_params )
+      redirect_to work_path
+      return
+    else
+      flash.now[:error] = "Unable to complete update"
+      render :edit
+      return
+    end
+  end
   
   
   

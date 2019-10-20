@@ -17,10 +17,6 @@ class Work < ApplicationRecord
     return sorted[0..9]
   end
   
-  def self.list_all(category)
-    work_category = Work.all(category: category)
-    sorted = works_by_category.sort { |i, j| j.votes.count <=> i.votes.count }
-    
-    return sorted
-  end
+  
+  
 end

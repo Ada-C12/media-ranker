@@ -1,4 +1,4 @@
-<section><h2 class='spotlight'>Media Spotlight: <%= link_to @spotlight.title, works_path( @spotlight.id ), class: "spotlight_lt" %> by Some Creator </h2></section>
+<section><h2 class='spotlight'>Media Spotlight: <%= link_to @spotlight.title, work_path( @spotlight.id ), class: "spotlight_lt" %> by Some Creator </h2></section>
 <p>27 Votes - Description</p>
 
 <div class='top_ten'>
@@ -6,7 +6,7 @@
   <h2>Top Movies</h2>
   <ul>
   <% @top_ten_movies.each do |movie| %>
-    <li><%= movie.title%> <%= movie.creator %> <%= movie.votes.length %>Votes </li>
+    <li><%= link_to movie.title, work_path(movie.id)%> <%= movie.creator %> <%= movie.votes.length %>Votes </li>
   <% end %>
   </ul>
 </section>
@@ -15,7 +15,7 @@
   <h2>Top Books</h2>
   <ul>
   <% @top_ten_books.each do |book| %>
-    <li><%= book.title%> <%= book.creator %> <%= book.votes.length %>Bookes </li>
+    <li><%= link_to book.title, work_path(book.id)%> <%= book.creator %> <%= book.votes.length %>Bookes </li>
   <% end %>
   </ul>
 </section>
@@ -24,7 +24,7 @@
   <h2>Top Albums</h2>
   <ul>
   <% @top_ten_albums.each do |album| %>
-    <li><%= album.title%> <%= album.creator %> <%= album.votes.length %>Votes </li>
+    <li><%= link_to album.title, work_path(album.id)%> <%= album.creator %> <%= album.votes.length %>Votes </li>
   <% end %>
   </ul>
 </section>
