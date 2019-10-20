@@ -53,9 +53,9 @@ class WorksController < ApplicationController
       return
     end
     work = Work.find(params[:id])
-    present = work.votes.find_by(user_id: session[:user_id])
-    if present
-      flash.now[:error] = "Sorry, you may only vote once for this work!"
+    if work.votes.find_by(user_id: session[:user_id])
+      flash[:error] = "Sorry, you may only vote once for this work!"
+      redirect_to works_path
     else
       vote = Vote.create(date: Date.today)
       user = User.find(session[:user_id])

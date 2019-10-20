@@ -2,10 +2,17 @@
 <p>Creator: <%= @work.creator %></p>
 <p>Release Date: <%= @work.release_date %></p>
 <p>Description: <%= @work.description %></p>
-<span class="badge badge-pill badge-info"><%= @work.votes.length%>
+<p><%= @work.votes.length%>
 <% if @work.votes.length == 1 %>Vote</span>
 <% else %>Votes</span>
-<%end%>
+<%end%>:</p>
+<ul>
+<% @work.votes.each do |vote|%>
+<% user = User.find_by(id: vote.user_id) %>
+<li>User: <%= user.username %>; Date: <%= vote.date%>
+</li>
+<% end %>
+</ul>
 <%= link_to 'Edit this Work', edit_work_path %>
 <br>
 <%= link_to 'Delete this Work', work_path(@work), method: :delete, data: {confirm: "Are you sure?"} %>
