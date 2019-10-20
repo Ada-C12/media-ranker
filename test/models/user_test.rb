@@ -16,7 +16,11 @@ describe User do
   end
 
   describe 'relations' do
-    
+    it 'has votes' do
+      user = users(:march)
+      user.votes.length.must_equal 1
+      user.votes.first.must_equal votes(:vote3)
+    end
   end
 
   describe 'custom methods' do
