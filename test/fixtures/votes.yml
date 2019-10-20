@@ -1,0 +1,58 @@
+vote_1:
+  user: tacocat
+  work: pans_labyrinth
+vote_2:
+  user: louise
+  work: lux_prima
+vote_3: 
+  user: gene
+  work: lux_prima
+vote_4: 
+  user: bob
+  work: turn
+vote_5: 
+  user: linda
+  work: turn
+vote_6: 
+  user: tacocat
+  work: turn
+vote_7: 
+  user: gene
+  work: pans_labyrinth
+vote_8:
+  user: tina
+  work: fever
+vote_9:
+  user: bob
+  work: pans_labyrinth
+vote_10:
+  user: bob
+  work: album_1
+vote_11:
+  user: bob
+  work: album_2
+vote_12:
+  user: bob
+  work: album_3
+vote_13:
+  user: bob
+  work: album_4
+vote_14:
+  user: bob
+  work: album_5
+vote_15:
+  user: bob
+  work: album_6
+vote_16:
+  user: bob
+  work: album_7
+vote_17:
+  user: bob
+  work: lux_prima
+vote_18:
+  user: linda
+  work: fever
+vote_19:
+  user: louise
+  work: pans_labyrinth
+

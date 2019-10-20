@@ -1,0 +1,8 @@
+<main>
+  <h2>List of Works</h1>
+  <% categories = ["album", "book", "movie"]%>
+  
+  <% categories.each do |category| %>
+   <%= render partial: "index", locals: { category: category} %>
+  <% end %>
+</main>
