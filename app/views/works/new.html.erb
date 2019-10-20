@@ -2,26 +2,10 @@
   <main>
     <h2>Add a new work</h2>
     <section>
-    <form action="/works" accept-charset="UTF-8" method="post">
-    <input name="utf8" type="hidden" value="✓">
-    <input type="hidden" name="authenticity_token" value="fV7tTuAb2yHaPAC8enXk6tdNaceyNp/28thtxypFprNe1bMTXhn0xo3bY3k51WlEWbzUiuB6UfzXJfxSRkGGAQ==">
-    <div class="form-group">
-      <label>Category</label>
-      <select class="form-control" name="work[category]">
-        <option value="album">album</option>
-        <option value="book">book</option>
-        <option value="movie">movie</option>
-      </select>
-    </div>
-    <section class="form-group">
-      <%= render partial: "form", locals: { submit_button_label: "Create Work", work_form_class: "new-work-form" } %>
+        <div class="form-group">
+          <%= render partial: "form", locals: { submit_button_label: "Create Work", work_form_class: "new-work-form" } %>
+        </div>
     </section>
-  </form>
-</section>
-
-
-  </main>
-
-
-</body></html>
-
+    </main>
+  </body>
+</html>

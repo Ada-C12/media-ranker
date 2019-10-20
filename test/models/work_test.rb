@@ -2,7 +2,7 @@ require "test_helper"
 
 describe Work do
   let(:valid_work) {
-    Work.create(title: "Some Valid Author")
+    Work.create(title: "Some Valid Title")
   }
 
   describe "validations" do
@@ -19,6 +19,15 @@ describe Work do
       is_valid = invalid_work_without_title.valid?
 
       refute( is_valid )
+    end
+
+    it "gives an error message if the title given is not unique" do
+      invalid_work_with_same_title = Work.create(title: "Some Valid Title")
+
+      is_valid = invalid_work_with_same_title.valid?
+
+      refute( is_valid )
+
     end
   end
 end

@@ -1,20 +1,28 @@
 <%= form_with model: @work, class: "work_form_class" do |f| %>
-  <section class="form-control">
+  <section class="form-group" class="form-control">
+    <%= f.label :category %>
     <%= f.select :category, %w[album book movie] %>
   </section>
-  <section class="form-group" class="form-control" >
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <section class="form-group" class="form-control">
+    <%= f.label :title %>
+    <%= f.text_field :title, class:"form-control" %>
+  </section>
 
-  <%= f.label :creator %>
-  <%= f.text_field :creator %>
+  <section class="form-group" class="form-control">
+    <%= f.label :creator %>
+    <%= f.text_field :creator, class:"form-control" %>
+  </section>
 
-  <%= f.label :publication_year %>
-  <%= f.text_field :publication_year %>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <%= f.submit submit_button_label, class:"btn btn-primary" %>
+  <section>
+    <%= f.label :publication_year %>
+    <%= f.text_field :publication_year, class:"form-control" %>
+  </section>
+  <br>
+  <section>
+    <%= f.label :description %>
+    <%= f.text_area :description, class:"form-control" %>
+  </section>
+  <br>
+    <%= f.submit submit_button_label, class:"btn btn-primary" %>
   </section>
 <% end %>

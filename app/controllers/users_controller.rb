@@ -16,13 +16,12 @@ class UsersController < ApplicationController
   end
 
   def login
-    #a nested hash; user key points to another hash with username as the key
     username = params[:user][:username]
     found_user = User.find_by(username: username)
 
     if found_user
       session[:user_id] = found_user.id
-      flash[:message] = "Logged in as returning user #{found_user.id}!"
+      flash[:message] = "Logged in as #{found_user.id}!"
     else
       new_user = User.create(username: username)
       session[:user_id] = new_user.id
@@ -34,7 +33,7 @@ class UsersController < ApplicationController
   def current
     @current_user = User.find_by(id: session[:user_id])
     session[:user_id] = @user.id
-    
+
     if @user.nil?
       head :not_foundreturn
     end

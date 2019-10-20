@@ -1,29 +1,11 @@
 <html>
-
   <main>
     <h2>Edit this <%= @work.category.capitalize %> </h2>
     <section>
-    <input name="utf8" type="hidden" value="✓">
-    <input type="hidden" name="authenticity_token" value="fV7tTuAb2yHaPAC8enXk6tdNaceyNp/28thtxypFprNe1bMTXhn0xo3bY3k51WlEWbzUiuB6UfzXJfxSRkGGAQ==">
-    <div class="form-group">
-      <label>Category</label>
-      <select class="form-control" name="work[category]">
-        <option value="album">album</option>
-        <option value="book">book</option>
-        <option value="movie">movie</option>
-      </select>
-    </div>
-    <section class="form-group">
-      <%= render partial: "form", locals: { submit_button_label: "Update Work", work_form_class: "update-work-form" } %>
-
+        <div class="form-group">
+          <%= render partial: "form", locals: { submit_button_label: "Update Work", work_form_class: "update-work-form" } %>
+        </div>
     </section>
-
-  </form>
-</section>
-
-</main>
-
-
-</body></html>
-
-
+    </main>
+  </body>
+</html>

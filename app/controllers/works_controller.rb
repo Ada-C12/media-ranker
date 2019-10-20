@@ -20,12 +20,12 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     if @work.save
-      flash[:success] = "Driver added successfully"
+      flash[:success] = "Work added successfully"
 
       redirect_to work_path(@work.id)
     else
       flash.now[:error] = "You didn't do it right."
-      render new_work_path #:edit also works
+      redirect_to new_work_path #:edit also works
     end
   end
 
