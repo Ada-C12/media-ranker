@@ -10,27 +10,6 @@
 
 <br>
 
-<h3> Top#3 Albums </h3>
-<table class='table'>
-  <tr>
-    <th> Votes </th>
-    <th> Title </th>
-    <th> Created By </th>
-    <th> Published </th>
-    <th> Upvote </th>
-  </tr>
-
-  <% @albums.first(3).each do |album| %>
-    <tr>
-      <td> <%= album.votes.count %> </td>
-      <td> <%= link_to album.title, work_path(album.id) %> </td>
-      <td> <%= album.creator %> </td>
-      <td> <%= album.publication_year %> </td>
-      <td> <%= link_to "Upvote", work_votes_path(album.id), method: :post %> <td>
-    </tr>
-  <% end %>
-</table>
-
 <h3> Top#3 Books </h3>
 <table class='table'>
   <tr>
@@ -48,6 +27,27 @@
       <td> <%= book.creator %> </td>
       <td> <%= book.publication_year %> </td>
       <td> <%= link_to "Upvote", work_votes_path(book.id), method: :post %> <td>
+    </tr>
+  <% end %>
+</table>
+
+<h3> Top#3 Albums </h3>
+<table class='table'>
+  <tr>
+    <th> Votes </th>
+    <th> Title </th>
+    <th> Created By </th>
+    <th> Published </th>
+    <th> Upvote </th>
+  </tr>
+
+  <% @albums.first(3).each do |album| %>
+    <tr>
+      <td> <%= album.votes.count %> </td>
+      <td> <%= link_to album.title, work_path(album.id) %> </td>
+      <td> <%= album.creator %> </td>
+      <td> <%= album.publication_year %> </td>
+      <td> <%= link_to "Upvote", work_votes_path(album.id), method: :post %> <td>
     </tr>
   <% end %>
 </table>

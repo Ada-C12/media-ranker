@@ -1,8 +1,8 @@
 class WorksController < ApplicationController
   def index
-    @albums = Work.sort('album')
-    @books = Work.sort('book')
     @works = Work.top
+    @books = Work.sort('book')
+    @albums = Work.sort('album')
   end
 
   def new
@@ -48,6 +48,7 @@ class WorksController < ApplicationController
       redirect_to work_path(@work)
       return
     else
+      flash[:erro] = "Update didn't go through. Please try again."
       render :edit
       return
     end
