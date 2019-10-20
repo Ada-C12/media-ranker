@@ -4,7 +4,7 @@
 
 <%= form_with model: @user do |f|%>
   <%= f.label "Username", class: "form-group" %>
-  <%= f.text_field :name, class: "form-group" %> 
+  <%= f.text_field :name, class: "form-group", id: "username" %> 
   <%= f.submit "Log In", class: "btn btn-primary form-group" %>
 <% end %>
 
