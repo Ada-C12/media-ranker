@@ -52,11 +52,13 @@ describe Work do
 
   describe "relationships" do
     it "can have many votes" do
-      work = Work.first
+      work = Work.find_by(title: 'B')
+      vote_1 = Vote.create(user_id: User.first.id, work_id: work.id)
+      vote_2 = Vote.create(user_id: User.last.id, work_id: work.id)
       
       expect(work.votes.count).must_be :>, 0
       work.votes.each do |vote|
-        expect(vote.must_be_instance_of Vote
+        expect(vote).must_be_instance_of Vote
       end
     end
   end

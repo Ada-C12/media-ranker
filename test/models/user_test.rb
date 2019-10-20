@@ -21,4 +21,16 @@ describe User do
     end
   end
 
+  describe "relationships" do
+    it "can have many votes" do
+      user = User.find_by(name: 'Banana')
+      vote_1 = Vote.create(user_id: user.id, work_id: Work.first.id)
+      vote_2 = Vote.create(user_id: user.id, work_id: Work.last.id)
+      
+      expect(user.votes.count).must_be :>, 0
+      user.votes.each do |vote|
+        expect(vote).must_be_instance_of Vote
+      end
+    end
+  end
 end

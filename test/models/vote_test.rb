@@ -30,4 +30,18 @@ describe Vote do
       expect(text_vote.errors.messages[:work_id]).must_equal ["can't be blank"]
     end
   end
+
+  describe "relationships" do
+    it "can have one user" do
+      text_vote.save
+
+      expect(text_vote.user).must_be_instance_of User
+    end
+
+    it "can have one work" do
+      text_vote.save
+
+      expect(text_vote.work).must_be_instance_of Work
+    end
+  end
 end
