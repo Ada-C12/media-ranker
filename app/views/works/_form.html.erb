@@ -10,21 +10,33 @@
 
 <%= form_with model: @work do |f| %>
 
-  <%= f.label :category %>
-  <%= f.select :category, ['album', 'book', 'movie'] %>
+  <div class="form-group">
+    <label><%= f.label :category %></label>
+    <select class="form-control" name="work[category]">
+      <option value="album">album</option>
+      <option value="book">book</option>
+      <option value="movie">movie</option>
+    </select>
+  </div>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <div class="form-group">
+    <label><%= f.label :title %></label>
+    <input class="form-control" name="work[title]">
+  </div>
 
-  <%= f.label :creator %>
-  <%= f.text_field :creator %>
 
-  <%= f.label :publication_year %>
-  <%= f.text_field :publication_year %>
+  <div class="form-group">
+    <label><%= f.label :creator %></label>
+    <input class="form-control" name="work[creator]">
+  </div>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-    
-  <%= f.submit submit_button_label%>
+
+  <div class="form-group">
+    <label><%= f.label :description %></label>
+    <textarea class="form-control" name="work[description]"></textarea>
+  </div>
+
+  <input class="btn btn-primary" <%= f.submit submit_button_label%> 
+
 
 <% end %>
