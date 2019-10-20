@@ -16,6 +16,7 @@ describe User do
   end
 
   describe 'relations' do
+    
   end
 
   describe 'custom methods' do
