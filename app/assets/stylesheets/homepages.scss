@@ -3,24 +3,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.root__hr
-
-.spotlight__header {
-
-}
-
-.spotlight__header--prefix {
-
+a, .med_green_text {
+  color: #26A69A;
 }
 
 .spotlight__link_to {
-
+  text-decoration: underline;
 }
 
-.spotlight__description {
-
+a:hover {
+  text-decoration: none;
+  color: #00796B;
 }
-
 
 // 3 columns in the middle
 .top-ten_container {
@@ -28,22 +22,11 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.top-ten__list_container {
-
-}
-
 .top-ten__header {
-
-}
-
-.list-group {
-  // IS THIS FOR EVERYONE?
-}
-
-.top-ten__list {
-
+  color: #26A69A;
+  border-bottom: 2px solid #B2DFDB;
 }
 
 .list-group-item {
-  
+  border: 0px;
 }

@@ -22,10 +22,6 @@
    //    font-size: 2.5rem;
    // }
 
-   * {
-      border: 1em, dashed, red;
-   }
-
    main {
       padding: 2rem;
    }
@@ -42,7 +38,6 @@
       padding: 2rem 1rem 0.5rem 1rem;
 
       display: block;
-
    }
 
    .app-header__header a {
@@ -68,10 +63,6 @@
       color: white;
    }
 
-   .nav-item {
-      // shared 
-   }
-
    .nav-link {
       color: #00796B;
    }
@@ -88,11 +79,6 @@
       color: #00706B;
    }
 
-   .app-header__user-nav-container {
-      // this is where login/out are
-
-   }
-
    .nav {
       display: flex;
       flex-wrap: wrap;
@@ -100,18 +86,6 @@
       margin-bottom: 0;
       list-style: none;
    }
-
-//    .alert__container {
-
-//    }
-
-//    .alert {
-//       //standard
-//    }
-
-//    .alert-success, .alert-warning, .alert-primary {
-//       //standard
-//    }
 
 h1, h2, h3, h4, h5 {
    font-weight: bold;
@@ -121,25 +95,20 @@ body, h1, h2, h3, h4, h5 {
    font-family: "Gudea", sans-serif;
 }
 
-// MAIN
-main {
-
-}
-
 // BUTTONS
 .btn:hover {
    background-color: rgb(21, 94, 86);
- }
+}
  
- .btn-secondary {
+.btn-secondary {
    // i don' think anything needed here
- }
+}
  
- .btn-primary {
+.btn-primary {
    background-color: #26A69A;
    border-color: #26A69A;
    color: white;
- }
+}
 
 // SUPER SPECIAL IDs
 
