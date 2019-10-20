@@ -1,6 +1,5 @@
 <section class="sect-class-name">
-  <% phrase = like_phrase %>
-  <h2> <%= total_votetype.count %> <%= phrase %><%= s_end?(total_votetype.count)%> </h2>
+  <h2> <%= total_votetype.count %> <%= like_phrase %><%= s_end?(total_votetype.count)%> </h2>
   
   <table class="table">
     <thead>
@@ -14,12 +13,13 @@
     <tbody>
       <% total_votetype.each do |vote|%>
         <% vote_submitted = readable_date(vote.created_at) %>
-        <% vote_work_category = vote.work.category %>
-        <% vote_work_creator = vote.work.creator %>
+        <% vote_work = vote.work %>
+        <% vote_work_category = vote_work.category %>
+        <% vote_work_creator = vote_work.creator %>
         <tr>
           <td><%= vote_submitted %></td>
           <td> <%= vote_work_category %> </td>
-          <td><%= link_to vote.work.title, work_path(vote.work_id)%></td>
+          <td><%= link_work(vote_work.id) %></td>
           <td> <%= vote_work_creator %> </td>
         </tr>
       <% end%>

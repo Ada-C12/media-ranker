@@ -13,14 +13,14 @@
         </tr>
       </thead>
 
-      
-      <% User.all.order(created_at: :desc).each do |user| %>
+      <% all_users_by_created = User.all.order(created_at: :desc) %>
+      <% all_users_by_created.each do |user| %>
           <% total_votes = user.votes %>
           <% upvotes = user.upvotes %>
           <% downvotes = user.downvotes %>
           
           <tr>
-            <td><%= link_to user.username, user_path(user.id) %></td>
+            <td><%= link_user(user.id) %></td>
             <td><%= readable_date(user.created_at) %></td>
             <td><%= total_votes.count if total_votes %></td>
             <td><%= upvotes.count if upvotes %></td>

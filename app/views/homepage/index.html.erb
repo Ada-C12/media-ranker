@@ -1,97 +1,24 @@
 <main>
+  <% current_user = User.find_by(id: session[:user_id])%>
 
-  <section id="media-spotlight-container">
-    <h2>
-      <span id="spotlight-header">Media Spotlight:</span>
-      <span id="spotlight-feature"> 
-        <% top_work = Work.top_work %>
-        <%= link_to top_work.title, work_path(top_work) %> by <%= top_work.creator %>
-      </span>
-    </h2>
-    <p>
-      <%= top_work.description %> | <%= top_work.votes.count %> vote<%= s_end?(top_work.votes.count) %>  - <%= top_work.vote_count %> point<%= s_end?(top_work.vote_count) %>
-    </p>
-  </section>
+  <%= render partial: "spotlight" %>
 
   <section id ="top-media-container">
+    <% category_list = Work.categories %>
     
-    <% Work.categories.each do |category|%>
-    <section class="top-media-sect">
-      <h2> Top <%= category.capitalize %>s </h1>
-      <ul>
-        <% Work.top_by_category(num:10, category:category).each do |work| %>
-          <li>
-            <section class="voting-sect">
-            
-              <% current_user = User.find_by(id: session[:user_id])%>
-              <% if current_user.nil? %>
-                <% vote = [] %>
-              <% else %>
-                <% vote = Vote.find_vote(user_id: current_user.id, work_id: work.id) %>
-              <% end %>
+      <% category_list.first(3).each do |category| %>
+        <section class="top-media-sect">
+          <h2> Top <%= category.capitalize %>s </h2>
+          <ul>  
+            <% Work.top_by_category(num:10, category:category).each do |work| %>
+              <li>
+                <%= render partial: "voting", locals: { current_user: current_user, work: work } %>
 
-              <% if vote.blank? %>
-                  <div class="vote-active upvote">
-                    <%= link_to "↑", work_upvote_path(work.id), method: :post, class: "vote-link upvote" %>
-                  </div>
-                  
-                  <span class="badge"> <%= work.vote_count %> </span>
-                  
-                  <div class="vote-active downvote">
-                    <%= link_to "↓", work_downvote_path(work.id), method: :post, class: "vote-link downvote" %>
-                  </div>   
-              
-              <% elsif vote.vote_type == "upvote" %>
-                <div class="alreadyvote upvote"> 
-                  <%= link_to "↑", vote_path(vote.id), method: :delete %>
-                </div>
-                
-                <span class="badge"> <%= work.vote_count %> </span>
-                
-                <div class="vote-disabled downvote">
-                    <%= link_to "↓", changevote_path(id: vote.id), method: :post %>
-                </div>
-              
-              <% elsif vote.vote_type == "downvote" %> 
-                <div class="vote-disabled upvote">
-                    <%= link_to "↑", changevote_path(id: vote.id), method: :post %>
-                </div>
-                
-                <span class="badge"> <%= work.vote_count %> </span>
-
-                <div class="alreadyvote downvote">
-                  <%= link_to "↓", vote_path(vote.id), method: :delete %>
-                </div>         
-
-              <% end %>
-            </section>
-
-
-            <section class="top-work-details">
-              <% total_votes = work.votes.count %>
-              <% total_points = work.vote_count %>
-              
-              <h4>
-                <%= link_to work.title, work_path(work.id) %>
-                <small>by <%= work.creator %></small>
-              </h4>
-
-              <p>Submited <%= readable_date(work.created_at) %> </p>
-              
-              <p><strong><%= total_points %> point<%= s_end?(total_points) %> </strong> | <%= total_votes %> vote<%= s_end?(total_votes) %>
-                
-                <% if !current_user.nil? && current_user.already_voted?(work.id) %>
-                  <span class="you-voted">  - You voted!</span>
-                <% end %>
-              </p>    
-            </section>
-        
-          </li>
-        
-        <% end %>
-      </ul> 
-    </section>
-    <% end %>
-  
+                <%= render partial: "details", locals: { current_user: current_user, work: work } %>
+              </li>
+            <% end %>
+          </ul> 
+        </section>
+      <% end %>
   <section>
 </main>

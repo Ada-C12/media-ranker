@@ -1,0 +1,18 @@
+<section id="media-spotlight-container">
+  <h2>
+    <span id="spotlight-header">Media Spotlight:</span>
+    <span id="spotlight-feature"> 
+      <% top_work = Work.top_work %>
+      <% top_work_creator = top_work.creator %>
+      <% top_work_description = top_work.description %>
+      <% top_work_total_votes = top_work.votes.count %>
+      <% top_work_points = top_work.vote_count %>
+      
+      <%= link_top_work %> by <%= top_work_creator %>
+    </span>
+  </h2>
+  
+  <p>
+    <%= top_work_description %> | <%= top_work_total_votes %> vote<%= s_end?(top_work_total_votes) %>  - <%= top_work_points %> point<%= s_end?(top_work_points) %>
+  </p>
+</section>

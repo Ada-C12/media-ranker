@@ -1,84 +1,70 @@
 <main>
   <header class="show-header">
-
-    <section class="voting-sect" id="show-works-voting">
+    <section class="voting-sect" id="show-works-voting">  
       <% current_user = User.find_by(id: session[:user_id])%>
-      <% if current_user.nil? %>
+      <% if session[:user_id].nil? %>
         <% vote = [] %>
       <% else %>
         <% vote = Vote.find_vote(user_id: current_user.id, work_id: @work.id) %>
       <% end %>
 
       <% if vote.blank? %>
-        <% points = @work.vote_count %>
-          <div class="vote-active upvote">
-            <%= link_to "↑", work_upvote_path(@work.id), method: :post, class: "vote-link upvote" %>
-          </div>
-          
-          <span class="badge"> <%= points %> </span>
-          
-          <div class="vote-active downvote">
-            <%= link_to "↓", work_downvote_path(@work.id), method: :post, class: "vote-link downvote" %>
-          </div>   
+        <div class="vote-active upvote"> <%= link_upvote(@work.id) %> </div>
+        <span class="badge"> <%= @work.vote_count %> </span>
+        <div class="vote-active downvote"> <%= link_downvote(@work.id) %> </div>
       
       <% elsif vote.vote_type == "upvote" %>
-        <div class="alreadyvote upvote"> 
-          <%= link_to "↑", vote_path(vote.id), method: :delete %>
-        </div>
-        
-        <span class="badge"> <%= points %> </span>
-        
-        <div class="vote-disabled downvote">
-            <%= link_to "↓", changevote_path(id: vote.id), method: :post %>
-        </div>
+        <div class="alreadyvote upvote"> <%= link_delete_upvote(vote.id) %> </div>
+        <span class="badge"> <%= @work.vote_count %> </span>
+        <div class="vote-disabled downvote"> <%= link_change_downvote(vote) %> </div>
       
       <% elsif vote.vote_type == "downvote" %> 
-        <div class="vote-disabled upvote">
-            <%= link_to "↑", changevote_path(id: vote.id), method: :post %>
-        </div>
-        
-        <span class="badge"> <%= points %> </span>
-
-        <div class="alreadyvote downvote">
-          <%= link_to "↓", vote_path(vote.id), method: :delete %>
-        </div>         
-
+        <div class="vote-disabled upvote"> <%= link_change_upvote(vote) %> </div>
+        <span class="badge"> <%= @work.vote_count %> </span>
+        <div class="alreadyvote downvote"> <%= link_delete_downvote(vote.id) %> </div>
       <% end %>
     </section>
 
     <section id="show-works-details">
-    <% submitted = readable_date(@work.created_at) %>
-    <% category = @work.category %>
-    <% title = @work.title %>
-    <% creator = @work.creator %>
-    <% publication_year = @work.publication_year %>
-    <% points = @work.vote_count %>
-    <% total_votes = @work.votes.count %>
-    <% description = @work.description %>
-    <% current_user = User.find_by(id: session[:user_id])%>
-    <% current_user_already_voted = current_user.already_voted?(@work.id) %>
+      <% submitted = readable_date(@work.created_at) %>
+      <% category = @work.category %>
+      <% title = @work.title %>
+      <% creator = @work.creator %>
+      <% publication_year = @work.publication_year %>
+      <% points = @work.vote_count %>
+      <% total_votes = @work.votes %>
+      <% total_votes_count = total_votes.count %>
+      <% description = @work.description %>
 
-      <p>Submited <%= submitted %> <p>
       <h4 id='show-works-category'><%= category.upcase %></h4>
-      <h1><%= title %>
-        <% if !current_user.nil? && current_user_already_voted %>
+      
+      <h1><%= title %> 
+        <small>(<%= points %> point<%= s_end?(points)%>)</small>
+        <% if !current_user.nil? && current_user.already_voted?(@work.id) %>
           <small class="you-voted">  - You voted!</small>
         <% end %>
       </h1>
       <h4>by <%= creator %> (<%= publication_year %>)</h4>
-      <p><%= points %> Point<%= s_end?(points)%>  | <%= total_votes %> Vote<%= s_end?(total_votes)%> </p>
+      <p class="show-submitted"> 
+        Submited <%= submitted %> - 
+        <strong> 
+          <%= total_votes_count %> vote<%= s_end?(total_votes_count)%> 
+        </strong>
+      <p>
       <p><%= description %></p>
+      
+      <section class="edit-delete-links">
+        <button type="button" class="btn btn-secondary">
+          <%= link_to "Edit #{@work.title}", edit_work_path(@work.id), class: "edit-link" %>
+        </button>
+        <button type="button" class="btn btn-secondary">
+          <%= link_to "Delete #{@work.title}", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
+        </button>
+      </section>
     </section>
   </header>
   
-  <section class="edit-delete-links">
-    <button type="button" class="btn btn-secondary">
-      <%= link_to "Edit #{@work.title}", edit_work_path(@work.id), class: "edit-link" %>
-    </button>
-    <button type="button" class="btn btn-secondary">
-      <%= link_to "Delete #{@work.title}", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
-    </button>
-  </section>
+  
 
   <% total_votes = @work.votes %>
   <% total_upvotes = @work.upvotes %>
@@ -90,58 +76,40 @@
     <% end %>
   </h4>
 
-    <section class="likes-dislikes-container">
-      <% if total_votes.count == 0 %>
-        <h4> Add a new vote for <%= @work.title %>! </h4>
-      <% else %> 
-        <% if total_upvotes.count > 0 %>
-          <section class="show-likes-sect">
-            <h2> <%= total_upvotes.count %> Like<%= s_end?(total_upvotes.count)%> </h2>
-            <table class="table">
-              <thead>
+  <section class="likes-dislikes-container">
+    <% if total_votes.count == 0 %>
+      <h4> Add a new vote for <%= @work.title %>! </h4>
+    <% else %> 
+      <% if total_upvotes.count > 0 %>
+
+        <%= render partial: "votes", locals: { sect_class_name: "show-likes-sect", like_phrase: "Like", total_votetype: total_upvotes } %>
+
+
+      <% end %>
+
+      <% if total_downvotes.count > 0 %>
+        <section class="show-dislikes-sect">
+          <h2> <%=total_downvotes.count %> Dislike<%= s_end?(total_downvotes.count)%></h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Submitted</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% total_downvotes.each do |vote|%>
                 <tr>
-                  <th>User</th>
-                  <th>Submited</th>
+                  <td><%= link_to vote.user.username, user_path(vote.user_id)%>
+                  </td>
+                  <td><%= readable_date(vote.created_at) %></td>
                 </tr>
-              </thead>
-              <tbody>
-                <% total_upvotes.each do |vote|%>
-                  <tr>
-                    <td><%= link_to vote.user.username, user_path(vote.user_id)%>
-                    </td>
-                    <td><%= readable_date(vote.created_at) %></td>
-                  </tr>
-                <% end%>
-              </tbody>
-            </table>
-          </section>
-        <% end %>
-
-        <% if total_downvotes.count > 0 %>
-          <section class="show-dislikes-sect">
-            <h2> <%=total_downvotes.count %> Dislike<%= s_end?(total_downvotes.count)%></h2>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>User</th>
-                  <th>Submitted</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% total_downvotes.each do |vote|%>
-
-                  <tr>
-                    <td><%= link_to vote.user.username, user_path(vote.user_id)%>
-                    </td>
-                    <td><%= readable_date(vote.created_at) %></td>
-                  </tr>
-                <% end%>
-              </tbody>
-            </table>
-          </section>
-        <% end %>
-  <% end %>  
-
-
+              <% end%>
+            </tbody>
+          </table>
+        </section>
+      <% end %>
+    <% end %>  
+  </section>
 </main>
 

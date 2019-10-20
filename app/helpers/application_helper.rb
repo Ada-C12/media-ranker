@@ -17,6 +17,79 @@ module ApplicationHelper
     end
   end
 
+  def link_top_work
+    top_work = Work.top_work
+    return link_to top_work.title, work_path(top_work)
+  end
 
+  def link_work(work_id)
+    work = Work.find_by(id: work_id)
+    
+    if work
+      return link_to work.title, work_path(work.id)
+    else
+      return nil
+    end
+  end
+
+  def link_user(user_id)
+    user = User.find_by(id: user_id)
+    
+    if user
+      return link_to user.username, user_path(user_id)
+    else
+      return nil
+    end
+  end
+
+  def link_upvote(work_id)
+    work = Work.find_by(id: work_id)
+
+    if work
+      return link_to "↑", work_upvote_path(work.id), method: :post, class: "vote-link upvote"
+    else
+      return nil
+    end
+  end
+
+  def link_downvote(work_id)
+    work = Work.find_by(id: work_id)
+
+    if work
+      return link_to "↓", work_downvote_path(work.id), method: :post, class: "vote-link downvote"
+    else
+      return nil
+    end
+  end
+
+  def link_delete_upvote(vote_id)
+    vote = Vote.find_by(id: vote_id)
+
+    if vote
+      return link_to "↑", vote_path(vote.id), method: :delete
+    else
+      return nil
+    end
+  end
+
+  def link_delete_downvote(vote_id)
+    vote = Vote.find_by(id: vote_id)
+
+    if vote
+      return link_to "↓", vote_path(vote.id), method: :delete
+    else
+      return nil
+    end
+  end
+
+  def link_change_upvote(vote)
+    return link_to "↑", changevote_path(id: vote.id), method: :post
+  end
+
+  def link_change_downvote(vote)
+    return link_to "↓", changevote_path(id: vote.id), method: :post
+  end
+
+  
 end
 

@@ -1,0 +1,19 @@
+<section class="top-work-details">
+  <% total_votes = work.votes.count %>
+  <% total_points = work.vote_count %>
+
+  <h4>
+    <%= link_work(work.id) %>
+    <small>by <%= work.creator %></small>
+  </h4>
+
+  <p>Submited <%= readable_date(work.created_at) %> </p>
+
+  <p>
+    <strong><%= total_points %> point<%= s_end?(total_points) %> </strong> | <%= total_votes %> vote<%= s_end?(total_votes) %>
+  
+    <% if !current_user.nil? && current_user.already_voted?(work.id) %>
+      <span class="you-voted">  - You voted!</span>
+    <% end %>
+  </p>    
+</section>
