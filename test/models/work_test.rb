@@ -40,13 +40,14 @@ describe Work do
   end
   
   describe 'custom methods' do
+    
     it 'properly sorts works by specified category' do
       all_works = Work.all
       book_list = all_works.media_sort('book')
       
-      expect( book_list[0].category ).must_equal 'book'
-      expect( book_list[-1].category ).must_equal 'book'
-      expect( book_list.count ).must_equal 10
+      expect(book_list[0].category).must_equal 'book'
+      expect(book_list[-1].category).must_equal 'book'
+      expect(book_list.count).must_equal 10
     end
     
     it 'properly identifies the top voted work' do
@@ -56,7 +57,7 @@ describe Work do
       
     end
     
-    it 'identifies the top ten voted works by category' do
+    it 'identifies the top ten voted works by category and orders by vote count' do
       top_albums = Work.top_ten('album') #There are 11 voted albums
       
       expect(top_albums.count).must_equal 10
@@ -64,9 +65,7 @@ describe Work do
       expect(top_albums.last).must_equal works(:goodbye)
       
       top_movies = Work.top_ten('movie') #There are 0 voted movies
-      
       expect(top_movies.count).must_equal 3
-      
     end
   end
 end
