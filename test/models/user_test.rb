@@ -17,4 +17,8 @@ describe User do
     vote.user = user1
     expect(vote.user_id).must_equal user1.id
   end 
+
+  it "should validate if a username is already in the database or not" do 
+    
+  end 
 end
