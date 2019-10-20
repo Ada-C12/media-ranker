@@ -21,7 +21,7 @@
             <td><%= vote.work.creator %></td>
             <td><%= vote.work.publication_year %></td>
             <td><%= vote.work.category.capitalize %></td>
-            <td><%= readable_date(vote.work.created_at) %></td>
+            <td><%= readable_date(vote.created_at) %></td>
           </tr>
         </tbody>
         <% end %>
