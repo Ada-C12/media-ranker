@@ -18,10 +18,19 @@ describe Work do
     
     it "must have a category" do
       
-      movie.category = nil
+      no_category = Work.new(category: nil, title: "No category", creator: "No one", publication: 1999, description: " ")
       
-      expect(movie.valid?).must_equal false
-      expect(movie.errors.messages).must_include :category
+      expect(no_category.valid?).must_equal false
+      expect(no_category.errors.messages).must_include :category
+      
+    end
+
+    it "category must be valid" do
+      
+      invalid_category = Work.new(category: "audiobook", title: "No category", creator: "No one", publication: 1999, description: " ")
+            
+      expect(invalid_category.valid?).must_equal false
+      expect(invalid_category.errors.messages).must_include :category
       
     end
     
@@ -34,10 +43,11 @@ describe Work do
     end
     
     it "title must be unique for category" do
-      movie.title = works(:dumplings).title
-      
-      expect(movie.valid?).must_equal false
-      expect(movie.errors.messages).must_include :title
+      duplicate_title = Work.new(category: "movie", title: "Soup Dumplings", creator: "No one", publication: 1999, description: " ")
+            
+      expect(duplicate_title.valid?).must_equal false
+      expect(duplicate_title
+        .errors.messages).must_include :title
       
     end
     
