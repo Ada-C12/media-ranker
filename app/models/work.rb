@@ -24,18 +24,11 @@ class Work < ApplicationRecord
     spotlight = work.sort_by do |work1|
       -work1.votes.count
     end 
-
-    # if spotlight.first.votes == 0
-    #   return "There is currently no spotlight work"
-    # end 
-
     return spotlight.first
   end
 
   def self.sort_by_category(category)
     list = Work.where(category: category)
-    # return list.sort_by do |work| work.votes.length
-    # end.reverse
 
     ordered_list = list.sort_by do |work|
       work.votes.length

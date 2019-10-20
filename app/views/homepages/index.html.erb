@@ -10,21 +10,18 @@
 
 
 <div class="row">
-  <div class="card_1" style="width: 27rem;">
-
-      <div class="card-header">
-        <h2>Top Movies</h2>
-      </div>
+  <div class="card" style="width: 27rem;"> 
+    <div class="card-header">
+      <h2>Top Movies</h2>
+    </div>
       <ul class="list-group list-group-flush">
-        <%Work.find_top_10("movie").each do |work|%>
-        <li class="list-group-item"><%= link_to work[:title], work_path(work.id)%> by <%=work[:creator]%>... <%=work.votes.count%> votes</li>
+        <%Work.find_top_10("album").each do |work|%>
+        <li class="list-group-item"><%=link_to work[:title], work_path(work.id)%> by <%=work[:creator]%>... <%=work.votes.count%> votes</li>
         <%end%>
       </ul>
   </div>
 
-
-
-  <div class="card_2" style="width: 27rem;"> 
+  <div class="card" style="width: 27rem;"> 
     <div class="card-header">
       <h2>Top Albums</h2>
     </div>
@@ -35,9 +32,7 @@
       </ul>
   </div>
 
-
-
-  <div class="card_3" style="width: 27rem;"> 
+  <div class="card" style="width: 27rem;"> 
     <div class="card-header">
       <h2>Top Books</h2>
     </div>

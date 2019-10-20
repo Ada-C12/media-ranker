@@ -8,10 +8,6 @@ class WorksController < ApplicationController
     @movies = Work.sort_by_category("movie")
     @albums = Work.sort_by_category("album")
     @books = Work.sort_by_category("book")
-
-    # @movies = Work.where(category: "movie")
-    # @albums= Work.where(category: "album")
-    # @books = Work.where(category: "book")
   end
 
   def new
@@ -34,32 +30,13 @@ class WorksController < ApplicationController
     end
   end 
 
-  def show
-    # @work = Work.find_by(id: params[:id])
+  def show ; end 
 
-    # if @work.nil?
-    #   head :not_found
-    #   return
-    # end 
-  end 
 
-  def edit
-    
-    # @work = Work.find_by(id: params[:id])
+  def edit ; end
 
-    # if @work.nil?
-    #   redirect_to works_path
-    #   return
-    # end 
-  end 
 
   def update
-    # @work = Work.find_by(id: params[:id])
-
-    # if @work.nil?
-    #   redirect_to works_path
-    #   return
-    # end 
     if @work.update(work_params)
       redirect_to works_path
       return
@@ -70,19 +47,11 @@ class WorksController < ApplicationController
   end 
 
   def destroy
-    # @work = Work.find_by(id: params[:id])
-    
-    # if @work.nil?
-    #   redirect_to works_path
-    #   return
-    # elsif 
-      
-      @work.votes.destroy_all
-      # don't want to keep votes with a foreign key that doesn't exist anymore
-      @work.destroy
-      redirect_to works_path
-      return 
-    # end 
+    @work.votes.destroy_all
+    # don't want to keep votes with a foreign key that doesn't exist anymore
+    @work.destroy
+    redirect_to works_path
+    return 
   end
 
   def upvote
