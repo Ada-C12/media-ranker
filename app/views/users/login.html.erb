@@ -1,9 +1,11 @@
-<h1>Log IN</h1>
+<main>
+
+<h1 id="green_text">Log In</h1>
 
 <%= form_with model: @user do |f|%>
-  <%= f.label :name %>
-  <br>
-  <%= f.text_field :name %>   
-  <br>
-  <%= f.submit "Log In BUTTON" %>
+  <%= f.label "Username", class: "form-group" %>
+  <%= f.text_field :name, class: "form-group" %> 
+  <%= f.submit "Log In", class: "btn btn-primary form-group" %>
 <% end %>
+
+</main>

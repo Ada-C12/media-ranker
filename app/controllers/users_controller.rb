@@ -31,7 +31,8 @@ class UsersController < ApplicationController
         return
       else
         # bogus input 
-        flash.now[:error] = "Login unsuccessful! #{list_error_messages(@user)}"
+        flash.now[:error] = "Login unsuccessful!"
+        flash.now[:error_msgs] = list_error_messages(@user)
         render action: "login"
         return
       end
