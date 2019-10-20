@@ -18,7 +18,7 @@
     <td><%=work.votes.length%></td>
     <td><%= work.creator %></td>
     <td> <%= work.publication_year%></td>
-    <td> Upvote</td>
+    <td><%= link_to "Upvote", upvote_path(work.id),class: "btn btn-primary" %></td>
 
   </tr>
   <% end %>
@@ -41,7 +41,7 @@
     <td><%=work.votes.length%></td>
     <td><%= work.creator %></td>
     <td> <%= work.publication_year%></td>
-    <td> Upvote</td>
+    <td><%= link_to "Upvote", upvote_path(work.id),class: "btn btn-primary" %></td>
 
   </tr>
   <% end %>
@@ -63,7 +63,7 @@
     <td><%=work.votes.length%></td>
     <td><%= work.creator %></td>
     <td> <%= work.publication_year%></td>
-    <td> Upvote</td>
+    <td><%= link_to "Upvote", upvote_path(work.id),class: "btn btn-primary" %></td>
 
   </tr>
   <% end %>

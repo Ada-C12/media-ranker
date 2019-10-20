@@ -4,10 +4,9 @@
 <p>Published: <%=@work.publication_year%></p>
 <%= link_to "Back to media ranks", root_path,class: "btn btn-primary" %>
 <%= link_to "Edit", edit_work_path, class: "btn btn-primary" %>
+<%= link_to "Upvote", upvote_path(@work.id),class: "btn btn-primary" %>
 <%= link_to "Delete", work_path(@work.id ), method: :delete, data: { confirm: "Are YOU sure?" }, class:"btn btn-danger" %>
 
-<%# add upvote button%>
-<%# add delete button%>
 
 <section class="works-votes__container">
 <h3 class="works-votes__header"> <%=@work.votes.length%> Votes for this <%=@work.category%></h3>
