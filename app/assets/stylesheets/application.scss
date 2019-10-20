@@ -15,8 +15,12 @@
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
 /* Import scss content */
+// .top-three{
+//   display: grid;
+//   grid-template-columns: 33% 33% 33%;
+// }
 .flash {
-  color: red;
+  color: #FF4343;
   font-size: x-large
 }
 .show {
