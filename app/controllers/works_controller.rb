@@ -65,13 +65,15 @@ class WorksController < ApplicationController
   def upvote
     if session[:user_id]
       @work = Work.find_by(id: params[:id])
-
-      @work.votes.create(work_id: @work.id, user_id:session[:user_id])
-      flash[:message] = "Upvote done!"
-      redirect_to works_path
-
+      
+      @work.votes.each do |vote|
+        if vote.user_id != session[:user_id]
+          @work.votes.create(work_id: @work.id, user_id:session[:user_id])
+          flash[:message] = "Upvote done!"
+          redirect_to works_path
+        end 
+      end 
     else 
-      #FLASH NOT WORKING
       flash[:message] = "Must be logged in to upvote."
       return redirect_to works_path 
     end 
