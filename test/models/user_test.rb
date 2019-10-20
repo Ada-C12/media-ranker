@@ -18,11 +18,18 @@ describe User do
   end
 
   describe "relationships" do
-    it "has a zero to many relationship with votes" do
+    before do
       users(:test).save
-      user = User.first
+      @user = User.first
+    end
+    it "has a zero to many relationship with votes" do
+      expect(@user.votes.count).must_be :>=, 0
+    end
 
-      expect(user.votes.count).must_be :>=, 0
+    it "can have many votes" do
+      @user.votes.each do |vote|
+        expect(vote).must_be_instance_of User
+      end
     end
   end
 end

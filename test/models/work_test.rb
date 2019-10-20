@@ -33,11 +33,18 @@ describe Work do
   end
 
   describe "relationships" do
-    it "has a zero to many relationship with votes" do
+    before do
       new_work.save
-      work = Work.first
+      @work = Work.first
+    end
+    it "has a zero to many relationship with votes" do
+      expect(@work.votes.count).must_be :>=, 0
+    end
 
-      expect(work.votes.count).must_be :>=, 0
+    it "can have many votes" do
+      @work.votes.each do |vote|
+        expect(vote).must_be_instance_of Work
+      end
     end
   end
 

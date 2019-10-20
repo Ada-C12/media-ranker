@@ -16,13 +16,13 @@ describe WorksController do
   end
 
   describe "show" do
-    it "can get a valid task" do
+    it "can get a valid work" do
       get work_path(works(:monae).id)
 
       must_respond_with :success
     end
 
-    it "will redirect for an invalid task" do
+    it "will redirect for an invalid work" do
       get work_path(-1)
 
       must_respond_with :redirect
@@ -30,7 +30,7 @@ describe WorksController do
   end
 
   describe "new" do
-    it "can get the new task page" do
+    it "can get the new work page" do
       get new_work_path
 
       must_respond_with :success
@@ -38,7 +38,7 @@ describe WorksController do
   end
 
   describe "create" do
-    it "can create a new task" do
+    it "can create a new work" do
       work_hash = {
         work: {
           category: "book",
@@ -63,13 +63,13 @@ describe WorksController do
   end
 
   describe "edit" do
-    it "can get the edit page for an existing task" do
+    it "can get the edit page for an existing work" do
       get edit_work_path(works(:test).id)
 
       must_respond_with :success
     end
 
-    it "will respond with redirect when attempting to edit a non-existent task" do
+    it "will respond with redirect when attempting to edit a non-existent work" do
       get edit_work_path(-1)
 
       must_respond_with :redirect
@@ -94,8 +94,7 @@ describe WorksController do
       expect(edited_work.description).must_equal @updated_work[:work][:description]
     end
 
-    it "will redirect to the list of tasks if given an invalid ID" do
-      # Your code here
+    it "will redirect to the list of works if given an invalid ID" do
       work_id = -1
       patch work_path(work_id), params: @updated_work
 
