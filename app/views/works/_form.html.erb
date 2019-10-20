@@ -1,7 +1,7 @@
 <%= form_with model: @work, class: "work_form_class" do |f| %>
   <section class="form-group" class="form-control">
     <%= f.label :category %>
-    <%= f.select :category, %w[album book movie] %>
+    <%= f.select :category, %w[album book movie], class:"form-control" %>
   </section>
   <section class="form-group" class="form-control">
     <%= f.label :title %>

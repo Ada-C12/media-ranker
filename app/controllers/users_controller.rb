@@ -21,13 +21,13 @@ class UsersController < ApplicationController
 
     if found_user
       session[:user_id] = found_user.id
-      flash[:message] = "Logged in as #{found_user.id}!"
+      flash[:message] = "Logged in as #{found_user.username}!"
     else
       new_user = User.create(username: username)
       session[:user_id] = new_user.id
       flash[:message] = "Created user #{new_user.id}"
     end
-    return redirect_to root_path
+    redirect_to root_path
   end
 
   def current
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     session[:user_id] = @user.id
 
     if @user.nil?
-      head :not_foundreturn
+      head :not_found
     end
     # unless @current_user
     #   flash[:error] = "You must be logged in to see this page"
@@ -52,6 +52,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-      return params.require(:user).permit(:username, :joined_date)
+    return params.require(:user).permit(:username)
   end
 end

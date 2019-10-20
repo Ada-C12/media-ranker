@@ -22,7 +22,7 @@
                     <%# <%= user.votes %> 
                   </td>
                   <td>
-                    <%= user.created_at.year %>
+                    <%= formatted_date(user.created_at) %>
                   </td>
               <% end %>
           </tr>

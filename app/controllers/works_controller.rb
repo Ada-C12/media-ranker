@@ -24,8 +24,8 @@ class WorksController < ApplicationController
 
       redirect_to work_path(@work.id)
     else
-      flash.now[:error] = "You didn't do it right."
-      redirect_to new_work_path #:edit also works
+      flash.now[:warning] = "A problem occurred: Could not create #{@work.category}"#
+      render new_work_path #:edit also works
     end
   end
 

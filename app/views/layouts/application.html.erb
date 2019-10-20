@@ -33,7 +33,11 @@
         </ul>
         <ul class="nav app-header__user-nav-container">
           <li class="nav-item app-header__nav_item">
-            <%= link_to "Log In", login_path, class:"btn btn-primary" %>
+            <% if !session[:user_id] %>
+              <%= link_to "Log In", login_path, class:"btn btn-primary" %>
+            <% elsif session[:user_id] %>
+              <%= link_to "Logged in as user!", user_path(session[:user_id]), class:"btn btn-primary" %>
+            <% end %>
           </li>
 
           <li class="nav-item app-header__nav_item">
@@ -42,8 +46,12 @@
         </ul>
       </nav>
   </header>
-
   <body>
+      <section class="user-messages">
+        <% flash.each do |name, message| %>
+          <div class="<%= name %>"><%= name.capitalize %>: <%= message %></div>
+        <% end %>
+      </section>
     <%= yield %>
   </body>
 </html>
