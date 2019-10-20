@@ -15,6 +15,7 @@
   <%=link_to "Media Ranker", root_path%>
   <%=link_to "View All Media", works_path%>
   <%=link_to "Add new Work", new_work_path%>
+  <%=link_to "View all users", users_path%>
 
   <%if session[:id] != nil%>
     <%=link_to "Logged in as #{session[:username]}", user_path(session[:id]), :class => "btn btn-primary"%>

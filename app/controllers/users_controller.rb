@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.all
+  end 
+
+  def show
+    @user = User.find_by(id: params[:id])
+  end 
+
   def login_form
     @user = User.new
   end 
@@ -28,16 +36,6 @@ class UsersController < ApplicationController
     username = params[:username]
     @user = User.find_by(username: username)
   end 
-
-  # def current
-  #   #will display information about the current user
-  #   username = params[:username]
-  #   user = User.find_by(username: username)
-  #   unless @user
-  #     flash[:error] = "You must be logged in to see this page"
-  #     redirect_to root_path
-  #   end 
-  # end
 
   def logout
     session[:id] = nil
