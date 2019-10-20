@@ -32,11 +32,6 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def show
-    username = params[:username]
-    @user = User.find_by(username: username)
-  end 
-
   def logout
     session[:id] = nil
 

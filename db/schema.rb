@@ -43,3 +43,8 @@ ActiveRecord::Schema.define(version: 2019_10_15_044816) do
   add_foreign_key "votes", "users"
   add_foreign_key "votes", "works"
 end
+# iterate through this as well
+# @user.votes.work_id
+
+# # iterate through this one
+# Works.where(id: work_id)
