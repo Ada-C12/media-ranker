@@ -50,7 +50,8 @@ class UsersController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    flash[:success] = "Logged out"
+    flash[:alert_class] = "success"
+    flash[:success] = "Successfully logged out"
     redirect_to root_path
   end
 
