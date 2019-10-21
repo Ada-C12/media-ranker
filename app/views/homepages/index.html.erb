@@ -3,13 +3,21 @@
 
 <%= render partial: "nav" %>
 
-<%# put up top 10 of each category %>
-<%# put up top 1 of everything %>
+<h2>Media Spotlight</h2>
+<ul>
+  <li><%= link_to @top_1.title, work_path(@top_1.id) %></li>
+  <ul>
+    <li> <%= @top_1.category %> </li>
+    <li> <%= @top_1.creator %> </li>
+    <li> <%= @top_1.publication_year %> </li>
+    <li> <%= @top_1.description %> </li>
+  </ul>
+</ul>
 
 <h2>Top 10 Media</h2>
 <ul>
 <% @top_10.each do |work| %>
-  <li> <%= work.title %> </li>
+  <li> <%= link_to work.title, work_path(work.id) %> </li>
   <ul>
     <li> <%= work.category %> </li>
     <li> <%= work.creator %> </li>
@@ -17,16 +25,4 @@
     <li> <%= work.description %> </li>
   </ul>
 <% end %>
-</ul>
-
-
-<h2>Media Spotlight</h2>
-<ul>
-  <li><%= @top_1.title %></li>
-  <ul>
-    <li> <%= @top_1.category %> </li>
-    <li> <%= @top_1.creator %> </li>
-    <li> <%= @top_1.publication_year %> </li>
-    <li> <%= @top_1.description %> </li>
-  </ul>
 </ul>

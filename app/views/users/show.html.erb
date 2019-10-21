@@ -8,6 +8,10 @@
     <ul>
       <li> Votes: <%= @user.votes.count %> </li>
       <li> Joined on: <%= @user.created_at %> </li>
+      <li> Votes: <% @user.votes.each do |vote| %> </li>
+      <ul>
+        <li> vote.work_id.title </li>
+      </ul>
     </ul>
 </ul>
 

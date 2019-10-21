@@ -53,6 +53,30 @@ class WorksController < ApplicationController
     end
   end
   
+  def upvote
+    @work = Work.find_by_id(params[:id])
+    @user = User.find_by(id: session[:user_id])
+    
+    if @user.nil?
+      redirect_to work_path(@work.id)
+      flash[:error] = "You must be logged in to vote"
+      return
+    elsif @user
+      @user.votes.each do |vote|
+        if vote.work_id == @work.id
+          redirect_to work_path(@work.id)
+          flash[:error] = "A problem occured: Could not upvote. User has already voted for this media."
+          return
+        end
+      end
+      @vote = Vote.new(work_id: @work.id, user_id: @user.id)
+      @vote.save
+      redirect_to work_path(@work.id)
+      flash[:success] = "Successfully upvoted!"
+      return
+    end
+  end
+  
   private
   
   def work_params
