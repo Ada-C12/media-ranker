@@ -1,0 +1,86 @@
+<main>
+<h2><strong>List of Works</strong></h2>
+  <section class="media-table">
+    <h4>Albums</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="80">Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th width="100">Published</th>
+          <th with="100">Upvote</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @albums.each do |work| %>
+          <tr>
+            <td> <%= work.votes.size %></td>
+            <td> <%= link_to work.title, work_path(work) %></td>
+            <td> <%= work.creator %></td>
+            <td> <%= work.publication_year %></td>
+            <td> <%= link_to 'Upvote', work_votes_path(work), method: :post, class: "btn btn-primary" %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="media-table">
+    <h4>Books</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th width="80">Votes</th>
+            <th>Title</th>
+            <th>Created By</th>
+            <th width="100">Published</th>
+            <th with="100">Upvote</th>
+          </tr>
+        </thead>
+
+      <tbody>
+        <% @books.each do |work| %>
+          <tr>
+            <td><%= work.votes.count %></td>
+            <td><%= link_to work.title, work_path(work) %></td>
+            <td> <%= work.creator %><td>
+            <td><%= work.publication_year%>
+            <td><%= link_to 'Upvote', work_votes_path(work), method: :post, class: "btn btn-primary" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section> 
+
+
+  <section class="media-table">
+    <h4>Movie</h4>
+      <table class="table">
+        <thead>
+          <tr>
+          <th width="80">Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th width="100">Published</th>
+          <th with="100">Upvote</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <% @movies.each do |work| %>
+            <tr>
+              <td><%= work.votes.count %></td>
+              <td><%= link_to work.title, work_path(work) %></td>
+              <td> <%= work.creator %></td>
+              <td><%= work.publication_year%></td>
+              <td><%= link_to 'Upvote', work_votes_path(work), method: :post, class: "btn btn-primary" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+        
+      </table>
+    </section>
+
+</main>

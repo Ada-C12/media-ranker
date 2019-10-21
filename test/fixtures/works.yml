@@ -1,0 +1,21 @@
+forrest:
+  category: movie
+  title: forrest gump
+  creator: Hanks
+  publication_year: 1979
+  description: run forest
+  votes_count: 1
+parable:
+  category: album
+  title: Parable of the Sower
+  creator: butler
+  publication_year: 1993
+  description: Fire drugs?
+  votes_count: 1
+poodr:
+  category: book
+  title: Practical Object Oriented Design in Ruby
+  creator: metz
+  publication_year: 2012
+  description: A good book on programming
+  votes_count: 1
