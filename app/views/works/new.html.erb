@@ -1,0 +1,21 @@
+<section class="alert__container">
+<% if @work.errors.any? %>
+<div class="alert alert-warning">
+<span> A problem occurred: Could not create <%=@work.category%></span>
+  <ul class="errors">
+    <% @work.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+</div>
+</section>
+
+<main>
+
+<h2>Add a new work</h2>
+
+<%= render partial: "form", locals: { submit_button_label: "Create Work" } %>
+</main>
