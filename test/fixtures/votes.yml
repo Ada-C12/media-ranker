@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: muffin
+  work: 4
+
+two:
+  user: poppy
+  work: 12

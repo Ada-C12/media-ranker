@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: movie
+  title: Mulan
+  creator: Disney
+  publication_year: 1990
+  description: girl who loves books falls in love with prince
+
+two:
+  category: book
+  title: Angelina Ballerina
+  creator: Shelia Walsh
+  publication_year: 2008
+  description: mouse becomes a ballerina
+
+three:
+  category: album
+  title: Surfer Girl
+  creator: Beach Boys
+  publication_year: 1963
+  description: third studio album by the Beach Boys

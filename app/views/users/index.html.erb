@@ -1,0 +1,18 @@
+<h2>List of Users:</h2>
+
+
+<ul>
+    <h3>Username:</h3>
+  <% @users.sort.each do |user|  %>
+    <ol>
+      <%= link_to user.username, user_path(user), class:"link" %>
+    </ol>
+Votes: <%= Vote.where(user_id:user.id).count =%>
+<br>
+Joined: <%= user.created_at.strftime("%d %b %y") %> 
+  <% end %>
+</ul>
+
+<%# cite: https://stackoverflow.com/questions/693823/formatting-timestamps %>
+
+

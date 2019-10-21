@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaRanker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', work: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Gudea:400,700|Hammersmith+One" />
+
+  </head>
+
+    <body>
+    <header class="app-header__header">
+      <h1><%= link_to "Media Ranker", root_path %>
+      <small> Ranking the Best of Everything</small>
+      </h1>
+    </header>
+    <nav class="app-header__nav">
+      <ul class="nav app-header__site-nav-container">
+        <li class="nav-item app-header__nav_item">
+          <%= link_to "View Top Media", featured_path, class: "nav-link" %>
+        </li>
+         <li class="nav-item app-header__nav_item">
+          <%= link_to "All Media", works_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <%= link_to "New Media", new_work_path, class: "nav-link" %>
+        </li>
+         <li class="nav-item app-header__nav_item">
+          <%= link_to "View All Users", users_path, class: "nav-link" %>
+        </li>
+
+                <% if session[:user_id].nil? %>
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "Login", login_path, class: "nav-link" %>
+          </li>
+        <%else%>
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "Logout", logout_path, class: "btn btn-primary", method: :post %>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            Logged in as <%= User.find_by(id: session[:user_id]).username %>
+          </li>
+        <%end%>
+    </nav>
+    <section class="flash">
+    <% flash.each do |name, message| %>
+      <div class="alert alert-<%= name %>"><%= message %></div>
+    <% end %>
+  </section>
+
+    </div>
+    <%= yield %>
+  </body>
+</html>
+
+
+
+
+

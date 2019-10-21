@@ -1,0 +1,17 @@
+<%= link_to "Back to All Medias", works_path, class:"link" %>
+<br><br>
+<p><%= link_to "Return to All Users List", users_path %></p>
+
+<h1><%= @user[:title] %></h1>
+<% @user.works_by_user.each do |work| %>
+
+<h3>Media Title: <%= work[:title] %></h3>
+<h3>Created by: <%= work[:creator] %></h3>
+<h3>Published: <%= work[:publication_year] %></h3>
+<h3>Category: <%= work[:category] %></h3>
+<h3>Voted On: <%= work[:category] %></h3>
+  <% end %>
+  
+
+ 
+
