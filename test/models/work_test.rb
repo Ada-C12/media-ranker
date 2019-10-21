@@ -59,12 +59,51 @@ describe Work do
         expect(top_books).must_be_empty
       end
       
+      it 'should return works in descending order by number of votes' do
+        user = users(:valid_user)
+        user_2 = users(:valid_user_2)
+        valid_work = works(:valid_work_8)
+        valid_work_2 = works(:valid_work_6)
+        valid_work_3 = works(:valid_work_4)
+        
+        valid_work.upvote(user.id)
+        valid_work_2.upvote(user.id)
+        valid_work.upvote(user_2.id)
+        
+        expect(valid_work.votes.count).must_equal 2
+        expect(valid_work_2.votes.count).must_equal 1
+        expect(valid_work_3.votes.count).must_equal 0
+        
+        top_books = Work.top_ten("book")
+        expect(top_books.first).must_equal valid_work
+        expect(top_books[1]).must_equal valid_work_2
+      end
+      
     end
     
     describe 'spotlight' do
       it "should be an instance of Work" do
         spotlight = Work.spotlight
         expect(spotlight).must_be_instance_of Work
+      end
+      
+      it 'should return the work with the most votes' do
+        user = users(:valid_user)
+        user_2 = users(:valid_user_2)
+        valid_work = works(:valid_work_7)
+        valid_work_2 = works(:valid_work_3)
+        valid_work_3 = works(:valid_work_2)
+        
+        valid_work.upvote(user.id)
+        valid_work_2.upvote(user.id)
+        valid_work.upvote(user_2.id)
+        
+        expect(valid_work.votes.count).must_equal 2
+        expect(valid_work_2.votes.count).must_equal 1
+        expect(valid_work_3.votes.count).must_equal 0
+        
+        spotlight = Work.spotlight
+        expect(spotlight).must_equal valid_work
       end
     end
     

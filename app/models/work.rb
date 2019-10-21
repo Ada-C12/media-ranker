@@ -11,11 +11,13 @@ class Work < ApplicationRecord
         ten_works << work
       end
     end
+    ten_works.sort_by!{|work| work.votes.count }
+    ten_works.reverse!
     return ten_works.slice(0..9)
   end
   
   def self.spotlight
-    return self.all.first
+    return self.all.max_by{|work| work.votes.count}
   end
   
   def upvote(user_id)
