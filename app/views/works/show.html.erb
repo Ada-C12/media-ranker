@@ -14,3 +14,12 @@
 <%= link_to "Edit", edit_work_path(@work) %> 
 <%= link_to "Upvote", upvote_work_path(@work)%>
 <%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
+
+<h3>Users who have upvoted this media:</h3>
+<% @work.votes.each do |vote| %>
+<ul>
+  <li>Name: <%= vote.user.name %></li>
+  <li>Number of votes: <%= vote.user.votes.count %></li>
+  <li>Joined date: <%= vote.created_at %></li>
+</ul>
+<% end %>
