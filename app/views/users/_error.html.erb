@@ -1,0 +1,17 @@
+<%if flash[:error]%>  
+  <section class="alert__container">
+    <div class="alert alert-warning">  
+        <% flash.each do |name, message| %>
+          <span><%= message %></span>
+        <% end %>
+        
+      <% if user.errors.any? %>  
+        <ul>
+          <% user.errors.each do |column, message| %>
+            <li><%= column.capitalize %><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </section>
+<%end%>

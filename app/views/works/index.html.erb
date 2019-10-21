@@ -1,0 +1,10 @@
+<%= render partial: "error", locals: { work: nil } %>
+<main>
+  <h1>List of Works</h1>
+  <%= render partial: "index", locals: { works: @albums, title: "Albums"} %>
+  <%= render partial: "index", locals: { works: @books, title: "Books"} %>
+  <%= render partial: "index", locals: { works: @movies, title: "Movies"} %>
+
+  <%=link_to "View top media", root_path, class: "btn btn-secondary"%>
+  <%=link_to "Add a new work", new_work_path, class: "btn btn-primary"%>
+</main>
