@@ -26,5 +26,13 @@ describe User do
 
       expect(user.votes).must_include votes(:vote1)
     end
+
+    it "can upvote" do
+      user = users(:yoshi)
+      vote = Vote.create(work_id: Work.first.id, user_id: user.id)
+
+      user.votes << vote
+      expect(user.votes).must_include vote
+    end
   end
 end

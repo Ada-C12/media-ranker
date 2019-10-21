@@ -72,6 +72,7 @@ describe Work do
         expect(top_books.length).must_equal 0
       end
     end
+
     describe "spotlight method" do
       before do
         Vote.destroy_all
@@ -84,8 +85,10 @@ describe Work do
       end
 
       it "displays the work with the most votes" do
+        #creates 1 vote for Work.first
         Vote.create(work_id: Work.first.id, user_id: 1)
 
+        #creates 5 votes for Work.last
         5.times do |voter|
           voter = User.create(username: Faker::Name.unique.name)
           Vote.create(work_id: Work.last.id, user_id: voter.id)
@@ -94,6 +97,18 @@ describe Work do
         top_work = Work.spotlight
 
         expect(top_work.title).must_equal Work.last.title
+      end
+
+      it "selects the first work if there is a tie" do
+        work1 = works(:cowboy)
+        work2 = works(:rest)
+
+        Vote.create(work_id: work1.id, user_id: 1)
+        Vote.create(work_id: work2.id, user_id: 1)
+
+        top_work = Work.spotlight
+
+        expect(top_work.title).must_equal work1.title
       end
     end
   end
