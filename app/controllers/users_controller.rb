@@ -20,19 +20,20 @@ class UsersController < ApplicationController
   
   def login
     username = params[:user][:username]
-    if username.nil? || username.strip == ""
-      flash[:error] = "A problem occurred: Could not log in"
-      redirect_to login_path
-      return
-    end
     @user = User.find_by(username: username)
-    
+
     if !session[:user_id]
       if @user
         flash[:success] = "Successfully logged in as existing user #{@user.username}"    
       else
-        @user = User.create(username: params[:user][:username])
-        flash[:success] = "Successfully created new user #{@user.username} with ID #{@user.id}"
+        @user = User.new(username: params[:user][:username])
+        if @user.save
+          flash[:success] = "Successfully created new user #{@user.username} with ID #{@user.id}"
+        else
+          flash[:error] = "A problem occurred: Could not log in"
+          render :login_form
+          return
+        end
       end
       session[:user_id] = @user.id
     end
