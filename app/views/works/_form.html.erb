@@ -1,7 +1,42 @@
+  <% if @work.errors.any? %>
+    <section class="alert alert-danger">
+      <h1>Errors</h1>
+      <ul>
+        <% @work.errors.each do |column, message| %>
+          <li>
+            <strong><%= column.capitalize %></strong> <%= message %>
+          </li>
+        <% end %>
+      </ul>
+      </section>
+  <% end %>
+
+
 <h2> <%= verb %> a work </h2>
 
-<form>
-  <div class="form-group">
+<%= form_with model: @work, class: "form-group" do |f| %>
+
+  <%= f.label :category %>
+  <%= f.select :category, ['album', 'book'], class: "form-control" %>
+  <br>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control"%>
+
+  <%= f.label :creator %>
+  <%= f.text_field :creator, class: "form-control"%>
+
+  <%= f.label :publication_year %>
+  <%= f.number_field :publication_year, class: "form-control"%>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, class: "form-control" %>
+  
+  <br>
+
+  <%= f.submit "#{verb} work", class: "btn btn-primary" %>
+
+  <%# <div class="">
     <label for="category">Category</label>
     <select class="form-control" id="category">
       <option>album</option>
@@ -27,7 +62,7 @@
   <div class="form-group">
     <label for="description">Description</label>
     <textarea class="form-control" id="description"></textarea>
-  </div>
+  </div> %>
 
-  <button type="submit" class="btn btn-primary"> <%= verb %> work </button>
-</form>
+  <%# <button type="submit" class="btn btn-primary"> <%= verb %> 
+<% end %>

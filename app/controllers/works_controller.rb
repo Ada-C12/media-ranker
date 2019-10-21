@@ -29,7 +29,6 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.new(work_params)
-
     if @work.save
       flash[:success] = "Work added successfully"
       redirect_to works_path
@@ -42,7 +41,7 @@ class WorksController < ApplicationController
   end
 
   def update
-    @work = work.find_by(id: params[:id])
+    @work = Work.find_by(id: params[:id])
 
     if @work.update(work_params)
       redirect_to work_path(@work)
