@@ -27,17 +27,20 @@ class UsersController < ApplicationController
       flash[:login] = "Logged in as returning user!"
     else
       new_user = User.new(username: username)
-      new_user.save
-      # TODO: What happens if saving fails?
-      session[:user_id] = new_user.id
-      flash[:login] = "Successfully created new user #{new_user.username} with ID #{new_user.id}"
+      
+      if new_user.save
+        session[:user_id] = new_user.id
+        flash[:login] = "Successfully created new user #{new_user.username} with ID #{new_user.id}"
+      else
+        flash[:warning] = "Error: please try again"
+        render login_form
+      end
     end
     
     return redirect_to root_path
   end
   
   def logout
-    # TODO: What happens if we were never logged in?
     session[:user_id] = nil
     flash[:logout] = "You have logged out successfully."
     return redirect_to root_path
@@ -49,7 +52,6 @@ class UsersController < ApplicationController
       head :not_found
       return
     end
-    
   end
 end
 

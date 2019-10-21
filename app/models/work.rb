@@ -1,5 +1,6 @@
 class Work < ApplicationRecord
   has_many :votes
+  validates :category, presence: true
   
   def self.top10(type)
     works = Work.where(category: type).all.order(title: :asc)

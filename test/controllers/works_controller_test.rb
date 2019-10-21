@@ -3,47 +3,53 @@ require "test_helper"
 describe WorksController do
   # Note: If any of these tests have names that conflict with either the requirements or your team's decisions, feel empowered to change the test names. For example, if a given test name says "responds with 404" but your team's decision is to respond with redirect, please change the test name.
   
+  # describe "index" do
+  #   it "responds with success when there are many works saved" do
+  #     work = Work.create(category: "book", title: "Work of Art", creator: "Me", publication_year: 2019, description: "This is a description")
+  
+  #     get works_path
+  
+  #     must_respond_with :success
+  
+  #   end
+  
+  #   it "responds with success when there are no works saved" do
+  #     get works_path      
+  
+  #     must_respond_with :success
+  #   end
+  # end
   describe "index" do
-    it "responds with success when there are many works saved" do
-      # Arrange
-      # Ensure that there is at least one work saved
-      work = Work.create(category: "book", title: "Work of Art", creator: "Me", publication_year: 2019, description: "This is a description")
-      # Act
+    it "can get the index path" do
       get works_path
       
-      # Assert
       must_respond_with :success
-      
     end
     
-    it "responds with success when there are no works saved" do
-      # Arrange
+    it "can get the root path" do
+      get root_path
       
-      # Act
-      get works_path      
-      # Assert
       must_respond_with :success
     end
   end
   
+  
   describe "show" do
     let (:work) { Work.create(category: "book", title: "Work of Art", creator: "Me", publication_year: 2019, description: "This is a description") }
     it "responds with success when showing an existing valid work" do
-      # Arrange
       id = work.id      
-      # Act
+      
       get work_path(id)
-      # Assert
+      
       must_respond_with :success      
     end
     
     it "responds with 404 with an invalid work id" do
-      # Arrange
-      id = "bad-id"      
-      # Act
+      id = "456456"      
+      
       get work_path(id)
-      # Assert
-      must_respond_with 404      
+      
+      must_respond_with :redirect      
     end
   end
   
@@ -56,7 +62,7 @@ describe WorksController do
   end
   
   describe "create" do
-    it "can create a new work with valid information accurately, and redirect" do
+    it "can create a new work with valid information" do
       work_params = { work: {category: "book", title: "Created Work", creator: "Me", publication_year: 2019, description: "This is a description"} }
       
       expect{ post works_path, params: work_params }.must_differ "Work.count", 1
@@ -73,25 +79,19 @@ describe WorksController do
       must_redirect_to work_path(create_work.id)      
     end
     
-    # it "does not create a work if the form data violates work validations, and responds with a redirect" do
-    #   new_work = {
-    #   work: {
-    #   vin: "VinWithNoName"
-    # }
-    # }
-    
-    # expect{ post works_path, params: new_work }.must_differ "Work.count", 0
-    
-    # # Assert
-    # # Check that the controller redirects
-    # must_respond_with :success # our controller does not redirect, it renders the same page with the errors displayed.
-    # end
+    it "does not create a work if validations are note met" do
+      new_work = { work: {category: nil, title: "Masterpiece", creator: "Me", publication_year: 2019, description: "This is a description"} }
+      
+      expect{ post works_path, params: new_work }.must_differ "Work.count", 0
+      
+      must_respond_with :success 
+    end
   end
   
   describe "edit" do
     let (:new_work) { Work.create(category: "book", title: "Work of Art", creator: "Me", publication_year: 2019, description: "This is a description") }
     
-    it "responds with success when getting the edit page for an existing, valid work" do
+    it "can get the edit page for an existing task" do
       new_work
       
       
@@ -100,7 +100,7 @@ describe WorksController do
     end
     
     it "responds with redirect when getting the edit page for a non-existing work" do
-      bad_id = "bad-id"
+      bad_id = "5445"
       
       get edit_work_path(bad_id)
       must_respond_with :redirect
@@ -137,22 +137,16 @@ describe WorksController do
       must_respond_with 404
     end
     
-    # it "does not update a work if the form data violates work validations, and responds with a redirect" do
-    #   # Note: This will not pass until ActiveRecord Validations lesson
-    #   # Arrange
-    #   # Ensure there is an existing work saved
-    #   # Assign the existing work's id to a local variable
-    #   # Set up the form data so that it violates work validations
-    #   work = new_work
-    #   updates = { title: "Not a Work of Art", category: "album" }
-    
-    #   expect{ patch work_path(work.id), params: {work: updates}}.must_differ "Work.count", 0
-    
-    #   must_respond_with :success # our controller does not redirect, it renders the same page with the errors displayed.
-    #   work.reload
-    #   expect(work.vin).must_equal new_work.vin      
-    
-    # end
+    it "does not update a work if the form data violates work validations" do
+      
+      work = new_work
+      updates = { title: "Not a Work of Art", category: nil }
+      
+      expect{ patch work_path(work.id), params: {work: updates}}.must_differ "Work.count", 0
+      
+      must_respond_with :success 
+      
+    end
   end
   
   describe "destroy" do
@@ -175,18 +169,4 @@ describe WorksController do
     end
   end
   
-  describe "custom methods" do
-    # describe "__" do
-    #   it "__" do
-    
-    #   end
-    # end
-    
-    # describe "__" do
-    #   it "__" do
-    
-    #   end
-    # end
-    
-  end
 end
