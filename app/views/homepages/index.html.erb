@@ -23,7 +23,7 @@
     <% movies.each do |work| %>
     <li class="list-group-item">
       <h4><%= link_to work.title, work_path(work.id) %><small> by <%= work.creator %></small></h4>
-      <p><%= work.votes.length %></p>
+      <p><%= work.votes.length %>  <%= pluralized?('vote', work.votes.length) %></p>
     </li>
     <% end %>
   </ul>
@@ -38,7 +38,7 @@
     <% books.each do |work| %>
     <li class="list-group-item">
       <h4><%= link_to work.title, work_path(work.id) %><small> by <%= work.creator %></small></h4>
-      <p><%= work.votes.length %></p>
+      <p><%= work.votes.length %>  <%= pluralized?('vote', work.votes.length) %></p>
     </li>
     <% end %>
   </ul>
@@ -53,7 +53,7 @@
     <% albums.each do |work| %>
     <li class="list-group-item">
       <h4><%= link_to work.title, work_path(work.id) %><small> by <%= work.creator %></small></h4>
-      <p><%= work.votes.length %></p>
+      <p><%= work.votes.length %>  <%= pluralized?('vote', work.votes.length) %></p>
     </li>
     <% end %>
   </ul>

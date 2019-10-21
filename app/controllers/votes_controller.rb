@@ -2,7 +2,7 @@ class VotesController < ApplicationController
 
   def create
     unless session[:user_id]
-      flash[:error] = "You must be logged in to vote!"
+      flash[:warning] = "You must be logged in to vote!"
       redirect_to root_path
       return
     end
@@ -14,7 +14,7 @@ class VotesController < ApplicationController
       flash[:success] = "Successfuly upvoted!"
       redirect_to work_path(params[:work_id])
     else
-      flash[:error] = "A problem occurred: Could not upvote"
+      flash[:warning] = "A problem occurred: Could not upvote"
       redirect_to root_path
     end
   end
