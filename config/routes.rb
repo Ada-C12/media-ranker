@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   
   resources :works
   resources :homepages
-  resources :votes
+  # resources :votes
   resources :users
   
   get '/login', to: 'users#login_form', as:'login'
   post '/login', to: 'users#login'
   post '/logout', to: 'users#logout', as: 'logout'
   get "/users/current", to: "users#current", as: "current_user" 
+  post '/vote/:id', to: 'votes#vote', as: 'vote'
 end
