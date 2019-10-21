@@ -1,6 +1,6 @@
 <section>
-  <h2>User Summary: user.username</h2>
-  <p>Joined site user.created_at</p>
+  <h2>User Summary: <%= @user.username %></h2>
+  <p>Joined site <%= @user.created_at %></p>
 </section>
  
 <section>
@@ -11,15 +11,19 @@
     <th>Published</th>
     <th>Category</th>
     <th>Voted on</th>
-  </tr>
+    </tr>
+    </thead>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= link_to user.username, user_path( user.id ) %></td>
-    <td><%= user.votes.length %></td>
-    <td><%= user.created_at %></td>
-  </tr>
-<% end %>
-    
+     <tbody>
+        <% @user.votes.each do |vote| %>
+          <tr>
+            <td><%= link_to Work.find_by(id: vote.work_id).title, work_path(vote.work_id) %></td>
+            <td><%= Work.find_by(id: vote.work_id).creator %></td>
+            <td><%= Work.find_by(id: vote.work_id).publication_year %></td>
+            <td><%= Work.find_by(id: vote.work_id).category %></td>
+            <td><%= Work.find_by(id: vote.work_id).created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
 </table>
 </section>
