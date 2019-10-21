@@ -1,0 +1,16 @@
+pill_vote:
+  user: :kennedy
+  work: :pill
+  date: Time.now
+pill_vote2:
+  user: :gaga
+  work: :pill
+  date: Time.now
+peppers_vote:
+  user: :kennedy
+  work: :peppers
+  date: Time.now
+dresses_vote:
+  user: :gaga
+  work: :peppers
+  date: Time.now

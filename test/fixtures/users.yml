@@ -1,0 +1,9 @@
+kennedy:
+  name: Katie Kennedy
+  join_date: Time.now
+gaga:
+  name: Lady Gaga
+  join_date: Time.now
+oprah:
+  name: Oprah Winfrey
+  join_date: Time.now
