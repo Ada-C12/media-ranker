@@ -1,35 +1,48 @@
 class VotesController < ApplicationController
   def upvote
+    user_id = session[:user_id]  
+    if user_id
       work_id = params["work_id"]
-      user_id = session[:user_id]
+      
       @vote = Vote.new(work_id: work_id, user_id: user_id, vote_type: "upvote")
       work = Work.find_by(id: work_id)
       work.vote_count += 1 
 
-    if @vote.save && work.save
-      flash[:success] = "Successfully upvoted for #{work.title}"
-      redirect_back(fallback_location: works_path)
+      if @vote.save && work.save
+        flash[:success] = "Successfully upvoted for #{work.title}"
+        redirect_back(fallback_location: works_path)
+      else
+        flash[:error] = "Did NOT vote successfully"
+        redirect_back(fallback_location: works_path)
+        return
+      end
     else
-      flash[:error] = "Did NOT vote successfully"
-      redirect_back(fallback_location: works_path)
+      flash[:error] = "Please login before voting."
+      redirect_to login_path
       return
     end
   end
 
   def downvote
-    work_id = params["work_id"]
     user_id = session[:user_id]
-    @vote = Vote.new(work_id: work_id, user_id: user_id, vote_type: "downvote")
-    work = Work.find_by(id: work_id)
-    work.vote_count -= 1
-    
-    
-    if @vote.save && work.save
-      flash[:success] = "Successfully downvoted #{work.title}"
-      redirect_back(fallback_location: works_path)
+    if user_id
+      work_id = params["work_id"]
+      @vote = Vote.new(work_id: work_id, user_id: user_id, vote_type: "downvote")
+      work = Work.find_by(id: work_id)
+      work.vote_count -= 1
+      
+      
+      if @vote.save && work.save
+        flash[:success] = "Successfully downvoted #{work.title}"
+        redirect_back(fallback_location: works_path)
+      else
+        flash[:error] = "Did NOT downvote successfully"
+        redirect_back(fallback_location: works_path)
+        return
+      end
     else
-      flash[:error] = "Did NOT downvote successfully"
-      redirect_back(fallback_location: works_path)
+      flash[:error] = "Please login before voting."
+      redirect_to login_path
       return
     end
   end

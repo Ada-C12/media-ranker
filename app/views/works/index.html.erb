@@ -4,8 +4,10 @@
 
   <section>
   <% current_user = User.find_by(id: session[:user_id])%>
-    <% all_works_by_vote = Work.all_by_votes %>
-    <table class="table table-hover">
+
+    <% Work.categories.each do |category| %>
+    <h4> All <%= category.capitalize %>s </h4>
+      <table class="table table-hover">
       <thead>
         <tr class='table-header'>
           <th scope="col">POINTS</th>          
@@ -17,8 +19,9 @@
           <th scope="col">PUBLISHED</th>
         </tr>
       </thead>
+        <% all_works_by_vote = Work.all_by_votes(category: category) %>
 
-      <% all_works_by_vote.each do |work| %>
+        <% all_works_by_vote.each do |work| %>
           <% points = work.vote_count %>
           <% category = work.category %>
           <% creator = work.creator %>
@@ -74,9 +77,10 @@
             <td><%= creator %></td>
             <td><%= publication_year %></td>
           </tr>
-        <% end %>
+          <% end %>
       </tbody>
     </table>
+    <% end %>
   </section>
 </main>
 

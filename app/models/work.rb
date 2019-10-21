@@ -26,10 +26,18 @@ class Work < ApplicationRecord
     end
   end
 
-  def self.all_by_votes
-    works_by_points = Work.all.order(vote_count: :desc)
-    if works_by_points && !works_by_points.empty?
-      return Work.all.order(vote_count: :desc)
+  def self.all_by_votes(category: category)
+    if category
+      works_by_cat = Work.all.where(category: category)
+      cat_works_by_points = works_by_cat.order(vote_count: :desc)
+      if cat_works_by_points && !cat_works_by_points.empty?
+        return cat_works_by_points
+      end
+    elsif category.nil?
+      works_by_points = Work.all.order(vote_count: :desc)
+      if works_by_points && !works_by_points.empty?
+        return works_by_points
+      end
     else
       return nil
     end
