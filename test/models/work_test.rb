@@ -3,9 +3,49 @@ require "test_helper"
 describe Work do
   let (:new_work) {
     Work.new(category: "book", title: "man of the goods", 
-      creator: "Josh Howe", publication_year: 2019, description: "gsgdfg")
+      creator: "Josh Howe", publication_year: 2019, description: "gsgdfg", total_votes: 0)
   }
-  
+  let (:new_work2) {
+    Work.new(category: "book", title: "2", 
+      creator: "Josh Howe", publication_year: 2019, description: "gsgdfg", total_votes: 1)
+  }
+  let (:new_work3) {
+    Work.new(category: "book", title: "3", 
+      creator: "Josh Howe", publication_year: 2019, description: "gsgdfg", total_votes: 1)
+  }
+  let (:new_work4) {
+    Work.new(category: "book", title: "4", 
+      creator: "Josh Howe", publication_year: 2019, description: "gsgdfg", total_votes: 1)
+  }
+  let (:new_work5) {
+    Work.new(category: "book", title: "5", 
+      creator: "Josh Howe", publication_year: 2019, description: "gsgdfg", total_votes: 1)
+  }
+  let (:new_work6) {
+    Work.new(category: "book", title: "6", 
+      creator: "Josh Howe", publication_year: 2019, description: "gsgdfg", total_votes: 1)
+  }
+  let (:new_work7) {
+    Work.new(category: "book", title: "7", 
+      creator: "Josh Howe", publication_year: 2019, description: "gsgdfg", total_votes: 1)
+  }
+  let (:new_work8) {
+    Work.new(category: "book", title: "8", 
+      creator: "Josh Howe", publication_year: 2019, description: "gsgdfg", total_votes: 1)
+  }
+  let (:new_work9) {
+    Work.new(category: "book", title: "9", 
+      creator: "Josh Howe", publication_year: 2019, description: "gsgdfg", total_votes: 1)
+  }
+  let (:new_work10) {
+    Work.new(category: "book", title: "20", 
+      creator: "Josh Howe", publication_year: 2019, description: "gsgdfg", total_votes: 1)
+  }
+  let (:new_work11) {
+    Work.new(category: "book", title: "11", 
+      creator: "Josh Howe", publication_year: 2019, description: "gsgdfg", total_votes: 1)
+  }
+ 
   describe 'instantiation' do
     it "can be instantiated" do
       # Assert
@@ -77,23 +117,54 @@ describe Work do
         expect(Work.top_10("album")).must_equal []
       end
       
+      it "returns the existing work per category when less than 10" do
+        #Arrange
+        Work.destroy_all
+        
+        new_work.save
+        
+        expect(Work.top_10("book").count).must_equal 1
+        expect(Work.top_10("book").first).must_equal new_work
+      end
+
+
       it "returns the top 10 per category" do
         #Arrange
+        new_work.save
+        new_work2.save
+        new_work3.save
+        new_work4.save
+        new_work5.save
+        new_work6.save
+        new_work7.save
+        new_work8.save
+        new_work9.save
+        new_work10.save
+        new_work11.save
+        
+        expect(Work.top_10("book")).include?(new_work).must_equal false
+      end
+    end
+
+    describe "custom methods" do
+      it "sorts the works by votes number in descendent order" do
+        #Arrange
         works(:wind, :dahlio, :nemo, :beatles, :aerosmith, 
-          :nirvana, :others, :lion, :love, :happy).each do |work|
+        :nirvana, :others, :lion, :love, :happy, :gladiator).each do |work|
           work.category = "book"
           work.save
         end
-
-        works(:wind, :dahlio, :nemo, :beatles, :aerosmith, 
-        :nirvana, :others, :lion, :love, :happy).each do |work|
-          work.total_votes = 5
-          work.save
-        end
-
-        expect(Work.top_10("book").include?(works(:gladiator))).must_equal false
+        
+        #Act
+        works(:love).total_votes = 10
+        works(:love).save
+        works(:gladiator).total_votes = 5
+        works(:gladiator).save
+        
+        #Assert
+        expect(Work.sort_desc("book").first).must_equal works(:love)
+        expect(Work.sort_desc("book")[1]).must_equal works(:gladiator)
       end
-
     end
   end
 end
