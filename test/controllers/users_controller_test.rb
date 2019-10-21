@@ -54,6 +54,7 @@ describe UsersController do
           username: user.username
         }
       }
+
       post login_path, params: login_data
 
       expect(session[:user_id]).must_equal user.id

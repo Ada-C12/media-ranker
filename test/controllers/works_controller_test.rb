@@ -241,7 +241,7 @@ describe WorksController do
         post upvote_path(@work.id)
       }.wont_change "Vote.count"
 
-      expect(flash[:error]).must_equal "Unable to vote twice for the same piece of media"
+      expect(flash[:error]).must_equal "Unable to vote twice for the same work"
       must_respond_with :redirect
       must_redirect_to work_path(@work.id)
     end
