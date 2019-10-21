@@ -1,22 +1,30 @@
 require "test_helper"
 
 describe Vote do
-  let(:valid_work) {
-    Work.create(title: "Some Valid Author")
+  let(:valid_vote) {
+    Vote.create(work_id: 1, user_id: 1)
   }
-
   describe "validations" do
     
     it "can be valid" do
-      is_valid = valid_work.valid?
+      is_valid = valid_vote.valid?
 
       assert( is_valid )
     end
 
-    it "is invalid if there is no title" do
-      invalid_work_without_title = Work.create(title: "")
+    it "is invalid if there is no work_id" do
+      invalid_vote_without_work_id = Vote.create(work_id: nil)
 
-      is_valid = invalid_work_without_title.valid?
+      is_valid = invalid_vote_without_work_id.valid?
+
+      refute( is_valid )
+    end
+
+    it "gives an error message if the title given is not unique" do
+      # user is voting for the same work twice
+      invalid_vote = Vote.create(work_id: 1, user_id: 1)
+
+      is_valid = invalid_vote.valid?
 
       refute( is_valid )
     end
