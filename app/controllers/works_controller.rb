@@ -12,7 +12,7 @@ class WorksController < ApplicationController
     @work = Work.find_by(id: params[:id])
     if @work.nil?
       flash[:error] = "That work does not exist"
-      redirect_to new_work_path
+      redirect_to root_path
     end
   end
   
@@ -22,11 +22,15 @@ class WorksController < ApplicationController
   
   def create
     @work = Work.new(work_params)
-    if @work.save
-      redirect_to work_path(@work.title)
+    if @work.nil?
+      flash[:error] = "Title must be entered to create new work"
+      redirect_to new_work_path
+      return
     else
-      flash[:error] = "Unable to create new work"
-      render new_work_path
+      @work.save
+      flash[:success] = "Your new work has been created!"
+      redirect_to new_work_path
+      return
     end
   end
   
@@ -39,7 +43,7 @@ class WorksController < ApplicationController
   
   def update
     @work = Work.find_by(id: params[:id])
-    if@work.nil?
+    if @work.nil?
       flash[:error] = "Media could not be found"
       redirect_to works_path
       return
