@@ -1,14 +1,4 @@
-<% if @work.errors.any? %>
-  <section class="alert__container">
-      <div class="alert alert-warning">    
-        <ul>
-          <% @work.errors.each do |column, message| %>
-            <li><%= column.capitalize %><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-  </section>
-<% end %>
+<%= render partial: "error", locals: {work: @work} %>
 
 <main>
   <h2>Add a new work</h2>

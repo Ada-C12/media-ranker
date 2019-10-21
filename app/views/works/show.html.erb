@@ -1,3 +1,5 @@
+<%= render partial: "error", locals: {work: @work} %>
+
 <main>
   <section>
     <h2><%=@work.title%></h2>
@@ -7,7 +9,7 @@
     <section>
       <%=link_to "Back to media ranks", root_path, class: "btn btn-primary" %>
       <%=link_to "Edit", edit_work_path(@work.id), class: "btn btn-primary" %>
-      <%=link_to "Upvote", work_path(@work.id), class: "btn btn-primary" %>
+      <%=link_to "Upvote", upvote_path(@work.id), method: :patch, class: "btn btn-primary" %>
       <%=link_to "Delete", work_path(@work.id), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"}%>
     </section>
   </section>
@@ -25,8 +27,8 @@
         <%@work.votes.each do |vote|%>
           <tr>
             <% user = User.find_by(id: vote.user_id)%>
-            <td><a href="#"><%=user.username%></a></td>
-            <td><%=user.created_at.strftime("%b %d, %Y")%> </td>
+            <td><%=link_to user.username, user_path(user.id)%></td>
+            <td><%=vote.created_at.strftime("%b %d, %Y")%> </td>
           </tr>
         <%end%>
       </tbody>

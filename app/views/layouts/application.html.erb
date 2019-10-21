@@ -45,17 +45,16 @@
         </ul>
       </nav>
     </header>
-
-    <%if !flash.empty?%>  
+    <%if flash[:success]%> 
       <section class="alert__container">
-        <div class="alert alert-warning">  
+        <div class="alert alert-success">
           <% flash.each do |name, message| %>
             <span><%= message %></span>
           <% end %>
         </div>
       </section>
     <%end%>
-    
+
     <%= yield %>
   </body>
 </html>
