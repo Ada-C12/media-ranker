@@ -1,0 +1,8 @@
+<h1>About the Current User...</h1>
+
+<% if @user.nil? %>
+  <p>I am not logged in!</p>
+<% else %>
+  <p>I'm logged in! My name is: <%= @user.username %></p>
+<% end %>
+
