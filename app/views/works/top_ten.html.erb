@@ -1,0 +1,27 @@
+<section class="spotlight">
+  <h2 class="spotlight__header--prefix">
+    Media Spotlight
+  </h2><h2 class="spotlight__header"><%= link_to @spotlight.title, work_path(@spotlight.id), class: "spotlight__link-to" %> by <%= @spotlight.creator %></h2>
+  <p class="spotlight__description"><%= @spotlight.votes.count %> votes - <%= @spotlight.description %></p>
+</section>
+<hr class="root__hr">
+<section class="top-ten__container">
+  <% @top_ten_categorized.keys.each do |category| %>
+  <section class="top-ten__list-container">
+    <h2 class="top-ten__header">Top <%= ActiveSupport::Inflector.pluralize( category.to_s.capitalize) %></h2>
+
+    <ul class="list-group top-ten__list">
+      <% @top_ten_categorized[category].each do |work| %>
+      <li class="list-group-item">
+        <h4>
+          <%= link_to work.title, work_path(work.id) %>
+          <small class="top-ten__creator">by </small>
+        </h4>
+        <p><%= work.votes.count %> votes</p>
+      </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <% end %>
+</section>

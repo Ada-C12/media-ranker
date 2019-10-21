@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaRanker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', "https://fonts.googleapis.com/css?family=Gudea:400,700|Hammersmith+One" %>
+  </head>
+
+  <body>
+    <header class="app-header__header">
+      <h1>
+        <%= link_to "Media Ranker", root_path %>
+        <small>Ranking the Best of Everything</small>
+      </h1>
+      <nav class="app-header__nav">
+        <ul class="nav app-header__site-nav-container">
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "View top media", root_path, class: "nav-link" %>
+          </li>
+         <li class="nav-item app-header__nav_item">
+            <%= link_to "View all media", works_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "Add a new work", new_work_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "View all users", users_path, class: "nav-link" %>
+          </li>
+        </ul>
+
+        <%# Logged in as username button there if logged in (if @user) %>
+        <% if @determine_user.nil? %>
+        <%= render partial: "layouts/log_in_button" %>
+        <% else %>
+        <%# <%= render partial: "layouts/logged_in_buttons" %>
+        <%= render partial: "layouts/logged_in_buttons", locals: {current_user: @determine_user} %>
+        <% end%>
+      </nav>
+    </header>
+
+    <% if flash[:alert_class] %>
+      <%= render partial: "layouts/alert_container" %>
+    <% end %>
+
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>

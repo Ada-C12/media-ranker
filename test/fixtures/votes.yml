@@ -1,0 +1,49 @@
+user_1_top_album:
+  user: user_1 
+  work: top_album
+  
+user_2_top_album:
+  user: user_2 
+  work: top_album
+
+user_3_top_album:
+  user: user_3
+  work: top_album 
+
+# Extra votes for Spotlight
+user_4_top_album_and_spotlight:
+  user: user_4
+  work: top_album
+  
+user_5_top_album_and_spotlight:
+  user: user_5
+  work: top_album
+
+
+  
+user_1_top_book:
+  user: user_1 
+  work: top_book
+  
+user_2_top_book:
+  user: user_2 
+  work: top_book
+
+user_3_top_book:
+  user: user_3
+  work: top_book 
+
+
+
+
+user_1_top_movie:
+  user: user_1 
+  work: top_movie
+  
+user_2_top_movie:
+  user: user_2 
+  work: top_movie
+
+user_3_top_movie:
+  user: user_3
+  work: top_movie 
