@@ -194,8 +194,6 @@ describe WorksController do
     before do
       @work = works(:westover)
       @user = User.create!(username: "New")
-
-
     end
 
     it "votes when user is logged in and vote is unique" do
@@ -212,7 +210,7 @@ describe WorksController do
       }.must_change "Vote.count", 1
 
       must_respond_with :redirect
-      must_redirect_to root_path
+      must_redirect_to work_path(@work)
     end
 
     it "user cannot vote when they are not logged in" do

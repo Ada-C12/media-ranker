@@ -30,6 +30,5 @@ class Work < ApplicationRecord
 
     return Work.sort_media(category).first(10)
   end
-
 end
 

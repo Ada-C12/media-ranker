@@ -75,7 +75,7 @@ class WorksController < ApplicationController
     vote = Vote.new(user_id: session[:user_id], work_id: params[:id])
 
     if vote.save
-      redirect_to root_path
+      redirect_to work_path(params[:id])
       return
     else
       flash[:error] = "Unable to vote twice for the same work"
