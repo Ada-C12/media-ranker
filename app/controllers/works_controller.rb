@@ -59,7 +59,7 @@ class WorksController < ApplicationController
     
     if @user.nil?
       redirect_to work_path(@work.id)
-      flash[:error] = "You must be logged in to vote"
+      flash[:error] = "A problem occured: You must log in to do that"
       return
     elsif @user
       @user.votes.each do |vote|

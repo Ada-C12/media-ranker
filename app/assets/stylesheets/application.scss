@@ -11,7 +11,15 @@
  * It is generally better to create a new file per style scope.
  *
  */
-    /* Custom bootstrap variables must be set or imported *before* bootstrap. */
-    @import "bootstrap";
-    /* Import scss content */
-    @import "**/*";
+ /* Custom bootstrap variables must be set or imported *before* bootstrap. */
+@import "bootstrap";
+ /* Import scss content */
+@import "**/*";
+
+.success {
+   background-color: #d4edda;
+}
+
+.failure {
+   background-color:  #fff3cd;
+}
