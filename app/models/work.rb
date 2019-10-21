@@ -1,6 +1,7 @@
 class Work < ApplicationRecord
   has_many :votes
-  validates :category, presence: true
+  validates :category, presence: true, inclusion: { in: ["album", "book", "movie"] }
+  validates :title, presence: true
   
   def self.top10(type)
     works = Work.where(category: type).sort_by{ |work| - work.votes.length}

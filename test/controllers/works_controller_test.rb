@@ -92,22 +92,22 @@ describe WorksController do
   end
   
   describe "update" do
-    let (:new_work) { Work.create(category: "book", title: "Work of Art", creator: "Me", publication_year: 2019, description: "This is a description") }
-    
+    let (:work_to_update) { Work.create(category: "book", title: "this is my work of Art", creator: "Me", publication_year: 2019, description: "This is a description") }
+    # work_to_update = Works.first
     it "can update an existing work with valid information accurately, and redirect" do
-      new_work
-      expect(Work.find_by(title: "Work of Art")).must_equal new_work
-      id = new_work.id
+      
+      # expect(Work.find_by(title: "this is my work of Art")).must_equal work_to_update
+      update_id = work_to_update.id
       updates = { title: "Not a Work of Art" }
       
-      expect{ patch work_path(id), params: {work: updates}}.must_differ "Work.count", 0
+      expect{ patch work_path(update_id), params: {work: updates}}.must_differ "Work.count", 0
       
-      new_work.reload
-      updated_work = Work.find(id)
+      work_to_update.reload
+      updated_work = Work.find(update_id)
       
-      expect(updated_work.title).must_equal new_work.title
+      expect(updated_work.title).must_equal work_to_update.title
       
-      must_redirect_to work_path(id)
+      must_redirect_to work_path(update_id)
     end
     
     it "does not update any work if given an invalid id, and responds with a 404" do
@@ -122,7 +122,7 @@ describe WorksController do
     
     it "does not update a work if the form data violates work validations" do
       
-      work = new_work
+      work = work_to_update
       updates = { title: "Not a Work of Art", category: nil }
       
       expect{ patch work_path(work.id), params: {work: updates}}.must_differ "Work.count", 0

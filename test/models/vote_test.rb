@@ -1,7 +1,17 @@
 require "test_helper"
 
 describe Vote do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  describe "relationships" do 
+    it "has a user" do
+      vote = Vote.first
+      vote.must_respond_to :user
+      vote.user.must_be_kind_of User
+    end
+    
+    it "has a work" do
+      vote = Vote.first
+      vote.must_respond_to :work
+      vote.work.must_be_kind_of Work
+    end
+  end
 end
