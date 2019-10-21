@@ -1,6 +1,6 @@
 <section id= "spotlight">
   <h2>Media Spotlight: </h2><h3><%=link_to @spotlight.name, work_path(@spotlight.id)%></h3><h4> by <%=@spotlight.creator%></h4>
-  <p> <%= Vote.where(id: @spotlight.id).count%> votes <%= @spotlight.description%></p>
+  <p> <%= @spotlight.votes.count %> votes <%= @spotlight.description%></p>
 </section>
 
 <section id = "top-bucket">
