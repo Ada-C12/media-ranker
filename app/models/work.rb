@@ -1,7 +1,7 @@
 require 'pry'
 
 class Work < ApplicationRecord
-  has_many :votes
+  has_many :votes, dependent: :destroy
   
   def self.spotlight
     @works = Work.all
@@ -16,7 +16,5 @@ class Work < ApplicationRecord
     
     return sorted[0..9]
   end
-  
-  
   
 end

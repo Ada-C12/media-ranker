@@ -55,7 +55,19 @@ class WorksController < ApplicationController
     end
   end
   
-  
+  def destroy
+    
+    target_work = Work.find_by( id: params[:id] )
+    
+    if target_work.nil? 
+      flash[:error] = "That work does not exist" 
+      redirect_to root_path
+    else
+      target_work.destroy
+      redirect_to root_path
+      return
+    end
+  end
   
   
   
