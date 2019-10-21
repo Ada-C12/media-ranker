@@ -12,15 +12,9 @@
  *
  */
     /* Custom bootstrap variables must be set or imported *before* bootstrap. */
-    @import "bootstrap";
+   @import "bootstrap";
     /* Import scss content */
-    @import "**/*";
-
-
-   // h1, .h1 {
-   //    background-color: yellow;
-   //    font-size: 2.5rem;
-   // }
+   @import "**/*";
 
    main {
       padding: 2rem;
@@ -34,20 +28,12 @@
    .app-header__header {
       max-width: 100%;
       background-color: #B2DFDB;
-      margin-ottom: 0.5rem;
+      margin-bottom: 0.5rem;
       padding: 2rem 1rem 0.5rem 1rem;
-
-      display: block;
-   }
-
-   .app-header__header a {
-      max-width: 100%;
-      background-color: #B2DFDB;
-      // padding: 2rem 1rem 0.5rem 1rem;
    }
 
    .app-header__header h1 {
-      text-aign: center;
+      text-align: center;
       margin: 25px auto 40px auto;
    }
 
@@ -63,6 +49,19 @@
       color: white;
    }
 
+// This is the NAV BAR
+   .app-header__user-nav-container, .app-header__site-nav-container {
+      margin-left: 2rem;
+      margin-top: 1rem;
+   }
+
+   .app-header__nav_item {
+      margin-top: 1rem;
+      margin-left: 0.5rem;
+      margin-right: 1rem;
+      padding-bottom: 0.35rem;
+   }
+
    .nav-link {
       color: #00796B;
    }
@@ -76,16 +75,18 @@
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      color: #00706B;
    }
 
-   .nav {
-      display: flex;
-      flex-wrap: wrap;
-      padding-left: 0;
-      margin-bottom: 0;
-      list-style: none;
-   }
+   // .nav {
+   //    display: flex;
+   //    flex-wrap: wrap;
+   //    padding-left: 0;
+   //    margin-bottom: 0;
+   //    list-style: none;
+   // }
+
+
+
 
 h1, h2, h3, h4, h5 {
    font-weight: bold;
@@ -96,6 +97,12 @@ body, h1, h2, h3, h4, h5 {
 }
 
 // BUTTONS
+.btn-primary {
+   background-color: #26A69A;
+   border-color: #26A69A;
+   color: white;
+}
+
 .btn:hover {
    background-color: rgb(21, 94, 86);
 }
@@ -103,14 +110,18 @@ body, h1, h2, h3, h4, h5 {
 .btn-secondary {
    // i don' think anything needed here
 }
- 
-.btn-primary {
-   background-color: #26A69A;
-   border-color: #26A69A;
-   color: white;
+
+.btn {
+   display: inline-block;
+   text-align: center;
+   white-space: nowrap;
+   vertical-align: middle;
+   padding: 0.375rem 0.75rem;
+   line-height: 1.5;
+   border-radius: 0.25rem;
 }
 
-// SUPER SPECIAL IDs
+// MY OWN classes/ids
 
 #logo {
    font-weight: bold;

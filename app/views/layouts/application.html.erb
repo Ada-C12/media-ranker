@@ -9,7 +9,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-
 <header class="app-header__header">
     <h1>
       <a href="/">Media Ranker</a>
@@ -33,20 +32,24 @@
       </ul>
       <ul class="nav app-header__user-nav-container">
         <% if session[:user_id] %>
-          <%= link_to "Logged in as #{username_from_session}", user_path(id: session[:user_id]), class: "btn btn-primary" %>
-          <%= link_to "Log Out", logout_path, method: :patch, class: "btn btn-primary"%>
-        <% else %>
         <li class="nav-item app-header__nav_item">
-          <a class="btn btn-primary" href="/users/login">Log In</a>
+          <%= link_to "Logged in as #{username_from_session}", user_path(id: session[:user_id]), class: "btn btn-primary nav_buttons_green" %>
         </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="btn btn-primary" data-method="patch" href="/users">Log Out</a>
+        </li>
+        <% else %>
+          <li class="nav-item app-header__nav_item">
+          <a class="btn btn-primary" href="/users/login">Log In</a>
+          </li>
         <% end %>
       </ul>
     </nav>
   </header>
 
 
-  <body>
 
+  <body>
   <%# FLASH from rails, using Bootstrap ALERT %>
   <section class="alert__container">    
     

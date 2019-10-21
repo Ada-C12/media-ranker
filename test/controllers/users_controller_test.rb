@@ -67,7 +67,8 @@ describe UsersController do
       it "Logging invalid user results in render and a flash[:error]" do
         post users_path, params:  { user:{name: nil}} 
         must_respond_with :success
-        assert(flash[:error].include? "Login unsuccessful! [\"Name can't be blank\"]")
+        assert(flash[:error].include? "Login unsuccessful!")
+        assert(flash[:error_msgs] == ["Name can't be blank"])
       end    
     end
     

@@ -4,9 +4,7 @@
 <span class="spotlight__header--prefix">Media Spotlight:</span>
 <span class="spotlight__link_to">
   <% if @spotlight_winner.id %> 
-    <%= link_to @spotlight_winner.title, work_path(id: @spotlight_winner.id) %>
-  <% else %>
-    NO WINNER
+    <%= link_to @spotlight_winner.title, work_path(id: @spotlight_winner.id) %><% else %>NO WINNER
   <% end %>
 </span>
 <span class="med_green_text"> by <%= @spotlight_winner.creator %></span>
