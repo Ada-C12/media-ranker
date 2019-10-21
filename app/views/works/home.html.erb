@@ -1,0 +1,17 @@
+<body>
+  <main>
+    <section class="spotlight">
+      <h2 class="spotlight__header">
+        <span class="spotlight__header--prefit">
+          Media Spotlight: <%= link_to Work.spotlight.title, work_path(Work.spotlight.id) %> by <%= Work.spotlight.creator %>
+        </span>
+      </h2>
+    </section>
+
+    <section class="top-ten__container">
+      <%=render partial: "home", locals: { heading: "Movies", category: "movie" }%>
+      <%=render partial: "home", locals: { heading: "Books", category: "book" }%>
+      <%=render partial: "home", locals: { heading: "Albums", category: "album" }%>
+    </section>
+  </main>
+</body>

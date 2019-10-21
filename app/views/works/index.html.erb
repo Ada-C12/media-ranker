@@ -1,0 +1,28 @@
+<h2 class="works-title"> List of Works </h2>
+<% ["album", "book", "movie"].each do |category|%>
+  <table class="table">
+  <h4> <%= category.titlecase.pluralize %> </h4>
+    <thead>
+      <tr>
+        <th scope="col"> Votes </th>
+        <th scope="col"> Title </th>
+        <th scope="col"> Created by </th>
+        <th scope="col"> Published </th>
+        <th scope="col"> Upvote </th>
+      </tr>
+    </thead>
+    <tbody>
+    <%if @works %>
+      <% @works.sort_by_vote(category).each do |work| %>
+      <tr>
+        <th scope"row"> <%= work.votes.length %> </th> 
+        <th scope"row"> <%= link_to work.title, work_path(work.id)%> </th>
+        <th scope"row"> <%= work.creator%> </th>
+        <th scope"row"> <%= work.publication_year%> </th>
+        <th scope"row"> <%= link_to "Upvote", work_votes_path(work.id), method: :post, class:"btn btn-info" %></th>
+      </tr>
+      <%end%>
+    <%end%>
+    </tbody>
+  <%end%>
+
