@@ -21,12 +21,11 @@ describe User do
   end
 
   describe "relationships" do
-    it "can vote once for a work" do
-      valid_vote.save
-      first_trip = Trip.first
+    it "can have a vote" do
+      valid_user.save
+      user = users(:yoshi)
 
-      expect(first_trip.driver).must_be_instance_of Driver
-      expect(first_trip.passenger).must_be_instance_of Passenger
+      expect(user.votes).must_include votes(:vote1)
     end
   end
 end
