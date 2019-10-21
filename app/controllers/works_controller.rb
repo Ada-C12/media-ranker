@@ -14,49 +14,36 @@ class WorksController < ApplicationController
   end
   
   def create 
-    if session[:user_id]
-      @work = Work.new(work_params)
-      if @work.save
-        flash[:success] = "Successfully created " + @work.category + " " + @work.id.to_s
-        redirect_to work_path(@work.id)
-      else
-        @errors = @work.errors
-        flash.now[:error] = "A problem occurred: Could not create " + @work.category
-        render :new
-      end
+    @work = Work.new(work_params)
+    if @work.save
+      flash[:success] = "Successfully created " + @work.category + " " + @work.id.to_s
+      redirect_to work_path(@work.id)
     else
-      flash[:error] = "You must log in to do that"
-      redirect_to works_path
+      @errors = @work.errors
+      flash.now[:error] = "A problem occurred: Could not create " + @work.category
+      render :new
     end
+    
   end
   
   def edit; end
   
   def update
-    if session[:user_id]
-      if @work.update(work_params)
-        redirect_to work_path
-      else
-        flash.now[:error] = "A problem occurred: Could not update album"
-        render :edit
-      end
-    else
-      flash[:error] = "You must log in to do that"
+    
+    if @work.update(work_params)
       redirect_to work_path
+    else
+      flash.now[:error] = "A problem occurred: Could not update album"
+      render :edit
     end
   end
   
   def destroy
-    if session[:user_id]
-      votes = Vote.where(work_id: @work.id)
-      votes.destroy_all
-      @work.destroy
-      flash[:success] = "Successfully destroyed " + @work.category + " " + @work.id.to_s
-      redirect_to root_path
-    else
-      flash[:error] = "You must log in to do that"
-      redirect_to works_path
-    end
+    votes = Vote.where(work_id: @work.id)
+    votes.destroy_all
+    @work.destroy
+    flash[:success] = "Successfully destroyed " + @work.category + " " + @work.id.to_s
+    redirect_to root_path
   end
   
   private
