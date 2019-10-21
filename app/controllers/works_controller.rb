@@ -23,6 +23,7 @@ class WorksController < ApplicationController
   def create
     @work = Work.new( work_params )
     if @work.save
+      flash[:message] = "#{@work.title} successfully created!"
       redirect_to work_path(@work.id)
     else
       render new_work_path

@@ -3,13 +3,12 @@ class Work < ApplicationRecord
   validates :category, presence: true
   
   def self.top10(type)
-    works = Work.where(category: type).all.order(title: :asc)
+    works = Work.where(category: type).sort_by{ |work| - work.votes.length}
     return works[0...9]
   end
   
   def self.spotlight
-    #temp work item
-    return Work.first
+    return Work.all.sort_by {|work| - work.votes.length }.first
   end
   
   def upvote(current_user)
