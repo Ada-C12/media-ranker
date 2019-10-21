@@ -55,14 +55,14 @@
   <section class="alert__container">    
     
     <% if flash[:success] %>
-      <div class="alert alert-success">
+      <section class="alert alert-success">
       <span>
         <%= flash[:success]%>
       </span>
-      </div>
+      </section>
 
     <% elsif flash[:error] %>
-      <div class="alert alert-warning">
+      <section class="alert alert-warning">
 
       <span>
         <%= flash[:error] %>
@@ -77,14 +77,14 @@
         <% end %>
         </ul>
       <% end %>
-      </div>
+      </section>
 
     <% elsif flash[:message] %>
-      <div class="alert alert-primary">
+      <section class="alert alert-primary">
       <span>
         <%= flash[:message]%>
       </span>
-      </div>
+      </section>
     <% end %>
 
   </section>
