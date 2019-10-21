@@ -135,35 +135,4 @@ describe WorksController do
     end
   end
   
-  describe "main" do
-    it "spotlight is the highest upvoted work across all categories" do
-      expected_work_id = 1
-      #atm, checked using the terminal
-    end
-    
-    it "spotlight shows only a single upvoted work if two votes have an equally high number of votes" do
-      Vote.create(work_id: 4, user_id: 4)
-      #atm, checked using the terminal
-      
-    end
-    
-    it "top <category> shows a maximum of 10 works for a given category" do
-      Work.create(name: "Vanessa", category: "movie")
-      Work.create(name: "Sontee Jenkins", category: "movie")
-      Work.create(name: "Grace Rossiter", category: "movie")
-      Work.create(name: "Margie Hendricks", category: "movie")
-      Work.create(name: "Kreela", category: "movie")
-      Work.create(name: "Angela", category: "movie")
-      Work.create(name: "Sam Fuller", category: "movie")
-      Work.create(name: "Erika Murphy", category: "movie")
-      Work.create(name: "Angela Abar", category: "movie")
-      Work.create(name: "Janine Davis", category: "movie")
-      
-      #expect @top_movies.count == 10
-      #atm checked using the terminal
-    end
-    
-    
-  end
-  
 end

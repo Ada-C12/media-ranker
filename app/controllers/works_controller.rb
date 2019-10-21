@@ -60,50 +60,17 @@ class WorksController < ApplicationController
     @work = Work.find_by(id: params[:id])
   end
   
-  # def update_votes
-  #   @votes = Vote.where(work_id: @work.id)
-  #   @votes.each do |vote|
-  #     vote.work_id = 0
-  #     vote.save
-  #   end 
-  # end
-  
-  def find_spotlight
-    
-    works = Work.all
-    work_ids = {}
-    works.each do |work|
-      if work_ids.has_key?(work.id)
-        work_ids[work.id] += 1
-      else
-        work_ids[work.id] = 1
-      end
-    end
-    
-    work_ids.sort_by{|key, value| value}
-    
-    work_ids.sort_by {|k, v| v}
-    
-    work_ids.keys
-    
-    spotlight_id = work_ids.first
-    
-    return spotlight_id
-  end
-  
   def main
     
-    @spotlight = Work.find_by(id: find_spotlight)
+    @spotlight = Work.find_spotlight
     if @spotlight == nil
       @spotlight = Work.first
     end
     
-    @top_albums = Work.where(category: "album").limit(10)
-    @top_books = Work.where(category:  "book").limit(10)
-    @top_movies = Work.where(category: "movie").limit(10)
+    @top_books = Work.find_top_books
+    @top_albums = Work.find_top_albums
+    @top_movies =  Work.find_top_movies
   end
-  
-  
   
   private
   

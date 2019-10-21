@@ -3,15 +3,13 @@
 <h3><%=link_to @spotlight.name, work_path(@spotlight.id)%></section></h3> <h4> by <%=@spotlight.creator%>
 <p> <%= Vote.where(id: @spotlight.id).count%> votes <%= @spotlight.description%></p>
 
-
-
 <section id="albums">
 <h2> Top Albums </h2>
-<% @top_albums.each do |work|%>
-  <%= link_to work.name, work_path(work.id) %>
-  <%= work.category%>
-  <%= Vote.where(id: work.id).count  %> votes
-<% end %>
+  <% @top_albums.each do |work|%>
+    <%= link_to work.name, work_path(work.id) %>
+    <%= work.category%>
+    <%= work.votes.count %> votes
+  <% end %>
 </section>
 
 <section id="books">
@@ -19,7 +17,7 @@
 <% @top_books.each do |work|%>
   <%= link_to work.name, work_path(work.id) %>
   <%= work.category%>
-  <%= Vote.where(id: work.id).count %> votes
+  <%= work.votes.count %> votes
 <% end %>
 </section>
 
@@ -28,6 +26,6 @@
 <% @top_movies.each do |work|%>
   <%= link_to work.name, work_path(work.id) %>
   <%= work.category%>
-  <%= Vote.where(id: work.id).count  %> votes
+  <%= work.votes.count %> votes
 <% end %>
 </section>
