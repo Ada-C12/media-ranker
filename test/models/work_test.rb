@@ -177,6 +177,12 @@ describe Work do
         
       end
       
+      it "will be nil if there are no voted-on works" do 
+        Work.destroy_all
+        top_books = Work.top_ten("book")
+        expect _(top_books.length ).must_equal 0
+      end
+      
     end
     
     describe "votes_descending" do 
@@ -197,7 +203,7 @@ describe Work do
         # book_2 gets two votes
         Vote.create(work_id: book_2.id, user_id: user_2.id)
         Vote.create(work_id: book_2.id, user_id: user_3.id)
-
+        
         books_descending = Work.votes_descending("book")
         
         # book_2 got the most votes so it should show up first
@@ -207,15 +213,21 @@ describe Work do
       end
       
       it "includes works that have not received any votes" do
-       
+        
         unloved_book = Work.create(category: "book", title: "Toenails of the World", creator: " ", publication: 1978, description: " ")
-
+        
         books_descending = Work.votes_descending("book")
         
         expect( books_descending ).must_include unloved_book
-
+        
       end
       
+      it "returns nil if there are no works" do
+        Work.destroy_all
+        books_descending = Work.votes_descending("book")
+        
+        expect( books_descending.count ).must_equal 0
+      end
     end
     
   end
