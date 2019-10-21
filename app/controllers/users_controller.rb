@@ -22,10 +22,14 @@ class UsersController < ApplicationController
         if user
             session[:user_id] = user.id
             flash[:success] = "You are now logged in as #{user.username}"
+            redirect_to root_path
+            return
         else
             user = User.create(username: username)
             session[:user_id] = user.id
             flash[:success] = "User #{user.username} has been created. You are now logged in as #{username}"
+            render new_user_path
+            return
         end
         
         redirect_to root_path
@@ -36,15 +40,17 @@ class UsersController < ApplicationController
     end
     
     def logout
-        @user = User.find_by(id: session[:user_id])
-        if session[:user_id] == nil
-            flash[:error] = "You are not logged in"
-        else
+        if session[:user_id]
             session[:user_id] = nil
             flash[:success] = "Logged out"
             redirect_to root_path 
-        end
-    end   
+        elsif
+            session[:user_id].nil?
+            flash[:error] = "You are not logged in"
+            redirect_to root_path
+            return
+            
+        end 
+    end  
     
 end
-
