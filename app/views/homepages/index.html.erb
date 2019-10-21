@@ -7,7 +7,7 @@
       <%= link_to Work.spotlight.title, work_path(Work.spotlight.id) %> by <%= Work.spotlight.creator %>
     </h2>
     <p class="spotlight__description">
-      6 votes - brand new
+      <%= Work.spotlight.votes.length %>  <%= pluralized?('vote', Work.spotlight.votes.length) %> - <%= Work.spotlight.description %>
     </p>
   </section>
 

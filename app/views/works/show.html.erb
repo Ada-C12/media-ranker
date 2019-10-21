@@ -27,8 +27,15 @@
         </thead>
         <tbody>
           <tr>
-            <td><a href="/users/467">liz</a></td>
-            <td>Oct 16, 2019</td>
+            <% votes = Vote.where(work_id: @work.id) %>
+            <% votes.each do |vote| %>
+            <td>
+              <%= link_to User.find_by(id: vote.user_id).username, user_path(User.find_by(id: vote.user_id)) %>
+            </td>
+            <td>
+              <%= formatted_date(vote.created_at)%>
+            </td>
+            <% end %>
           </tr>
         </tbody>
       </table>

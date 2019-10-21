@@ -46,7 +46,7 @@
   <body>
 
     <% flash.each do |key, value| %>
-      <div class= "alert alert-<%key%>" class=<%= flash_class(key)%> >
+      <div class="alert alert-<%key%>" class=<%= flash_class(key)%> >
       <% unless flash[key].blank? %>
        <span><%= value %></span>
        <% end %>
