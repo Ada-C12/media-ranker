@@ -50,19 +50,19 @@ a {
   text-align: center;
   font-weight: bolder;
   background-size: 100%;
-}
 
-.nav-container h1, h3 {
-  font-size: 3em;
-  text-transform: lowercase;
-}
+  h1, h3 {
+    font-size: 3em;
+    text-transform: lowercase;
+  }
 
-.nav-container h1 {
-  font-family: 'Merriweather Sans', sans-serif;
-}
+  h1 {
+    font-family: 'Merriweather Sans', sans-serif;
+  }
 
-.nav-container h3 {
-  font-size: 2em;
+  h3 {
+    font-size: 2em;
+  }
 }
 
 .nav-elements {
@@ -75,13 +75,13 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-}
 
-.menu-container ul li, .login-container ul li {
-  list-style-type: none;
-  font-size: 1.2em;
-  text-transform: lowercase;
-  font-weight: normal;
+  li {
+    list-style-type: none;
+    font-size: 1.2em;
+    text-transform: lowercase;
+    font-weight: normal;
+  }
 }
 
 .top-ten-container {
@@ -92,31 +92,27 @@ a {
 .spotlight-container {
   margin: 3% 0;
   text-align: center;
-}
 
-.spotlight-container h2 {
-  display: inline;
-  font-size: 1.5em;
-  font-weight: bold;
+  h2 {
+    display: inline;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Merriweather Sans', sans-serif;
 
-}
+  }
 
-.spotlight-container p {
-  display: inline;
-  font-size: 1.5em;
-}
-
-.spotlight-container h2 {
-  font-family: 'Merriweather Sans', sans-serif;
-
+  p {
+    display: inline;
+    font-size: 1.5em;
+  }
 }
 
 .top-ten-list {
   margin: 30px;
-}
 
-.top-ten-list h2 {
-  font-family: 'Merriweather Sans', sans-serif;
+  h2 {
+    font-family: 'Merriweather Sans', sans-serif;
+  }
 }
 
 .top-ten-container li {
@@ -156,12 +152,50 @@ a {
 
 .error, .warning {
   background-color: pink;
-  margin: 3% 0;
+  margin: 3% 0 0 0;
   padding: 1%;
 }
 
 .success {
-  background-color: rgb(163, 241, 163);
+  background-color: rgb(138, 207, 138);
   margin: 3% 0;
   padding: 1%;
+}
+
+.work-input {
+  display: grid;
+  grid-template-columns: 120px minmax(400px, 1fr);
+  row-gap: 0.5em;
+  column-gap: 0.3em;
+
+  label {
+    grid-column: 1;
+  }
+
+  input, textarea {
+    grid-column: 2;
+    border-radius: 5px;
+    border: 1px solid gray;
+  }
+
+  textarea {
+    min-height: 5em;
+  }
+}
+
+.user-input {
+  display: grid;
+  grid-template-columns: 120px 300px;
+  column-gap: 0.3em;
+  row-gap: 0.5em;
+
+  label {
+    grid-column: 1;
+  }
+
+  input {
+    grid-column: 2;
+    border-radius: 5px;
+    border: 1px solid gray;
+  }
 }
