@@ -1,15 +1,4 @@
- <% if @user.errors.any? %>
-  <section class="alert__container">
-    <div class="alert alert-warning">  
-        <ul>
-          <% @user.errors.each do |column, message| %>
-            <li><%= column.capitalize %><%= message %></li>
-          <% end %>
-        </ul>
-    </div>
-  </section>
-<% end %>
-
+<%=render partial: "error", locals: {user: @user}%>
 <main>
 <h2>Log In</h2>
   <%= form_with model: @user, url: login_path do |f| %>
