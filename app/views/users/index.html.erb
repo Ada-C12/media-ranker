@@ -2,6 +2,27 @@
 table of username, votes, joined
 http://media-ranker-2-0.herokuapp.com/users
   %>
+<main>
 
+<h2> List of Users </h2>
+<thead>
+  <tr>
+    <th> Username </tr>
+    <th> Votes</tr>
+    <th> Joined </tr>
+  <tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+    <td><%= link_to user.username, user_path(user.id) %></td>
+    <td><%= user.votes.length %></td>
+    <td><%= readable_date(user.created_at) %></td>
+    </tr>
+      <% end %>
+    </tbody>
+  </table>
 
+  <%= link_to "Back to Media Ranks", works_path %>%>
+</main>
   
