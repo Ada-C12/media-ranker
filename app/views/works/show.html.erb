@@ -1,0 +1,30 @@
+<main class="container">
+  <section>
+    <article>
+      <h1 class="text-green"><%= @work.title %></h1>
+      <p>Created by: <%= @work.creator %></p>
+      <p>Published:<%= @work.publication_year %></p>
+      <%= link_to "Back to media rank", root_path, class:"btn btn-primary" %>
+      <%= link_to "Edit", edit_work_path(@work.id), class:"btn btn-primary" %>
+      <%= link_to "Upvote", work_votes_path(@work.id), method: :post, class:"btn btn-primary" %>
+      <%= link_to "Delete", work_path(@work.id), class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }%>
+      <h2><%= @work.votes.length %> votes for this album</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">User</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= @work.votes.each do |vote|%>
+            <tr>
+              <td><% vote.user_id%></td>
+              <td><% vote.created_at%></td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </article>
+  </section>
+</main>

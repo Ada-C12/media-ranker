@@ -1,0 +1,13 @@
+<main class="container">
+  <section>
+    <article>
+      <h1 class="text-green">log In</h2>
+    </article>
+  </section>
+  <%= form_with model: @user, url: login_path do |f| %>
+    <div class="form-group">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: "form-control" %>
+    </div>
+    <%= f.submit "Log In", class: "btn btn-primary" %>
+  <% end %>

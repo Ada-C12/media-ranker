@@ -79,8 +79,9 @@ Regardless of how you choose to implement this project or how it progresses over
 In this wave, you should build some functionality, and then build the model tests relevant to that functionality. We recommend doing the read and create operations first, then writing tests, then completing the update and delete operations.
 
 Mimic the site's basic functionality around Media, without worrying (yet) about Users or Votes:
+
 - Build a main page, with a list of the media for each category, as well as a spotlight section for the top media overall.
-    - Since we don't have votes yet, for both the spotlight and top-10 sections you should select works at random (i.e. using `.sample`)
+  - Since we don't have votes yet, for both the spotlight and top-10 sections you should select works at random (i.e. using `.sample`)
 - Build an index page with a list of all works for each category
 - Allow users to add new works
 - Build a details page for each piece of media
@@ -96,7 +97,7 @@ Think about what logic should live in the model. Given that the way you select t
 
 - All validations and should be tested
 - All custom methods should be tested
-    - For top-10 or spotlight, what if there are less than 10 works? What if there are no works?
+  - For top-10 or spotlight, what if there are less than 10 works? What if there are no works?
 
 ### Optional Testing: Controllers
 
@@ -108,11 +109,13 @@ Consider these features and the tests that would go with them for your controlle
 ## Wave 2
 
 Mimic the site's functionality around Users and Voting:
+
 - Allow users to "log in" to the site, and use the `session` to keep track of which user is currently logged in for a given browser
 - Allow users to vote for media
 - Don't allow a user to vote for the same media more than once
 
 Refactor your current site to utilize this new functionality:
+
 - Change the media spotlight and top-10 to respect vote count
 - All lists of media (including top ten lists on the front page) are sorted in a specific way on the demo site. How? Implement this sorting on your site
 
@@ -123,8 +126,7 @@ Refactor your current site to utilize this new functionality:
 - All validations for new models should be tested
 - All relations between models should be tested
 - Your tests for custom model methods should be updated to reflect the presence of votes
-    - How do top-10 and spotlight handle works with no votes? Ties in the number of votes?
-
+  - How do top-10 and spotlight handle works with no votes? Ties in the number of votes?
 
 ### Optional Testing: Controllers
 
@@ -132,9 +134,9 @@ Consider these features and the tests that would go with them for your controlle
 
 - Tests for all individual actions
 - Authentication tests combining multiple actions
-    - A guest user _cannot_ vote if they have not logged in
-    - A logged-in user _can_ vote for a work they haven't already voted for
-    - A logged-in user _cannot_ vote for a work they have previously voted for
+  - A guest user _cannot_ vote if they have not logged in
+  - A logged-in user _can_ vote for a work they haven't already voted for
+  - A logged-in user _cannot_ vote for a work they have previously voted for
 
 Focus on the tests for voting logic since this is the most complex part of Wave 2.
 
@@ -143,6 +145,7 @@ Focus on the tests for voting logic since this is the most complex part of Wave 
 Passwords and security are tricky! We'll talk about that sort of thing a little in the coming weeks, but for now you don't need to provide any sort of security. The user gives you a username, and your site should just trust them.
 
 ## Wave 3
+
 - Add a list of voting users to the details page for each media
 - Add a page for each user, as well as a page showing a summary of all users
 
@@ -160,10 +163,11 @@ Passwords and security are tricky! We'll talk about that sort of thing a little 
 Once your test coverage is comprehensive, your HTML is semantic, your user stories have all been moved to the `Done` column and your application has been deployed to Heroku, you may consider the following enhancements:
 
 1. DRY up your code as much as you can! Techniques worth investigating:
-    - Helper methods
-    - Controller filters
+   - Helper methods
+   - Controller filters
 1. Build category-specific pages for `index` and `new` (e.g. `/books` or `/movies/new`). These should be as DRY as possible. You might be interested in investigating _polymorphic routes_.
 1. Add a [recommendation system](https://www.toptal.com/algorithms/predicting-likes-inside-a-simple-recommendation-engine) that suggests media to a user based on what they have previously voted for.
 
 ## What we're looking for
+
 You can find what instructors will be looking for in the [feedback](feedback.md) markdown document.

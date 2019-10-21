@@ -1,0 +1,80 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+valid_work:
+  category: album
+  title: Blue Breaker
+  creator: Dr. Sarai Langosh,
+  publication_year: 1949
+  description: Et et expedita non aut quo.
+  
+invalid_work_without_category:
+  title: Kreb-Full-o Been
+  creator: Ms. Trevion Buckridge
+  publication_year: 2016
+  description: Vero consectetur delectus consequatur id aut accusantium unde excepturi.
+
+invalid_work_without_title:
+  category: album
+  creator: TestCreator
+  publication_year: 2018
+  description: TestDescription
+
+invalid_work_without_creator:
+  category: album
+  title: Wake-up Pie
+  publication_year: 1919
+  description: TestDescription
+
+invalid_work_without_publication_year:
+  category: album
+  title: Major Cup
+  creator: Jayde Bartoletti,
+  description: Quis recusandae cum est
+
+invalid_work_without_description:
+  category: album
+  title: TestTitle
+  creator: TestCreator
+  publication_year: 2016
+
+invalid_work_without_description:
+  category: album
+  title: Holiday Choice
+  creator: Alexandria Lehner
+  publication_year: 1940
+
+invalid_work_without_description:
+  category: album
+  title: Winter Mug
+  creator: Tia Weissnat II
+  publication_year: 199o
+
+invalid_work_without_description:
+  category: album
+  title: TestTitle
+  creator: TestCreator
+  publication_year: 2014
+
+invalid_work_without_description:
+  category: album
+  title: Major Equinox
+  creator: Queen Satterfield
+  publication_year: 1997
+
+invalid_work_without_description:
+  category: album
+  title: Goodbye Utopia
+  creator: Orion Spencer
+  publication_year: 1960
+
+work_one:
+  category: book
+  title: Melty Breaker
+  creator: Montana Dickinson
+  publication_year: 1991
+
+work_two:
+  category: book
+  title: Winter Pie
+  creator: Mr. Syble Kuhn
+  publication_year: 1970

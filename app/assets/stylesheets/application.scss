@@ -1,0 +1,51 @@
+@import "bootstrap";
+/* Import scss content */
+@import "**/*";
+
+a,
+a:hover {
+  color: #26a69a;
+  text-decoration: none;
+  background-color: transparent;
+}
+a:-webkit-any-link {
+  cursor: pointer;
+}
+
+.top-ten__header {
+  color: #26a69a;
+  border-bottom: 2px solid;
+  border-bottom-color: #b2dfdb;
+}
+
+body {
+  font-family: "Gudea", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+}
+
+.text-green {
+  color: #00796b;
+}
+
+.jumbotron {
+  background: #b2dfdb;
+}
+.bg-primary,
+.btn-primary {
+  background-color: #26a69a;
+  border-color: #26a69a;
+}
+
+.btn-primary:hover {
+  background-color: #26a78b;
+  border-color: #26a78b;
+}
+
+.list-group-item {
+  border: 0px;
+
+}
