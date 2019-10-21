@@ -4,6 +4,7 @@ class Work < ApplicationRecord
   
   def self.top10(type)
     works = Work.where(category: type).all.order(title: :asc)
+    # pushing branch test
     return works[0...9]
   end
   
