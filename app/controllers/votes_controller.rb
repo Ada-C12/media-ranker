@@ -16,8 +16,10 @@ class VotesController < ApplicationController
           "message" => "user: has already voted for this work"
         }
       end
-      redirect_to works_path
+    else
+      flash[:error] = "A problem occurred: You must log in to do that"
     end    
+    redirect_to works_path
   end
   
 end

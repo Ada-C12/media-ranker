@@ -91,19 +91,33 @@ describe Work do
       work1 = Work.find_by(title: "Millions of Cats")
       work2 = Work.find_by(title: "Permission To Land")
       user = User.find_by(username: "Rose")
-      
-      vote = Vote.create(user_id: user.id, work_id: work1.id)
-      work1.reload
-      spotlight = Work.spotlight
-      
-      expect(spotlight.title).must_equal work1.title
+      p "ROUND 1"
+      p work2.title      
+      p work2.votes.length
+      p work1.title
+      p work1.votes.length
       
       vote = Vote.create(user_id: user.id, work_id: work2.id)
-      
       work2.reload
       spotlight = Work.spotlight
+      p "ROUND 2"
+      p work2.title      
+      p work2.votes.length
+      p work1.title
+      p work1.votes.length
       
-      expect(spotlight.title).must_equal work1.title
+      expect(spotlight.title).must_equal work2.title
+      
+      vote = Vote.create(user_id: user.id, work_id: work1.id)
+      
+      work1.reload
+      spotlight = Work.spotlight
+      p "ROUND 3"
+      p work2.title      
+      p work2.votes.length
+      p work1.title
+      p work1.votes.length
+      expect(spotlight.title).must_equal work2.title
     end
     
   end

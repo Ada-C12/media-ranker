@@ -37,12 +37,11 @@ describe Vote do
       refute(is_valid)
     end
     
-    it "redirects the user with an error message if they try to vote without being logged in" do
-      work = Work.first
-      Vote.create(user_id: nil, work_id: work.id)
-      must_respond_with :redirect
-      
-      expect(flash.any?).must_equal true
+    it "does not create a vote without a corresponding work" do
+      user = User.first
+      vote = Vote.create(user_id: user.id, work_id: nil)
+      is_valid = vote.valid?
+      refute(is_valid)
     end
   end
 end

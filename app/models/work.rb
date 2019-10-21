@@ -15,6 +15,20 @@ class Work < ApplicationRecord
     works = Work.all
     spotlight = works.max_by{|work| work.votes.length}
     return spotlight
+    # HYPOTHESIS
+    # Scenario A:
+    # when a work is younger than the current media spotlight,
+    # and that work hits the same number of votes as the current media spotlight,
+    # that work will not become the new media spotlight
+    # until it exceeds the number of votes.
+    # RESULT: true
+    # Scenario B:
+    # when a work is older than the current media spotlight,
+    # and that work hits the same number of votes as the current media spotlight,
+    # that work will become the new media spotlight.
+    # RESULT: false!!!
+
+    # tragically, my hypothesis is false and I now have to rewrite my code to make it work.
   end
   
   
