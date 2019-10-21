@@ -1,24 +1,7 @@
 require "test_helper"
 
 describe WorksController do
-  # Note: If any of these tests have names that conflict with either the requirements or your team's decisions, feel empowered to change the test names. For example, if a given test name says "responds with 404" but your team's decision is to respond with redirect, please change the test name.
   
-  # describe "index" do
-  #   it "responds with success when there are many works saved" do
-  #     work = Work.create(category: "book", title: "Work of Art", creator: "Me", publication_year: 2019, description: "This is a description")
-  
-  #     get works_path
-  
-  #     must_respond_with :success
-  
-  #   end
-  
-  #   it "responds with success when there are no works saved" do
-  #     get works_path      
-  
-  #     must_respond_with :success
-  #   end
-  # end
   describe "index" do
     it "can get the index path" do
       get works_path
