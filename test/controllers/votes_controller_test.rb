@@ -33,7 +33,7 @@ describe VotesController do
       user = User.first      
       
       expect{ post work_votes_path(work.id)}.must_differ "work.votes.count", 0
-      must_respond_with :success
+      must_respond_with :redirect
       
     end
   end
