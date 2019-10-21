@@ -1,3 +1,11 @@
-<main> 
+<main>
+  <section class="edit-delete-links">
+    <button type="button" class="btn btn-secondary">
+      <%= link_edit_user(@current_user.id) %>
+    </button>
+    <button type="button" class="btn btn-secondary">
+      <%= link_delete_user(@current_user.id) %>
+    </button>
+  </section>
   <%= render partial: "user", locals: { user_instance: @current_user } %>
 </main>

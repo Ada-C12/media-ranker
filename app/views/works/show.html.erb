@@ -55,59 +55,40 @@
       
       <section class="edit-delete-links">
         <button type="button" class="btn btn-secondary">
-          <%= link_to "Edit #{@work.title}", edit_work_path(@work.id), class: "edit-link" %>
+          <%= link_edit_work(@work.id) %>
         </button>
         <button type="button" class="btn btn-secondary">
-          <%= link_to "Delete #{@work.title}", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link" %>
+          <%= link_delete_work(@work.id) %>
         </button>
       </section>
     </section>
   </header>
-  
-  
 
   <% total_votes = @work.votes %>
+  <% total_votes_count = total_votes.count %>
   <% total_upvotes = @work.upvotes %>
+  <% total_upvotes_count = total_upvotes.count %>
   <% total_downvotes = @work.downvotes %>
-  <h4> <%= total_votes.count %> Total Vote<%= s_end?(total_votes.count)%>
+  <% total_downvotes_count = total_downvotes.count %>
 
-    <% if total_votes.count > 0 %>
-      <%= @work.rated? %>
-    <% end %>
-  </h4>
+  <h2> <%= total_votes_count %> Total Vote<%= s_end?(total_votes_count)%>
+    <small>
+      <% if total_votes_count > 0 %>
+        <%= @work.rated? %>
+      <% end %>
+    </small>
+  </h2>
 
   <section class="likes-dislikes-container">
-    <% if total_votes.count == 0 %>
-      <h4> Add a new vote for <%= @work.title %>! </h4>
+    <% if total_votes_count == 0 %>
+      <h4> Add a new vote for <%= title %>! </h4>
     <% else %> 
-      <% if total_upvotes.count > 0 %>
-
-        <%= render partial: "votes", locals: { sect_class_name: "show-likes-sect", like_phrase: "Like", total_votetype: total_upvotes } %>
-
-
+      <% if total_upvotes_count > 0 %>
+        <%= render partial: "votes", locals: { like_phrase: "Like", total_votetype: total_upvotes } %>
       <% end %>
 
-      <% if total_downvotes.count > 0 %>
-        <section class="show-dislikes-sect">
-          <h2> <%=total_downvotes.count %> Dislike<%= s_end?(total_downvotes.count)%></h2>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>User</th>
-                <th>Submitted</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% total_downvotes.each do |vote|%>
-                <tr>
-                  <td><%= link_to vote.user.username, user_path(vote.user_id)%>
-                  </td>
-                  <td><%= readable_date(vote.created_at) %></td>
-                </tr>
-              <% end%>
-            </tbody>
-          </table>
-        </section>
+      <% if total_downvotes_count > 0 %>   
+        <%= render partial: "votes", locals: { like_phrase: "Dislike", total_votetype: total_downvotes } %>
       <% end %>
     <% end %>  
   </section>

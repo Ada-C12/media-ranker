@@ -8,7 +8,9 @@
 <% total_votes_count = total_votes.count %>
 <% username = user_instance.username %>
 
-<h4> <%= total_votes_count %> vote<%= s_end?(total_votes_count)%> from <%= username%> </h4>
+<h2> 
+  <%= username %> voted <%= total_votes_count %> time<%= s_end?(total_votes_count)%>
+</h2>
 
 <section class="likes-dislikes-container">
   <% if total_votes_count == 0 %>
@@ -18,11 +20,11 @@
     <% total_downvotes = user_instance.downvotes %>
 
     <% if total_upvotes.count > 0 %>
-      <%= render partial: "votes", locals: { sect_class_name: "show-likes-sect"  , total_votetype: total_upvotes, like_phrase: "Like" } %>
+      <%= render partial: "votes", locals: { total_votetype: total_upvotes, like_phrase: "Like" } %>
     <% end %>
 
     <% if total_downvotes.count > 0 %>
-      <%= render partial: "votes", locals: { sect_class_name: "show-dislikes-sect"  , total_votetype: total_downvotes , like_phrase: "Dislike" } %>
+      <%= render partial: "votes", locals: { total_votetype: total_downvotes , like_phrase: "Dislike" } %>
     <% end %>  
   <% end %>
 </section>

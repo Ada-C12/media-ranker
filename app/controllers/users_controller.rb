@@ -51,8 +51,8 @@ class UsersController < ApplicationController
       return
     elsif user.destroy
       session[:user_id] = nil if session[:user_id] == user.id
-      flash[:success] = "#{user.username} updated successfully"
-      redirect_back(fallback_location: users_path)
+      flash[:success] = "#{user.username} deleted successfully"
+      redirect_to root_path
       return
     else
       flash[:error] = "Work NOT deleted successfully"

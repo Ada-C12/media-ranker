@@ -90,6 +90,45 @@ module ApplicationHelper
     return link_to "↓", changevote_path(id: vote.id), method: :post
   end
 
+  def link_edit_work(work_id)
+    work = Work.find_by(id: work_id)
+
+    if work
+      return link_to "Edit #{work.title}", edit_work_path(work.id), class: "edit-link"
+    else
+      return nil
+    end
+  end
+
+  def link_delete_work( work_id)
+    work = Work.find_by(id: work_id)
+
+    if work
+      return link_to "Delete #{work.title}", work_path(work.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link"
+    else
+      return nil
+    end
+  end
+
+  def link_edit_user(user_id)
+    user = User.find_by(id: user_id)
+
+    if user
+      return link_to "Edit Account", edit_user_path(user.id), class: "edit-link"
+    else
+      return nil
+    end
+  end
+
+  def link_delete_user(user_id)
+    user = User.find_by(id: user_id)
+
+    if user
+      return link_to "Delete Account", user_path(user.id), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-link"
+    else
+      return nil
+    end
+  end
   
 end
 
