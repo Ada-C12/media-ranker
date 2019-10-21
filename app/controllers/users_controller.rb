@@ -5,7 +5,11 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-  
+
+  def show
+    @user = User.find(params[:id])
+  end
+
   def login_form
     @user = User.new
   end
@@ -47,9 +51,7 @@ class UsersController < ApplicationController
     end
     redirect_to root_path    
   end
-  
-  def show; end
-  
+    
   def logout
     @user = User.find_by(id: session[:user_id])
     if @user
@@ -66,7 +68,7 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    return params.require(:user).permit(:username)
+    return params.require(:users).permit(:username)
   end
   
   
