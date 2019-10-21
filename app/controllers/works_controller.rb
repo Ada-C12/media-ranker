@@ -35,7 +35,7 @@ class WorksController < ApplicationController
       redirect_to works_path
       return
     else
-      flash.now[:failure] = "Work failed to save"
+      flash.now[:danger] = "Work failed to save"
       render :new
       return
     end
@@ -48,22 +48,25 @@ class WorksController < ApplicationController
       redirect_to work_path(@work)
       return
     else
-      flash[:erro] = "Update didn't go through. Please try again."
+      flash.now[:danger] = "Failed to update. Please try again"
       render :edit
       return
     end
   end
 
   def destroy
-    @work = work.find_by(id: params[:id])
+    @work = Work.find_by(id: params[:id])
 
     if @work.nil?
-      flash[:error] = "Could you find media #{@work.name}"
+      flash[:danger] = "Couldn't find media"
       redirect_to works_path
       return
     end
 
-    @work.destroy
+    if @work.destroy
+      flash[:warning] = "Successfully deleted work"
+    end
+
     redirect_to works_path
     return
   end

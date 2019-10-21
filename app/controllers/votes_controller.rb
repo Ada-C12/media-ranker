@@ -35,8 +35,8 @@ class VotesController < ApplicationController
       redirect_to works_path
       return
     else
-      flash[:error] = "You can't vote for the same media more than once"
-      redirect_to work_path(params[:work_id])
+      flash[:danger] = "You need to log in to vote; You can't vote for the same media twice"
+      redirect_to works_path
       return
     end
   end
