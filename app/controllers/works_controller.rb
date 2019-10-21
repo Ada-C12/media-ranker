@@ -14,25 +14,37 @@ class WorksController < ApplicationController
   end
   
   def create 
-    @work = Work.new(work_params)
-    if @work.save
-      flash[:success] = "Successfully created " + @work.category + " " + @work.id.to_s
-      redirect_to work_path(@work.id)
+    if session[:user_id]
+      raise
+      @work = Work.new(work_params)
+      if @work.save
+        flash[:success] = "Successfully created " + @work.category + " " + @work.id.to_s
+        redirect_to work_path(@work.id)
+      else
+        @errors = @work.errors
+        flash.now[:error] = "A problem occurred: Could not create " + @work.category
+        render :new
+      end
     else
-      @errors = @work.errors
-      flash.now[:error] = "A problem occurred: Could not create " + @work.category
-      render :new
+      flash[:error] = "You must log in to do that"
+      redirect_to works_path
     end
   end
   
   def edit; end
   
   def update
-    if @work.update(work_params)
-      redirect_to work_path
+    if session[:user_id]
+      raise
+      if @work.update(work_params)
+        redirect_to work_path
+      else
+        flash.now[:error] = "A problem occurred: Could not update album"
+        render :edit
+      end
     else
-      flash.now[:error] = "A problem occurred: Could not update album"
-      render :edit
+      flash[:error] = "You must log in to do that"
+      redirect_to work_path
     end
   end
   

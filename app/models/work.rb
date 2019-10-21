@@ -1,7 +1,6 @@
 class Work < ApplicationRecord
   has_many :votes
   
-  # validate presence & uniqueness
   validates :title, presence: true
   validates :title, uniqueness: { scope: :category }
   
@@ -27,8 +26,18 @@ class Work < ApplicationRecord
     # and that work hits the same number of votes as the current media spotlight,
     # that work will become the new media spotlight.
     # RESULT: false!!!
-
+    
     # tragically, my hypothesis is false and I now have to rewrite my code to make it work.
+    
+    # NEW HYPOTHESIS
+    # it's alphabetical!
+    # when a work ties for most votes with the current media spotlight,
+    # whichever work is alphabetically FIRST becomes the new media spotlight.
+    # RESULT: also kinda false?
+    
+    # NEWER HYPOTHESIS
+    # it is doing whatever the original is doing
+    # and that's fine
   end
   
   
