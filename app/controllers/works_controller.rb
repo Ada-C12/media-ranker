@@ -55,6 +55,28 @@ class WorksController < ApplicationController
     redirect_to root_path
     return
   end
+  
+  def upvote
+    @work = Work.find_by(id: params[:id])
+    if !@work
+      head :not_found
+      return
+    end
+
+    if session[:user_id]
+      @vote = Vote.create_vote(user_id:session[:user_id], work_id: @work.id)
+      if @vote.save
+        flash[:success] = "Successfully upvoted!"
+      else
+        
+        flash[:error] = "A problem occurred: Could not upvote"
+      end
+    else
+      flash[:error] = "A problem occurred: You must log in to do that"
+    end
+    
+    redirect_back(fallback_location: :back)
+  end
 
   private
   
