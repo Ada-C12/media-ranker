@@ -1,0 +1,6 @@
+<main>
+  <h2>Edit This <%= @work.category %></h2>
+  <section>
+    <%= render partial: "form", locals: { submit_button_label: "Update Work", work_form_class: "edit-work-form" } %>
+  </section>
+</main>
