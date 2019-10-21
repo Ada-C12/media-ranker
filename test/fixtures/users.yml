@@ -1,2 +1,8 @@
-valid_user:
+valid_user1:
   username: diana46
+
+valid_user2:
+  username: hello
+
+invalid_user:
+  username:

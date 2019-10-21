@@ -10,20 +10,40 @@ describe Work do
     end
 
     it "is invalid if there is no title" do
-    work = works(:invalid_work)
-    is_valid = work.valid?
+      work = works(:invalid_work)
+      is_valid = work.valid?
 
-    refute(is_valid)
+      refute(is_valid)
     end
   end 
 
   describe "relationships" do
-    it "can have votes" do
-    #arrange: there is a valid work, there is a vote
+    it "can have many votes" do
+      # @test_work = Work.create(category: "book", title: "title")
+      # @test_user = User.create(username: "diana")
+      # @upvote = Vote.create(work_id: @test_work.id, user_id: @test_user.id)
 
-    #act: count the number of votes on that work id?
+      # expect(@upvote.work).must_equal @test_work
+      work = works(:valid_work)
+      vote = votes(:vote_one)
 
-    #assert: expect count to be accurate
+      expect(work.votes.length).must_be :>=, 0
+    end
+
+  end
+
+  describe "self.album_list method" do
+    before do
+      works(:valid_work)
+      works(:valid_work2)
+    end
+    it "can return a list of albums in descending order by number of votes" do
+
+      first_work = Work.album_list.first.title
+      last_work = Work.album_list.first.title
+
+      expect(first_work).must_equal valid_work2.title
+      expect(last_work).must_equal valid_work.title
     end
   end
 end

@@ -1,10 +1,18 @@
 valid_work:
-  category: book
+  category: album
   title: The Hobbit
   creator: J.P. Tolkin
   publication_year: 2000
   description: Frodo goes on a journey
+
 invalid_work:
   category: book
   creator: J.K. Rowling
   publication_year: 2001
+
+valid_work2:
+  category: album
+  title: The Hobbit2
+  creator: J.P. Tolkin
+  publication_year: 2000
+  description: Frodo goes on a journey
