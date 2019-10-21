@@ -1,8 +1,9 @@
 require "test_helper"
+require 'faker'
 
 describe Work do
   let(:valid_work) {
-    Work.create(title: "Some Valid Title")
+    Work.create(category: "album", title: "Some Valid Title", creator: "Some creator")
   }
 
   describe "validations" do
@@ -36,6 +37,19 @@ describe Work do
       work = works(:cowboy)
 
       expect(work.votes).must_include votes(:vote1)
+    end
+  end
+
+  describe "custom methods" do
+    it "selects only ten works even when the category contains more than ten" do
+      # used Faker because the title must be unique according to Work validations
+      15.times do
+        Work.create(category: "book", title: Faker::Book.unique.title, creator: "Author")
+      end
+
+      top_ten_books = Work.top_ten("book")
+      
+      expect(top_ten_books.length).must_equal 10
     end
   end
 end

@@ -10,6 +10,8 @@ class ActiveSupport::TestCase
   require 'minitest/rails'
   require 'minitest/autorun'
   require 'minitest/reporters'
+  #require 'faker'
+
 
   def perform_login(user = User.first)
     # can also do user = nil for optional user + the line of code below

@@ -85,4 +85,9 @@ end
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
+  gem 'faker'
+end
+
+group :rake do
+  gem 'faker'
 end
