@@ -19,4 +19,14 @@ describe User do
       refute( is_valid )
     end
   end
+
+  describe "relationships" do
+    it "can vote once for a work" do
+      valid_vote.save
+      first_trip = Trip.first
+
+      expect(first_trip.driver).must_be_instance_of Driver
+      expect(first_trip.passenger).must_be_instance_of Passenger
+    end
+  end
 end
