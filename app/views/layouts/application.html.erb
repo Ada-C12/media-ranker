@@ -13,10 +13,12 @@
 
 <nav class="navbar navbar-light">
   <h1><%=link_to "Media Ranker", root_path, :class => "text-danger"%></h1>
-  
+
+    <%=link_to "View top 10 works", root_path%>
     <%=link_to "View All Media", works_path%>
     <%=link_to "Add new Work", new_work_path%>
     <%=link_to "View all users", users_path%>
+    
   
 
     <%if session[:id] != nil%>
