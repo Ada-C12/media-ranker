@@ -26,14 +26,6 @@ describe User do
       expect(@new_user.errors.messages).must_include :name
       expect(@new_user.errors.messages[:name]).must_equal ["can't be blank"]
     end
-    
-    it "is invalid if the name is not unique" do
-      user = users(:user2)
-      user.name = "test1"
-      
-      expect(user.valid?).must_equal false
-      
-    end
   end
   
   describe "relationships" do

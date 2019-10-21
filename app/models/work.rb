@@ -6,6 +6,9 @@ class Work < ApplicationRecord
   
   def self.spotlight
     spotlight = Work.all.order(votes_count: :desc).first
+    if spotlight.nil?
+      spotlight = []
+    end
     return spotlight
   end
   

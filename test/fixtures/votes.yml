@@ -13,3 +13,15 @@ vote3:
 vote4:
   work: :album
   user: :user1
+
+vote5:
+  work: :book
+  user: :user3
+
+vote6:
+  work: :movie
+  user: :user1
+
+vote7:
+  work: :album
+  user: :user3

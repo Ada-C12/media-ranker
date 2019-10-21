@@ -82,15 +82,12 @@ describe Work do
     describe "self.spotlight" do
 
       it "will return the work with the most votes" do
-
-      end
-
-      it "will return the first work in the event of a tie" do
-
+        expect(Work.spotlight).must_equal works(:book) #work with the most votes
       end
 
       it "will return and empty array if there are no works" do
-
+        Work.destroy_all
+        expect(Work.spotlight).must_equal []
       end
 
     end
@@ -98,11 +95,18 @@ describe Work do
     describe "self.top_ten" do
 
       it "will return the ten works with the most votes in that category" do
+        works_count = Work.all.length
+        top_ten = Work.top_ten("book")
 
+        expect(top_ten.length).must_equal 10
+        expect(works_count - (top_ten.length)).must_equal 4 #because I have 14 total fixtures
+        expect(top_ten.first).must_equal works(:book)
       end
 
       it "will return an empty array if there are no works in that category" do
+        Work.where(category: "book").destroy_all
 
+        expect(Work.top_ten("book")).must_equal []
       end
 
     end
