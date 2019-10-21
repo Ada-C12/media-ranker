@@ -31,6 +31,7 @@ class WorksController < ApplicationController
   def update
     
     if @work.update(work_params)
+      flash[:success] = "Successfully updated " + @work.category + " " + @work.id.to_s
       redirect_to work_path
     else
       flash.now[:error] = "A problem occurred: Could not update album"

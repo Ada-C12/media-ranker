@@ -17,7 +17,8 @@
         </tr>
       </thead>
       <tbody>
-      <% @works.where(category: category).each do |work| %>
+      <% works = @works.where(category: category).sort_by{|work| work.votes.length}.reverse %>
+      <% works.each do |work| %>
         <tr>
             <td>
               <%= work.votes.length %>
