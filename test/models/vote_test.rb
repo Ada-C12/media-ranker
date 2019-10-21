@@ -23,7 +23,6 @@ describe Vote do
     it "gives an error message if user tries to vote for the same work twice" do
       # user is voting for the same work twice
       
-      
       invalid_vote = Vote.create(work_id: 1, user_id: 1)
 
       is_valid = invalid_vote.valid?

@@ -22,7 +22,6 @@ describe User do
 
   describe "relationships" do
     it "can have a vote" do
-      valid_user.save
       user = users(:yoshi)
 
       expect(user.votes).must_include votes(:vote1)

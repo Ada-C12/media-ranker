@@ -30,5 +30,13 @@ describe Work do
 
     end
   end
+  
+  describe "Relations" do
+    it "can have a vote" do
+      work = works(:cowboy)
+
+      expect(work.votes).must_include votes(:vote1)
+    end
+  end
 end
 
