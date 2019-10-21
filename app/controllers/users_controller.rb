@@ -5,24 +5,24 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-
+  
   def show
     @user = User.find(params[:id])
   end
-
+  
   def login_form
     @user = User.new
   end
   
   def login
-    @user = User.find_by(username: params[:user][:username])
+    @user = User.find_by(username: user_params[:username])
     
     if @user
       session[:user_id] = @user.id
       flash[:success] = "Successfully logged in as returning user #{@user.username}"
       redirect_to root_path
     else
-      @user = User.new(username: params[:user][:username])
+      @user = User.new(username: user_params[:username])
       if @user.save
         session[:user_id] = @user.id
         flash[:success] = "Successfully logged in as new user #{@user.username}"
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(username: params[:user][:username])
+    @user = User.new(username: user_params[:username])
     if @user.save
       flash[:success] = "WORKS"
     else
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     end
     redirect_to root_path    
   end
-    
+  
   def logout
     @user = User.find_by(id: session[:user_id])
     if @user
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    return params.require(:users).permit(:username)
+    return params.require(:user).permit(:username)
   end
   
   
