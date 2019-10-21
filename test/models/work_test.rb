@@ -142,6 +142,19 @@ describe Work do
           expect(work).must_be_instance_of Work
         end
       end
+
+      it 'returns all works for given category by vote_count in desc order' do
+        expect(Work.all_by_votes(category: "book").count).must_equal 3
+        expect(Work.all_by_votes(category: "book").first).must_equal @work_3
+        expect(Work.all_by_votes(category: "book").last).must_equal @work_1
+        
+        Work.categories do |category|
+          Work.all_by_votes(category: category).each do |work|
+            expect(work).must_be_instance_of Work
+            expect(work.category).must_equal category
+          end
+        end
+      end
       
       it 'returns nil if no works' do
         Work.destroy_all
@@ -177,16 +190,23 @@ describe Work do
 
     describe 'upvotes & upvote_count' do
       it 'returns upvotes (ordered by creation date) and count of upvotes for given work' do
-        work = works[:new_work]
-        
-
-
+      end
+      
+      it 'returns nil if no works' do
       end
       
     end
 
     describe 'downvotes & downvote_count' do
+      it 'returns downvotes (ordered by creation date) and count of downvotes for given work' do
+      end
+      
+      it 'returns nil if no works' do
+      end
     end
 
+    describe 'rated?' do
+    end
+  
   end
 end
