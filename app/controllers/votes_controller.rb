@@ -29,7 +29,7 @@ class VotesController < ApplicationController
       # Make new Vote
       vote = Vote.new(user_id: session[:user_id], work_id: params[:work_id])
       if vote.save
-        flash.now[:success] = "Successfully upvoted!"
+        flash[:success] = "Successfully upvoted!"
         redirect_to_origin
         return
       else
