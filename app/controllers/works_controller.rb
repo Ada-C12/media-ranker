@@ -4,6 +4,9 @@ class WorksController < ApplicationController
 
   def index
     @works = Work.all
+    if @works.nil?
+      flash[:message] = "There is no media to show. How about you add one?"
+    end 
   end 
 
   def show 

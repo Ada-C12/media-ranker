@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    if @users.nil?
+      flash[:message] = "There are no users to show. You can sign in above."
+    end 
   end 
 
   def show

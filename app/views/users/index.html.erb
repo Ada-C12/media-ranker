@@ -9,11 +9,13 @@
   </thead>
   <tbody>
     <tr>
-    <% @users.each do |user| %>
-      <th scope"row"> <%= link_to user.username, user_path(user.id)%> </th>
-      <th scope"row"> <%= user.votes.length%> </th>
-      <th scope"row> <%= readable_date(user.created_at) %></th>
-    </tr>
+    <% if @users %>
+      <% @users.each do |user| %>
+        <th scope"row"> <%= link_to user.username, user_path(user.id)%> </th>
+        <th scope"row"> <%= user.votes.length%> </th>
+        <th scope"row> <%= readable_date(user.created_at) %></th>
+      </tr>
+      <%end%>
     <%end%>
   </tbody>
 
