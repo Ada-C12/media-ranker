@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.5'
 gem 'faker', '~> 1.6', '>= 1.6.6'
 
+gem 'dotenv-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
@@ -72,6 +74,7 @@ end
 group :development do
   gem 'debase', '>= 0.2.4.1'
   gem 'ruby-debug-ide', '>= 0.7.0'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -85,3 +88,6 @@ group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
 end
+
+gem "omniauth"
+gem "omniauth-github"
