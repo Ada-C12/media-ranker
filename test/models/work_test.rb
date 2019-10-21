@@ -14,6 +14,7 @@ describe Work do
     assert_respond_to(movie[:category], :empty?)
   end
   
+  
   describe "validations" do
     
     it "must have a category" do

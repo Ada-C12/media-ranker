@@ -15,6 +15,30 @@ describe Vote do
     
   end
   
+  describe "relations" do 
+    it 'can access the user and work through "vote"' do
+   
+      expect _(@vote.user_id).must_equal @user.id
+      expect _(@vote.work_id).must_equal @work.id
+    end
+    
+    it 'can set the user and work through "vote"' do
+      
+      user = User.create!(name: "test user")
+      work = Work.create!(category: "movie", title: "test work")
+      vote_2 = Vote.new(user_id: 451, work_id: 997)
+
+      vote_2.user_id = user.id
+      vote_2.work_id = work.id
+
+      expect _(vote_2.user_id).must_equal user.id
+      expect _(vote_2.work_id).must_equal work.id
+
+      end
+    
+  end
+  
+  
   describe "validations" do
     it "is invalid without a work ID" do
       
