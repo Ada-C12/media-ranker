@@ -1,0 +1,8 @@
+<ul class="nav app-header__user-nav-container">
+  <li class="nav-item app-header__nav_item">
+    <%= link_to ("Logged in as " + current_user.username), user_path(current_user.id), class: "btn btn-primary" %>
+  </li>
+  <li class="nav-item app-header__nav_item">
+    <%= link_to "Log Out", logout_path, method: :post, class: "btn btn-primary" %>
+  </li>
+</ul>
