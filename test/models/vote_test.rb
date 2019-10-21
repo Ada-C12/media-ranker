@@ -26,7 +26,6 @@ describe Vote do
       is_valid = vote.valid?
       
       refute(is_valid)
-      
     end
     
     it "does not create a vote without a logged in user" do
@@ -42,6 +41,18 @@ describe Vote do
       vote = Vote.create(user_id: user.id, work_id: nil)
       is_valid = vote.valid?
       refute(is_valid)
+    end
+  end
+
+  describe "relationships" do
+    it "has an id for a corresponding work" do
+      id = Vote.first.work_id
+      expect(Work.find_by(id: id)).must_be_instance_of Work
+    end
+    
+    it "has an id for a corresponding user" do
+      id = Vote.first.user_id
+      expect(User.find_by(id: id)).must_be_instance_of User
     end
   end
 end

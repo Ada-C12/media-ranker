@@ -29,4 +29,11 @@ describe User do
       refute( is_valid )    
     end
   end
+  describe "user's votes" do
+    it "can get a list of a user's votes" do
+      user = User.first
+      expect(user.votes.length).must_equal 1
+      expect(user.votes.first.work_id).must_equal Vote.first.work_id
+    end
+  end
 end

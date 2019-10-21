@@ -34,6 +34,12 @@ describe Work do
   end
   
   describe "custom methods" do
+    it "can get a work's votes" do
+      work = Work.find_by(title: "Millions of Cats")
+      expect(work.votes.length).must_equal 2
+      expect(work.votes.first.work_id).must_equal Vote.first.work_id
+    end
+    
     it "can get the top ten works by vote" do
       # Arrange
       top_ten = Work.top_ten("book")
@@ -55,14 +61,10 @@ describe Work do
     end
     
     it "can get the work with the highest vote" do
-      work = Work.last
-      user = User.first
-      vote = Vote.create(user_id: user.id, work_id: work.id)
-      work.reload
+      work = Work.find_by(title: "Millions of Cats")
       
       spotlight = Work.spotlight
       
-      expect(spotlight).must_be_instance_of Work
       expect(spotlight.votes.length).must_equal work.votes.length      
     end
     
@@ -72,8 +74,6 @@ describe Work do
       user1 = User.find_by(username: "Rose")
       user2 = User.find_by(username: "Blanche")
       
-      vote = Vote.create(user_id: user1.id, work_id: work1.id)
-      work1.reload
       spotlight = Work.spotlight
       
       expect(spotlight.title).must_equal work1.title
@@ -96,8 +96,6 @@ describe Work do
       work2 = Work.find_by(title: "Permission To Land")
       user = User.find_by(username: "Rose")
       
-      vote = Vote.create(user_id: user.id, work_id: work1.id)
-      work1.reload
       spotlight = Work.spotlight
       
       expect(spotlight.title).must_equal work1.title

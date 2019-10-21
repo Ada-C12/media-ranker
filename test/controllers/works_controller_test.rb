@@ -57,10 +57,21 @@ describe WorksController do
       work = Work.find_by(creator: "Wanda Gag")
       id = work.id
       
-      delete work_path(work.id)
+      delete work_path(id)
       
       expect { get work_path(id) }
       must_respond_with :redirect
+    end
+    
+    it "deletes all corresponding votes" do
+      work = Work.find_by(creator: "Wanda Gag")
+      votes = work.votes
+      
+      expect(votes.length).must_equal 2
+      
+      delete work_path(work.id)
+      votes.reload
+      expect(votes.length).must_equal 0
     end
   end
 end
