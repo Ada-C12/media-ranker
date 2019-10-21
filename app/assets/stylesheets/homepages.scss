@@ -1,0 +1,41 @@
+// HOMEPAGES.scss
+// Place all the styles related to the Homepages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+a, .med_green_text {
+  color: #26A69A;
+}
+
+.spotlight__link_to {
+  text-decoration: underline;
+}
+
+.spotlight {
+  padding: 0 2rem 2rem 2rem;
+}
+
+.root__hr {
+  margin: 0px auto 3rem auto;
+  color: #EEEEEE;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #00796B;
+}
+
+// 3 columns in the middle
+.top-ten_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.top-ten__header {
+  color: #26A69A;
+  border-bottom: 2px solid #B2DFDB;
+}
+
+.list-group-item {
+  border: 0px;
+}

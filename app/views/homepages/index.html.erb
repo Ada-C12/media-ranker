@@ -1,0 +1,60 @@
+<main>
+<section class="spotlight">
+<h2 class="spotlight__header">
+<span class="spotlight__header--prefix">Media Spotlight:</span>
+<span class="spotlight__link_to">
+  <% if @spotlight_winner.id %> 
+    <%= link_to @spotlight_winner.title, work_path(id: @spotlight_winner.id) %><% else %>NO WINNER
+  <% end %>
+</span>
+<span class="med_green_text"> by <%= @spotlight_winner.creator %></span>
+</h2>
+<p class="spotlight__description"><%= @spotlight_winner.votes.count %> votes - <%= @spotlight_winner.description %></p>
+</section>
+
+<hr class="root__hr">
+
+<section class="top-ten_container">
+  <section class="top-ten__list_container">
+    <h2 class="top-ten__header">Top Movies</h2>
+    <ul class="list-group top-ten__list">
+      <% @top_ten_movies.each do |piece| %>
+        <li class="list-group-item">
+          <h4><%= link_to piece.title, work_path(id: piece.id) %>
+          <small class="top-ten__creator">by <%= piece.creator %></small>
+          </h4>
+          <p><%= piece.votes.count %> votes</p>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section class="top-ten__list_container">
+    <h2 class="top-ten__header">Top Books</h2>
+    <ul class="list-group top-ten__list">
+      <% @top_ten_books.each do |piece| %>
+        <li class="list-group-item">
+          <h4><%= link_to piece.title, work_path(id: piece.id) %>
+          <small class="top-ten__creator">by <%= piece.creator %></small>
+          </h4>
+          <p><%= piece.votes.count %> votes</p>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section class="top-ten__list_container">
+    <h2 class="top-ten__header">Top Albums</h2>
+    <ul class="list-group top-ten__list">
+      <% @top_ten_albums.each do |piece| %>
+        <li class="list-group-item">
+          <h4><%= link_to piece.title, work_path(id: piece.id) %>
+          <small class="top-ten__creator">by <%= piece.creator %></small>
+          </h4>
+          <p><%= piece.votes.count %> votes</p>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</section>
+</main>

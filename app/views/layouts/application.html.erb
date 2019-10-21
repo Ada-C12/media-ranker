@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaRanker</title>
+    <%= favicon_link_tag asset_path('emoji.png') %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<header class="app-header__header">
+    <h1>
+      <a href="/">Media Ranker</a>
+      <small>Ranking the Best of Everything</small>
+    </h1>
+
+    <nav class="app-header__nav">
+      <ul class="nav app-header__site-nav-container">
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/">View top media</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/works">View all media</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/works/new">Add a new work</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/users">View all users</a>
+        </li>
+      </ul>
+      <ul class="nav app-header__user-nav-container">
+        <% if session[:user_id] %>
+        <li class="nav-item app-header__nav_item">
+          <%= link_to "Logged in as #{username_from_session}", user_path(id: session[:user_id]), class: "btn btn-primary nav_buttons_green" %>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="btn btn-primary" data-method="patch" href="/users">Log Out</a>
+        </li>
+        <% else %>
+          <li class="nav-item app-header__nav_item">
+          <a class="btn btn-primary" href="/users/login">Log In</a>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </header>
+
+
+
+  <body>
+  <%# FLASH from rails, using Bootstrap ALERT %>
+  <section class="alert__container">    
+    
+    <% if flash[:success] %>
+      <section class="alert alert-success">
+      <span>
+        <%= flash[:success]%>
+      </span>
+      </section>
+
+    <% elsif flash[:error] %>
+      <section class="alert alert-warning">
+
+      <span>
+        <%= flash[:error] %>
+      </span>
+
+      <% if flash[:error_msgs] %>
+        <ul>
+        <% flash[:error_msgs].each do |msg_str| %>
+          <li>
+          <%= msg_str %>
+          </li>
+        <% end %>
+        </ul>
+      <% end %>
+      </section>
+
+    <% elsif flash[:message] %>
+      <section class="alert alert-primary">
+      <span>
+        <%= flash[:message]%>
+      </span>
+      </section>
+    <% end %>
+
+  </section>
+
+    <%= yield %>
+
+  </body>
+</html>

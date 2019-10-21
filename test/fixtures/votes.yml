@@ -1,0 +1,80 @@
+vote1m1:
+  user: user1
+  work: movie1
+
+vote1m2:
+  user: user1
+  work: movie2
+
+vote1m3:
+  user: user1
+  work: movie3
+
+vote1m4:
+  user: user1
+  work: movie4
+
+vote1m5:
+  user: user1
+  work: movie5
+
+vote1m6:
+  user: user1
+  work: movie6
+
+vote1m7:
+  user: user1
+  work: movie7
+
+vote1m8:
+  user: user1
+  work: movie8
+
+vote1m9:
+  user: user1
+  work: movie9
+
+vote1m10:
+  user: user1
+  work: movie10
+
+vote2m1:
+  user: user2
+  work: movie1
+
+vote2m2:
+  user: user2
+  work: movie2
+
+vote2m3:
+  user: user2
+  work: movie3
+
+vote3m1:
+  user: user3
+  work: movie1
+
+vote3m2:
+  user: user3
+  work: movie2
+
+vote4m1:
+  user: user4
+  work: movie1
+
+vote1b1:
+  user: user1
+  work: book1
+
+vote1b2:
+  user: user1
+  work: book2
+
+vote2b2:
+  user: user2
+  work: book2
+
+vote1a1: 
+  user: user1
+  work: album1
+  

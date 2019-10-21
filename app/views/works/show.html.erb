@@ -1,0 +1,37 @@
+<main>
+<section>
+  <h2 class="green_text"><%= @work.title %></h2>
+  <p>Created by: <%= @work.creator %></p>
+  <p>Published: <%= @work.published_year%></p>
+  <p><%= @work.description %></p>
+
+  <section>
+    <button id="white_text" class="btn btn-primary"><%= link_to "Back to Media Ranks", root_path %></button>
+    <button id="white_text" class="btn btn-primary"><%= link_to "Edit", edit_work_path(id: @work.id) %></button>
+
+    <button id="white_text" class="btn btn-primary"><%= link_to "Upvote", work_create_vote_path(work_id: @work.id), method: :post %><% session[:origin_prefix] = "work" %></button> 
+    <button id="white_text" class="btn btn-danger"><%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure?" } %></button>
+  </section>
+</section>
+
+<section class="works-votes__container">
+  <h3 class="works-votes__header"><%= @work.votes.count %> Votes for this <%= @work.category %></h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @work.votes.each do |vote| %>
+      <tr>
+        <td class="green_text"><%= link_to vote.user.name, user_path(id: vote.user_id) %></td>
+        <td><%= display_date(vote.created_at)%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+</main>

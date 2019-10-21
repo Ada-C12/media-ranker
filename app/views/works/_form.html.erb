@@ -1,0 +1,35 @@
+<section>
+  <%= form_with model: @work do |f| %>
+    <section class="form-group">
+      <%= f.label :category %>
+      <span id="grasping-at-straws">
+      <%= f.select :category, %w[album book movie] %>
+      </span>
+    </section>
+
+    <section class="form-group">
+      <%= f.label :title %>
+      <input type="text" value="<%=@work.title%>" name="work[title]" class="form-control">
+    </section>
+    
+    <section class="form-group">
+      <%= f.label :creator %>
+      <input type="text" value="<%=@work.creator%>" name="work[creator]" class="form-control">
+    </section>
+    
+    <section class="form-group">
+      <%= f.label :published_year %>
+      <input type="text" value="<%=@work.published_year%>" name="work[published_year]" class="form-control">
+    </section>
+    
+    <section class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+    </section>
+
+    <section class="form-group">
+      <input type="submit" value="Create Work" class="btn btn-primary">
+    </section>
+
+  <% end %>
+</section>
