@@ -184,5 +184,27 @@ describe Work do
         expect(spotlight_work.category).must_equal @lower_voted_work.category
       end
     end
+
+    describe "upvote" do
+      it "increases the vote count by 1 for a valid work_id and user_id" do
+        # Arrange
+        current_vote_count = Vote.count
+        top_book = works(:top_book)
+        # Act
+        top_book.votes.create(user_id: users(:user_4).id, work_id: top_book.id)
+        # Assert
+        expect(Vote.count).must_equal current_vote_count + 1
+      end
+      it "does not increase the vote count if the vote is invalid" do
+        # Arrange
+        current_vote_count = Vote.count
+        top_book = works(:top_book)
+        top_book_existing_vote = top_book.votes.last
+        # Act
+        top_book.votes.create(user_id: top_book_existing_vote.user_id, work_id: top_book_existing_vote.work_id)
+        # Assert
+        expect(Vote.count).must_equal current_vote_count
+      end
+    end
   end
 end
