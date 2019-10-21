@@ -67,9 +67,7 @@
   <% total_votes = @work.votes %>
   <% total_votes_count = total_votes.count %>
   <% total_upvotes = @work.upvotes %>
-  <% total_upvotes_count = total_upvotes.count %>
   <% total_downvotes = @work.downvotes %>
-  <% total_downvotes_count = total_downvotes.count %>
 
   <h2> <%= total_votes_count %> Total Vote<%= s_end?(total_votes_count)%>
     <small>
@@ -83,11 +81,11 @@
     <% if total_votes_count == 0 %>
       <h4> Add a new vote for <%= title %>! </h4>
     <% else %> 
-      <% if total_upvotes_count > 0 %>
+      <% if total_upvotes && total_upvotes.count > 0 %>
         <%= render partial: "votes", locals: { like_phrase: "Like", total_votetype: total_upvotes } %>
       <% end %>
 
-      <% if total_downvotes_count > 0 %>   
+      <% if total_downvotes && total_downvotes.count > 0 %>   
         <%= render partial: "votes", locals: { like_phrase: "Dislike", total_votetype: total_downvotes } %>
       <% end %>
     <% end %>  
