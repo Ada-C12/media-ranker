@@ -2,9 +2,9 @@ class WorksController < ApplicationController
   before_action :find_work, only: [:show, :edit, :update]
   
   def index
-    @books = Work.works_by_category("book")
-    @movies = Work.works_by_category("movie")
-    @albums = Work.works_by_category("album")
+    @books = Work.works_sorted_by_category("book")
+    @movies = Work.works_sorted_by_category("movie")
+    @albums = Work.works_sorted_by_category("album")
   end
   
   def show
@@ -21,12 +21,12 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     if @work.save
-      flash[:success] = "New work created!"
+      flash[:success] = "Successfully created #{@work.category} #{@work.id}"
       redirect_to work_path(Work.find_by(title: @work.title, category: @work.category))
       return
     end
     
-    flash.now[:error] = "Failed to create work!"
+    flash.now[:error] = "A problem occurred: Could not create #{@work.category}"
     render :new
   end
   
@@ -52,10 +52,32 @@ class WorksController < ApplicationController
       flash[:success] = existing_work.title + " has been deleted!"
       existing_work.destroy
     end
-    redirect_to works_path
+    redirect_to root_path
     return
   end
   
+  def upvote
+    @work = Work.find_by(id: params[:id])
+    if !@work
+      head :not_found
+      return
+    end
+
+    if session[:user_id]
+      @vote = Vote.create_vote(user_id:session[:user_id], work_id: @work.id)
+      if @vote.save
+        flash[:success] = "Successfully upvoted!"
+      else
+        
+        flash[:error] = "A problem occurred: Could not upvote"
+      end
+    else
+      flash[:error] = "A problem occurred: You must log in to do that"
+    end
+    
+    redirect_back(fallback_location: :back)
+  end
+
   private
   
   def work_params
