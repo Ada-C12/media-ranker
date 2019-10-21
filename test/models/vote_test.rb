@@ -30,4 +30,16 @@ describe Vote do
       refute( is_valid )
     end
   end
+
+  describe "relations" do
+    it "will have a work" do
+      vote = votes(:vote1)
+      vote.work.must_equal works(:cowboy)
+    end
+
+    it "will have a user" do
+      vote = votes(:vote1)
+      vote.user.must_equal users(:yoshi)
+    end
+  end
 end
