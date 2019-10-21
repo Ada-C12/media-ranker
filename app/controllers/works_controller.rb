@@ -1,4 +1,8 @@
 class WorksController < ApplicationController
+
+  before_action :work_from_params, only: [:show, :upvote, :edit, :update, :destroy]
+
+
   def index
     @all_works_categorized = Work.all_works_categorized
   end
@@ -9,8 +13,6 @@ class WorksController < ApplicationController
   end
 
   def show
-    work_id = params[:id]
-    @work = Work.find_by(id: work_id)
     if @work.nil?
       render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
       return
@@ -26,8 +28,6 @@ class WorksController < ApplicationController
       redirect_back(fallback_location: :back)
       return
     else
-      work_id = params[:id]
-      @work = Work.find_by(id: work_id)
       @new_vote = @work.upvote(@current_user.id)
 
       if @new_vote.errors.any?
@@ -68,14 +68,12 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work = Work.find_by(id: params[:id])
     if @work.nil?
       redirect_to works_path
     end
   end
 
   def update
-    @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
       return
@@ -89,7 +87,6 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    @work = Work.find_by(id: params[:id])
     if @work.nil?
       redirect_to works_path
       return
@@ -105,6 +102,11 @@ class WorksController < ApplicationController
   
   def work_params
     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+  end
+
+  def work_from_params
+    work_id = params[:id]
+    @work = Work.find_by(id: work_id)
   end
 
 end
