@@ -30,9 +30,21 @@ class WorksController < ApplicationController
   end
   
   def vote
-    # check to see if there is a current user, if not flash error message
     current_user = User.find_by(id: session[:user_id])
     current_work = Work.find_by(id: params[:id])
+    
+    if current_user == nil
+      flash[:warning] = "You must log in to vote"
+      redirect_to works_path
+      return
+    end
+    
+    if current_user.votes.where(work_id: current_work.id).length > 0
+      flash[:warning] = "You have already voted for this work."
+      redirect_to works_path
+      return
+    end
+    
     vote_params = current_work.upvote(current_user)
     
     @vote = Vote.new( vote_params )
