@@ -5,7 +5,11 @@ class Work < ApplicationRecord
   validates :category, presence: true
 
   def self.spotlight
-    return Work.all.order(total_votes: :desc).first
+    spotlight = Work.all.order(total_votes: :desc).first
+    if spotlight == nil
+      spotlight = []
+    end
+    return spotlight 
   end
   
   def self.sort_desc(category)

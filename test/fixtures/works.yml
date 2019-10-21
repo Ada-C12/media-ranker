@@ -4,21 +4,75 @@ wind:
   creator: Margaret Mitchell
   publication_year: 1939
   description: Epic Civil War drama focuses on the life of petulant southern belle Scarlett O'Hara 
+  total_votes: 0
 dahlio:
   category: book
   title: principles
   creator: Ray Dahlio
   publication_year: 2010
   description: Founder of Bridgwater talks about the priciples that make him successful
+  total_votes: 0
 nemo:
   category: movie
   title: looking for nemo
   creator: Disney
   publication_year: 2000
   description: Underwater story of a fish
+  total_votes: 0
 beatles:
   category: album
   title: Best of Beatles
   creator: The Beatles
   publication_year: 1980
   description: Best songs of all times
+  total_votes: 0
+aerosmith:
+  category: album
+  title: Songs
+  creator: Aerosmith
+  publication_year: 1990
+  description: Best songs 
+  total_votes: 0
+nirvana:
+  category: album
+  title: Songs
+  creator: Kurt Cobain
+  publication_year: 1980
+  description: Grunge in Seattle
+  total_votes: 0
+others:
+  category: movie
+  title: The Gost
+  creator: lalala
+  publication_year: 2010
+  description: Family that is dead think are alive
+  total_votes: 0
+lion:
+  category: movie
+  title: Lion
+  creator: lalala
+  publication_year: 2010
+  description: Indian that gets lost ...
+  total_votes: 0
+love:
+  category: book
+  title: Love me
+  creator: lalala
+  publication_year: 2011
+  description: love love love ...
+  total_votes: 0
+happy:
+  category: book
+  title: Happy me
+  creator: Mogo
+  publication_year: 2011
+  description: Happy sunshine ...
+  total_votes: 0
+gladiator:
+  category: movie
+  title: Gladiator
+  creator: ggdfg
+  publication_year: 2011
+  description: Spartans ...
+  total_votes: 0
+

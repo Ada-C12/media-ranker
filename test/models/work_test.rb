@@ -1,9 +1,12 @@
 require "test_helper"
 
-  describe Work do
-    let (:new_work) {
-      Work.new(category: "book", title: "man of the goods", creator: "Josh Howe", publication_year: 2019, description: "gsgdfg")
-    }
+describe Work do
+  let (:new_work) {
+    Work.new(category: "book", title: "man of the goods", 
+      creator: "Josh Howe", publication_year: 2019, description: "gsgdfg")
+  }
+  
+  describe 'instantiation' do
     it "can be instantiated" do
       # Assert
       expect(new_work.valid?).must_equal true
@@ -11,10 +14,12 @@ require "test_helper"
 
     it "will have the required fields" do
       # Arrange
-      [:category, :title, :creator, :publication_year, :description].each do |field|
+      [:category, :title, :creator, :publication_year, :description]
+        .each do |field|
 
-      # Assert
-      expect(works(:wind)).must_respond_to field
+        # Assert
+        expect(works(:wind)).must_respond_to field
+      end
     end
   end
 
@@ -47,28 +52,48 @@ require "test_helper"
   end
 
   describe "custom methods" do
-    describe "top ten" do
-      it "returns <= 10 books, albums, movies" do
-        #Arrange-Assert
-        expect(Work.top_10("book").count).must_be :<=, 10
-        expect(Work.top_10("movie").count).must_be :<=, 10
-        expect(Work.top_10("album").count).must_be :<=, 10
+    describe "spotlight" do
+      it "returns the work with more votes" do
+        works(:nemo).total_votes = 3
+        works(:nemo).save
+        expect(Work.spotlight).must_equal works(:nemo)
+      end
+      
+      it "returns the first work when all works have same number of votes" do
+        expect(Work.spotlight).must_equal works(:wind)
       end
 
-      it "returns zero if there are no books, albums or movies in database" do
+      it "returns an empty array when there are no works" do
+        Work.destroy_all
+        expect(Work.spotlight).must_equal []
+      end
+    end
+
+    describe "top ten" do  
+      it "returns an empty array when there are no works" do
+        Work.destroy_all
+        expect(Work.top_10("book")).must_equal []
+        expect(Work.top_10("movie")).must_equal []
+        expect(Work.top_10("album")).must_equal []
+      end
+      
+      it "returns the top 10 per category" do
         #Arrange
-        Work.where(category: "book").delete_all  
-        Work.where(category: "album").delete_all
-        Work.where(category: "movie").delete_all      
-        
-        #Assert
-        expect(Work.top_10("book").count).must_equal 0
-        expect(Work.top_10("movie").count).must_equal 0      
-        expect(Work.top_10("album").count).must_equal 0    
+        works(:wind, :dahlio, :nemo, :beatles, :aerosmith, 
+          :nirvana, :others, :lion, :love, :happy).each do |work|
+          work.category = "book"
+          work.save
+        end
+
+        works(:wind, :dahlio, :nemo, :beatles, :aerosmith, 
+        :nirvana, :others, :lion, :love, :happy).each do |work|
+          work.total_votes = 5
+          work.save
+        end
+
+        expect(Work.top_10("book").include?(works(:gladiator))).must_equal false
       end
 
-      # it "returns the spotlight"
-      # end
     end
   end
 end

@@ -1,7 +1,9 @@
 require "test_helper"
 
 describe User do
+  
   let (:new_user) { User.new(name: "Tom") }
+  
   describe 'instantiation' do     
     it 'can be instantiated' do
       # Act-Assert
@@ -29,29 +31,25 @@ describe User do
     end
   end
 
-  describe 'relations' do
-    it 'can set the vote through "vote"' do
+  describe "relationships" do
+    it "can have many votes" do
       # Arrange
-      vote = Vote.new
-      
-      # Act
-      vote.user = users(:dani)
-    
-       # Assert
-      expect(vote.user_id).must_equal users(:dani).id
-      # expect(users(:dani).votes).must_equal vote
+      user = users(:alex)
+      vote_1 = Vote.create!(work_id: works(:dahlio).id, user_id: user.id, date: Time.now)
+      vote_2 = Vote.create!(work_id: works(:beatles).id, user_id: user.id, date: Time.now)
+
+      # Assert
+      expect(user.votes.count).must_equal 2
     end
+  end
 
-    # it 'can set the author through "author_id"' do
-    #   # Create two models
-    #   author = Author.create!(name: "test author")
-    #   book = Book.new(title: "test book")
+  describe "custom methods" do
+    it "sorts the users alphabetically" do
+      # Arrange
+      users = users(:dani, :alex, :fran)
 
-    #   # Make the models relate to one another
-    #   book.author_id = author.id
-
-    #   # author should have changed accordingly
-    #   expect(book.author).must_equal author
-    # end
+      # Act-Assert
+      expect(User.alphabetic.first.name).must_equal "alexander"
+    end
   end
 end
