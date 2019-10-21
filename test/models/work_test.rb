@@ -64,15 +64,13 @@ describe Work do
         assert( top_books.length < 10 )
       end
 
-      # it "returns an empty array when a category contains no works" do
-      #   # used Faker because the title must be unique according to Work validations
+      it "returns an empty array when a category contains no works" do
+        Work.destroy_all
 
-      #   top_books = Work.top_ten("book")
-
-      #   p top_books
+        top_books = Work.top_ten("book")
         
-      #   expect(top_books.length).must_equal 0
-      # end
+        expect(top_books.length).must_equal 0
+      end
     end
     describe "spotlight method" do
       before do
@@ -80,7 +78,22 @@ describe Work do
       end
       
       it "displays a random work if no works have votes" do
-        
+        work = Work.spotlight
+
+        expect(work).wont_be_nil
+      end
+
+      it "displays the work with the most votes" do
+        Vote.create(work_id: Work.first.id, user_id: 1)
+
+        5.times do |voter|
+          voter = User.create(username: Faker::Name.unique.name)
+          Vote.create(work_id: Work.last.id, user_id: voter.id)
+        end
+
+        top_work = Work.spotlight
+
+        expect(top_work.title).must_equal Work.last.title
       end
     end
   end
