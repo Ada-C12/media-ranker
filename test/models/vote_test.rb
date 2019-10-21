@@ -11,8 +11,7 @@ describe Vote do
   
   it "can be instantiated" do
     
-    expect(@vote.valid?).must_equal true
-    
+    expect(@vote.valid?).must_equal true    
   end
   
   describe "relations" do 
