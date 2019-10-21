@@ -1,36 +1,34 @@
 # test/models/work_test.rb
 require "test_helper"
 
-xdescribe Work do
-  # describe "validations" do
-  #   # Create two models
-  #   before do
-  #   creator = Creator.create!(name: "test creator") # ! = if fails, throw an ERROR!
-  #   book = Book.new(title: "test book", creator: creator, publication_date: 2019)
-  #   end
+describe Work do
+  let (:book) {works(:kindred)}
+  let (:album) {works(:adalovelace)}
+  let (:movie) {works(:funnyface)}
   
-  #   it "must be valid" do
-  #     # Make the models relate to one another
-  #     book.creator = creator
+  describe "validations" do
+    
+    it "must be valid" do
+      expect(book.valid?).must_equal true
+    end
+    
+    it "will not be valid if no title is given" do
+      book.title = nil 
+      expect(book.save).must_equal false
+    end
+    
+    it "will fail if title is not unique" do
+      new_work = Work.new(title: book.title)
+      expect(new_work.save).must_equal false
+    end
+    
+    it "will fail if publication date is not an integer" do
+      book.publication_date = "eeee"
+      expect(book.save).must_equal false
+    end
+  end
   
-  #     # creator_id should have changed accordingly
-  #     expect(book.creator_id).must_equal creator.id
-  #   end
-  
-  #   it 'can set the author through "author_id"' do
-  #     # Create two models
-  #     author = Author.create!(name: "test author")
-  #     book = Book.new(title: "test book")
-  
-  #     # Make the models relate to one another
-  #     book.author_id = author.id
-  
-  #     # author should have changed accordingly
-  #     expect(book.author).must_equal author
-  #   end
-  # end
-  
-  # describe 'uniqueness' do
+  # xdescribe 'uniqueness' do
   #   before do
   #     # Arrange
   #     @author = Author.new(name: 'test author')

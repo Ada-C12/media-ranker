@@ -3,29 +3,39 @@
 <%# find me in the homepage, i'm the root path %>
 <h2>SPOTLIGHT</h2>
 <ul>
-  <% @spotlight.each do |work|  %>
+  <% spotlight = Work.spotlight  %>
     <li>
-      <%= link_to work.title, work_path(work.id) %>
-      <% end %>
+      <%= link_to spotlight.title, work_path(spotlight.id) %>
       </ul>
+
 
 <h3>MOVIES</h3>
-        <% @movies.each do |movie|  %>
+  <ul>
+    <% movies = Work.topten(category: "movie") %>
+        <% movies.each do |movie|  %>
     <li>
       <%= link_to movie.title, work_path(movie.id) %>
+    </li>
+  </ul>
       <% end %>
-      </ul>
 
 <h3>BOOKS</h3>
-        <% @books.each do |book|  %>
+  <ul>
+        <% books = Work.topten("book")%>
+        <% books.each do |book|  %>
     <li>
       <%= link_to book.title, work_path(book.id) %>
+    </li>
       <% end %>
-      </ul>
+  </ul>
 
 <h3>ALBUMS</h3>
-        <% @albums.each do |album|  %>
+  <ul>
+      <% albums = Work.topten("album")%>
+        <% albums.each do |album|  %>
     <li>
       <%= link_to album.title, work_path(album.id) %>
       <% end %>
-      </ul>
+      </li>
+    </ul>
+ </main>

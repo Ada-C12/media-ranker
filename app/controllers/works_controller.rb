@@ -1,10 +1,10 @@
 class WorksController < ApplicationController
   
   def index
-    @movies = Work.where(category: "movie")
-    @books = Work.where(category: "book")
-    @albums = Work.where(category: "album")
-    @spotlight = Work.all.sample(10)
+    @works = Work.all
+    # @movies = Work.where(category: "movie")
+    # @books = Work.where(category: "book")
+    # @albums = Work.where(category: "album")
   end
   
   def show
