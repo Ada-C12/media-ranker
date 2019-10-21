@@ -11,21 +11,7 @@
 <%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger"%>
 </section>
 
-
-
- <tbody>  
-    <tr>
-     <% @work.votes.each do |vote|%> 
-     <tr>
-      <td><%= link_to vote.user.username, user_path(vote.user_id)%></td>
-      <td><%= @user.created_at.to_date %></td> 
-    </tr>
-    <% end %> 
-    </tbody>
-  </table>
-  <h3><%= @work.votes.count %> Votes for this work </h3>
-
- <table class="table">
+<table class="table">
   <thead>
     <tr>
       <th scope="col"width=400>User</th>
@@ -33,4 +19,16 @@
       
     </tr>
   </thead>
+ <tbody>  
+    <tr>
+     <% @work.votes.each do |vote|%> 
+     <tr>
+      <td><%= link_to vote.user.username, user_path(vote.user_id)%></td>
+      <td><%= @work.created_at.to_date %></td> 
+    </tr>
+    <% end %> 
+    </tbody>
   </table>
+  <h3><%= @work.votes.count %> Votes for this work </h3>
+
+ 
