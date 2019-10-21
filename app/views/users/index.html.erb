@@ -1,0 +1,33 @@
+<main>
+  <h1> List of Users</h1>
+
+  <section>
+    <table class="table table-hover">
+      <thead>
+        <tr class='table-header'>
+          <th scope="col">USERNAME</th>
+          <th scope="col">USER SINCE</th>
+          <th scope="col"># VOTES</th>
+          <th scope="col">UPVOTES</th>
+          <th scope="col">DOWNVOTES</th>
+        </tr>
+      </thead>
+
+      <% all_users_by_created = User.all.order(created_at: :desc) %>
+      <% all_users_by_created.each do |user| %>
+          <% total_votes = user.votes %>
+          <% upvotes = user.upvotes %>
+          <% downvotes = user.downvotes %>
+          
+          <tr>
+            <td><%= link_user(user.id) %></td>
+            <td><%= readable_date(user.created_at) %></td>
+            <td><%= total_votes.count if total_votes %></td>
+            <td><%= upvotes.count if upvotes %></td>
+            <td><%= downvotes.count if downvotes %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </section>
+</main>

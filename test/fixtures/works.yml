@@ -1,0 +1,7 @@
+new_work:
+  category: "book"
+  title: "Cool Book"
+  creator: "Cooler Author"
+  description: "Here is a desc"
+  publication_year: 1993
+  vote_count: 0

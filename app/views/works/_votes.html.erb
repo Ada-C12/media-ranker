@@ -1,0 +1,23 @@
+<section class="likes-dislikes-sect">
+  <% phrase = like_phrase %>
+  <h4> <%= total_votetype.count %> <%= phrase %><%= s_end?(total_votetype.count)%> </h4>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Submited</th>
+        <th>User</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% total_votetype.each do |vote|%>
+        <% vote_submitted = readable_date(vote.created_at) %>
+        <% vote_user = vote.user %>
+        <tr>
+          <td> <%= vote_submitted %> </td>
+          <td> <%= link_user(vote_user.id) %> </td>
+        </tr>
+      <% end%>
+    </tbody>
+  </table>
+</section>

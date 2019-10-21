@@ -1,0 +1,24 @@
+<main>
+  <% current_user = User.find_by(id: session[:user_id])%>
+
+  <%= render partial: "spotlight" %>
+
+  <section id ="top-media-container">
+    <% category_list = Work.categories %>
+    
+      <% category_list.first(3).each do |category| %>
+        <section class="top-media-sect">
+          <h2> Top <%= category.capitalize %>s </h2>
+          <ul>  
+            <% Work.top_by_category(num:10, category:category).each do |work| %>
+              <li>
+                <%= render partial: "voting", locals: { current_user: current_user, work: work } %>
+
+                <%= render partial: "details", locals: { current_user: current_user, work: work } %>
+              </li>
+            <% end %>
+          </ul> 
+        </section>
+      <% end %>
+  <section>
+</main>

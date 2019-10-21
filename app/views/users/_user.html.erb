@@ -1,0 +1,30 @@
+<header class="show-header">
+  <h1>Summary for <%=user_instance.username%> </h1>
+</header>
+  
+<h5>Joined site <%= readable_date(user_instance.created_at) %> </h5>
+
+<% total_votes = user_instance.votes %>
+<% total_votes_count = total_votes.count %>
+<% username = user_instance.username %>
+
+<h2> 
+  <%= username %> voted <%= total_votes_count %> time<%= s_end?(total_votes_count)%>
+</h2>
+
+<section class="likes-dislikes-container">
+  <% if total_votes_count == 0 %>
+    <h4> <%= username %> should vote more! </h4>
+  <% else %>
+    <% total_upvotes = user_instance.upvotes %> 
+    <% total_downvotes = user_instance.downvotes %>
+
+    <% if total_upvotes.count > 0 %>
+      <%= render partial: "votes", locals: { total_votetype: total_upvotes, like_phrase: "Like" } %>
+    <% end %>
+
+    <% if total_downvotes.count > 0 %>
+      <%= render partial: "votes", locals: { total_votetype: total_downvotes , like_phrase: "Dislike" } %>
+    <% end %>  
+  <% end %>
+</section>

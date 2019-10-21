@@ -1,0 +1,21 @@
+  <% if session[:user_id].nil? %>
+    <% vote = [] %>
+  <% else %>
+    <% vote = Vote.find_vote(user_id: session[:user_id], work_id: work.id) %>
+  <% end %>
+
+  <% if vote.blank? %>
+      <div class="vote-active upvote"> <%= link_upvote(work.id) %> </div>
+      <span class="badge"> <%= work.vote_count %> </span>
+      <div class="vote-active downvote"> <%= link_downvote(work.id) %> </div>
+  
+  <% elsif vote.vote_type == "upvote" %>
+    <div class="alreadyvote upvote"> <%= link_delete_upvote(vote.id) %> </div>
+    <span class="badge"> <%= work.vote_count %> </span>
+    <div class="vote-disabled downvote"> <%= link_change_downvote(vote) %> </div>
+  
+  <% elsif vote.vote_type == "downvote" %> 
+    <div class="vote-disabled upvote"> <%= link_change_upvote(vote) %> </div>
+    <span class="badge"> <%= work.vote_count %> </span>
+    <div class="alreadyvote downvote"> <%= link_delete_downvote(vote.id) %> </div>
+  <% end %>

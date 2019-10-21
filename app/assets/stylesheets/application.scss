@@ -1,0 +1,367 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+/* Custom bootstrap variables must be set or imported *before* bootstrap. */
+
+@import "bootstrap";
+/* Import scss content */
+@import "**/*";
+
+/*
+ *= require rails_bootstrap_forms
+ */
+
+
+
+body {
+  font-family: 'Gudea', sans-serif;
+  color: #fa4f05;
+}
+
+main {
+  padding: 2%;
+  min-height: 100vh;
+}
+
+nav, .bg-main-nav, footer{
+  background-color: #fac105;
+  padding: 2%;
+  text-align: center;
+}
+
+.nav-header {
+  padding: 5%;
+  padding-top: 10%;
+}
+
+@media (max-width: 978px) {
+  .nav-header {
+    padding-top: 20%;
+  }
+}
+
+.bg-main-nav {
+  font-size: 1.2rem
+}
+
+.main-nav {
+  padding-left: 2%;
+  color: white;
+}
+
+
+.navbar-toggler-icon  {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+} 
+.navbar-toggler {
+  border-color: rgba(0,0,0,0.5);
+} 
+
+.login_logout {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 0;
+
+}
+.login_logout button {
+  margin-left: 0.5%
+}
+
+
+#logged-in-btn-container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+main a {
+  color: #fa4f05;
+  font-weight: bold;
+}
+
+main a:hover {
+  text-decoration: underline;
+}
+
+a, footer {
+  color: white
+}
+
+a:hover {
+  color: #ad5b49;
+  text-decoration: none;
+}
+
+
+#top-media-container {
+  display:flex;
+  justify-content: space-evenly;
+}
+
+#top-media-container a {
+  text-decoration: none;
+}
+
+#media-spotlight-container {
+  margin: auto;
+  width: 80%;
+  border-bottom: solid 0.5px rgba(250, 79, 5, 0.5);
+  padding: 3%;
+}
+
+#spotlight-header {
+  font-weight: bold;
+  color: black;
+}
+
+
+#media-spotlight-container a {
+  text-decoration: underline;
+}
+
+h1, h2, h4 {
+  font-weight: bold;
+}
+
+.main-logo-link {
+  border-right: 2px solid white;
+  margin-right: 2%;
+  padding-right: 3%;
+  color: #fcefb1;
+}
+
+#main-logo-sub {
+  color: white
+}
+
+ul {
+  list-style: none;
+}
+
+.nav-link {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+
+
+#media-spotlight-container p {
+  color: black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+form label {
+  margin-top: 2%;
+  color: black;
+}
+
+.work-form-button {
+  background-color: #fa4f05;
+  color: white;
+  width: 110px;
+  height: 40px;
+  border: 1px solid #fa4f05;
+  border-radius: 5px;
+  margin-top: 2%;
+}
+
+
+
+.top-media-sect h2 {
+  border-bottom: 1px solid #fa4f05;
+  padding-top: 12%;
+}
+
+.top-media-sect {
+  width: 33%;
+  padding: 1.5%;
+}
+
+@media (max-width: 800px) {
+  #top-media-container {
+    display:flex;
+    flex-direction: column;
+  }
+  
+  .top-media-sect {
+    width: 90%;
+  }
+
+  #media-spotlight-container {
+    margin-top: 5%
+  }
+}
+
+
+.top-media-sect li {
+  display: flex;
+  border-bottom: solid rgba(250, 79, 5, 0.25) 1px;
+  margin-bottom: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 2%
+}
+
+.top-media-sect li:hover, #media-spotlight-container:hover {
+  border: dotted 3px grey;
+  border-radius: 25px
+}
+
+.voting-sect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  margin-left: 5%
+}
+
+.voting-sect div {
+  display: flex;
+}
+
+.vote-active a {
+  color: grey;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.vote-disabled a {
+  color: lightgray;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.alreadyvote a {
+  color: black;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.upvote a:hover{
+  color: green
+}
+
+.downvote a:hover {
+  color: red
+}
+
+.alreadyvote a:hover {
+  color: grey
+}
+
+
+.top-work-details {
+  width: 80%;
+  padding-left: 8%
+}
+
+.you-voted {
+  color:black
+}
+
+#show-works-voting {
+  max-width: 10%;
+  margin-left: 1%;
+}
+
+#show-works-details {
+  max-width: 80%;
+  margin-left: 2%;
+}
+
+.show-header {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.show-header, #show-works-category {
+  border-bottom: solid 0.5px rgba(250, 79, 5, 0.5);
+}
+
+.show-submitted {
+  color: black;
+  font-size: .75em
+}
+
+td, th {
+  text-align: center;
+}
+
+.likes-dislikes-container {
+  display: flex;
+}
+
+@media (max-width: 800px) {
+  .likes-dislikes-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .likes-dislikes-sect {
+    max-width: 100%;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+}
+
+.likes-dislikes-sect {
+  margin-left: 5%;
+  max-width: 45%;
+}
+
+
+.btn-login-logout { 
+  color: #ffffff; 
+  background-color: #AD461A; 
+  border-color: #000000; 
+} 
+
+.btn-login-logout a:hover {
+  color: #fcefb1
+}
+
+.edit-delete-links a {
+  color: white
+}
+
+.edit-delete-links {
+  margin-bottom: 4%
+}
+
+h2 {
+  margin: 2%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  border-bottom: solid 0.5px rgba(250, 79, 5, 0.5);
+  padding-bottom: 0.5%;
+}
+
+.likes-dislikes-sect h4 {
+  color: grey
+}
+
+
+th {
+  color: grey
+}
+
+.upvote a:hover, .downvote a:hover, button a:hover {
+  text-decoration: none;
+}

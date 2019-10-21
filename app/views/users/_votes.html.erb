@@ -1,0 +1,29 @@
+<section class="likes-dislikes-sect">
+  <h4> <%= total_votetype.count %> <%= like_phrase %><%= s_end?(total_votetype.count)%> </h4>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Submited</th>
+        <th>Category</th>
+        <th>Title</th>
+        <th>Creator</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% total_votetype.each do |vote|%>
+        <% vote_submitted = readable_date(vote.created_at) %>
+        <% vote_work = vote.work %>
+        <% vote_work_category = vote_work.category %>
+        <% vote_work_creator = vote_work.creator %>
+        <tr>
+          <td><%= vote_submitted %></td>
+          <td> <%= vote_work_category %> </td>
+          <td><%= link_work(vote_work.id) %></td>
+          <td> <%= vote_work_creator %> </td>
+        </tr>
+      <% end%>
+    </tbody>
+  </table>
+</section>
+

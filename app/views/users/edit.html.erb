@@ -1,0 +1,7 @@
+<main>
+  <h1>Edit User</h1>
+  <% @user = User.find_by(id: session[:user_id]) %>
+
+
+  <%= render partial: "form", locals: { submit_button_label: "Edit User", user_form_class: "edit-user-form", login_path: user_path(@user.id), method: :patch } %>
+</main>

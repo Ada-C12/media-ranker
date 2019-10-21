@@ -1,0 +1,94 @@
+<main>
+  <header class="show-header">
+    <section class="voting-sect" id="show-works-voting">  
+      <% current_user = User.find_by(id: session[:user_id])%>
+      <% if session[:user_id].nil? %>
+        <% vote = [] %>
+      <% else %>
+        <% vote = Vote.find_vote(user_id: current_user.id, work_id: @work.id) %>
+      <% end %>
+
+      <% if vote.blank? %>
+        <div class="vote-active upvote"> <%= link_upvote(@work.id) %> </div>
+        <span class="badge"> <%= @work.vote_count %> </span>
+        <div class="vote-active downvote"> <%= link_downvote(@work.id) %> </div>
+      
+      <% elsif vote.vote_type == "upvote" %>
+        <div class="alreadyvote upvote"> <%= link_delete_upvote(vote.id) %> </div>
+        <span class="badge"> <%= @work.vote_count %> </span>
+        <div class="vote-disabled downvote"> <%= link_change_downvote(vote) %> </div>
+      
+      <% elsif vote.vote_type == "downvote" %> 
+        <div class="vote-disabled upvote"> <%= link_change_upvote(vote) %> </div>
+        <span class="badge"> <%= @work.vote_count %> </span>
+        <div class="alreadyvote downvote"> <%= link_delete_downvote(vote.id) %> </div>
+      <% end %>
+    </section>
+
+    <section id="show-works-details">
+      <% submitted = readable_date(@work.created_at) %>
+      <% category = @work.category %>
+      <% title = @work.title %>
+      <% creator = @work.creator %>
+      <% publication_year = @work.publication_year %>
+      <% points = @work.vote_count %>
+      <% total_votes = @work.votes %>
+      <% total_votes_count = total_votes.count %>
+      <% description = @work.description %>
+
+      <h4 id='show-works-category'><%= category.upcase %></h4>
+      
+      <h1><%= title %> 
+        <small>(<%= points %> point<%= s_end?(points)%>)</small>
+        <% if !current_user.nil? && current_user.already_voted?(@work.id) %>
+          <small class="you-voted">  - You voted!</small>
+        <% end %>
+      </h1>
+      <h4>by <%= creator %> (<%= publication_year %>)</h4>
+      <p class="show-submitted"> 
+        Submited <%= submitted %> - 
+        <strong> 
+          <%= total_votes_count %> vote<%= s_end?(total_votes_count)%> 
+        </strong>
+      <p>
+      <p><%= description %></p>
+      
+      <section class="edit-delete-links">
+        <button type="button" class="btn btn-secondary">
+          <%= link_edit_work(@work.id) %>
+        </button>
+        <button type="button" class="btn btn-secondary">
+          <%= link_delete_work(@work.id) %>
+        </button>
+      </section>
+    </section>
+  </header>
+
+  <% total_votes = @work.votes %>
+  <% total_votes_count = total_votes.count %>
+  <% total_upvotes = @work.upvotes %>
+  <% total_downvotes = @work.downvotes %>
+
+  <h2> <%= total_votes_count %> Total Vote<%= s_end?(total_votes_count)%>
+    <small>
+      <% if total_votes_count > 0 %>
+        <%= @work.rated? %>
+      <% end %>
+    </small>
+  </h2>
+
+  <section class="likes-dislikes-container">
+    <% if total_votes_count == 0 %>
+      <h4> Add a new vote for <%= title %>! </h4>
+    <% else %> 
+      <% if total_upvotes && total_upvotes.count > 0 %>
+        <%= render partial: "votes", locals: { like_phrase: "Like", total_votetype: total_upvotes } %>
+      <% end %>
+
+      <% if total_downvotes && total_downvotes.count > 0 %>   
+        <%= render partial: "votes", locals: { like_phrase: "Dislike", total_votetype: total_downvotes } %>
+      <% end %>
+    <% end %>  
+  </section>
+</main>
+
