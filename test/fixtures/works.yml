@@ -1,0 +1,20 @@
+cowboy:
+  category: album
+  title: Be the Cowboy
+  creator: Mitski
+  publication_year: 2018
+  description: cowboy is gender-neutral
+
+rest:
+  category: book
+  title: My Year of Rest and Relaxation
+  creator: Otessa Moshfegh
+  publication_year: 2018
+  description: sharp and bleary
+
+spiderman:
+  category: movie
+  title: Spiderman Into the Spiderverse
+  creator: Peter Ramsey
+  publication_year: 2018
+  description: incredible animation
