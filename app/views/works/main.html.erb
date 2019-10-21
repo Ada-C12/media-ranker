@@ -1,31 +1,40 @@
 <section id= "spotlight">
-<h2>Media Spotlight: </h2>
-<h3><%=link_to @spotlight.name, work_path(@spotlight.id)%></section></h3> <h4> by <%=@spotlight.creator%>
-<p> <%= Vote.where(id: @spotlight.id).count%> votes <%= @spotlight.description%></p>
-
-<section id="albums">
-<h2> Top Albums </h2>
-  <% @top_albums.each do |work|%>
-    <%= link_to work.name, work_path(work.id) %>
-    <%= work.category%>
-    <%= work.votes.count %> votes
-  <% end %>
+  <h2>Media Spotlight: </h2><h3><%=link_to @spotlight.name, work_path(@spotlight.id)%></h3><h4> by <%=@spotlight.creator%></h4>
+  <p> <%= Vote.where(id: @spotlight.id).count%> votes <%= @spotlight.description%></p>
 </section>
 
-<section id="books">
-<h2> Top Books </h2>
-<% @top_books.each do |work|%>
-  <%= link_to work.name, work_path(work.id) %>
-  <%= work.category%>
-  <%= work.votes.count %> votes
-<% end %>
-</section>
+<section id = "top-bucket">
+  <section id="albums">
+    <h2> Top Albums </h2>
+      <% @top_albums.each do |work|%>
+      <section class = "individual-work">
+        <%= link_to work.name, work_path(work.id) %>
+        <section class = "creator"> by <%= work.creator%> </section>
+        <section class = "votes"> <%= work.votes.count %> votes </section>
+      </section>
+      <% end %>
+    </section>
 
-<section id="movies">
-<h2> Top Movies </h2>
-<% @top_movies.each do |work|%>
-  <%= link_to work.name, work_path(work.id) %>
-  <%= work.category%>
-  <%= work.votes.count %> votes
-<% end %>
+
+  <section id="books">
+  <h2> Top Books </h2>
+      <% @top_books.each do |work|%>
+      <section class = "individual-work">
+        <%= link_to work.name, work_path(work.id) %> 
+        <section class = "creator"> by <%= work.creator%> </section>
+        <section class = "votes"> <%= work.votes.count %> votes </section>
+      </section>
+    <% end %>
+  </section>
+
+  <section id="movies">
+  <h2> Top Movies </h2>
+      <% @top_movies.each do |work|%>
+        <section class = "individual-work">
+        <%= link_to work.name, work_path(work.id) %> 
+        <section class = "creator"> by <%= work.creator%> </section>
+        <section class = "votes"> <%= work.votes.count %> votes </section>
+        </section>
+      <% end %>
+  </section>
 </section>

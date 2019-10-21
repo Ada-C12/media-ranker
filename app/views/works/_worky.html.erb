@@ -1,0 +1,20 @@
+<%= form_with model: object do |f|%>
+  <fieldset>
+    <p><%= f.label :category %></p>
+    <p><%= f.select :category, [[:"movie", 1], [:"book", 2], [:"album", 3]] %></p>
+
+    <p><%= f.label :name %></p>
+    <p><%= f.text_field :name %></p>
+
+    <p><%= f.label :creator %></p>
+    <p><%= f.text_field :creator %></p>
+
+    <p><%= f.label :publication_year %></p>
+    <p><%= f.text_field :publication_year %></p>
+
+    <p><%= f.label :description%></p>
+    <p><%= f.text_area rows = "2" %></p>
+
+    <%= f.submit @submit_text %>
+  </fieldset>
+<% end %>

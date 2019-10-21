@@ -1,22 +1,3 @@
 <h1> Edit This <%=@work.category.capitalize %> </h1>
 
-<%= form_with model: @work do |f|%>
-  <fieldset>
-    <%= f.label :category %>
-    <%= f.text_field :category %>
-
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.label :creator %>
-    <%= f.text_field :creator %>
-
-    <%= f.label :publication_year %>
-    <%= f.text_field :publication_year %>
-
-    <%= f.label :description%>
-    <%= f.text_area rows = "2" %>
-
-    <%= f.submit "Update Work" %>
-  </fieldset>
-<% end %>
+<%= render :partial => "worky", :locals => { :object => @work, @submit_text => "Update Work" } %>

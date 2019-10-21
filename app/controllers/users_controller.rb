@@ -62,7 +62,6 @@ class UsersController < ApplicationController
   end
   
   def logout
-    
     session[:user_id] = nil
     flash[:message] = "You have logged out successfully."
     redirect_to root_path
@@ -75,7 +74,7 @@ class UsersController < ApplicationController
   
   
   def find_user
-    # @current_user = User.find_by(id: session[:user_id])
+    @current_user = User.find_by(id: session[:user_id])
   end
   
 end
