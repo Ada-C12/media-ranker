@@ -42,18 +42,26 @@
             <%=link_to "Logged in as: #{User.find_by(id: session[:user_id]).username}", current_user_path, class:"btn btn-primary" %>
           </li>
         <% end %>
-        <li class="nav-item app-header__nav_item">
+        <% if session[:user_id] != nil%>
+          <li class="nav-item app-header__nav_item">
           <%=link_to "Log Out", logout_path, method: :post, class:"btn btn-primary" %>
-        </li>
+          </li>
+        <% end %>
       </ul>
     </nav>
   </header>
 
   <section class="alert__container">
     <% flash.each do |name, message| %>
-      <div class="alert alert-success">
-        <%= message %>
-      </div>
+      <% if name == "warning" %>
+        <div class="alert alert-warning">
+          <%= message %>
+        </div>
+      <% else %>
+        <div class="alert alert-success">
+          <%= message %>
+        </div>
+      <% end %>
     <% end %>
   </section>
 
