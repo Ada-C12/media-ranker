@@ -5,7 +5,7 @@ album1:
   publication_year: 1949
   description: Et et expedita non aut quo.
 album2: 
-  category: book
+  category: album
   title: Kreb-Full-o Been
   creator: Ms. Trevion Buckridge
   publication_year: 2016
@@ -29,8 +29,9 @@ album5:
   publication_year: 1940
   description: Excepturi voluptas ut voluptatum.
 album6:
-  category: Captain's Java
-  title: Sanjuanita Kshlerin
+  category: album
+  title: Captain's Java
+  creator: Sanjuanita Kshlerin
   publication_year: 1993
   description: Cupiditate ut accusamus et.
 book1: 
