@@ -15,7 +15,7 @@ describe Vote do
   end
 
   describe "relationships" do 
-    it "can have many votes" do
+    it "can have a work and a user" do
       @new_vote.save
       expect(@new_vote.user).must_be_instance_of User
       expect(@new_vote.work).must_be_instance_of Work

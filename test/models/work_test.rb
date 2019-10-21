@@ -77,8 +77,6 @@ describe Work do
 
   describe "custom methods" do
     before do
-
-
       3.times do |i|
         three_votes = works(:gay)
         user = User.create(username: i.to_s) 
@@ -135,29 +133,21 @@ describe Work do
       
       end
 
-      # it "if two media are tied for votes, media most recently voted on is first in list" do
-      #   3.times do |i|
-      #     three_votes = works(:obama)
-      #     user = User.create(username: i.to_s) 
-      #     Vote.create(user_id: user.id, work_id: three_votes.id)
-      #   end
+      it "if two media are tied for votes, media with alphabetically first title appears first on the list" do
+        3.times do |i|
+          three_votes = works(:obama)
+          user = User.create(username: i.to_s) 
+          Vote.create(user_id: user.id, work_id: three_votes.id)
+        end
         
-      #   most_recent_vote = works(:obama)
+        alpha_first_title = works(:obama)
+        alpha_second_title = works(:gay)
 
-      #   Work.all.where(category: "book").each do |w|
-      #     puts "Before #{w.creator},#{w.votes.length} "
-      #   end
+        sorted_list = Work.sort_media(:book)
 
-      #   sorted_list = Work.sort_media(:book)
-
-      #   sorted_list.each do |w|
-      #     puts "After #{w.creator},#{w.votes.length} "
-      #   end
-
-      #   expect(sorted_list[0]).must_equal most_recent_vote
-      #   expect(sorted_list[1]).must_equal not_most_recent_vote
-
-      # end
+        expect(sorted_list[0]).must_equal alpha_first_title
+        expect(sorted_list[1]).must_equal alpha_second_title
+      end
     end
 
     describe "top_ten" do
@@ -172,12 +162,10 @@ describe Work do
       end
 
       it "returns 3 items of media when given category with 3 items" do
-
         9.times do
           Work.all.first.destroy
         end
         top_ten = Work.top_ten(:book)
-
 
         expect(top_ten.length).must_equal 3
 
@@ -191,9 +179,7 @@ describe Work do
         invalid_sample = Work.top_ten(:songs)
 
         expect(invalid_sample).must_equal []
-      
       end
-
     end
   end
 end

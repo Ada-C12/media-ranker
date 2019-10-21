@@ -18,7 +18,9 @@ class Work < ApplicationRecord
     return [] unless category == :book || category == :album
 
     all_media = Work.all.where(category: category)
-    media_ascending = all_media.sort_by { |work| work.votes.length }.reverse!
+
+    #sorts media by highest vote count then by title
+    media_ascending = all_media.sort_by { |work| [-work.votes.length,work.title] }
 
     return media_ascending
   end
