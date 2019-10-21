@@ -7,6 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Gudea:400,700|Hammersmith+One">
+    
   </head>
 
   <body>
@@ -40,9 +42,11 @@
             <li class="nav-item app-header__nav_item">
               <%= link_to "Log In as #{User.find_by(id: session[:user_id]).username}", user_path(session[:user_id]), class: "btn btn-primary" %>
             </li>
+
             <li class="nav-item app-header__nav_item">
               <%= link_to "Log Out", logout_path, method: :post, class: "btn btn-primary" %>
             </li>
+
           <% else %>
             <li class="nav-item app-header__nav_item">
               <%= link_to "Log In", login_path, class: "btn btn-primary" %>
@@ -67,18 +71,14 @@
                   <li><%= column %>: <%= message %></li>
                 <% end %>
               </ul>
+
             <% elsif @user && @user.errors.any? %>
               <ul class="errors">
                 <% @user.errors.each do |column, message| %>
                   <li><%= column %>: <%= message %></li>
                 <% end %>
               </ul>
-            <% elsif @vote && @vote.errors.any? %>
-              <ul class="errors">
-                <% @vote.errors.each do |column, message| %>
-                  <li><%= column %>: <%= message %></li>
-                <% end %>
-              </ul>
+              
             <% end %>
 
           </div>
