@@ -1,26 +1,26 @@
 vote1:
-  user_id: bob
-  work_id: work1
+  user: user1
+  work: work1
 
 vote2:
-  user_id: bob
-  work_id: work2
+  user: user2
+  work: work2
 
 vote3:
- user_id: yasmin
- work_id: work3
+ user: user1
+ work: work3
 
 vote4:
-  user_id: yasmin
-  work_id: work1
+  user: user2
+  work: work1
 
 vote5:
-  user_id: tom
-  work_id: work2
+  user: user3
+  work: work2
 
 vote6:
-  user_id: blue
-  work_id: work4
+  user: user2
+  work: work4
   
 
 

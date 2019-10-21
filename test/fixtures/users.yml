@@ -1,17 +1,17 @@
 user1:
-  username: 'bob'
+  username: bob
 
 user2:
-  username: 'yasmin'
+  username: yasmin
 
 user3:
-  username: 'tom'
+  username: tom
 
 user4:
-  username: 'jdkd'
+  username: jdkd
 
 user5:
-  username: 'red'
+  username: red
 
 user6:
-  username: 'blue'
+  username: blue

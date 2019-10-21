@@ -29,22 +29,23 @@ describe User do
       expect(@user.errors.messages).must_include :username
     end
   end
-
+  
   describe 'relations' do 
     it 'has votes' do
-      user = users(:bob)
+      user = users(:user1)
       expect(user.votes.count).must_equal 2
       user.votes.each do |vote|
         expect(vote).must_be_instance of Vote
       end
     end
-
-    it "has many works" do
-      user = users(:bob)
-      expect(user.works.count).must_equal 2
-      @username.works.each do |work|
-        expect(work).must_be_instance of Work
-      end
-    end 
+    
+    # it "has many works" do
+    #   user = users(:user1)
+    #   expect(user.works.count).must_equal 2
+    #   user.works.each do |work|
+    #     expect(work).must_be_instance of Work
+    #   end
+    # end 
   end
+  
 end
