@@ -1,0 +1,10 @@
+<main class="content-container">
+<h2>Log In</h2>
+<%= form_with model: @user, url: login_path do |f| %>
+<label for="username">Username</label>
+ <input type="text" name="username" id="username" class="form-control">
+<section>
+  <input type="submit" name="commit" value="Log In" class="btn btn-primary" data-disable-with="Log In">
+</section>
+<% end %>
+</main>

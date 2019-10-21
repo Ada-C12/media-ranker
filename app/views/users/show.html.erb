@@ -1,0 +1,31 @@
+<main class="content-container">
+<h2>
+    User Summary <%= "#{@user.username}"%>
+</h2>
+<p>Joined site<%= "#{@user.created_at}" %></p>
+
+<section class="user-votes__container">
+  <h3 class="user-votes__header">Votes</h3>
+  
+<table class="table"> 
+<th> Media Title </th>
+<th> Created By </th>
+<th> Published</th>
+<th> Category</th>
+<th> Voted On</th>
+
+
+
+<% @user.votes.each do |vote| %>
+<tr>
+<td><%=link_to  "#{vote.work.title}",  work_path(vote.work.id) %></td>
+<td><%= vote.work.creator %></td>
+<td><%= vote.work.publication_year %></td>
+<td><%= vote.work.category %></td>
+<td><%= vote.created_at %></td>
+
+</tr>
+<%end%>
+</table>
+</section>
+</main>

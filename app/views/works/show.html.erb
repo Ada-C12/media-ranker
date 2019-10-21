@@ -1,0 +1,42 @@
+<main class="content-container">
+<section>
+  <h2><%=@work.title%></h1>
+  <p>Created by: <%=@work.creator%></p>
+  <p>Published: <%=@work.publication_year%> </p>
+
+
+<section>
+  <%= link_to "Back to Media Ranks", root_path, class:"btn btn-primary" %>
+  <%= link_to "Edit", edit_work_path(@work.id), class:"btn btn-primary" %>
+  <% if !@user %>
+      <%=link_to "Upvote", vote_error_path, method: :post, class:"btn btn-primary" %></td>  
+    <% elsif Vote.find_by(work_id: @work.id, user_id: @user.id) %>
+      <%=  link_to "Un-Upvote" , upvote_path(work_id: @work.id, user_id: @user.id), method: :post, class:"btn btn-primary"%></td>
+    <% else %>
+      <%=link_to "Upvote", upvote_path(work_id: @work.id, user_id: @user.id), method: :post, class:"btn btn-primary" %></td>        
+  <%end%>
+    <%= link_to "Delete", work_path(@work.id), class:"btn btn-danger", method: :delete%>
+  </section>
+
+<section class="works-votes__container">
+  <h3 class="works-votes__header"><%= "#{@work.votes.length} Votes for this Book" %></h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <table class="table"> 
+<% @work.votes.each do |vote| %>
+<tr>
+<td><%=link_to vote.user.username,  user_path( vote.user.id) %></td>
+<td><%= display_date(vote.created_at) %></td>
+
+</tr>
+<%end%>
+</table>
+
+</tr></tbody></table></section>
+</section></main>

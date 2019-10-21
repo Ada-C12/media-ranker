@@ -1,0 +1,35 @@
+<%# form_with is a view helper that will generate the proper form for us and will help us hook into the other controller actions %>
+<main class="content-container">
+<%= form_with model: @work, class: book_form_class do |f| %>
+<% @work.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+   <% end %>
+  <%# f.text_field :somenameofsomeattributeonbook ... in this case, :title %>
+  <div class="form-group">
+  <%= f.label :category %>
+  <%= f.select :category, [ 'album', 'book', 'movie' ],{ :include_blank => false },{:class  =>"form-control"} %>
+  </div>
+    <div class="form-group">
+  <%= f.label :title %>
+  <%= f.text_field :title, class:"form-control"  %>
+  </div>
+    <div class="form-group">
+  <%= f.label :creator %>
+  <%= f.text_field :creator, class:"form-control" %> 
+  </div>
+    <div class="form-group">
+  <%= f.label :publication_year %>
+  <%= f.text_field :publication_year, class:"form-control" %>
+  </div> 
+    <div class="form-group">
+  <%= f.label :description %>
+  <%= f.text_field :description, class:"form-control" %>
+  </div>
+
+  
+  <%= f.submit submit_button_label, class: "work-form-button" %>
+
+<% end %>
+
+
+</main>

@@ -1,0 +1,11 @@
+new_user:
+  username: Macaria Dove
+
+user:
+  username: Regina Dove
+
+other_user:
+  username: Duncan Davenport
+
+invalid_user:
+  username: 

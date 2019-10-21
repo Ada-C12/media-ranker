@@ -1,0 +1,43 @@
+new_vote:
+  user: new_user
+  work: new_work
+
+new_vote2:
+  user: user
+  work: new_work
+
+vote_movie:
+  user: user
+  work: movie
+
+vote_album:
+  user: new_user
+  work: album
+
+vote_book:
+  user: new_user
+  work: book
+
+vote_movie1:
+  user: user
+  work: movie_two
+
+vote_album1:
+  user: other_user
+  work: album_two
+
+vote_book1:
+  user: user
+  work: book_two
+
+vote_movie2:
+  user: new_user
+  work: movie_two
+
+vote_album2:
+  user: new_user
+  work: album_two
+
+vote_book2:
+  user: new_user
+  work: book_two

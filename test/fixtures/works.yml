@@ -1,0 +1,85 @@
+new_work:
+  category: movie
+  title: The Fall
+  creator: Tarsem Singh
+  publication_year: 2006
+  description: A bedridden patient (Lee Pace) captivates a hospitalized girl (Catinca Untaru) with a fantastic tale involving heroes, mystics and villains on a desert island.
+
+movie:
+  category: movie
+  title: Second Test Movie
+  creator: Second Test movie creator
+  publication_year: 2019
+  description: Second Test movie description
+
+movie_two:
+  category: movie
+  title: Third Test Movie
+  creator: Third Test movie creator
+  publication_year: 2019
+  description: Third Test movie description
+
+movie_three:
+  category: movie
+  title: Fourth Test Movie
+  creator: Fourth Test movie creator
+  publication_year: 2019
+  description: Fourth Test movie description
+
+book:
+  category: book
+  title: Franny and Zooey
+  creator: JD Salinger
+  publication_year: 1961
+  description: The book focuses on siblings Franny and Zooey, the two youngest members of the Glass family, which was a frequent focus of Salinger's writings. 
+
+book_two:
+  category: book
+  title: Franny and Zooey 2
+  creator: JD Salinger
+  publication_year: 1970
+  description: The book focuses on siblings Franny and Zooey, the two youngest members of the Glass family, and how they started the space program. 
+
+book_three:
+  category: book
+  title: Zanny and Frooey
+  creator: DJ Galinser
+  publication_year: 1974
+  description: The book focuses on siblings Zanny and Frooey, and their dog.
+
+book_four:
+  category: book
+  title: The Art of War
+  creator: Sun Tzu
+  publication_year: 1961
+  description: Surprisingly, this book also focuses on siblings Franny and Zooey, the two youngest members of the Glass family, which was a frequent focus of Salinger's writings. 
+
+album:
+  category: album
+  title: Test Album
+  creator: Test album creator
+  publication_year: 2018
+  description: Test album description
+
+album_two:
+  category: album
+  title: Test Album 2
+  creator: Test album creator 2
+  publication_year: 2015
+  description: Test album description
+
+album_three:
+  category: album
+  title: Test Album 3
+  creator: Test album creator 3
+  publication_year: 2000
+  description: Test album description
+
+album_four:
+  category: album
+  title: Test Album 4
+  creator: Test album creator 4
+  publication_year: 2019
+  description: Test album description
+
+

@@ -1,0 +1,25 @@
+<main class="content-container">
+<h2>
+    List of all Users 
+</h2>
+
+<table class="table"> 
+<th> Username </th>
+<th> Votes </th>
+<th> Joined</th>
+
+
+
+<% @users.each do |user| %>
+<tr>
+<td><%=link_to  "#{user.username}",  user_path(user.id) %></td>
+<td><%= user.votes.length %></td>
+<td><%= user.created_at %></td>
+
+</tr>
+<%end%>
+</table>
+<%=link_to "Back to Media List", root_path, class:"btn btn-secondary"%>
+
+
+</main>
