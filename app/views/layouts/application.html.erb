@@ -42,12 +42,9 @@
       </nav>
     </header>
 
-    <section class="alert__container">
-      <div class="alert alert-<%= flash[:alert_class]%>">
-        <span><%= flash[flash[:alert_class]] %></span>
-        <%# if @user.errors.any? or @work.errors.any? display @user.errors or @work.errors listed out %>
-      </div>
-    </section>
+    <% if flash[:alert_class] %>
+      <%= render partial: "layouts/alert_container" %>
+    <% end %>
 
     <main>
       <%= yield %>
