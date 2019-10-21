@@ -26,9 +26,9 @@
           <ul id = "logged-in-pieces">
           <% if @current_user != nil %>
             <li id = "current-username"> Logged in as <%= @current_user.username %> </li>
-            <li class = "login-out-button" ><%= button_to "Log Out", logout_path, method: :post %></li>
+            <li class = "login-out-button" ><%= link_to "Log Out", logout_path, method: :post %></li>
           <% else %>
-            <li class = "login-out-button" ><%= button_to "Login", login_path %></li>        
+            <li class = "login-out-button" ><%= link_to "Login", login_path %></li>        
           <% end %>
         </ul>
       </nav>
