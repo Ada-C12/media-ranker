@@ -25,7 +25,7 @@ class Work < ApplicationRecord
     
     spotlight = Work.find_by(id: sorted_work_ids[0][0])
     
-    return @spotlight
+    return spotlight
     
   end
   
@@ -50,7 +50,7 @@ class Work < ApplicationRecord
     
     #keep only the first 10 
     until top_books.length <= 10
-      top_books.pop!
+      top_books.pop
     end
     
     return top_books
@@ -72,7 +72,7 @@ class Work < ApplicationRecord
     end
     
     until top_movies.length <= 10
-      top_movies.pop!
+      top_movies.pop
     end
     
     return top_movies
@@ -94,7 +94,7 @@ class Work < ApplicationRecord
     end
     
     until top_albums.length <= 10
-      top_albums.pop!
+      top_albums.pop
     end
     
     return top_albums
