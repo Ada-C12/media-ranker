@@ -51,7 +51,7 @@ describe UsersController do
       it "Can log in existing user, show flash, and update session[:user_id]" do
         ##### THIS ALSO TESTS login(yml_key)
         login(user1)
-        must_redirect_to user_path(id: user1.id)
+        must_redirect_to root_path
         assert(flash[:success] == "Welcome back, #{user1.name}" )
         assert(session[:user_id] == user1.id)
       end
@@ -59,7 +59,7 @@ describe UsersController do
       it "Can create and log in new user, show flash, and update session[:user_id]" do
         expect{post users_path, params: new_user_params}.must_differ "User.count", 1
         smithers = User.find_by(name: "Smithers")
-        must_redirect_to user_path(id: smithers.id)
+        must_redirect_to root_path
         assert(flash[:success] == "Successfully logged Smithers in as a new user!" )
         assert(session[:user_id] == smithers.id)
       end

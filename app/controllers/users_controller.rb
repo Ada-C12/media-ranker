@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       @user = @existing_user
       session[:user_id] = @user.id
       flash[:success] = "Welcome back, #{@user.name}"
-      redirect_to user_path(@user.id)
+      redirect_to root_path
       return
       
     else 
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       if @user.save
         session[:user_id] = @user.id
         flash[:success] = "Successfully logged #{@user.name} in as a new user!"
-        redirect_to user_path(@user.id)
+        redirect_to root_path
         return
       else
         # bogus input 
