@@ -2,11 +2,9 @@
   <%= form_with model: @work do |f| %>
     <div class="form-group">
       <%= f.label :category %>
-      <select class="form-control" value=<%=@work.category%> name="work[category]">
-        <option value="album">Album</option>
-        <option value="book">Book</option>
-        <option value="movie">Movie</option>
-      </select>
+      <span id="grasping-at-straws">
+      <%= f.select :category, %w[album book movie] %>
+      </span>
     </div>
 
     <div class="form-group">
