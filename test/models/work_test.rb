@@ -79,7 +79,7 @@ describe Work do
         @albums = Work.all_albums
         expect(@albums).must_be_instance_of Array
         expect(@albums[0]).must_be_instance_of Work
-        expect(@albums.length).must_equal 1
+        expect(@albums.length).must_equal 4
       end
     end
     
@@ -88,7 +88,7 @@ describe Work do
         @movies = Work.all_movies
         expect(@movies).must_be_instance_of Array
         expect(@movies[0]).must_be_instance_of Work
-        expect(@movies.length).must_equal 1
+        expect(@movies.length).must_equal 4
       end
     end
     
@@ -97,7 +97,33 @@ describe Work do
         @books = Work.all_books
         expect(@books).must_be_instance_of Array
         expect(@books[0]).must_be_instance_of Work
-        expect(@books.length).must_equal 2
+        expect(@books.length).must_equal 5
+      end
+    end
+    
+    describe "top_10" do
+      it "can return the top 10 voted works" do
+        @top_10 = Work.top_10
+        expect(@top_10).must_be_instance_of Array
+        expect(@top_10[0]).must_be_instance_of Work
+        expect(@top_10[0].title).must_equal "Movie One"
+        expect(@top_10[1].title).must_equal "Album Two"
+        expect(@top_10[2].title).must_equal "Book Two"
+        expect(@top_10[3].title).must_equal "Album One"
+        expect(@top_10[4].title).must_equal "Book Four"
+        expect(@top_10[9].title).must_equal "Album Three"
+        expect(@top_10[5].title).must_equal "Movie Two"
+        expect(@top_10[6].title).must_equal "Book One"
+        expect(@top_10[7].title).must_equal "Book Three"
+        
+      end
+    end
+    
+    describe "top_1" do
+      it "can return the top voted work" do
+        @top_1 = Work.top_1
+        expect(@top_1).must_be_instance_of Work
+        expect(@top_1.title).must_equal "Movie One"
       end
     end
   end

@@ -22,3 +22,57 @@ book2:
   creator: Book2 Author
   publication_year: 2006
   description: This is a desc of book two.
+album2:
+  category: album
+  title: Album Two
+  creator: Album2 Author
+  publication_year: 2008
+  description: This is a desc of album two.
+movie2:
+  category: movie
+  title: Movie Two
+  creator: Movie2 Author
+  publication_year: 2010
+  description: This is a desc of movie two.
+book3:
+  category: book
+  title: Book Three
+  creator: Book3 Author
+  publication_year: 2011
+  description: This is a desc of book three.
+album3:
+  category: album
+  title: Album Three
+  creator: Album3 Author
+  publication_year: 2012
+  description: This is a desc of album three.
+movie3:
+  category: movie
+  title: Movie Three
+  creator: Movie3 Author
+  publication_year: 2010
+  description: This is a desc of movie three.
+book4:
+  category: book
+  title: Book Four
+  creator: Book4 Author
+  publication_year: 2006
+  description: This is a desc of book four.
+album4:
+  category: album
+  title: Album Four
+  creator: Album4 Author
+  publication_year: 2008
+  description: This is a desc of album four.
+movie4:
+  category: movie
+  title: Movie Four
+  creator: Movie4 Author
+  publication_year: 2010
+  description: This is a desc of movie four.
+book5:
+  category: book
+  title: Book Five
+  creator: Book5 Author
+  publication_year: 2014
+  description: This is a desc of book five.

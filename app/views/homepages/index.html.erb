@@ -2,3 +2,31 @@
 <p>Find me in app/views/homepages/index.html.erb</p>
 
 <%= render partial: "nav" %>
+
+<%# put up top 10 of each category %>
+<%# put up top 1 of everything %>
+
+<h2>Top 10 Media</h2>
+<ul>
+<% @top_10.each do |work| %>
+  <li> <%= work.title %> </li>
+  <ul>
+    <li> <%= work.category %> </li>
+    <li> <%= work.creator %> </li>
+    <li> <%= work.publication_year %> </li>
+    <li> <%= work.description %> </li>
+  </ul>
+<% end %>
+</ul>
+
+
+<h2>Media Spotlight</h2>
+<ul>
+  <li><%= @top_1.title %></li>
+  <ul>
+    <li> <%= @top_1.category %> </li>
+    <li> <%= @top_1.creator %> </li>
+    <li> <%= @top_1.publication_year %> </li>
+    <li> <%= @top_1.description %> </li>
+  </ul>
+</ul>
