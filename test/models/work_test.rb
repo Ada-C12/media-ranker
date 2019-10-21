@@ -188,20 +188,51 @@ describe Work do
       end
     end
 
-    describe 'upvotes & upvote_count' do
-      it 'returns upvotes (ordered by creation date) and count of upvotes for given work' do
+    describe 'upvotes/downvotes' do
+      before do
+        @user = users(:new_user)
+        @work1 = works(:new_work)
+        @work2 = Work.create(category: "book", title: "book2", creator: "creator", description: "desc", publication_year: 1993, vote_count: 0)
+        @work3 = Work.create(category: "book", title: "book3", creator: "creator", description: "desc", publication_year: 1993, vote_count: 0)
+        
+        @vote1 = Vote.create(user_id: @user.id, work_id: @work1.id, vote_type: "upvote")
+        @vote2 = Vote.create(user_id: @user.id, work_id: @work2.id , vote_type: "upvote")
+        @vote3 = Vote.create(user_id: @user.id, work_id: @work3.id , vote_type: "downvote")
       end
-      
-      it 'returns nil if no works' do
-      end
-      
-    end
 
-    describe 'downvotes & downvote_count' do
-      it 'returns downvotes (ordered by creation date) and count of downvotes for given work' do
+      describe 'upvotes & upvote_count' do
+        it 'returns upvotes (ordered by creation date) for given work' do
+          expect(@user.votes.count).must_equal 3
+          expect(@user.upvotes.count).must_equal 2
+
+          work_6 = Work.create(category: "book", title: "book6", creator: "creator", description: "desc", publication_year: 1993, vote_count: 0)
+          vote4 = Vote.create(user_id: @user.id, work_id: work_6.id, vote_type:"upvote")
+          expect(@user.votes.count).must_equal 4
+          expect(@user.upvotes.count).must_equal 3
+        end
+        
+        it 'returns nil if no votes' do
+          Vote.destroy_all
+          assert_nil(@user.upvotes)
+        end
+        
       end
-      
-      it 'returns nil if no works' do
+
+      describe 'downvotes & downvote_count' do
+        it 'returns downvotes (ordered by creation date) for given work' do
+          expect(@user.votes.count).must_equal 3
+          expect(@user.downvotes.count).must_equal 1
+          
+          work_6 = Work.create(category: "book", title: "book6", creator: "creator", description: "desc", publication_year: 1993, vote_count: 0)
+          vote4 = Vote.create(user_id: @user.id, work_id: work_6.id, vote_type:"downvote")
+          expect(@user.votes.count).must_equal 4
+          expect(@user.downvotes.count).must_equal 2
+        end
+        
+        it 'returns nil if no works' do
+          Vote.destroy_all
+          assert_nil(@user.downvotes)
+        end
       end
     end
 
