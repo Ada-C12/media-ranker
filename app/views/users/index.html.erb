@@ -11,11 +11,10 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.username, user_path(user.id)%></td>
-        <td>VOTES (NOT YET)<%# user.votes.count %></td>
+        <td><%= user.votes.count %></td>
         <td><%= user.created_at %></td>
       </tr>    
       <% end %>
-    
   </tbody>
 </table>
 <%= link_to "Back to Media List", root_path, class: "btn btn-secondary" %>
