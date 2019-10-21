@@ -1,0 +1,72 @@
+noworkvote: 
+  user: kiki
+nouservote: 
+  work: album
+
+vote1:
+  user: kiki
+  work: evelyn 
+vote2: 
+  user: kiki
+  work: homegoing 
+vote3: 
+  user: kiki
+  work: ove 
+vote4: 
+  user: kiki 
+  work: oldman 
+vote5: 
+  user: dory
+  work: ove 
+vote6: 
+  user: dory
+  work: evelyn 
+vote7: 
+  user: dory
+  work: homegoing 
+vote8: 
+  user: aladdin
+  work: ove 
+vote9: 
+  user: simba
+  work: ove 
+vote10: 
+  user: jasmine
+  work: ove 
+vote11: 
+  user: jasmine
+  work: homegoing
+vote12: 
+  user: jasmine
+  work: mistborn
+vote13: 
+  user: jasmine
+  work: oldman 
+vote14: 
+  user: jasmine
+  work: born
+vote15: 
+  user: jasmine
+  work: badblood
+vote16: 
+  user: jasmine
+  work: evelyn
+vote17: 
+  user: jasmine
+  work: lock
+vote18: 
+  user: jasmine
+  work: misery 
+
+
+
+
+
+
+
+
+
+
+
+
+

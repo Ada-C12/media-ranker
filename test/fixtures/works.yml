@@ -1,0 +1,46 @@
+album:
+  title: A Night at the Opera 
+  category: album
+  publication_year: 1975
+  creator: Queen
+  
+
+book:
+  title: East of Eden 
+  category: book
+  publication_year: 1952
+  creator: John Steinbeck 
+
+
+
+ninthhouse: 
+  title: Ninth House 
+  category: book 
+ove: 
+  title: A Man Called Ove
+  category: book 
+mistborn: 
+  title: The Final Empire 
+  category: book 
+oldman: 
+  title: The One Hundred Year Old Man Who Climbed Out of Window and Disappeared 
+  category: book 
+homegoing:
+  title: Homegoing 
+  category: book 
+born: 
+  title: Born a Crime 
+  category: book 
+badblood: 
+  title: Bad Blood Secrets and Lies in a Silicon Valley Startup
+  category: book 
+evelyn: 
+  title: The Seven Deaths of Evelyn Hardcastle 
+  category: book 
+
+lock:
+  title: Lock In
+  category: book 
+misery: 
+  title: Misery 
+  category: book 
