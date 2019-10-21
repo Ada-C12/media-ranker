@@ -42,32 +42,35 @@ class WorkTest < ActiveSupport::TestCase
 
     end
 
-      describe 'relations' do
-        it 'can set the work through "work"' do
-          # Create two models
-          # work = Work.create!(title: "TestTitle")
-          # user = User.new(username: "test user")
-    
-          # Make the models relate to one another
-          user.work = work
-    
-          # work_id should have changed accordingly
-          expect(user.work_id).must_equal work.id
-        end
-    
-        it 'can set the work through "work_id"' do
-          # Create two models
-
-          # work = Work.create!(title: "test worl")
-          # user = User.new(username: "test user")
-    
-          # Make the models relate to one another
-          user.work_id = work.id
-    
-          # author should have changed accordingly
-          expect(user.work).must_equal work
-        end
+    describe "Top-Ten Method " do
+      before do
       end
-    
+      it "returns 10 books with decreasig number of votes" do
+        works = Work.all.sort_by_category("book")
+        # print works
+        expect(works.length).must_equal 2
+        expect(works.first.title).must_equal "Melty Breaker"
+        expect(works.last.title).must_equal "Winter Pie"
+      end
+      it "returns less than 10 if there are less than ten works" do
+        works = Work.sort_by_category("album")
+        expect(works.length).must_equal 5
+        expect(works.first.title).must_equal "Blue Breaker"
+      end
+      it "returns an empty array if there are no works" do 
+        works = Work.sort_by_category("movie")
+        expect(works.length).must_equal 0
+      end 
+    end
+
+
+
+
+
+
+
+
+
+
   end
 end
