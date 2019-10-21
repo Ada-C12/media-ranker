@@ -1,0 +1,25 @@
+<section class="media-table">
+  <h4><%= (title) %></h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="80">Votes</th>
+        <th>Title</th>
+        <th>Created By</th>
+        <th width="100">Published</th>
+        <th width="100">Upvote</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% (works).each do |w| %>
+        <tr>
+          <td><%= w.votes.count %></td>
+          <td><%= link_to w.title, work_path(w.id) %></td>
+          <td><%= w.creator %></td>
+          <td><%= w.published %></td>
+          <td><%= link_to "Upvote", upvote_work_path(w.id), method: :post, class: "btn btn-primary" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

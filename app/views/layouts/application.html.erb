@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaRanker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <%= link_to "Media Ranker", root_path %>
+        <small>Ranking the Best of Everything</small>
+      </h1>
+      <nav>
+        <ul class="nav">
+          <li>
+            <%= link_to "View top media", root_path, class: "nav-link" %>
+          </li>
+          <li>
+            <%= link_to "View all media", works_path, class: "nav-link" %>
+          </li>
+          <li>
+            <%= link_to "Add a new work", new_work_path, class: "nav-link" %>
+          </li>
+          <li>
+            <%= link_to "View all users", users_path, class: "nav-link" %>
+          </li>        
+        </ul>
+        <ul class="nav">
+          <% username = session[:username] %>
+          <% if username %>
+            <li>
+              <%= link_to "Logged in as #{ username }", user_path(session[:user_id]), class: "btn btn-primary" %>
+              <%= link_to "Log Out", logout_path, method: :post, class: "btn btn-primary" %>
+            </li>
+          <% else %>
+              <%= link_to "Login", login_path, class: "btn btn-primary" %>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+    <% begin %>
+      <section class='alert__container'>
+        <% if flash[:errors] %>
+          <div class='alert alert-warning'>
+            <span>A problem occurred: Could not <%= flash[:action] %></span>
+            <ul>
+              <% flash[:errors].each do |attr, error| %>
+                <li><%= attr %>: <%= error.join ', ' %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <% if flash[:success] %>
+          <div class='alert alert-success'>
+            <span>Successfully <%= flash[:success] %></span>
+          </div>
+        <% end %>
+      </section>
+    <% end unless flash.empty? %>
+    <%= yield %>
+  </body>
+</html>
