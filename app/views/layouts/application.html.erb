@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaRanker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Gudea&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+
+  <section class="header">
+    <section class="banner">
+      <h1> Media Ranker </h1> <h2> | Ranking the Best of Everything </h2>
+    </section>
+      <nav>
+        <ul id = "nav-pieces">
+          <li><%= link_to "View top media", root_path %></li>
+          <li><%= link_to "View all media", works_path %></li>
+          <li><%= link_to "Add a new work", new_work_path %></li>
+          <li><%= link_to "View all users", users_path %></li>
+          </ul>
+          <ul id = "logged-in-pieces">
+          <% if @current_user != nil %>
+            <li id = "current-username"> Logged in as <%= @current_user.username %> </li>
+            <li class = "login-out-button" ><%= link_to "Log Out", logout_path, method: :post %></li>
+          <% else %>
+            <li class = "login-out-button" ><%= link_to "Login", login_path %></li>        
+          <% end %>
+        </ul>
+      </nav>
+      </section>
+
+    <section class="flash" >
+      <% flash.each do |name, message| %>
+        <%= message %>
+      <% end %>
+    </section>
+    <%= yield %>
+
+   <footer>
+      © Copyright 2019 C. Gutierrez
+    </footer>
+  </body>
+</html>

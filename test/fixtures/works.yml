@@ -1,0 +1,34 @@
+work_1:
+  name: The Martian
+  category: book
+  description: Fear my botany powers
+  creator: Andy Weir
+  publication_year: 2011
+
+work_2:
+  name: Everything's Trash but It's OK
+  category: book
+  description: The Bachelor
+  creator: Pheobe Robinson 
+  publication_year: 2018
+
+work_3:
+  name: Men in Black International
+  category: movie
+  description: We are a rumor
+  creator: Matthew Hollaway
+  publication_year: 2019
+
+work_4: 
+  name: Lightning on the Strings, Thunder on the Mic
+  category: album
+  creator: TONEz
+  description: rap and bluegrass
+  publication_year: 2010
+
+work_5: 
+  name: Invasion of Privacy
+  category: album
+  creator: Cardi B
+  description: hip hop
+  publication_year: 2010
