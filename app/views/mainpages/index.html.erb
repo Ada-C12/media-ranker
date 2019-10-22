@@ -1,0 +1,55 @@
+<section class="spotlight">
+  <h2 class="spotlight__header">
+    <span class="spotlight__header--prefix">Media Spotlight</span>
+    <%= link_to "#{@works.first.title}", work_path(@works.first.id), class: "spotlight__link-to" %> by <%= @works.first.creator %>
+  </h2>
+  <p class="spotlight__description">
+    <%= @works.first.votes.count %> Votes - Published: <%= @works.first.publication_year %>
+  </p>
+</section>
+
+<br>
+
+<h3> Top#3 Books </h3>
+<table class='table'>
+  <tr>
+    <th> Votes </th>
+    <th> Title </th>
+    <th> Created By </th>
+    <th> Published </th>
+    <th> Upvote </th>
+  </tr>
+
+  <% @books.first(3).each do |book| %>
+    <tr>
+      <td> <%= book.votes.count %> </td>
+      <td> <%= link_to book.title, work_path(book.id) %> </td>
+      <td> <%= book.creator %> </td>
+      <td> <%= book.publication_year %> </td>
+      <td> <%= link_to "Upvote", work_votes_path(book.id), method: :post %> <td>
+    </tr>
+  <% end %>
+</table>
+
+<h3> Top#3 Albums </h3>
+<table class='table'>
+  <tr>
+    <th> Votes </th>
+    <th> Title </th>
+    <th> Created By </th>
+    <th> Published </th>
+    <th> Upvote </th>
+  </tr>
+
+  <% @albums.first(3).each do |album| %>
+    <tr>
+      <td> <%= album.votes.count %> </td>
+      <td> <%= link_to album.title, work_path(album.id) %> </td>
+      <td> <%= album.creator %> </td>
+      <td> <%= album.publication_year %> </td>
+      <td> <%= link_to "Upvote", work_votes_path(album.id), method: :post %> <td>
+    </tr>
+  <% end %>
+</table>
+
+<br>

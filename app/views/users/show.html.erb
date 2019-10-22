@@ -1,0 +1,31 @@
+<h2> User Summary: <%= @user.name %> </h2>
+<p> Joined site: <%= @user.joined %> </h3>
+
+<br>
+<br>
+
+<h3 id="user_votes_list"> Votes </h3>
+<table class='table'>
+  <tr>
+    <th> Media Title </th>
+    <th> Created By </th>
+    <th> Published </th>
+    <th> Category </th>
+    <th> Voted On </th>
+  </tr>
+
+  <% @user.votes.each do |vote| %>
+    <tr>
+      <td> <%= Work.find(vote.work_id).title %> </td>
+      <td> <%= Work.find(vote.work_id).creator %> </td>
+      <td> <%= Work.find(vote.work_id).publication_year %> </td>
+      <td> <%= Work.find(vote.work_id).category %> </td>
+      <td> <%= vote.created_at %> </td>
+    </tr>
+  <% end %>
+</table>
+
+<br>
+
+<a class='btn btn-secondary' href='/users'>See all Users</a>
+<a class='btn btn-primary' href='/works'>Back to media ranks</a>

@@ -16,7 +16,7 @@ CSV.open("db/media_seeds.csv", "w", :write_headers => true,
     category = %w(album book).sample
     title = Faker::Coffee.blend_name
     creator = Faker::Name.name
-    publication_year = rand(Date.today.year - 100..Date.today.year)
+    publication_year = rand(1919..2019)
     description = Faker::Lorem.sentence
 
     csv << [category, title, creator, publication_year, description]

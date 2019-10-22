@@ -1,0 +1,36 @@
+book_1:
+  category: 'book'
+  title: 'A'
+  creator: 'a'
+  publication_year: '2019-10-18 21:48:21.003403'
+  description: 'aaa'
+book_2:
+  category: 'book'
+  title: 'B'
+  creator: 'b'
+  publication_year: '2019-10-18 21:48:21.003403'
+  description: 'bbb'
+book_3:
+  category: 'book'
+  title: 'C'
+  creator: 'c'
+  publication_year: '2019-10-18 21:48:21.003403'
+  description: 'ccc'
+album_1:
+  category: 'album'
+  title: 'D'
+  creator: 'd'
+  publication_year: '2019-10-18 21:48:21.003403'
+  description: 'ddd'
+album_2:
+  category: 'album'
+  title: 'E'
+  creator: 'e'
+  publication_year: '2019-10-18 21:48:21.003403'
+  description: 'eee'
+album_3:
+  category: 'album'
+  title: 'F'
+  creator: 'f'
+  publication_year: '2019-10-18 21:48:21.003403'
+  description: 'fff'
