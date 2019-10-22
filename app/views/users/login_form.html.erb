@@ -1,0 +1,25 @@
+<h2>Log In</h2>
+
+<section>
+
+    <p>Username</p>
+    <%= form_with model: @user, url: login_path do |f| %>
+    <%= f.text_field :username %>
+    <%= f.submit "Log In", class: "btn btn-primary"%>
+    <% end %>
+
+</section>
+
+
+
+
+<section>
+<p>
+A note about logging in
+There is no password field. In fact, there is no indication whatsoever that you are who you say you are. There's nothing special about users - username is just another piece of data that the user entered and we have to keep track of.
+</p>
+
+<p>
+We'll learn more about security and authentication in the next couple weeks. For now, don't worry about it beyond what you can see here.
+</p>
+</section>

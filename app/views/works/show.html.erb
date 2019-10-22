@@ -1,0 +1,36 @@
+
+<h1>Ummm hello???</h1>
+
+
+<h2> <%= @work.title %> </h2>
+<section>
+<p>Created by: <%= @work.creator %><p>
+<p>Published: <%= @work.publication_year %></p>
+<p>Description: <%= @work.description %></p>
+<p><button type="button" class="btn btn-primary"><%= link_to "Back to Media Ranks", root_path %></button>
+<button type="button" class="btn btn-primary"><%= link_to "Edit", edit_work_path %></button>
+<button type="button" class="btn btn-primary"><%= link_to "Upvote", upvote_path( @work.id ), method: :post %></button>
+<button type="button", class="btn btn-primary-delete"> <%= link_to "Delete", work_path( @work.id ), method: :delete, data: { confirm: "This work will be deleted. Continue?" }, class: "index-delete-link" %></button></p>
+</section>
+
+<section>
+
+<table>
+<thead>
+<tr>
+    <th>User</th>
+    <th>Date</th>
+</tr>
+</thead>
+
+<tbody>
+    <% @work.votes.each do |vote| %>
+    <tr>
+    <td><%= vote.user.username %> </td>
+    <td> <%= vote.created_at  %> </td>
+    <% end %>
+    </tr>
+</tbody>
+
+</table>
+</section>

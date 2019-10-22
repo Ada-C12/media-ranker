@@ -1,0 +1,28 @@
+valid_book:
+  category: book
+  title: How to Pet a Duck
+  creator: Quackers
+  description: Learn how to pet a duck without ruffling any feathers.
+  publication_year: 1985
+
+
+valid_album:
+  category: album
+  title: Gish
+  creator: Smashing Pumpkins
+  description: No pumkins, no smashing, still a joy.
+  publication_year: 2009
+
+valid_movie:
+  category: movie
+  title: Hackers
+  creator: Excellent Question
+  description: Leet haxxors save the world
+  publication_year: 1994
+
+title_only:
+  category: movie
+  title: Witches and Warlocks
+  creator: nil
+  description: nil
+  publication_year: nil

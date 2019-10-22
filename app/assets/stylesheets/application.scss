@@ -1,0 +1,69 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+    /* Custom bootstrap variables must be set or imported *before* bootstrap. */
+    @import "bootstrap";
+    /* Import scss content */
+    @import "**/*";
+
+
+ header {
+    margin: 0;
+    background-color: #B2DFDB;
+    max-width: 100%;
+    margin-bottom: .5rem;
+    padding: 2rem 1rem 0.5rem 1rem;
+    display: grid;
+    grid-template-columns: 6;
+    justify-content: space-around;
+ }
+
+header a:hover {
+   text-decoration: none;
+}
+
+   header h1 {
+      color: white;
+      font-family: "Gudea", san-serif;
+      font-style: normal;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+   }
+   
+
+   header h1 a {
+      color: #FF5722;
+      text-decoration: none;
+   }
+
+   header h1 a:hover {
+      color: #FF5722;
+   }
+
+
+ 
+  .nav_link_to {
+     color:#00796B;
+     text-decoration: none;
+  }
+
+  .btn-primary {
+   background-color: #26A69A;
+   color: white;
+   border-color: #26A69A;
+  }
+
+  .btn-primary:hover {
+   background-color:#00796B;
+}

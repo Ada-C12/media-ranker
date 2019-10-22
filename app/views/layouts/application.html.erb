@@ -1,0 +1,43 @@
+
+ <!DOCTYPE html> 
+<html>
+<head>
+  <title>Media Ranker</title>
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+  
+
+  
+  <header>
+    <h1>
+      <a href="/">Media Ranker</a> | Ranking the Best of Everything
+    </h1>
+
+
+    <nav>
+          <%= link_to "View top media", root_path, class: 'nav_link_to' %>
+          <%= link_to "View all media", works_path, class: 'nav_link_to' %>
+          <%= link_to "Add a new work", new_work_path, class: 'nav_link_to' %>
+          <%= link_to "View all users", users_path, class: 'nav_link_to' %>
+      <button type="button" class="btn btn-primary"><%= link_to "Log In", login_path %></button>
+      <button type="button" class="btn btn-primary"><%= link_to "Log Out", logout_path, method: :post %></button>
+    </nav>
+  </header>
+
+<body>
+   <section class="user-messages">
+     <% flash.each do |name, message| %>
+       <div class="<%= name %>"><%= name.capitalize %>: <%= message %></div>
+     <% end %>
+   </section>
+<%= yield %>
+
+</body>
+</html>
+ 
