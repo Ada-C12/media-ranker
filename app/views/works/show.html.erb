@@ -1,3 +1,7 @@
+
+<h1>Ummm hello???</h1>
+
+
 <h2> <%= @work.title %> </h2>
 <section>
 <p>Created by: <%= @work.creator %><p>
@@ -9,8 +13,24 @@
 <button type="button", class="btn btn-primary-delete"> <%= link_to "Delete", work_path( @work.id ), method: :delete, data: { confirm: "This work will be deleted. Continue?" }, class: "index-delete-link" %></button></p>
 </section>
 
+<section>
 
+<table>
+<thead>
+<tr>
+    <th>User</th>
+    <th>Date</th>
+</tr>
+</thead>
 
+<tbody>
+    <% @work.votes.each do |vote| %>
+    <tr>
+    <td><%= vote.user.username %> </td>
+    <td> <%= vote.created_at  %> </td>
+    <% end %>
+    </tr>
+</tbody>
 
 </table>
 </section>
