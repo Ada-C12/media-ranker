@@ -4,7 +4,7 @@ describe User do
   describe "validation" do
     before do
       # Arrange
-      @user = User.new(username:'bob')
+      @user = User.new(username:'ttf')
     end 
     
     it 'is valid when all fields are present' do
@@ -35,7 +35,7 @@ describe User do
       user = users(:user1)
       expect(user.votes.count).must_equal 2
       user.votes.each do |vote|
-        expect(vote).must_be_instance of Vote
+        expect(vote).must_be_instance_of Vote
       end
     end
     
