@@ -19,31 +19,28 @@ describe Work do
 
   describe "relationships" do
     it "can have many votes" do
-      # @test_work = Work.create(category: "book", title: "title")
-      # @test_user = User.create(username: "diana")
-      # @upvote = Vote.create(work_id: @test_work.id, user_id: @test_user.id)
-
-      # expect(@upvote.work).must_equal @test_work
       work = works(:valid_work)
       vote = votes(:vote_one)
 
       expect(work.votes.length).must_be :>=, 0
     end
-
   end
 
   describe "self.album_list method" do
     before do
-      works(:valid_work)
-      works(:valid_work2)
+      @work1 = Work.create(category: "book", title: "title")
+      @work2 = Work.create(category: "book", title: "title2")
+      @user1 = User.create(username: "diana")
+      @user2 = User.create(username: "sam")
+    
     end
     it "can return a list of albums in descending order by number of votes" do
+      vote = Vote.create(work_id: @work1.id, user_id: @user1.id)
+      vote2 = Vote.create(work_id: @work1.id, user_id: @user2.id)
 
-      first_work = Work.album_list.first.title
-      last_work = Work.album_list.first.title
+      albums = Work.album_list
 
-      expect(first_work).must_equal valid_work2.title
-      expect(last_work).must_equal valid_work.title
+      expect(albums.first.title).must_equal @work1.title   
     end
   end
 end
