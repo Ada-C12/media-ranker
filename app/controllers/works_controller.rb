@@ -18,7 +18,7 @@ class WorksController < ApplicationController
       return
     else 
       flash.now[:failure] = "Work failed to save"
-      render :new 
+      render :new, status: :bad_request 
       return
     end
   end
@@ -32,7 +32,7 @@ class WorksController < ApplicationController
       redirect_to work_path 
       return
     else 
-      render :edit 
+      render :edit, status: :bad_request 
       return
     end
   end
