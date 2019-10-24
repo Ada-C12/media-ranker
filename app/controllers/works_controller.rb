@@ -1,6 +1,7 @@
 class WorksController < ApplicationController
   before_action :find_work, only: [:show, :edit, :update, :destroy]
   before_action :if_missing_work, only: [:show, :edit, :destroy]
+  before_action :require_login, except: [:index]
 
   def index
     @works = Work.all
