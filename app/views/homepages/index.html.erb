@@ -1,0 +1,43 @@
+<main> 
+
+<h1>Media Ranker</h1>
+<%# <p>app/views/works/index.html.erb</p> %>
+<%# find me in the homepage, i'm the /homepages %>
+<h2>SPOTLIGHT</h2>
+<ul>
+  <% spotlight = Work.spotlight  %>
+    <li>
+      <%= link_to spotlight.title, work_path(spotlight.id) %>
+    </li>
+</ul>
+
+<h3>MOVIES</h3>
+  <ul>
+    <% movies = Work.topten(category: "movie") %>
+        <% movies.each do |movie|  %>
+    <li>
+      <%= link_to movie.title, work_path(movie.id) %>
+    </li>
+  </ul>
+      <% end %>
+
+<h3>BOOKS</h3>
+  <ul>
+        <% books = Work.topten("book")%>
+        <% books.each do |book|  %>
+    <li>
+      <%= link_to book.title, work_path(book.id) %>
+    </li>
+      <% end %>
+  </ul>
+
+<h3>ALBUMS</h3>
+  <ul>
+      <% albums = Work.topten("album")%>
+        <% albums.each do |album|  %>
+    <li>
+      <%= link_to album.title, work_path(album.id) %>
+      <% end %>
+      </li>
+    </ul>
+ </main>

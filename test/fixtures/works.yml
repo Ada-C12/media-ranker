@@ -1,0 +1,72 @@
+kindred:
+  title: Kindred
+  creator: butler
+  description: A good sci-fi book
+  publication_date: 1979
+  category: book
+casablanca:
+  title: Casablanca
+  creator: blanca
+  description: She gets on the plane
+  publication_date: 1980
+  category: movie
+poodr:
+  title: Practical Object Oriented Design in Ruby
+  creator: metz
+  description: A good book on programming
+  publication_date: 1981
+  category: book
+puppies:
+  title: tiny puppies who watched too wuch tv
+  creator: Puppy King
+  description: a Quote unquote movie
+  publication_date: 1982
+  category: movie
+computers:
+  title: computers
+  creator: thomas
+  description: A good terror book
+  publication_date: 1983
+  category: book
+funnyface:
+  title: funny face
+  creator: butler
+  description: She gets on the plane
+  publication_date: 1984
+  category: movie
+adalovelace:
+  title: Ada Lovelace
+  creator: lovelace
+  description: A good book on programming and life
+  publication_date: 1985
+  category: album
+claraknowsbest:
+  title: Tale of Truth
+  creator: Clara Gutierrez
+  description: a fun time with sweets
+  publication_date: 1986
+  category: movie
+dora:
+  title: Dora da Explora
+  creator: Dori Story
+  description: A good time in a dark room
+  publication_date: 1987
+  category: book
+chris:
+  title: Chaotic Good
+  creator: chris mcannaly
+  description: he knows all
+  publication_date: 1988
+  category: movie
+adam:
+  title: Adam and Matthew
+  creator: lopez prutsman
+  description: a love story
+  publication_date: 1989
+  category: album
+isabel:
+  title: tiny face
+  creator: isatinyface
+  description: tools and schools
+  publication_date: 1990
+  category: book

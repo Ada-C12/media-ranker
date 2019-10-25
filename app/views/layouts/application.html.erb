@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaRanker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+<header>
+      <h1>Media Ranker</h1>
+    </header>
+    <div>
+      <ul>
+        <li>
+          <%= link_to "View top media", homepages_path %> 
+          <%# double check path %>
+        </li>
+        <li>
+          <%= link_to "View all media", root_path %>
+        </li>
+        <li>
+          <%= link_to "Add a new work", new_work_path %>
+        </li>
+        <li>
+          <%= link_to "View all users", users_path %>
+          <%# this works, need to flesh out %>
+        </li>
+        <% if session[:user_id].nil? %>
+          <li>
+            <%= link_to "Login", login_path %>
+          </li>
+        <%else%>
+          <li>
+            <%= link_to "Logout", logout_path, method: :post %>
+          </li>
+          <li>
+            Logged in as <%= User.find_by(id: session[:user_id]).username %>
+          </li> 
+        <%end%>
+    </div>
+    <section class="flash">
+    <% flash.each do |name, message| %>
+      <div class="<%= name %>"><%= message %></div>
+    <% end %>
+  </section>
+
+
+
+
+    <%= yield %>
+    
+  </body>
+</html>
+<%# view top media,  view all users%>

@@ -1,0 +1,38 @@
+<%# find me at http://localhost:3000/works/2 %>
+<main>
+  <section>
+<h1><%= @work.title %></h1>
+<p>Created By: <%= @work.creator %></p>
+<p>Published: <%= @work.publication_date %></p>
+
+<p><%= @work.description%></p>
+<p><%= link_to "Back to Media Ranks", works_path %></p>
+<p><%= link_to "Edit", works_path %></p>
+<p><%= link_to "Upvote", vote_path(@work.id), method: :post %></p>
+<p><%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure?"}%></p>
+</section>
+
+<h4><%=@work.votes.length%> Votes for this <%=@work.category%> </h4>
+<section class=“work”>
+ <% votes = Vote.where(work_id: @work.id)%>
+ <% if votes.length > 0 %>
+   <table class=“table”>
+   <thead>
+     <tr>
+       <th scope=“col”>User</th>
+       <th scope=“col”>Date</th>
+     </tr>
+   </thead>
+   <tbody>
+   <% votes.each do |voter| %>
+     <% user = User.find_by(id: voter.user_id) %>
+     <tr>
+       <th scope=“row”><%=user.username%></th>
+       <td><%= readable_date(user.updated_at)%>
+     </tr>
+   <% end %>
+    <% end %>
+   </tbody>
+   </table>
+</section>
+</main>
