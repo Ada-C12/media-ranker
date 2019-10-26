@@ -100,6 +100,6 @@ class WorksController < ApplicationController
   end
   
   def work_params
-    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+    return params.require(:work).permit(:name, :price, :stock, :img_url, :description, :status)
   end
 end
