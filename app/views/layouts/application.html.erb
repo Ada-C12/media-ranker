@@ -1,0 +1,65 @@
+  <!DOCTYPE html>
+  <link href="https://fonts.googleapis.com/css?family=Gudea&display=swap" rel="stylesheet">
+  <html>
+  <head>
+    <title>MediaRanker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    
+  <header class="app-header__header">
+    <h1>
+      <%=link_to "Media Ranker", root_path %>
+      <small>Ranking the Best of Everything</small>
+    </h1>
+    <nav class="app-header__nav">
+      <ul class="nav app-header__site-nav-container">
+        <li class="nav-item app-header__nav_item">
+          <%=link_to "View top Media", root_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <%=link_to "View All Media", works_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <%=link_to "Add a new work", new_work_path,class:"nav-link" %>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <%=link_to "View All users", users_path, class:"nav-link" %>
+        </li>
+      </ul>
+
+
+
+      <ul class="nav app-header__user-nav-container">
+        <li class="nav-item app-header__nav_item">
+          
+        </li>
+
+      <% if session[:user_id]%>
+        <li>
+          <a class="btn btn-primary" data-method="get" href="users/current">My Account</a>
+        </li>
+        <li>
+          <a class="btn btn-primary" data-method="post" href="/logout">Log Out</a>
+        </li>
+      <% else%>
+        <li> 
+        <a class="btn btn-primary" href="/login">Log In</a>
+        </li>
+      <% end%>
+      </ul>
+
+    </nav>
+  </header>
+  <section class="flash">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
+      <% end %>
+    </section>
+    <%= yield %>
+  </body>
+  </html>
+

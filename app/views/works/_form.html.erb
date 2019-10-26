@@ -1,0 +1,25 @@
+<%= form_with model: @work, class: work_form_class do |f| %>
+
+  <p clsss = "form-group"><%= f.label :category %>
+  <%= f.select :category, ["album", "book", "movie"], class: "form-control" %>
+  </p>
+
+  <p clsss = "form-group"><%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %>
+  </p>
+
+  <p clsss = "form-group"><%= f.label :creator %>
+  <%= f.text_field :creator, class: "form-control" %>
+  </p>
+
+  <p clsss = "form-group"><%= f.label :publication_year %>
+  <%= f.text_field :publication_year, class: "form-control" %>
+  </p>
+
+  <p clsss = "form-group"><%= f.label :description %>
+  <%= f.text_field :description, class: "form-control" %>
+  </p>
+  
+  <%= f.submit submit_button_label, class: "work-form-button", class: "btn-btn-primary" %>
+
+<% end %>

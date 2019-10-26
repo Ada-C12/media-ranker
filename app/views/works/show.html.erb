@@ -1,0 +1,27 @@
+<section class = "show">
+
+  <h1>Details of this media: </h1>
+
+    <p>Category: <%= @work.category %> </p>
+    <p>Title: <%= @work.title %> </p>
+    <p>Creator: <%= @work.creator %> </p>
+    <p>Publication Year: <%= @work.publication_year %> </p>
+    <p>Description: <%= @work.description %> </p>
+
+
+    <p>Total # of votes for this album: <% vote_list = Vote.where(work_id: @work.id)%>
+    <%= vote_list.length %>
+
+  <ul>
+    <% vote_list.each do |vote| %>
+      <% user_id = vote.user_id%>
+      <% user = User.find(user_id)%>
+      <li><%= user.username%> voted on: <%= vote.created_at.strftime("%m/%d/%Y")%></li>
+    <%end%>
+  </ul>
+
+  <a class="btn btn-primary" href="/">Back to media ranks</a>
+  <%= link_to "Edit", edit_work_path(@work.id), method: :get, class: "btn btn-primary"%>
+  <%= link_to "Upvote", upvote_path(@work.id), method: :post, class: "btn btn-primary"%>
+  <%= link_to "Delete", work_path(@work.id), method: :delete, class: "btn btn-primary"%>
+</section>

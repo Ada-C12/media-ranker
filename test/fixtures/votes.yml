@@ -1,0 +1,11 @@
+vote_one:
+  work: valid_work
+  user: valid_user1
+
+vote_two:
+  work: valid_work2
+  user: valid_user1
+
+vote_three:  
+  work: valid_work2
+  user: valid_user2
