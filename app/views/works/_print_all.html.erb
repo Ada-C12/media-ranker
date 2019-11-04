@@ -1,13 +1,25 @@
-<h2>All <%= category_name %></h2>
-<ul>
-  <% method_name.each do |work| %>
-  <li> Title: <%= link_to work.title, work_path(work.id) %> </li>
-    <ul>
-      <li> Category: <%= work.category %> </li>
-      <li> Created by: <%= work.creator %> </li>
-      <li> Publication Year: <%= work.publication_year %> </li>
-      <li> Description: <%= work.description %> </li>
-    </ul>
-  <% end %>
-</ul>
-
+<section class="media-table">
+  <h4><strong><%= category_name %></strong></h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" width="80">Votes</th>
+          <th scope="col">Title</th>
+          <th scope="col">Created By</th>
+          <th scope="col" width="100">Published</th>
+          <th scope="col" width="100">Upvote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% method_name.each do |work| %>
+          <tr>
+            <td><%= work.votes.count %></td>
+            <td><%= link_to work.title, work_path(work), class: "teal-text" %></td>
+            <td><%= work.creator %></td>
+            <td><%= work.publication_year %></td>
+            <td><%= link_to "Upvote", upvote_work_path(work), class: "btn btn-primary" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</section>
