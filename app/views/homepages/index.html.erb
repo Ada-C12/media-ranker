@@ -15,7 +15,7 @@
     <ul>
     <% @top_10_movies.each do |work| %>
       <li> <%= link_to work.title, work_path(work.id), class:"top-ten-link" %>
-      by <%= work.creator %>
+      <span class="gray-text">by <%= work.creator %></span>
       <p><small><%= work.votes.count %> votes</small></p>
       </li>
     <% end %>
@@ -27,7 +27,7 @@
     <ul>
     <% @top_10_books.each do |work| %>
       <li> <%= link_to work.title, work_path(work.id), class:"top-ten-link" %>
-      by <%= work.creator %>
+      <span class="gray-text">by <%= work.creator %></span>
       <p><small><%= work.votes.count %> votes</small></p>
       </li>
     <% end %>
@@ -39,7 +39,7 @@
     <ul>
     <% @top_10_albums.each do |work| %>
       <li> <%= link_to work.title, work_path(work.id), class:"top-ten-link" %>
-      by <%= work.creator %>
+      <span class="gray-text">by <%= work.creator %></span>
       <p><small><%= work.votes.count %> votes</small></p>
       </li>
     <% end %>
