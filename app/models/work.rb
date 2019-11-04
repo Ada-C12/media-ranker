@@ -37,8 +37,22 @@ class Work < ApplicationRecord
     return movies
   end
   
-  def self.top_10 
-    works = Work.all
+  def self.top_10_albums
+    works = Work.all_albums
+    sorted = works.sort {|a,b| b.votes.count <=> a.votes.count}
+    top_10 = sorted[0...10]
+    return top_10
+  end
+  
+  def self.top_10_books
+    works = Work.all_books
+    sorted = works.sort {|a,b| b.votes.count <=> a.votes.count}
+    top_10 = sorted[0...10]
+    return top_10
+  end
+  
+  def self.top_10_movies
+    works = Work.all_movies
     sorted = works.sort {|a,b| b.votes.count <=> a.votes.count}
     top_10 = sorted[0...10]
     return top_10
