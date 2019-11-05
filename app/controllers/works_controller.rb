@@ -34,6 +34,7 @@ class WorksController < ApplicationController
       return
     elsif @work.update(work_params)
       redirect_to work_path(@work.id)
+      flash[:success] = "Successfully edited this work"
       return
     else 
       render :edit
@@ -59,13 +60,13 @@ class WorksController < ApplicationController
     
     if @user.nil?
       redirect_to work_path(@work.id)
-      flash[:error] = "A problem occured: You must log in to do that"
+      flash[:warning] = "A problem occured: You must log in to do that"
       return
     elsif @user
       @user.votes.each do |vote|
         if vote.work_id == @work.id
           redirect_to work_path(@work.id)
-          flash[:error] = "A problem occured: Could not upvote. User has already voted for this media."
+          flash[:warning] = "A problem occured: Could not upvote. User has already voted for this media."
           return
         end
       end

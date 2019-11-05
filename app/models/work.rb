@@ -14,7 +14,8 @@ class Work < ApplicationRecord
         albums << work
       end
     end
-    return albums
+    sorted_albums = albums.sort {|a,b| b.votes.count <=> a.votes.count}
+    return sorted_albums
   end
   
   def self.all_books
@@ -24,7 +25,8 @@ class Work < ApplicationRecord
         books << work
       end
     end
-    return books
+    sorted_books = books.sort {|a,b| b.votes.count <=> a.votes.count}
+    return sorted_books
   end
   
   def self.all_movies
@@ -34,27 +36,25 @@ class Work < ApplicationRecord
         movies << work
       end
     end
-    return movies
+    sorted_movies = movies.sort {|a,b| b.votes.count <=> a.votes.count}
+    return sorted_movies
   end
   
   def self.top_10_albums
     works = Work.all_albums
-    sorted = works.sort {|a,b| b.votes.count <=> a.votes.count}
-    top_10 = sorted[0...10]
+    top_10 = works[0...10]
     return top_10
   end
   
   def self.top_10_books
     works = Work.all_books
-    sorted = works.sort {|a,b| b.votes.count <=> a.votes.count}
-    top_10 = sorted[0...10]
+    top_10 = works[0...10]
     return top_10
   end
   
   def self.top_10_movies
     works = Work.all_movies
-    sorted = works.sort {|a,b| b.votes.count <=> a.votes.count}
-    top_10 = sorted[0...10]
+    top_10 = works[0...10]
     return top_10
   end
   

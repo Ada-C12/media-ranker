@@ -101,21 +101,35 @@ describe Work do
       end
     end
     
-    describe "top_10" do
-      it "can return the top 10 voted works" do
-        @top_10 = Work.top_10
-        expect(@top_10).must_be_instance_of Array
-        expect(@top_10[0]).must_be_instance_of Work
-        expect(@top_10[0].title).must_equal "Movie One"
-        expect(@top_10[1].title).must_equal "Album Two"
-        expect(@top_10[2].title).must_equal "Book Two"
-        expect(@top_10[3].title).must_equal "Album One"
-        expect(@top_10[4].title).must_equal "Book Four"
-        expect(@top_10[9].title).must_equal "Album Three"
-        expect(@top_10[5].title).must_equal "Movie Two"
-        expect(@top_10[6].title).must_equal "Book One"
-        expect(@top_10[7].title).must_equal "Book Three"
-        
+    describe "top_10" do 
+      it "can return the top 10 albums" do
+        @top_10_albums = Work.top_10_albums
+        expect(@top_10_albums).must_be_instance_of Array
+        expect(@top_10_albums[0]).must_be_instance_of Work
+        expect(@top_10_albums[0].title).must_equal "Album Two"
+        expect(@top_10_albums[0].category).must_equal "album"
+        expect(@top_10_albums[1].title).must_equal "Album One"
+        expect(@top_10_albums[1].category).must_equal "album"
+      end
+      
+      it "can return the top 10 books" do
+        @top_10_books = Work.top_10_books
+        expect(@top_10_books).must_be_instance_of Array
+        expect(@top_10_books[0]).must_be_instance_of Work
+        expect(@top_10_books[0].title).must_equal "Book Two"
+        expect(@top_10_books[0].category).must_equal "book"
+        expect(@top_10_books[1].title).must_equal "Book Four"
+        expect(@top_10_books[1].category).must_equal "book"
+      end
+      
+      it "can return the top 10 movies" do
+        @top_10_movies = Work.top_10_movies
+        expect(@top_10_movies).must_be_instance_of Array
+        expect(@top_10_movies[0]).must_be_instance_of Work
+        expect(@top_10_movies[0].title).must_equal "Movie One"
+        expect(@top_10_movies[0].category).must_equal "movie"
+        expect(@top_10_movies[1].title).must_equal "Movie Two"
+        expect(@top_10_movies[1].category).must_equal "movie"
       end
     end
     
