@@ -1,0 +1,31 @@
+<html>
+
+    <% if @work.errors.any? %>
+    <% flash.each do |key, value| %>
+      <div class= "alert alert-warning" class=<%= flash_class(key)%> >
+      <% unless flash[key].blank? %>
+       <span><%= value %></span>
+        <% end %>
+        <ul>
+        <% @work.errors.each do |column, message| %>
+          <li>
+            <%= column %>: <%= message %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <% end %>
+    
+  <main>
+
+    <h2>Add a new work</h2>
+
+    <section>
+        <div class="form-group">
+          <%= render partial: "form", locals: { submit_button_label: "Create Work", work_form_class: "new-work-form" } %>
+        </div>
+    </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+
+
+
+
+
+    <% if @work.errors.any? %>
+    <% flash.each do |key, value| %>
+      <div class= "alert alert-warning" class=<%= flash_class(key)%> >
+      <% unless flash[key].blank? %>
+       <span><%= value %></span>
+        <% end %>
+        <ul>
+        <% @work.errors.each do |column, message| %>
+          <li>
+            <%= column %>: <%= message %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <% end %>
+
+
+
+
+
+
+<nav>
+<a id="logo" href="/">Media Ranker <span id="website-header">| Ranking the Best of Everything</span></a>
+<a href="/root">View top media</a>
+<a href="/works">View all media</a>
+<a href="/edit/works">Add a new work</a>
+<a href="/users">View all users</a>
+<%# these are 2 buttons people click to log in and log out %>
+</nav>
+
+<main>
+  <section id="media-spotlight-section">
+    <h2 id="media-spotlight-header">Media Spotlight: <a href="work/work_id"><%=Work.first.title%></a> by <%=Work.first.creator%>
+  </section>
+
+  <section id="mainpage-media-list">
+    <h1>Works List</h1>
+    <ul>
+      <h2>Movies</h2>
+      <% movies = Work.where(category: :movie)%>
+      <% movies.each do |work| %>
+        <li>
+          <%= link_to work.title, work_path(id: work.id) %> by <%= work.creator %>
+        </li>
+      <% end %>
+      <h2>Books</h2>
+      <% books = Work.where(category: :book).sample(10)%>
+      <% books.each do |work| %>
+        <li>
+          <%= link_to work.title, work_path(id: work.id) %> by <%= work.creator %>
+          <%= work.votes %>
+        </li>
+      <% end %>
+      <h2>Albums</h2>
+      <% albums = Work.where(category: :album).sample(10)%>
+      <% albums.each do |work| %>
+        <li>
+          <%= link_to work.title, work_path(id: work.id) %> by <%= work.creator %>
+          <%= work.votes %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</main>
+
+
+
+
+
+
+
+<html>
+
+  <main>
+      <section class="spotlight">
+    <h2 class="spotlight__header">
+      <span class="spotlight__header--prefix">Media Spotlight</span>
+      <a class="spotlight__link-to" href="/works/402">To Thrill a Mockingbird</a> by Harper Leeee
+    </h2>
+    <p class="spotlight__description">
+      6 votes - brand new
+    </p>
+  </section>
+
+<hr class="root__hr">
+
+<section class="top-ten__container">
+  <section class="top-ten__list-container">
+  <% titles_array = ["Movies", "Books", "Albums"] %>
+  <% titles_array.each do |title| %>
+    <h4><%= title %></h4>
+    <ul class="list-group top-ten__list">
+      <% top_array = Work.top_ten(title)%>
+      <% top_array.each do |work| %>
+      <li class="list-group-item">
+        <h4><%= link_to work.title, work_path(id: work.id) %><small> by <%= work.creator %></small></h4>
+        <p><%= work.votes.length %></p>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+
+  <!-- <a href="/works.books">View More Books</a> -->
+  </section>
+
+  <!-- <a href="/works.albums">View More Albums</a> -->
+  </section>
+
+</section>
+
+</main>
+
+
+</body></html>

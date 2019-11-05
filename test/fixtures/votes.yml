@@ -1,0 +1,15 @@
+vote1:
+  work: :cowboy
+  user: :yoshi
+
+vote2:
+  work: :rest
+  user: :luigi
+
+vote3:
+  work: :spiderman
+  user: :yoshi
+
+vote4:
+  work: :cowboy
+  user: :mario

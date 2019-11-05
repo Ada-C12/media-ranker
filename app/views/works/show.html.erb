@@ -1,0 +1,45 @@
+<html>
+    <main>
+      <section>
+        <h2><%= @work.title %></h2>
+        <p>Created by: <%= @work.creator %></p>
+        <p>Published: <%= @work.publication_year %></p>
+        <p><%= @work.description %></p>
+        <section>
+          <a class="btn btn-primary" href="/">Back to media ranks</a>
+          <%= link_to "Edit", edit_work_path(@work.id), class: 'btn btn-primary' %>
+          <%= link_to "Upvote", work_votes_path(@work.id), method: :post, class:"btn btn-primary" %>
+          <%= link_to "Delete", work_path(@work.id), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
+        </section>
+      </section>
+
+    <section class="works-votes__container">
+      <h3 class="works-votes__header">
+        <%= @work.votes.length %>
+        <%= pluralized?('Vote', @work.votes.length) %> for this
+        <%= @work.category.capitalize %></h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% votes = Vote.where(work_id: @work.id) %>
+            <% votes.each do |vote| %>
+            <td>
+              <%= link_to User.find_by(id: vote.user_id).username, user_path(User.find_by(id: vote.user_id)) %>
+            </td>
+            <td>
+              <%= formatted_date(vote.created_at)%>
+            </td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    </main>
+  </body>
+</html>

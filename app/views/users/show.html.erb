@@ -1,0 +1,49 @@
+<html>
+    <main>
+      <section>
+        <h2>User Summary: <%= @user.username %></h2>
+        <p>Joined site <%= formatted_date(@user.created_at) %></p>
+      </section>
+
+    <section class="works-votes__container">
+      <h3 class="users-votes__header">Votes</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Media Title</th>
+            <th>Created By</th>
+            <th>Published</th>
+            <th>Category</th>
+            <th>Voted On</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% votes = Vote.where(user_id: @user.id)%>
+            <% votes.each do |vote| %>
+            <tr>
+              <td>
+                <%= link_to Work.find_by(id: vote.work_id).title, work_path(vote.work.id) %> 
+              </td>
+              <td>
+                <%= Work.find_by(id: vote.work_id).creator %>
+              </td>
+              <td>
+                <%= Work.find_by(id: vote.work_id).publication_year %>
+              </td>
+              <td>
+                <%= Work.find_by(id: vote.work_id).category %>
+              </td>
+              <td>
+                <%= formatted_date(vote.work.created_at)%>
+              </td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  <a class="btn btn-secondary" href="/">View top media</a>
+  <a class="btn btn-primary" href="/works/new">Add a new work</a>
+    </main>
+  </body>
+</html>
