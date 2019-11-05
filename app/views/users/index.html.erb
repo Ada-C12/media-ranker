@@ -1,15 +1,21 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
-
-<%= render partial: "homepages/nav" %>
-
-<h2>List of all Users</h2>
-<ul>
-  <% @all_users.each do |user| %>
-  <li> Username: <%= link_to user.name, user_path(user.id) %> </li>
-    <ul>
-      <li> Votes: <%= user.votes.count %> </li>
-      <li> Joined on: <%= user.created_at %> </li>
-    </ul>
-  <% end %>
-</ul>
+<h2 class="teal-text"><strong>List of Users</strong></h2>
+<section class="media-table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Username</th>
+          <th scope="col">Votes</th>
+          <th scope="col">Joined</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @all_users.each do |user| %>
+          <tr>
+            <td><%= link_to user.name, user_path(user), class: "teal-text" %></td>
+            <td><%= user.votes.count %></td>
+            <td><%= user.created_at.strftime("%b %d, %Y") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</section>

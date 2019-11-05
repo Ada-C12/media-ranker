@@ -8,7 +8,7 @@
   </ul>
 <% end %>
 
-<h2 class="teal-text"><strong>Add a new work</strong></h2>
+<h2 class="teal-text"><strong><%= title_action %></strong></h2>
 
 <%= form_with model: @work do |f| %>
 
@@ -32,6 +32,6 @@
   <br><%= f.text_field :description %>
   </div>
 
-  <div class="btn btn-primary"><%= f.submit "Create Work" %></div>
+  <div class="btn btn-primary"><%= f.submit "#{verb_name} Work" %></div>
 <% end %>
 

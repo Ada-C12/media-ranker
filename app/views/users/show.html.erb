@@ -1,20 +1,31 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h2 class="teal-text"><strong>User Summary: <%= @user.name %></strong></h2>
+<p>Joined site <%= @user.created_at.strftime("%b %d, %Y") %>
+<section class="media-table">
+  <h3>Votes</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Media Title</th>
+          <th scope="col">Created By</th>
+          <th scope="col">Published</th>
+          <th scope="col">Category</th>
+          <th scope="col">Voted On</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.votes.each do |vote| %>
+          <tr>
+            <td><%= link_to vote.work.title, work_path(vote.work), class: "teal-text" %></td>
+            <td><%= vote.work.creator %></td>
+            <td><%= vote.work.publication_year %></td>
+            <td><%= vote.work.category %></td>
+            <td><%= vote.created_at.strftime("%b %d, %Y") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</section>
 
-<%= render partial: "homepages/nav" %>
+<%= link_to "See all Users", users_path, class:"btn btn-secondary" %>
+<%= link_to "Back to Media List", homepages_path, class:"btn btn-primary" %>
 
-<ul>
-  <li> Username: <%= link_to @user.name, user_path(@user.id) %> </li>
-    <ul>
-      <li> Votes: <%= @user.votes.count %> </li>
-      <li> Joined on: <%= @user.created_at %> </li>
-      <li> Votes: <% @user.votes.each do |vote| %> </li>
-      <ul>
-        <li> <%= vote.work.title %></li>
-      </ul>
-      <% end %>
-    </ul>
-</ul>
-
-<%= link_to "See all Users", users_path %> 
-<%= link_to "Back to Media List", root_path %>

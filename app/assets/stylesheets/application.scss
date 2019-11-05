@@ -71,7 +71,12 @@ header {
 }
 
 .spotlight-link {
+   color:  #26A69A;
    text-decoration: underline;
+}
+
+.black-text {
+   color: black;
 }
 
 .top-ten-container ul {
@@ -140,6 +145,11 @@ header {
    padding: 0.375rem 0.75rem;
    width: 100%;
 } 
+
+.main {
+   padding: 2rem;
+}
+
 
 // .form-control {
 //    padding: 0.375rem 0.75rem;

@@ -1,25 +1,31 @@
-<h1>Works#show</h1>
-<p>Find me in app/views/works/show.html.erb</p>
+<h2 class="teal-text"><strong><%= @work.title %></strong></h2>
 
-<%= render partial: "homepages/nav" %>
+<p class="black-text">Created by: <%= @work.creator %></p>
+<p class="black-text">Published: <%= @work.publication_year %></p>
+<p class="black-text"><%= @work.description %></p>
 
-<h2><%= @work.title %></h2>
+<%= link_to "Back to media ranks", homepages_path, class:"btn btn-primary" %>
+<%= link_to "Edit", edit_work_path(@work), class:"btn btn-primary" %> 
+<%= link_to "Upvote", upvote_work_path(@work), class:"btn btn-primary" %>
+<%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure you want to delete?"}, class:"btn btn-danger" %>
 
-<p>Category: <%= @work.category %></p>
-<p>Created by: <%= @work.creator %></p>
-<p>Publication Year: <%= @work.publication_year %></p>
-<p>Description: <%= @work.description %></p>
 
-<%= link_to "Back to media ranks", root_path %>
-<%= link_to "Edit", edit_work_path(@work) %> 
-<%= link_to "Upvote", upvote_work_path(@work)%>
-<%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
-
-<h3>Users who have upvoted this media:</h3>
-<% @work.votes.each do |vote| %>
-<ul>
-  <li>Name: <%= vote.user.name %></li>
-  <li>Number of votes: <%= vote.user.votes.count %></li>
-  <li>Joined date: <%= vote.created_at %></li>
-</ul>
-<% end %>
+<h3 class="black-text"><strong><%= @work.votes.count %> Votes for this <%= @work.category %></strong></h3>
+<section class="media-table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">User</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @work.votes.each do |vote| %>
+          <tr>
+            <td><%= link_to vote.user.name, user_path(vote.user), class: "teal-text" %></td>
+            <td><%= vote.created_at.strftime("%b %d, %Y") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</section>
