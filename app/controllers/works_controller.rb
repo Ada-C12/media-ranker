@@ -18,7 +18,7 @@ class WorksController < ApplicationController
       redirect_to work_path(@work.id) 
       return
     else 
-      flash.now[:failure] = "Work failed to save"
+      flash.now[:failure] = "Work failed to save :("
       render :new, status: :bad_request 
       return
     end
