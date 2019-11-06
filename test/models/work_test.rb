@@ -20,8 +20,7 @@ describe Work do
       
       movie.category = nil
       
-      # expect(movie.valid?).must_equal false
-      expect(movie.valid?).must_equal true
+      expect(movie.valid?).must_equal false
       expect(movie.errors.messages).must_include :category
       
     end
@@ -37,8 +36,7 @@ describe Work do
     it "title must be unique" do
       movie.title = works(:dumplings).title
       
-      # expect(movie.valid?).must_equal false
-      expect(movie.valid?).must_equal true
+      expect(movie.valid?).must_equal false
       expect(movie.errors.messages).must_include :title
       
     end
