@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<main>
+  <section>
+    <h3><%= "User Summary: #{@user.username}"  %></h3>
+    <p><%= "Joined site #{@user.joined_date}" %></p>
+    <p><%= "Uid: #{@user.uid}" %></p>
+    <p><%= "Name: #{@user.name}" %></p>
+    <p><%= "Nickname: #{@user.nickname.class}" %></p>
+    <p><%= "Email: #{@user.email}" %></p>
+  </section>
+  
+  <section>
+    <table>
+    <thead>
+      <h3>Votes</h3>
+      <tr></tr>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.votes.each do |vote| %>
+        <th>Media Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Category</th>
+        <th>Voted On</th>
+        <tr>
+          <td><%= link_to vote.work.title, work_path(vote.work.id) %></td>
+          <td><%= vote.work.creator%></td>
+          <td><%= vote.work.publication_year %></td>
+          <td><%= vote.work.category %></td>
+          <td><%= vote.date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    </table>
+  </section>
+  
+  <section>
+    <%= link_to 'See all Users', users_path %> |
+    <%= link_to 'Back to media list', root_path %>
+  </section>
+</main>

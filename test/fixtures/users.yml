@@ -1,0 +1,9 @@
+kristina:
+  username: kmosk
+  joined_date: Time.now
+martin:
+  username: matulis
+  joined_date: Time.now
+cassidy:
+  username: cjohn
+  joined_date: Time.now

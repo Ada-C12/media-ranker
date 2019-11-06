@@ -1,0 +1,64 @@
+<main>
+  <section class="spotlight">
+    <h2 class="spotlight__header">
+      <% spotlight_work = Work.select_spotlight%>
+      <span class="spotlight__header--prefix">Media Spotlight</span>
+      <span class="spotlight__link-to"><%= link_to spotlight_work.title, work_path(spotlight_work.id) %></span>
+      <%= "by: #{spotlight_work.creator}"%>
+    </h2>
+    <p><%= spotlight_work.votes.length %> votes</p>
+  </section>
+
+  <section class="top-ten__container">
+    <section class="top-ten__list-container">
+      <h2 class="top-ten__header">Top Movies</h2>
+      <ul class="list-group top-ten__list">
+      <% if Work.select_top_ten(:movie).nil? %>
+        <%= No works of this type %>
+      <% else %>
+        <% Work.select_top_ten(:movie).each do |work| %>
+          <li class="list-group-item"><a><%= link_to work.title, work_path(work.id) %></a>
+          <small class="top-ten__creator"><%= "by #{work.creator}" %></small>
+          <p><%= work.votes.length %> votes</p>
+          </li>
+        <% end %>
+      <% end %>
+      <ul>
+    </section>
+    
+    <section class="top-ten__list-container">
+      <h2 class="top-ten__header">Top Books</h2>
+      <ul class="list-group top-ten__list">
+      <% if Work.select_top_ten(:book).nil? %>
+        <%= No works of this type %>
+      <% else %>
+        <% Work.select_top_ten(:book).each do |work| %>
+          <li class="list-group-item"><%= link_to work.title, work_path(work.id) %>
+          <small class="top-ten__creator"><%= "by #{work.creator}" %></small>
+          <p><%= work.votes.length %> votes</p>
+          </li>
+        <% end %>
+      <% end %>
+      <ul>
+    </section>
+
+    <section class="top-ten__list-container">
+      <h2 class="top-ten__header">Top Albums</h2>
+      <ul class="list-group top-ten__list">
+      <% if Work.select_top_ten(:album).nil? %>
+        <%= No works of this type %>
+      <% else %>
+        <% Work.select_top_ten(:album).each do |work| %>
+          <li class="list-group-item"><%= link_to work.title, work_path(work.id) %>
+          <small class="top-ten__creator"><%= "by #{work.creator}" %></small>
+          <p><%= work.votes.length %> votes</p>
+          </li>
+        <% end %>
+      <% end %>
+      <ul>
+    </section>
+
+
+
+  </section>
+</main>

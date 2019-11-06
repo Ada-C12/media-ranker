@@ -1,0 +1,114 @@
+# work: category, title, creator, publication_year, description
+# movies
+lights:
+  category: movie
+  title: Flickering Lights
+  creator: Benedict Sadat
+  publication_year: 1994
+  description: Persistent even-keeled toolset
+hood:
+  category: movie
+  title: Robin-B-Hood
+  creator: Julius Makiver
+  publication_year: 1997
+  description: Fully-configurable reciprocal knowledge base
+spartans:
+  category: movie
+  title: Go Tell the Spartans
+  creator: Zebadiah Scudders
+  publication_year: 2006
+  description: Proactive scalable capacity
+
+# books 
+affair:
+  category: book
+  title: Innocent Affair
+  creator: Aldwin Tirrell
+  publication_year: 2016
+  description: Enhanced non-volatile emulation
+amore:
+  category: book
+  title: Amore
+  creator: Ketti Twidle
+  publication_year: 2002
+  description: Persevering mobile Graphical User Interface
+glass:
+  category: book
+  title: In a Glass Cage 
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+simone:
+  category: book
+  title: What Happened, Miss Simone?
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+torture:
+  category: book
+  title: Conspiracy of Torture
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+tommy:
+  category: book
+  title: Tommy
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+dracula:
+  category: book
+  title: Dracula
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+rally:
+  category: book
+  title: Rally 'Round the Flag, Boys!  
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+lessons:
+  category: book
+  title: Private Lessons   
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+kart:
+  category: book
+  title: Kart Racer
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+voice:
+  category: book
+  title: I Know That Voice
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+sorceress:
+  category: book
+  title: Sorceress
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+
+# albums
+peyton:
+  category: album
+  title: Peyton Place
+  creator: Vernon Marten
+  publication_year: 1998
+  description: Self-enabling 24 hour synergy
+shoots:
+  category: album
+  title: She No Longer Talks, She Shoots
+  creator: Tanya Chrstine
+  publication_year: 1998
+  description: Phased motivating secured line
+phantom:
+  category: album
+  title: Phantom
+  creator: Haily Bote
+  publication_year: 2009
+  description: Inverse 5th generation forecast

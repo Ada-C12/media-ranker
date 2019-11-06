@@ -1,0 +1,158 @@
+<p id="notice"><%= notice %></p>
+
+<main>
+  <h2>List of Works</h2>
+  <section class="media-table">
+    <h4>Albums</h4>
+    <table class="table">
+    <thead>
+      <tr></tr>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @sorted_works = @works.sort_by { |work| work.votes.length } %>
+      <% @new_sorted_works = @sorted_works.reverse! %>
+        <% @new_sorted_works.each do |work| %>
+          <% if work.category == "album"%>
+            <th width="80">Votes</th>
+            <th>Title</th>
+            <th>Created By</th>
+            <th width="100">Published</th>
+            <th width="100">Upvote</th>
+            <tr>
+              <td><%= work.votes.count %></td>        
+              <td><%= link_to work.title, work_path(work.id) %></td>
+              <td><%= work.creator %></td>
+              <td><%= work.publication_year %></td>
+              <td>
+              <%= form_with model: @works, url: "/works/#{work.id}/upvote", method: :post do |f| %>
+                <%= f.submit :upvote, { onchange: 'this.form.submit();' } %>
+              <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h4>Books</h4>
+    <table class="table">
+    <thead>
+      <tr></tr>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @sorted_works = @works.sort_by { |work| work.votes.length } %>
+        <% @sorted_works.reverse.each do |work| %>
+          <% if work.category == "book"%>
+            <th width="80">Votes</th>
+            <th>Title</th>
+            <th>Created By</th>
+            <th width="100">Published</th>
+            <th width="100">Upvote</th>
+            <tr>
+              <td><%= work.votes.count %></td>
+              <td><%= link_to work.title, work_path(work.id) %></td>
+              <td><%= work.creator %></td>
+              <td><%= work.publication_year %></td>
+              <td>
+              <%= form_with model: @works, url: "/works/#{work.id}/upvote", method: :post do |f| %>
+                <%= f.submit :upvote, { onchange: 'this.form.submit();' } %>
+              <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+  
+  <section>
+    <h4>Movies</h4>
+    <table class="table">
+    <thead>
+      <tr></tr>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @sorted_works = @works.sort_by { |work| work.votes.length } %>
+        <% @sorted_works.reverse.each do |work| %>
+          <% if work.category == "movie"%>
+            <th width="80">Votes</th>
+            <th>Title</th>
+            <th>Created By</th>
+            <th width="100">Published</th>
+            <th width="100">Upvote</th>
+            <tr>
+              <td><%= work.votes.count %></td>
+              <td><%= link_to work.title, work_path(work.id) %></td>
+              <td><%= work.creator %></td>
+              <td><%= work.publication_year %></td>
+              <td>
+              <%= form_with model: @works, url: "/works/#{work.id}/upvote", method: :post do |f| %>
+                <%= f.submit :upvote, { onchange: 'this.form.submit();' } %>
+              <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+
+  <br>
+  <%= link_to 'View top media', root_path %>
+  <%= link_to 'New Work', new_work_path %>
+</main>
+
+
+<%# BETSY %>
+  <h3>Shop All Products</h3>  
+  <% if @products.empty? %>
+    <p> No products available </p>
+  <% end %>
+
+  <div class="container">
+    <div class="row">
+      <% @products.each do |product| %>
+        <% if product.retired == false%>
+          <div class="col-md-5 col-md-offset-2">
+          <div class="caption center-block img-description"><%= product.name %></div>
+          <%= link_to product_path(product.id) do %>
+            <span class="img"><%= image_tag "#{product.photo_url}"%></span>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+<%# MERCHANT PRODUCTS %>
+<section>
+  <h3><%= @merchant.username%>'s Shop</h3>
+
+  <div class="container">
+      <div class="row">
+        <% if @merchant.products.length == 0 %>
+          <p>No products currently for sale</p>
+        <% end %>
+        <% @merchant.products.each do |product| %>
+          <% if product.retired == false%>
+            <div class="col-sm">
+            <span class="img-description"><%= product.name %></span>
+            <%= link_to product_path(product.id) do %>
+              <span class="img"><%= image_tag "#{product.photo_url}"%></span>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+</section>

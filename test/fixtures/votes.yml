@@ -1,0 +1,16 @@
+vote_lights_1:
+  date: Time.now
+  user_id: kristina
+  work_id: lights
+vote_lights_2:
+  date: Time.now
+  user_id: martin
+  work_id: lights
+vote_lights_3:
+  date: Time.now
+  user_id: cassidy
+  work_id: lights
+vote_spartans:
+  date: Time.now
+  user_id: kristina
+  work_id: lights

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<main>
+  <section>
+    <h3><%= @work.title %></h3>
+    <p><%= "Created by: #{@work.creator}" %></p>
+    <p><%= "Published: #{@work.publication_year}" %></p>
+    <p><%= @work.description %></p>
+    <%= link_to 'Back to media ranks', root_path %> |
+    <%= link_to 'Edit', edit_work_path(@work) %> |
+    <%= form_with model: @works, url: "/works/#{@work.id}/upvote", method: :post do |f| %>
+      <%= f.submit :upvote, { onchange: 'this.form.submit();' } %>
+    <% end %>
+    <%= link_to 'Delete', @work, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </section>
+
+  <section>
+    <table>
+    <thead>
+      <h3><%= "#{@work.votes.length} Votes for this #{@work.category}"%></h3>
+      <tr></tr>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @work.votes.each do |vote| %>
+        <th>User</th>
+        <th>Date</th>
+        <tr>
+          <td><%= link_to vote.user.username, user_path(vote.user.id) %></td>
+          <td><%= vote.date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    </table>
+  </section>
+</main>
+
