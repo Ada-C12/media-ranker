@@ -75,7 +75,7 @@ describe WorksController do
       }.wont_change 'Work.count'
 
       # Assert
-      expect( Work.find_by(id: existing_work.id).title ).must_equal "tom"
+      expect( Work.find_by(id: existing_work.id).title ).must_equal "iiu"
 
     end
 

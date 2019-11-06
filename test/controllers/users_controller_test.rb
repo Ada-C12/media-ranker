@@ -2,7 +2,7 @@ require "test_helper"
 
 describe UsersController do
   before do 
-    User.create!(username:"yasmin")
+    User.create!(username:"yasmins")
   end
   
   describe "current" do
