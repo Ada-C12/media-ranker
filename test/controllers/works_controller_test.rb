@@ -5,3 +5,5 @@ require "test_helper"
 #   #   value(1+1).must_equal 2
 #   # end
 # end
+
+# geez, would it have killed me to add a controller test somewhere in this project?
