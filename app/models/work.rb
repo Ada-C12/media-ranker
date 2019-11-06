@@ -11,4 +11,6 @@ class Work < ApplicationRecord
   def self.top_media
     return top_work = self.all.max_by { |work| work.votes.count }
   end
+
+  # a comment
 end
