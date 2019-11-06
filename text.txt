@@ -1,0 +1,26 @@
+<%if @product_ids == nil%>
+  <%= "You currently have no products in your cart."%>
+<%else%>
+  <div class="container">
+    <%@product_ids.each do |ids|%>
+      <%product = Product.find_by(id: ids)%>
+      <div class="row">
+        <div class="col">
+          <td><%= image_tag product.photo_url, alt: "image of plant product"%></td>
+        </div>
+        <div class="col">
+          <td><%= product.name%></td>
+        </div>
+                <div class="col">
+          <td><%= product.name%></td>
+        </div>
+                <div class="col">
+          <td><%= product.name%></td>
+        </div>
+      </div>
+    <%end%>
+    <div class="row">
+      <button><%= link_to "Proceed to checkout", new_order_path%></button>
+    </div>
+  </div>
+<%end%>
