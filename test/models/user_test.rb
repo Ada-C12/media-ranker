@@ -11,7 +11,7 @@ describe User do
     end
     
     it 'is invalid without a username' do
-      @user.username = "hi"
+      @user.username = nil
       
       expect(@user.valid?).must_equal false
       expect(@user.errors.messages).must_include :username
