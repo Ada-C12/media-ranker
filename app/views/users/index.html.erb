@@ -1,0 +1,21 @@
+<h2 class="teal-text"><strong>List of Users</strong></h2>
+<section class="media-table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Username</th>
+          <th scope="col">Votes</th>
+          <th scope="col">Joined</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @all_users.each do |user| %>
+          <tr>
+            <td><%= link_to user.name, user_path(user), class: "teal-text" %></td>
+            <td><%= user.votes.count %></td>
+            <td><%= user.created_at.strftime("%b %d, %Y") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</section>

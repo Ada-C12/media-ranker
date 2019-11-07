@@ -1,0 +1,12 @@
+<h2><strong>List of Works</strong></h2>
+
+<%= render partial: "print_all", locals: {category_name: "Albums", method_name: @all_albums} %>
+
+<%= render partial: "print_all", locals: {category_name: "Books", method_name: @all_books} %>
+
+<%= render partial: "print_all", locals: {category_name: "Movies", method_name: @all_movies} %>
+
+<%= link_to "View top media", homepages_path, class:"btn btn-secondary" %>
+<%= link_to "Add a new work", new_work_path, class:"btn btn-primary" %>
+
+

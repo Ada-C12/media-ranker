@@ -1,0 +1,57 @@
+vote1:
+  user: :user1
+  work: :book1
+vote2:
+  user: :user2
+  work: :album1
+vote3:
+  user: :user3
+  work: :movie1
+vote4:
+  user: :user1
+  work: :album1
+vote5:
+  user: :user1
+  work: :movie1
+vote6:
+  user: :user1
+  work: :book2
+vote7:
+  user: :user1
+  work: :album2
+vote8:
+  user: :user1
+  work: :movie2
+vote9:
+  user: :user1
+  work: :book3
+vote10:
+  user: :user2
+  work: :movie1
+vote11:
+  user: :user2
+  work: :book2
+vote12:
+  user: :user4
+  work: :book2
+vote13:
+  user: :user4
+  work: :movie2
+vote14:
+  user: :user5
+  work: :movie1
+vote15:
+  user: :user2
+  work: :album2
+vote16:
+  user: :user3
+  work: :album2
+vote17:
+  user: :user4
+  work: :album2
+vote18:
+  user: :user5
+  work: :book4
+vote19:
+  user: :user3
+  work: :book4

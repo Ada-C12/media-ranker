@@ -1,0 +1,48 @@
+<div class="spotlight main">
+  <h2><strong>Media Spotlight:
+    <span class="teal-text">
+    <%= link_to @top_1.title, work_path(@top_1.id), class: "spotlight-link" %>
+    by 
+    <%= @top_1.creator %></span></strong></h2>
+    <p class="black-text"><small><%= @top_1.votes.count %> votes - <%= @top_1.description %></small></p>
+</div>
+
+<hr>
+
+<div class="top-ten-container main">
+<section>
+    <h3>Top Movies</h3>
+    <ul>
+    <% @top_10_movies.each do |work| %>
+      <li> <%= link_to work.title, work_path(work.id), class:"teal-text" %>
+      <span class="gray-text">by <%= work.creator %></span>
+      <p class="black-text"><small><%= work.votes.count %> votes</small></p>
+      </li>
+    <% end %>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Top Books</h3>
+    <ul>
+    <% @top_10_books.each do |work| %>
+      <li> <%= link_to work.title, work_path(work.id), class:"teal-text" %>
+      <span class="gray-text">by <%= work.creator %></span>
+      <p class="black-text"><small><%= work.votes.count %> votes</small></p>
+      </li>
+    <% end %>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Top Albums</h3>
+    <ul>
+    <% @top_10_albums.each do |work| %>
+      <li> <%= link_to work.title, work_path(work.id), class:"teal-text" %>
+      <span class="gray-text">by <%= work.creator %></span>
+      <p class="black-text"><small><%= work.votes.count %> votes</small></p>
+      </li>
+    <% end %>
+    </ul>
+  </section>
+</div>
