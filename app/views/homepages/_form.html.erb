@@ -1,0 +1,25 @@
+<p>Please provide the following information to <%= verb_name %> a work in our database:</p>
+
+<%= form_with model: @work do |f| %>
+  <%= f.label "Category:"%>
+  <%= f.select :category, [ 'movie','book','album' ]%>
+  <br>
+  <%= f.label "Title:" %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label "Creator:" %>
+  <%= f.text_field :creator %>
+  <br>
+  <%= f.label "Publication year:" %>
+  <%= f.text_field :publication_year %>
+  <br>
+  <%= f.label "Description:" %>
+  <%= f.text_field :description %>
+  <br>
+  <%= f.submit "#{action_name} Work"%>
+<% end %>
+
+
+
+<%= link_to "Back to Work List", works_path%>
+

@@ -1,0 +1,53 @@
+ </main> 
+  <% if @work.errors.any? %>
+    <section class="alert alert-danger">
+      <h1>Errors</h1>
+      <ul>
+        <% @work.errors.each do |column, message| %>
+          <li>
+            <strong><%= column.capitalize %></strong> <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+
+<h2><%= action_name %> Work </h2>
+
+<section>
+
+  <%= form_with model: @work do |f| %>
+      <div class="form-group">
+        <%= f.label "Category:"%>
+        <%= f.select :category, [ 'movie','book','album' ]%> 
+      </div> 
+
+      <div class="form-group">
+        <%= f.label "Title:" %>
+        <%= f.text_field :title %>
+      </div>  
+
+      <div class="form-group">
+        <%= f.label "Creator:" %>
+        <%= f.text_field :creator %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label "Publication year:" %>
+        <%= f.text_field :publication_year %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label "Description:" %>
+        <%= f.text_field :description %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "#{action_name} Work", class: "btn btn-primary" %>
+      </div>
+  <% end %>
+  </ul>
+  </section>
+</main>
+
+
