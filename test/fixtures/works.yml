@@ -1,0 +1,30 @@
+art:
+  category: "book" 
+  title: "Work of Art" 
+  creator: "me" 
+  publication_year: 2019 
+  description: "this is a book"
+art2:
+  category: "book" 
+  title: "Work of Art2" 
+  creator: "me" 
+  publication_year: 2019 
+  description: "this is a book2"
+my_movie:
+  category: "movie" 
+  title: "Work of Art No. 2" 
+  creator: "me" 
+  publication_year: 2019 
+  description: "this is a movie"
+my_album:
+  category: "album"
+  title: "This is the album"
+  creator: "you"
+  publication_year: 2025
+  description: "this hasn't been released yet!!!"
+my_second_album:
+  category: "album"
+  title: "This is the second album"
+  creator: "you"
+  publication_year: 2025
+  description: "this hasn't been released yet!!!"
