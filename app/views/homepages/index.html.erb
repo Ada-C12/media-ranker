@@ -1,0 +1,20 @@
+<section class="spotlight">
+  <h2 class="spotlight__header">
+    <span class="spotlight__header--prefix">Media Spotlight</span>
+    <% spotlight = Work.spotlight %>
+    <% if spotlight %>
+      <%= link_to spotlight.title, work_path(spotlight), class: "spotlight__link-to" %> by <%= spotlight.creator %>
+    <% end %>
+  </h2>
+  <p class="spotlight__description">
+    <% if spotlight %>
+      <%= spotlight.votes.count %> votes - <%= spotlight.description %>
+    <% end %>
+  </p>
+</section>
+<hr class="root__hr" />
+<section class="top-ten__container">
+  <%= render partial: "top_ten", locals: { work_name: "movie" } %>
+  <%= render partial: "top_ten", locals: { work_name: "book" } %>
+  <%= render partial: "top_ten", locals: { work_name: "album" } %>
+</section>
