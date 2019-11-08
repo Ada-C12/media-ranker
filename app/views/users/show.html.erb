@@ -1,0 +1,38 @@
+<section class="show-container">
+
+  <h2>User summary: <%= @user.username %></h2>
+
+  <section class="votes-list">
+    <h3>Votes</h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Media Title</th>
+          <th scope="col">Created By</th>
+          <th scope="col">Published</th>
+          <th scope="col">Category</th>
+          <th scope="col">Voted On</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.votes.each do |vote|  %>
+        <tr>
+          <td><%= link_to vote.work.title, work_path(vote.work.id) %></td>
+          <td><%= vote.work.creator %></td>
+          <td><%= vote.work.publication_year %></td>
+          <td><%= vote.work.category %></td>
+          <td><%= vote.created_at.to_date %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+</section>
+
+<section class="show buttons">
+  <%= link_to "Back to all users", users_path, class: "btn btn-primary" %>
+  <%= link_to "All media", works_path, class: "btn btn-primary" %>
+</section>
+
+

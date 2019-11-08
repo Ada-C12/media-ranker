@@ -1,0 +1,201 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+/* Custom bootstrap variables must be set or imported *before* bootstrap. */
+@import "bootstrap";
+/* Import scss content */
+@import "**/*";
+
+:root {
+  --dark-blue: rgb(0, 57, 95);
+  --light-blue:rgb(76, 143, 219);
+  --orange:rgb(233, 197, 144);
+  --gray:rgb(76, 76, 78);
+}
+
+body {
+  background-color: white;
+  color: var(--dark-blue);
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+a {
+  color: var(--light-blue);
+}
+
+.header-container {
+  margin: 0 0 30px 0;
+  text-transform: lowercase;
+}
+
+.page-container {
+  padding: 5%;
+}
+
+.nav-container {
+  padding: 20px;
+  background-color: var(--orange);
+  color: var(--dark-blue);
+  text-align: center;
+  font-weight: bolder;
+  background-size: 100%;
+
+  h1, h3 {
+    font-size: 3em;
+    text-transform: lowercase;
+  }
+
+  h1 {
+    font-family: 'Merriweather Sans', sans-serif;
+  }
+
+  h3 {
+    font-size: 2em;
+  }
+}
+
+.nav-elements {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 30px;
+}
+
+.menu-container ul, .login-container ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  li {
+    list-style-type: none;
+    font-size: 1.2em;
+    text-transform: lowercase;
+    font-weight: normal;
+  }
+}
+
+.top-ten-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.spotlight-container {
+  margin: 3% 0;
+  text-align: center;
+
+  h2 {
+    display: inline;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Merriweather Sans', sans-serif;
+
+  }
+
+  p {
+    display: inline;
+    font-size: 1.5em;
+  }
+}
+
+.top-ten-list {
+  margin: 30px;
+
+  h2 {
+    font-family: 'Merriweather Sans', sans-serif;
+  }
+}
+
+.top-ten-container li {
+  list-style-type: none;
+}
+
+.index-header h2, .show-container h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.works-list h3 {
+  font-size: 1.2em;
+  text-transform: none;
+  color: var(--orange);
+  margin: 0 0 2% 0;
+}
+
+.votes-list h3 {
+  font-size: 1.5em;
+  text-transform: none;
+  margin: 5% 0 2% 0;
+}
+
+.logged-in-as {
+  font-size: .9em;
+  display: inline-block;
+  line-height: 1.2em;
+  text-align: right;
+}
+
+.user-name {
+  display: block;
+  text-align: right;
+  color: rgb(0, 128, 117);
+}
+
+.error, .warning {
+  background-color: pink;
+  margin: 3% 0 0 0;
+  padding: 1%;
+}
+
+.success {
+  background-color: rgb(138, 207, 138);
+  margin: 3% 0;
+  padding: 1%;
+}
+
+.work-input {
+  display: grid;
+  grid-template-columns: 120px minmax(400px, 1fr);
+  row-gap: 0.5em;
+  column-gap: 0.3em;
+
+  label {
+    grid-column: 1;
+  }
+
+  input, textarea {
+    grid-column: 2;
+    border-radius: 5px;
+    border: 1px solid gray;
+  }
+
+  textarea {
+    min-height: 5em;
+  }
+}
+
+.user-input {
+  display: grid;
+  grid-template-columns: 120px 300px;
+  column-gap: 0.3em;
+  row-gap: 0.5em;
+
+  label {
+    grid-column: 1;
+  }
+
+  input {
+    grid-column: 2;
+    border-radius: 5px;
+    border: 1px solid gray;
+  }
+}

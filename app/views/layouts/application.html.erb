@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Media Ranker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans&display=swap" rel="stylesheet">
+  </head>
+
+
+  <nav class="nav-container">
+    <section class="header-container">
+      <h1>Media Ranker</h1>
+      <h4>Ranking the Best of Everything</h4>
+    </section>
+    <section class="nav-elements">
+      <section class="menu-container">
+        <ul>
+          <li><%= link_to "home", root_path, class: "btn btn-info" %></li>
+          <li><%= link_to "all media", works_path, class: "btn btn-info" %></li>
+          <li><%= link_to "create new media", new_work_path, class: "btn btn-info" %></li>
+          <li><%= link_to "all users", users_path, class: "btn btn-info" %></li>
+        </ul>
+      </section>
+
+      <section class="login-container">
+        <ul>
+        <% if session[:user_id].nil? %>
+          <li>
+            <%= link_to "Login", login_path, class: "btn btn-primary" %>
+          </li>
+        <%else%>
+          <li>
+            <p class="logged-in-as">Logged in as <span class="user-name"><%= User.find_by(id: session[:user_id]).username %></span></p>
+          </li>
+          <li>
+            <%= link_to "Logout", logout_path, method: :post, class: "btn btn-primary" %>
+          </li>
+        <%end%>
+        </ul>
+      </section>
+
+    </section>
+  </nav>
+
+  <body>
+    <section class="flash">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
+      <% end %>
+    </section>
+
+    <section class="page-container">
+      <%= yield %>
+    </section>
+  </body>
+</html>

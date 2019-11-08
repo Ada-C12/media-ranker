@@ -1,0 +1,47 @@
+
+<section class="spotlight-container">
+  <h2>Media Spotlight:</h2> 
+  <p><% spotlight = Work.find_spotlight %>
+  <%= link_to spotlight.title, work_path(spotlight) %>, by <%= spotlight.creator %>
+  </p>
+</section>
+
+<section class="top-ten-container">
+  <section class="top-ten-list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Top 10 Books</th>
+       </tr>
+      </thead>
+      <tbody>
+        <% Work.sort_media(:book).first(10).each do |work|  %>
+        <tr>
+          <td><%= link_to work.title, work_path(work) %>, by <%= work.creator %> <br/>
+          <%= work.votes.length %> Votes
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="top-ten-list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Top 10 Albums</th>
+       </tr>
+      </thead>
+      <tbody>
+        <% Work.sort_media(:album).first(10).each do |work|  %>
+        <tr>
+          <td><%= link_to work.title, work_path(work) %>, by <%= work.creator %> <br/>
+          <%= work.votes.length %> Votes
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+</section>

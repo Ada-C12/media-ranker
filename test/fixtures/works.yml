@@ -1,0 +1,78 @@
+obama:
+  category: book
+  title: Becoming
+  creator: Michelle Obama
+  publication_year: 2019
+  description: An intimate, powerful, and inspiring memoir by the former First Lady of the United States
+westover:
+  category: book
+  title: A Memoir
+  creator: Tara Westover
+  publication_year: 2017
+  description: Born to survivalists in the mountains of Idaho, Tara Westover was seventeen the first time she set foot in a classroom. Her family was so isolated from mainstream society that there was no one to ensure the children received an education, and no one to intervene when one of Tara’s older brothers became violent. When another brother got himself into college, Tara decided to try a new kind of life. Her quest for knowledge transformed her, taking her over oceans and across continents, to Harvard and to Cambridge University. Only then would she wonder if she’d traveled too far, if there was still a way home.
+miller:
+  category: book
+  title: Know My Name
+  creator: Chanel Miller
+  publication_year: 2019
+  description: NPR
+kaling:
+  category: book
+  title: Is Everyone Hanging Out Without Me?
+  creator: Mindy Kaling
+  publication_year: 2011
+  description: Funny book
+gay:
+  category: book
+  title: Hunger
+  creator: Roxane Gay
+  publication_year: 2012
+  description: Bad Feminist
+adichie:
+  category: book
+  title: Americanah
+  creator: Chimamanda Ngozi Adichie
+  publication_year: 2015
+  description: A book of short stories
+smith:
+  category: book
+  title: White Teeth
+  creator: Zadie Smith
+  publication_year: 2000
+  description: White Teeth is a 2000 novel by the British author Zadie Smith. It focuses on the later lives of two wartime friends—the Bangladeshi Samad Iqbal and the Englishman Archie Jones—and their families in London
+gyasi:
+  category: book
+  title: Homegoing
+  creator: Yaa Gyasi
+  publication_year: 2016
+  description: Homegoing is the debut historical fiction novel by Yaa Gyasi, published in 2016. Each chapter in the novel follows a different descendant of an Asante woman named Maame, starting with her two daughters...
+mock:
+  category: book
+  title: Redefining Realness
+  creator: Janet Mock
+  publication_year: 2014
+  description: My Path to Womanhood, Identity, Love & So Much More is a memoir and the debut book by Janet Mock, an American writer and transgender activist. It was published on 1 February 2014 by Atria Books. The book has been praised by Melissa Harris-Perry, bell hooks, Laverne Cox, and Barbara Smith.
+warren:
+  category: book
+  title: A Fighting Chance
+  creator: Elizabeth Warren
+  publication_year: 2014
+  description: A Fighting Chance is a 2014 memoir by the American academic and senior Massachusetts United States Senator Elizabeth Warren. The book details Warren's life from her upbringing in Oklahoma City to her unexpectedly successful bid for the United States Senate in 2012.
+raisah:
+  category: book
+  title: Raisah's book
+  creator: Raisah
+  publication_year: 2014
+  description: blah blah
+potter:
+  category: album
+  title: Harry Potter and the Philosopher's Stone
+  creator: JK Rowling
+  publication_year: 2011
+  description: Harry and his friends arrive at Hogwarts
+harriet:
+  category: album
+  title: Harriet the Spy
+  creator: Louise Fitzhugh
+  publication_year: 1996
+  description: Harriet stirs up some trouble as a spy
