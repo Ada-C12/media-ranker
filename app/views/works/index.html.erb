@@ -1,0 +1,34 @@
+<h2>List of Works</h2>
+
+<% %w(album book movie).each do |category|%>
+  <section class="media-table">
+    <h4><%= category.capitalize %>s</h4>
+
+    <table class="table">
+    <thead>
+      <tr>
+        <th width=80>Votes</th>
+        <th>Title</th>
+        <th>Created By</th>
+        <th width=100>Published</th>
+        <th width=100>Upvote</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% Work.list_all_in_category(category).each do |piece| %>
+        <tr>
+          <td><%= piece.votes.count %></td>
+          <td><%= link_to piece.title, work_path(piece) %></td>
+          <td><%= piece.creator %></td>
+          <td><%= piece.publication_year %></td>
+          <td><%= link_to "Upvote", upvote_path(work_id: piece.id), method: :post, class:"btn btn-primary" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+    </table>
+  </section>
+<% end %>
+
+<%= link_to "View top media", root_path, class:"btn btn-secondary" %>
+<%= link_to "Add a new work", new_work_path, class:"btn btn-primary" %>
+
