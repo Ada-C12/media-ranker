@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Media Ranker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path("http://media-ranker-2-0.herokuapp.com/assets/favicon-910822ff6cd5f6d37119171c4b716f1d4e5fe0e8ad5e408627659ebf8d7f16b1.ico") %>
+  </head>
+
+  <body>
+    <header class="app-header__header">
+      <h1><%= link_to "Media Ranker", root_path %><small> Ranking the Best of Everything</small></h1>
+    
+
+    <nav class="app-header__nav">
+      <ul class="nav app-header__site-nav-container">
+        <li class="nav-item app-header__nav_item">
+          <%= link_to "View top media", root_path %>
+        </li>
+
+        <li class="nav app-header__site-nav-container">
+          <%= link_to "View all media", works_path %>
+        </li>
+
+        <li class="nav app-header__site-nav-container">
+          <%= link_to "Add a new work", new_work_path %>
+        </li>
+
+        <li class="nav app-header__site-nav-container">
+          <%= link_to "View all users", users_path %>
+        </li>
+      </ul>
+
+      <ul class="nav app-header__user-nav-container ml-auto">
+
+        <% if session[:user_id].nil? %>
+          <li class="nav-item app-header__nav-item">
+            <%= link_to "Log In", login_path, class: "btn btn-primary" %>
+          </li>
+
+        <% else %>
+          <li class="nav-item app-header__nav-item">
+            <%= button_to "Logged in as #{User.find_by(id: session[:user_id]).username}", user_path(session[:user_id]), class: "btn btn-primary", method: :get %>
+          </li>
+
+          <li class="nav-item app-header__nav-item">
+            <%= link_to "Log Out", logout_path, class: "btn btn-primary pull-right", method: :post %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+    </header>
+
+  <% if flash[:status] %>
+    <section class="alert alert-<%= flash[:status] %>">
+
+      <%= flash[:message] %>
+      <% if @work && @work.errors.any? %>
+      <ul>
+        <% @work.errors.each do |col, message| %>
+          <li>
+            <strong><%= col.capitalize %></strong> <%= message %>
+          </li>
+        <% end %>
+      </ul>
+      <% end %>
+
+      </section>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

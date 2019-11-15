@@ -1,0 +1,79 @@
+test:
+  category: album
+  title: Test Title
+  creator: Test Creator
+  publication_year: 2010
+  description: test album description
+monae:
+  category: album
+  title: The ArchAndroid
+  creator: Janelle Monae
+  publication_year: 2010
+  description: Debut studio album
+king:
+  category: book
+  title: It
+  creator: Stephen King
+  publication_year: 1986
+  description: Scary clown haunts Derry, Maine
+avengers:
+  category: movie
+  title: Avengers - Endgame
+  creator: Marvel
+  publication_year: 2019
+  description: Epic movie that's over 3 hours long
+bts:
+  category: album
+  title: Persona
+  creator: BTS
+  publication_year: 2019
+  description: Latest studio album
+linkin:
+  category: album
+  title: Meteora
+  creator: Linkin Park
+  publication_year: 2003
+  description: Second studio album
+beyonce:
+  category: album
+  title: Homecoming
+  creator: Beyonce
+  publication_year: 2018
+  description: Beyonce at Coachella
+adele:
+  category: album
+  title: 25
+  creator: Adele
+  publication_year: 2015
+  description: Grammy winning album
+swift:
+  category: album
+  title: Fearless
+  creator: Taylor Swift
+  publication_year: 2008
+  description: Country pop album
+coldplay:
+  category: album
+  title: Parachutes
+  creator: Coldplay
+  publication_year: 2000
+  description: British rock band
+oasis:
+  category: album
+  title: Morning Glory
+  creator: Oasis
+  publication_year: 1995
+  description: Wonderwall is on the album
+lamar:
+  category: album
+  title: Black Panther
+  creator: Kendrick Lamar
+  publication_year: 2018
+  description: All the Stars
+gaga:
+  category: album
+  title: Joanne
+  creator: Lady Gaga
+  publication_year: 2016
+  description: A million reasons why
+
