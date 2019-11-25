@@ -1,0 +1,27 @@
+<body>
+  <section class="pagecontent">
+      <h2>List of Users</h2>
+      <table class="table table-hover">
+        <thead class="thead">
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Votes</th>
+            <th scope="col">Joined</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= link_to user.username, user_path(user) %></td>
+              <td><%= user.votes.count %></td>
+              <td><%= user.created_at.strftime("%B %d, %Y") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      
+      <button class="btn btn-primary"><%= link_to "Back to Media List", root_path %> </button>
+
+  </section>
+
+</body>
