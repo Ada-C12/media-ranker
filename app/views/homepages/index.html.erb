@@ -1,0 +1,33 @@
+<main>
+  <section class="spotlight">
+    <h2 section class="spotlight__header">
+      <span class="spotlight__header--prefix">Media Spotlight: </span>
+      <% if @works.top_voted == nil %>
+        Pending submissions
+      <% else %>
+        <%= link_to @works.top_voted.title, work_path(@works.top_voted.id) %> by <%= @works.top_voted.creator %>
+    </h2>
+    <%= @works.top_voted.votes_count %> votes - <%= @works.top_voted.description %>
+      <% end %>
+  </section>
+
+<hr class="root__hr" />
+<section class="top-ten__container">
+  <% @categories.reverse.each do |category| %>
+  <section class="top-ten__list-container">
+    <h2 class="top-ten__header">Top <%= category.capitalize %>s</h2>
+    <% if @works.all.count == 0 %>
+      Pending submissions
+    <% else %>
+      <% @works.top_ten(category).each do |work| %>
+        <ul class="list-group top-ten__list">
+          <li class="list-group-item"><h4><%= link_to work.title, work_path(work.id) %> <small class="top-ten__creator">by <%= work.creator %></small></h4>
+          <%= work.votes.count %> votes</li><br>
+        </ul>
+      <% end %>
+    <% end %>
+    </section>
+  <% end %>
+  
+  </section>
+</main>

@@ -1,0 +1,162 @@
+blue:
+  category: album
+  title: Blue Breaker
+  creator: Dr. Sarai Langosh
+  publication_year: 1949
+  description: Et et expedita non aut quo.
+  votes_count: 3
+joe_treat:
+  category: book
+  title: Joe Treat
+  creator: Blaise Lesch
+  publication_year: 1968
+  description: Voluptatem adipisci qui velit.
+  votes_count: 0
+kreb_full: 
+  category: album
+  title: Kreb-Full-o Been
+  creator: Ms. Trevion Buckridge
+  publication_year: 2016
+  description: Vero consectetur delectus consequatur id aut accusantium unde excepturi.
+  votes_count: 2
+wake_up:
+  category: album
+  title: Wake-up Pie
+  creator: Timmy Streich I
+  publication_year: 1919
+  description: Voluptatem consequatur qui consectetur nisi officiis culpa.
+  votes_count: 1
+major:
+  category: album
+  title: Major Cup
+  creator: Jayde Bartoletti
+  publication_year: 1944
+  description: Quis recusandae cum est facere consequatur minima magni et.
+  votes_count: 2
+holiday:
+  category: album
+  title: Holiday Choice
+  creator: Alexandria Lehner
+  publication_year: 1940
+  description: Excepturi voluptas ut voluptatum.
+  votes_count: 2
+postmodern:
+  category: book
+  title: Postmodern Blend
+  creator: Meredith Brekke
+  publication_year: 1970
+  description: Dolorem fugit accusantium qui.
+  votes_count: 0
+green:
+  category: book
+  title: Green Forrester
+  creator: Raquel Hirthe
+  publication_year: 1933
+  description: Omnis qui quia odio.
+  votes_count: 0
+winter: 
+  category: album
+  title: Winter Mug
+  creator: Tia Weissnat II
+  publication_year: 1990
+  description: Laboriosam autem iusto quae sed voluptate et.
+  votes_count: 5
+red_pie:
+  category: book
+  title: Red Pie
+  creator: Davon Kub
+  publication_year: 1961
+  description: Id dolorem qui laborum quia.
+  votes_count: 0
+major_equinox:
+  category: album
+  title: Major Equinox
+  creator: Queen Satterfield
+  publication_year: 1997
+  description: Fugit perferendis est quam sunt porro vel rerum.
+  votes_count: 2
+melty:
+  category: book
+  title: Melty Breaker
+  creator: Montana Dickinson Sr.
+  publication_year: 1991
+  description: Perferendis harum fuga corporis.
+  votes_count: 0
+winter_pie:
+  category: book
+  title: Winter Pie
+  creator: Mr. Syble Kuhn
+  publication_year: 1970
+  description: Incidunt molestias deserunt laudantium.
+  votes_count: 0
+goodbye:
+  category: album
+  title: Goodbye Utopia
+  creator: Orion Spencer
+  publication_year: 1962
+  description: Praesentium enim pariatur voluptatem sed quod dolorum.
+  votes_count: 2
+green_select:
+  category: album
+  title: Green Select
+  creator: Berneice Jenkins
+  publication_year: 1957
+  description: Hic repudiandae molestiae id nulla aliquid maiores necessitatibus.
+  votes_count: 2
+blacktop:
+  category: book
+  title: Blacktop Enlightenment
+  creator: Seamus D'Amore
+  publication_year: 1928
+  description: Ea id cumque et pariatur magni nemo dolorem.
+  votes_count: 0
+express_extract:
+  category: album
+  title: Express Extract
+  creator: Dorothy Jast I
+  publication_year: 1969
+  description: Dolores dolorum aut ea aperiam et voluptatem.
+  votes_count: 2
+winter_bean:
+  category: album
+  title: Winter Been
+  creator: Mackenzie Wilkinson
+  publication_year: 1932
+  description: Culpa repudiandae et at sint et amet fugiat et.
+  votes_count: 2
+heart_mug: 
+  category: book
+  title: Heart Mug
+  creator: Orpha Douglas
+  publication_year: 2009
+  description: Qui voluptas alias quia.
+  votes_count: 0
+blue_treat:
+  category: album
+  title: Blue Treat
+  creator: Eliseo Gorczany
+  publication_year: 1979
+  description: Sit est quis veniam saepe.
+  votes_count: 0
+hello_town:
+  category: book
+  title: Hello Town
+  creator: Laury Walter
+  publication_year: 2005
+  description: Est sed ut asperiores sed fugiat.
+  votes_count: 0
+blacktop_choice:
+  category: album
+  title: Blacktop Choice
+  creator: Casey Feil
+  publication_year: 2008
+  description: Temporibus ex maxime labore quam et natus quia ipsum.
+  votes_count: 0
+huggy_star:
+  category: book
+  title: Huggy Star
+  creator: Nigel Lesch DVM
+  publication_year: 1962
+  description: Voluptatem ea aspernatur nesciunt ipsa quis error corporis placeat.
+  votes_count: 0
+
