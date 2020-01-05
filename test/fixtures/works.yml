@@ -1,0 +1,23 @@
+metz:
+  id: 40 
+  category: book
+  title: Practical Object Oriented Design in Ruby
+  creator: Sandy Metz
+  description: A good book on programming
+  publication_year: 2012
+
+big:
+  id: 20
+  category: album
+  title: Big Ones
+  creator: Aerosmith
+  description: A crazy album
+  publication_year: 1979
+  
+toy:
+  id: 50
+  category: movie
+  title: Toy Story
+  creator: Ada
+  description: A good movie
+  publication_year: 1993
