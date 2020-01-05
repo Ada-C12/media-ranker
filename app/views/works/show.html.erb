@@ -1,0 +1,19 @@
+<h3><%= @work.title %></h3>
+<section>
+  <p>Creator: <%= @work.creator %></p>
+  <p>Published: <%= @work.publication_year %></p>
+  <p>Description: <%= @work.description %></p>
+</section>
+
+
+
+<section>
+  <button class="btn btn-primary"><%= link_to "Back to Media Ranks", root_path %></button>
+  <button class="btn btn-primary"><%= link_to "Edit", edit_work_path(@work)%></button>
+  <button class="btn btn-primary"><%= link_to "Upvote", work_votes_path(@work), method: :post %></button>
+  <button class="btn btn-danger"><%= link_to "Delete", @work, method: :delete, data: { confirm: "Are you sure you want to delete #{@work.title}?"} %></button>
+</section>
+
+<section class="works-votes__container">
+  <%= render partial: "table_users_votes" %>
+</section>

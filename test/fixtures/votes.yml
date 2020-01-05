@@ -1,0 +1,9 @@
+vote_one:
+  user: user_one
+  work: book
+vote_two:
+  user: user_two
+  work: book
+vote_three:
+  user: user_three
+  work: movie_two

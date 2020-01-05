@@ -1,0 +1,29 @@
+<% if @media_spotlight %>
+  <section class="spotlight"> 
+    <h2 class="spotlight__header">Media Spotlight: 
+      <%= link_to "#{@media_spotlight.title} by #{@media_spotlight.creator}"%>
+    </h2>
+    <p class="spotlight__description"> 
+      <%= @media_spotlight.votes.count %> votes - <%= @media_spotlight.description %> 
+    </p>
+  </section>
+<% end %>
+
+<hr class="root__hr">
+
+<section class="top-ten__container">
+  <section>
+    <h2 class="top-ten__header">Books</h2>
+    <%= render partial: "list_works", locals: { works: @books} %>
+  </section>
+
+  <section>
+    <h2 class="top-ten__header">Albums</h2>
+    <%= render partial: "list_works", locals: { works: @albums} %>
+  </section>
+
+  <section>
+    <h2 class="top-ten__header">Movies</h2>
+    <%= render partial: "list_works", locals: { works: @movies} %>
+  </section>
+</section>

@@ -1,0 +1,24 @@
+movie_one:
+  title: Titanic the sequel
+  category: movie
+  votes_count: 0
+movie_two:
+  title: Jurassic Park
+  category: movie
+  votes_count: 1
+album_one:
+  title: Hocus Pocus Soundrack
+  category: album
+  votes_count: 0
+album_two:
+  title: The White Album
+  category: album
+  votes_count: 0
+album_three:
+  title: Living La Vida Loca
+  category: album
+  votes_count: 0
+book:
+  title: Favorite Book
+  category: book
+  votes_count: 2

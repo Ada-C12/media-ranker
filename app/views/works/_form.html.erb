@@ -1,0 +1,33 @@
+<h2><%= verb %> <%= @work.category %></h2>
+
+<%= form_for @work do |f| %>
+
+  <div class="form-group">
+    <label>Category:</label>  
+      <%= f.select :category,[['movie'], ['album'], ['book']], class:"form-control"%>
+  </div>
+
+  <div class="form-group">
+    <label>Title:</label> 
+    <%= f.text_field :title, class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Creator:</label>
+    <%= f.text_field :creator, class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Publication Year</label>
+    <%= f.text_field :publication_year, type: :number, class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    Description : <%= f.text_area :description, class:"form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit action_name, class:"btn btn-primary" %>
+  </div>
+<% end %>
+
