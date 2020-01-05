@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaRanker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>    
+  </head>
+
+  <body>
+    <header class="app-header___header">  
+      <h1>
+      <a href="/">Media Ranker</a>
+      <small>Ranking the Best of Everything</small>
+    </h1>
+   
+    <nav class="app-header__nav">
+      <ul class="nav app-header__site-nav-container">
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/">View top media</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/works">View all media</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/works/new">Add a new work</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/users">View all users</a>
+        </li>
+      </ul>
+      <ul class="nav app-header__user-nav-container">
+
+      <ul class="nav app-header__user-nav-container">
+        <li class="nav-item app-header__nav_item">
+            <% if session[:user_id].nil? %>
+              <a class="btn btn-primary" href="/login">Log In</a>
+            <% else %>
+              <a class="btn btn-primary" href="/users/<%= User.find_by(id: session[:user_id]).id%>">Logged in as <%=User.find_by(id: session[:user_id]).name%></a>  
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="btn btn-primary" rel="nofollow" data-method="post" href="/logout">Log Out</a>
+            <%end%>
+        </li>
+      </ul>
+    </nav>
+
+     <section class="flash">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+  </section>
+  
+ <%= yield %>
+
+  </body>
+</html>

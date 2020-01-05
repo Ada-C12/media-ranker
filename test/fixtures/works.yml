@@ -1,0 +1,43 @@
+kindred:
+  category: book
+  title: Kindred
+  creator: Octavia Butler
+  publication: 1979
+  description: A good sci-fi book
+
+poodr:
+  category: book
+  title: Practical Object Oriented Design in Ruby
+  creator: Sandi Metz
+  publication: 2012
+  description: A good book on programming
+
+dumplings:
+  category: movie
+  title: Soup Dumplings
+  creator: Din Tai Fung
+  publication: 2011
+  description: A exploration of truly delicious xiao long bao. 
+
+bride:
+  category: movie
+  title: The Princess Bride
+  creator: Rob Reiner
+  publication: 1987
+  description: A swashbuckling tale of adventure, derring-do and true love.
+
+sgt-pepper:
+  category: album
+  title: Sgt. Pepper's Lonely Hearts Club Band
+  creator: The Beatles
+  publication: 1967
+  description: The groundbreaking album that tested the limits of studio engineering. 
+
+earthquakes:
+  category: album
+  title: Little Earthquakes
+  creator: Tori Amos
+  publication: 1992
+  description: Tori Amos's breakthrough album.
+
+

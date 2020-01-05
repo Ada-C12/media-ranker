@@ -1,0 +1,24 @@
+<main>
+    <h2>List of Users</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Votes</th>
+      <th>Joined</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+      <% @users.each do |user|%>
+        <td><a href="/users/<%= user.id %>"><%= user.name %></a></td>
+        <td><%= user.votes.count %></td>
+        <td><%= user.created_at.strftime("%b %d, %Y") %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<a class="btn btn-secondary" href="/">Back to Media List</a>
+
+  </main>
