@@ -1,0 +1,96 @@
+phantom:
+  title: Phantom of the Opera
+  category: album
+  creator: Andrew Lloyd Webber
+  publication_year: 1986
+  description: Musical about possessive men.
+fiddler:
+  title: Fiddler on the Roof
+  category: album
+  creator: Jerry Bock
+  publication_year: 1964
+  description: Man with 5 daughters.
+wicked:
+  title: Wicked
+  category: album
+  creator: Stephen Schwartz
+  publication_year: 2003
+  description: The land of Oz.
+music:
+  title: The Sound of Music
+  category: album
+  creator: Richard Rodgers
+  publication_year: 1959
+  description: Singing to hide from Nazis.
+lady:
+  title: My Fair Lady
+  category: album
+  creator: Alan Jay Lerner
+  publication_year: 1956
+  description: A lady that doesn't speak well.
+oklahoma:
+  title: Oklahoma
+  category: album
+  creator: Oscar Hammerstein II
+  publication_year: 1943
+  description: Takes place in oklahoma.
+cats:
+  title: Cats
+  category: album
+  creator: Andrew Lloyd Webber
+  publication_year: 1982
+  description: Cats cats cats
+chicago:
+  title: Chicago
+  category: album
+  creator: John Kander
+  publication_year: 1996
+  description: A court room scene.
+les:
+  title: Les Miserables
+  category: album
+  creator: Claude-Michel Schonberg
+  publication_year: 1987
+  description: The french had it hard.
+mia:
+  title: Mamma Mia!
+  category: album
+  creator: ABBA
+  publication_year: 2001
+  description: Three dads
+rent:
+  title: Rent
+  category: album
+  creator: Jonathan Larson
+  publication_year: 1996
+  description: People in NYC.
+cat:
+  title: The Cat in the Hat
+  category: book
+  creator: Dr. Suess
+  publication_year: 1957
+  description: Sneaky cat.
+rabbit:
+  title: The Tale of Peter Rabbit
+  category: book
+  creator: Beatrix Potter
+  publication_year: 1901
+  description: Hungry rabbit.
+# pooh:
+#   title: Winnie-the-Pooh
+#   category: book
+#   creator: A. A. Milne
+#   publication_year: 1926
+#   description: A bear learns lessions.
+# moon:
+#   title: Goodnight Moon
+#   category: book
+#   creator: Margaret Wise Brown
+#   publication_year: 1947
+#   description: Saying goodnight to the moon.
+# earth:
+#   title: Planet Earth
+#   category: movie
+#   creator: BBC
+#   publication_year: 2006
+#   description: A look at the earth.

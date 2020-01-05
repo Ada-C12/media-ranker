@@ -1,0 +1,26 @@
+<% if @user.errors.any? %>
+  <section class ="alert alert-danger">
+    <h1> Errors </h1>
+    <ul>
+      <% @user.errors.each do |column, message| %>
+        <li>
+          <strong><%= column.capitalize %></strong> <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
+<main>
+  <h2> Log In </h2>
+  <%= form_with model: @user, url: login_path do |f| %>
+    <div class="form-group">
+      <%= f.label "Username" %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Log In", class: "btn btn-primary" %>
+    </div>
+<% end %>
+</main>
