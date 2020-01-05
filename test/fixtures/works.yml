@@ -1,0 +1,66 @@
+hello:
+  title: Hello Nasty
+  category: Album
+  creator: Beastie Boys
+  release_date: 1998
+  description: fifth studio album, American hip hop
+gentleman:
+  title: A Gentleman in Moscow
+  category: Book
+  creator: Amor Towles
+  release_date: 2016
+  description: clever and articulate man stuck in a hotel for years
+camino:
+  title: El Camino
+  category: Movie
+  creator: Vince Gilligan
+  release_date: 2019
+  description: thriller, Breaking Bad movie that picks up where the show left off
+sixty_nine:
+  title: 69 Love Songs
+  category: Album
+  creator: The Magnetic Fields
+  release_date: 1999
+  description: three-volume concept album, Stephin Merritt at his best
+heartbreaker:
+  title: Heartbreaker
+  category: Book
+  creator: Claudia Dey
+  release_date: 2018
+  description: the best and weirdest book ever
+amadeus:
+  title: Amadeus
+  category: Movie
+  creator: Milos Forman
+  release_date: 1984
+  description: a very dramatic movie about Mozart
+whiteley:
+  title: Jenny Whiteley
+  category: Album
+  creator: Jenny Whiteley
+  release_date: 2000
+  description: debut album of a country-folk musician
+immortalists:
+  title: The Immortalists
+  category: Book
+  creator: Chloe Benjamin
+  release_date: 2018
+  description: four siblings learn their fates and live their lives accordingly
+believers:
+  title: The Great Believers
+  category: Book
+  creator: Rebecca Makkai
+  release_date: 2018
+  description: HIV/AIDS epidemic in 1980s Chicago
+leithauser:
+  title: I Had a Dream That You Were Mine
+  category: Album
+  creator: Hamilton Leithauser
+  release_date: 2016
+  description: collaborative studio album
+abominable:
+  title: Abominable
+  category: Movie
+  creator: Suzanne Buirgy
+  release_date: 2019
+  description: girl gets yeti back to its family on Mt. Everest

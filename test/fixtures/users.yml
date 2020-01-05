@@ -1,0 +1,18 @@
+january:
+  username: January
+  date_joined: Date.now
+march:
+  username: March
+  date_joined: Date.now
+april:
+  username: April
+  date_joined: Date.now
+may:
+  username: May
+  date_joined: Date.now
+june:
+  username: June
+  date_joined: Date.now
+august:
+  username: August
+  date_joined: Date. now

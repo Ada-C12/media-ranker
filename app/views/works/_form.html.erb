@@ -1,0 +1,32 @@
+<% if @work.errors.any? %>
+  <section class="alert alert-danger">
+    <h1>Errors</h1>
+      <ul>
+        <% @work.errors.each do |column, message| %>
+          <li>
+            <strong><%= column.capitalize %></strong> <%= message %>
+          </li>
+        <% end %>
+      </ul>
+  </section>
+<% end %>
+
+<h3> <%= verb_name %> a Work! </h3>
+<%= form_with model: @work do |f| %>
+<%= f.label 'Title: ' %>
+<%= f.text_field :title %>
+<br>
+<%= f.label 'Creator: ' %>
+<%= f.text_field :creator %>
+<br>
+<%= f.label 'Category: ' %>
+`<%= f.select :category, ['book', 'album', 'movie'] %>`
+<br>
+<%= f.label 'Year of Release: '%>
+<%= f.text_field :release_date %>
+<br>
+<%= f.label 'Description: ' %>
+<%= f.text_area :description %>
+<br>
+<%= f.submit "#{verb_name} Work" %>
+<% end %>

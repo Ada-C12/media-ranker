@@ -1,0 +1,32 @@
+<section>
+  <h2> <%= @work.title %> </h2>
+  <p>Created by: <%= @work.creator %></p>
+  <p>Release Date: <%= @work.release_date %></p>
+  <p>Description: <%= @work.description %></p>
+  <p></p>
+  <section>
+<a class="btn btn-primary" href="/works"> Back to All Media Works </a>
+<a class="btn btn-primary" href=<%=edit_work_path(@work)%>> Edit this Work </a>
+<a class="btn btn-primary"> <%=button_to 'Upvote', upvote_path(@work.id), method: :post%> </a>
+<a class="btn btn-danger"> <%= button_to 'Delete this Work', work_path(@work), method: :delete, data: {confirm: "Are you sure?"} %> </a>
+</section>
+<section class="works-votes__container">
+  <h3 class="works-votes__header"><%= @work.votes.length%>
+<% if @work.votes.length == 1 %>Vote</span>
+<% else %>Votes</span>
+<%end%>:</h3>
+<table class="table">
+<thead>
+  <tr>
+    <th>User</th>
+    <th>Vote Date</th>
+  </tr>
+</thead>
+<% @work.votes.each do |vote|%>
+<tr>
+<% user = User.find_by(id: vote.user_id) %>
+<td> <%=link_to user.username, user_path(user) %> </td>
+<td> <%= vote.date%> </td></tr>
+<% end %>
+</table>
+</section>

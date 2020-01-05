@@ -1,0 +1,27 @@
+<h2>User Summary: <%= @user.username %></h2>
+<p>Joined site: <%= @user.date_joined %></p>
+<section class="user-votes__container">
+  <h3 class="user-votes__header">Votes</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Creator</th>
+        <th>Year Released</th>
+        <th>Category</th>
+        <th>Vote Date</th>
+      </tr>
+    </thead>
+    </tbody>
+<% Vote.where(user_id: @user.id).each do |vote| %>
+<tr>
+<% work = Work.find_by(id: vote.work_id)%>
+<td><%=link_to work.title, work_path(work) %></td>
+<td><%=vote.work.creator%></td>
+<td><%=vote.work.release_date%></td>
+<td><%=vote.work.category%></td>
+<td><%=vote.date%></td>
+</tr>
+<%end%>
+</table>
+</section>

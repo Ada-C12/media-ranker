@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mediaranker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header class="app-header__header">
+    <h1>
+      <a href="/">Media Ranker</a>
+      <small>Ranking the Best of Everything</small>
+    </h1>
+
+    <nav class="app-header__nav">
+      <ul class="nav app-header__site-nav-container">
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/">View top media</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/works">View all media</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/works/new">Add a new work</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/users">View all users</a>
+        </li>
+
+        <% if session[:user_id] != nil %>
+<li class ="nav-item app-heading__nav_item">
+  <a class="nav-link">
+You are logged in as <%= User.find_by(id: session[:user_id]).username %> </a></li>
+<li class="nav-item app-header__nav_item">
+<a class="nav-link"> <%= link_to 'Log Out', logout_path, method: :post %> </a>
+</li>
+<% else %>
+<li class="nav-item app-header__nav_item">
+<a class="nav-link"> <%= link_to 'Log In', login_path %> </a>
+</li>
+<% end %>
+
+      </ul>
+    </nav>
+  </header>
+    <section class="flash">
+    <% flash.each do |name, message| %>
+      <div class="<%= name %>"><%= message %></div>
+    <% end %>
+  </section>
+    <%= yield %>
+
+ </body>
+
+</html>
