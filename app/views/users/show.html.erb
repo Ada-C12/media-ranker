@@ -1,0 +1,35 @@
+<div class="user-info">
+<h2 class="username">User Summary: <%= @user.username %></h2>
+<h3 class="joined"> Joined site <%= @user.created_at.strftime("%b, %d, %Y") %></h3>
+</div>
+
+<section class="user-votes">
+  <h3 class="votes-title">Votes</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Media Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Category</th>
+        <th>Voted On</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.votes.each do |vote| %>
+        <tr>  
+          <td><%= link_to "#{(Work.find_by(id: vote.work_id).title)}", work_path(Work.find_by(id: vote.work_id).id)%></td>
+          <td><%= Work.find_by(id: vote.work_id).creator %></td>
+          <td><%= Work.find_by(id: vote.work_id).publication_year %></td>
+          <td><%= Work.find_by(id: vote.work_id).category %></td>
+          <td><%= vote.date.strftime("%b, %d, %Y") %></td>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+</section>
+<div class="votes-btn-gral">
+<%= link_to "Back to media ranks", root_path, class: "btn btn-secondary votes-btn"  %> 
+<%= link_to "See all users", users_path, class: "btn btn-primary votes-btn" %> 
+</div>

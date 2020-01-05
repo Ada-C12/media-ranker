@@ -1,0 +1,46 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.list-users {
+  color: #26A69A;
+  font-weight: bold;
+  margin-left: 3%;
+  margin-top: 4%;
+}
+
+.user-info {
+  margin-left: 3%;
+  margin-top: 4%;
+}
+
+.votes-title {
+  margin-left: 3%;
+  margin-top: 4%;
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+
+.username {
+  color: #26A69A;
+}
+
+.joined {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.votes-btn {
+  display: inline;
+  margin-left: 3%;
+}
+
+.login-form {
+  padding: 2rem;
+}
+
+.login-form h2 {
+  color: #26A69A;
+  
+}

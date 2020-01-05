@@ -1,0 +1,60 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.spotlight{
+  color: #424242;
+  box-sizing: border-box;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+a {
+  color: #26A69A;
+  text-decoration-line: none;
+}
+
+.creator {
+  color: #26A69A;
+}
+
+.votes {
+  color: #212529;
+}
+
+.winner {
+  grid-row: 2;
+  margin-top: 2rem;
+  margin-bottom:2rem;
+  margin-right:2rem;
+  margin-left:4rem;
+}
+
+.top-ten-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 2em;
+}
+
+.top{
+  color: #26A69A;
+  border-bottom: 2px solid;
+  border-bottom-color: #B2DFDB;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.by {
+color: slategrey;
+}

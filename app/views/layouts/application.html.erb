@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaRanker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body class="general">
+    <div class="general-header">
+      <header>
+        <h1 class="title"> Media Ranker <span id="phrase"> | Ranking the Best of Everything </span></h1>
+      </header>
+      <div class="container">
+        <ul class="section1">
+          <li>
+            <%= link_to "View top media", root_path %>
+          </li>
+          <li>
+            <%= link_to "View all media", works_path %>
+          </li>
+          <li>
+            <%= link_to "Add new work", new_work_path %>
+          </li>
+          <li>
+            <%= link_to "View all users", users_path %>
+          </li>
+        </ul>
+        <ul class="section2">
+          <% if session[:user_id].nil? %>
+            <li>
+              <%= link_to "Log In", login_path, class: "btn btn-primary"  %>
+            </li>
+          <%else%>
+            <li>
+              <%= link_to "Logged in as #{User.find_by(id: session[:user_id]).username}", user_path(id: session[:user_id]), class: "btn btn-primary" %>
+            </li>
+            <li>
+              <%= link_to "Logout", logout_path, method: :post, class: "btn btn-primary"  %>
+            </li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+    <%= yield %>
+  </body>
+</html>

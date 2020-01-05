@@ -1,0 +1,64 @@
+// Place all the styles related to the Works controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{background-color: white;}
+
+.list-works {
+  color: #26A69A;
+  font-weight: bold;
+  margin-left: 3%;
+  margin-top: 4%;
+}
+
+.upvote {
+  color:#00796B;
+}
+
+.type-work {
+  font-weight: bold;
+  margin-left: 3%;
+}
+
+.table {
+  margin-left: 3%;
+} 
+
+.add-work {
+  color: #26A69A;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-left: 3%;
+  margin-top: 4%;
+}
+
+.form-work {
+  margin-left: 3%;
+  color: #212529;
+}
+
+.work-info {
+  margin-left: 3%;
+  margin-top: 4%;
+  color: #212529;
+}
+
+.work-title {
+  color: #26A69A;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.buttons {
+  display: inline;
+  margin-left: 3%;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.table {
+  margin-top: 6%;
+}

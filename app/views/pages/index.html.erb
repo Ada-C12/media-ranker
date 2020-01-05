@@ -1,0 +1,43 @@
+
+<tbody>
+  <% if flash[:success] %>
+    <div class="success alert alert-success"><%= flash[:success] %></div>
+  <% end %>
+  <% spotlight = Vote.spotlight %>
+  <% if spotlight %>
+    <div class="winner">
+      <h1><span class="spotlight">Media Spotlight: </span><%= link_to "#{spotlight.title}", class: "spotlight-link"%><span class="creator"> by <%= spotlight.creator%></h1>
+      </span>
+      <p class="votes"><%= spotlight.votes.count %> votes</p>
+    </div>
+  <% end%>
+  <div class="top-ten-container">
+    <div class="movies">
+      <h2 class="top">Top Movies</h2>
+      <ul>
+        <% Vote.top_ten("movie").each do |work| %>
+          <li><h4><%= link_to "#{work.title}", work_path(work) %></h4> <span class="by"> by <%= work.creator %></span> <br/><span class="votes"><%= work.votes.count %>votes </span></li>
+          <br/>
+        <% end %>
+      </ul>
+    </div>
+    <div class="books">
+      <h2 class="top">Top Books</h2>
+      <ul>
+        <% Vote.top_ten("book").each do |work| %>
+          <li><h4><%= link_to "#{work.title}", work_path(work) %></h4> <span class="by"> by <%= work.creator %></span> <br/><span class="votes"><%= work.votes.count %>votes </span></li>
+          <br/>
+        <% end %>
+      </ul>
+    </div>
+    <div class="albums">
+      <h2 class="top">Top Albums</h2>
+      <ul>
+        <% Vote.top_ten("album").each do |work| %>
+          <li><h4><%= link_to "#{work.title}", work_path(work) %></h4> <span class="by"> by <%= work.creator %></span> <br/><span class="votes"><%= work.votes.count %>votes </span></li>
+          <br/>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</tbody>

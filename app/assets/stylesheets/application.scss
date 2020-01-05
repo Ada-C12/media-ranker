@@ -1,0 +1,100 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+/* Custom bootstrap variables must be set or imported *before* bootstrap. */
+@import "bootstrap";
+/* Import scss content */
+@import "**/*";
+
+*{
+  font-family: 'Gudea', sans-serif;
+}
+
+.general{
+  display: grid;
+  grid-template-rows: 25vh 15vh auto;
+}
+
+.title {text-align:center;
+  margin:25px auto 40px auto;
+  color:#FF5722;
+  padding-right:25px;
+  margin-right:15px;}
+
+#phrase {color:white;
+  font-size: 70%;
+}
+
+.general .general-header
+{
+  background-color:#B2DFDB;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.general .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.section1 {
+  list-style-type: none;
+  display: inline-flex;  
+  flex-direction: row; 
+  justify-content: space-around;
+  text-decoration: none;
+  color: #00796B;
+  padding: 0;
+  margin: 0;
+  height: 40px;
+
+}
+
+.section1 li {
+  margin-right: 2rem;
+  margin-top: 0.5rem;
+}
+
+.section1 li a {
+  text-decoration-line: none;
+  color: rgb(0, 121, 107);
+}
+
+.section2 {
+  list-style-type: none;
+  display: inline-flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+  height: 40px;
+
+}
+
+.section2 li {
+  margin-left: 2rem;
+}
+
+.section2 li a {
+  text-decoration-line: none;
+}
+
+
+.general .btn-primary
+{
+  background-color: rgb(0, 121, 107);
+  border-left-color: rgb(0, 121, 107);
+  border-right-color:rgb(0, 121, 107);
+  border-top-color:rgb(0, 121, 107);
+  border-bottom-color:rgb(0, 121, 107);
+}

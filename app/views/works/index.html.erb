@@ -1,0 +1,94 @@
+<section class="works">
+  <% if flash[:failure] %>
+    <div class="failure alert alert-warning"><%= flash[:failure]["general"] %>
+      <ul>
+        <li><%= flash[:failure]["user"] %></li>
+      </ul>
+    </div>
+  <% end %>
+  <% if flash[:success] %>
+    <div class="success alert alert-success"><%= flash[:success] %></div>
+  <% end %>
+  <h2 class="list-works">List of Works</h2>
+  <h4 class="type-work">Albums</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Upvote</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Work.albums_work.each do |work| %>
+        <tr>
+          <td><%= link_to "#{work.title}", work_path(work) %></td>
+          <td><%= work.creator %></td>
+          <td><%= work.publication_year %></td>
+          <td>
+            <%= form_with model: @work, class: 'upvote', url: "/votes/#{work.id}", method: :post do |f| %>
+              <%= f.button :Upvote, class: 'btn btn-primary' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <h4 class="type-work">Books</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Upvote</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Work.books_work.each do |work| %>
+        <tr>
+          <td><%= link_to "#{work.title}", work_path(work) %></td>
+          <td><%= work.creator %></td>
+          <td><%= work.publication_year %></td>
+          <td>
+            <%= form_with model: work, class: 'upvote', url: "/votes/#{work.id}", method: :post do |f| %>
+              <%= f.button :upvote, class: 'btn btn-primary' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <h4 class="type-work">Movies</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Upvote</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Work.movies_work.each do |work| %>
+        <tr>
+          <td><%= link_to "#{work.title}", work_path(work) %></td>
+          <td><%= work.creator %></td>
+          <td><%= work.publication_year %></td>
+          <td>
+            <%= form_with model: @work, class: 'upvote', url: "/votes/#{work.id}", method: :post do |f| %>
+              <%= f.button :upvote, class: 'btn btn-primary' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</section>

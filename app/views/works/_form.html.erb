@@ -1,0 +1,40 @@
+    <% if @work.errors.any? %>
+  <section class="alert alert-danger">
+    <h1>Errors</h1>
+    <ul>
+      <% @work.errors.each do |column, message| %>
+        <li>
+          <strong><%= column.capitalize %></strong> <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+<p class="add-work">Add a new work</p>
+<div class="form-work">
+  <%= form_with model: @work, class: "work-input" do |form| %>
+    <div class="form-group">
+      <%= form.label :category %>
+      <%= form.select :category,  ["album", "book", "movie"], {}, { :class => 'form-control' } %>
+    </div>
+    <div class="form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title, class:"form-control"%>
+    </div>
+    <div class="form-group">
+      <%= form.label :creator %>
+      <%= form.text_field :creator, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :publication_year %>
+      <%= form.text_field :publication_year, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :description %>
+      <%= form.text_area :description, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.submit "Create Work", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
