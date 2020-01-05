@@ -1,0 +1,51 @@
+
+
+
+
+<%spotlight_array = Work.find_spotlight(@works)%>
+<h1><%="Media Spotlight"%></h1>
+<h2><%=link_to spotlight_array[:title], work_path(spotlight_array.id)%> by <%=spotlight_array[:creator]%></h2>
+
+<%=spotlight_array.votes.count%> votes
+
+
+<div class="row">
+  <div class="card" style="width: 27rem;"> 
+    <div class="card-header">
+      <h2>Top Movies</h2>
+    </div>
+      <ul class="list-group list-group-flush">
+        <%Work.find_top_10("movie").each do |work|%>
+        <li class="list-group-item"><%=link_to work[:title], work_path(work.id)%> by <%=work[:creator]%>... <%=work.votes.count%> votes</li>
+        <%end%>
+      </ul>
+  </div>
+
+  <div class="card" style="width: 27rem;"> 
+    <div class="card-header">
+      <h2>Top Albums</h2>
+    </div>
+      <ul class="list-group list-group-flush">
+        <%Work.find_top_10("album").each do |work|%>
+        <li class="list-group-item"><%=link_to work[:title], work_path(work.id)%> by <%=work[:creator]%>... <%=work.votes.count%> votes</li>
+        <%end%>
+      </ul>
+  </div>
+
+  <div class="card" style="width: 27rem;"> 
+    <div class="card-header">
+      <h2>Top Books</h2>
+    </div>
+      <ul class="list-group list-group-flush">
+        <%Work.find_top_10("book").each do |work|%>
+        <li class="list-group-item"><%=link_to work[:title], work_path(work.id)%> by <%=work[:creator]%>... <%=work.votes.count%> votes</li>
+        <%end%>
+      </ul>
+  </div>
+</div>
+
+    
+  
+
+
+

@@ -1,0 +1,30 @@
+user_1: 
+  username: greenting
+  joined: Date.today
+user_2: 
+  username: purpleting
+  joined: Date.today
+user_3: 
+  username: blueting
+  joined: Date.today
+user_4: 
+  username: yellowting
+  joined: Date.today
+user_5: 
+  username: redting
+  joined: Date.today
+user_6: 
+  username: orangeting
+  joined: Date.today
+user_7: 
+  username: yellowting
+  joined: Date.today
+user_8: 
+  username: whiteting
+  joined: Date.today
+user_9: 
+  username: brownting
+  joined: Date.today
+user_10: 
+  username: beigeting
+  joined: Date.today

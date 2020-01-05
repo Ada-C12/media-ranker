@@ -1,0 +1,51 @@
+vote_1:
+  work: exmachina
+  # you can give it an object name and it will automatically find
+  # that object's id.
+  date: Time.now
+  user: user_1
+vote_2:
+  work: bigshort
+  date: Time.now
+  user_id: 1
+vote_3: 
+  work: prideandprejudice
+  date: Time.now
+  user_id: 2
+vote_4: 
+  work: vice
+  date: Time.now
+  user_id: 2
+vote_5:
+  work: therewillblood
+  date: Time.now
+  user_id: 2
+vote_6:
+  work: alwaysbemymaybe
+  date: Time.now
+  user_id: 2
+vote_7:
+  work: avengers
+  date: Time.now
+  user_id: 2
+vote_8:
+  work: blue
+  date: Time.now
+  user_id: 5
+vote_9:
+  work: annihilation
+  date: Time.now
+  user_id: 3
+vote_10:
+  work: annihilation
+  date: Time.now
+  user_id: 2
+vote_11:
+  work_id: annihilation
+  date: Time.now
+  user_id: 2
+vote_12: 
+  work_id: blue
+  date: Time.now
+  user_id: 2
+
