@@ -1,0 +1,186 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+/* Custom bootstrap variables must be set or imported *before* bootstrap. */
+@import "bootstrap";
+/* Import scss content */
+@import "**/*";
+
+$font-stack: "Gudea", sans-serif;
+
+$primary: #26a69a;
+$dark-secondary: #00796B;
+$light_secondary: #b2dfdb;
+$complementary: #ff5722;
+
+body {
+  font-family: $font-stack;
+}
+
+main {
+  padding: 2rem;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+// HEADER
+
+.app_header {
+  background-color: $light_secondary;
+  width: 100%;
+  padding-top: 3.2rem;
+  padding-bottom: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.app_header__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.app_header__header a {
+  font-weight: bold;
+  color: $complementary;
+
+  // separator line
+  line-height: 1.5em;
+  border-right: 2px solid white;
+  padding-right: 0.65em;
+}
+
+.app_header__header small {
+  color: white;
+  padding-left: 0.4em;
+}
+
+
+.app_header__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.app_header__site_nav {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.app_header__site_nav a {
+  color: $dark-secondary;
+}
+
+.app_header__site_nav .nav-item {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding-bottom: 0;
+}
+
+
+.app_header__user_nav {
+  font-size: 1.5em;
+}
+
+.app_header__user_nav .btn {
+  padding: 0.4em 0.8em 0.4em 0.8em;
+}
+
+
+
+.header {
+  font-weight: bold;
+}
+
+.obj_table a {
+  color: $primary;
+}
+
+.obj_table tbody tr {
+  line-height: 3em;
+}
+
+.primary_header {
+  color: $primary;
+}
+
+.secondary_header {
+  font-size: 1.5rem;
+}
+
+.obj_show__table_container {
+  margin-top: 2rem;
+}
+
+.obj_index__anchor {
+  display: none;
+  color: $primary;
+}
+
+.obj_index__anchor:hover {
+  color: $dark-secondary;
+}
+
+.obj_index__category_header:hover .obj_index__anchor {
+  display: inline-block;
+}
+
+
+.current_user:hover {
+  color: $dark-secondary;
+}
+
+
+// BUTTONS
+
+.btn-primary {
+  border: none;
+  background-color: $primary;
+  padding: 0.438rem 0.82rem 0.438rem 0.82rem;
+}
+
+.btn-primary:hover {
+  border: none;
+  background-color: $dark-secondary;
+}
+
+.btn-secondary:hover {
+  background-color: $dark-secondary;
+}
+
+.btn a {
+  color: white;
+}
+
+.btn-primary a {
+  color: white;
+}
+
+.btn-primary.disabled {
+  background-color: $light_secondary;
+}
+
+.btn-primary.disabled:hover a {
+  cursor: default;
+}
+
+
+// FLASHES and ALERTS
+
+.flash, .alert {
+  margin-top: 2rem;
+}

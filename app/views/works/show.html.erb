@@ -1,0 +1,50 @@
+<main>
+  <section class="obj_show">
+    <h2 class="header primary_header"><%= @work.title %></h2>
+    <p>Created by: <%= @work.creator %></p>
+
+    <p>
+      Published: 
+      <% if !(@work.publication_date.nil?) %>
+        <%= @work.publication_date.strftime("%G") %>
+      <% else %>
+        unknown publication date
+      <% end %>
+    </p>
+
+    <p>
+      <%= @work.description %>
+    </p>
+
+    <div>
+      <button type="button" class="btn btn-primary"><%= link_to "Back to media ranks", root_path %></button>
+      <button type="button" class="btn btn-primary"><%= link_to "Edit", edit_work_path(@work.id) %></button>
+      <button type="button" class="btn btn-primary"><%= link_to "Upvote", work_upvote_path(@work.id), method: :post %></button>
+      <button type="button" class="btn btn-danger"><%= link_to "Delete", work_path(@work.id), method: :delete %></button>
+    </div>
+
+    <section class="obj_show__table_container">
+      <% count = @work.votes.count %>
+      <h3 class="header"><%= count %> <%= Vote.say_vote_s(count).capitalize %> for this <%= @work.category.capitalize %></h3>
+      <table class="table obj_table">
+        <thead>
+          <tr>
+            <th scope="col">User</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% all_votes = @work.votes %>
+          <% if all_votes %>
+            <% all_votes.each do |vote| %>
+              <tr>
+                <td><%= link_to vote.user.username, user_path(vote.user.id) %></td>
+                <td><%= vote.date.strftime("%b %d, %G") %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+  </section>
+</main>

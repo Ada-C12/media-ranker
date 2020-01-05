@@ -1,0 +1,33 @@
+<table class="table obj_table">
+  <thead>
+    <tr>
+      <th scope="col" width="80">Votes</th>
+      <th scope="col">Title</th>
+      <th scope="col">Created By</th>
+      <th scope="col" width="100">Published</th>
+      <th scope="col" width="100">Upvote</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user_votes = User.find_votes_by_id(session[:user_id]) %>
+
+    <% all_of_type = @works.where(category: category) %>
+    <% all_of_type.each do |work| %>
+      <tr>
+        <td><%= work.votes.count %></td>
+        <td><%= link_to work.title, work_path(work.id) %></td>
+        <td><%= work.creator %></td>
+        <% if work.publication_date %>
+          <td><%= work.publication_date.strftime("%G") %></td>
+        <% else %>
+          <td>[unknown]</td>
+        <% end %>
+        <% voted = current_user_votes.index { |v| v.work_id == work.id } %>
+
+        <td><button type="button" class="btn btn-primary <%= "disabled" if voted %>">
+          <%= link_to "Upvote", work_upvote_path(work.id), method: :post %>
+        </button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,27 @@
+<section class="delete_user__container">
+  <div class="delete_user__header">
+    <h2>
+      Are you sure you want to delete the account <%= @user.username %>?
+    </h2>
+    <p>
+      Accounts are not recoverable.
+    </p>
+  </div>
+
+  <div class="delete_user__options_container space_top">
+    <button class="btn btn-success">
+      <%= link_to "No, take me home", user_path(@user.id) %>
+    </button>
+
+    <label for="toggle_form" class="btn btn-warning delete_user__form_toggle">
+      Yes. Show me the button
+    </label>
+    <input type="checkbox" id="toggle_form">
+
+    <div class="delete_user__form_container space_top">
+      <%= form_with model: @user, method: "delete", class: "form-group" do |f| %>
+        <%= f.submit "Delete Account", data: { confirm: "Are you sure?" }, class: "btn btn-danger submit_user_delete space_top" %>
+      <% end %>
+    </div>
+  </div>
+</section>

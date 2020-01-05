@@ -1,0 +1,32 @@
+<%= form_with model: @work, class: "form-group" do |f| %>
+  <h2 class="header primary_header"><%= action_phrase %></h2>
+
+  <div class="form-group">
+    <%= f.label :category %>
+    <%# https://stackoverflow.com/questions/4081907/ruby-on-rails-form-for-select-field-with-class %>
+    <%= f.select :category, ["movie", "book", "album"], {}, {class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :creator %>
+    <%= f.text_field :creator, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :publication_date %>
+    <%# the oldest known printed book is the Gutenberg Bible from 1454 %>
+    <%= f.date_select :publication_date, {start_year: 1454, discard_day: true, discard_month: true}, {class: "form-control"} %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+
+  <%= f.submit "#{action_name} Work", class: "btn btn-primary" %>
+<% end %>

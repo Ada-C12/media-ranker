@@ -1,0 +1,201 @@
+# BOOKS
+wind:
+  category: book
+  title: Name of the Wind
+  creator: Patrick Rothfuss
+  description: A good fantasy book
+  publication_date: January 1 2007
+silver:
+  category: book
+  title: Spinning Silver
+  creator: Naomi Novik
+  description: A Russian-inspired fantasy
+  publication_date: January 1 2018
+murderbot:
+  category: book
+  title: All Systems Red
+  creator: Martha Wells
+  description: A good sci-fi novella
+  publication_date: January 1 2017
+artificial:
+  category: book
+  title: Artificial Conditions
+  creator: Martha Wells
+  description: A good sci-fi novella
+  publication_date: January 1 2019
+uglies:
+  category: book
+  title: Uglies
+  creator: Scott Westerfeld
+  description: A good sci-fi YA book
+  publication_date: January 1 2005
+darius:
+  category: book
+  title: Darius the Great Is Not Okay
+  creator: Adib Khorram
+  description: A comedic contemporary YA book about the son of Iranian immigrants reconnecting with his parent's homeland on a family trip
+  publication_date: January 1 2018
+life_mccorkle:
+  category: book
+  title: Life After Life
+  creator: Jill McCorkle
+  description: A witty book set at Pine Haven retirement center
+  publication_date: January 1 2013
+life_atkinson:
+  category: book
+  title: Life After Life
+  creator: Kate Atkinson
+  description: A dark comedy about a woman who keeps dying over and over again
+  publication_date: January 1 2013
+devious:
+  category: book
+  title: Truly Devious
+  creator: Maureen Johnson
+  description: A YA mystery
+  publication_date: January 1 2018
+indigo:
+  category: book
+  title: Indigo Girl
+  creator: Natasha Boyd
+  description: A historical fiction novel
+  publication_date: January 1 2017
+illuminae:
+  category: book
+  title: Illuminae
+  creator: Amie Kaufman
+  description: A great science fiction story
+  publication_date: January 1 2016
+# MOVIES
+october:
+  category: movie
+  title: The Hunt for Red October
+  creator: John McTiernan
+  description: Cold War spy thriller with submarines
+  publication_date: January 1 1990
+balcony:
+  category: movie
+  title: The Women's Balcony
+  creator: Emil Ben-Shimon
+  description: Israeli comedy film
+  publication_date: January 1 2016
+title:
+  category: movie
+  title: Your Name
+  creator: Makoto Shinkai
+  description: Animated Japanese film. You should see it. No spoilers. Just trust me
+  publication_date: January 1 2017
+nausicaa:
+  category: movie
+  title: Nausicaa of the Valley of the Wind
+  creator: Hayao Miyazaki
+  description: Animated sci-fi movie
+  publication_date: January 1 1984
+castle:
+  category: movie
+  title: Castle in the Sky
+  creator: Hayao Miyazaki
+  description: Animated sci-fi movie
+  publication_date: January 1 1986
+spirited:
+  category: movie
+  title: Spirited Away
+  creator: Hayao Miyazaki
+  description: Animated sci-fi movie
+  publication_date: January 1 2001
+hope:
+  category: movie
+  title: A New Hope
+  creator: George Lucas
+  description: star warssss
+  publication_date: January 1 1977
+empire:
+  category: movie
+  title: The Empire Strikes Back
+  creator: George Lucas
+  description: star warssss
+  publication_date: January 1 1980
+return:
+  category: movie
+  title: Return of the Jedi
+  creator: George Lucas
+  description: star warssss
+  publication_date: January 1 1983
+chitty:
+  category: movie
+  title: Chitty Chitty Bang Bang
+  creator: Ken Hughes
+  description: A fantasy musical. A wild ride
+  publication_date: January 1 1986
+monsters:
+  category: movie
+  title: Monsters, Inc.
+  creator: Pete Doctor
+  description: A classic
+  publication_date: January 1 2001
+# ALBUMS
+noteworthy:
+  category: album
+  title: The Noteworthy Life of Howard Barnes
+  creator: Village Theater
+  description: The music from the musical
+  publication_date: January 1 2018
+stormfront:
+  category: album
+  title: Storm Front
+  creator: Billy Joel
+  description: A cool album
+  publication_date: January 1 1989
+shot:
+  category: album
+  title: Best Shot
+  creator: Pat Benatar
+  description: Another cool album
+  publication_date: January 1 1989
+america:
+  category: album
+  title: America's Greatest Hits
+  creator: America
+  description: One of their greatest hits is 'Muskrat Love'
+  publication_date: January 1 1975
+life:
+  category: album
+  title: Oh, What a Life
+  creator: American Authors
+  description: Another cool album
+  publication_date: January 1 2014
+capsule:
+  category: album
+  title: Time Capsule - Songs for a Future Generation
+  creator: The B-52's
+  description: Another cool album
+  publication_date: January 1 1998
+help:
+  category: album
+  title: Help!
+  creator: The Beatles
+  description: Another cool album
+  publication_date: January 1 1965
+plastic:
+  category: album
+  title: The Age of Plastic
+  creator: The Buggles
+  description: Welcome to the plastic age
+  publication_date: January 1 2001
+remember:
+  category: album
+  title: A Night to Remember
+  creator: Cyndi Lauper
+  description: like a cat
+  publication_date: January 1 1989
+ophelia:
+  category: album
+  title: Swamp Ophelia
+  creator: Indigo Girls
+  description: Another cool album
+  publication_date: January 1 1994
+hermits:
+  category: album
+  title: The Very Best of Herman's Hermits
+  creator: Herman's Hermits
+  description: my sentimental friend over there 
+  publication_date: January 1 1970

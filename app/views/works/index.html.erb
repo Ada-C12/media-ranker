@@ -1,0 +1,14 @@
+<main>
+  <section class="obj_index">
+    <h2 class="header primary_header">List of Works</h2>
+
+    <%= render partial: "media_section", locals: { category: "movie", category_plural: "movies" } %>
+
+    <%= render partial: "media_section", locals: { category: "book", category_plural: "books" } %>
+
+    <%= render partial: "media_section", locals: { category: "album", category_plural: "albums" } %>
+  </section>
+
+  <button type="button" class="btn btn-secondary"><%= link_to "View top media", root_path %></button>
+  <button type="button" class="btn btn-primary"><%= link_to "Add a new work", new_work_path %></button>
+</main>
